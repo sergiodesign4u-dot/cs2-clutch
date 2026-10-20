@@ -480,10 +480,6 @@ window.NAV = [
   // they live in one function that both the inner panel and the roadmap call once.
   function mountChrome() {
   // Mobile: the panel is off-canvas below 900px and needs a way in.
-  // A page that shows a product screen at its true width declares NAV_OVERLAY: the panel is
-  // then off-canvas at every width, opened by the same toggle, so it takes no width of its own.
-  var overlay = !!window.NAV_OVERLAY;
-  if (overlay) document.documentElement.classList.add('nav-overlay');
   var toggle = el('button', 'nav-toggle', '☰');
   toggle.setAttribute('aria-label', 'Toggle navigation');
   var scrim = el('div', 'nav-scrim');
@@ -499,7 +495,7 @@ window.NAV = [
     firstOf(host, ['.nav-subitem.is-current', '.nav-sibling.is-current', '.nav-top.is-current', '.nav-home.is-current']));
 
   host.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A' && (overlay || window.innerWidth < 900)) setOpen(false);
+    if (e.target.tagName === 'A' && window.innerWidth < 900) setOpen(false);
   });
 
   // Section highlighting inside the current page.

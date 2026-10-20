@@ -291,5 +291,7 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--art-case-*` | `assets/home/cover-*.webp` | a case cover | Codex image generation, `D-194`, a variation of a baseline case |
 | `--art-mode-*` | `assets/home/mode-*.webp` | a mode card | Codex image generation, `D-194`, a variation of the baseline mode art |
 | `--art-banner-bg`, `-case`, `-operator`, `-shards` | `assets/home/banner-*.webp` | the event banner in four layers | Codex image generation, `D-194` |
+| `--art-daily-1` to `-5` | `assets/home/daily-*.webp` | the five Daily tiers | Codex image generation, `D-194`, a variation of the baseline tiers |
+| `--icon-sound`, `--icon-mute` | drawn marks | the sound control in the rail | drawn for `D-194` |
 | `--motion-drift`, `-float`, `-sway`, `-snow` | `26s`, `6s`, `9s`, `14s` | the banner's motion | `підібрано під характер`, `D-194`; motion is not inherited |
 

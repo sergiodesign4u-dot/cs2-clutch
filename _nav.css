@@ -128,17 +128,9 @@ a.nav-sibling:hover { opacity: 1; background: rgba(255, 255, 255, 0.05); }
 .nav-scrim { position: fixed; inset: 0; z-index: 199; display: none; background: rgba(0, 0, 0, 0.6); }
 .nav-scrim.is-open { display: block; }
 
-/* NAV_OVERLAY: a product screen at its true width. The panel is off-canvas at every width and
-   its toggle sits low at the left, clear of the screen's own header. */
-.nav-overlay #sidebar { padding-top: 26px; transform: translateX(-100%); transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); }
-.nav-overlay #sidebar.is-open { transform: translateX(0); }
-.nav-overlay .nav-toggle { display: flex; top: auto; left: auto; right: 12px; bottom: 16px; }
-
 @media (max-width: 899px) {
   /* the toggle sits at the top left corner, so the brand plate starts below it */
   #sidebar { padding-top: 62px; transform: translateX(-100%); transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); }
   #sidebar.is-open { transform: translateX(0); }
   .nav-toggle { display: flex; }
-  .nav-overlay .nav-toggle { bottom: 80px; }
-  .nav-overlay #sidebar { padding-top: 26px; }
 }

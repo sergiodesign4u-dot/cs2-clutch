@@ -139,11 +139,11 @@
   --art-mode-gunfights: url(concept/assets/home/mode-gunfights.webp); /* the Gunfights mode card; Codex image generation, D-192; a variation of the baseline mode art, D-194 */
   --art-mode-upgrade: url(concept/assets/home/mode-upgrade.webp); /* the Upgrade mode card; Codex image generation, D-192; a variation of the baseline mode art, D-194 */
   --art-daily-bg: url(concept/assets/home/daily-bg.webp); /* the Daily cases panel; Codex image generation, D-192; redrawn violet with a rifle silhouette, D-193 */
-  --art-daily-1: url(concept/assets/home/daily-1.webp); /* daily case, tier 1; Codex image generation, D-192 */
-  --art-daily-2: url(concept/assets/home/daily-2.webp); /* daily case, tier 2; Codex image generation, D-192 */
-  --art-daily-3: url(concept/assets/home/daily-3.webp); /* daily case, tier 3; Codex image generation, D-192 */
-  --art-daily-4: url(concept/assets/home/daily-4.webp); /* daily case, tier 4; Codex image generation, D-192 */
-  --art-daily-5: url(concept/assets/home/daily-5.webp); /* daily case, tier 5; Codex image generation, D-192 */
+  --art-daily-1: url(concept/assets/home/daily-1.webp); /* daily case, tier 1; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
+  --art-daily-2: url(concept/assets/home/daily-2.webp); /* daily case, tier 2; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
+  --art-daily-3: url(concept/assets/home/daily-3.webp); /* daily case, tier 3; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
+  --art-daily-4: url(concept/assets/home/daily-4.webp); /* daily case, tier 4; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
+  --art-daily-5: url(concept/assets/home/daily-5.webp); /* daily case, tier 5; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
   --art-banner-bg: url(concept/assets/home/banner-bg.webp); /* the event banner, the arena alone, its back layer; Codex image generation, D-194, layers for motion */
   --art-banner-case: url(concept/assets/home/banner-case.webp); /* the event banner, the floating case; Codex image generation, D-194 */
   --art-banner-operator: url(concept/assets/home/banner-operator.webp); /* the event banner, the operator; Codex image generation, D-194 */
@@ -189,6 +189,8 @@
   --icon-calendar: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M7.75 2.5C7.75 2.08579 7.41421 1.75 7 1.75C6.58579 1.75 6.25 2.08579 6.25 2.5V4.07926C4.81067 4.19451 3.86577 4.47737 3.17157 5.17157C2.47737 5.86577 2.19451 6.81067 2.07926 8.25H21.9207C21.8055 6.81067 21.5226 5.86577 20.8284 5.17157C20.1342 4.47737 19.1893 4.19451 17.75 4.07926V2.5C17.75 2.08579 17.4142 1.75 17 1.75C16.5858 1.75 16.25 2.08579 16.25 2.5V4.0129C15.5847 4 14.839 4 14 4H10C9.16097 4 8.41527 4 7.75 4.0129V2.5Z%22/%3E%3Cpath fill-rule=%22evenodd%22 d=%22M2 12C2 11.161 2 10.4153 2.0129 9.75H21.9871C22 10.4153 22 11.161 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12ZM17 14C17.5523 14 18 13.5523 18 13C18 12.4477 17.5523 12 17 12C16.4477 12 16 12.4477 16 13C16 13.5523 16.4477 14 17 14ZM17 18C17.5523 18 18 17.5523 18 17C18 16.4477 17.5523 16 17 16C16.4477 16 16 16.4477 16 17C16 17.5523 16.4477 18 17 18ZM13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13ZM13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17ZM7 14C7.55228 14 8 13.5523 8 13C8 12.4477 7.55228 12 7 12C6.44772 12 6 12.4477 6 13C6 13.5523 6.44772 14 7 14ZM7 18C7.55228 18 8 17.5523 8 17C8 16.4477 7.55228 16 7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18Z%22 clip-rule=%22evenodd%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:calendar-bold, D-193 */
   --icon-skull: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M12 2a9 9 0 0 0-9 9a8.99 8.99 0 0 0 4 7.47V22h2v-3h2v3h2v-3h2v3h2v-3.54c2.47-1.65 4-4.46 4-7.46a9 9 0 0 0-9-9m-4 9a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m8 0a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m-4 3l1.5 3h-3z%22/%3E%3C/svg%3E"); /* mdi:skull, D-193 */
   --icon-rail: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M21 15.61L19.59 17l-5.01-5l5.01-5L21 8.39L17.44 12zM3 6h13v2H3zm0 7v-2h10v2zm0 5v-2h13v2z%22/%3E%3C/svg%3E"); /* mdi:menu-open, D-193 */
+  --icon-sound: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M3 9.2h3.6L11.5 5v14l-4.9-4.2H3z%22/%3E%3C/g%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M15 9a4.2 4.2 0 0 1 0 6M17.8 6.4a8 8 0 0 1 0 11.2%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026 */
+  --icon-mute: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M3 9.2h3.6L11.5 5v14l-4.9-4.2H3z%22/%3E%3C/g%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M15.5 9.5l5 5M20.5 9.5l-5 5%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026 */
   --icon-steam: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.4 3.4 0 0 1 1.912-.59q.094.001.188.006l2.861-4.142V8.91a4.53 4.53 0 0 1 4.524-4.524c2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911l.004.159a3.39 3.39 0 0 1-3.39 3.396a3.41 3.41 0 0 1-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0M7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25a2.551 2.551 0 0 0 3.337-3.324a2.547 2.547 0 0 0-3.255-1.413l1.523.63a1.878 1.878 0 0 1-1.445 3.467zm11.415-9.303a3.02 3.02 0 0 0-3.015-3.015a3.015 3.015 0 1 0 3.015 3.015m-5.273-.005a2.264 2.264 0 1 1 4.531 0a2.267 2.267 0 0 1-2.266 2.265a2.264 2.264 0 0 1-2.265-2.265%22/%3E%3C/svg%3E"); /* simple-icons:steam, the provider's own mark on its own sign in button */
   --icon-google: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133c-1.147 1.147-2.933 2.4-6.053 2.4c-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0C5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36c2.16-2.16 2.84-5.213 2.84-7.667c0-.76-.053-1.467-.173-2.053z%22/%3E%3C/svg%3E"); /* simple-icons:google, the provider's own mark on its own sign in button */
   --icon-discord: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M20.317 4.37a19.8 19.8 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.3 18.3 0 0 0-5.487 0a13 13 0 0 0-.617-1.25a.08.08 0 0 0-.079-.037A19.7 19.7 0 0 0 3.677 4.37a.1.1 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.08.08 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.08.08 0 0 0 .084-.028a14 14 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13 13 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10 10 0 0 0 .372-.292a.07.07 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.07.07 0 0 1 .078.01q.181.149.373.292a.077.077 0 0 1-.006.127a12.3 12.3 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.08.08 0 0 0 .084.028a19.8 19.8 0 0 0 6.002-3.03a.08.08 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03M8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418m7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418%22/%3E%3C/svg%3E"); /* simple-icons:discord, the provider's own mark on its own sign in button */
@@ -990,7 +992,7 @@ body:where(:has(> .wf-screen-body)) { background: radial-gradient(120% 60% at 50
 /* the tier names over the brighter art of D-193: soft white, 6.2:1 on the violet behind them and 4.1:1 on its lightest pixel, which a shadow of the ground darkens */
 .wf-ladder li { border: 0; background: none; color: var(--color-text-soft); font-size: var(--size-text); font-weight: 700; text-transform: uppercase; text-shadow: 0 1px 2px var(--color-ground), 0 0 10px var(--color-ground); }
 .wf-ladder li.is-reached { color: var(--color-text-hi); }
-.wf-ladder-art { height: 116px; background: var(--da) center / contain no-repeat; }
+.wf-ladder-art { height: 116px; background: var(--da) center / contain no-repeat; filter: drop-shadow(0 6px 10px color-mix(in srgb, var(--color-ground) 60%, transparent)); }
 .wf-ladder li[data-step="1"] { --da: var(--art-daily-1); } .wf-ladder li[data-step="2"] { --da: var(--art-daily-2); } .wf-ladder li[data-step="3"] { --da: var(--art-daily-3); }
 .wf-ladder li[data-step="4"] { --da: var(--art-daily-4); } .wf-ladder li[data-step="5"] { --da: var(--art-daily-5); }
 @media (min-width: 900px) { .wf-ladder-art { height: 116px; } .wf-ladder::before { content: ''; position: absolute; left: 0; right: 0; top: 58px; height: 14px; border-radius: var(--radius-pill); background: radial-gradient(circle, color-mix(in srgb, var(--color-text-muted) 35%, transparent) 1.5px, transparent 2px) 24px 50% / 32px 100% repeat-x, var(--color-ticker); } .wf-ladder::after { content: ''; position: absolute; left: 3px; top: 61px; width: 8px; height: 8px; border-radius: 50%; background: var(--color-blue); box-shadow: 0 0 8px var(--color-blue); } .wf-ladder li > * { position: relative; } }
@@ -1069,10 +1071,8 @@ button.wf-foot-h { background: none; border-color: var(--color-blue); color: var
 .wf-ck-fixed { color: var(--color-green); font-weight: 700; }
 
 /* --- the roadmap sidebar of the copy, until stage 07 ---------------------------------- */
-/* Since D-194 the copies declare NAV_OVERLAY: the roadmap is off-canvas at every width, so the
-   screen stands at its true width, as the baseline's does. A page without it keeps the old room. */
-@media (min-width: 900px) { :root:not(.nav-overlay) body:where(:has(> #sidebar)) .wf-screen-body { margin-left: var(--nav-w); } }
-@media (max-width: 899px) { :root:not(.nav-overlay) body:where(:has(> #sidebar)) .wf-screen-body { padding-top: 62px; } }
+@media (min-width: 900px) { body:where(:has(> #sidebar)) .wf-screen-body { margin-left: var(--nav-w); } }
+@media (max-width: 899px) { body:where(:has(> #sidebar)) .wf-screen-body { padding-top: 62px; } }
 
 /* ONE COLUMN OF MODES ON A PHONE, as the baseline lays them, D-192. A layout change carried
    by the copy and named: it reaches the grey screen only if the founder keeps it. */
@@ -1085,3 +1085,63 @@ button.wf-foot-h { background: none; border-color: var(--color-blue); color: var
 
 /* the footer's art slot, from 1200 up: our case from the banner, no plate, D-194 */
 .wf-foot-art { border: 0; border-radius: 0; background: var(--art-banner-case) center / contain no-repeat; filter: drop-shadow(0 0 24px color-mix(in srgb, var(--color-pink) 35%, transparent)); }
+
+/* ===== D-194, the founder's marks on the third pass ===================================== */
+/* THE RAIL AS THE BASELINE BUILDS IT: items from edge to edge, 50px, on the rail's own colour,
+   2px of ground between them; the logo leaves room for the toggle, which sits on the seam at the
+   height of the header, a 38px ring. */
+@media (min-width: 900px) {
+  .wf-rail { padding: 0 0 var(--space-4); gap: 0; }
+  .wf-rail-logo { margin: 0 0 var(--space-2); padding: var(--space-4) 44px var(--space-4) var(--space-4); background: var(--color-card-2); }
+  .is-rail-collapsed .wf-rail .wf-rail-logo { margin: 0 0 var(--space-2); padding: 56px var(--space-1) var(--space-4); }
+  .wf-rail-item { min-height: 50px; margin-bottom: 2px; padding: 0 var(--space-5); gap: var(--space-4); border-bottom: 0; }
+  .is-rail-collapsed .wf-rail { padding-left: 0; padding-right: 0; }
+  .wf-rail-toggle { top: 13px; right: -19px; width: 38px; height: 38px; background: var(--color-card-2); border-color: var(--color-line); }
+  .wf-rail-foot { padding: var(--space-5) var(--space-4) 0; }
+  .is-rail-collapsed .wf-rail .wf-rail-foot { padding: var(--space-5) var(--space-1) 0; }
+}
+.wf-rail-item.is-current { background: var(--color-card-2); }
+/* the ambient pair without a box: sound as its icon, the language as a small pill */
+.wf-rail-amb { border: 0; gap: var(--space-2); }
+.wf-rail-snd, .wf-rail-lang { min-height: 40px; border: 0; border-radius: var(--radius-pill); background: var(--color-card-2); color: var(--color-text-hi); font-size: var(--size-label); }
+.wf-rail .wf-rail-lang { border-left: 0; }
+.is-rail-collapsed .wf-rail .wf-rail-lang { border-top: 0; }
+.wf-rail-snd::before { content: ''; display: inline-block; width: 18px; height: 18px; margin-right: 6px; vertical-align: -4px; background: currentColor; -webkit-mask: var(--icon-sound) center / contain no-repeat; mask: var(--icon-sound) center / contain no-repeat; }
+.is-rail-collapsed .wf-rail .wf-rail-snd::before { content: ''; margin: 0; }
+.wf-rail-snd[aria-pressed="false"]::before { -webkit-mask-image: var(--icon-mute); mask-image: var(--icon-mute); }
+/* SIX RESERVED SLOTS FOR CHANNELS NOT YET NAMED, footer.md: empty rings read as a broken row, so
+   the copy does not draw them; the slots stay in the page until the channels exist. The baseline's
+   rail carries no social row at all. */
+.wf-rail-soc, .wf-foot-soc { display: none; }
+
+/* the section line runs through the middle of the head, as the baseline's decoration does */
+@media (min-width: 900px) { .wf-sec-head { align-items: center; } .wf-sec-head::after { align-self: center; } }
+
+/* THE LIVE MARK: a small dark chip with a pulsing dot, not a pink slab; pause is a round icon
+   that appears inside it on hover, its word kept for a screen reader. */
+.wf-feed-head { top: 6px; right: 8px; gap: 6px; padding: 0 10px 0 4px; min-height: 28px; border: 1px solid color-mix(in srgb, var(--color-pink) 55%, transparent); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--color-ticker) 85%, transparent); }
+.wf-feed-lbl { display: inline-flex; align-items: center; gap: 6px; padding-left: 6px; font-size: var(--size-chip); }
+.wf-feed-lbl::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--color-pink); box-shadow: 0 0 0 0 var(--color-pink); animation: feed-live 1.6s ease-out infinite; }
+@keyframes feed-live { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-pink) 70%, transparent); } 100% { box-shadow: 0 0 0 8px transparent; } }
+@media (prefers-reduced-motion: reduce) { .wf-feed-lbl::before { animation: none; } }
+.wf-feed-pause { min-height: 22px; min-width: 22px; width: 22px; padding: 0; border: 0; border-radius: 50%; background: var(--color-pink); font-size: 0; color: transparent; }
+.wf-feed-pause::after { content: ''; display: block; width: 8px; height: 10px; margin: auto; background: linear-gradient(90deg, var(--color-text-hi) 0 3px, transparent 3px 5px, var(--color-text-hi) 5px); }
+.wf-feed-pause[aria-pressed="true"]::after { width: 0; height: 0; background: none; border-style: solid; border-width: 5px 0 5px 8px; border-color: transparent transparent transparent var(--color-text-hi); }
+.wf-feed-pause:hover { filter: brightness(1.1); background: var(--color-pink); }
+
+/* THE MODE CARD, AGAIN: the art trimmed to its subject and set large at the right, bleeding off the
+   foot as the baseline's does; a mode not launched shows its words in the place of the button, as
+   a quiet ring, so every card keeps the same anatomy. */
+.wf-mode .wf-mode-art { width: 58%; max-width: 240px; background: var(--mode-art) right -4px top 4px / auto 118% no-repeat; }
+.wf-mode .wf-fig-missing { display: inline-flex; align-items: center; justify-content: center; align-self: flex-start; min-height: var(--size-btn-s); min-width: 120px; margin-top: 6px; padding: 0 12px;
+  border: var(--size-edge) solid color-mix(in srgb, var(--color-text-hi) 22%, transparent); border-radius: var(--radius-pill); color: var(--color-text-soft); font-size: var(--size-chip); letter-spacing: .75px; }
+.wf-mode { display: flex; flex-direction: column; }
+.wf-mode > .wf-btn, .wf-mode > .wf-fig-missing { margin-top: auto; }
+/* a mode card narrower than the baseline's 316px, four in a row beside the roadmap: the art keeps
+   to its half and sits whole, the words keep theirs */
+@container (max-width: 299px) {
+  .wf-mode .wf-mode-art { width: 46%; background-position: right bottom; background-size: contain; }
+  .wf-mode > :not(.wf-mode-art) { max-width: 56%; }
+  .wf-mode h3 { font-size: var(--size-label); }
+  .wf-mode .wf-fig-missing { min-width: 0; }
+}
