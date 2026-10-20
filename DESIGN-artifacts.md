@@ -2,7 +2,7 @@
 
 **What this file is.** The draft design document of stage 06, opened at step 3b on 19 October 2026: the approved brand decisions and the concept language, each value with its origin. It is not the product `DESIGN.md`: stage 07 forms that one from the code of the coloured screens plus this file, and carries every origin across as written. A value with no origin is not entered here.
 
-**Visible place.** `design/concept/concept.html`, built at step 5: palette, type, shape and icons render there live, each with its attribute and origin, from one `:root` block that carries these names.
+**Visible place.** `design/concept/concept.html`, built at step 5: palette, type, shape and icons render there live, each with its attribute and origin. **Since step 6 the one `:root` block lives in `design/_theme.css`**, and the stand and the coloured Home, `design/index.html` and `design/index-account.html`, all read it from there, `D-191`.
 
 **Route.** An inherited visual language, no system, `D-18`, `D-181`, `D-182`. So the plate is one and collected, and **`наявний бренд` outranks `піксель плейта`**: a pixel is taken only where the brand gives no value. Where the baseline gives two answers, the founder picks and the loser is named, `D-181`; those picks are in section 9 and nothing here pretends to have made them.
 
@@ -59,6 +59,18 @@ The plate column is the pixel actually sampled from the plate's swatch, shown so
 | `--color-text` | `#9F9F9F` | body | `наявний бренд`, `baseline.md` 5, 940 elements; `рішення користувача`, `D-186`, over `#A5A5A5` (174) | `#9B9B9B`, zone 2 | A5 |
 | `--color-text-muted` | `#9E9DB1` | secondary lines, meta, labels | `наявний бренд`, `baseline.md` 5; `рішення користувача`, `D-186`, over `#727B8C`, which fails AA on a card | not on the plate | A3, calm |
 | `--color-field-edge` | `#CECED4` | the edge of a field or a checkbox, never text | `наявний бренд`, `baseline.md` 13.3, the checkbox edge; `рішення користувача`, `D-186` | not on the plate | A2 |
+
+### Lines, proposed at step 6
+
+The baseline draws a 1px line in five colours, `baseline.md` 13.5 point 6. The coloured Home needs two jobs, and these are proposed for them on the screen, `D-191`; the founder confirms or changes them, section 9 point 1.
+
+| Variable | Value | Role | Origin | Attribute |
+|---|---|---|---|---|
+| `--color-line-soft` | `#262950` | a divider, the edge of a quiet surface | `наявний бренд`, `baseline.md` 13.2, the welcome dialog edge; proposed, `D-191` | A2, calm |
+| `--color-line` | `#353446` | the edge of a control at rest | `наявний бренд`, `baseline.md` 13.2, the rail toggle edge; proposed, `D-191` | A2 |
+| `--color-footer-edge` | `#65A3FF` | the 2px line across the top of the footer | `наявний бренд`, `baseline.md` 13.2 | A1 |
+
+Not proposed: `#A5A5A5` and `#9F9F9F`, a grey line reads as the wireframe; `#332CD1`, saturated, it belongs to a field and fields are not on Home. Against the ground `#262950` is 1.42:1 and `#353446` 1.62:1: neither identifies a control alone, and none has to, every outlined control on Home carries its label.
 
 ### Rarity ladder
 
@@ -150,12 +162,36 @@ The two glows were drawn on The stage and enter with it, `D-187`; the two rarity
 | `--shadow-glow` | `0 0 12px`, in the rarity colour | the glow of a rarity mark | `рішення користувача`, `D-187`; technique C1 | A4 |
 | `--mix-rarity-tint` | `18%` of the rarity colour, rising from a card's foot to clear at 70 % | the rarity carried as light on a card, the showcase and Best drops | `рішення користувача`, `D-188` | A4 |
 | `--mix-rarity-pad` | `42%` of the rarity colour, a radial pad under the skin | the skin lit by its own rarity | `рішення користувача`, `D-188` | A4 |
+| `--mix-light-beam` | `24%` of the blue | the brightest beam from above, the banner and the case tile on hover | `рішення користувача`, `D-188`, moved from the stage CSS at step 6 | A3 |
+| `--mix-light-soft` | `12%` of the blue | a soft beam, the glow behind a card or a figure | `рішення користувача`, `D-188`, moved at step 6 | A1 |
+| `--mix-light-pad` | `55%` of the blue | the centre of the pad under a case | `рішення користувача`, `D-188`, moved at step 6 | A3 |
+| `--shadow-item` | `0 4px 12px rgba(0, 0, 0, .5)` | an item lifted off its card | `наявний бренд`, `baseline.md` 13.2, the support button; proposed, `D-191` | A1 |
+| `--shadow-panel` | `0 24px 48px -24px rgba(0, 0, 0, .7)` | a container over the ground: a dialog, a menu, the drawer | proposed, `D-191`; technique S2 | A1 |
+| `--color-scrim` | `rgba(6, 10, 30, .72)` | the ground behind a dialog | the ground at 72 %, `D-191`; the grey screen drew black at 66 % | A3 |
 
 - **One lit action per screen**, the pink primary with a glow of its own colour, A3, technique S3. Every other button is quiet.
 - **Rarity glows**: a line in the rarity colour under the item, with a glow of the same colour, A4, techniques S4 and C1.
 - **Two step depth**, a low shadow for an item and a softer one for a container, A1, technique S2. Not glass, `D-183` point 1.
 - **The lit stage**, `D-188`: three beams from above in the blue, a pad with two rings under the case and a floor line, the case floating over its reflection. Its job is the hero, A3; the values live in the stage CSS until step 6 moves them into `design/_theme.css`.
 - A glow or gradient with no job is slop, `D-183` point 1.
+
+---
+
+## 6a. Structure sizes, carried from the grey screen
+
+Sizes of the frame the screens are laid out in. They are layout, owned by `wireframes/_wf.css`; where the baseline measured its own, the baseline's value enters, `D-191`.
+
+| Variable | Value | Job | Origin |
+|---|---|---|---|
+| `--size-rail` | `250px` | the rail, open | `наявний бренд`, `baseline.md` 13, measured above 1440; the grey screen drew 220 |
+| `--size-rail-collapsed` | `70px` | the rail, closed to icons | `наявний бренд`, `baseline.md` 13, measured at 1440 and below; the grey screen drew 64 |
+| `--size-header` | `72px` | the header: one 56px button and 8px above and below | `D-191`; the baseline's is about 66 |
+| `--size-bar` | `64px` | the bottom bar on mobile, an icon over a 13px label | `D-191`; the grey screen drew 56 |
+| `--size-content` | `1220px` | the content column at the 1440 reference | `wireframes/_wf.css` |
+| `--size-measure` | `68ch` | the longest line of prose | `wireframes/_wf.css` |
+| `--size-tap` | `44px` | the smallest target | `wireframes/_wf.css`, WCAG 2.5.5 |
+
+The case screen's stage frame, `--wf-frame-h`, enters with that screen at step 7.
 
 ---
 
@@ -167,6 +203,8 @@ The two glows were drawn on The stage and enter with it, `D-187`; the two rarity
 | Set | Solar, Linear style, inline SVG | the stage's named icon set, `dp-concept` dependencies; its Linear style matches zone 7 | A2 |
 | Colour | text white or body grey at rest, pink when active | `піксель плейта, зона 7` and zone 8, the tabs | A3 |
 | Count and behaviour | many, and interactive; an icon sits in a circle only where the circle is the control | `рішення користувача`, `D-183` point 1 | A1 |
+| Carrier | `--icon-<name>` in `design/_theme.css`, a Solar SVG drawn as a CSS mask, so an icon takes the colour of the text around it | `D-191`: the grey renderer draws a placeholder and the copy may not add markup | A2 |
+| Provider marks | Steam, Google, Discord and X in their own marks, `simple-icons`, on their own sign in buttons only; a third party's mark is not an icon of the language | `D-191`, after the critique found the Steam button empty, the category's best known scam | A5 |
 
 ---
 
@@ -186,8 +224,8 @@ Closed by `D-186` on 20 October 2026: body text `#9F9F9F`, muted text `#9E9DB1`,
 
 Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The stage: type scale 13, 15, 18, 24, 40; one button height, 56px; the label on the pink white, 20px weight 900, large text 3.40:1; the rarity side border 4px with its glow, removed again by `D-189`. They enter `design/_theme.css` at step 6 with that origin.
 
-1. **Still open from the baseline's contradictions,** `baseline.md` 13.5: six letter-spacings, five line colours, and two field values outside the palette (`#0F0D3E`, `#332CD1`). Step 6 settles them on the coloured screen.
-2. **Spacing, proposed at step 5:** `--space-1` to `--space-7`, 4, 8, 12, 16, 24, 32, 56px, read from the gaps The stage drew, which also used 10, 14, 18 and 20. Shown on `concept.html` as proposed; the founder confirms or changes it on the coloured screen at step 6.
-3. **Depth for items and containers,** the two step shadow of technique S2: no value drawn yet. Step 6.
+1. **Still open from the baseline's contradictions,** `baseline.md` 13.5: six letter-spacings, five line colours, and two field values outside the palette (`#0F0D3E`, `#332CD1`). **Lines proposed on the coloured Home, `D-191`:** `#262950` for a divider and `#353446` for a control edge, section 3. The founder confirms them; letter-spacing and the two field values wait for a screen with a field.
+2. **Spacing, proposed at step 5:** `--space-1` to `--space-7`, 4, 8, 12, 16, 24, 32, 56px, read from the gaps The stage drew, which also used 10, 14, 18 and 20. Shown on `concept.html` as proposed. **On the coloured Home since `D-191`**: the grey screen's five steps land on it, 4, 8, 16, 24 and 40, with 40 on 32, so sections stand 32 apart. The founder confirms or changes it there.
+3. **Depth for items and containers,** the two step shadow of technique S2: **proposed on the coloured Home, `D-191`**, `--shadow-item` from the baseline's one shadow and `--shadow-panel` for a dialog, a menu and the drawer, section 6. The founder confirms them.
 
 

@@ -139,6 +139,8 @@ Five pairs. Each names the research row, the taste and the technique it is built
 
 **Changed after the stand, `D-188`.** The founder picked three of five weak points named back to them. The stage is lit: beams, a pad, a floor line, the case floating over its reflection. Drop cards carry rarity as light as well as the side border, a pad under the skin and a tint from the foot, and fall from about 400px to 280px with the chance as a tag on the art. The case figures are drawn: 40px numbers beside gauges and seals, and each tier's published share as a bar with the observed tick.
 
+**On the etalon, step 6, `D-191`.** The language moved onto Home, `design/index.html` and `design/index-account.html`, without a new decision about what it is. Where it signs: A3, one lit action per state, Sign in for a guest and Open a case once an account exists, the deposit a quiet pink ring; A4, the feed tile's rarity line and the skins themselves, and the five daily tiers in five rarity steps; A1, the banner lit as the stage is lit, with the case floating on it; A5, the four figures before spending set larger than the footer's counters, after the critique said the counters were the loudest numbers on the page. One light per screen: a blue glow sits on the banner and on the live mode, and nowhere else at rest. No attribute had to change.
+
 **Rejected.** 1, The shelf, the least lift in finish; 3, The ledger, the calmest, leaving the reveal to carry the energy alone. Both stay on the directions page as shown.
 
 **Visible place.** `design/concept/concept.html`, the stand, built at step 5: the language live first, then the attributes, palette, typography, shape, imagery, icons, brand and references, and three live components.

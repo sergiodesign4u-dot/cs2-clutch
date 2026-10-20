@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open CS2 cases with published odds and payout times</title>
+  <meta name="description" content="Every case shows the chance and current value of each item, plus tested RTP and expected value at that cost. Withdrawals go to Steam, commission free.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="_theme.css">
+  <link rel="stylesheet" href="../_nav.css">
+</head>
+<body>
+
+<!-- THE COLOURED COPY OF wireframes/index.html, stage 06 step 6. Structure, text and states
+     are the grey screen's: they render from wireframes/_nav.js, D-191. This page owns the
+     visual layer only, all of it in _theme.css. The roadmap sidebar replaces the grey
+     panel, the one place a design/ page carries it, until stage 07. -->
+<aside id="sidebar"></aside>
+
+<div class="wf-screen-body">
+
+  <!-- 0.1 NAVIGATION and 0.2 FOOTER are globals, rendered once by wireframes/_nav.js
+       from window.WF_SHELL. Step 5: nobody redraws the header per screen. -->
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- NODE 1.0, D-126: rendered once by homeBody() in _nav.js on Home, Home
+         with an account and the eight cookie states. Order, blocks and reasons are
+         in that function and in ia/docs/pages/home.md. -->
+    <div data-home-body="guest"></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '../wireframes/';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: false, active: 'index.html', feedTop: true };
+</script>
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'design/concept/concept.html';
+window.NAV_ACTIVE_LABEL = 'Home in colour';
+</script>
+<script src="../wireframes/_nav.js"></script>
+<script src="_design.js"></script>
+<script src="../_nav.js"></script>
+</body>
+</html>
