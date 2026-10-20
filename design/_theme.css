@@ -963,6 +963,6 @@ button.wf-foot-h { background: none; border-color: var(--color-blue); color: var
 @media (max-width: 599px) { .wf-grid.wf-modes { grid-template-columns: 1fr; } .wf-mode { min-height: var(--size-mode); } .wf-mode .wf-mode-art { width: 52%; } }
 /* a narrow mode card, four in a row beside the roadmap sidebar: the art steps back behind the words */
 .wf-mode { container-type: inline-size; }
-@container (max-width: 279px) { .wf-mode > :not(.wf-mode-art) { max-width: 100%; } .wf-mode .wf-mode-art { width: 70%; max-width: none; opacity: .45; } .wf-mode h3 { font-size: var(--size-label); } }
+@container (max-width: 199px) { .wf-mode > :not(.wf-mode-art) { max-width: 100%; } .wf-mode .wf-mode-art { width: 70%; max-width: none; opacity: .45; } .wf-mode h3 { font-size: var(--size-label); } }
 .wf-foot-cols > * { min-width: 0; } .wf-foot-h, .wf-foot-list a { overflow-wrap: anywhere; }
 @media (max-width: 1199px) { .wf-foot-help .wf-btn { padding: 0 var(--space-5); } .wf-foot-h { font-size: var(--size-label); } }
