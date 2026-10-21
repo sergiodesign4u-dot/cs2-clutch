@@ -149,6 +149,8 @@ Five pairs. Each names the research row, the taste and the technique it is built
 
 **Fourth pass on the Home, `D-195`.** The banner title is drawn in ice as the baseline draws its own, the two text blocks before the footer sit on plates, the Daily tiers run two to a row on a phone, and the ground carries faint light. A2 answers again through the title, which now belongs to the moving banner rather than lying on it. No attribute had to change.
 
+**Fifth pass on the Home, `D-196`.** On the founder's marks: the ground goes back to the baseline's flat dark with one picture at the top, the case covers are redrawn gritty and themed, the mode cards, the Daily panel and the footer take the baseline's measures, and the rail's sound and language become one row of two cells. A4, dark and electric and never heavy, answers through the ground: the light the earlier passes added read as a lighter page, not as energy. No attribute had to change.
+
 **Rejected.** 1, The shelf, the least lift in finish; 3, The ledger, the calmest, leaving the reveal to carry the energy alone. Both stay on the directions page as shown.
 
 **Visible place.** `design/concept/concept.html`, the stand, built at step 5: the language live first, then the attributes, palette, typography, shape, imagery, icons, brand and references, and three live components.

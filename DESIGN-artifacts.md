@@ -301,3 +301,11 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 |---|---|---|---|
 | `--art-banner-title` | `assets/home/banner-title.webp` | the event title drawn as a logotype in ice; the typed title stays in the page | Codex image generation, `D-195` |
 
+**Fifth pass, `D-196`.** Two new values; the four case covers keep their variables and get new pictures.
+
+| Variable | Value | Job | Origin |
+|---|---|---|---|
+| `--art-ground` | `assets/home/ground.webp` | the page ground at the top of the page, two operators in the dark, faded into `--color-ground` | Codex image generation, `D-196`, a variation of the baseline ground |
+| `--color-footer-base` | `#030214` | the strip under the footer, the copyright row | `наявний бренд`, walk of 22 Oct 2026, computed style, copyright-wrapper |
+| `--art-case-*` | `assets/home/cover-*.webp` | a case cover, redrawn gritty and themed | Codex image generation, `D-196`, variations of the baseline's featured cases |
+

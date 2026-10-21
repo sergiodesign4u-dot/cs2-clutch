@@ -153,6 +153,8 @@
   --art-case-warsteel: url(concept/assets/home/cover-warsteel.webp); /* the Warsteel cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
   --art-case-coldfront: url(concept/assets/home/cover-coldfront.webp); /* the Coldfront cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
   --art-case-nightfall: url(concept/assets/home/cover-nightfall.webp); /* the Nightfall cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
+  --art-ground: url(concept/assets/home/ground.webp); /* the page ground at the top of the page, two operators in the dark; Codex image generation, D-196: a variation of the baseline ground at the founder's mark that ours read lighter */
+  --color-footer-base: #030214; /* the strip under the footer, the copyright row; наявний бренд, walk of daddyskins.com/en on 22 Oct 2026, computed style, copyright-wrapper, D-196 */
 
   /* Motion of the event banner, D-194: the founder asked for a banner that moves as the baseline video does; motion is ours, not inherited, CLAUDE.md "Baseline" */
   --motion-drift: 26s; /* the arena drifting behind everything; підібрано під характер, D-194; slow enough to read as air, not as movement */
@@ -1213,6 +1215,92 @@ button.wf-foot-h { background: none; border-color: var(--color-blue); color: var
 @media (min-width: 900px) and (max-width: 1279px) { .wf-grid.wf-modes { grid-template-columns: repeat(2, 1fr); } }
 /* the title under the banner closes up to it, so the modes start where the baseline's do */
 .wf-hero.wf-hero--short { padding: var(--space-3) 0 0; }
-/* THE GROUND IS NOT FLAT: two faint pools of the page's own light, violet under the modes and blue
-   under the cases, as the baseline's ground carries its art at the top of the page */
-.wf-main { background: radial-gradient(50% 900px at 18% 700px, color-mix(in srgb, var(--color-mode-light) 9%, transparent), transparent 100%), radial-gradient(45% 800px at 85% 1300px, color-mix(in srgb, var(--color-blue) 6%, transparent), transparent 100%); }
+/* ===== D-196, the fifth pass: the founder's marks of 22 Oct 2026 =========================== */
+/* THE GROUND AS THE BASELINE'S: its own near-black navy, flat, with one dark picture at the top of the
+   page and nothing lighter. The radial light from the card colour of D-191 and the two pools of D-195
+   made the page lighter than the baseline's, the founder's mark. */
+body:where(:has(> .wf-screen-body)) { background: var(--art-ground) 50% 0 / 1920px auto no-repeat, var(--color-ground); }
+
+/* MODE CARDS AT THE BASELINE'S MEASURE: 160px, the words stacked from the top (name, 4px, two lines
+   of description, 14px, the button), the name at 16px. A mode not launched shows its words as a
+   button that cannot be pressed: the same size, filled quietly, no ring. */
+.wf-mode { min-height: var(--size-mode); padding: var(--space-5) var(--space-4) 20px; }
+.wf-mode h3, .wf-mode.is-later h3 { font-size: var(--size-text); line-height: 1.5; }
+.wf-mode > p:not(.wf-fig-missing) { max-width: 150px; margin: var(--space-1) 0 14px; }
+.wf-mode .wf-fig-missing { min-height: var(--size-btn-s); min-width: 120px; padding: 0 var(--space-3); border: 0; border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-text-hi) 9%, var(--color-mode)); color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; letter-spacing: .75px; text-transform: uppercase; }
+@container (max-width: 299px) { .wf-mode h3 { font-size: var(--size-text); } .wf-mode .wf-fig-missing { min-width: 0; } }
+@container (max-width: 219px) { .wf-mode h3 { font-size: var(--size-label); } }
+
+/* THE RAIL: a white mark on the destination, as every baseline item carries; the sound and the
+   language as one row of two 50px cells from edge to edge with 2px of the rail between them, the
+   sound as its icon alone (its word kept for a screen reader), the language as its code and a caret */
+.wf-rail-item .wf-rail-ico, .wf-rail-item.is-current .wf-rail-ico { color: var(--color-text-soft); width: 24px; height: 24px; flex-basis: 24px; }
+.wf-rail-item.is-current { box-shadow: inset var(--size-edge) 0 0 var(--color-pink); }
+@media (min-width: 900px) {
+  .wf-rail-foot, .is-rail-collapsed .wf-rail .wf-rail-foot { padding: 0; }
+  .wf-rail-amb { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .is-rail-collapsed .wf-rail .wf-rail-amb { grid-template-columns: 1fr; }
+  .wf-rail-amb > * { min-width: 0; }
+  .wf-rail-snd, .wf-rail-lang { width: 100%; min-height: 50px; border-radius: 0; background: var(--color-card-2); color: var(--color-text-soft); }
+  .wf-rail-snd:hover, .wf-rail-lang:hover { background: var(--color-card); }
+}
+.wf-rail-snd { font-size: 0; }
+.wf-rail-snd::before, .is-rail-collapsed .wf-rail .wf-rail-snd::before { width: 24px; height: 24px; margin: 0; vertical-align: middle; }
+.wf-rail .wf-rail-lang { font-weight: 700; }
+.wf-rail .wf-rail-lang::after { content: ''; display: inline-block; margin-left: 6px; border-style: solid; border-width: 5px 4px 0; border-color: var(--color-text-muted) transparent transparent; vertical-align: 2px; }
+
+/* CASE CARDS: the like count shows under the pointer, as the baseline's does, and stays where there
+   is no pointer or the case is liked; the price at the baseline's 20px */
+@media (hover: hover) {
+  .wf-tile .wf-fav:not([aria-pressed="true"]) { opacity: 0; transition: opacity .2s; }
+  .wf-tile:hover .wf-fav, .wf-tile:focus-within .wf-fav { opacity: 1; }
+}
+.wf-tile-cost { font-size: var(--size-title); }
+
+/* DAILY CASES: from 1360 the title sits inside the panel at its head, centred between the wager and
+   the clock, as the baseline sets it; the art is held darker under the words, the tiers not yet
+   reached in grey. */
+@media (min-width: 1360px) {
+  .wf-sec:has(.wf-ladder) { position: relative; }
+  .wf-sec:has(.wf-ladder) .wf-sec-head { position: absolute; z-index: 2; left: 25%; right: 25%; top: calc(var(--space-6) + var(--space-5)); display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: 0; text-align: center; pointer-events: none; }
+  .wf-sec:has(.wf-ladder) .wf-sec-head h2 { font-size: var(--size-panel); }
+  .wf-sec:has(.wf-ladder) .wf-sec-head h2::before, .wf-sec:has(.wf-ladder) .wf-sec-head::after { display: none; }
+  .wf-sec:has(.wf-ladder) .wf-sec-sub { max-width: 300px; color: var(--color-text-soft); font-size: var(--size-label); }
+}
+.wf-panel { background: linear-gradient(180deg, color-mix(in srgb, var(--color-ground) 40%, transparent), color-mix(in srgb, var(--color-ground) 20%, transparent) 60%, color-mix(in srgb, var(--color-ground) 45%, transparent)), var(--art-daily-bg) center / cover no-repeat, var(--color-rarity-4); }
+.wf-ladder li { color: var(--color-text-muted); }
+.wf-ladder li.is-reached { color: var(--color-text-hi); }
+
+/* THE PROSE PLATE: its section line stops before the case, it never runs into the picture */
+@media (min-width: 900px) { .wf-prose .wf-sec-head { margin-right: 320px; } }
+
+/* THE FOOTER AT THE BASELINE'S DISTANCE: 80px of ground after the last block, the blue light rising
+   off its line into that ground */
+.wf-footer { margin-top: var(--space-7); }
+@media (min-width: 900px) { .wf-footer { margin-top: 80px; } }
+.wf-fband--stats::before { left: 20%; right: 20%; height: 110px; background: radial-gradient(50% 100% at 50% 100%, color-mix(in srgb, var(--color-blue) 26%, transparent), transparent 100%); }
+/* the counters as the baseline's: each centred in its quarter, a 43px mark, 25px, then the figure at
+   30/40 and its caption at 13px in soft white with .52px of tracking; a pink haze behind each figure */
+.wf-fband--stats { background: var(--color-card); }
+.wf-foot-stats .wf-fig { position: relative; isolation: isolate; justify-content: center; column-gap: 25px; }
+.wf-foot-stats .wf-fig-v { line-height: 40px; }
+.wf-foot-stats .wf-fig-c { color: var(--color-text-soft); font-size: var(--size-xs); letter-spacing: .52px; text-transform: uppercase; }
+.wf-foot-stats .wf-fig::after { content: ''; position: absolute; z-index: -1; left: 50%; top: 50%; width: 180px; height: 90px; margin: -45px 0 0 -60px; border-radius: 50%; background: color-mix(in srgb, var(--color-pink) 9%, transparent); filter: blur(24px); pointer-events: none; }
+/* the language and the payment marks as quiet controls, not white stickers */
+.wf-foot-pay .wf-lang-wrap { max-width: 220px; border-color: var(--color-line-soft); border-radius: var(--radius-s); background: var(--color-card-2); }
+.wf-foot-pay .wf-rail-lang { min-height: var(--size-btn-m); border: 0; background: none; font-size: var(--size-label); }
+.wf-marks li { border: 1px solid var(--color-line); background: var(--color-card-2); color: var(--color-text-soft); padding: 2px var(--space-2); }
+/* the last line on its own darker strip from edge to edge, as the baseline's copyright row */
+.wf-fband--base { position: relative; overflow: hidden; padding-bottom: 0; }
+.wf-fband--base .wf-fin { padding-bottom: 0; }
+.wf-foot-fine { position: relative; isolation: isolate; margin-top: var(--space-5); padding-block: var(--space-4); }
+.wf-foot-fine::before { content: ''; position: absolute; z-index: -1; inset: 0 -100vw; background: var(--color-footer-base); }
+.wf-foot-fine .wf-fig-c { color: var(--color-text-soft); font-size: var(--size-chip); }
+/* the footer's art slot keeps our case, quieter: it is a footer, not a banner */
+.wf-foot-art { opacity: .8; filter: drop-shadow(0 0 16px color-mix(in srgb, var(--color-pink) 20%, transparent)); }
+/* a mode card under 300px: the art keeps to the lower right so the name and the words read clear of it */
+@container (max-width: 299px) { .wf-mode .wf-mode-art { height: 82%; top: auto; bottom: 0; } .wf-mode > p:not(.wf-fig-missing) { max-width: 54%; } }
+.wf-panel { background: linear-gradient(90deg, color-mix(in srgb, var(--color-ground) 30%, transparent), color-mix(in srgb, var(--color-ground) 10%, transparent) 45%, color-mix(in srgb, var(--color-ground) 45%, transparent)), linear-gradient(180deg, color-mix(in srgb, var(--color-ground) 35%, transparent), transparent 55%, color-mix(in srgb, var(--color-ground) 40%, transparent)), var(--art-daily-bg) center / cover no-repeat, var(--color-rarity-4); }
+/* the ground picture fades into the ground colour at its foot and its sides, so no edge shows */
+body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, transparent 55%, var(--color-ground)) 50% 0 / 1920px 1080px no-repeat, linear-gradient(to right, var(--color-ground), transparent 6%, transparent 94%, var(--color-ground)) 50% 0 / 1920px 1080px no-repeat, var(--art-ground) 50% 0 / 1920px 1080px no-repeat, var(--color-ground); }
