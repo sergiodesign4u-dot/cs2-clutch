@@ -295,3 +295,9 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--icon-sound`, `--icon-mute` | drawn marks | the sound control in the rail | drawn for `D-194` |
 | `--motion-drift`, `-float`, `-sway`, `-snow` | `26s`, `6s`, `9s`, `14s` | the banner's motion | `підібрано під характер`, `D-194`; motion is not inherited |
 
+**Fourth pass, `D-195`.** One new value; the rest of the pass reuses values already in this section.
+
+| Variable | Value | Job | Origin |
+|---|---|---|---|
+| `--art-banner-title` | `assets/home/banner-title.webp` | the event title drawn as a logotype in ice; the typed title stays in the page | Codex image generation, `D-195` |
+

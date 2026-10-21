@@ -6425,3 +6425,27 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **Rejected.** Taking the baseline's banner video or its art into the page: their brand, never published. A video of our own: no generator here makes one, and every image generation goes through Codex; four layers in CSS move without it.
 
 **The cost.** The covers and mode arts now follow the baseline's designs closely; what keeps them ours is the removal of their marks and our emblems. The gunfights art shows two operators after the baseline's composition, original by brief, and is the one to watch for a likeness. The 9px skin name returns with the baseline's ticker.
+
+## D-195. Stage 06 step 6: the fourth pass on the Home, an illustrated banner title and detail where the page still read raw
+
+**Date:** 2026-10-21. **Stage:** 06, step 6. **Decided by:** the founder, on the D-194 Home: "да стало чуть лучше но все равно еще очень плохо, давай дальше дорабативать". **Binds:** `design/_theme.css` part 3 and its `:root`, `design/concept/assets/home/`, `DESIGN-artifacts.md` section 10. **Builds on:** `D-194`.
+
+**How it was read.** The baseline's Home, a public pre-login page, captured again on 21 October 2026 at 1440 and 390 and laid beside ours block by block. The founder named no block this time, so the pass took the gaps that showed at both widths: the banner title, the two text blocks before the footer, the Daily tiers on a phone, the mode cards at narrow widths, the flat ground.
+
+**What was decided.**
+
+1. **The event title is an illustrated logotype,** as the baseline's banner carries its title: `COLDFRONT WEEK` drawn in ice with pink light in its cracks, by Codex on `gpt-5.6-terra`, spelling checked on the image. The typed words stay in the page for a screen reader and a search engine and are what the drawing says. The case steps left to give the title the middle, and on a phone the title sits in the band between the countdown and the button.
+2. **The banner melts into the ground** at its sides and foot instead of ending on a cut.
+3. **Before you spend is four plates** in the manner of the baseline's giveaway cards: each tinted from its corner, a coloured foot line, its mark on the ticker's hexagon at the top right.
+4. **What opening a case involves sits on a plate** with a blue edge, a violet light and our banner case at its far end; on a phone the case is not drawn, so it never crosses the words.
+5. **The Daily tiers on a phone run two to a row,** the case over its name, as the baseline lays them.
+6. **Mode cards keep their name and their not-launched mark on one line,** the mark on the card's own plate so it reads over the art. **From 900 to 1279 the modes run two to a row,** where four would be under 220px: a layout change carried by the copy and named, as `D-192`'s one column on a phone is, and it reaches the grey screen only if the founder keeps it.
+7. **The ground is not flat:** two faint pools of light, violet under the modes and blue under the cases, and a blue glow rising off the line above the footer counters, as the baseline's.
+8. **The title under the banner closes up to it,** so the modes start where the baseline's do.
+
+**Proven.** Structural diff against the grey screen zero at 360 and 1440 on both pages. No horizontal scroll at nine widths from 360 to 1920 on both pages. The stand rebuilds byte for byte the same. The banner title measured 520 by 177 at 1440 after one fault found on the way: the copy's prose measure of 68ch held a title set at font size 0 to zero width.
+
+**Rejected.** A typed title restyled with a gradient: it stays a font, and the baseline's is a drawing. Two-colour section titles, as the baseline's: they need a second element in the heading, which the copy may not add while the structure belongs to the grey screen.
+
+**The cost.** The title is an image of words, so a change of the event's name needs a new drawing; the typed name stays the source. The banner case appears twice on the page, in the banner and on the prose plate.
+

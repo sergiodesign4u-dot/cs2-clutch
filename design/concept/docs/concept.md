@@ -147,6 +147,8 @@ Five pairs. Each names the research row, the taste and the technique it is built
 
 **Third pass on the Home, `D-194`.** The founder asked for every element of the baseline in detail. The ticker, the mode card, the case card, the icons and the width now follow the baseline's computed styles element by element; the covers and mode arts are Codex variations of the baseline's with our emblems and real skins; the banner moves in four layers. A2, motion that serves emotion, answers on the Home for the first time, through the banner. No attribute had to change.
 
+**Fourth pass on the Home, `D-195`.** The banner title is drawn in ice as the baseline draws its own, the two text blocks before the footer sit on plates, the Daily tiers run two to a row on a phone, and the ground carries faint light. A2 answers again through the title, which now belongs to the moving banner rather than lying on it. No attribute had to change.
+
 **Rejected.** 1, The shelf, the least lift in finish; 3, The ledger, the calmest, leaving the reveal to carry the energy alone. Both stay on the directions page as shown.
 
 **Visible place.** `design/concept/concept.html`, the stand, built at step 5: the language live first, then the attributes, palette, typography, shape, imagery, icons, brand and references, and three live components.

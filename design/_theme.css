@@ -148,6 +148,7 @@
   --art-banner-case: url(concept/assets/home/banner-case.webp); /* the event banner, the floating case; Codex image generation, D-194 */
   --art-banner-operator: url(concept/assets/home/banner-operator.webp); /* the event banner, the operator; Codex image generation, D-194 */
   --art-banner-shards: url(concept/assets/home/banner-shards.webp); /* the event banner, ice shards in front; Codex image generation, D-194 */
+  --art-banner-title: url(concept/assets/home/banner-title.webp); /* the event banner, its title drawn as a logotype in ice; Codex image generation, D-195; the typed title stays in the page */
   --art-case-ironbound: url(concept/assets/home/cover-ironbound.webp); /* the Ironbound cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
   --art-case-warsteel: url(concept/assets/home/cover-warsteel.webp); /* the Warsteel cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
   --art-case-coldfront: url(concept/assets/home/cover-coldfront.webp); /* the Coldfront cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
@@ -1145,3 +1146,73 @@ button.wf-foot-h { background: none; border-color: var(--color-blue); color: var
   .wf-mode h3 { font-size: var(--size-label); }
   .wf-mode .wf-fig-missing { min-width: 0; }
 }
+
+/* ===== D-195, the fourth pass: detail where the page still read raw ===================== */
+/* THE EVENT TITLE AS AN ILLUSTRATED LOGOTYPE, as the baseline's banner carries its title: our
+   words drawn in ice by Codex. The typed words stay in the page, for a screen reader and a
+   search engine, and are what the drawing says. */
+.wf-event .wf-event-name { width: min(520px, 62%); aspect-ratio: 1776 / 604; left: 0; right: 0; max-width: none; margin: 0 auto; font-size: 0; color: transparent; text-shadow: none;
+  background: var(--art-banner-title) center / contain no-repeat; filter: drop-shadow(0 6px 18px color-mix(in srgb, var(--color-ground) 70%, transparent)) drop-shadow(0 0 22px color-mix(in srgb, var(--color-pink) 30%, transparent)); }
+/* on a phone the title takes the band between the countdown and the button */
+@media (max-width: 899px) { .wf-event .wf-event-name { width: min(420px, 56%); top: 52%; } }
+@media (max-width: 599px) { .wf-event .wf-event-name { width: min(230px, 66%); } }
+/* the case steps left to give the title the middle, as the baseline's art does */
+@media (min-width: 900px) { .wf-event .wf-banner-art::before { left: 1%; top: 8%; height: 84%; } .wf-event .wf-event-name { width: min(500px, 46%); } }
+/* the banner melts into the ground at its edges, as the baseline's does, instead of ending on a cut */
+.wf-event::after { background:
+    linear-gradient(to top, var(--color-ground), transparent 22%), linear-gradient(to right, var(--color-ground), transparent 9%, transparent 91%, var(--color-ground)),
+    radial-gradient(circle, var(--color-text-hi) 0 1px, transparent 1.5px) 0 0 / 90px 90px, radial-gradient(circle, color-mix(in srgb, var(--color-blue) 80%, transparent) 0 1.5px, transparent 2px) 30px 40px / 140px 140px, var(--art-banner-shards) center / cover no-repeat;
+  opacity: .85; }
+@keyframes ban-snow { from { background-position: 0 0, 0 0, 0 0, 30px 40px, center; } to { background-position: 0 0, 0 0, -90px 900px, -110px 1440px, center; } }
+
+/* MODE CARDS: the name and the not-launched mark keep one line, as the baseline's do, and run over
+   the art where the card is narrow; the mark carries the card's own plate so it reads over it. */
+.wf-mode h3, .wf-mode .wf-fig-missing { white-space: nowrap; }
+@container (max-width: 299px) { .wf-mode > h3, .wf-mode > .wf-fig-missing { max-width: none; } }
+@container (max-width: 219px) { .wf-mode h3, .wf-mode .wf-fig-missing { white-space: normal; } .wf-mode > .wf-fig-missing { max-width: 100%; } }
+.wf-mode .wf-fig-missing { background: color-mix(in srgb, var(--color-mode) 88%, transparent); }
+
+/* BEFORE YOU SPEND: four plates in the manner of the baseline's giveaway cards, each tinted from
+   its corner, a coloured foot line, and its mark on a hexagon at the right. */
+.wf-figs { background: none; padding: 0; gap: var(--space-4); align-items: stretch; }
+.wf-figs .wf-fig { position: relative; isolation: isolate; overflow: hidden; min-height: 148px; justify-content: flex-end; padding: 64px var(--space-5) var(--space-5);
+  background: linear-gradient(115deg, color-mix(in srgb, var(--tint) 34%, var(--color-card)) 0%, var(--color-card) 62%); box-shadow: inset 0 calc(-1 * var(--size-edge)) 0 var(--tint); transition: background .3s; }
+.wf-figs .wf-fig:hover { background: linear-gradient(115deg, color-mix(in srgb, var(--tint) 48%, var(--color-card)) 0%, var(--color-card-hover) 70%); }
+.wf-figs .wf-fig::before, .wf-figs .wf-fig::after { content: ''; position: absolute; z-index: -1; right: 14px; top: 12px; }
+.wf-figs .wf-fig::before { width: 64px; height: 56px; background: var(--tint); opacity: .55; -webkit-mask: var(--shape-hex-line) center / contain no-repeat; mask: var(--shape-hex-line) center / contain no-repeat; }
+.wf-figs .wf-fig::after { right: 34px; top: 28px; width: 24px; height: 24px; background: var(--tint); filter: drop-shadow(0 0 8px var(--tint)); -webkit-mask: var(--fi) center / contain no-repeat; mask: var(--fi) center / contain no-repeat; }
+.wf-figs .wf-fig:nth-child(1) { --tint: var(--color-blue); --fi: var(--icon-star); }
+.wf-figs .wf-fig:nth-child(2) { --tint: var(--color-rarity-4); --fi: var(--icon-history); }
+.wf-figs .wf-fig:nth-child(3) { --tint: var(--color-rarity-3); --fi: var(--icon-send); }
+.wf-figs .wf-fig:nth-child(4) { --tint: var(--color-pink); --fi: var(--icon-shield); }
+.wf-figs .wf-fig-c { color: var(--color-text-soft); }
+@media (max-width: 599px) { .wf-figs { grid-template-columns: 1fr; gap: var(--space-2); } .wf-figs .wf-fig { min-height: 92px; padding: var(--space-4) 92px var(--space-4) var(--space-4); } .wf-figs .wf-fig::before { top: 18px; } .wf-figs .wf-fig::after { top: 34px; } }
+
+/* WHAT OPENING A CASE INVOLVES: the words on a plate with our case lit at its far end, so the one
+   block of prose on the page is a place and not a gap. */
+.wf-prose { position: relative; isolation: isolate; overflow: hidden; padding: var(--space-6) var(--space-5); background: radial-gradient(60% 120% at 100% 50%, color-mix(in srgb, var(--color-mode-light) 45%, transparent), transparent 70%), var(--color-card); box-shadow: inset var(--size-edge) 0 0 var(--color-blue); }
+.wf-main > .wf-prose { padding-inline: var(--space-5); }
+.wf-prose::after { content: ''; position: absolute; z-index: -1; right: 2%; top: 50%; width: 300px; height: 240px; margin-top: -120px; background: var(--art-banner-case) center / contain no-repeat; filter: drop-shadow(0 0 24px color-mix(in srgb, var(--color-pink) 40%, transparent)); }
+.wf-prose p { max-width: 62ch; }
+.wf-main > .wf-prose { margin-top: var(--space-6); }
+@media (max-width: 899px) { .wf-prose::after { display: none; } }
+
+/* DAILY TIERS ON A PHONE: two to a row, the case over its name, as the baseline lays them */
+@media (max-width: 899px) {
+  .wf-ladder { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4) var(--space-2); }
+  .wf-ladder li { flex-direction: column; justify-content: flex-start; text-align: center; gap: var(--space-1); padding: 0; }
+  .wf-ladder li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .wf-ladder-art { flex: none; width: 100%; max-width: 150px; height: 104px; }
+}
+
+/* THE LIGHT ABOVE THE FOOTER COUNTERS, a blue glow rising off its line, as the baseline's */
+.wf-fband--stats { position: relative; }
+.wf-fband--stats::before { content: ''; position: absolute; left: 15%; right: 15%; bottom: 100%; height: 90px; pointer-events: none; background: radial-gradient(50% 100% at 50% 100%, color-mix(in srgb, var(--color-blue) 22%, transparent), transparent 100%); }
+/* TWO MODES TO A ROW WHERE FOUR WOULD BE UNDER 220px, D-195: a layout change carried by the copy and
+   named, as D-192's one column on a phone is; it reaches the grey screen only if the founder keeps it. */
+@media (min-width: 900px) and (max-width: 1279px) { .wf-grid.wf-modes { grid-template-columns: repeat(2, 1fr); } }
+/* the title under the banner closes up to it, so the modes start where the baseline's do */
+.wf-hero.wf-hero--short { padding: var(--space-3) 0 0; }
+/* THE GROUND IS NOT FLAT: two faint pools of the page's own light, violet under the modes and blue
+   under the cases, as the baseline's ground carries its art at the top of the page */
+.wf-main { background: radial-gradient(50% 900px at 18% 700px, color-mix(in srgb, var(--color-mode-light) 9%, transparent), transparent 100%), radial-gradient(45% 800px at 85% 1300px, color-mix(in srgb, var(--color-blue) 6%, transparent), transparent 100%); }
