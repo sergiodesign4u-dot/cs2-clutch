@@ -6557,3 +6557,23 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **Updated the same day.** The founder said "го" to the `CLAUDE.md` edit `D-197` held back: the Baseline paragraph and the Information architecture paragraph now say the rail carries Cases live and the eight LATER ways to play as rows marked Not launched yet, a founder exception since `D-197`. Two sentences replaced in place, 131 lines before and after.
 
+---
+
+## D-201. Stage 06 step 6: the counters' band at the baseline's measure, line and light
+
+**Date:** 2026-10-22. **Stage:** 06, step 6. **Decided by:** the founder, laying our band beside the baseline's: "по статистике и футеру сильно какой то большое стало, иконка апгрейд не правильная, у нижней граници статистики есть бордер градиент в центре видно а так же сверху синяя полоска, синие свечение более широкое, менее яркое (более мгякое) и шире". **Binds:** `design/_theme.css`, the drawn bars-up mark.
+
+**What was found.** `D-200` set the band's 40px but left the inner row's own 24px above and below, so the band stood 192px against the baseline's about 150; and its new bottom line replaced the 2px blue top edge, which shares the same property, so the top line was lost.
+
+**What was decided.**
+
+1. **The band is 144px:** 40px above and below and nothing more.
+2. **The 2px `--color-footer-edge` line is back across its top; its foot carries a 1px line lit in the middle and fading to both ends,** as the baseline's.
+3. **The light above it is wider and softer:** nearly the band's width, about half as bright at its heart, fading slowly.
+4. **The Upgrade mark is redrawn** closer to the baseline's: three short bars and a narrow column ending in a wide arrowhead. It is one mark, so the mode card and the rail take it too.
+5. **On a phone the four counters stand in one column** with their marks on one line, instead of each centred on its own.
+
+**Proven.** Structural diff zero at 360 and 1440 on both pages; no horizontal scroll at nine widths on both pages; the band at 360, 390, 1440 and 1920. The stand rebuilt unchanged.
+
+**The cost.** None new.
+

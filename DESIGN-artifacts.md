@@ -336,4 +336,6 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--art-daily-rings` | `assets/home/daily-rings.svg` | the Daily panel's ring layer: two rings and the turning arrows of the daily reset | drawn for `D-200` after the baseline panel's layering, walk of 22 Oct 2026 |
 | `--color-gold` | unchanged | now also the rail: the mark of a live row under the pointer, and the 3px left edge and mark of the current row | the founder's captures of the baseline rail, 22 Oct 2026 |
 
+**`D-201`.** No new value. `--icon-arrow-up`, the drawn bars-up mark, is redrawn closer to the baseline's: three short bars and a narrow column ending in a wide arrowhead. `--color-footer-edge` is back on the counters' top edge, where `D-200` had replaced it by mistake.
+
 
