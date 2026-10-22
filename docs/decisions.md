@@ -6555,3 +6555,5 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost.** One new value, `--art-daily-rings`; the Daily base redrawn; two icons of `D-197` dropped again.
 
+**Updated the same day.** The founder said "го" to the `CLAUDE.md` edit `D-197` held back: the Baseline paragraph and the Information architecture paragraph now say the rail carries Cases live and the eight LATER ways to play as rows marked Not launched yet, a founder exception since `D-197`. Two sentences replaced in place, 131 lines before and after.
+
