@@ -1477,13 +1477,14 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 /* THE STRIPES BEHIND A CASE, moving as the baseline's (walk of 22 Oct 2026, case-card decoration):
    three 2px lines 200px long, 8px apart, turned 30deg about the middle of the case picture; at rest they are gone, on hover
    the outer two slide in down their own length and the middle one, set 24px lower, slides in up it,
-   over 0.3s, and they leave the same way; centred on the case picture, 36px down and 128px tall */
+   over 0.3s, and they leave the same way; centred on the case picture, 36px down and 128px tall. Both
+   layers share one box and one turn, so the middle line's 24px runs along the lines, not down the page */
 .wf-tile::before, .wf-tile::after { content: ''; position: absolute; z-index: -1; left: 50%; top: 100px; height: 200px; margin: 0; opacity: 0; pointer-events: none;
   transform-origin: 50% 50%; transition: opacity .3s, transform .3s; }
 .wf-tile::before { width: 22px; background: linear-gradient(90deg, var(--color-raised) 0 2px, transparent 2px 20px, var(--color-raised) 20px 22px); transform: translate(-50%, -50%) rotate(30deg) translateY(-24px); }
-.wf-tile::after { width: 2px; background: var(--color-raised); transform: translate(-50%, calc(-50% + 24px)) rotate(30deg) translateY(24px); }
+.wf-tile::after { width: 22px; background: linear-gradient(90deg, transparent 10px, var(--color-raised) 10px 12px, transparent 12px); transform: translate(-50%, -50%) rotate(30deg) translateY(48px); }
 @media (hover: hover) {
   .wf-tile:hover::before { opacity: 1; transform: translate(-50%, -50%) rotate(30deg); }
-  .wf-tile:hover::after { opacity: 1; transform: translate(-50%, calc(-50% + 24px)) rotate(30deg); }
+  .wf-tile:hover::after { opacity: 1; transform: translate(-50%, -50%) rotate(30deg) translateY(24px); }
 }
 @media (prefers-reduced-motion: reduce) { .wf-tile::before, .wf-tile::after { transition: opacity .3s; } }

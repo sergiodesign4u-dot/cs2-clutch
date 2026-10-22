@@ -6599,3 +6599,5 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **Proven.** Captured at rest, 0.1s into the hover, held, and 0.1s after leaving. Structural diff zero at 360 and 1440 on both pages; no horizontal scroll at nine widths. **The cost.** None: no new value.
 
+**Fixed the same day.** The founder: "криво получилось". The middle line had its own box and its 24px offset ran down the page before the turn, so after turning it sat out of line with the pair. Both layers now share one box and one turn, the middle line drawn at its place inside it, and its 24px runs along the lines as the baseline's does. Captured again on Nightfall: three parallel lines, evenly spaced.
+
