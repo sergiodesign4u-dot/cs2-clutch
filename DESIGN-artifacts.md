@@ -318,3 +318,11 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--icon-gift`, `--icon-dollar`, `--icon-swap`, `--icon-users-bold`, `--icon-user-check` | Solar Bold `gift`, `dollar-minimalistic`, `transfer-horizontal`, `users-group-rounded`, `user-check-rounded` | the rail's later rows and the footer counters | `D-197`, after the baseline's icon of the same job |
 | `--icon-diamond` | MDI `diamond-stone` | the rail's Giveaways row | `D-197`, after the baseline's icon of the same job |
 
+**Seventh pass, `D-198`.** One new value and five icons.
+
+| Variable | Value | Job | Origin |
+|---|---|---|---|
+| `--art-case-emberforge` | `assets/home/cover-emberforge.webp` | the fifth featured cover, black iron and embers, a real Desert Eagle Blaze across it | Codex image generation, `D-198`, drawn in the family of the four covers |
+| `--icon-facebook`, `--icon-youtube`, `--icon-instagram`, `--icon-tiktok`, `--icon-telegram` | Simple Icons, the providers' own marks | the rail's social row, with `--icon-x` and `--icon-discord` already in the set | `D-198`, the baseline's seven channels named by the founder |
+| `--color-line` | `#353446`, unchanged | now also the foot of the rail's right edge, a 1px line rising from `--color-card-2` | the founder's screenshot of the baseline rail, 22 Oct 2026, the line read from `#0F0D2B` at the top to `#343245` at the foot |
+

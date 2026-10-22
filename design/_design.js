@@ -14,7 +14,7 @@
   // Screens with a coloured copy in design/. Grows with step 7.
   var COPIES = ['index.html', 'index-account.html'];
 
-  var CASES = { Ironbound: 'case-blue', Warsteel: 'case-gold', Coldfront: 'case-pink', Nightfall: 'case-violet' };
+  var CASES = { Ironbound: 'case-blue', Warsteel: 'case-gold', Coldfront: 'case-pink', Nightfall: 'case-violet', Emberforge: 'case-ember' };
   var SKINS = ['ak-47-elite-build', 'ak-47-gold-arabesque', 'ak-47-redline', 'awp-asiimov', 'awp-neo-noir',
     'desert-eagle-blaze', 'five-seven-case-hardened', 'glock-18-vogue', 'glock-18-water-elemental',
     'karambit-tiger-tooth', 'm4a1-s-hyper-beast', 'm4a4-the-emperor', 'mp9-goo', 'mp9-rose-iron', 'nova-koi',
@@ -73,6 +73,12 @@
     root.querySelectorAll('.wf-rail-item').forEach(function (r) {
       var i = ICONS[txt(r, '.wf-rail-lbl')], ic = r.querySelector('.wf-rail-ico');
       if (ic && i && ic.getAttribute('data-icon') !== i) ic.setAttribute('data-icon', i);
+    });
+    // D-198: the social slots in the order of the baseline's row.
+    root.querySelectorAll('.wf-rail-soc-row').forEach(function (r) {
+      ['facebook', 'x', 'youtube', 'instagram', 'tiktok', 'telegram', 'discord'].forEach(function (k, n) {
+        var i = r.children[n]; if (i && i.getAttribute('data-icon') !== k) i.setAttribute('data-icon', k);
+      });
     });
     root.querySelectorAll('.wf-fig-ico').forEach(function (f) {
       var i = ICONS[txt(f, '.wf-fig-c')], ic = f.querySelector('.wf-icon');

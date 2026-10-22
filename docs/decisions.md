@@ -6495,3 +6495,26 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost.** The rail is eight ninths promises. **Two words for one state**, Coming soon in the rail and Not launched yet on the mode cards, a pair voice owes one answer to. The baseline's square corner is given up for cards. Six new icons. **`CLAUDE.md` still says the rail carries one destination since `D-40`;** the sentences that would change are shown to the founder and edited only on keep and go.
 
+---
+
+## D-198. Stage 06 step 6: the rail's edge and social row, the footer's dropdown, and five featured cases on a wide screen
+
+**Date:** 2026-10-22. **Stage:** 06, step 6. **Decided by:** the founder, on the D-197 Home: "пункти оставляем а по поводу бокового меню ти добавил градиент а надо било полосочку градиент как на деддискинс", "надо би вот тут добавить вот єто" over the baseline's Social row, "так и не поправил дропдаун которие ниже футера", "давай на широком екране 5 кейсов". **Binds:** `wireframes/_nav.js` (seven social slots, a fifth sample case), nodes `1.0` and footer, `design/_theme.css`, `design/_design.js`, `assets/home/cover-emberforge.webp`.
+
+**How it was read.** The founder's screenshot of the baseline's open rail, read pixel by pixel at its right edge: one 1px line, `#0F0D2B` near the top, `#1D1D37` in the middle, `#343245` at the foot, the page `#060A1E` beside it.
+
+**What was decided.**
+
+1. **The rail's later rows stay**, the trial of `D-197` kept.
+2. **The rail's edge is the baseline's line:** 1px, from the rail item colour at the top to `--color-line` at the foot. `D-197`'s 40px glow is removed.
+3. **The rail carries the social row** under the sound and the language: the word Social and the baseline's seven channels as grey marks, Facebook, X, YouTube, Instagram, TikTok, Telegram, Discord. **This answers footer.md's open item on the canonical set,** held as six reserved slots since `D-150`: the shell now draws seven. They are not links until the accounts exist. The footer keeps its row hidden.
+4. **The footer's language list opens in full:** the band under it clipped its height along with its width; it now clips only the width its dark strip needs.
+5. **Five featured cases on a wide screen.** A fifth sample case, Emberforge, Medium, 7.50 coins, 452 favourites, all samples by `D-124`, its cover drawn by Codex on `gpt-5.6-terra` in the family of the four with a real Desert Eagle Blaze across it. Five to a row from 1200, three from 600, two on a phone, a row that is not full centred.
+6. **On a phone the drawer's logo clears the header's menu button**, which had sat over its left edge.
+
+**Proven.** Structural diff against the grey screen zero at 360 and 1440 on both pages. No horizontal scroll at nine widths on both pages. The rail's edge measured at `#11102D` near the top to `#2A293E` lower down against the baseline's `#171931` to `#2C2C3F`. The footer list open at 1440 and 1920, whole. The case grid at 390, 1024, 1440 and 1920. The stand rebuilt unchanged.
+
+**Rejected.** Social links as links to accounts that do not exist. A fifth case only on wide screens: the shell owns the set and a case cannot exist at one width.
+
+**The cost.** A fifth invented case on the Home, named in node `1.0` as a sample. Seven marks that look pressable and are not. One new value and five icons. **`CLAUDE.md` still reads one rail destination;** the change is shown to the founder for a go.
+

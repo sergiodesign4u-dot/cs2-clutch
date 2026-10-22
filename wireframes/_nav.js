@@ -1107,10 +1107,12 @@ window.WF_PAY = window.WF_PAY || {
 
   // ONE SOCIAL SET FOR BOTH CARRIERS, round 15: the rail kept a second list of its
   // own, which footer.md refuses. Six reserved slots until the channels are named.
+  // D-198, 22 October 2026: the founder named the set by pointing at the baseline's row,
+  // seven channels, so seven slots. They stay slots, not links, until the accounts exist.
   function socialSlots() {
     var row = el('div', 'wf-rail-soc-row');
     row.setAttribute('aria-hidden', 'true');
-    for (var i = 0; i < 6; i++) row.appendChild(el('span', 'wf-rail-ico'));
+    for (var i = 0; i < 7; i++) row.appendChild(el('span', 'wf-rail-ico'));
     return row;
   }
 
@@ -4099,7 +4101,10 @@ window.WF_PAY = window.WF_PAY || {
      home.md section 2 and on the IA page, not here.
      --------------------------------------------------------------------- */
   var HOME_CASES = [['Ironbound', 'Medium', '12.40', '829', false], ['Warsteel', 'Low', '4.90', '1 204', true],
-                    ['Coldfront', 'Low', '2.10', '311', false], ['Nightfall', 'High', '31.00', '96', false]];
+                    ['Coldfront', 'Low', '2.10', '311', false], ['Nightfall', 'High', '31.00', '96', false],
+                    // D-198: a fifth, so a wide screen carries a row of five as the baseline's
+                    // does, the founder's ask. Name, band, price and count are samples, D-124.
+                    ['Emberforge', 'Medium', '7.50', '452', false]];
 
   function homeBody(account) {
     var out = [];

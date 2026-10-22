@@ -81,7 +81,7 @@
 | Nothing above the banner | | **1.1's strip says the daily state in words that agree with themselves**: "No daily case yet, next tier at 5.00 coins wagered". It read "0 daily cases, available now" |
 | Nothing | | The RTP figure's caption is its subject only: "Tested RTP, Ironbound" |
 
-**Samples, `D-124`, marked here:** the favourite counts on the tiles, 829, 1 204, 311 and 96; the tier target, 5.00 coins wagered; the median time to Steam, 1 h 40 m, and nine in ten within 6 h 15 m, which `5.3` reads from here; **added by round 15 step 6:** the tested RTP in the Before you spend row, `94.2 %`, Ironbound's, which `3.3` prints too; and the four entry costs on the featured tiles, Ironbound 12.40, Warsteel 4.90, Coldfront 2.10 and Nightfall 31.00 coins.
+**Samples, `D-124`, marked here:** the favourite counts on the tiles, 829, 1 204, 311 and 96; the tier target, 5.00 coins wagered; the median time to Steam, 1 h 40 m, and nine in ten within 6 h 15 m, which `5.3` reads from here; **added by round 15 step 6:** the tested RTP in the Before you spend row, `94.2 %`, Ironbound's, which `3.3` prints too; and the four entry costs on the featured tiles, Ironbound 12.40, Warsteel 4.90, Coldfront 2.10 and Nightfall 31.00 coins; **added by `D-198`:** a fifth featured case, so a wide screen carries a row of five as the baseline's does, its name Emberforge, its band Medium, its cost 7.50 coins and its count 452 all samples.
 
 ---
 
