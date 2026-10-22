@@ -6470,3 +6470,28 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **Rejected.** Hiding the footer's case: the slot is the grey screen's, so the copy fills it, quieter. Showing the not-launched modes in the rail: still the founder's call, asked again.
 
 **The cost.** Two new values, `--art-ground` and `--color-footer-base`. The Daily title moves between two places by width. The sound control shows no word to a sighted reader, as the baseline's does not.
+
+---
+
+## D-197. Stage 06 step 6: the sixth pass on the Home, on the founder's second round of marks, and the later ways to play in the rail as a trial
+
+**Date:** 2026-10-22. **Stage:** 06, step 6. **Decided by:** the founder, on the D-196 Home: "давай попробуем поставить пункти просто они будут coming soon", then with screenshots: the mode cards ("мне не нравится карточки вот вообще уродиские картинки вид структура (давай сделаем закругления )"), the Featured cases line ("вот тут не отцентированно"), the footer's language field and payment marks ("тут беда"), the footer counters ("тут с иконками проблема"), the line over the copyright row ("бордер доводил би до конца блока"), the open language list ("ужасно виглядит") and the open rail ("и боковго меню справой сторони есть небольшой градиент и у пунктов меню меньшее расстояние между блоками навгиации"). **Binds:** `wireframes/_nav.js` and `_wf.css` (the rail rows), node `0.1`, `voice/docs/microcopy.md`, `design/_theme.css`, `design/_design.js`, `assets/home/mode-*`.
+
+**How it was read.** The baseline's open rail walked again on 22 October 2026 at 1600, a public pre-login page: items 50px with 2px of the rail between them, the logo block 2px above the first, a 1px edge on the right, the marks Hot and Beta as 12px pills. The founder's capture of 17 October, `founder_rail_open_overlay_1000_17oct.png`, for the open state.
+
+**What was decided.**
+
+1. **The eight later ways to play return to the rail, as a trial.** The baseline's nine in its order and with its labels: Cases, then Case battles, Gunfights, Upgrade, Giveaways, Rewards hub, Top wins, Affiliate program, Exchange. Cases is the one link; the other eight are rows that are not links, each with **Coming soon** under its name, the founder's words. Collapsed, the icon stays and the tooltip carries the label and the mark. The change is made in the grey shell, which owns structure, so the copy inherits it and the structural diff stays zero. **It reverses `D-40` for this carrier only,** as `D-42` did for the language control.
+2. **Cards are rounded** with `--radius-m`, the radius the scale already names for cards: mode cards, case cards, the Daily panel, the facts and the prose plate.
+3. **The four mode arts are redrawn by Codex** on `gpt-5.6-terra` as one family with the case covers: an open Ironbound case in chains, two cases clashing with a pink spark, one masked operator, a crate with a rising chevron arrow; worn and matte under one pink and blue rim light, no chrome, no gold, no weapon. A scrim in the card's colour keeps the words clear of the art, and the button and the not-launched mark sit on one line in every card: the mark had carried a 14px bottom margin.
+4. **The section line runs through the middle of its title:** the title's 8px bottom margin was inside the row.
+5. **The rail:** its blocks 2px apart, a hairline and a faint blue light on its right edge.
+6. **The language list** is 320px, two columns of 40px rows with the code in its own column, the chosen row filled pink, the note in plain case. In the footer the field, its list and the three payment marks are one 320px block, the marks as equal quiet plates; on a phone the block runs full width.
+7. **The footer counters** take one filled family of marks at 40px, each centred on its figure and caption. **The line over the copyright row** runs edge to edge with its dark strip.
+
+**Proven.** Structural diff against the grey screen zero at 360 and 1440 on both pages. No horizontal scroll at nine widths from 360 to 1920 on both pages. The open rail at 1440, the collapsed rail at 1600, the phone drawer at 390, grey and copy, the language list from the rail and from the footer, the footer at 390, 1024, 1440 and 1920. The stand rebuilt unchanged.
+
+**Rejected.** A one word mark, Soon, beside the label as the baseline's Hot and Beta sit: it is not the founder's wording. Coming soon beside the label: in a 250px rail it broke four labels onto two lines, so it sits under the label instead.
+
+**The cost.** The rail is eight ninths promises. **Two words for one state**, Coming soon in the rail and Not launched yet on the mode cards, a pair voice owes one answer to. The baseline's square corner is given up for cards. Six new icons. **`CLAUDE.md` still says the rail carries one destination since `D-40`;** the sentences that would change are shown to the founder and edited only on keep and go.
+

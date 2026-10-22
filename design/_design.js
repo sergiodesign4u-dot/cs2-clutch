@@ -25,8 +25,11 @@
   var TIERS = { Covert: 'r2', Classified: 'r3', Restricted: 'r4', 'Mil-Spec': 'r5', 'Industrial Grade': 'r6', 'Consumer Grade': 'r7' };
   // A placeholder icon, by the words beside it.
   var ICONS = {
-    'Cases opened': 'box', 'Upgrades': 'arrow-up', 'Total users': 'users', 'Online now': 'pulse',
-    'Cases': 'box', 'Case battles': 'battle', 'Gunfights': 'target', 'Upgrade': 'arrow-up'
+    'Cases opened': 'box', 'Upgrades': 'arrow-up', 'Total users': 'users-bold', 'Online now': 'user-check',
+    'Cases': 'box', 'Case battles': 'battle', 'Gunfights': 'target', 'Upgrade': 'arrow-up',
+    // D-197: the rail's eight not launched yet, after the baseline's own marks; the counters
+    // above take one filled family.
+    'Giveaways': 'diamond', 'Rewards hub': 'gift', 'Top wins': 'cup', 'Affiliate program': 'dollar', 'Exchange': 'swap'
   };
 
   function slug(t) { return t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
@@ -66,6 +69,10 @@
     root.querySelectorAll('.wf-mode').forEach(function (m) {
       var i = ICONS[txt(m, 'h3')], art = m.querySelector('.wf-mode-art');
       if (art && i) art.setAttribute('data-icon', i);
+    });
+    root.querySelectorAll('.wf-rail-item').forEach(function (r) {
+      var i = ICONS[txt(r, '.wf-rail-lbl')], ic = r.querySelector('.wf-rail-ico');
+      if (ic && i && ic.getAttribute('data-icon') !== i) ic.setAttribute('data-icon', i);
     });
     root.querySelectorAll('.wf-fig-ico').forEach(function (f) {
       var i = ICONS[txt(f, '.wf-fig-c')], ic = f.querySelector('.wf-icon');

@@ -452,6 +452,8 @@ var WF_STR = {
   /* Shared navigation words and acts */
   home: 'Home',
   cases: 'Cases',
+  // D-197: the mark on a LATER row of the rail, the founder's own words.
+  comingSoon: 'Coming soon',
   allCases: 'All cases',
   support: 'Support',
   signIn: 'Sign in',
@@ -1042,8 +1044,17 @@ window.WF_PAY = window.WF_PAY || {
   // D-36 the account menu carries My items as its first row, and CLAUDE.md's own rule is
   // that no carrier holds another's kind. My items is an account thing and the header
   // owns the account.
+  // D-197, 22 October 2026. THE EIGHT LATER WAYS TO PLAY RETURN TO THE RAIL, MARKED, at
+  // the founder's word: "давай попробуем поставить пункти просто они будут coming soon".
+  // The baseline's rail of nine, research/docs/baseline.md "The left icon rail", in its
+  // order and with its labels, the voice being inherited by D-166. Cases is the one live
+  // destination; the other eight are LATER in CLAUDE.md's scope and are drawn as what
+  // they are, a row that is not a link and says so beside its name, the way the mode
+  // cards on Home have said it since D-27. Not a precedent for any other carrier.
   function railItems() {
-    return [{ label: WF_STR.cases, file: 'catalogue.html' }];
+    return [{ label: WF_STR.cases, file: 'catalogue.html' }]
+      .concat(['Case battles', 'Gunfights', 'Upgrade', 'Giveaways', 'Rewards hub', 'Top wins', 'Affiliate program', 'Exchange']
+        .map(function (l) { return { label: l, later: true }; }));
   }
 
   // The bar is a subset of the rail plus Home, and it never holds money.
@@ -1981,6 +1992,15 @@ window.WF_PAY = window.WF_PAY || {
     nav.appendChild(logo);
     railItems().forEach(function (it) {
       if (it.divider) { nav.appendChild(el('span', 'wf-rail-div')); return; }
+      if (it.later) {
+        var r = el('span', 'wf-rail-item is-later');
+        r.appendChild(el('span', 'wf-rail-ico'));
+        r.appendChild(el('span', 'wf-rail-lbl', it.label));
+        r.appendChild(el('span', 'wf-rail-soon', WF_STR.comingSoon));
+        r.setAttribute('data-lbl', it.label + ', ' + WF_STR.comingSoon.toLowerCase());
+        nav.appendChild(r);
+        return;
+      }
       var a = el('a', 'wf-rail-item' + (it.file === cfg.active ? ' is-current' : ''));
       // A SLOT, not an icon. The grey contract defers icons to stages 06 to 08, and a
       // destination whose icon has no reserved space gets one bolted on later, which

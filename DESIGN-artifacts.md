@@ -309,3 +309,12 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--color-footer-base` | `#030214` | the strip under the footer, the copyright row | `наявний бренд`, walk of 22 Oct 2026, computed style, copyright-wrapper |
 | `--art-case-*` | `assets/home/cover-*.webp` | a case cover, redrawn gritty and themed | Codex image generation, `D-196`, variations of the baseline's featured cases |
 
+**Sixth pass, `D-197`.** No new value. One value takes a new job, four pictures are redrawn, six icons join the set.
+
+| Variable | Value | Job | Origin |
+|---|---|---|---|
+| `--radius-m` | `16px`, unchanged | now also the corner of every card on Home: mode cards, case cards, the Daily panel, the facts, the prose plate | `рішення користувача`, `D-197`, "давай сделаем закругления"; the value stays `наявний бренд`, baseline.md 13.2 |
+| `--art-mode-*` | `assets/home/mode-*.webp` | the four mode arts, one family with the case covers | Codex image generation, `D-197`, redrawn on the founder's mark |
+| `--icon-gift`, `--icon-dollar`, `--icon-swap`, `--icon-users-bold`, `--icon-user-check` | Solar Bold `gift`, `dollar-minimalistic`, `transfer-horizontal`, `users-group-rounded`, `user-check-rounded` | the rail's later rows and the footer counters | `D-197`, after the baseline's icon of the same job |
+| `--icon-diamond` | MDI `diamond-stone` | the rail's Giveaways row | `D-197`, after the baseline's icon of the same job |
+

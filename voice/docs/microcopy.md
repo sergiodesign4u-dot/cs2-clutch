@@ -234,6 +234,11 @@ The Marks column flags where screens say the same thing in different words, or w
 | G162 | main | Network | field label | `_nav.js HIST_COLS/coLayer` | deposit-crypto-nowallet, deposit-crypto; cashout-dialog; history-cashout |  | kept |
 | G163 | main | Try again | button (link) | page, `_nav.js authCard/gateHTML`, page script | system-503-planned, system-503-unplanned; signin-steam-refused; deposit-declined |  | kept |
 | G164 | main | Your account is restricted while we look at a pattern of deposits made from three payment instruments that do not belong to the same person. | text | page | support-appeal; withdraw-restricted, withdraw-restriction-upheld; history-withdrawals-restricted | C4 | Withdrawals are paused while we check three deposits made with payment methods in different names. Your balance and items stay yours. (Forbidden: an accusation in a stop, `B8-3`) |
+| G165 | rail | Coming soon | text | `WF_STR.comingSoon` | 133 pages, 19 screens |  | added by `D-197`, the founder's words; the mode cards say Not launched yet (0.4-19) for the same state, a pair owed one answer |
+| G166 | rail | Giveaways | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
+| G167 | rail | Rewards hub | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
+| G168 | rail | Top wins | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
+| G169 | rail | Affiliate program | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label; Case battles, Gunfights, Upgrade and Exchange, already inventoried, are now read in the rail too, recounted at step 8 |
 
 ## 2. By screen
 

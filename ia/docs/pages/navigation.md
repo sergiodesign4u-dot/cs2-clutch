@@ -16,6 +16,20 @@
 
 ---
 
+## Amended 22 October 2026 by `D-197`. The eight later ways to play return to the rail, marked Coming soon
+
+**Why.** The founder, shown the rail of one beside the baseline's nine: "давай попробуем поставить пункти просто они будут coming soon". It is a trial and it is printed as one.
+
+**Baseline row for this amendment**, `baseline.md` section "The left icon rail", walked 11 August 2026, and the open rail walked again on 22 October 2026 at 1600.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Nine rail destinations in one order: Cases, Case Battles, Gunfights, Upgrade, Giveaways, Rewards Hub, Top wins, Partnership with its Affiliate Program, Exchange; two carry a one word mark, Hot and Beta | **All nine, in that order, with their labels**, Partnership given as its one child, Affiliate program | **Cases is the one link. The other eight are rows that are not links,** each with **Coming soon** under its name, the founder's own words, and the collapsed rail keeps their icons with the label and the mark in the tooltip. `D-40` held the rail to Cases alone by the rule that a carrier is filled with live items only; **the founder lifted that for this carrier as a trial**, as `D-42` did for the language control. The bar is unchanged: it holds Home and Cases, and the rail is still its superset |
+
+**What it costs.** A primary navigation that is eight ninths promises. Eight rows say what is missing rather than hiding it, which is the same honesty the mode cards have kept since `D-27`, and **the product now names two words for one state**, Coming soon in the rail and Not launched yet on the cards, a pair voice owes one answer to. **`CLAUDE.md` still says the rail carries one destination since `D-40`**; that sentence is not edited until the founder keeps the trial and says go.
+
+---
+
 ## Amended 17 October 2026 by `D-171`. On a compact desktop the rail starts collapsed and opens over the page
 
 **Why.** The founder compared the rail with the live product at about 1000px: ours stood expanded and pushed the page, the baseline's stands collapsed and opens over it.

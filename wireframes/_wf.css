@@ -411,6 +411,9 @@ a.wfp-state:hover { color: var(--wf-ink); }
 }
 .wf-rail-ico { flex: 0 0 20px; height: 20px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
 .wf-rail-lbl { flex: 1 1 auto; min-width: 0; }
+/* D-197: a LATER row is not a link, and the mark beside its name says why. */
+.wf-rail-item.is-later { color: var(--wf-ink-faint); cursor: default; }
+.wf-rail-soon { flex: 0 0 auto; padding: 0 var(--wf-s-half); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1); font-size: var(--wf-t-xs); }
 @media (min-width: 900px) {
   /* Full width rows with a hairline between them, which is the inherited carrier's own
      shape. As free floating text links three destinations read as a leftover list in a
@@ -1111,6 +1114,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
   /* SCOPED TO THE RAIL, D-171: unscoped, these reached the footer's logo slot and its
      language control, which share the classes, as soon as the compact desktop made the
      collapsed rail the default. */
+  .is-rail-collapsed .wf-rail .wf-rail-soon,
   .is-rail-collapsed .wf-rail .wf-rail-lbl,
   .is-rail-collapsed .wf-rail .wf-rail-soc-h { display: none; }
   .is-rail-collapsed .wf-rail .wf-rail-lang { padding: 0; text-align: center; }

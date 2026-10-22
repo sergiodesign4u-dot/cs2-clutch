@@ -151,6 +151,8 @@ Five pairs. Each names the research row, the taste and the technique it is built
 
 **Fifth pass on the Home, `D-196`.** On the founder's marks: the ground goes back to the baseline's flat dark with one picture at the top, the case covers are redrawn gritty and themed, the mode cards, the Daily panel and the footer take the baseline's measures, and the rail's sound and language become one row of two cells. A4, dark and electric and never heavy, answers through the ground: the light the earlier passes added read as a lighter page, not as energy. No attribute had to change.
 
+**Sixth pass on the Home, `D-197`.** On the founder's second round of marks: the cards take the radius the scale already names for cards, `--radius-m`, where the baseline keeps a square corner, so shape language parts from the baseline here by the founder's word, `D-181` allowing it; the four mode arts are redrawn as one family with the case covers, worn and matte under one pink and blue light; the rail shows the eight later ways to play as rows marked Coming soon, as a trial. A4 holds: the rounding softens the frame and not the energy, which stays in the art and the light. No attribute had to change.
+
 **Rejected.** 1, The shelf, the least lift in finish; 3, The ledger, the calmest, leaving the reveal to carry the energy alone. Both stay on the directions page as shown.
 
 **Visible place.** `design/concept/concept.html`, the stand, built at step 5: the language live first, then the attributes, palette, typography, shape, imagery, icons, brand and references, and three live components.
