@@ -6587,3 +6587,15 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **Proven.** Structural diff zero at 360 and 1440 on both pages; no horizontal scroll at nine widths; the plates at 1440 and 390. **The cost.** None: no new value.
 
+---
+
+## D-203. The stripes behind a case move as the baseline's on hover
+
+**Date:** 2026-10-22. **Stage:** 06, step 6. **Decided by:** the founder, on a case card under the pointer: "давай поработаем с анимацией сзади полосок и сделаем как на деддискинс". **Binds:** `design/_theme.css`.
+
+**How it was read.** The baseline's case card walked on 22 October 2026, its stylesheet rules read: a `decoration` of three `decoration__line`, each 2px by 200px in `#223660`, 8px apart, the middle one 24px lower, the group turned 30deg; at rest each line is at opacity 0 and moved 12 % of its own length, the outer two up their axis and the middle one down it; under the pointer they return and fade in over 0.3s, and leave the same way.
+
+**What was decided.** The same motion on ours, drawn by the tile's two pseudo-elements since the grey screen owns the markup: one carries the outer pair, one the middle line, in `--color-raised`, which is that same `#223660`, centred on the case picture. Our earlier version moved all three lines as one block from below.
+
+**Proven.** Captured at rest, 0.1s into the hover, held, and 0.1s after leaving. Structural diff zero at 360 and 1440 on both pages; no horizontal scroll at nine widths. **The cost.** None: no new value.
+
