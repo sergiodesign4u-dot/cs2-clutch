@@ -6518,3 +6518,40 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost.** A fifth invented case on the Home, named in node `1.0` as a sample. Seven marks that look pressable and are not. One new value and five icons. **`CLAUDE.md` still reads one rail destination;** the change is shown to the founder for a go.
 
+---
+
+## D-199. One word for a mode not launched: Not launched yet, in the rail and on the mode cards
+
+**Date:** 2026-10-22. **Stage:** 06, step 6. **Decided by:** the founder, asked which of the two words `D-197` left for one state should stay: "Not launched yet". **Binds:** `wireframes/_nav.js`, `voice/docs/microcopy.md`, node `0.1`.
+
+**What was decided.** The rail's eight LATER rows read **Not launched yet** under their names, the mode cards' words since `D-27`. Both read one declaration, `WF_STR.notLaunched`, so they cannot part again; `WF_STR.comingSoon` is gone. The collapsed rail's tooltip reads the label and the same words.
+
+**Rejected.** Coming soon, the founder's first wording in `D-197`: it promised a time nothing behind it holds, and it was a second name for a state the cards already named.
+
+**Proven.** Structural diff zero at 360 and 1440 on both pages, the rail open at 1440 and as a phone drawer.
+
+**The cost.** None beyond `D-197`'s: the rows are still promises, and the open `CLAUDE.md` edit now names Not launched yet.
+
+---
+
+## D-200. Stage 06 step 6: the Daily panel in layers, the rail's foot and states, livelier mode cards, the baseline's counters
+
+**Date:** 2026-10-22. **Stage:** 06, step 6. **Decided by:** the founder, on the D-198 Home: "блоки звук язик и соц сети сразу под exchange с таким же расстоянием, исправить иконки соц сетей под норм размер", "исправить сьезд иконки" (the live drops badge), "не готовие пункти сделать более такими недоступние", "при ховоре желтий кейс", "при активном желтая полоска ( на будущее)", "тут стало получше но все равно не то", "увеличиваем кейс нежно и красиво и уеньшем так же обратно когда мишку убираем", "мне тут не нравится подложка, она сделана из нескольких слоев разбери и сделай так же", "тут сделай также" (the counters), "не похоже ли єто на нейрослоп" (the prose plate's edge). **Binds:** `design/_theme.css`, `design/_design.js`, `assets/home/daily-base.webp`, `assets/home/daily-rings.svg`.
+
+**How it was read.** The baseline's Daily panel walked on 22 October 2026, a public page: `daily-cases-progress-home` is five layers, a base picture of three rifles (`daily-cases-bg`, cover), a ring layer (`__circles`, cover), a field of dots (`__dotes`, 150 by 100), a plus (`__plus`, 62 by 62 at 15, 30) and a row of dots (`__dot-big`, 251 by 34 at the lower right). Its pictures were opened as references in the scratchpad only, never published.
+
+**What was decided.**
+
+1. **The Daily panel is built in layers as the baseline's,** not as one flattened picture with smoke, rings and dots baked in: a calm base drawn by Codex on `gpt-5.6-terra` (three original rifles in plain black, navy to magenta, no skin), a violet to magenta wash, a ring layer drawn as SVG for this decision (two rings and the turning arrows of the daily reset), a faint pink plus at the top left, a lilac dot field and a pink dot row in the lower right corner.
+2. **The rail's foot sits under its last row,** 2px apart as the rows are. The social marks are 20px and dim grey. **Rows not launched read as unavailable:** their name, mark and words at 45 %, the pointer refused. **A live row's mark turns gold under the pointer; the current row carries a 3px gold left edge and a gold mark,** ready for the pages where Cases is current.
+3. **Live drops:** the pause takes the live dot's place inside the pill instead of standing beside it, its glyph centred; the dot's pulse is held to 4px.
+4. **Mode cards:** the art lit brighter over a stronger violet light, held below the card's top edge, and it grows gently from its foot on hover, 8 % over 0.6s, and settles back the same way.
+5. **The counters as the baseline's band:** 40px above and below, the two people marks back in outline as the baseline draws them, a faint line closing the band.
+6. **The prose plate loses its coloured left edge.** A stripe down the side of a rounded card is a generated-interface tell, the founder was right to name it.
+
+**Proven.** Structural diff zero at 360 and 1440 on both pages. No horizontal scroll at nine widths on both pages, after one fault found on the way: the counters' pink haze ran 5px past the page at 1280 once the marks grew, and the band now clips it sideways. The Daily panel at 1440 and 1920 on the account page and at 390. The stand rebuilt unchanged.
+
+**Rejected.** Publishing the baseline's own layers: they are its art, used as references only.
+
+**The cost.** One new value, `--art-daily-rings`; the Daily base redrawn; two icons of `D-197` dropped again.
+

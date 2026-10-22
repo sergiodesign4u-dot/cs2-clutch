@@ -28,6 +28,8 @@
 
 **What it costs.** A primary navigation that is eight ninths promises. Eight rows say what is missing rather than hiding it, which is the same honesty the mode cards have kept since `D-27`, and **the product now names two words for one state**, Coming soon in the rail and Not launched yet on the cards, a pair voice owes one answer to. **`CLAUDE.md` still says the rail carries one destination since `D-40`**; that sentence is not edited until the founder keeps the trial and says go.
 
+**Kept, and one word changed, the same day.** `D-198` kept the rows. **`D-199`, the founder's pick:** the mark reads **Not launched yet**, the mode cards' words, so the product names the state once.
+
 ---
 
 ## Amended 17 October 2026 by `D-171`. On a compact desktop the rail starts collapsed and opens over the page

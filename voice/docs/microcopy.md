@@ -234,7 +234,7 @@ The Marks column flags where screens say the same thing in different words, or w
 | G162 | main | Network | field label | `_nav.js HIST_COLS/coLayer` | deposit-crypto-nowallet, deposit-crypto; cashout-dialog; history-cashout |  | kept |
 | G163 | main | Try again | button (link) | page, `_nav.js authCard/gateHTML`, page script | system-503-planned, system-503-unplanned; signin-steam-refused; deposit-declined |  | kept |
 | G164 | main | Your account is restricted while we look at a pattern of deposits made from three payment instruments that do not belong to the same person. | text | page | support-appeal; withdraw-restricted, withdraw-restriction-upheld; history-withdrawals-restricted | C4 | Withdrawals are paused while we check three deposits made with payment methods in different names. Your balance and items stay yours. (Forbidden: an accusation in a stop, `B8-3`) |
-| G165 | rail | Coming soon | text | `WF_STR.comingSoon` | 133 pages, 19 screens |  | added by `D-197`, the founder's words; the mode cards say Not launched yet (0.4-19) for the same state, a pair owed one answer |
+| G165 | rail | Not launched yet | text | `WF_STR.notLaunched` | 133 pages, 19 screens |  | added by `D-197` as Coming soon; one word for the state since `D-199`, the founder's pick, the same string as the mode cards' (0.4-19), now read from one declaration |
 | G166 | rail | Giveaways | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
 | G167 | rail | Rewards hub | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
 | G168 | rail | Top wins | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
@@ -292,7 +292,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.4-16 | main | Open a case | button (link) | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
 | 0.4-17 | main | Case battles | heading | `_nav.js dailyLadder/homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
 | 0.4-18 | main | Open against someone, highest total wins. | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | C10 | kept |
-| 0.4-19 | main | Not launched yet | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
+| 0.4-19 | main | Not launched yet | text | `WF_STR.notLaunched`, `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept; since `D-199` also the rail's mark on its eight LATER rows, G165 |
 | 0.4-20 | main | Gunfights | heading | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
 | 0.4-21 | main | One round, one opponent. | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | C9 | kept |
 | 0.4-22 | main | Upgrade | heading | `_nav.js homeBody/renderFooter` | all 8 of `0.4`; all 2 of `1.0` |  | kept |

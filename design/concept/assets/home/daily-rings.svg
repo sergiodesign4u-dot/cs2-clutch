@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2600 688" fill="none">
+  <!-- The Daily panel's ring layer, D-199: drawn after the layering of the baseline's panel (a base
+       picture, then rings, then dots and a plus), not traced from it. Two rings round the middle and a
+       pair of turning arrows at the centre for the daily reset, lilac to pink across the width. -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="2600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B9B4FF"/>
+      <stop offset="1" stop-color="#FF8CC6"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#g)" stroke-linecap="round">
+    <circle cx="1300" cy="344" r="930" stroke-width="34" opacity=".10"/>
+    <circle cx="1300" cy="344" r="480" stroke-width="20" opacity=".12"/>
+    <path d="M1048 300 A260 260 0 0 1 1500 180" stroke-width="22" opacity=".12"/>
+    <path d="M1552 388 A260 260 0 0 1 1100 508" stroke-width="22" opacity=".12"/>
+  </g>
+  <g fill="url(#g)" opacity=".12">
+    <path d="M1530 140 L1556 222 L1472 210 Z"/>
+    <path d="M1070 548 L1044 466 L1128 478 Z"/>
+  </g>
+</svg>

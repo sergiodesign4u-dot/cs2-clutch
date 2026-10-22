@@ -452,8 +452,9 @@ var WF_STR = {
   /* Shared navigation words and acts */
   home: 'Home',
   cases: 'Cases',
-  // D-197: the mark on a LATER row of the rail, the founder's own words.
-  comingSoon: 'Coming soon',
+  // D-197 put a LATER mode's mark in the rail as Coming soon; D-199, the founder's pick,
+  // makes the rail and the mode cards say one thing, read from here by both.
+  notLaunched: 'Not launched yet',
   allCases: 'All cases',
   support: 'Support',
   signIn: 'Sign in',
@@ -1998,8 +1999,8 @@ window.WF_PAY = window.WF_PAY || {
         var r = el('span', 'wf-rail-item is-later');
         r.appendChild(el('span', 'wf-rail-ico'));
         r.appendChild(el('span', 'wf-rail-lbl', it.label));
-        r.appendChild(el('span', 'wf-rail-soon', WF_STR.comingSoon));
-        r.setAttribute('data-lbl', it.label + ', ' + WF_STR.comingSoon.toLowerCase());
+        r.appendChild(el('span', 'wf-rail-soon', WF_STR.notLaunched));
+        r.setAttribute('data-lbl', it.label + ', ' + WF_STR.notLaunched.toLowerCase());
         nav.appendChild(r);
         return;
       }
@@ -4148,7 +4149,7 @@ window.WF_PAY = window.WF_PAY || {
     [[WF_STR.cases, 'Open a case, see every chance.', true], ['Case battles', 'Open against someone, highest total wins.'],
      ['Gunfights', 'One round, one opponent.'], ['Upgrade', 'Trade a skin for one worth more.']].forEach(function (m) {
       out.push('<article class="wf-mode' + (m[2] ? '' : ' is-later') + '"><span class="wf-mode-art" aria-hidden="true"></span><h3>' + m[0] + '</h3><p>' + m[1] + '</p>' +
-        (m[2] ? '<a class="wf-btn" href="catalogue.html">Open a case</a>' : '<p class="wf-fig-missing">Not launched yet</p>') + '</article>');
+        (m[2] ? '<a class="wf-btn" href="catalogue.html">Open a case</a>' : '<p class="wf-fig-missing">' + WF_STR.notLaunched + '</p>') + '</article>');
     });
     out.push('</div></section>');
 

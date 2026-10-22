@@ -318,6 +318,8 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--icon-gift`, `--icon-dollar`, `--icon-swap`, `--icon-users-bold`, `--icon-user-check` | Solar Bold `gift`, `dollar-minimalistic`, `transfer-horizontal`, `users-group-rounded`, `user-check-rounded` | the rail's later rows and the footer counters | `D-197`, after the baseline's icon of the same job |
 | `--icon-diamond` | MDI `diamond-stone` | the rail's Giveaways row | `D-197`, after the baseline's icon of the same job |
 
+`--icon-users-bold` and `--icon-user-check` left the set in `D-200`: the counters went back to the outline people marks, as the baseline draws them.
+
 **Seventh pass, `D-198`.** One new value and five icons.
 
 | Variable | Value | Job | Origin |
@@ -325,4 +327,13 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--art-case-emberforge` | `assets/home/cover-emberforge.webp` | the fifth featured cover, black iron and embers, a real Desert Eagle Blaze across it | Codex image generation, `D-198`, drawn in the family of the four covers |
 | `--icon-facebook`, `--icon-youtube`, `--icon-instagram`, `--icon-tiktok`, `--icon-telegram` | Simple Icons, the providers' own marks | the rail's social row, with `--icon-x` and `--icon-discord` already in the set | `D-198`, the baseline's seven channels named by the founder |
 | `--color-line` | `#353446`, unchanged | now also the foot of the rail's right edge, a 1px line rising from `--color-card-2` | the founder's screenshot of the baseline rail, 22 Oct 2026, the line read from `#0F0D2B` at the top to `#343245` at the foot |
+
+**Eighth pass, `D-200`.** One new value, one picture redrawn.
+
+| Variable | Value | Job | Origin |
+|---|---|---|---|
+| `--art-daily-bg` | `assets/home/daily-base.webp`, was `daily-bg.webp` | the Daily panel's base layer only: three rifles in the dark, navy to magenta | Codex image generation, `D-200`, after the baseline panel's base layer |
+| `--art-daily-rings` | `assets/home/daily-rings.svg` | the Daily panel's ring layer: two rings and the turning arrows of the daily reset | drawn for `D-200` after the baseline panel's layering, walk of 22 Oct 2026 |
+| `--color-gold` | unchanged | now also the rail: the mark of a live row under the pointer, and the 3px left edge and mark of the current row | the founder's captures of the baseline rail, 22 Oct 2026 |
+
 

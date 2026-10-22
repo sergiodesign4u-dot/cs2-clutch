@@ -25,10 +25,9 @@
   var TIERS = { Covert: 'r2', Classified: 'r3', Restricted: 'r4', 'Mil-Spec': 'r5', 'Industrial Grade': 'r6', 'Consumer Grade': 'r7' };
   // A placeholder icon, by the words beside it.
   var ICONS = {
-    'Cases opened': 'box', 'Upgrades': 'arrow-up', 'Total users': 'users-bold', 'Online now': 'user-check',
+    'Cases opened': 'box', 'Upgrades': 'arrow-up', 'Total users': 'users', 'Online now': 'pulse',
     'Cases': 'box', 'Case battles': 'battle', 'Gunfights': 'target', 'Upgrade': 'arrow-up',
-    // D-197: the rail's eight not launched yet, after the baseline's own marks; the counters
-    // above take one filled family.
+    // D-197: the rail's eight not launched yet, after the baseline's own marks.
     'Giveaways': 'diamond', 'Rewards hub': 'gift', 'Top wins': 'cup', 'Affiliate program': 'dollar', 'Exchange': 'swap'
   };
 
