@@ -6577,3 +6577,13 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost.** None new.
 
+---
+
+## D-202. The Before you spend plates rounded at the top
+
+**Date:** 2026-10-22. **Stage:** 06, step 6. **Decided by:** the founder: "давай вот тут сделаем закругления у карточек сверху". **Binds:** `design/_theme.css`.
+
+**What was decided.** The four plates of Before you spend take `--radius-m` at their two top corners. Their foot stays square, so the coloured line under each plate runs straight to its ends.
+
+**Proven.** Structural diff zero at 360 and 1440 on both pages; no horizontal scroll at nine widths; the plates at 1440 and 390. **The cost.** None: no new value.
+

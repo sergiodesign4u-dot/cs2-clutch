@@ -1471,3 +1471,6 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 /* on a phone the four counters stand in one column with their marks on one line, not each centred
    on its own */
 @media (max-width: 599px) { .wf-foot-stats { grid-template-columns: max-content; justify-content: center; } .wf-foot-stats .wf-fig { justify-content: start; } }
+/* BEFORE YOU SPEND: the four plates rounded at the top with the cards' radius, the founder's ask;
+   the foot stays square so the coloured line under each plate runs straight to its ends */
+.wf-figs .wf-fig { border-radius: var(--radius-m) var(--radius-m) 0 0; }
