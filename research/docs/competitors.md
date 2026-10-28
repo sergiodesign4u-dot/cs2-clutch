@@ -143,7 +143,7 @@ Nearly every competitor locks the most persuasive content behind Steam login. Cl
 
 **Pattern 3: Bot activity is normalized and visible, which erodes authenticity.**
 
-DatDrop's Battle Royale fills with bots (a majority vote is required to call bots, or players can pre-enable auto-bot-fill). DaddySkins' homepage live wins ticker and Case Battle feed include "[BOT] Darth Vader", "[BOT] HAL 9000", and others prominently named. CSGORoll shows bot-filled battle slots without labeling. Platforms need bots to keep lobbies alive, but visible bot activity undermines the social proof that live feeds are supposed to generate. No competitor has solved this cleanly.
+DatDrop's Battle Royale fills with bots (a majority vote is required to call bots, or players can pre-enable auto-bot-fill). The baseline's homepage live wins ticker and Case Battle feed include "[BOT] Darth Vader", "[BOT] HAL 9000", and others prominently named. CSGORoll shows bot-filled battle slots without labeling. Platforms need bots to keep lobbies alive, but visible bot activity undermines the social proof that live feeds are supposed to generate. No competitor has solved this cleanly.
 
 ---
 
@@ -151,7 +151,7 @@ DatDrop's Battle Royale fills with bots (a majority vote is required to call bot
 
 **Difference 1: Withdrawal architecture separates casual from serious users.**
 
-skin.club and DaddySkins are skins-to-Steam only, with no crypto or fiat path. Hellcase offers an indirect fiat path via ShadowPay (3-5 day bank transfer, 4-7% total fees). Clash.gg and CSGORoll offer crypto withdrawal (BTC, ETH, USDT, USDC). Key-Drop is skins-only via Steam with possible external service fees. The withdrawal architecture directly determines who can use the platform: users without Steam inventories ready for deposit, or users who want real-money exits, are excluded by the skins-only model.
+skin.club and the baseline are skins-to-Steam only, with no crypto or fiat path. Hellcase offers an indirect fiat path via ShadowPay (3-5 day bank transfer, 4-7% total fees). Clash.gg and CSGORoll offer crypto withdrawal (BTC, ETH, USDT, USDC). Key-Drop is skins-only via Steam with possible external service fees. The withdrawal architecture directly determines who can use the platform: users without Steam inventories ready for deposit, or users who want real-money exits, are excluded by the skins-only model.
 
 **Difference 2: Licensing creates a clear trust and geo divide.**
 
@@ -175,7 +175,7 @@ No platform surfaces withdrawal speed, method, or fee information as a trust sig
 
 **Gap 3: Currency abstraction obscures real-money stakes for new visitors.**
 
-All platforms use internal currencies: Gems (Clash.gg), coins (DaddySkins, skin.club), credits (CSGORoll), or similar. The exchange rate to real money is not visible pre-login anywhere reviewed. For first-time visitors, it is impossible to understand the actual cost of a $0.50 case versus a $161 case when both are priced in "coins" without a visible conversion rate. A platform with transparent real-money pricing pre-login would be meaningfully different. This is likely intentional on most platforms but is a trust gap.
+All platforms use internal currencies: Gems (Clash.gg), coins (the baseline, skin.club), credits (CSGORoll), or similar. The exchange rate to real money is not visible pre-login anywhere reviewed. For first-time visitors, it is impossible to understand the actual cost of a $0.50 case versus a $161 case when both are priced in "coins" without a visible conversion rate. A platform with transparent real-money pricing pre-login would be meaningfully different. This is likely intentional on most platforms but is a trust gap.
 
 ---
 
@@ -195,17 +195,17 @@ Third-party testing in 2026 found Key-Drop at 89%, DatDrop at 80.6%, and Hellcas
 
 ---
 
-### 3.5 DaddySkins Baseline Comparison
+### 3.5 Baseline Comparison
 
-DaddySkins (https://daddyskins.com, operated by MIXABIT LTD, Cyprus, HE 470887, since 2016) is the baseline, the reference product whose structure this project inherits. Against the five competitors, it shows clear relative strengths and significant gaps.
+The baseline (https://the baseline, operated by MIXABIT LTD, Cyprus, HE 470887, since 2016) is the baseline, the reference product whose structure this project inherits. Against the five competitors, it shows clear relative strengths and significant gaps.
 
-**Where DaddySkins is competitive:**
+**Where the baseline is competitive:**
 - Ten-year operating history (2016-2026) and 1.856M registered users are credible scale signals, surfaced in footer stats (Cases Opened: 354,120,367; Upgrades: 3,309,744; Online: 659 at time of visit).
 - Odds are publicly visible per case without login, matching the transparency standard set by Clash.gg and skin.club.
 - Giveaways section and live Case Battles feed are accessible pre-login.
 - Withdrawal is stated as commission-free in ToS - a competitive claim skin.club and Hellcase do not clearly make pre-login.
 
-**Where DaddySkins falls behind:**
+**Where the baseline falls behind:**
 - Provably Fair is login-gated: footer links to /en/provably-fair but visiting it redirects to login. This is the most direct trust gap relative to CSGORoll (fully public fairness docs) and skin.club (public roll history). The highest-leverage single gap for the new product to close. The page is already built, since the route exists and redirects rather than 404s; the cost of unlocking it is [?] unknown from the outside.
 - No third-party trust signals: no Trustpilot widget, no gambling license number, no independent audit badge. Key-Drop has 22,000+ Trustpilot reviews at 4.8/5 shown publicly.
 - Bot visibility is the worst in category: "[BOT] Darth Vader", "[BOT] HAL 9000", "[BOT] Patrick Bateman", "[BOT] Sauron" visible on first visit. No competitor makes bot activity this obvious.
@@ -214,7 +214,7 @@ DaddySkins (https://daddyskins.com, operated by MIXABIT LTD, Cyprus, HE 470887, 
 - No Rain system, no custom case creation, no loyalty points program - features now present at Clash.gg, skin.club, and DatDrop respectively.
 - Responsible gambling infrastructure is absent. No age gate, no self-exclusion, no deposit limits, no problem gambling resources.
 
-The single highest-leverage fix remains: make the Provably Fair page public. It is already built. Source: daddyskins.com direct research, June 2026.
+The single highest-leverage fix remains: make the Provably Fair page public. It is already built. Source: The baseline direct research, June 2026.
 
 ---
 
@@ -254,5 +254,5 @@ The single highest-leverage fix remains: make the Provably Fair page public. It 
 | Belgium gambling age raised to 21, Sept 2024 | https://g2g.news/gaming/belgium-raises-legal-gambling-age-to-21-and-bans-bonuses/ |
 | Provably fair 2026 audit - no third-party auditor in category | https://www.betterchecked.com/the-state-of-provably-fair-in-2026-who-actually-proves-it-who-just-talks-about-it |
 | Skinport acquired SkinBid assets January 2026 | https://esportsinsider.com/2026/01/cs2-skinport-acquires-skinbid-assets |
-| DaddySkins company registration and stats | https://daddyskins.com/en (footer, Jun 2026) |
-| DaddySkins ToS geo-restrictions and withdrawal terms | https://daddyskins.com/en/terms |
+| The baseline company registration and stats | https://the baseline site (footer, Jun 2026) |
+| The baseline ToS geo-restrictions and withdrawal terms | https://the baseline site/terms |

@@ -194,7 +194,7 @@ It stays in this file rather than moving, for one reason with a date on it: twel
 
 **Original header, kept for provenance:** Benchmark: Trust and Fairness. Updated with Phase 3 competitive analysis data. Created 2026-06-10, last updated 2026-06-10.
 
-Products scored: Clash.gg, Key-Drop, CSGORoll, skin.club, daddyskins.com (the baseline).
+Products scored: Clash.gg, Key-Drop, CSGORoll, skin.club, the baseline (the baseline).
 Previous products (hellcase.com, datdrop.com) removed pending dedicated research. This document reflects only verified Phase 3 data.
 
 ### 1. Evaluation Criteria (Scale 1-5)
@@ -220,7 +220,7 @@ Scoring key: 1 = poor, 5 = excellent. [?] = not verified in Phase 3 research.
 | **skin.club** | **4** | **5** | **5** | **3** | **3** | **2** | **4** | **4** | **30** |
 | **Clash.gg** | **4** | **4** | **3** | **3** | **4** | **3** | **4** | **4** | **29** |
 | **Key-Drop** | **3** | **3** | **2** | **3** | **2** | **3** | **3** | **4** | **23** |
-| **daddyskins.com** | **1** | **3** | **2** | **1** | **1** | **1** | **3** | **3** | **15** |
+| **The baseline** | **1** | **3** | **2** | **1** | **1** | **1** | **3** | **3** | **15** |
 
 ### 3. Key Observations per Product
 
@@ -248,11 +248,11 @@ Key-Drop offers a cryptographic seed-based provably-fair system and some odds di
 
 **Citations:** key-drop.com case pages; cs2pulse.com odds analysis; community reports of 2026 crypto withdrawal delays.
 
-#### daddyskins.com (the baseline)
+#### the baseline (the baseline)
 
 The most critical gap is the provably-fair page: the footer links to /en/provably-fair but the page redirects to login, meaning no anonymous visitor can access the fairness mechanism. This is the lowest score in the set for the most important criterion. Odds per case are visible pre-login on a 1-100,000 scale, which is a genuine positive, but edge and EV are never stated, and no withdrawal speed or fee information is visible to anonymous users. The bot-filled live feed (named accounts "Darth Vader," "HAL 9000") actively signals inauthenticity to technically literate CS2 players. There is no meaningful age-gate (only "18+" text in FAQ) and no responsible-play tools, which is the clearest compliance gap in the set.
 
-**Citations:** daddyskins.com case pages (pre-login odds visible); daddyskins.com /en/provably-fair (login redirect confirmed); daddyskins.com footer and FAQ (18+ text only).
+**Citations:** the baseline case pages (pre-login odds visible); the baseline /en/provably-fair (login redirect confirmed); the baseline footer and FAQ (18+ text only).
 
 ### 4. Top 3 Mechanisms to Carry into MVP
 
@@ -267,7 +267,7 @@ The most critical gap is the provably-fair page: the footer links to /en/provabl
 - Case detail page: a small "Provably Fair" badge or link adjacent to the open button.
 - Post-open state: a direct link to the verifier with the just-completed outcome pre-filled.
 
-**Why it works:** The psychological mechanism is commitment and auditability. Publishing the server-seed hash before the open commits the platform to an outcome the user can check after the fact. Most users will never verify, but the knowledge that they could is the trust signal. CSGORoll's longevity since 2016 in a category where competitors have collapsed is at least partly attributable to this foundation. The critical differentiator versus daddyskins.com is that the page must be reachable without login. A fairness page that redirects to login is not a trust signal; it is an obstacle that reads as concealment.
+**Why it works:** The psychological mechanism is commitment and auditability. Publishing the server-seed hash before the open commits the platform to an outcome the user can check after the fact. Most users will never verify, but the knowledge that they could is the trust signal. CSGORoll's longevity since 2016 in a category where competitors have collapsed is at least partly attributable to this foundation. The critical differentiator versus the baseline is that the page must be reachable without login. A fairness page that redirects to login is not a trust signal; it is an obstacle that reads as concealment.
 
 **How it preserves thrill:** Verification happens after the reveal, not during. The reveal animation and emotional moment are unchanged. Trust is built in the background; excitement happens in the foreground.
 
@@ -299,7 +299,7 @@ The most critical gap is the provably-fair page: the footer links to /en/provabl
 - Landing page: a live feed panel in the secondary content area, below the hero.
 - Case detail pages: a filtered feed showing recent drops from that specific case.
 
-**Why it works:** Social proof plus verifiability is the hardest trust signal to fabricate convincingly, which makes it the most powerful. A visitor who sees a recent drop and can click through to verify it on the provably-fair page has moved from passive observation to active confirmation. This is categorically different from a ticker that shows names and values but cannot be checked. The contrast with daddyskins.com's bot-filled feed (Darth Vader, HAL 9000) is instructive: technically literate CS2 players identify bot-seeded feeds quickly, and the damage to credibility when they do is disproportionate to whatever social-proof benefit the bots provided.
+**Why it works:** Social proof plus verifiability is the hardest trust signal to fabricate convincingly, which makes it the most powerful. A visitor who sees a recent drop and can click through to verify it on the provably-fair page has moved from passive observation to active confirmation. This is categorically different from a ticker that shows names and values but cannot be checked. The contrast with the baseline's bot-filled feed (Darth Vader, HAL 9000) is instructive: technically literate CS2 players identify bot-seeded feeds quickly, and the damage to credibility when they do is disproportionate to whatever social-proof benefit the bots provided.
 
 **How it preserves thrill:** A live feed of real wins creates ambient excitement on the landing page. Seeing a $200 skin drop in real time while a visitor is deciding whether to open a case is a legitimate and honest excitement mechanism. The thrill is in the feed; the trust is in the verification link.
 
@@ -329,6 +329,6 @@ Third, the CS2 community will identify and publicize it. This audience is techni
 | skin.club | Only platform with full public roll history for all users. Per-item odds to 4 decimal places. | No gambling license. No crypto/fiat withdrawal. No responsible-play page. |
 | Clash.gg | RTP published on landing page. Champion mode is the most original thrill mechanic in the set. | November 2025 payout incident is a trust signal to monitor. KYC friction may reduce activation. |
 | Key-Drop | Large platform, fast infrastructure, cryptographic fairness. | Incomplete odds disclosure. 2026 crypto withdrawal delays. Edge not stated pre-login. |
-| daddyskins.com | Per-case odds visible pre-login (1-100,000 scale). | Provably-fair page login-gated. Bot-seeded live feed. No age-gate. No edge disclosure. Lowest composite score in the set. |
+| The baseline | Per-case odds visible pre-login (1-100,000 scale). | Provably-fair page login-gated. Bot-seeded live feed. No age-gate. No edge disclosure. Lowest composite score in the set. |
 
-The gap between daddyskins.com (15/40) and the top two platforms (30/40) is not marginal. It spans every dimension where the competitive set has moved toward transparency. The MVP trust baseline should target a minimum of 25/40 at launch, with CSGORoll's fairness documentation and skin.club's odds visibility as the two highest-leverage improvements.
+The gap between the baseline (15/40) and the top two platforms (30/40) is not marginal. It spans every dimension where the competitive set has moved toward transparency. The MVP trust baseline should target a minimum of 25/40 at launch, with CSGORoll's fairness documentation and skin.club's odds visibility as the two highest-leverage improvements.

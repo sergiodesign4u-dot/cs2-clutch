@@ -500,7 +500,7 @@
 
 ## 13. The baseline distance round, 26 September 2026. Raised set, before verification
 
-**Asked by the founder:** the wireframes have drifted far from daddyskins.com and carry too much information; compare everything with the original, audit, and keep the deposit as a dialog but improve it.
+**Asked by the founder:** the wireframes have drifted far from the baseline and carry too much information; compare everything with the original, audit, and keep the deposit as a dialog but improve it.
 
 **Baseline re-walked the same day**, public pages only, proof in `research/screens/baseline/walk4_*_26sep.png`: home, cases, case/premium, faq, support, and provably fair, which still redirects to login. Signed-in surfaces were compared against the dated founder captures in `research/screens/baseline-account/`.
 
@@ -639,7 +639,7 @@
 | 15 | `ia/deposit.html` still said the standing bonus and its badge are refused, while `deposit.md` says both returned by `D-94` | Codex, second run | Contradiction | Fixed: the row is rebuilt from the markdown |
 | 16 | Eight samples unmarked in their nodes: the three self exclusion end dates, and the four skin values and their sum on the skins route | Codex, second run | Sample not marked | Fixed in `6.1` and `4.1` and their pages |
 | 17 | Four rows of 13.5 still had no verdict: the footer's Contacts, Guides and Marketing Assets links, the floating support control above 900, the account band's BACK, and the ticker's label and tile count | Claude, reading 13.5 against 13.8 to 13.14 | Unnamed divergence | Named, `D-131`: in `0.2`, `5.1` and a new baseline row on `0.8` |
-| 18 | Twelve IA node pages scrolled sideways at 360: the baseline row tables this round added sat outside the scroll wrapper every other table uses | Claude, browser, building the before to after section | Breaks at 360 | Fixed: wrapped |
+| 18 | Twelve IA node pages scrolled sideways at 360: The baseline row tables this round added sat outside the scroll wrapper every other table uses | Claude, browser, building the before to after section | Breaks at 360 | Fixed: wrapped |
 | 19 | `overview.html` closed its `main` after section D-52, so the 38 sections below it ran under the sidebar at 1440 from D-54 on | Claude, browser, same | Breaks at 1440 | Fixed: `main` closes before the footer |
 | 13 | Overlapping controls: the favourite counter over each case tile, the chips under Search and Filters, two wrapped inline links, the sticky pay row over the presets | Claude, browser | Overlap | **Withdrawn on verification**: the counter is an absolute badge by design, the chips are clipped by their own scroller, the links are one sentence wrapping, and the row covers what scrolls under it by `D-129` |
 
@@ -740,7 +740,7 @@
 | B27, B28 | Cash out accepted "hello", refused while a saved wallet sat in the select, printed "A Ethereum", offered an unbuilt Save, and named no minimum | B | Fixed. The history row's minimum is taken at step 4 |
 | B30, B33, B49 | The declined state said "unchanged" twice and explained itself; crediting and ceiling-pending explained themselves; the crypto dock carried a card with no decision | B | Fixed |
 | B35 | The band's Add funds went to the page while the header opened the dialog | B | Fixed |
-| B39 | A preset stayed pressed after typing another amount | B | Fixed. **The default stays 40.00**: the baseline preselects $20, and 40.00 is the sample the receipt and history are drawn from |
+| B39 | A preset stayed pressed after typing another amount | B | Fixed. **The default stays 40.00**: The baseline preselects $20, and 40.00 is the sample the receipt and history are drawn from |
 | B22, B43 | The step indicator and the labels Add funds and Pay had no verdict | B | Named in `4.1` |
 | D 1.9, D 2.3 | "The tile is not a link" never struck after `D-129`; the step 2 pages table missing from the page | D | Fixed |
 

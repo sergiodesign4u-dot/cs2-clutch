@@ -19,7 +19,7 @@ Written on 19 October 2026 from the founder's own words, not inferred. The block
 - **skin.club**: the same words. Two details, `references.md` 3.2.
 
 **Anti-references, named.**
-- **daddyskins.com as it is today**: dated, sharp corners, flat, static, boring. The baseline is the first anti-reference, at the level of finish only: its structure, colour, voice and type stay, `D-181`.
+- **The baseline as it is today**: dated, sharp corners, flat, static, boring. The baseline is the first anti-reference, at the level of finish only: its structure, colour, voice and type stay, `D-181`.
 - **AI slop.** The founder named it without listing it. It was translated into checkable markers and the founder confirmed them with amendments, in their words: "да, но с нюансами, прям все отказаться тоже не хочеться вот те же рефернси там у них есть свечения, градиенти, иконки в кружочках может бути, но в целом да иконок должно убти багато и еще и интерактивніх, там всякие штуки например бордери цветние сбоку со скруглениями и так далее, по генерациям скорее всего ми будем генерировать картинки под баннера, может по кейси, но тоже какие наши уникальние стильние кейси а вот скині". So slop is not a list of banned elements but one test: **an element that carries no job and no rarity.**
   1. **Glass cards, blurred translucent panels.** Out.
   2. **A glow or gradient with no job.** Out. Glows and gradients as such stay, as the references use them: each lights one thing, the primary action or a rarity, `references.md` S3 and C1.
@@ -46,7 +46,7 @@ The founder's adjectives are the same words the research recorded about people, 
 | Founder's word | The same thing in research | Where the baseline shows it, measured | What the references do instead |
 |---|---|---|---|
 | sharp corners, dated | none in research; founder only, `D-182` point 4 | 1 830 square surfaces against ten radius values, `baseline.md` 13.2, 13.5 point 1 | one radius family, `references.md` S1 |
-| flat | `personas.md`, The Opener, "Pains": reveals that feel "visually flat"; `research.md`, "5 Key Conclusions", point 5: "DaddySkins' current implementation is flat" | two shadows in four pages, `baseline.md` 13.5 point 8 | low layered shadow, S2; a lit primary, S3 |
+| flat | `personas.md`, The Opener, "Pains": reveals that feel "visually flat"; `research.md`, "5 Key Conclusions", point 5: "the baseline's current implementation is flat" | two shadows in four pages, `baseline.md` 13.5 point 8 | low layered shadow, S2; a lit primary, S3 |
 | static, boring | `personas.md`, The Opener, "Trust triggers": scared off by a platform that "feels slow or visually dead"; convinced by one that "feels alive" | thirteen type sizes with the top of the scale, 30px, spent on the footer statistics strip, `baseline.md` 13.1: no step of scale says where to look first | one lit action per screen, S3; rarity that glows, C1 |
 | fun, game-like | `jtbd.md`, primary job: "a chance at a rare skin I actually want, with a reveal that feels real" | rarity is a gradient behind the item only, `baseline.md` 13.3 | rarity in two marks that agree, S4 and C1 |
 | attention-grabbing, energetic | `CLAUDE.md`, principle 4: "dark and electric, never heavy" | the one accent, `#E94D8B`, fills or edges every button, filled and ghost alike, `baseline.md` 13.3 | one primary lit, the rest quiet, S3 |

@@ -14,7 +14,7 @@ One-page glance view of the research foundation. It overlaps with section 8 of `
 
 ## 1. Business problem
 
-The CS2 skin case-opening market is mature but undifferentiated on trust. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity in live feeds. The baseline (daddyskins.com) scored 15/40 on the trust benchmark, the lowest in category. Its highest-leverage gap is a login-gated provably fair page. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
+The CS2 skin case-opening market is mature but undifferentiated on trust. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity in live feeds. The baseline (the baseline) scored 15/40 on the trust benchmark, the lowest in category. Its highest-leverage gap is a login-gated provably fair page. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
 
 ## 2. Business outcomes
 
@@ -74,7 +74,7 @@ Quoted from `strategy.md` section 4, which is the single owner of this statement
 
 **Counter-evidence.** Hellcase holds the largest audience in the category (2M MAU, 150,000 daily opens) with no public PF page, an 82.1% tested RTP and no formal licence. Be exact about what this shows and what it does not: it shows scale is reachable without trust infrastructure; it does not show that a trust badge fails to convert, because no platform in the set has ever run one. Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/, https://skincasereviewer.com/reviews/hellcase.
 
-**One phrase deliberately removed.** Earlier versions of this paragraph called Hellcase "the lowest trust score in category". No such score exists: `benchmark.md` line 7 removed Hellcase from the benchmark pending dedicated research, and the lowest score actually assigned is daddyskins at 15/40. The argument stands on the three sourced attributes above and does not need the ranking.
+**One phrase deliberately removed.** Earlier versions of this paragraph called Hellcase "the lowest trust score in category". No such score exists: `benchmark.md` line 7 removed Hellcase from the benchmark pending dedicated research, and the lowest score actually assigned is the baseline at 15/40. The argument stands on the three sourced attributes above and does not need the ranking.
 
 ## 8. Smallest test
 

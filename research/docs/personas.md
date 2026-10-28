@@ -40,7 +40,7 @@ FACT - Withdrawal is the payoff: Steam Market's 15% fee and wallet lock (no cash
 
 FACT - Trust deficit is category-wide: No mystery box operator names a public third-party RNG auditor as of 2026. Source: betterchecked.com 2026 audit, https://www.betterchecked.com/the-state-of-provably-fair-in-2026-who-actually-proves-it-who-just-talks-about-it.
 
-FACT - Bot activity destroys social proof: DaddySkins shows "[BOT] Darth Vader" and "[BOT] HAL 9000" in the live wins ticker. DatDrop fills Battle Royale lobbies with bots. CSGORoll shows bot-filled battle slots. Platforms need bots to fill lobbies, but visible bot names undermine the authenticity the feed is supposed to generate. Source: research/docs/research.md, Gaps Table.
+FACT - Bot activity destroys social proof: The baseline shows "[BOT] Darth Vader" and "[BOT] HAL 9000" in the live wins ticker. DatDrop fills Battle Royale lobbies with bots. CSGORoll shows bot-filled battle slots. Platforms need bots to fill lobbies, but visible bot names undermine the authenticity the feed is supposed to generate. Source: research/docs/research.md, Gaps Table.
 
 FACT - Withdrawal complaints are the most common platform criticism: Withdrawal reliability is the most-cited user pain point across review aggregator complaints for all five platforms. Source: research/docs/strategy.md (Business Model Validation).
 
@@ -110,7 +110,7 @@ FACT - Secondary job: If the drop is shareable, get a moment worth posting. Win 
 
 **Pains - what hurts most today**
 
-FACT - Reveals that feel scripted, laggy, or visually flat. DaddySkins' current implementation is flat with no rarity-tiered animation variation. Source: research/docs/research.md (Key Conclusion 5); research/docs/benchmark.md.
+FACT - Reveals that feel scripted, laggy, or visually flat. The baseline's current implementation is flat with no rarity-tiered animation variation. Source: research/docs/research.md (Key Conclusion 5); research/docs/benchmark.md.
 
 FACT - Bot-flooded live feeds and chat. Visible bot names ("[BOT] Darth Vader") signal inauthenticity to CS2-literate users. Source: research/docs/research.md (Gaps Table).
 
@@ -246,6 +246,6 @@ FACT - Scares off: A lobby fill time over 60-90 seconds. Research sets 60 second
 
 **Mood quote**
 
-"The bot lobbies are so obvious it's insulting. Half the accounts have robot names or zero level. I just want to play against actual people." - composite from community discussion of DatDrop and DaddySkins bot activity, research/docs/research.md.
+"The bot lobbies are so obvious it's insulting. Half the accounts have robot names or zero level. I just want to play against actual people." - composite from community discussion of DatDrop and the baseline bot activity, research/docs/research.md.
 
 Note: composite, not a verbatim cited post. [?] Direct verified quote from a public post not yet in corpus.

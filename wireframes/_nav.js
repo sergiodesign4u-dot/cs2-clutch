@@ -2082,7 +2082,7 @@ window.WF_PAY = window.WF_PAY || {
       toggle.setAttribute('aria-label', on ? 'Expand the menu' : 'Collapse the menu');
     }
     /* THE COMPACT DESKTOP, D-171, the baseline measured live on 17 October 2026:
-       daddyskins.com reserves its expanded rail, 250px, above a 1440px window and its
+       The baseline reserves its expanded rail, 250px, above a 1440px window and its
        collapsed one, 70px, at 1440 and below, where the expanded rail opens OVER the
        page with the page dimmed behind it, founder captures of the same day. So here:
        a product column of 1440 or less starts collapsed whatever was chosen on a wider
@@ -4143,7 +4143,7 @@ window.WF_PAY = window.WF_PAY || {
     out.push('<section class="wf-hero wf-hero--short" aria-labelledby="h1">' +
       '<h1 id="h1">CS2 case opening with published odds</h1>' + (account ? '' : A5) + '</section>');
 
-    // B4, THE FOUR MODES, D-27. No visible heading: the baseline has none and
+    // B4, THE FOUR MODES, D-27. No visible heading: The baseline has none and
     // the cards say what they are. The H2 stays for the outline, hidden.
     out.push('<section class="wf-sec wf-sec--flush" aria-labelledby="h2-modes"><h2 id="h2-modes" class="wf-vh">Ways to play</h2><div class="wf-grid wf-modes">');
     [[WF_STR.cases, 'Open a case, see every chance.', true], ['Case battles', 'Open against someone, highest total wins.'],
@@ -4153,7 +4153,7 @@ window.WF_PAY = window.WF_PAY || {
     });
     out.push('</div></section>');
 
-    // B5, FEATURED CASES, the baseline's DADDY'S FEATURED CASES. The risk band
+    // B5, FEATURED CASES, the baseline's FEATURED CASES. The risk band
     // is a sample by D-124; its thresholds stay an open item in 0.11.
     out.push('<section class="wf-sec" aria-labelledby="h2-cases"><div class="wf-sec-head"><h2 id="h2-cases">Featured cases</h2></div><div class="wf-grid">');
     HOME_CASES.forEach(function (c) {

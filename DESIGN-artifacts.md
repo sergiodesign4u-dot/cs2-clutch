@@ -128,7 +128,7 @@ The baseline uses 700 and 900 on buttons with no rule between them, `baseline.md
 | `--size-xs` | `13px` | meta, labels, the peg | `рішення користувача`, `D-187` | A3 |
 | `--size-action-label` | `20px` | the label of the one lit action, weight 900, large text | `рішення користувача`, `D-187` | A3 |
 
-**No display face**, `D-182` point 5: the pack's two Google Fonts candidates per role are not drawn. **The type scale is 13, 15, 18, 24, 40**, `рішення користувача`, `D-187`: the baseline's thirteen sizes, `baseline.md` 13.5 point 4, brought to five, with scale carrying the game feel, A3 and A4.
+**No display face**, `D-182` point 5: the pack's two Google Fonts candidates per role are not drawn. **The type scale is 13, 15, 18, 24, 40**, `рішення користувача`, `D-187`: The baseline's thirteen sizes, `baseline.md` 13.5 point 4, brought to five, with scale carrying the game feel, A3 and A4.
 
 ---
 
@@ -232,7 +232,7 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 
 **The founder's decision of 20 October 2026, on the first coloured Home:** "надо переделивать все, так чтоби єто було похоже прямо на деддискинс хотя би а потом уже отталкиваться что можно улучшить". So the copies in `design/` take the baseline's visual layer as it is: square surfaces, the pink pill filled or ghost, uppercase heads with a blue icon and a blue rule, cases floating with no plate, art in every hero slot, pink counters in the footer. **Ours stays ours:** the logo, every word, the art, and the pink `#FB3F8A` of `D-185`. The language of sections 4 to 6, `D-187` to `D-191`, stays on the stand as the record; an improvement returns to the Home one at a time, each by its own founder decision.
 
-**Read, not remembered.** Every value below is a computed style of `daddyskins.com/en`, a public pre-login page opened on 20 October 2026, at 1440 and 390.
+**Read, not remembered.** Every value below is a computed style of `the baseline site`, a public pre-login page opened on 20 October 2026, at 1440 and 390.
 
 | Variable | Value | Job | Origin |
 |---|---|---|---|
@@ -284,7 +284,7 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--size-content` | `1298px` | the content column at 1440 | `наявний бренд`, deep walk of 20 Oct 2026, the game previews and section heads; the grey screen drew 1220 |
 | `--size-drop` | `92px` | a drop in the ticker | `наявний бренд`, deep walk, cases-live-tape-item |
 | `--size-micro` | `9px` | a skin name in the ticker | `наявний бренд`, deep walk, cases-live-tape-item h6 |
-| `--shape-hex-fill`, `--shape-hex-line` | the baseline's hexagon geometry, 136 by 118 | the hexagon behind a drop, filled with its rarity, three lines, one dashed | `наявний бренд`, deep walk, hex-bg |
+| `--shape-hex-fill`, `--shape-hex-line` | The baseline's hexagon geometry, 136 by 118 | the hexagon behind a drop, filled with its rarity, three lines, one dashed | `наявний бренд`, deep walk, hex-bg |
 | `--color-mode-light` | `#7E2DC8` | the light behind a mode card art | `наявний бренд`, deep walk, game-preview::before |
 | `--blur-mode` | `40px` | its blur | `наявний бренд`, deep walk, game-preview::before filter |
 | `--color-card-hover` | `#17144B` | a case card under the pointer | `наявний бренд`, deep walk, case-card:hover |

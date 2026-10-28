@@ -154,7 +154,7 @@ Missions and goals are present at skin.club and Key-Drop and give users a struct
 3. A daily login bonus improves D7 retention by 10-15 percentage points relative to no daily bonus, based on analogy with adjacent products - hypothesis to validate at launch.
 
 **Alternatives considered and discarded:**
-- Bots labeled as bots in live feeds and battles - not discarded but constrained. Bots are required for lobby fill; the approach is to label them clearly (not with fictional character names) rather than hide or flaunt them. DaddySkins' approach (named fictional characters) is the failure mode to avoid.
+- Bots labeled as bots in live feeds and battles - not discarded but constrained. Bots are required for lobby fill; the approach is to label them clearly (not with fictional character names) rather than hide or flaunt them. The baseline's approach (named fictional characters) is the failure mode to avoid.
 - Missions and goal system in MVP - deferred. Present at skin.club and Key-Drop; high engagement value, but requires content operations (writing and maintaining mission chains). MVP: daily bonus first; missions as Phase 2.
 
 ### What is unknown

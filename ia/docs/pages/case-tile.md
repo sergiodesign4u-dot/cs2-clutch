@@ -83,7 +83,7 @@
 | Source | Tile carries | What we take |
 |---|---|---|
 | Hellcase, Key-Drop | Name, price, image | The shape. **Not the TOP badge**, `0.11` rule 7 |
-| Baseline, daddyskins | Name, image, risk label, price **in coins**, item count, a favourite control with a public count | Name, image, **risk band**, price, favourite. **In coins as well, since `D-28` of 19 August 2026 reversed `C1`.** What does not cross is a coin with no published rate: `0.11` rule 10 puts the peg wherever money is spent |
+| Baseline, the baseline | Name, image, risk label, price **in coins**, item count, a favourite control with a public count | Name, image, **risk band**, price, favourite. **In coins as well, since `D-28` of 19 August 2026 reversed `C1`.** What does not cross is a coin with no published rate: `0.11` rule 10 puts the peg wherever money is spent |
 | **This node** | **Artwork, name, entry cost, risk band, plus the favourite control.** Both markers left on 21 August 2026, `D-60` and `D-61`, section 0.5 | Four things a person reads before deciding, and nothing that reads as a statistic |
 
 **The one thing the first version had that this one drops is the item count**, and it is dropped because the risk band answers the same question better. "Forty items" says how long the table is. **The risk band says what the table is shaped like**, it is computed from the same table, and it is the version of that fact a person can act on. **Since `D-92` the band is an input set when a case is built rather than a figure computed from its table**, `case.md` section 1, so "computed from the same table" reads as the reasoning of `D-24` and not as the method. The count still renders on `3.3`, where the table itself is, so no fact is lost, only an early and weaker rendering of it.

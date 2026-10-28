@@ -44,7 +44,7 @@ The baseline has a live brand: dark violet ground, hot pink accent, a top hat sk
 
 **Date:** 2026-08-05. **Stage:** migration, binding on 03a and 03b.
 
-daddyskins.com is the baseline, the closest established competitor. Its structure carries years of validated behaviour, which is a stronger input than anything a fresh IA exercise could produce.
+The baseline is the reference product, the closest established competitor. Its structure carries years of validated behaviour, which is a stronger input than anything a fresh IA exercise could produce.
 
 **Inherited, deliberately close to identical:** navigation model, page inventory, page composition, flows, the left icon rail, the live drop ticker, the placement of money and account actions.
 
@@ -266,7 +266,7 @@ The To-Be map closed carrying four decisions it had no right to take by itself. 
 
 **Chosen.** Layer 1 is an 18+ self-declaration at registration. Layer 2 is identity verification before funding, which is the sequence that was already locked.
 
-**The founder's answer is taken as an addition, not as a replacement, and the reason is in this repository rather than in anyone's judgement.** `aarrr.md:105` already discarded soft and optional age gating by name, citing the UK Online Safety Act of July 2025 and its requirement of robust identity-based verification. A declaration on its own would put this product below its own cited research and below the compliance constraint in `CLAUDE.md`. It sits above the baseline either way: `research.md:171` records daddyskins.com as having no age verification beyond FAQ text at all.
+**The founder's answer is taken as an addition, not as a replacement, and the reason is in this repository rather than in anyone's judgement.** `aarrr.md:105` already discarded soft and optional age gating by name, citing the UK Online Safety Act of July 2025 and its requirement of robust identity-based verification. A declaration on its own would put this product below its own cited research and below the compliance constraint in `CLAUDE.md`. It sits above the baseline either way: `research.md:171` records the baseline as having no age verification beyond FAQ text at all.
 
 **What the split buys is the one thing `aarrr.md:110` marks unknown,** the conversion cost of identity verification, `[?]`. The cheap declaration meets every visitor at the door, where conversion is most fragile and where a heavy gate would be paid for by people who never reach a deposit. The expensive verification meets the person at the money moment, where they are already committed and where the law actually attaches. B1 to B3 stay intact, verification still resolves before funding, and the withdrawal route still carries no verification branch.
 
@@ -298,11 +298,11 @@ It is placed before stage 04 rather than before 03a because it changes no node a
 
 **Date:** 2026-08-11. **Stage:** 03a input gate. **Decided by:** the founder. **Amends:** D-03 and D-04.
 
-**Chosen.** The structure of daddyskins.com is matched closely, with improvements, which D-04 already said and which this record only confirms. What is new: **the colour register is taken from the baseline rather than derived to sit near it.**
+**Chosen.** The structure of the baseline is matched closely, with improvements, which D-04 already said and which this record only confirms. What is new: **the colour register is taken from the baseline rather than derived to sit near it.**
 
 **What this overturns, stated rather than quietly reinterpreted.** D-03 chose the full "no brand yet" route and explicitly rejected "the brand already exists route with one collected plate and values lifted from the baseline". D-04 listed the palette under "not inherited". `CLAUDE.md` said the register enters stage 06 as an attribute feeding the plates, "adjacent by derivation, not by copy". Those clauses no longer hold as written. The founder sets this product's direction and the call is theirs; what this record refuses to do is leave two files saying opposite things and let stage 06 pick whichever it reads first.
 
-**What is deliberately not decided yet, and why later is better than now.** Whether "take the colours" means the exact values or the register carried by our own values cannot be answered today, because **no file in this repository holds a single colour value from the baseline.** The corpus documents daddyskins at the trust and competitive level: eleven mentions in `research.md`, a benchmark score of 15 out of 40, six screenshots in `research/screens/baseline/`. Not one hex value anywhere. Answering now would be choosing between two descriptions. Answering after the values are extracted is choosing between two things on the table, which is a different quality of decision for the same price.
+**What is deliberately not decided yet, and why later is better than now.** Whether "take the colours" means the exact values or the register carried by our own values cannot be answered today, because **no file in this repository holds a single colour value from the baseline.** The corpus documents the baseline at the trust and competitive level: eleven mentions in `research.md`, a benchmark score of 15 out of 40, six screenshots in `research/screens/baseline/`. Not one hex value anywhere. Answering now would be choosing between two descriptions. Answering after the values are extracted is choosing between two things on the table, which is a different quality of decision for the same price.
 
 **Limits of this record, so that it is not read wider than it is.** The logo stays not inherited. Typography, shape language, motion and component look are not covered here and stay where D-04 put them. The consequence for stage 06 is that its route shifts from three brand plates toward one collected plate plus a named list of what the founder wants changed, and that shift is recorded here rather than discovered by stage 06 as a surprise.
 
@@ -2022,7 +2022,7 @@ Public, pre-login, Playwright at 1440 and 390, 21 August 2026. Five shots in `re
 
 ### The founder's reference, and the one thing in it that is refused with its reason
 
-The capture the founder supplied is **not daddyskins and this session did not open the site it came from**, so its source is `[?]` and nothing in it is a fact about a named competitor. Three ideas in it that the baseline's own panel does not have:
+The capture the founder supplied is **not the baseline and this session did not open the site it came from**, so its source is `[?]` and nothing in it is a fact about a named competitor. Three ideas in it that the baseline's own panel does not have:
 
 | Idea | Verdict |
 |---|---|
@@ -2721,7 +2721,7 @@ Its parent is real: Related Job 3, verify the outcome after I open, by way of ro
 
 No barrier, no job, no compliance constraint. **It exists because the founder said all three would exist, asked directly**, which is a legitimate reason and is not one of the three legal classes, so the cell is printed rather than filled.
 
-**An orphan may not grow.** Every block is either a fact the product already holds or a control that exists elsewhere on the map. **Nothing here may be the first home of a new capability**, because a capability whose only justification is a page with no parent has no parent either. Six refusals follow from that one rule, and the sharpest is the counter: **the baseline runs three of them and every one reads `N/A`. This is the page where a level would be invented.**
+**An orphan may not grow.** Every block is either a fact the product already holds or a control that exists elsewhere on the map. **Nothing here may be the first home of a new capability**, because a capability whose only justification is a page with no parent has no parent either. Six refusals follow from that one rule, and the sharpest is the counter: **The baseline runs three of them and every one reads `N/A`. This is the page where a level would be invented.**
 
 **The baseline's public id is recorded and refused.** `852261` is sequential and a stranger can decrement it, which makes the registered-account count enumerable from outside. **A fact about the baseline, not a pattern to inherit.**
 
@@ -4801,7 +4801,7 @@ The basket, the filters, the settlement table, the total, the count and the butt
 
 **`D-112` asked it and he answered in four words:** the sub-heading goes under the heading.
 
-**The rule that stood there is reversed and its argument is kept.** It read: the baseline runs one line per section, the title with the description beside it and a rule out to the edge, **and stacked it made the page read as a document with subheadings.**
+**The rule that stood there is reversed and its argument is kept.** It read: The baseline runs one line per section, the title with the description beside it and a rule out to the edge, **and stacked it made the page read as a document with subheadings.**
 
 **That argument was about decks that were paragraphs.** `D-112` cut them to naming lines, and **a naming line under its own title is a title with a subtitle rather than a document with subheadings.** The condition that made the old rule right stopped holding on the same day.
 
@@ -5213,7 +5213,7 @@ Node `0.2` section 2 recommended this figure for slot 2 in the first place, and 
 
 **Date:** 2026-09-26 and 27. **Stage:** 04. **Decided by:** the founder, on the merged critique of `wireframes/docs/critique.md` section 13. **Binds:** `ia/docs/pages/numbers.md` section 7, node `0.2`, node `1.0` section 2.5 rule 4, node `0.1` section 4, and every page in `wireframes/` through the shell.
 
-**What the founder said.** The wireframes are far from the original and carry too much information; compare everything with daddyskins.com, audit, keep the deposit as a dialog and improve it. Then, on the four questions the audit owed him: **better to draw the figures**; a sticky pay row, yes; Gift cards and CS2 skins back into the method grid, yes; **make Make me anonymous a real toggle in settings.** The fifth question, whether to collapse three blocks on Home into one row of figures, **he did not understand as asked**, so it is re-asked with a drawing at the Home step rather than answered here.
+**What the founder said.** The wireframes are far from the original and carry too much information; compare everything with the baseline, audit, keep the deposit as a dialog and improve it. Then, on the four questions the audit owed him: **better to draw the figures**; a sticky pay row, yes; Gift cards and CS2 skins back into the method grid, yes; **make Make me anonymous a real toggle in settings.** The fifth question, whether to collapse three blocks on Home into one row of figures, **he did not understand as asked**, so it is re-asked with a drawing at the Home step rather than answered here.
 
 ### What the audit found, in one paragraph
 
@@ -5279,7 +5279,7 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 
 **My items.** The card at rest is the baseline's card, and Share and the signed settlement line arrive with the acts. **The idle bar counts everything held**, as the baseline's does, and on a phone it is one row until the first tick. Four labelled facts under the grid became one line: the as-of, `G5`'s two limits, the peg.
 
-**Send to Steam.** The H1 is the button's own name. **The two numbered steps, the instruction line and Cancel came back**, all three lost with no verdict. Under the total: the baseline's sentence with what is left, the line naming the three limits, then Cancel and Send; the limits themselves are one press away. The Steam listing and the offer badges draw samples by `D-124`, and so do the two published times and every stage ceiling on the clock pages, which read "not available" while Home printed 1 h 40 m.
+**Send to Steam.** The H1 is the button's own name. **The two numbered steps, the instruction line and Cancel came back**, all three lost with no verdict. Under the total: The baseline's sentence with what is left, the line naming the three limits, then Cancel and Send; the limits themselves are one press away. The Steam listing and the offer badges draw samples by `D-124`, and so do the two published times and every stage ceiling on the clock pages, which read "not available" while Home printed 1 h 40 m.
 
 **History.** It opens on its first tab, because Rolls moved first. **Skin deposits are rows of the Deposits ledger** with the method "CS2 skins", which names the baseline tab that had no verdict. The notes under every ledger go, except one line that reconciles a deposit row with a bank.
 
@@ -5531,7 +5531,7 @@ A failed check read "We do not serve this market yet". It reads "We could not ch
 
 ### What the critique gave
 
-**Three rounds on two instruments.** Round 9's rules against the grey contract. **Round 13 against daddyskins.com**: 170 915 words on screen to 106 269 and 1 455 absence strings to 373, the baseline's order back on every surface. **Round 14 against every control pressed**: about forty-five controls that did nothing now act or refuse, the proof chain and the account read one record each, and seven crypto routes stop showing Bitcoin's address.
+**Three rounds on two instruments.** Round 9's rules against the grey contract. **Round 13 against the baseline**: 170 915 words on screen to 106 269 and 1 455 absence strings to 373, the baseline's order back on every surface. **Round 14 against every control pressed**: about forty-five controls that did nothing now act or refuse, the proof chain and the account read one record each, and seven crypto routes stop showing Bitcoin's address.
 
 ### The contract, row by row
 
@@ -5996,9 +5996,9 @@ Stage 04 closed on 29 September 2026 and was reopened by the founder for repeate
 
 The Codex model choice stays in memory: it is a tool preference, not a rule of this artefact. Nothing was deleted from `CLAUDE.md` beyond the three wrong counts, because every other rule there was read against rounds 15 to 17 and still holds.
 
-## D-166. The voice is daddyskins.com's voice, and copy leaves the "not inherited" list
+## D-166. The voice is the baseline's voice, and copy leaves the "not inherited" list
 
-**Date:** 2026-10-05. **Stage:** 05, step 2, before any principle was written. **Decided by:** the founder, in their words: "голос у нас должен бути как на daddyskins.com, єто основа и наш фундамент" (our voice must be like daddyskins.com; it is the base and our foundation). **Amends:** the Baseline section of `CLAUDE.md`, whose "Not inherited" list names copy. **Binds:** stage 05 throughout, `voice/docs/voice.md` when it is written, `research/docs/baseline.md` section 11.
+**Date:** 2026-10-05. **Stage:** 05, step 2, before any principle was written. **Decided by:** the founder, in their words: "голос у нас должен бути как на the baseline, єто основа и наш фундамент" (our voice must be like the baseline; it is the base and our foundation). **Amends:** the Baseline section of `CLAUDE.md`, whose "Not inherited" list names copy. **Binds:** stage 05 throughout, `voice/docs/voice.md` when it is written, `research/docs/baseline.md` section 11.
 
 **Chosen.** The baseline's voice is the foundation of ours. Stage 05 stops deriving a voice from personas and competitors alone and starts from the baseline's voice, the route the stage 05 pack calls the fourth source: an existing brand position, matched against what the data says.
 
@@ -6202,7 +6202,7 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **Date:** 2026-10-19. **Stage:** 06, before its input gate. **Decided by:** the founder, paraphrased: take the baseline and make it stronger visually, keep its fonts, colours, structure and shapes, and bring them to consistency. **Amends:** the Baseline section of `CLAUDE.md`, whose "Not inherited" list names typography, shape language and component look; `D-04`; the limits clause of `D-18`; `README.md`. **Binds:** stage 06 throughout, its route above all; stages 07 and 08, which read the values it collects.
 
-**Chosen.** Typography, shape language and component look join structure, IA, colour and voice as inherited. Inherited means the starting point, not the finish: the baseline's own fonts, colours, shapes and components are collected first, then brought into one system and finished better. The visual half's job, as the founder put it: the baseline, made consistent and stronger.
+**Chosen.** Typography, shape language and component look join structure, IA, colour and voice as inherited. Inherited means the starting point, not the finish: The baseline's own fonts, colours, shapes and components are collected first, then brought into one system and finished better. The visual half's job, as the founder put it: The baseline, made consistent and stronger.
 
 **What "consistent" means, so that it can be checked rather than felt.** One value per job across the product. The founder's example: half the live site has square corners and half rounded ones. Where the baseline holds two answers to one question, stage 06 records both with where each was read, and the founder picks one; the loser is named, not dropped. A new value enters only where the baseline has none, and is marked as ours.
 
@@ -6227,10 +6227,10 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **What was decided.**
 1. **The contrast screen is `3.3`, the case screen.** The pack asks for another density and `screens.md` names none. `3.3` carries the same skin card and case tile as Home, packed into the drop table, so it tests whether one card reads as one product at two densities. Rejected: My items, a grid with no second density; `3.6`, the outcome, whose job is the reveal and belongs to stage 11 as much as to this one.
-2. **A step 0 before step 1: the baseline's visual language collected live.** Computed styles from public pre-login pages of daddyskins.com, the founder's dated captures for the signed-in surfaces, written into `baseline.md` with where each value was read, plus an inventory of where the baseline contradicts itself. Without it the origin `наявний бренд` has nothing to point at.
+2. **A step 0 before step 1: The baseline's visual language collected live.** Computed styles from public pre-login pages of the baseline, the founder's dated captures for the signed-in surfaces, written into `baseline.md` with where each value was read, plus an inventory of where the baseline contradicts itself. Without it the origin `наявний бренд` has nothing to point at.
 3. **References split by job.** skin.club/en and skin.fans/battles are **the level to aim at, not the finish and not the look**: the visual stays ours, which since `D-181` means the baseline made consistent. They are walked live with Playwright. The out-of-category benchmark of `research.md`, the reveal moment, stays the source for the reveal, through Refero.
 4. **Shape goes rounded, on a three step ladder, small, medium and large.** The founder's direction, set against the baseline's Home, which is square almost throughout. Values come from the baseline where it already rounds, and a step the baseline has no value for is marked as ours. The pack's step 4, three layout directions differing by composition, has no subject on a product whose composition is inherited; its three directions become three ways of resolving the baseline's contradictions, chosen after step 0 shows what they are.
-5. **Roboto only.** Origin `наявний бренд`. The pack's two Google Fonts candidates per role are not drawn: the baseline has one family and no display face, and none is added. The reveal and the figures are carried by colour, weight and motion.
+5. **Roboto only.** Origin `наявний бренд`. The pack's two Google Fonts candidates per role are not drawn: The baseline has one family and no display face, and none is added. The reveal and the figures are carried by colour, weight and motion.
 
 **The cost.** No display face means principle 4, dark and electric, and the reveal lean on colour, finish and stage 11. The two aspiration references are in-category, so the course rule, a reference is an input, is held by taking a technique and never a screen, and every fact about them comes from a page opened in this stage.
 
@@ -6367,7 +6367,7 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **What was decided.**
 
-1. **The coloured copies take the baseline's visual layer as it is,** read from its computed styles on a public page, `daddyskins.com/en`, at 1440 and 390 on 20 October 2026: square surfaces, the pink pill filled where the baseline fills and ghost where it outlines, heads in uppercase 20px weight 900 with a blue 24px icon and a blue 1px rule, cases floating with no plate, names in uppercase 14px, prices gold 20px, the ticker 120px on its own plate with a pink line under it, the banner from edge to edge at 340px with the countdown on a dark plate, mode cards 160px with their art at the right, the Daily cases panel on art with five cases on a track, the footer counters pink 30px. 23 values, each in `DESIGN-artifacts.md` section 10 with the class it was read from.
+1. **The coloured copies take the baseline's visual layer as it is,** read from its computed styles on a public page, `the baseline site`, at 1440 and 390 on 20 October 2026: square surfaces, the pink pill filled where the baseline fills and ghost where it outlines, heads in uppercase 20px weight 900 with a blue 24px icon and a blue 1px rule, cases floating with no plate, names in uppercase 14px, prices gold 20px, the ticker 120px on its own plate with a pink line under it, the banner from edge to edge at 340px with the countdown on a dark plate, mode cards 160px with their art at the right, the Daily cases panel on art with five cases on a track, the footer counters pink 30px. 23 values, each in `DESIGN-artifacts.md` section 10 with the class it was read from.
 2. **Ours stays ours:** the logo, every word, the art, the pink `#FB3F8A` of `D-185`, and the high-risk mark in rarity step 3, because the baseline's `#7E2DC8` is 2.89:1.
 3. **The art is ours, generated by Codex** on `gpt-5.6-terra`, every image generation from now on going through Codex: the Coldfront banner, four mode cards, the Daily cases panel and five tier cases, eleven images, no text, no skin, no real likeness.
 4. **The baseline's own art stays local.** It carries its brand, its coin's name, its case names and characters. A reference build with it in our slots was used to tune this layer one to one, served from outside the repo, never pushed.
@@ -6379,7 +6379,7 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost.** The type scale of `D-187` and the radius ladder of `D-186` are not on the Home any more; the stand keeps them. The baseline's small sizes return with it, 11 and 12px, under the 13px floor `D-191` set.
 
-## D-193. Stage 06 step 6: the baseline's look, second pass, icons and art at its level
+## D-193. Stage 06 step 6: The baseline's look, second pass, icons and art at its level
 
 **Date:** 2026-10-20. **Stage:** 06, step 6. **Decided by:** the founder, on the D-192 Home seen locally: "пока что чуть лучше но ми очень далеко от крутого вида, давай /goal сделать как на деддискинс /loop делай пока цель не будет віполнена", with ten screenshots of the baseline and "и иконки тоже как би сейчас на нашем варианте не очень". **Binds:** `design/_theme.css` part 3 and its `:root`, `design/concept/assets/home/`, `DESIGN-artifacts.md` section 10. **Builds on:** `D-192`, nothing in it withdrawn.
 
@@ -6401,11 +6401,11 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost.** On the case grid the risk is read from three marks, not from a word, the same trade the baseline makes. A drop on a cover says the case can pay it; the pairing is the feed's, a sample by `D-124` like the feed itself.
 
-## D-194. Stage 06 step 6: the baseline walked element by element, the Home rebuilt to its detail
+## D-194. Stage 06 step 6: The baseline walked element by element, the Home rebuilt to its detail
 
 **Date:** 2026-10-20. **Stage:** 06, step 6. **Decided by:** the founder, on the D-193 Home: "посмтри очень детально все елементи на сайте деддискинс и сделай так же, иконки у нас плохие, лайф фид плохой, подложка под скині плоая, кейсі отвратительние, баннер скучний и статичний а у них динамичний"; on the mode cards, "не хватает деталей, полосочек допонительних"; on the cases, "возьми пару их кейсов и сделай просто вариации сверху скин - скині реальние возьми реальние"; and "делай пока не сделаешь красиво и круто современно". **Binds:** `design/_theme.css` part 3 and its `:root`, `design/_design.js`, `design/concept/assets/home/`, `design/concept/assets/skins/`, `/_nav.js` and `/_nav.css`, `DESIGN-artifacts.md` section 10. **Builds on:** `D-192` and `D-193`.
 
-**How it was read.** A deep walk of `daddyskins.com/en`, a public pre-login page, on 20 October 2026 at 1440: every element of the rail, the header, the ticker, the banner, a mode card, a case card, the Daily panel, the counters and the footer, with its computed style, its `::before` and `::after`, the SVG of the ticker hexagon, the hover state of a case card, and the banner filmed over six seconds. The baseline's files stay local.
+**How it was read.** A deep walk of `the baseline site`, a public pre-login page, on 20 October 2026 at 1440: every element of the rail, the header, the ticker, the banner, a mode card, a case card, the Daily panel, the counters and the footer, with its computed style, its `::before` and `::after`, the SVG of the ticker hexagon, the hover state of a case card, and the banner filmed over six seconds. The baseline's files stay local.
 
 **What was decided.**
 

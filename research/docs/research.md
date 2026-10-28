@@ -1,7 +1,7 @@
 # Master Research: CS2 Skin Platform
 
 **Single source of truth. Version: v_refresh (Strategy migration, competitor and AARRR updates applied).**
-**Date:** June 2026. Baseline: daddyskins.com. Placeholder name: CS2 Clutch.
+**Date:** June 2026. Baseline: the reference product. Placeholder name: CS2 Clutch.
 
 Every factual claim in this document cites its source. Unknowns are marked [?]. No assertion is made that this product is "not gambling" -- that is a jurisdiction-specific legal question addressed in Section 7.
 
@@ -17,7 +17,7 @@ This document is the synthesis of seven phases of structured product research in
 
 The market for CS2 skin case-opening platforms is mature but poorly differentiated on the dimensions that matter most. Every major platform offers case opening, case battles, and upgrades. None has solved the category's core trust deficit: no mystery box operator in the category names a public third-party RNG auditor (betterchecked.com 2026 audit, https://www.betterchecked.com/the-state-of-provably-fair-in-2026-who-actually-proves-it-who-just-talks-about-it), none has implemented robust age verification beyond self-declaration (DCMS review Oct 2025, https://cms.law/en/gbr/legal-updates/inside-the-skins-gambling-surge-dcms-review-exposes-risks-and-regulatory-gaps-in-skins-gambling), and every major platform's live feeds contain visible bot activity.
 
-The baseline (daddyskins.com) scored 15 out of 40 on the trust and fairness benchmark, the lowest in the competitive set. Its most critical gap -- a login-gated provably fair page that redirects to login rather than showing the mechanism -- is the highest-leverage single gap for the new product to close. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
+The baseline (the baseline) scored 15 out of 40 on the trust and fairness benchmark, the lowest in the competitive set. Its most critical gap -- a login-gated provably fair page that redirects to login rather than showing the mechanism -- is the highest-leverage single gap for the new product to close. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
 
 The product hypothesis: a platform that builds genuine trust infrastructure (third-party RNG audit, real age verification, public provably fair page, bot-free live feeds) can differentiate on the dimension competitors have structurally failed to address, while matching or exceeding the category standard on core loop quality (animation, battles, upgrades).
 
@@ -45,7 +45,7 @@ Phases 0-7 of this sprint:
 
 4. The Collector segment does not drive platform design at scale. No platform in the studied set leads with odds tables or EV calculators; all lead with win animations and big-drop social proof. Source: direct observation of six landing pages, June 2026, screenshots in research/screens/. Collector needs are served by table-stakes transparency features, not by dedicated feature investment. Note the boundary: this argues against a dedicated Collector feature track, not against odds transparency, which stays in the top three MVP mechanisms as table stakes (benchmark.md, Mechanism 2).
 
-5. The reveal animation quality is the most direct competitive surface available to the new product. The category uses the linear reveal universally, but execution quality varies enormously. DaddySkins' current implementation is flat. Key-Drop's rarity-tiered animations and Clash.gg's Champion mode mechanics show the quality bar. This is where the new product can win without inventing a new mechanic.
+5. The reveal animation quality is the most direct competitive surface available to the new product. The category uses the linear reveal universally, but execution quality varies enormously. The baseline's current implementation is flat. Key-Drop's rarity-tiered animations and Clash.gg's Champion mode mechanics show the quality bar. This is where the new product can win without inventing a new mechanic.
 
 ---
 
@@ -148,11 +148,11 @@ The first case open is the singular activation event. Everything in the AARRR mo
 
 2. **The pre-login wall cuts conversion.** Most competitors lock odds, upgrade interfaces, battle lobbies, and withdrawal flows behind Steam login. Clash.gg is the outlier: payment options, game descriptions, free case CTAs, RTP values, and active battle previews all visible pre-login. It is also described as the fastest-growing platform in independent reviews, but [?] the causal link is unverified: no competitor publishes funnel data, so pre-login openness and growth are observed together in one case and nothing more (competitors.md, Findings).
 
-3. **Bot activity is normalized and visible, which erodes authenticity.** DatDrop's Battle Royale fills with bots. DaddySkins' homepage shows "[BOT] Darth Vader" and "[BOT] HAL 9000" in the live wins ticker. CSGORoll shows bot-filled battle slots. Platforms need bots to fill lobbies, but visible bot activity undermines the social proof the live feeds are supposed to generate. No competitor has solved this cleanly.
+3. **Bot activity is normalized and visible, which erodes authenticity.** DatDrop's Battle Royale fills with bots. The baseline's homepage shows "[BOT] Darth Vader" and "[BOT] HAL 9000" in the live wins ticker. CSGORoll shows bot-filled battle slots. Platforms need bots to fill lobbies, but visible bot activity undermines the social proof the live feeds are supposed to generate. No competitor has solved this cleanly.
 
 ### 3 Key Differences
 
-1. **Withdrawal architecture separates casual from serious users.** skin.club and DaddySkins are skins-to-Steam only. Hellcase offers indirect fiat via ShadowPay (3-5 days, 4-7% fees). Clash.gg and CSGORoll offer crypto withdrawal. The architecture determines who can use the platform.
+1. **Withdrawal architecture separates casual from serious users.** skin.club and the baseline are skins-to-Steam only. Hellcase offers indirect fiat via ShadowPay (3-5 days, 4-7% fees). Clash.gg and CSGORoll offer crypto withdrawal. The architecture determines who can use the platform.
 
 2. **Licensing creates a trust and geo stability divide.** Key-Drop and CSGORoll hold Curaçao licenses. Clash.gg, skin.club, and Hellcase use Cyprus registration or sweepstakes framing. The KSA fined Clash.gg EUR 280,000/week for operating without a license in November 2025. Licensed platforms have more stable geo-coverage under regulatory scrutiny. Source: https://tribuna.com/en/casino/news/2025-11-13-ksa-forces-unlicensed-skinbased-gambling-sites-to-block-dutch-players/
 
@@ -166,9 +166,9 @@ The first case open is the singular activation event. Everything in the AARRR mo
 
 **Gap 3: Currency abstraction obscures real-money stakes.** All platforms use internal currencies with no visible exchange rate to real money pre-login. A platform with transparent real-money pricing or a visible conversion rate pre-login would be meaningfully different.
 
-### DaddySkins Baseline Summary
+### Baseline Summary
 
-DaddySkins scored 15/40 on the trust and fairness benchmark, the lowest in the competitive set. Its highest-leverage fix: make the Provably Fair page public (it is already built, it just redirects to login). Secondary gaps: no third-party trust signals anywhere (no Trustpilot, no gambling license, no audit badge), bot visibility is the worst in category (fictional character bot names visible to first visitors), no withdrawal speed or fee information pre-login, no age verification beyond FAQ text, complete currency abstraction with no fiat conversion visible. Source: daddyskins.com direct research, June 2026.
+The baseline scored 15/40 on the trust and fairness benchmark, the lowest in the competitive set. Its highest-leverage fix: make the Provably Fair page public (it is already built, it just redirects to login). Secondary gaps: no third-party trust signals anywhere (no Trustpilot, no gambling license, no audit badge), bot visibility is the worst in category (fictional character bot names visible to first visitors), no withdrawal speed or fee information pre-login, no age verification beyond FAQ text, complete currency abstraction with no fiat conversion visible. Source: The baseline direct research, June 2026.
 
 ---
 
@@ -210,7 +210,7 @@ Retained scoring. Not a benchmark in the course's sense: it scores direct compet
 | skin.club | 4 | 5 | 5 | 3 | 3 | 2 | 4 | 4 | 30 |
 | Clash.gg | 4 | 4 | 3 | 3 | 4 | 3 | 4 | 4 | 29 |
 | Key-Drop | 3 | 3 | 2 | 3 | 2 | 3 | 3 | 4 | 23 |
-| daddyskins.com | 1 | 3 | 2 | 1 | 1 | 1 | 3 | 3 | 15 |
+| The baseline | 1 | 3 | 2 | 1 | 1 | 1 | 3 | 3 | 15 |
 
 MVP target: 25/40 at launch minimum. CSGORoll's provably fair documentation (score 5) and skin.club's public roll history (score 5) set the standard for each criterion.
 
@@ -258,7 +258,7 @@ This is a layered architecture, not a compromise. Pattern A handles the Thrill S
 
 1. JTBD alignment with the entry point. The Opener behavioral pattern (the critical activation event) requires a high-quality reveal animation. The linear reveal maps directly to the core job: ritual of opening, anticipation of the spin, resolution of the outcome. No learning curve. Users from any competitor can begin immediately.
 
-2. Competitor gap in animation quality. The category uses Pattern A universally, but execution quality varies enormously. DaddySkins' current implementation is flat -- no rarity-tiered animation variation. Key-Drop's sparks and fire effects (specifically cited as a differentiator in user reviews), and Clash.gg's Champion mode animations, show the quality bar. The linear reveal is right; execution is where the win is available.
+2. Competitor gap in animation quality. The category uses Pattern A universally, but execution quality varies enormously. The baseline's current implementation is flat -- no rarity-tiered animation variation. Key-Drop's sparks and fire effects (specifically cited as a differentiator in user reviews), and Clash.gg's Champion mode animations, show the quality bar. The linear reveal is right; execution is where the win is available.
 
 3. Trust architecture compatibility. Pattern A is most compatible with the provably fair model. The pre-round hash can be surfaced at spin trigger as a UI element -- a design approach pioneered by Clash.gg Champion mode, worth extending to solo opening. The animation is honest theatre over a pre-committed result, and this framing is coherent with the fairness message.
 
@@ -379,7 +379,7 @@ The legal test in every jurisdiction is functional, not nominal. The UKGC: "wher
 
 | Gap | Priority | Source |
 |-----|----------|--------|
-| Provably fair page is login-gated (daddyskins.com specific) | Critical | Direct research: daddyskins.com/en/provably-fair redirects to login, June 2026 |
+| Provably fair page is login-gated (the baseline specific) | Critical | Direct research: The baseline site/provably-fair redirects to login, June 2026 |
 | No third-party RNG auditor named by any operator | Critical / Opportunity | betterchecked.com 2026 audit (https://www.betterchecked.com/the-state-of-provably-fair-in-2026-who-actually-proves-it-who-just-talks-about-it) |
 | No robust age verification in category | Critical (regulatory) | DCMS review Oct 2025 (https://cms.law/en/gbr/legal-updates/inside-the-skins-gambling-surge-dcms-review-exposes-risks-and-regulatory-gaps-in-skins-gambling) |
 | Bot activity visible in live feeds category-wide | High | Competitive research June 2026: DadySkins "[BOT] Darth Vader," DatDrop, CSGORoll |
@@ -397,7 +397,7 @@ The legal test in every jurisdiction is functional, not nominal. The UKGC: "wher
 **Hypothesis 1**
 If: we make the Provably Fair page public and add a working verifier with no login required
 Then: trust benchmark score improves from 1/5 to 4/5 on the fairness criterion, and anonymous visitor dwell time on the site increases
-Because: the KSA enforcement against Clash.gg and DCMS review data both confirm that trust is the primary unsatisfied need category-wide, and the fix for daddyskins.com costs a single configuration change rather than a new feature
+Because: the KSA enforcement against Clash.gg and DCMS review data both confirm that trust is the primary unsatisfied need category-wide, and the fix for the baseline costs a single configuration change rather than a new feature
 
 **Hypothesis 2**
 If: we publish per-case odds tables (probability per item, expected value per case) visible before login
@@ -520,18 +520,18 @@ Appended by stage 03a step 8. Nothing above this line was edited. These are gaps
 
 Appended by stage 05 step 2, 5 October 2026. Nothing above this line was edited. **What it is for:** where every site in the category writes the same thing, a difference has to come from the voice, the stage 05 pack's second source for principles. Since `D-166` the voice's foundation is the baseline's own, `baseline.md` section 11, so this is a short pass rather than a corpus.
 
-**Method.** Public landing pages opened live in a browser on 5 October 2026, pre-login, nothing logged into: Hellcase, Key-Drop, skin.club, DatDrop and Clash.gg, plus daddyskins.com from `baseline.md` section 11. CSGORoll answered "Your activity has been flagged as suspicious" and is `[?]`. Every visible string of two words or more was read, page titles and descriptions included. Screenshots `research/screens/voice_<site>_1440_5oct.png`.
+**Method.** Public landing pages opened live in a browser on 5 October 2026, pre-login, nothing logged into: Hellcase, Key-Drop, skin.club, DatDrop and Clash.gg, plus the baseline from `baseline.md` section 11. CSGORoll answered "Your activity has been flagged as suspicious" and is `[?]`. Every visible string of two words or more was read, page titles and descriptions included. Screenshots `research/screens/voice_<site>_1440_5oct.png`.
 
 **What all six write, in their own words.**
 
 | Pattern | On how many of the six | Verbatim |
 |---|---|---|
-| **A superlative with no number behind it** | 6 of 6 | "the best case opening site on the web" (Key-Drop), "a leader among CS2 case opening sites" (Hellcase), "the go-to destination for CS2 enthusiasts" (DatDrop), "Best CSGO Skin Gaming Sites" (Clash.gg), "The most trusted CS2 (CSGO) case opening site" (daddyskins) |
-| **Trust claimed rather than shown** | 6 of 6 | "Join thousands of players who trust Hellcase", "a trusted and well-established platform" (DatDrop), "Trust the choices of other players" (skin.club, daddyskins) |
+| **A superlative with no number behind it** | 6 of 6 | "the best case opening site on the web" (Key-Drop), "a leader among CS2 case opening sites" (Hellcase), "the go-to destination for CS2 enthusiasts" (DatDrop), "Best CSGO Skin Gaming Sites" (Clash.gg), "The most trusted CS2 (CSGO) case opening site" (the baseline) |
+| **Trust claimed rather than shown** | 6 of 6 | "Join thousands of players who trust Hellcase", "a trusted and well-established platform" (DatDrop), "Trust the choices of other players" (skin.club, the baseline) |
 | **Provably fair as a badge word** | 6 of 6 | "a provably fair system that ensures transparency" (Hellcase), "every outcome on DatDrop is fully verifiable and tamper-proof", "Provably fair technology" (skin.club) |
-| **Winning promised** | 5 of 6 | "Win the Best CS2 Skins!" (Key-Drop), "win epic skins" (skin.club), "Win real skins" (DatDrop), "win rare skins" (Clash.gg), "win amazing prizes" (daddyskins) |
+| **Winning promised** | 5 of 6 | "Win the Best CS2 Skins!" (Key-Drop), "win epic skins" (skin.club), "Win real skins" (DatDrop), "win rare skins" (Clash.gg), "win amazing prizes" (the baseline) |
 | **Excitement as a product feature** | 4 of 6 | "nonstop excitement", "the thrill of CS2 (CS:GO) case opening" (Hellcase), "a secure and thrilling way to open CS2 cases" (DatDrop), "instant excitement" |
-| **Free as the hook** | 6 of 6 | "Claim Free 3 Cases" (Clash.gg), "Get free cases daily" (Key-Drop), "Claim your 3 Free cases" (daddyskins) |
+| **Free as the hook** | 6 of 6 | "Claim Free 3 Cases" (Clash.gg), "Get free cases daily" (Key-Drop), "Claim your 3 Free cases" (the baseline) |
 | **Exclamation marks** | 5 of 6 | DatDrop is the one that uses none on its landing |
 
 **The two that break the pattern, and they are the useful ones.**

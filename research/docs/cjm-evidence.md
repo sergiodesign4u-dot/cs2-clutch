@@ -124,7 +124,7 @@ Age gate as a rendered screen on arrival: **no quote found anywhere.** `[?]`
 
 Money-taken-nothing-credited subset: rows 1 to 4. **Four reviewers, three platforms.**
 
-**First-party policy, operator statements about their own product, not user voice.** DaddySkins: minimum deposit "typically around $5"; "credit cards, cryptocurrency, and skin deposits"; "over 150 cryptocurrencies"; "DaddySkins does not charge fees for deposits"; "Most deposits are processed instantly or within a few minutes" (support.daddyskins.com, 2024-11-13). CSGORoll: "Roll Coins are used for playing games and withdrawing CS2 skins, while Roll Chips are used for cryptocurrency redemptions" (intercom.help/csgoroll, 2026-02-17).
+**First-party policy, operator statements about their own product, not user voice.** the baseline: minimum deposit "typically around $5"; "credit cards, cryptocurrency, and skin deposits"; "over 150 cryptocurrencies"; "the baseline does not charge fees for deposits"; "Most deposits are processed instantly or within a few minutes" (support.the baseline, 2024-11-13). CSGORoll: "Roll Coins are used for playing games and withdrawing CS2 skins, while Roll Chips are used for cryptocurrency redemptions" (intercom.help/csgoroll, 2026-02-17).
 
 ---
 
@@ -167,7 +167,7 @@ Distinct threads: **6** (Steam 135512625249236651, Steam 135507780429576521, Ste
 | 4 | "on mobile it's harder for person to orientate and style should be more minimalistic" | hellcase web | 5 | 2026-04-20 | trustpilot.com/review/hellcase.com?search=mobile |
 | 5 | "I love the fact that it's well optimezed on mobile devices" | hellcase web | 5 | 2025-03-04 | same |
 
-**Store facts, via the AppBrain mirror because play.google.com returns a JS shell to fetch.** Google Play listings that exist: Hellcase, "CS2 Case Simulator - Hellcase", org.hellcase, 100,000+ installs, rating 3.48; Skin.Club, com.dev.skin.club, 500,000+ installs, rating 3.55; GGDROP, store.ggdrop.app, 1,000,000+ installs, listing title in Russian, "GGDROP - топ инвентарь в CS2!". No Google Play listing found for key-drop, csgoroll, datdrop, clash.gg or daddyskins.
+**Store facts, via the AppBrain mirror because play.google.com returns a JS shell to fetch.** Google Play listings that exist: Hellcase, "CS2 Case Simulator - Hellcase", org.hellcase, 100,000+ installs, rating 3.48; Skin.Club, com.dev.skin.club, 500,000+ installs, rating 3.55; GGDROP, store.ggdrop.app, 1,000,000+ installs, listing title in Russian, "GGDROP - топ инвентарь в CS2!". No Google Play listing found for key-drop, csgoroll, datdrop, clash.gg or the baseline.
 
 **The iOS claim is downgraded.** The mining pass reported no real-money app on the Apple App Store for any of the seven, only play-money simulators. The App Store was not opened in a browser during this pass, so this is `[?]`, not a fact.
 
@@ -203,10 +203,10 @@ Distinct threads: **6** (Steam 135512625249236651, Steam 135507780429576521, Ste
 
 | # | Quote | Number | Platform | Date | Source |
 |---|---|---|---|---|---|
-| 1 | "its been 30hours for a withdraw. support doesnt answer. i dont recommend" | 30 hours | daddyskins | 2026-04-10 | trustpilot.com/review/daddyskins.com |
-| 2 | "It took 7 days and a ton of complaining to get my withdraw." | 7 days | daddyskins | 2023-11-09 | trustpilot.com/review/daddyskins.com?search=withdraw |
-| 3 | "I have $300 waiting to be withdrawn, and your support has had me waiting for 2 whole days now going on 3." | 2 to 3 days | daddyskins | 2023-12-04 | same |
-| 4 | "you have to wait 9 days from your last deposit to be able to withdraw" | 9 days | daddyskins | 2026-02-17 | trustpilot.com/review/daddyskins.com |
+| 1 | "its been 30hours for a withdraw. support doesnt answer. i dont recommend" | 30 hours | The baseline | 2026-04-10 | trustpilot.com/review/the baseline |
+| 2 | "It took 7 days and a ton of complaining to get my withdraw." | 7 days | The baseline | 2023-11-09 | trustpilot.com/review/the baseline?search=withdraw |
+| 3 | "I have $300 waiting to be withdrawn, and your support has had me waiting for 2 whole days now going on 3." | 2 to 3 days | The baseline | 2023-12-04 | same |
+| 4 | "you have to wait 9 days from your last deposit to be able to withdraw" | 9 days | The baseline | 2026-02-17 | trustpilot.com/review/the baseline |
 | 5 | "spent 16 hours attempting to complete the trade" | 16 hours | hellcase | 2026-07-17 | trustpilot.com/review/hellcase.com?page=3 |
 | 6 | "ignored it for almost 3 weeks" | 3 weeks | csgoroll | 2026-05-16 | trustpilot.com/review/csgoroll.com?page=2 |
 

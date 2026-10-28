@@ -178,7 +178,7 @@ Founder, with the live strip beside ours: **"давай в футере сдел
 
 The first version of this node was built against `baseline.md`, which recorded the baseline footer as **"thirteen links"** and nothing else. The founder supplied a screenshot of the real thing, and it is four bands: a statistics strip, a four column footer whose first column is brand plus a support button plus the legal identification line, a bottom row with payment marks, and a floating support control beside it.
 
-**So the footer was re-walked live** on 11 August 2026, `https://daddyskins.com/en`, public and pre-login, proof at `research/screens/baseline/walk_footer_1440.png`. `baseline.md` now carries the full record with the correction visible rather than smoothed.
+**So the footer was re-walked live** on 11 August 2026, `https://the baseline site`, public and pre-login, proof at `research/screens/baseline/walk_footer_1440.png`. `baseline.md` now carries the full record with the correction visible rather than smoothed.
 
 **The lesson is about the input, not the footer.** A list of thirteen links read as a complete footer record for three steps, and it was a list of one band out of four. The link inventory was correct and the structural record was absent, which is the hardest kind of gap to notice: nothing in it was wrong.
 
@@ -430,6 +430,6 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 | Whether a support form satisfies Article 5(c) | The Article asks for an email address by name. The baseline prints none | Counsel |
 | The interlinking block contents | ~~The catalogue's category structure~~ **Filled by `D-124` from `3.1`'s sections, `D-65`**; query volumes may reorder or extend it | ~~Node `3.1`, then~~ production for the queries |
 | Payment and provider marks | Which providers we run is a contract | Founder |
-| The canonical social set | Seven icons on the baseline; which are ours in round 1 is not decided | ~~Founder, before stage 04~~ ~~**Founder, at stage 06, `D-150`: six reserved slots stay until then**~~ **Answered by the founder on 22 October 2026, `D-198`: the baseline's seven, Facebook, X, YouTube, Instagram, TikTok, Telegram, Discord, in its order. Seven slots, drawn with their marks in the rail on the coloured Home; not links until the accounts exist** |
+| The canonical social set | Seven icons on the baseline; which are ours in round 1 is not decided | ~~Founder, before stage 04~~ ~~**Founder, at stage 06, `D-150`: six reserved slots stay until then**~~ **Answered by the founder on 22 October 2026, `D-198`: The baseline's seven, Facebook, X, YouTube, Instagram, TikTok, Telegram, Discord, in its order. Seven slots, drawn with their marks in the rail on the coloured Home; not links until the accounts exist** |
 
 **And what belongs elsewhere.** The text of any legal document: `0.9` specifies the page shape, counsel drafts the documents. Visual treatment: monochrome wireframes only, and column widths, type scale and the treatment of the statistics strip are stage 06 and 07. Microcopy: labels here are structural, stage 05 owns the final strings and syncs them back.

@@ -101,7 +101,7 @@ Five core patterns derived from the three motivation segments (Thrill Seeker, Co
 
 **Triggered by:** Live social proof - real drops happening in real time, visible without login.
 
-**Breaks when:** The live feed contains obvious bots (DaddySkins' "[BOT] Darth Vader" pattern), the platform looks visually static, or the page load is slow enough to break the "live" illusion.
+**Breaks when:** The live feed contains obvious bots (the baseline's "[BOT] Darth Vader" pattern), the platform looks visually static, or the page load is slow enough to break the "live" illusion.
 
 **Why this pattern matters for design:** The Spectator is the unconverted Opener. The live feed is not decoration - it is the activation mechanic for this entire pattern. If the live feed feels fake or is populated by bots, this pattern never converts to Pattern 1.
 
@@ -120,7 +120,7 @@ The user selects a case, confirms the cost, and triggers a linear animation - ty
 - Hellcase uses a spinning wheel variant of this pattern - a circular reel rather than horizontal strip. Same mechanical logic, different visual metaphor.
 - Key-Drop uses sparks and fire animations layered over the linear strip as rarity punctuation - a quality-of-life enhancement on the base pattern.
 - skin.club uses the horizontal strip with numerical odds shown per item during the spin (the item's probability is visible on each card in the strip as it passes), which merges the reveal with the fairness data.
-- DaddySkins (current baseline) uses the horizontal strip but with no rarity-tiered animation variation - a flat reveal regardless of drop value.
+- The baseline (current baseline) uses the horizontal strip but with no rarity-tiered animation variation - a flat reveal regardless of drop value.
 
 **JTBD this fits:** Thrill Seeker wanting a clean, fast, repeatable reveal ritual. The animation is the product. Collector tolerates it because the odds table is visible on the case page. Grinder uses it at speed - they want to open fast and move on.
 
@@ -186,7 +186,7 @@ Advanced variant (Clash.gg Champion mode): HP is derived from item value. Player
 - When the platform wants shareable moments - a clutch battle win with a narrow margin is the most clip-worthy outcome in the category.
 
 **When it breaks:**
-- When lobby fill uses bots without labeling them - the social tension collapses. A battle against a bot is solo opening with extra steps. DatDrop's majority-vote-to-add-bots mechanic, and DaddySkins' openly named "[BOT] Darth Vader" entries, illustrate the trust cost of this tradeoff.
+- When lobby fill uses bots without labeling them - the social tension collapses. A battle against a bot is solo opening with extra steps. DatDrop's majority-vote-to-add-bots mechanic, and the baseline's openly named "[BOT] Darth Vader" entries, illustrate the trust cost of this tradeoff.
 - When lobby fill time exceeds [?] roughly 90 seconds - users abandon. The threshold is an estimate with no measured source; only Clash.gg's 30-second average is sourced. This is a chicken-and-egg problem: battles need players to be fun, but new platforms do not have enough players to fill quickly. Clash.gg's 30-second average matchmaking is the benchmark worth targeting.
 - When the split-screen layout is cluttered or the opponent's result is revealed before the user's own - information asymmetry in a PvP context destroys the fairness feel.
 - Not appropriate as the primary entry experience for new users - they have not yet established a baseline of solo opening to compare against.
@@ -245,7 +245,7 @@ Form 2 - Community-Created Cases (skin.club model): Any user can build a case, s
 - High-engagement user profiles who want status within the community (CLASH KING equivalent, top case creator badge).
 
 **When it breaks:**
-- When the live feed contains bots, named or unnamed - this directly destroys the social proof that makes the pattern work. DaddySkins' current "[BOT] Darth Vader" naming makes this problem explicit. If the "community" in community discovery is visibly fake, the pattern inverts from trust-building to trust-destroying.
+- When the live feed contains bots, named or unnamed - this directly destroys the social proof that makes the pattern work. The baseline's current "[BOT] Darth Vader" naming makes this problem explicit. If the "community" in community discovery is visibly fake, the pattern inverts from trust-building to trust-destroying.
 - Community-created cases require a critical mass of quality case creators before the feature is worth surfacing prominently. Launched too early, the case catalogue is low-quality and the leaderboard is empty, which signals a dead community rather than a live one.
 - The live feed as ambient layer breaks when events are too infrequent - a platform with low daily volume will show a sparse feed that signals low activity. The feed needs to be fast enough (multiple events per minute) to feel live.
 
@@ -267,7 +267,7 @@ Reason 1 - JTBD alignment with the entry point behavioral pattern.
 The Opener (Pattern 1, the entry point behavioral pattern) is triggered by and satisfied by a high-quality reveal animation. The slot machine/linear reveal is the category standard precisely because it maps to the core job: "give me the ritual of opening, the anticipation of the spin, and the resolution of the outcome." Any other primary reveal pattern would require educating a new user about a new mechanic before they could experience the product. The linear reveal requires zero explanation. New users from Hellcase, Key-Drop, or any competitor recognize it immediately and can begin their first session without a learning curve. This reduces friction at the moment that matters most.
 
 Reason 2 - Competitor gap in animation quality.
-The category uses Pattern A almost universally, but execution quality varies enormously. DaddySkins' current implementation is flat - no rarity-tiered animation variation, no audiovisual escalation for rare drops, no particle effects or screen emphasis for high-value outcomes. Key-Drop's sparks and fire effects (cited specifically as a differentiator in reviews), and Clash.gg's per-weapon animations in Champion mode, show that animation quality within Pattern A is the competitive surface where the platform can win. The pattern is the right choice; the quality of execution is where the gap exists and where the new product should invest. This is a competitor gap: the linear reveal is the incumbent standard, but no platform in the hard competitor set has achieved a truly cinematic, rarity-differentiated reveal with modern visual quality. That space is open.
+The category uses Pattern A almost universally, but execution quality varies enormously. The baseline's current implementation is flat - no rarity-tiered animation variation, no audiovisual escalation for rare drops, no particle effects or screen emphasis for high-value outcomes. Key-Drop's sparks and fire effects (cited specifically as a differentiator in reviews), and Clash.gg's per-weapon animations in Champion mode, show that animation quality within Pattern A is the competitive surface where the platform can win. The pattern is the right choice; the quality of execution is where the gap exists and where the new product should invest. This is a competitor gap: the linear reveal is the incumbent standard, but no platform in the hard competitor set has achieved a truly cinematic, rarity-differentiated reveal with modern visual quality. That space is open.
 
 Reason 3 - Trust architecture compatibility.
 Pattern A is the most compatible with the provably fair trust model. The outcome is determined before the animation begins (server seed committed, hash published). The animation is an honest theatrical display of a pre-calculated result. This framing - "the outcome is already set, you are now watching it revealed" - is coherent with the fairness message. Communicating this to users ("your result was locked before the spin started - here is the hash to prove it") makes the animation a trust artifact rather than a manipulation. Patterns B, C, and D also support this architecture, but Pattern A's buildup-and-reveal structure gives the most natural moment to surface the pre-round hash as a UI element - a design approach pioneered by Clash.gg Champion mode and worth adopting for solo opening as well.

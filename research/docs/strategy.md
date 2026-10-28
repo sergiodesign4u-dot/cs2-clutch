@@ -97,7 +97,7 @@ Steam Market's 15% fee (5% Steam + 10% CS2 tax) and its Wallet lock (no cash wit
 
 ### Free vs Paid
 
-No true free tier exists in the baseline product (DaddySkins). The market is moving toward ambient free-to-play access as a conversion tool. Clash.gg's Rain system (free gems every 30 min to active chat) is the current frontier. A free starter credit ($0.50-$0.70 range, non-withdrawable) is the table-stakes free-to-try offer. A persistent ambient mechanic (Rain-style) is the emerging competitive expectation for the category leader position.
+No true free tier exists in the baseline product (the baseline). The market is moving toward ambient free-to-play access as a conversion tool. Clash.gg's Rain system (free gems every 30 min to active chat) is the current frontier. A free starter credit ($0.50-$0.70 range, non-withdrawable) is the table-stakes free-to-try offer. A persistent ambient mechanic (Rain-style) is the emerging competitive expectation for the category leader position.
 
 ### Pricing Hypothesis
 
@@ -127,7 +127,7 @@ Institutional trust signals placed in the hero, a named third-party RNG auditor 
 
 **Counter-evidence.** Hellcase holds the largest audience in the category (2M MAU, 150,000 daily opens) with no public PF page, an 82.1% tested RTP and no formal licence. Be exact about what this shows and what it does not: it shows scale is reachable without trust infrastructure; it does not show that a trust badge fails to convert, because no platform in the set has ever run one. Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/, https://skincasereviewer.com/reviews/hellcase.
 
-**One phrase deliberately removed.** Earlier versions of this paragraph called Hellcase "the lowest trust score in category". No such score exists: `benchmark.md` line 7 removed Hellcase from the benchmark pending dedicated research, and the lowest score actually assigned is daddyskins at 15/40. The argument stands on the three sourced attributes above and does not need the ranking.
+**One phrase deliberately removed.** Earlier versions of this paragraph called Hellcase "the lowest trust score in category". No such score exists: `benchmark.md` line 7 removed Hellcase from the benchmark pending dedicated research, and the lowest score actually assigned is the baseline at 15/40. The argument stands on the three sourced attributes above and does not need the ranking.
 
 **Why this is the riskiest:**
 

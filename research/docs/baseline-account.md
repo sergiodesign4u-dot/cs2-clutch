@@ -1,4 +1,4 @@
-# Baseline behind the account: daddyskins.com, signed in
+# Baseline behind the account: The baseline, signed in
 
 **Source class.** Nineteen screenshots captured by the founder on **18 August 2026** and filed in `research/screens/baseline-account/`, prefix `acct_`. Admitted as a source by the `CLAUDE.md` rule of the same day: the founder captures the signed-in surfaces and files dated screenshots, and from then on they are a source in the same class as a walked page, cited by shot and date. **Nothing here is model memory and nothing is inferred from a competitor.** Where a screenshot does not show something, the row says so.
 

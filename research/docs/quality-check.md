@@ -29,8 +29,8 @@ Date: June 2026. Reviewer: automated self-review against Phase 6.5 criteria.
 | Valve banned skin gambling sponsors from CS2 tournaments (Dec 2025) | https://www.igamingtoday.com/valve-bans-skin-gambling-sponsors-and-case-opening-sites-from-cs2-tournaments/ | VERIFIED |
 | Gamdom: 15% instant rakeback, zero wagering | https://gamdom.com/rewards | VERIFIED |
 | No third-party RNG auditor named by any operator | https://www.betterchecked.com/the-state-of-provably-fair-in-2026-who-actually-proves-it-who-just-talks-about-it | VERIFIED |
-| DaddySkins: 1.856M registered users | daddyskins.com footer stats, June 2026 | VERIFIED (direct observation) |
-| DaddySkins: 354M+ cases opened | daddyskins.com footer stats, June 2026 | VERIFIED (direct observation) |
+| The baseline: 1.856M registered users | The baseline footer stats, June 2026 | VERIFIED (direct observation) |
+| The baseline: 354M+ cases opened | The baseline footer stats, June 2026 | VERIFIED (direct observation) |
 | Clash.gg bonus: 5% + 3 free cases | https://clash.gg/deposit | VERIFIED |
 | Key-Drop bonus: 20% + $0.50 free | https://key-drop.com/en/promotions | VERIFIED |
 | Hellcase promo: 10% + $0.70 no-deposit | https://hellcase.com/en/promo | VERIFIED |
@@ -39,7 +39,7 @@ Date: June 2026. Reviewer: automated self-review against Phase 6.5 criteria.
 | skin.club upgrade odds range: 0.001%-80% | https://bestcs2cases.com/case-opening/skinclub-full-review/ | VERIFIED |
 | skin.club: Washington and Nevada explicitly blocked | skin.club Terms of Service | VERIFIED |
 | CSGORoll: public provably fair page | https://csgoroll.com/info/provably-fair/ | VERIFIED |
-| DaddySkins: provably fair page redirects to login | Direct research June 2026 | VERIFIED (direct observation) |
+| The baseline: provably fair page redirects to login | Direct research June 2026 | VERIFIED (direct observation) |
 | Clash.gg: 30-second average matchmaking | https://cs2gambling.com/reviews/clashgg/ | VERIFIED |
 | HoYoverse $20M FTC settlement | https://esportslegal.news/2025/12/11/us-uk-and-eu-loot-box-strategies/ | VERIFIED |
 | EU IMCO Digital Fairness Act call (Oct 2025) | https://www.europarl.europa.eu/news/en/press-room/20251013IPR30892/new-eu-measures-needed-to-make-online-services-safer-for-minors | VERIFIED |
@@ -116,7 +116,7 @@ Status: PASS.
 
 **HTML research.html em dash check:** research.html content is generated from source documents. No em dashes in the static HTML template. Dynamic content populated from the above-checked documents. PASS.
 
-**Screenshot coverage:** All 6 baseline screenshots captured (daddyskins.com landing, cases, battles, upgrades, fairness, withdrawal). 5 competitors captured (skin.club: 5 screens, hellcase: 6 screens, datdrop: 6 screens, keydrop: 3 screens, csgoroll: 3 screens). 30 total screenshots in research/screens/. PASS.
+**Screenshot coverage:** All 6 baseline screenshots captured (the baseline landing, cases, battles, upgrades, fairness, withdrawal). 5 competitors captured (skin.club: 5 screens, hellcase: 6 screens, datdrop: 6 screens, keydrop: 3 screens, csgoroll: 3 screens). 30 total screenshots in research/screens/. PASS.
 
 **Market claims made without primary source:**
 

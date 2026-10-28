@@ -1,6 +1,6 @@
 # Stage 06, step 1. References
 
-**What this file is.** The techniques this product takes from outside itself, each with where it was seen, what exactly is taken and which recorded anxiety it answers. **It is not where the look comes from.** Since `D-181` the look is daddyskins.com's own, collected in `research/docs/baseline.md` section 13, and this file only names what raises its finish. `D-182` split the references by job: skin.club and skin.fans are the level to aim at, walked live; the reveal comes from the out-of-category benchmark of `research.md` section 5a, through Refero.
+**What this file is.** The techniques this product takes from outside itself, each with where it was seen, what exactly is taken and which recorded anxiety it answers. **It is not where the look comes from.** Since `D-181` the look is the baseline's own, collected in `research/docs/baseline.md` section 13, and this file only names what raises its finish. `D-182` split the references by job: skin.club and skin.fans are the level to aim at, walked live; the reveal comes from the out-of-category benchmark of `research.md` section 5a, through Refero.
 
 **Visible place.** The section "Brand and references" on `design/concept/concept.html`, built at step 5, renders the source table of this file. Until step 5 this file has no page, and that is the pack's order rather than a gap.
 

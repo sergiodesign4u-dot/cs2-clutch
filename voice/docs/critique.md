@@ -70,7 +70,7 @@ Read against "Input and output", the gates and "Done when" of the pack `05 - Voi
 | Unique strings, two sections, counts named | done | 133 pages; 1263 unique strings, 164 Global and 1099 By screen; 154 press-only. **The Counts table said 1093 until step 8**: six screen strings arrived with `D-169` to `D-174` and the table had not followed. Corrected |
 | Four fields per principle, each with its source | done | Step 2 |
 | Tone by phase from the CJM, the bottom of the curve marked | done | Step 2 |
-| The brand question asked before the principles | done | `D-166`: daddyskins.com's voice is the foundation |
+| The brand question asked before the principles | done | `D-166`: The baseline's voice is the foundation |
 | Competitors' language, or its absence said aloud | done | Step 2, `research.md` |
 | Glossary and Forbidden, with examples | done | Step 3; C11 gained the table exception at step 8 |
 | Microcopy rules, checked against phases and "one main action" | done | Step 4; the one real two-equal case found at step 7, the empty catalogue's two widens, is the IA's own design, node `3.1` section 7.2 |

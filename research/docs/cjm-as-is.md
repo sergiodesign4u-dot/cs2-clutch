@@ -50,9 +50,9 @@ Breaks when, `ux-patterns.md:31`: the reveal animation feels scripted, the platf
 
 **Barriers already documented**
 - Pre-login information wall: most competitors lock odds, upgrade interfaces and battle previews behind Steam login. Clash.gg is the outlier and correlates with fastest-growing status per independent reviewers. `personas.md:47`, `jtbd.md:36`
-- Reveals that feel scripted, laggy or visually flat. DaddySkins' current implementation is flat with no rarity-tiered animation variation. `personas.md:113`
+- Reveals that feel scripted, laggy or visually flat. The baseline's current implementation is flat with no rarity-tiered animation variation. `personas.md:113`
 - The reveal animation is the primary D1 retention moment: if it feels scripted, slow or visually dead, users leave after their first open. `personas.md:61`
-- Bot-flooded live feeds and chat. DaddySkins shows "[BOT] Darth Vader" and "[BOT] HAL 9000" in the live wins ticker, DatDrop fills Battle Royale lobbies with bots, CSGORoll shows bot-filled battle slots. `personas.md:43`, `personas.md:115`
+- Bot-flooded live feeds and chat. The baseline shows "[BOT] Darth Vader" and "[BOT] HAL 9000" in the live wins ticker, DatDrop fills Battle Royale lobbies with bots, CSGORoll shows bot-filled battle slots. `personas.md:43`, `personas.md:115`
 - Cannot easily share wins. No one-tap sharing from the result state on most competitors. `personas.md:117`, `jtbd.md:166`
 - The whole open-to-result experience must fit under 60 seconds without a confusing step. `jtbd.md:42`
 - Near-miss animation is a confirmed dark pattern: "a near-miss that was pre-calculated as a loss is fabricated theatre, not tension". `jtbd.md:87`
@@ -156,7 +156,7 @@ The phases are derived from the real sequence of this job as recorded in `ux-pat
 
 - **Goal of the phase.** Decide in seconds whether this place is real, alive, and not a scam.
 - **Actions.** Scans for signs of life: the wins ticker, a live player count, a case grid with prices. Does not read odds. Does not read terms. `ux-patterns.md:22-23`
-- **Touchpoints.** The landing page of hellcase.com, key-drop.com, csgoroll.com, datdrop.com, skin.club, clash.gg, daddyskins.com. Landing-page screenshots for six of the seven are in `research/screens/`. There is no clash.gg landing capture in the tree, which matters because clash.gg is this file's load-bearing pre-login outlier. `[?]` until captured.
+- **Touchpoints.** The landing page of hellcase.com, key-drop.com, csgoroll.com, datdrop.com, skin.club, clash.gg, the baseline. Landing-page screenshots for six of the seven are in `research/screens/`. There is no clash.gg landing capture in the tree, which matters because clash.gg is this file's load-bearing pre-login outlier. `[?]` until captured.
 - **Job link.** Related Job 1, arrive with enough confidence to try. `jtbd.md:33`, scored 3 for this persona at `jtbd.md:160`.
 - **Already documented here.** The pre-login information wall: most competitors lock odds, upgrades and battle previews behind Steam login, and Clash.gg is the outlier. `personas.md:47` A live feed carrying visible bot names is present on the baseline itself. `personas.md:43`
 - **Not known.** Where in this phase enthusiasm actually drops. `[?]` U-10. How long this phase lasts. `[?]` U-09.
@@ -231,7 +231,7 @@ Mined 10 August 2026 in Deep mode, corrected 11 August 2026 after the two-instru
 
 ### Method, and what limits it
 
-**Sources actually opened.** Trustpilot brand pages for hellcase, key-drop, csgoroll, skin.club, daddyskins, datdrop, clash.gg, captured in a live browser with proof screenshots in `research/screens/cjm/`. Sitejabber, now hosted at smartcustomer.com. Steam Community discussions. HLTV.org forums. Google Play listings through the AppBrain mirror. YouTube comment threads, opened in a live browser at step 6. Operator help centres, which are first-party and count as policy statements, not as user voice.
+**Sources actually opened.** Trustpilot brand pages for hellcase, key-drop, csgoroll, skin.club, the baseline, datdrop, clash.gg, captured in a live browser with proof screenshots in `research/screens/cjm/`. Sitejabber, now hosted at smartcustomer.com. Steam Community discussions. HLTV.org forums. Google Play listings through the AppBrain mirror. YouTube comment threads, opened in a live browser at step 6. Operator help centres, which are first-party and count as policy statements, not as user voice.
 
 **Three limits that shape everything below, stated before the data rather than after it.**
 
@@ -407,7 +407,7 @@ The behavioural claim holds: nobody in the ledger describes checking a hash. The
 The persona has no losing branch. Evidence now supports two named forms, B7-1 the undervalued win (7) and B7-2 the misbehaving probability (11), plus the escalation loop (12 with figures) and self-aware compulsion inside five-star reviews (6).
 
 **4. Strengthened. `personas.md:115`, bot-flooded feeds.**
-Independent confirmation on the baseline itself: "There are bots playing there that impersonate real people, they create battles, join them, and when you try to check their Steam profile, it turns out they have had a VAC ban for 2000+ days or simply don't exist on Steam" (Trustpilot daddyskins, 17 Feb 2026).
+Independent confirmation on the baseline itself: "There are bots playing there that impersonate real people, they create battles, join them, and when you try to check their Steam profile, it turns out they have had a VAC ban for 2000+ days or simply don't exist on Steam" (Trustpilot the baseline, 17 Feb 2026).
 
 **5. Strengthened with a ceiling. `personas.md:55` and `:125`, the starter offer.**
 It converts, and above a plausibility threshold it inverts into evidence of a scam. Two users state the inversion.

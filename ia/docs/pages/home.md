@@ -97,7 +97,7 @@
 | Event banner with art, countdown, JOIN EVENT | The carrier and the one control | It carries the daily ladder, `D-25`, and **no clock**: a standing offer has no published end, section 2.2 rule 2. The contradictory line "One free open per day" goes, since the free case is earned by wagering |
 | "CSGO & CS2 CASE OPENING SITE", one centred line | **One centred line** | Our words, "CS2 case opening with published odds", stage 05 owns them. **The proposition paragraph, the "See the cases" control and the auditor slot go**; the auditor is absent by section 2.3's own rule. Trustpilot stays as one sample line, `D-124`, and a link |
 | Four mode cards, no heading | **No visible heading** | The H2 stays for the outline and is visually hidden. Card lines are the baseline's length |
-| DADDY'S FEATURED CASES, tiles with likes, risk pips, price | **Featured cases** | The subtitle and the peg paragraph go. The risk band draws a sample word, `D-124` |
+| FEATURED CASES, tiles with likes, risk pips, price | **Featured cases** | The subtitle and the peg paragraph go. The risk band draws a sample word, `D-124` |
 | DAILY CASES with wager, countdown, five tiers | **The ladder** | The reset is a moment, `00:00 UTC`, not a clock, section 4.2 |
 | Case battles top, Gunfight top | Nothing, both LATER | **Their place carries one row of four figures**: tested RTP, median withdrawal, our commission, every round checkable, each routed to the surface that owns it. It replaces B7, B8 and B9 |
 | Nothing | | **B10, the starter credit, leaves until its amount exists.** It promised a figure it did not print |
@@ -579,7 +579,7 @@ Not sign in, not deposit, not claim the credit. The route is the main job's tap 
 | 1 | *(no H2)* | **B1 ticker.** A labelled region rather than a section: `<section aria-label>`, no heading |
 | 2 | *(no H2)* | **B2 banner.** A labelled region. Its line is body text at any size, rule 4 of section 2.2, and it never takes H1 or H2 markup |
 | 3 | *(no H2)* | **B3 hero.** Its heading is the page's H1 |
-| 4 | `Ways to play` | B4. **Its four card names are H3s**, so the row has a heading tree rather than four bold lines. **Visually hidden since `D-126`**: the baseline's row has no heading and the cards say what they are, so the H2 stays for the outline only |
+| 4 | `Ways to play` | B4. **Its four card names are H3s**, so the row has a heading tree rather than four bold lines. **Visually hidden since `D-126`**: The baseline's row has no heading and the cards say what they are, so the H2 stays for the outline only |
 | 5 | ~~`Cases you can open right now`~~ **`Featured cases`** | B5, the baseline's name for the block, `D-126` |
 | 6 | ~~`Your daily case`~~ **`Daily cases`** | B6, `D-126` |
 | 7 | ~~`What this case actually costs`~~ **`Before you spend`** | ~~B7~~ **B7, B8 and B9 as one row of four figures, `D-126`**: tested RTP for one case, the median withdrawal to Steam, our commission on withdrawals, and every round checkable without an account, each routed to the surface that owns it |

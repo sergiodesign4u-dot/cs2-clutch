@@ -236,7 +236,7 @@
 <div class="hero" id="intro">
   <div class="section-eyebrow">Product Research Sprint - June 2026</div>
   <h1>CS2 Clutch<br>Research Foundation</h1>
-  <p>Stage 01 of a twelve stage product design pipeline for a new CS2 skin case-opening platform. Baseline: daddyskins.com, the reference product whose structure this project inherits. This page records the market as it was studied in June 2026, across seven research levels.</p>
+  <p>Stage 01 of a twelve stage product design pipeline for a new CS2 skin case-opening platform. Baseline: the reference product whose structure this project inherits. This page records the market as it was studied in June 2026, across seven research levels.</p>
   <p class="updated-note"><strong>Updated after publication, August 2026.</strong> Scope narrowed: round 1 is home, case opening, registration and account, deposit, withdrawal, provably fair, age gate and geo block. Case battles, gunfights, upgrades and exchange moved to LATER. Brand assets are no longer out of scope: the product gets its own logo and its own palette, derived at stage 06. Structure and information architecture are inherited from the baseline; the look is not. Authoritative scope: <code>CLAUDE.md</code>, reasoning: <code>docs/decisions.md</code>.</p>
   <div class="hero-meta">
     <div>
@@ -263,7 +263,7 @@
       <li>The house edge hypothesis was materially wrong <strong>for mini-games</strong>, and remains untested for cases. v1 assumed a 25-40% edge across the board. Clash.gg published RTP data (90-92.8% on mini-games) shows the sustainable mini-game margin is 7-10%. Cases are a different surface and no competitor discloses their RTP, so case economics stay unknown. Round 1 ships case opening and no mini-games, which makes the untested half the half that matters.</li>
       <li>Regulatory exposure is active and severe. UK, Netherlands, and Belgium classify this product as gambling. KSA levied EUR 280,000/week against Clash.gg in November 2025. NY AG sued Valve in February 2026.</li>
       <li>The Collector segment does not drive platform design at scale. No platform in the studied set leads with odds tables or EV calculators; all lead with win animations. Source: direct observation of six landing pages, June 2026, screenshots below. This argues against a dedicated Collector feature track, not against odds transparency, which stays in the top three MVP mechanisms as table stakes.</li>
-      <li>Reveal animation quality is the most direct competitive surface available. The category uses the linear reveal universally, but execution varies enormously. DaddySkins is flat. Key-Drop's rarity-tiered animations and Clash.gg's Champion mode set the quality bar.</li>
+      <li>Reveal animation quality is the most direct competitive surface available. The category uses the linear reveal universally, but execution varies enormously. The baseline is flat. Key-Drop's rarity-tiered animations and Clash.gg's Champion mode set the quality bar.</li>
     </ol>
   </div>
 </div>
@@ -281,7 +281,7 @@
       <div class="canvas-cell">
         <div class="canvas-label"><span>1</span>Business Problem</div>
         <div class="canvas-content">
-          The CS2 skin case-opening market is mature but undifferentiated on trust. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity in live feeds. The baseline (daddyskins.com) scored 15/40 on the trust benchmark - lowest in category. Its highest-leverage gap is a login-gated provably fair page. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
+          The CS2 skin case-opening market is mature but undifferentiated on trust. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity in live feeds. The baseline (the baseline) scored 15/40 on the trust benchmark - lowest in category. Its highest-leverage gap is a login-gated provably fair page. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
         </div>
       </div>
 
@@ -358,7 +358,7 @@
         <div class="canvas-content">
           <strong>Users who care about trust infrastructure will discover this platform through it, convert into depositors because of it, and stay longer because of it - at a rate meaningfully above what would be achieved by spending the same effort on a bigger first-deposit bonus, more streamers, or a Rain-style ambient mechanic.</strong>
           <br><br>
-          Counter-evidence: Hellcase holds the largest audience in the category (2M MAU, 150,000 daily opens) with no public PF page, 82.1% tested RTP and no formal license. Be exact about what this shows: scale is reachable without trust infrastructure. It does not show that a trust badge fails to convert, because no platform in the set has ever run one.<br><br>Earlier versions of this paragraph called Hellcase "the lowest trust score in category". No such score exists: the benchmark removed Hellcase pending dedicated research, and the lowest score actually assigned is daddyskins at 15/40. The phrase was removed in the stage 01 critique.
+          Counter-evidence: Hellcase holds the largest audience in the category (2M MAU, 150,000 daily opens) with no public PF page, 82.1% tested RTP and no formal license. Be exact about what this shows: scale is reachable without trust infrastructure. It does not show that a trust badge fails to convert, because no platform in the set has ever run one.<br><br>Earlier versions of this paragraph called Hellcase "the lowest trust score in category". No such score exists: the benchmark removed Hellcase pending dedicated research, and the lowest score actually assigned is the baseline at 15/40. The phrase was removed in the stage 01 critique.
         </div>
       </div>
 
@@ -580,11 +580,11 @@
       <h4>3 Common Patterns</h4>
       <p><strong style="color:var(--text-primary)">1. Provably fair present, unevenly surfaced.</strong> Every hard competitor claims HMAC-SHA256 + seed system. CSGORoll publishes full docs publicly. Hellcase buries it in a modal. Third-party tested RTP (Hellcase 82.1%, DatDrop 80.6%, vs Clash.gg's disclosed 90-92.8%) shows a category-wide gap between stated and tested fairness.</p>
       <p><strong style="color:var(--text-primary)">2. Pre-login wall cuts conversion.</strong> Most lock odds, upgrade interfaces, and battle lobbies behind login. Clash.gg is the outlier - RTP values, payment options, Rain community, and game descriptions all visible pre-login. Correlated with fastest growth per independent reviews.</p>
-      <p><strong style="color:var(--text-primary)">3. Bot activity normalized and visible.</strong> DaddySkins shows "[BOT] Darth Vader" in the live wins ticker. CSGORoll shows bot-filled battle slots. No competitor has solved this cleanly. Visible bot activity undermines the social proof live feeds are supposed to generate.</p>
+      <p><strong style="color:var(--text-primary)">3. Bot activity normalized and visible.</strong> the baseline shows "[BOT] Darth Vader" in the live wins ticker. CSGORoll shows bot-filled battle slots. No competitor has solved this cleanly. Visible bot activity undermines the social proof live feeds are supposed to generate.</p>
     </div>
     <div class="card">
       <h4>3 Key Differences</h4>
-      <p><strong style="color:var(--text-primary)">1. Withdrawal architecture.</strong> skin.club and DaddySkins: skins to Steam only. Hellcase: indirect fiat via ShadowPay (4-7% fees, 3-5 days). Clash.gg and CSGORoll: crypto withdrawal. The architecture determines who can use the platform beyond casual players.</p>
+      <p><strong style="color:var(--text-primary)">1. Withdrawal architecture.</strong> skin.club and the baseline: skins to Steam only. Hellcase: indirect fiat via ShadowPay (4-7% fees, 3-5 days). Clash.gg and CSGORoll: crypto withdrawal. The architecture determines who can use the platform beyond casual players.</p>
       <p><strong style="color:var(--text-primary)">2. Licensing creates geo stability.</strong> Key-Drop and CSGORoll hold Curaçao licenses. Clash.gg, skin.club, Hellcase use Cyprus registration or sweepstakes framing. KSA fined Clash.gg EUR 280,000/week in Nov 2025. Licensed platforms have more stable geo-coverage under scrutiny.</p>
       <p><strong style="color:var(--text-primary)">3. Community features are rare and differentiated.</strong> skin.club's Community Cases is unique in the hard competitor set. Clash.gg's Champion mode is the most design-invested battle mechanic. These are the most-cited reasons users prefer specific platforms in review aggregators.</p>
     </div>
@@ -597,7 +597,7 @@
   </div>
 
   <div class="sep"></div>
-  <h3>Screenshots - Baseline (daddyskins.com)</h3>
+  <h3>Screenshots - Baseline (the baseline)</h3>
   <p class="updated-note" style="font-size:13px; margin:0 0 14px; padding:12px 14px; line-height:1.6"><strong>Walked properly on 11 August 2026: <a href="baseline.html">Baseline walk</a>.</strong> These six captures are what stage 01 took. They are not a page inventory, and the sentence "the structure is inherited" had no source document behind it until the stage 03 input gate found that out. The walk records the page inventory, the navigation model, the composition of the screens round 1 needs, the compliance surfaces as they exist today, and the colour values, all from public pre-login pages. Ordered by <code>docs/decisions.md</code> D-18. <strong>Behind the account, captured 18 August 2026 from the founder&#39;s own screenshots: <a href="baseline-account.html">Baseline behind the account</a>.</strong> That one carries the withdrawal mechanic, the responsible play tool that exists and cannot be found, and two corrections to the walks above.</p>
   <div class="gallery-scroll" id="baseline-gallery"></div>
   <h3 style="margin-top:24px">Screenshots - Competitors</h3>
@@ -811,11 +811,11 @@
         <tr><td><strong>skin.club</strong></td><td class="score-4">4</td><td class="score-5">5</td><td class="score-5">5</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-2">2</td><td class="score-4">4</td><td class="score-4">4</td><td class="score-total">30</td></tr>
         <tr><td><strong>Clash.gg</strong></td><td class="score-4">4</td><td class="score-4">4</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-4">4</td><td class="score-3">3</td><td class="score-4">4</td><td class="score-4">4</td><td class="score-total">29</td></tr>
         <tr><td><strong>Key-Drop</strong></td><td class="score-3">3</td><td class="score-3">3</td><td class="score-2">2</td><td class="score-3">3</td><td class="score-2">2</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-4">4</td><td class="score-total">23</td></tr>
-        <tr style="background: rgba(239,68,68,0.04)"><td><strong>daddyskins.com</strong></td><td class="score-1">1</td><td class="score-3">3</td><td class="score-2">2</td><td class="score-1">1</td><td class="score-1">1</td><td class="score-1">1</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-total" style="color:#ef4444">15</td></tr>
+        <tr style="background: rgba(239,68,68,0.04)"><td><strong>the baseline</strong></td><td class="score-1">1</td><td class="score-3">3</td><td class="score-2">2</td><td class="score-1">1</td><td class="score-1">1</td><td class="score-1">1</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-total" style="color:#ef4444">15</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="margin-top:12px; font-size:12px; color:var(--text-muted)">Scoring: 1 = poor, 5 = excellent. MVP target: 25/40 at launch minimum. DaddySkins scores 1 on the fairness criterion because /en/provably-fair redirects to login rather than showing the mechanism - the most critical gap for the new product.</p>
+  <p style="margin-top:12px; font-size:12px; color:var(--text-muted)">Scoring: 1 = poor, 5 = excellent. MVP target: 25/40 at launch minimum. The baseline scores 1 on the fairness criterion because /en/provably-fair redirects to login rather than showing the mechanism - the most critical gap for the new product.</p>
 
   <div class="mech-card">
     <span class="mech-badge mech-carry">Part 2 - Mechanism 1</span>
@@ -884,7 +884,7 @@
     <div class="card">
       <h4>05 - Pre-activation</h4>
       <h3>The Spectator</h3>
-      <p>Not yet mapped to a segment - the unconverted Opener. Arrives without intent to spend. Watches the live drops feed. If a "wow moment" happens within [?] roughly 90 seconds, that is the conversion trigger rather than a CTA button. The threshold is an estimate with no measured source. Breaks when the live feed contains obvious bots (DaddySkins "[BOT] Darth Vader" pattern), or the page is visually static or slow.</p>
+      <p>Not yet mapped to a segment - the unconverted Opener. Arrives without intent to spend. Watches the live drops feed. If a "wow moment" happens within [?] roughly 90 seconds, that is the conversion trigger rather than a CTA button. The threshold is an estimate with no measured source. Breaks when the live feed contains obvious bots (the baseline "[BOT] Darth Vader" pattern), or the page is visually static or slow.</p>
     </div>
   </div>
 
@@ -893,7 +893,7 @@
 
   <div class="pattern-card pattern-chosen">
     <h3>Pattern A - Linear Reveal (Slot Machine)</h3>
-    <p>The user selects a case, confirms, and triggers a horizontal strip of skins scrolling at high speed, decelerating, and landing on the outcome item. The outcome is determined server-side before the animation begins. Duration: 3-7 seconds. Used by: Hellcase (spinning wheel variant), Key-Drop (sparks and fire rarity punctuation), skin.club (odds visible on each card during spin), DaddySkins (flat, no rarity variation).</p>
+    <p>The user selects a case, confirms, and triggers a horizontal strip of skins scrolling at high speed, decelerating, and landing on the outcome item. The outcome is determined server-side before the animation begins. Duration: 3-7 seconds. Used by: Hellcase (spinning wheel variant), Key-Drop (sparks and fire rarity punctuation), skin.club (odds visible on each card during spin), the baseline (flat, no rarity variation).</p>
     <p><strong style="color:var(--text-primary)">Fits:</strong> Thrill Seeker wanting a clean, fast, repeatable reveal ritual. Any price point. Solo opening at any session frequency.</p>
     <p><strong style="color:var(--text-primary)">Breaks when:</strong> Animation is visually flat regardless of outcome rarity, animation duration is too long for high-frequency sessions, or near-miss mechanics are applied (fabricated theatre in a provably fair context).</p>
   </div>
@@ -933,7 +933,7 @@
     <p>This is a layered architecture, not a compromise. Pattern A handles the Thrill Seeker's core JTBD - the reveal animation. Pattern E (live drop feed) handles Spectator-to-Opener conversion and the Battler's social stakes. They occupy different layers of the same screen and do not conflict.</p>
     <div class="sep" style="margin:16px 0"></div>
     <p><strong style="color:var(--text-primary)">Reason 1 - JTBD alignment with the entry point:</strong> The Opener behavioral pattern (the critical activation event) is triggered by and satisfied by a high-quality reveal animation. The linear reveal maps directly to the core job: ritual of opening, anticipation of the spin, resolution of the outcome. No learning curve. Users from any competitor recognize it immediately.</p>
-    <p><strong style="color:var(--text-primary)">Reason 2 - Competitor gap in animation quality:</strong> The category uses Pattern A universally, but execution quality varies enormously. DaddySkins' current implementation is flat - no rarity-tiered animation variation. Key-Drop's sparks and fire effects (specifically cited as the most memorable visual differentiator in user reviews) and Clash.gg's Champion mode show the quality bar. The pattern is right; quality of execution is where the win is available.</p>
+    <p><strong style="color:var(--text-primary)">Reason 2 - Competitor gap in animation quality:</strong> The category uses Pattern A universally, but execution quality varies enormously. The baseline's current implementation is flat - no rarity-tiered animation variation. Key-Drop's sparks and fire effects (specifically cited as the most memorable visual differentiator in user reviews) and Clash.gg's Champion mode show the quality bar. The pattern is right; quality of execution is where the win is available.</p>
     <p><strong style="color:var(--text-primary)">Reason 3 - Trust architecture compatibility:</strong> Pattern A is most compatible with the provably fair model. The pre-round hash can be surfaced at spin trigger as a UI element (a design approach from Clash.gg Champion mode, extended to solo opening). The animation is honest theatre over a pre-committed result - coherent with the fairness message.</p>
     <div class="sep" style="margin:16px 0"></div>
     <p><strong style="color:var(--accent-blue)">Alternative - Pattern C (Battle):</strong> When lobby fill runs under 60 seconds organically, without bots. The gate is operational, not a DAU number: that was closed as a founder decision. The precondition is strict. If lobbies cannot fill organically, battles should be visible but not prominently featured. A bot-filled lobby is worse than not having the mode.</p>
@@ -1053,9 +1053,9 @@
       <div class="gap-cell" style="font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted)">Source</div>
     </div>
     <div class="gap-row">
-      <div class="gap-cell">Provably fair page is login-gated (daddyskins.com specific)</div>
+      <div class="gap-cell">Provably fair page is login-gated (the baseline specific)</div>
       <div class="gap-cell"><span class="p-critical">Critical</span></div>
-      <div class="gap-cell">Direct research: daddyskins.com/en/provably-fair redirects to login, June 2026</div>
+      <div class="gap-cell">Direct research: The baseline site/provably-fair redirects to login, June 2026</div>
     </div>
     <div class="gap-row">
       <div class="gap-cell">No third-party RNG auditor named by any operator in the category</div>
@@ -1070,7 +1070,7 @@
     <div class="gap-row">
       <div class="gap-cell">Bot activity visible in live feeds category-wide</div>
       <div class="gap-cell"><span class="p-high">High</span></div>
-      <div class="gap-cell">Competitive research June 2026: DaddySkins "[BOT] Darth Vader," DatDrop majority-vote bots, CSGORoll bot-filled slots</div>
+      <div class="gap-cell">Competitive research June 2026: The baseline "[BOT] Darth Vader," DatDrop majority-vote bots, CSGORoll bot-filled slots</div>
     </div>
     <div class="gap-row">
       <div class="gap-cell">Withdrawal architecture invisible to anonymous visitors on all platforms</div>
@@ -1123,7 +1123,7 @@
       <div class="hyp-label hyp-then">Then</div>
       <div class="hyp-text">trust benchmark score improves from 1/5 to 4/5 on the fairness criterion and anonymous visitor trust increases measurably</div>
       <div class="hyp-label hyp-because">Because</div>
-      <div class="hyp-text">KSA enforcement data and DCMS research both confirm trust is the primary unsatisfied need category-wide, and the fix for daddyskins.com costs a single configuration change</div>
+      <div class="hyp-text">KSA enforcement data and DCMS research both confirm trust is the primary unsatisfied need category-wide, and the fix for the baseline costs a single configuration change</div>
     </div>
     <div class="hyp-card">
       <div class="hyp-label hyp-if">If</div>
@@ -1367,7 +1367,7 @@
 <section id="competitor-language">
   <div class="section-eyebrow">Section 11, appended October 2026</div>
   <h2>Competitor language</h2>
-  <p class="updated-note"><strong>Updated after publication.</strong> Appended by stage 05 step 2 on 5 October 2026. Nothing above this section was edited. Source: <code>research/docs/research.md</code> section 11. Public landing pages opened live, pre-login: Hellcase, Key-Drop, skin.club, DatDrop, Clash.gg, and daddyskins.com from the baseline walk. CSGORoll refused the browser and is <span style="color:var(--accent-yellow);font-weight:700">[?]</span>. Shots <code>research/screens/voice_*_5oct.png</code>.</p>
+  <p class="updated-note"><strong>Updated after publication.</strong> Appended by stage 05 step 2 on 5 October 2026. Nothing above this section was edited. Source: <code>research/docs/research.md</code> section 11. Public landing pages opened live, pre-login: Hellcase, Key-Drop, skin.club, DatDrop, Clash.gg, and the baseline from the baseline walk. CSGORoll refused the browser and is <span style="color:var(--accent-yellow);font-weight:700">[?]</span>. Shots <code>research/screens/voice_*_5oct.png</code>.</p>
   <div class="sep"></div>
 
   <h3>What all six write</h3>
@@ -1406,7 +1406,7 @@
         <tr><td><strong>Source index row citing itself</strong></td><td>One row gave "Research compilation (competitive intelligence)" instead of a source</td><td>Claude, while verifying a Codex finding</td><td>Marked [?] and carried as an estimate, not a fact</td><td>Fixed</td></tr>
         <tr><td><strong>Contradiction between files</strong></td><td>The riskiest assumption existed in three wordings under one label; research.md had the label on the TEST, not on the assumption</td><td>Codex</td><td>One statement, owned by strategy.md section 4, quoted rather than restated elsewhere. The hypothesis is now labelled as its test</td><td>Fixed</td></tr>
         <tr><td><strong>Orphan</strong></td><td>Five of seven open questions had no addressee, because the table had no addressee column at all</td><td>Codex found the symptom, Claude the cause</td><td>Table rebuilt to the four fields the stage requires: question, addressee, what changes in the product, status</td><td>Fixed</td></tr>
-        <tr><td><strong>Conclusion without grounds</strong></td><td>The riskiest assumption rested on Hellcase having "the lowest trust score in category". No such score exists: the benchmark removed Hellcase pending research, and the lowest assigned is daddyskins 15/40</td><td>Claude</td><td>Phrase removed in five files. The argument stands on the three sourced attributes instead, which is enough</td><td>Fixed</td></tr>
+        <tr><td><strong>Conclusion without grounds</strong></td><td>The riskiest assumption rested on Hellcase having "the lowest trust score in category". No such score exists: the benchmark removed Hellcase pending research, and the lowest assigned is the baseline 15/40</td><td>Claude</td><td>Phrase removed in five files. The argument stands on the three sourced attributes instead, which is enough</td><td>Fixed</td></tr>
         <tr><td><strong>Conclusion without grounds</strong></td><td>The assumption survived the death of its own premise: section 9 killed self-verification by mass-market openers, and Decision 1 moved trust to an institutional badge, but the assumption and its test never moved</td><td>Claude</td><td>Reformulated around a badge read as a proxy. The test became badge-in-hero against animation-only, which is what Decision 1 already implied</td><td>Fixed</td></tr>
         <tr><td><strong>Conclusion without grounds</strong></td><td>"House edge hypothesis was materially wrong" was derived from mini-game RTP and applied to cases, while the same document marks case RTP unknown</td><td>Claude</td><td>Bounded to mini-games in four files. Case economics stay [?], and round 1 ships cases</td><td>Fixed</td></tr>
         <tr><td><strong>Conclusion without grounds</strong></td><td>A [?] present in the level file disappeared in the synthesis: pre-login openness "correlates" with Clash.gg's growth</td><td>Claude</td><td>Hedge restored. Observed together in one case, no funnel data published by anyone</td><td>Fixed</td></tr>
@@ -1430,19 +1430,19 @@
 </main>
 
 <footer>
-  <p>CS2 Clutch, stage 01 of twelve. Research captured June 2026. Baseline: daddyskins.com. Working placeholder name.</p>
+  <p>CS2 Clutch, stage 01 of twelve. Research captured June 2026. Baseline: the reference product. Working placeholder name.</p>
   <p>Stage 01 complete. The critique ran on two instruments in August 2026 and all 22 confirmed findings are closed, the last of them by re-running step 4 against products from other categories. Next stage: CJM.</p>
 </footer>
 
 <script>
 (function() {
   var baseline = [
-    {src:'screens/baseline/baseline_landing.png',caption:'daddyskins.com - Landing'},
-    {src:'screens/baseline/baseline_cases.png',caption:'daddyskins.com - Cases'},
-    {src:'screens/baseline/baseline_battles.png',caption:'daddyskins.com - Battles'},
-    {src:'screens/baseline/baseline_upgrades.png',caption:'daddyskins.com - Upgrades'},
-    {src:'screens/baseline/baseline_fairness.png',caption:'daddyskins.com - Fairness (FAQ)'},
-    {src:'screens/baseline/baseline_withdrawal.png',caption:'daddyskins.com - Exchange/Withdrawal'},
+    {src:'screens/baseline/baseline_landing.png',caption:'the baseline - Landing'},
+    {src:'screens/baseline/baseline_cases.png',caption:'the baseline - Cases'},
+    {src:'screens/baseline/baseline_battles.png',caption:'the baseline - Battles'},
+    {src:'screens/baseline/baseline_upgrades.png',caption:'the baseline - Upgrades'},
+    {src:'screens/baseline/baseline_fairness.png',caption:'the baseline - Fairness (FAQ)'},
+    {src:'screens/baseline/baseline_withdrawal.png',caption:'the baseline - Exchange/Withdrawal'},
   ];
   var competitors = [
     {src:'screens/skinclub_landing.png',caption:'skin.club - Landing'},

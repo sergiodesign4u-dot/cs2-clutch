@@ -1,4 +1,4 @@
-# Baseline: daddyskins.com, walked and recorded
+# Baseline: the reference product, walked and recorded
 
 **Date of the walk:** 11 August 2026. **Method:** live browser, Playwright, public and pre-login pages only. No account was used and no login was performed at any point.
 **Proof:** `research/screens/baseline/walk_*.png`, five captures named in the sections that use them.
@@ -97,13 +97,13 @@ The header is where money and account live, and pre-login there is no balance wi
 **Band 2, the main footer, four columns.**
 
 - **Left, brand and help:** the logo, linking to `/en/`. A "NEED HELP?" heading over a **SUPPORT button**, an outlined pill, linking to `/en/support`. A tagline, "You can get your favorite skin at the best prices." Then the legal identification line in small muted text: **"MIXABIT LTD, ΗΕ 470887, Elettherias, 19 Lakatamia, 2312, Nicosia, Cyprus"**. Registered name, Cyprus registrar number, geographic address. No email address is printed anywhere in the footer.
-- **PLATFORM:** Partnership `/en/affiliate-program`, Contacts & Corporate Information `/en/contacts`, FAQ `/en/faq`, Provably Fair `/en/provably-fair`, Counter-Strike Guides `https://daddyskins.com/blog/`
+- **PLATFORM:** Partnership `/en/affiliate-program`, Contacts & Corporate Information `/en/contacts`, FAQ `/en/faq`, Provably Fair `/en/provably-fair`, Counter-Strike Guides `https://the baseline/blog/`
 - **COMPANY:** Terms of use `/en/terms`, Privacy Policy `/en/privacy-policy`, Cookie Policy `/en/cookie-policy`, Refund Policy `/en/refund-policy`
-- **ADDITIONAL:** Gift cards `/en/gift-cards`, Marketing Assets `/en/marketing-assets`, CS2 Pickems `https://daddyskins.com/king-of-the-pick`
+- **ADDITIONAL:** Gift cards `/en/gift-cards`, Marketing Assets `/en/marketing-assets`, CS2 Pickems `https://the baseline/king-of-the-pick`
 
 Each column heading carries a short accent underline. Thirteen named links, which is what the first pass counted, plus the logo and the support button.
 
-**Band 3, the bottom row.** "DADDYSKINS © 2016-2026. ALL RIGHTS RESERVED" on the left. On the right, three payment and provider marks: **ZEN, Visa, Mastercard**.
+**Band 3, the bottom row.** "the baseline © 2016-2026. ALL RIGHTS RESERVED" on the left. On the right, three payment and provider marks: **ZEN, Visa, Mastercard**.
 
 **Band 4 is not in the footer but sits against it:** a floating circular support control, headset icon, fixed bottom right above the footer.
 
@@ -144,7 +144,7 @@ Screenshot `walk_cases_1440.png`. Composition:
 
 - A breadcrumb row: a Back control on the left, a Home / Cases trail on the right
 - h1, "All CSGO (CS2) Cases In One Place"
-- A horizontal category bar with an overflow control, a search icon and a filter icon. Categories: Daily, Daddy's Featured, CS2 Gem, Quality, Community, the ballers, lady luck, The Real MVP, Safe Zone, Old School, The Weapons, Classic, Harvest
+- A horizontal category bar with an overflow control, a search icon and a filter icon. Categories: Daily, Featured, CS2 Gem, Quality, Community, the ballers, lady luck, The Real MVP, Safe Zone, Old School, The Weapons, Classic, Harvest
 - **A Daily Cases block**, which is the baseline's version of the daily free case. It is a five tier ladder, Silver, Nova, Guardian, Legend, Elite, with a **wager remaining counter reading 0.00 / 5.00**, a countdown to the next reset, shortcuts into the four game modes, and a CTA reading "Available 0 case(s)"
 - Then category rows of case tiles
 
@@ -246,7 +246,7 @@ The original record read: "There is no age gate. No interstitial, no birth date 
 
 **What survives the correction, and it is most of it.** There is still **no age gate**: no interstitial, no birth date field, and nothing between arrival and the case page. What exists is one unchecked checkbox bundled with the terms consent at the moment of sign-in, which is the Hellcase pattern `blocks.md` records and which node `2.1` refused for the reason it gives. The rest of the age control on the product is one FAQ answer, quoted verbatim from `/en/faq` as read on 11 August 2026, screenshot `walk_faq_age_1440.png`:
 
-> "WHO CAN PLAY ON DADDYSKINS? Only people who are at least the age of 18+ are allowed to play on our site. In addition, some countries may have restrictions to accessing sites like ours, we strongly recommend you follow those government laws, as we cannot always apply technical methods for restricted access."
+> "WHO CAN PLAY ON the baseline? Only people who are at least the age of 18+ are allowed to play on our site. In addition, some countries may have restrictions to accessing sites like ours, we strongly recommend you follow those government laws, as we cannot always apply technical methods for restricted access."
 
 The word "18" appears exactly twice in the text layer of the sign-in page, and both instances are the weapon Glock-18 in the drop ticker.
 
@@ -359,7 +359,7 @@ The policy page itself, `/en/cookie-policy`, is `noindex,nofollow`, carries one 
 **Three clauses out of the terms, verbatim, because each one lands on a node.**
 
 - **Age:** "FURTHERMORE, YOU ACKNOWLEDGE AND AGREE THAT THE WEBSITE IS NOT INTENDED FOR USE BY MINORS (INDIVIDUALS UNDER THE AGE OF 18). BY ACCESSING OR USING THE WEBSITE, YOU CONFIRM THAT YOU ARE AT LEAST 18 YEARS OLD..."
-- **Gambling:** "Prohibition of gambling. It is forbidden to use daddyskins.com in any way that violates any law or regulation, including those prohibiting illegal gambling... You will not resell the Skins received from daddyskins.com on third-party marketplaces or otherwise trade such Skins for anything of value."
+- **Gambling:** "Prohibition of gambling. It is forbidden to use the baseline in any way that violates any law or regulation, including those prohibiting illegal gambling... You will not resell the Skins received from the baseline on third-party marketplaces or otherwise trade such Skins for anything of value."
 - **Geography:** "The Company commits to providing services exclusively to residents of countries where such activities are not prohibited by local laws and regulations."
 
 **Consequence for `D-23` and node `0.12`.** The live product's entire market control is that one sentence, and it is **a blocklist enforced by the user's own declaration with no list published**. Our allowlist closed by default is the largest single divergence from the canon in the whole project, and it is a divergence toward the regulator rather than away from it.
@@ -386,7 +386,7 @@ Screenshot `walk2_404_1440.png`. A probe URL returns **HTTP 404** with a real pa
 
 Screenshot `walk2_footer_1440.png`. Statistics strip above it: **363,775,507 cases opened · 3,330,137 upgrades · 1,863,286 total users · 659 online users.**
 
-Four columns: **NEED HELP?** with a Support button and the identification line "MIXABIT LTD, HE 470887, Elettherias, 19 Lakatamia, 2312, Nicosia, Cyprus" · **PLATFORM**: Partnership, Contacts & Corporate Information, FAQ, Provably Fair, Counter-Strike Guides · **COMPANY**: Terms of use, Privacy Policy, Cookie Policy, Refund Policy · **ADDITIONAL**: Gift cards, Marketing Assets, CS2 Pickems. Copyright "DADDYSKINS © 2016-2026". Payment marks: **ZEN, VISA, Mastercard**.
+Four columns: **NEED HELP?** with a Support button and the identification line "MIXABIT LTD, HE 470887, Elettherias, 19 Lakatamia, 2312, Nicosia, Cyprus" · **PLATFORM**: Partnership, Contacts & Corporate Information, FAQ, Provably Fair, Counter-Strike Guides · **COMPANY**: Terms of use, Privacy Policy, Cookie Policy, Refund Policy · **ADDITIONAL**: Gift cards, Marketing Assets, CS2 Pickems. Copyright "the baseline © 2016-2026". Payment marks: **ZEN, VISA, Mastercard**.
 
 **Searched for and absent from the entire home page, header, footer and rail: any "18+" mark, any responsible play route, any licence statement.** This re-confirms section 6 on a second reading a week later.
 
@@ -427,7 +427,7 @@ Four columns: **NEED HELP?** with a Support button and the identification line "
 
 ## 12. Sixth walk, 17 October 2026: the rail at desktop widths, and the event banner
 
-**Why this walk ran.** The founder compared our grey Home with the live product on 17 October 2026 and asked for the rail and the event banner to behave as the baseline's do. Public page `https://daddyskins.com/en`, nothing logged into, measured with Playwright the same day.
+**Why this walk ran.** The founder compared our grey Home with the live product on 17 October 2026 and asked for the rail and the event banner to behave as the baseline's do. Public page `https://the baseline site`, nothing logged into, measured with Playwright the same day.
 
 **The rail, measured.** The rail element `aside.main-sidebar` is **250px wide at 1441, 1460, 1480, 1500, 1520, 1560, 1599, 1600 and 1920px** and **70px wide at 1440, 1366, 1280, 1200, 1100, 1024 and 960px.** So the product reserves its expanded rail above a 1440px window and its collapsed one at 1440 and below. **What the expanded rail does at those widths comes from the founder's captures of the same day**, filed as `research/screens/baseline/founder_rail_collapsed_1000_17oct.png` and `founder_rail_open_overlay_1000_17oct.png`: collapsed to icons by default, and opened from its menu icon it lies over the page at full width with the page dimmed behind it, the page not moving. The walk's own attempt to open it was covered by a sign-up dialog and its screenshot was discarded rather than kept as evidence.
 
@@ -439,29 +439,29 @@ Every row was opened in a live browser on 11 August 2026, pre-login, in one sess
 
 | What | URL | Proof |
 |---|---|---|
-| Home, page inventory, header, rail, ticker | `https://daddyskins.com/en` | `walk_home_1440.png` |
-| Home at 390px, mobile navigation model | `https://daddyskins.com/en` | `walk_home_390.png` |
-| Case catalogue, categories, daily ladder, 239 slugs, risk labels | `https://daddyskins.com/en/cases` | `walk_cases_1440.png` |
-| Case detail, pre-login state, risk meter, multi-open | `https://daddyskins.com/en/case/premium` | `walk_case_detail_1440.png` |
-| Drop table, per item chance and ticket range | `https://daddyskins.com/en/case/premium` | `walk_case_droptable_1440.png` |
-| Provably fair redirects to login, sign-in composition, footer | `https://daddyskins.com/en/provably-fair` to `/en/login?redirect=%2Fen%2Fprovably-fair` | `walk_pf_redirects_to_login_1440.png` |
-| Age answer, absence of responsible play | `https://daddyskins.com/en/faq` | `walk_faq_age_1440.png` |
-| Footer re-walk: statistics strip, four columns, identification line, payment marks | `https://daddyskins.com/en` | `walk_footer_1440.png` |
+| Home, page inventory, header, rail, ticker | `https://the baseline site` | `walk_home_1440.png` |
+| Home at 390px, mobile navigation model | `https://the baseline site` | `walk_home_390.png` |
+| Case catalogue, categories, daily ladder, 239 slugs, risk labels | `https://the baseline site/cases` | `walk_cases_1440.png` |
+| Case detail, pre-login state, risk meter, multi-open | `https://the baseline site/case/premium` | `walk_case_detail_1440.png` |
+| Drop table, per item chance and ticket range | `https://the baseline site/case/premium` | `walk_case_droptable_1440.png` |
+| Provably fair redirects to login, sign-in composition, footer | `https://the baseline site/provably-fair` to `/en/login?redirect=%2Fen%2Fprovably-fair` | `walk_pf_redirects_to_login_1440.png` |
+| Age answer, absence of responsible play | `https://the baseline site/faq` | `walk_faq_age_1440.png` |
+| Footer re-walk: statistics strip, four columns, identification line, payment marks | `https://the baseline site` | `walk_footer_1440.png` |
 | Colour values, type, geometry | computed styles on the pages above | values in section 5 |
-| **Second walk, 18 August 2026.** Home on arrival, no cookie dialog | `https://daddyskins.com/en` | `walk2_arrival_1440.png` |
-| Footer, statistics strip, four columns, payment marks | `https://daddyskins.com/en` | `walk2_footer_1440.png` |
-| Case page signed out: sign-in wall, risk meter, like count, multi-open | `https://daddyskins.com/en/case/premium` | `walk2_case-guest_1440.png` |
-| Drop table signed out: chance, value, ticket range, wear per item | `https://daddyskins.com/en/case/premium` | `walk2_droptable-guest_1440.png` |
+| **Second walk, 18 August 2026.** Home on arrival, no cookie dialog | `https://the baseline site` | `walk2_arrival_1440.png` |
+| Footer, statistics strip, four columns, payment marks | `https://the baseline site` | `walk2_footer_1440.png` |
+| Case page signed out: sign-in wall, risk meter, like count, multi-open | `https://the baseline site/case/premium` | `walk2_case-guest_1440.png` |
+| Drop table signed out: chance, value, ticket range, wear per item | `https://the baseline site/case/premium` | `walk2_droptable-guest_1440.png` |
 | Sign-in modal: four providers, email arm, the 18+ checkbox | opened from the header control | `walk2_signin_1440.png` |
-| Support: ticket form whose submit is Sign in | `https://daddyskins.com/en/support` | `walk2_support_1440.png` |
-| 404 with no shell, HTTP 404 | probe URL under `https://daddyskins.com/en/` | `walk2_404_1440.png` |
+| Support: ticket form whose submit is Sign in | `https://the baseline site/support` | `walk2_support_1440.png` |
+| 404 with no shell, HTTP 404 | probe URL under `https://the baseline site/` | `walk2_404_1440.png` |
 | Terms, cookie policy: robots, heading counts, dates, three clauses | `/en/terms`, `/en/cookie-policy` | values in section 9.4 |
-| **Fifth walk, 5 October 2026, the voice.** Home, its copy and the share of capitals set by the stylesheet | `https://daddyskins.com/en` at 1440 and 390 | `walk5_home_1440_5oct.png`, `walk5_home_390_5oct.png`, `walk5_arrival_cookie_1440_5oct.png` |
+| **Fifth walk, 5 October 2026, the voice.** Home, its copy and the share of capitals set by the stylesheet | `https://the baseline site` at 1440 and 390 | `walk5_home_1440_5oct.png`, `walk5_home_390_5oct.png`, `walk5_arrival_cookie_1440_5oct.png` |
 | Catalogue and case page copy | `/en/cases`, `/en/case/premium` at 1440 and 390 | `walk5_cases_*_5oct.png`, `walk5_case_*_5oct.png` |
 | FAQ, the answers register | `/en/faq` at 1440 and 390 | `walk5_faq_*_5oct.png` |
 | Support, sign in, 404 | `/en/support`, `/en/provably-fair` to `/en/login`, a probe URL | `walk5_support_1440_5oct.png`, `walk5_fair_1440_5oct.png`, `walk5_404_1440_5oct.png` |
 | Terms, privacy, cookie and refund policies | `/en/terms`, `/en/privacy-policy`, `/en/cookie-policy`, `/en/refund-policy` | `walk5_terms_1440_5oct.png` and three more |
-| **Seventh walk, 19 October 2026, type, shape and components.** Home, catalogue, two case pages, FAQ, sign in, computed styles | `https://daddyskins.com/en`, `/en/cases`, `/en/case/legend`, `/en/case/heroic`, `/en/faq`, at 1440; Home and Heroic at 390 | `walk7_home_1440_19oct.png`, `walk7_home_390_19oct.png`, `walk7_cases_1440_19oct.png`, `walk7_case-legend_1440_19oct.png`, `walk7_case-heroic_1440_19oct.png`, `walk7_case-heroic_390_19oct.png`, `walk7_faq_1440_19oct.png`, `walk7_signin_1440_19oct.png` |
+| **Seventh walk, 19 October 2026, type, shape and components.** Home, catalogue, two case pages, FAQ, sign in, computed styles | `https://the baseline site`, `/en/cases`, `/en/case/legend`, `/en/case/heroic`, `/en/faq`, at 1440; Home and Heroic at 390 | `walk7_home_1440_19oct.png`, `walk7_home_390_19oct.png`, `walk7_cases_1440_19oct.png`, `walk7_case-legend_1440_19oct.png`, `walk7_case-heroic_1440_19oct.png`, `walk7_case-heroic_390_19oct.png`, `walk7_faq_1440_19oct.png`, `walk7_signin_1440_19oct.png` |
 | Rarity ladder | `/en/case/heroic`, `/silver`, `/nova`, `/guardian` | values in section 13.4 |
 
 ---
@@ -472,7 +472,7 @@ Every row was opened in a live browser on 11 August 2026, pre-login, in one sess
 
 ### 10.1 The shelf is not one grid. It is a run of named category sections
 
-`H1` is "All CSGO (CS2) Cases In One Place", and under it **every category is its own section with its own `H2` and its own row of tiles**. Thirteen of them, in this order, read from the live headings: **Daily, Daddy's Featured, CS2 Gem, Quality, Community, the ballers, lady luck, The Real MVP, Safe Zone, Old School, The Weapons, Classic, Harvest.** Each `H2` carries a subtitle: "Claim Your Daily Rewards for Staying Active!", "Best CS2 Cases rated by DaddySkins".
+`H1` is "All CSGO (CS2) Cases In One Place", and under it **every category is its own section with its own `H2` and its own row of tiles**. Thirteen of them, in this order, read from the live headings: **Daily, Featured, CS2 Gem, Quality, Community, the ballers, lady luck, The Real MVP, Safe Zone, Old School, The Weapons, Classic, Harvest.** Each `H2` carries a subtitle: "Claim Your Daily Rewards for Staying Active!", "Best CS2 Cases rated by the baseline".
 
 **The category list has been written down since 11 August 2026 and this walk confirms it unchanged.** It is not `[?]` anywhere in this repository except in `catalogue.md`, which is a contradiction between two files rather than a missing input.
 
@@ -508,7 +508,7 @@ The filter icon opens a **right-hand drawer**, headed **FILTER** with **RESET AL
 
 ### 10.4 What the founder's reference adds on top of this
 
-Founder capture, 21 August 2026, **source `[?]`: it is not daddyskins and this session did not open the site it came from**, so nothing in it is a fact about a named competitor. Three ideas in it that the baseline's own panel does not have:
+Founder capture, 21 August 2026, **source `[?]`: it is not the baseline and this session did not open the site it came from**, so nothing in it is a fact about a named competitor. Three ideas in it that the baseline's own panel does not have:
 
 - **The filters live in the bar rather than behind a drawer.** The price control expands as a second row under the category bar, in place.
 - **A named continuous risk slider**, labelled ADRENALINE, drawn as a gradient rather than as three checkboxes.
@@ -520,7 +520,7 @@ Founder capture, 21 August 2026, **source `[?]`: it is not daddyskins and this s
 
 ## 11. Fifth walk, 5 October 2026: the voice
 
-**Why this walk ran.** On 5 October 2026 the founder decided that **the product's voice is daddyskins.com's voice: it is the foundation**, `docs/decisions.md` D-166. Until then copy sat on the "not inherited" list in `CLAUDE.md`, so no walk had ever written the baseline's words down; sections 1 to 10 quote copy only where a structure needed it. **Inheriting a thing means having it written down first**, so this section is the voice as it exists, before stage 05 derives anything from it. Public pages walked live at 1440 and 390, nothing logged into, screenshots `research/screens/baseline/walk5_*_5oct.png`. The signed-in copy is read from the founder's 28 dated captures in `research/screens/baseline-account/` (18 and 22 August 2026), transcribed verbatim; the 29th capture in that folder is another product and is left out.
+**Why this walk ran.** On 5 October 2026 the founder decided that **the product's voice is the baseline's voice: it is the foundation**, `docs/decisions.md` D-166. Until then copy sat on the "not inherited" list in `CLAUDE.md`, so no walk had ever written the baseline's words down; sections 1 to 10 quote copy only where a structure needed it. **Inheriting a thing means having it written down first**, so this section is the voice as it exists, before stage 05 derives anything from it. Public pages walked live at 1440 and 390, nothing logged into, screenshots `research/screens/baseline/walk5_*_5oct.png`. The signed-in copy is read from the founder's 28 dated captures in `research/screens/baseline-account/` (18 and 22 August 2026), transcribed verbatim; the 29th capture in that folder is another product and is left out.
 
 ### 11.1 Capitals are type, not copy
 
@@ -561,7 +561,7 @@ The withdrawal table's three heads, `Your skin price`, `Market skin price` and `
 
 ## 13. Seventh walk, 19 October 2026: type, shape and components
 
-**Why this walk ran.** `D-181` made typography, shape language and component look inherited, and `D-182` put a step 0 in front of stage 06 because this file held colour, one family and one button and nothing else. Public pre-login pages only, nothing logged into, Playwright, computed styles of every visible element. **Pages:** `https://daddyskins.com/en`, `/en/cases`, `/en/case/legend`, `/en/case/heroic`, all at 1440; Home and `/en/case/heroic` at 390; `/en/case/silver`, `/en/case/nova` and `/en/case/guardian` for the rarity ladder only; `/en/faq`; the sign-in dialog opened from the header control. **Counts are elements summed over Home, the catalogue and the two case pages at 1440**, unless a row says otherwise. The raw collection was not committed; the screenshots were, listed in the source index.
+**Why this walk ran.** `D-181` made typography, shape language and component look inherited, and `D-182` put a step 0 in front of stage 06 because this file held colour, one family and one button and nothing else. Public pre-login pages only, nothing logged into, Playwright, computed styles of every visible element. **Pages:** `https://the baseline site`, `/en/cases`, `/en/case/legend`, `/en/case/heroic`, all at 1440; Home and `/en/case/heroic` at 390; `/en/case/silver`, `/en/case/nova` and `/en/case/guardian` for the rarity ladder only; `/en/faq`; the sign-in dialog opened from the header control. **Counts are elements summed over Home, the catalogue and the two case pages at 1440**, unless a row says otherwise. The raw collection was not committed; the screenshots were, listed in the source index.
 
 ### 13.1 Type
 

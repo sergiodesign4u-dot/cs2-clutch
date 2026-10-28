@@ -1,6 +1,6 @@
 # CS2 Clutch
 
-A new CS2 skin case-opening platform, designed against its closest established competitor as the baseline, built as a thirteen stage product design pipeline. Working placeholder name. Baseline: daddyskins.com, the reference product whose structure this project inherits.
+A new CS2 skin case-opening platform, designed against its closest established competitor as the baseline, built as a thirteen stage product design pipeline. Working placeholder name. Baseline: the reference product whose structure this project inherits.
 
 **Live: [project roadmap](https://sergiodesign4u-dot.github.io/cs2-clutch/)**
 
@@ -39,7 +39,7 @@ One thing the re-run could not deliver, named rather than hidden: no product in 
 
 **IA base layer: done, August 2026.** Sixteen entities before any screen, twelve MVP screens in seven intent clusters against thirteen LATER, six flows in Mermaid with states and dead ends rather than happy paths, eight since round 15 added Flow 5 and round 16 Flow 6, and the main job at three taps. The tracing matrix carries a scope row and a budget line, and both critiques ran on two instruments: 31 findings, Codex 13, Claude 13, both 5, with 25 fixed and the withdrawn ones visible with their reasons. **One thing it decided did not survive the detail layer.** The base layer flattened the baseline's nine item rail into a header of four items; on 11 August 2026 the founder reversed that at node 0.1. The model is the baseline's own two carriers, a rail that owns destinations and a header that owns money in two figures, with the rail filled by round 1's live items only. Reasoning: `docs/decisions.md` D-19 and D-21.
 
-**Stage 03 input gate: passed on 11 August 2026, and it found more than it expected.** All seven declared inputs exist. The four decisions the CJM map could not close were answered (D-17): the age gate becomes two layers, a declaration at registration plus identity verification before funding, **and `D-26` later parked the second layer out of round 1 and moved it to before withdrawal**; whether earlier roll history is publishable stays a question of fact; the internal weights check is scheduled before stage 04; inventory capital is deferred to 03b. The founder also decided the colour register is taken from the baseline rather than derived near it (D-18), which reverses part of D-03. Then the gate found that "the structure is inherited" had no source document: seven things were listed as inherited and none of them was written down. That produced `baseline.md`, a live walk of daddyskins.com on public pre-login pages, whose sharpest finding is that **only one of the nine left rail destinations is in round 1**.
+**Stage 03 input gate: passed on 11 August 2026, and it found more than it expected.** All seven declared inputs exist. The four decisions the CJM map could not close were answered (D-17): the age gate becomes two layers, a declaration at registration plus identity verification before funding, **and `D-26` later parked the second layer out of round 1 and moved it to before withdrawal**; whether earlier roll history is publishable stays a question of fact; the internal weights check is scheduled before stage 04; inventory capital is deferred to 03b. The founder also decided the colour register is taken from the baseline rather than derived near it (D-18), which reverses part of D-03. Then the gate found that "the structure is inherited" had no source document: seven things were listed as inherited and none of them was written down. That produced `baseline.md`, a live walk of the baseline on public pre-login pages, whose sharpest finding is that **only one of the nine left rail destinations is in round 1**.
 
 ## Wireframes
 
@@ -47,7 +47,7 @@ One thing the re-run could not deliver, named rather than hidden: no product in 
 
 - **Main flow:** Home, the case screen, sign in through the geo gate, the open, the outcome. The etalon is Home.
 - **For stages 05 to 08:** every screen carries the All screens panel, a tree of cluster, screen and state, and the overview's coverage map links every page. Colour goes onto copies in `design/`; `wireframes/` stays grey, `wireframes/CLAUDE.md`.
-- **Critique:** six rounds on two instruments: two against daddyskins.com and against every control pressed, then rounds 15 to 17, the IA against itself and every journey walked page to page, which gave the prototype a session that carries the signed-in state, money after an act and the limits set, `D-152` and `D-160`. Logged in `wireframes/docs/critique.md` with a found-by column; both before and afters are on the overview.
+- **Critique:** six rounds on two instruments: two against the baseline and against every control pressed, then rounds 15 to 17, the IA against itself and every journey walked page to page, which gave the prototype a session that carries the signed-in state, money after an act and the limits set, `D-152` and `D-160`. Logged in `wireframes/docs/critique.md` with a found-by column; both before and afters are on the overview.
 
 ## Scope
 

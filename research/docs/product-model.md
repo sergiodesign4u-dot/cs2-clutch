@@ -44,7 +44,7 @@ Source: Platform design review of Clash.gg, Key-Drop, Hellcase, CSGORoll (June 2
 
 **Core motivation:** The dopamine loop. The ritual of opening, the animation of the reveal, the possibility of a big drop. The experience itself is the product. Outcome matters less than the feeling.
 
-**Pain:** Platforms that feel rigged, laggy, or dead. Outcomes that feel predetermined. No excitement in the reveal. Cannot share or show off wins easily. Bot-flooded chat (bot activity is category-wide on DatDrop, DaddySkins, CSGORoll -- confirmed by research).
+**Pain:** Platforms that feel rigged, laggy, or dead. Outcomes that feel predetermined. No excitement in the reveal. Cannot share or show off wins easily. Bot-flooded chat (bot activity is category-wide on DatDrop, the baseline, CSGORoll -- confirmed by research).
 
 **JTBD:** When I have downtime between CS2 matches or want entertainment in the skin ecosystem, I want to open a case with a real drop animation and genuine unpredictability, so that I get the thrill of a reveal and a real shot at something exciting.
 
@@ -248,7 +248,7 @@ Source: DCMS Age Verification Review (https://www.gov.uk/government/publications
 This means:
 - Being the first operator to name a public, third-party RNG auditor is a credible and currently unoccupied position.
 - Robust age verification is both a regulatory requirement and a trust signal no competitor has executed.
-- Bot activity (confirmed category-wide on DatDrop, DaddySkins, CSGORoll) depresses trust in live feeds and battle lobbies. Authenticated-user-only visible activity would be a visible differentiator.
+- Bot activity (confirmed category-wide on DatDrop, the baseline, CSGORoll) depresses trust in live feeds and battle lobbies. Authenticated-user-only visible activity would be a visible differentiator.
 
 **Design implication:** Trust is not a marketing message -- it requires infrastructure. Third-party RNG audit, real age verification, and bot-free live feeds are product investments, not copy decisions.
 
@@ -259,7 +259,7 @@ This means:
 **STATUS: NEW -- relevant to roadmap prioritization**
 
 - **DatDrop:** Possibly non-operational as of June 2026. Domain JS-redirects to competitors. This is a gap in the Battle Royale competitive landscape -- no dominant battle-focused platform is confirmed active.
-- **Clash.gg Champion mode** and **skin.club Community Cases** are cited in independent reviews as the most differentiated features in the category. Community creation is a growing loop. No equivalent feature exists on DaddySkins or most mid-tier platforms.
+- **Clash.gg Champion mode** and **skin.club Community Cases** are cited in independent reviews as the most differentiated features in the category. Community creation is a growing loop. No equivalent feature exists on the baseline or most mid-tier platforms.
 - **Steam Market structural argument** (15% fee + wallet lock) is the strongest acquisition message for users who already trade skins. This framing has not been prominently adopted by all competitors and remains an underused angle.
 
 Source: Competitive analysis, Phase 3 (internal), June 2026.

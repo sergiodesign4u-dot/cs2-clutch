@@ -94,7 +94,7 @@
   --mix-light-soft: 12%; /* blue in a soft beam, a glow behind a figure; рішення користувача, D-188 */
   --mix-light-pad: 55%; /* blue at the centre of the pad under a case; рішення користувача, D-188 */
 
-  /* The baseline look, taken as it is, D-192: computed styles of daddyskins.com/en read on 20 Oct 2026 */
+  /* The baseline look, taken as it is, D-192: computed styles of the baseline site read on 20 Oct 2026 */
   --size-unit: 11px; /* a countdown unit; наявний бренд, baseline walk of 20 Oct 2026, computed style, banner-timer__countdown-unit */
   --size-chip: 12px; /* a small button label, a case name on a phone; наявний бренд, baseline walk of 20 Oct 2026, computed style, small-button, case-card__name at 390 */
   --size-label: 14px; /* a case name, a button label, a description; наявний бренд, baseline walk of 20 Oct 2026, computed style, case-card__name, game-preview__description */
@@ -124,13 +124,13 @@
   --shape-hex: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cpolygon points=%2250,2 92,26 92,74 50,98 8,74 8,26%22 fill=%22%230A1230%22 fill-opacity=%22.55%22 stroke=%22%234E6FB8%22 stroke-opacity=%22.45%22 stroke-width=%221.6%22 stroke-dasharray=%224 3%22/%3E%3C/svg%3E"); /* the hexagon behind a drop in the ticker; наявний бренд, founder screenshots of 20 Oct 2026, pixel, the ticker drop; drawn as an outline */
 
   /* The baseline look, third pass, D-194: every block walked element by element, pseudo-elements included */
-  --size-micro: 9px; /* a skin name under its weapon in the ticker; наявний бренд, deep walk of daddyskins.com/en on 20 Oct 2026, computed style, cases-live-tape-item h6 */
-  --size-drop: 92px; /* a drop in the ticker, its width; наявний бренд, deep walk of daddyskins.com/en on 20 Oct 2026, computed style, cases-live-tape-item */
-  --shape-hex-fill: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22%3E%3Cpath d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the inner hexagon behind a drop, filled with its rarity; наявний бренд, deep walk of daddyskins.com/en on 20 Oct 2026, computed style, hex-bg path.color-fill, viewBox 136 by 118 */
-  --shape-hex-line: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3Cpath stroke-width=%221%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the three hexagon lines behind a drop, one dashed; наявний бренд, deep walk of daddyskins.com/en on 20 Oct 2026, computed style, hex-bg path.outer-stroke, color-stroke, color-fill-stroke */
-  --color-mode-light: #7E2DC8; /* the purple light behind a mode card art, blurred 40px at 80 %; наявний бренд, deep walk of daddyskins.com/en on 20 Oct 2026, computed style, game-preview::before */
-  --color-card-hover: #17144B; /* a case card under the pointer; наявний бренд, deep walk of daddyskins.com/en on 20 Oct 2026, computed style, case-card:hover */
-  --blur-mode: 40px; /* the blur of the light behind a mode card art; наявний бренд, deep walk of daddyskins.com/en on 20 Oct 2026, computed style, game-preview::before filter */
+  --size-micro: 9px; /* a skin name under its weapon in the ticker; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, cases-live-tape-item h6 */
+  --size-drop: 92px; /* a drop in the ticker, its width; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, cases-live-tape-item */
+  --shape-hex-fill: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22%3E%3Cpath d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the inner hexagon behind a drop, filled with its rarity; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, hex-bg path.color-fill, viewBox 136 by 118 */
+  --shape-hex-line: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3Cpath stroke-width=%221%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the three hexagon lines behind a drop, one dashed; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, hex-bg path.outer-stroke, color-stroke, color-fill-stroke */
+  --color-mode-light: #7E2DC8; /* the purple light behind a mode card art, blurred 40px at 80 %; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, game-preview::before */
+  --color-card-hover: #17144B; /* a case card under the pointer; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, case-card:hover */
+  --blur-mode: 40px; /* the blur of the light behind a mode card art; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, game-preview::before filter */
 
   /* Art of the Home, generated by Codex in our style, D-192 and D-193 */
   --art-banner: url(concept/assets/home/banner-coldfront.webp); /* the event banner; Codex image generation, D-192 */
@@ -139,7 +139,7 @@
   --art-mode-gunfights: url(concept/assets/home/mode-gunfights.webp); /* the Gunfights mode card; Codex image generation, D-192; a variation of the baseline mode art, D-194; redrawn by Codex as one family with the case covers on the founder's mark, D-197 */
   --art-mode-upgrade: url(concept/assets/home/mode-upgrade.webp); /* the Upgrade mode card; Codex image generation, D-192; a variation of the baseline mode art, D-194; redrawn by Codex as one family with the case covers on the founder's mark, D-197 */
   --art-daily-bg: url(concept/assets/home/daily-base.webp); /* the Daily cases panel, its base layer: three rifles in the dark, navy to magenta; Codex image generation, D-192; redrawn violet with a rifle silhouette, D-193; redrawn as a calm base layer under separate rings, dots and a plus, after the baseline panel's five layers, D-199 */
-  --art-daily-rings: url(concept/assets/home/daily-rings.svg); /* the Daily cases panel, its ring layer: two rings and the turning arrows of the daily reset; drawn for D-199 after the layering of the baseline panel, walk of daddyskins.com/en on 22 Oct 2026, daily-cases-bg__circles */
+  --art-daily-rings: url(concept/assets/home/daily-rings.svg); /* the Daily cases panel, its ring layer: two rings and the turning arrows of the daily reset; drawn for D-199 after the layering of the baseline panel, walk of the baseline site on 22 Oct 2026, daily-cases-bg__circles */
   --art-daily-1: url(concept/assets/home/daily-1.webp); /* daily case, tier 1; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
   --art-daily-2: url(concept/assets/home/daily-2.webp); /* daily case, tier 2; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
   --art-daily-3: url(concept/assets/home/daily-3.webp); /* daily case, tier 3; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
@@ -156,7 +156,7 @@
   --art-case-nightfall: url(concept/assets/home/cover-nightfall.webp); /* the Nightfall cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
   --art-case-emberforge: url(concept/assets/home/cover-emberforge.webp); /* the Emberforge cover in the case grid, the fifth; Codex image generation, D-198: drawn in the family of the four covers at the founder's ask for five on a wide screen */
   --art-ground: url(concept/assets/home/ground.webp); /* the page ground at the top of the page, two operators in the dark; Codex image generation, D-196: a variation of the baseline ground at the founder's mark that ours read lighter */
-  --color-footer-base: #030214; /* the strip under the footer, the copyright row; наявний бренд, walk of daddyskins.com/en on 22 Oct 2026, computed style, copyright-wrapper, D-196 */
+  --color-footer-base: #030214; /* the strip under the footer, the copyright row; наявний бренд, walk of the baseline site on 22 Oct 2026, computed style, copyright-wrapper, D-196 */
 
   /* Motion of the event banner, D-194: the founder asked for a banner that moves as the baseline video does; motion is ours, not inherited, CLAUDE.md "Baseline" */
   --motion-drift: 26s; /* the arena drifting behind everything; підібрано під характер, D-194; slow enough to read as air, not as movement */
@@ -168,7 +168,7 @@
   --size-rail: 250px; /* the rail, open; наявний бренд, baseline.md 13, the rail measured above 1440; структура, wireframes/_wf.css, stage 04 drew 220 */
   --size-rail-collapsed: 70px; /* the rail, closed to icons; наявний бренд, baseline.md 13, the rail measured at 1440 and below; структура, wireframes/_wf.css, stage 04 drew 64 */
   --size-header: 64px; /* the header strip; наявний бренд, baseline walk of 20 Oct 2026, main-header, D-192; D-191 drew 72 */
-  --size-content: 1298px; /* the content column at the 1440 reference; наявний бренд, deep walk of daddyskins.com/en on 20 Oct 2026, ul.game-previews and the section heads, 1298 wide at 1440, D-194; структура, wireframes/_wf.css, stage 04 drew 1220 */
+  --size-content: 1298px; /* the content column at the 1440 reference; наявний бренд, deep walk of the baseline site on 20 Oct 2026, ul.game-previews and the section heads, 1298 wide at 1440, D-194; структура, wireframes/_wf.css, stage 04 drew 1220 */
   --size-bar: 64px; /* the bottom bar on mobile; рішення користувача, D-191, an icon over a 13px label; структура, wireframes/_wf.css, stage 04 drew 56 */
   --size-measure: 68ch; /* the longest line of prose; структура, wireframes/_wf.css, stage 04 */
   --size-tap: 44px; /* the smallest target, WCAG 2.5.5; структура, wireframes/_wf.css, stage 04 */
@@ -812,7 +812,7 @@ body:where(:has(> .wf-screen-body)) { background: radial-gradient(120% 60% at 50
 .wf-coin, .wf-tile-cost::before { border-radius: 50%; background: var(--art-coin); box-shadow: 0 0 3px color-mix(in srgb, var(--color-gold) 60%, transparent); }
 .wf-tile-cost::before { content: ''; display: inline-block; width: .8em; height: .8em; margin-right: 6px; vertical-align: -.05em; }
 
-/* --- buttons: the baseline's two pills ------------------------------------------ */
+/* --- buttons: The baseline's two pills ------------------------------------------ */
 .wf-btn { min-height: var(--size-btn-m); padding: 0 var(--space-4); border: var(--size-edge) solid var(--color-pink); border-radius: var(--radius-pill); background: transparent; color: var(--color-text-hi);
   font-family: inherit; font-size: var(--size-label); font-weight: 700; line-height: 1.4; letter-spacing: .88px; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background .15s ease-out, filter .15s ease-out; }
 .wf-btn:hover { background: color-mix(in srgb, var(--color-pink) 16%, transparent); border-color: var(--color-pink); }
@@ -855,7 +855,7 @@ body:where(:has(> .wf-screen-body)) { background: radial-gradient(120% 60% at 50
 .wf-acct { border: 0; background: var(--color-card-2); border-radius: 50%; padding: 0; }
 .wf-acct .wf-avatar { width: 24px; height: 24px; color: var(--color-text-hi); }
 
-/* --- the live feed: the baseline's bare strip with a pink line under it ----------- */
+/* --- the live feed: The baseline's bare strip with a pink line under it ----------- */
 .wf-feed { min-height: var(--size-ticker); background: var(--color-ticker); border-bottom: 1px solid var(--color-pink); }
 .wf-feed-head { background: var(--color-pink); border: 0; border-radius: 0 0 0 var(--radius-s); }
 .wf-feed-lbl { color: var(--color-text-hi); font-weight: 700; letter-spacing: .08em; }
@@ -942,7 +942,7 @@ body:where(:has(> .wf-screen-body)) { background: radial-gradient(120% 60% at 50
 .wf-prose .wf-sec-head h2::before { -webkit-mask-image: var(--icon-cup); mask-image: var(--icon-cup); }
 .wf-sec-head::after { background: var(--color-blue); height: 1px; }
 .wf-sec-sub { color: var(--color-text-muted); font-size: var(--size-text); }
-/* the line under the head runs on from its sub, in one row, where the row holds both: the baseline's head, D-193 */
+/* the line under the head runs on from its sub, in one row, where the row holds both: The baseline's head, D-193 */
 @media (min-width: 1200px) { .wf-sec-head:has(.wf-sec-sub) { grid-template-columns: auto auto minmax(96px, 1fr); align-items: center; }
   .wf-sec-head:has(.wf-sec-sub) .wf-sec-sub { grid-area: 1 / 2; } .wf-sec-head:has(.wf-sec-sub)::after { grid-area: 1 / 3; } }
 

@@ -67,7 +67,7 @@
 
 **Anti-example:** "Your withdrawal is on its way!" · "Instant withdrawals!" · "Processing..."
 
-**Source:** `baseline.md` section 11.2: the money register carries no exclamation mark at all, the only register besides explaining that does not. The floor of the map is here: "its been 30hours for a withdraw. support doesnt answer.", daddyskins, `cjm-evidence.md` U-09 row 1; "The ticket is closed, still $0 added to balance.", U-04 row 1. `CLAUDE.md` principle 3: odds, cost and value visible where money is about to be spent.
+**Source:** `baseline.md` section 11.2: the money register carries no exclamation mark at all, the only register besides explaining that does not. The floor of the map is here: "its been 30hours for a withdraw. support doesnt answer.", the baseline, `cjm-evidence.md` U-09 row 1; "The ticket is closed, still $0 added to balance.", U-04 row 1. `CLAUDE.md` principle 3: odds, cost and value visible where money is about to be spent.
 
 ### Principle 4. The open gets the energy; the outcome stays open
 
