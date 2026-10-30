@@ -25,7 +25,7 @@
   var TIERS = { Covert: 'r2', Classified: 'r3', Restricted: 'r4', 'Mil-Spec': 'r5', 'Industrial Grade': 'r6', 'Consumer Grade': 'r7' };
   // D-205: a language's flag, by the code the renderer wrote; the country each code names is the
   // founder's pick, English to the United Kingdom and Chinese to China.
-  var FLAGS = { EN: 'gb', DE: 'de', ZH: 'cn', FR: 'fr', PL: 'pl', TR: 'tr', PT: 'pt', ES: 'es', UK: 'ua' };
+  var FLAGS = { EN: 'gb', DE: 'de', ZH: 'cn', FR: 'fr', PL: 'pl', TR: 'tr', PT: 'pt', ES: 'es', UA: 'ua' };
   // A placeholder icon, by the words beside it.
   var ICONS = {
     'Cases opened': 'box', 'Upgrades': 'arrow-up', 'Total users': 'users', 'Online now': 'pulse',

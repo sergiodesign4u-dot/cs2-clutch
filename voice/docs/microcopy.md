@@ -82,7 +82,7 @@ The Marks column flags where screens say the same thing in different words, or w
 | G10 | rail | Only English is available for now. | text | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
 | G11 | rail | Polish PL | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
 | G12 | rail | Portuguese PT | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
-| G13 | rail | Ukrainian UK | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept; Ukrainian in the place of Russian, D-205 |
+| G13 | rail | Ukrainian UA | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept; Ukrainian in the place of Russian, its mark UA, D-205 |
 | G14 | rail | Spanish ES | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
 | G15 | rail | Turkish TR | button | `_nav.js LANGS`, `_nav.js LANGS/histTable/mountClockStruck` | 133 pages, 19 screens |  | kept |
 | G16 | rail | Collapse the rail | accessible name | `_nav.js renderShell` | 132 pages, 19 screens |  | Collapse the menu; Expand the menu when collapsed. "Rail" is our word, not the reader's |

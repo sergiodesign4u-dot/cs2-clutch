@@ -1536,4 +1536,14 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .wf-rail-lang { gap: var(--space-2); }
 .wf-foot-pay .wf-rail-lang { justify-content: flex-start; }
 .wf-foot-pay .wf-rail-lang::after { margin-left: auto; }
+/* D-205 FIXED THE SAME DAY. The two columns were sized by their content, so where the footer's
+   field is narrow (260px at 1199, 280 at 1280, 288 at a 320 window) the right column ran past the
+   panel. The columns now share the width, the row is tighter, the footer's panel is never narrower
+   than 320px and grows to its left, and below 360 the codes leave the screen, the flag carrying the
+   same mark. In the closed rail the code leaves too: flag and caret alone fit its 70px. */
+.wf-lang-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.wf-lang-opt { gap: var(--space-2); padding: 0 var(--space-2); }
+.wf-foot-pay .wf-lang-wrap.is-open .wf-lang-pop { width: max(calc(100% + 2px), 320px); max-width: calc(100vw - 2 * var(--space-4)); }
+@media (max-width: 359px) { .wf-lang-opt .wf-lang-code { display: none; } }
+.is-rail-collapsed .wf-rail .wf-rail-lang[data-flag]:not([data-flag=""]) .wf-lang-ab { display: none; }
 

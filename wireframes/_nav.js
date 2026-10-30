@@ -1087,12 +1087,15 @@ window.WF_PAY = window.WF_PAY || {
   // D-205, 30 October 2026: the founder took Russian out and put Ukrainian in its place,
   // the one option of the nine that is not the baseline's. A code kept in the session
   // from before the swap falls back to English rather than naming an option that is gone.
+  // Its shown mark is UA, the founder's pick of the same day: UK reads as Britain to most
+  // people. The code stays uk, the language's own, and a third field carries the mark.
   // WHAT THE STUBS NEVER DO IS TOUCH THE PAGE'S lang ATTRIBUTE. English text announced
   // to a screen reader as German is an accessibility defect rather than a placeholder,
   // and it is the one change that would make the stub look real.
   var LANGS = [['en', 'English'], ['de', 'German'], ['zh', 'Chinese'], ['fr', 'French'],
                ['pl', 'Polish'], ['tr', 'Turkish'], ['pt', 'Portuguese'],
-               ['es', 'Spanish'], ['uk', 'Ukrainian']];
+               ['es', 'Spanish'], ['uk', 'Ukrainian', 'UA']];
+  function langMark(code) { var m = code.toUpperCase(); LANGS.forEach(function (L) { if (L[0] === code && L[2]) m = L[2]; }); return m; }
   var langCur = 'en';
   // D-42: the eight stubs switch the control and nothing else, and every place
   // that offers them says so in the same words.
@@ -1138,7 +1141,7 @@ window.WF_PAY = window.WF_PAY || {
     var opts = LANGS.map(function (L) {
       var o = el('button', 'wf-lang-opt', L[1]);
       o.type = 'button';
-      o.appendChild(el('span', 'wf-lang-code', L[0].toUpperCase()));
+      o.appendChild(el('span', 'wf-lang-code', langMark(L[0])));
       o.addEventListener('click', function () { setLang(L[0]); setOpen(false); btn.focus(); });
       list.appendChild(o);
       return o;
@@ -1147,7 +1150,7 @@ window.WF_PAY = window.WF_PAY || {
     pop.appendChild(el('span', 'wf-fig-missing', LANG_ONLY));
 
     function paint(code) {
-      abbr.textContent = code.toUpperCase();
+      abbr.textContent = langMark(code);
       var name = 'English';
       LANGS.forEach(function (L, i) {
         var on = L[0] === code;
