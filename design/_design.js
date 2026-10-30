@@ -87,6 +87,12 @@
       var t = (i.parentNode.textContent || '').toLowerCase(), k = ['steam', 'google', 'discord'].filter(function (n) { return t.indexOf(n) >= 0; })[0] || (t.trim() === 'x' ? 'x' : '');
       if (k) i.setAttribute('data-icon', k);
     });
+    // D-204: the header figure shows its number beside its mark; the unit and the caption stay in
+    // the link's accessible name, so the number is read from the text the renderer wrote.
+    root.querySelectorAll('.wf-header [data-money]').forEach(function (v) {
+      var n = v.textContent.replace(/\s*coins$/, '').trim();
+      if (v.getAttribute('data-n') !== n) v.setAttribute('data-n', n);
+    });
     root.querySelectorAll('.wf-ladder li').forEach(function (li, n) { li.setAttribute('data-step', String(n + 1)); });
   }
 

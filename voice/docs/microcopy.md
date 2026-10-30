@@ -98,8 +98,8 @@ The Marks column flags where screens say the same thing in different words, or w
 | G26 | header | Sign out | link | page, `_nav.js accountControl/langControl` | 85 pages, 15 screens |  | kept |
 | G27 | header | Withdrawals | link | page, `_nav.js HIST_TABS/accountControl` | 85 pages, 15 screens | C1 | kept |
 | G28 | header | Account, {d} | accessible name | _nav.js, assembled | 84 pages, 15 screens |  | kept |
-| G29 | header | {n} coins Balance | link | page, `_nav.js renderAcctHero/renderShell`, page script | 82 pages, 15 screens |  | kept |
-| G30 | header | {n} coins Value of items held | link | page, `_nav.js renderAcctHero/renderShell`, page script | 82 pages, 15 screens | C2 | kept |
+| G29 | header | {n} coins Balance | link | page, `_nav.js renderAcctHero/renderShell`, page script | 82 pages, 15 screens |  | kept; the coloured header shows the number only, beside its mark, the rest in G31 and G32, D-204 |
+| G30 | header | {n} coins Value of items held | link | page, `_nav.js renderAcctHero/renderShell`, page script | 82 pages, 15 screens | C2 | kept; the coloured header shows the number only, beside its mark, the rest in G31 and G32, D-204 |
 | G31 | header | Balance, {n} coins | accessible name | _nav.js, assembled | 82 pages, 15 screens |  | kept |
 | G32 | header | Value of items held, {n} coins | accessible name | `_nav.js renderAcctHero/renderShell` | 82 pages, 15 screens | C2 | kept |
 | G33 | header | Add funds. We add {n} in coins on top, up to {n} coins per {n} hours | accessible name | `_nav.js renderShell` | 73 pages, 13 screens | C4 | kept |

@@ -6601,3 +6601,23 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **Fixed the same day.** The founder: "криво получилось". The middle line had its own box and its 24px offset ran down the page before the turn, so after turning it sat out of line with the pair. Both layers now share one box and one turn, the middle line drawn at its place inside it, and its 24px runs along the lines as the baseline's does. Captured again on Nightfall: three parallel lines, evenly spaced.
 
+---
+
+## D-204. The money in the header as the baseline's, and the live drops pause centred
+
+**Date:** 2026-10-30. **Stage:** 06, step 6. **Decided by:** the founder, on the live drops pill: "ионка уехала с центра круга"; and on our header beside the baseline's: "вот тут мне не нравится, лучше сделать вот так вот". **Binds:** `design/_theme.css`, `design/_design.js`.
+
+**What was found.** The pause button keeps its word for a screen reader at font size 0, and that word was still a flex item: the button's 8px gap and the word's letter spacing pushed the glyph 6px right of the circle's centre.
+
+**What was decided.**
+
+1. **The pause glyph sits in the middle of its circle:** the button has no gap and no letter spacing. The play triangle keeps its 2px optical shift.
+2. **The header money reads as the baseline's:** the number beside its mark, the coin for the balance in gold at `--size-m`, a pistol for the items held in `--color-text-muted` at `--size-s`, no captions and no word coins on the screen. Both stay in each link's accessible name, G31 and G32, and `design/_design.js` copies the number the renderer wrote into `data-n`, so no text changes.
+3. **From 900px a raised plate holds both figures and Add funds,** the full header height in `--color-card-hover`, which is the screenshot's `#16144B` within one step.
+4. **Add funds is a 40px pink ring** with a white plus, filled on hover, and its 5% badge is green as the baseline's, `--color-green`, with dark text, because white on that green is about 2:1. On a phone the ring is 36px, round.
+
+**Read from.** The founder's screenshot of the baseline's header, 30 October 2026, read at 2x: plate `#16144B`, ring 40px with a 2px edge, badge `#34CC66`, 24px from the plate's edge to the coin and 32px from the ring to its end.
+
+**Proven.** The pause measured and captured playing and paused at 1440. The header captured at 1440 and 360. Structural diff zero at 360 and 1440 on both pages, the r1 to r7 rarity paint left aside as before; no horizontal scroll at nine widths on both pages.
+
+**The cost.** The held value no longer shows its unit on the screen, only in its accessible name, against the header's two figures "both in the coin". One new value, `--icon-pistol`, mdi:pistol. And the build in the session scratchpad that wrote `design/_theme.css` was cleared by the system, so from this record `design/_theme.css` is edited in place and is the one source.

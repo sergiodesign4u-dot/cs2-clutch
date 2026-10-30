@@ -338,4 +338,4 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 
 **`D-201`.** No new value. `--icon-arrow-up`, the drawn bars-up mark, is redrawn closer to the baseline's: three short bars and a narrow column ending in a wide arrowhead. `--color-footer-edge` is back on the counters' top edge, where `D-200` had replaced it by mistake.
 
-
+**`D-204`.** One new value. `--icon-pistol`, mdi:pistol, the mark of the items held beside their value in the header, as the baseline's, founder screenshot of 30 Oct 2026. `--color-card-hover` now also paints the header's money plate, the screenshot's `#16144B`; `--color-green` now also paints the 5% badge on Add funds, the screenshot's `#34CC66`.
