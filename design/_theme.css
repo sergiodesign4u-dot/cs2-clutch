@@ -1557,3 +1557,13 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
   .is-rail-collapsed .wf-rail [data-lbl]:hover::after,
   .is-rail-collapsed .wf-rail [data-lbl]:focus-visible::after { left: 100%; min-width: 120px; min-height: var(--size-btn-l); display: flex; align-items: center; padding: var(--space-3) var(--space-5); border: 1px solid var(--color-line-soft); border-left: 0; border-radius: 0; background: var(--color-ticker); color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; line-height: 1.5; letter-spacing: 0; }
 }
+/* D-206 FOLLOW-UP, the founder: "давай сделаем чипсом рядом". A row not launched yet shows its name
+   on the same plate and Not launched yet beside it as a chip, the mode cards' chip, instead of one
+   long line. The row's own name is the plate, so the chip can sit right after it; the row's
+   whole-label tooltip steps aside for it. */
+@media (min-width: 900px) {
+  .is-rail-collapsed .wf-rail .wf-rail-item.is-later:hover::after { content: none; }
+  .is-rail-collapsed .wf-rail .wf-rail-item.is-later:hover .wf-rail-lbl { display: flex; align-items: center; gap: var(--space-3); position: absolute; z-index: 60; left: 100%; top: 50%; transform: translateY(-50%); min-width: 120px; min-height: var(--size-btn-l); padding: var(--space-3) var(--space-5); border: 1px solid var(--color-line-soft); border-left: 0; background: var(--color-ticker); color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; line-height: 1.5; letter-spacing: 0; text-transform: uppercase; white-space: nowrap; opacity: 1; }
+  .is-rail-collapsed .wf-rail .wf-rail-item.is-later:hover .wf-rail-lbl[data-chip]::after { content: attr(data-chip); display: inline-flex; align-items: center; min-height: var(--size-btn-s); padding: 0 var(--space-3); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--color-text-hi) 9%, var(--color-ticker)); color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; line-height: 1; letter-spacing: .75px; }
+}
+

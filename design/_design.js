@@ -96,6 +96,11 @@
       var n = v.textContent.replace(/\s*coins$/, '').trim();
       if (v.getAttribute('data-n') !== n) v.setAttribute('data-n', n);
     });
+    // D-206: a row not launched yet carries its mark beside its name when the closed rail shows it.
+    root.querySelectorAll('.wf-rail-item.is-later').forEach(function (r) {
+      var l = r.querySelector('.wf-rail-lbl'), c = txt(r, '.wf-rail-soon');
+      if (l && c && l.getAttribute('data-chip') !== c) l.setAttribute('data-chip', c);
+    });
     root.querySelectorAll('.wf-lang-opt').forEach(function (o) {
       var f = FLAGS[txt(o, '.wf-lang-code')] || ''; if (o.getAttribute('data-flag') !== f) o.setAttribute('data-flag', f);
     });

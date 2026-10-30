@@ -31,3 +31,5 @@
 
 **Proven.** Captured over Cases, a row not launched yet and the language control at 1440. Structural diff zero at 360 and 1440 on both pages; no horizontal scroll at nine widths. **The cost.** None: no new value.
 
+**Updated the same day.** Asked whether a row not launched yet should put Not launched yet on a second line, the founder: "давай сделаем чипсом рядом". Such a row now shows its name on the plate and Not launched yet beside it as a chip, the mode cards' chip: pill, 12px bold, `--color-text-soft` on white at 9 % over the plate. The row's name is the plate, so the chip sits right after it; `design/_design.js` copies the row's own mark into `data-chip`. Captured over Case battles and Top wins at 1440; structural diff zero; no horizontal scroll at nine widths.
+
