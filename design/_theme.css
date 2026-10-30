@@ -1567,3 +1567,14 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
   .is-rail-collapsed .wf-rail .wf-rail-item.is-later:hover .wf-rail-lbl[data-chip]::after { content: attr(data-chip); display: inline-flex; align-items: center; min-height: var(--size-btn-s); padding: 0 var(--space-3); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--color-text-hi) 9%, var(--color-ticker)); color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; line-height: 1; letter-spacing: .75px; }
 }
 
+/* D-206 CORRECTED, the founder: "я имел в виду всю подсказку ... как чип такой рядом, как раньше было,
+   просто раньше оно было маленьким и со странной подложкой". The label is a chip again, a pill
+   standing 12px off the rail as before, keeping this record's larger type and room and its near
+   black plate with a 1px edge in place of the old raised blue. */
+@media (min-width: 900px) {
+  .is-rail-collapsed .wf-rail [data-lbl]:hover::after,
+  .is-rail-collapsed .wf-rail [data-lbl]:focus-visible::after,
+  .is-rail-collapsed .wf-rail .wf-rail-item.is-later:hover .wf-rail-lbl { left: calc(100% + var(--space-3)); min-width: 0; min-height: var(--size-btn-m); padding: 0 var(--space-5); border: 1px solid var(--color-line-soft); border-radius: var(--radius-pill); line-height: 1; }
+  .is-rail-collapsed .wf-rail .wf-rail-item.is-later:hover .wf-rail-lbl { padding-right: var(--space-2); }
+  .is-rail-collapsed .wf-rail .wf-rail-item.is-later:hover .wf-rail-lbl[data-chip]::after { min-height: var(--size-btn-s); }
+}
