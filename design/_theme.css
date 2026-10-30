@@ -1520,3 +1520,20 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 @media (max-width: 899px) {
   .wf-header .wf-dep { width: 36px; min-width: 36px; height: 36px; min-height: 36px; align-self: center; }
 }
+
+/* D-205 A FLAG BESIDE EACH LANGUAGE, the founder's ask of 30 Oct 2026, reversing D-42's "no flag icons";
+   round flags from circle-flags 2.7.0 (MIT), 20px, the country each code names picked by the founder.
+   design/_design.js names the flag from the code the renderer wrote. */
+[data-flag="gb"] { --flag: url(concept/assets/flags/gb.svg); } [data-flag="de"] { --flag: url(concept/assets/flags/de.svg); }
+[data-flag="cn"] { --flag: url(concept/assets/flags/cn.svg); } [data-flag="fr"] { --flag: url(concept/assets/flags/fr.svg); }
+[data-flag="pl"] { --flag: url(concept/assets/flags/pl.svg); } [data-flag="tr"] { --flag: url(concept/assets/flags/tr.svg); }
+[data-flag="pt"] { --flag: url(concept/assets/flags/pt.svg); } [data-flag="es"] { --flag: url(concept/assets/flags/es.svg); }
+[data-flag="ua"] { --flag: url(concept/assets/flags/ua.svg); }
+.wf-lang-opt[data-flag]:not([data-flag=""])::before,
+.wf-rail-lang[data-flag]:not([data-flag=""])::before { content: ''; flex: 0 0 20px; width: 20px; height: 20px; border-radius: 50%; background: var(--flag) center / contain no-repeat; }
+.wf-lang-opt { justify-content: flex-start; }
+.wf-lang-opt .wf-lang-code { margin-left: auto; }
+.wf-rail-lang { gap: var(--space-2); }
+.wf-foot-pay .wf-rail-lang { justify-content: flex-start; }
+.wf-foot-pay .wf-rail-lang::after { margin-left: auto; }
+

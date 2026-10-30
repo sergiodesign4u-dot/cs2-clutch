@@ -82,7 +82,7 @@ The Marks column flags where screens say the same thing in different words, or w
 | G10 | rail | Only English is available for now. | text | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
 | G11 | rail | Polish PL | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
 | G12 | rail | Portuguese PT | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
-| G13 | rail | Russian RU | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
+| G13 | rail | Ukrainian UK | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept; Ukrainian in the place of Russian, D-205 |
 | G14 | rail | Spanish ES | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
 | G15 | rail | Turkish TR | button | `_nav.js LANGS`, `_nav.js LANGS/histTable/mountClockStruck` | 133 pages, 19 screens |  | kept |
 | G16 | rail | Collapse the rail | accessible name | `_nav.js renderShell` | 132 pages, 19 screens |  | Collapse the menu; Expand the menu when collapsed. "Rail" is our word, not the reader's |
@@ -1261,7 +1261,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.11-22 | main | Turkish | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept |
 | 5.11-23 | main | Portuguese | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept |
 | 5.11-24 | main | Spanish | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept |
-| 5.11-25 | main | Russian | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept |
+| 5.11-25 | main | Ukrainian | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept; Ukrainian in the place of Russian, D-205 |
 | 5.11-26 | main | Sound | text | page | all 4 of `5.11` |  | kept |
 | 5.11-27 | main | On | text | page | all 4 of `5.11` |  | kept |
 | 5.11-28 | main | Security | text | page | all 4 of `5.11` |  | kept |

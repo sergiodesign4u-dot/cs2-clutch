@@ -23,6 +23,9 @@
   // The tier a drop names, onto the rarity step of DESIGN-artifacts.md section 3. The same
   // mapping the stand draws; which in-game tier each step names is still [?] there.
   var TIERS = { Covert: 'r2', Classified: 'r3', Restricted: 'r4', 'Mil-Spec': 'r5', 'Industrial Grade': 'r6', 'Consumer Grade': 'r7' };
+  // D-205: a language's flag, by the code the renderer wrote; the country each code names is the
+  // founder's pick, English to the United Kingdom and Chinese to China.
+  var FLAGS = { EN: 'gb', DE: 'de', ZH: 'cn', FR: 'fr', PL: 'pl', TR: 'tr', PT: 'pt', ES: 'es', UK: 'ua' };
   // A placeholder icon, by the words beside it.
   var ICONS = {
     'Cases opened': 'box', 'Upgrades': 'arrow-up', 'Total users': 'users', 'Online now': 'pulse',
@@ -92,6 +95,12 @@
     root.querySelectorAll('.wf-header [data-money]').forEach(function (v) {
       var n = v.textContent.replace(/\s*coins$/, '').trim();
       if (v.getAttribute('data-n') !== n) v.setAttribute('data-n', n);
+    });
+    root.querySelectorAll('.wf-lang-opt').forEach(function (o) {
+      var f = FLAGS[txt(o, '.wf-lang-code')] || ''; if (o.getAttribute('data-flag') !== f) o.setAttribute('data-flag', f);
+    });
+    root.querySelectorAll('.wf-rail-lang').forEach(function (b) {
+      var f = FLAGS[txt(b, '.wf-lang-ab')] || ''; if (b.getAttribute('data-flag') !== f) b.setAttribute('data-flag', f);
     });
     root.querySelectorAll('.wf-ladder li').forEach(function (li, n) { li.setAttribute('data-step', String(n + 1)); });
   }

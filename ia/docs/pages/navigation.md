@@ -257,7 +257,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 | | Provably fair | **no** since `D-29` | **no** | 1.2, from the footer's ~~Play~~ Help column, `D-44` |
 | | My items | **no** since `D-40` | **no**. It is the account menu's first row | 5.1, from the menu |
 | **Ambient**, at the foot | Sound | yes | yes | no destination, `[?]` below |
-| | Language | yes | yes | no destination. **A switcher since `D-41`, with nine options since `D-42`**, the baseline's own set. English is live, **the other eight switch the control and leave the interface in English** and the panel says so. **`D-02` is untouched: no second language ships and the page keeps `lang="en"`** |
+| | Language | yes | yes | no destination. **A switcher since `D-41`, with nine options since `D-42`**, the baseline's own set, **less Russian and with Ukrainian in its place since `D-205`, by founder decision; the coloured copy draws a flag beside each, also `D-205`**. English is live, **the other eight switch the control and leave the interface in English** and the panel says so. **`D-02` is untouched: no second language ships and the page keeps `lang="en"`** |
 | | Social links | yes | yes | outbound |
 | **Boundary** | Responsible play | **no** since `D-29` | **no** | 6.1, from the footer and the account menu. ~~the money control~~ **The money control entry was never rendered and `D-136` struck it**; under a boundary the + opens the limits |
 

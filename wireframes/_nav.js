@@ -1084,12 +1084,15 @@ window.WF_PAY = window.WF_PAY || {
   // 11 August 2026, "a language switcher offering nine languages, en de zh fr pl tr pt
   // es ru". The names are written in English because the interface is English, and the
   // endonyms are final copy, which belongs to production.
+  // D-205, 30 October 2026: the founder took Russian out and put Ukrainian in its place,
+  // the one option of the nine that is not the baseline's. A code kept in the session
+  // from before the swap falls back to English rather than naming an option that is gone.
   // WHAT THE STUBS NEVER DO IS TOUCH THE PAGE'S lang ATTRIBUTE. English text announced
   // to a screen reader as German is an accessibility defect rather than a placeholder,
   // and it is the one change that would make the stub look real.
   var LANGS = [['en', 'English'], ['de', 'German'], ['zh', 'Chinese'], ['fr', 'French'],
                ['pl', 'Polish'], ['tr', 'Turkish'], ['pt', 'Portuguese'],
-               ['es', 'Spanish'], ['ru', 'Russian']];
+               ['es', 'Spanish'], ['uk', 'Ukrainian']];
   var langCur = 'en';
   // D-42: the eight stubs switch the control and nothing else, and every place
   // that offers them says so in the same words.
@@ -1100,6 +1103,7 @@ window.WF_PAY = window.WF_PAY || {
   // reading EN above a footer reading DE is two controls with one name.
   function setLang(code) { langCur = code; try { sessionStorage.setItem('wf-lang', code); } catch (e) {} langSubs.forEach(function (f) { f(code); }); }
   try { langCur = sessionStorage.getItem('wf-lang') || 'en'; } catch (e) {}
+  if (!LANGS.some(function (L) { return L[0] === langCur; })) langCur = 'en';
   /* ONE SOUND SETTING, round 14. The rail's control had no listener and the
      settings switch moved alone; both now read and write this. */
   var soundOn = true, soundSubs = [];
