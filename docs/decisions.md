@@ -19,3 +19,15 @@
 
 **Fixed the same day.** The founder: "да давай UA", and on the open list, "визуально правая часть выходит за дроп", and on the closed rail. Ukrainian now shows the mark UA; its code stays `uk`, the language's own, and a third field in `LANGS` carries the mark. The list's two columns had been sized by their content, so where the footer's field is narrow, 260px at 1199 and 280 at 1280, the right column ran past the panel: the columns now share the width, the rows are tighter, the footer's panel is never narrower than 320px and grows to its left, and below 360 the codes leave the screen, the flag carrying the same mark. In the closed rail, 70px wide, the code leaves too and the flag and caret stand alone; the code stays in the control's name. Measured at eleven widths from 320 to 1920 in the footer and the rail: no option past its panel. Structural diff zero; no horizontal scroll at nine widths.
 
+---
+
+## D-206. The closed rail's label as the baseline's
+
+**Date:** 2026-10-30. **Stage:** 06, step 6. **Decided by:** the founder, on the label a closed rail shows under the pointer, beside the baseline's: "мне нравится, но я бы сделал чуть больше текст и чуть больше отступы воздуха добавил бы и цвет бы поменял ближе к чему-то такому". **Binds:** `design/_theme.css`.
+
+**What was decided.** The label is a square plate flush against the rail's edge in `--color-ticker`, 16px bold white, 24px either side and 12px above and below, at least 120px wide and 48px high. It was a raised pill in 13px, 16px off the rail. One thing the baseline's has not: a 1px `--color-line-soft` edge, because ours opens over the ticker, which is the same near black, and without the edge the plate vanishes there.
+
+**Read from.** The founder's screenshot of the baseline's label, 30 October 2026, read at 2x: plate `#020B17`, about 122 by 50px, text 16px bold, 23px from the plate's left edge.
+
+**Proven.** Captured over Cases, a row not launched yet and the language control at 1440. Structural diff zero at 360 and 1440 on both pages; no horizontal scroll at nine widths. **The cost.** None: no new value.
+

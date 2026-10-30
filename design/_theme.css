@@ -1547,3 +1547,13 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 @media (max-width: 359px) { .wf-lang-opt .wf-lang-code { display: none; } }
 .is-rail-collapsed .wf-rail .wf-rail-lang[data-flag]:not([data-flag=""]) .wf-lang-ab { display: none; }
 
+
+/* D-206 THE CLOSED RAIL'S LABEL as the baseline's, founder screenshot of 30 Oct 2026 read at 2x: a
+   square plate in the ticker's near black #020B17, flush against the rail's edge, 16px bold white,
+   24px either side and 12px above and below, about 120px wide and 48 high. Was a raised pill in 13px.
+   One thing the baseline has not: a 1px --color-line-soft edge, because ours opens over the ticker,
+   which is the same near black, and without it the plate vanishes there. */
+@media (min-width: 900px) {
+  .is-rail-collapsed .wf-rail [data-lbl]:hover::after,
+  .is-rail-collapsed .wf-rail [data-lbl]:focus-visible::after { left: 100%; min-width: 120px; min-height: var(--size-btn-l); display: flex; align-items: center; padding: var(--space-3) var(--space-5); border: 1px solid var(--color-line-soft); border-left: 0; border-radius: 0; background: var(--color-ticker); color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; line-height: 1.5; letter-spacing: 0; }
+}
