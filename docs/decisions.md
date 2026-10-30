@@ -4,12 +4,12 @@
 
 ## D-205. Ukrainian in the place of Russian, and a flag beside each language
 
-**Date:** 2026-10-30. **Stage:** 06, step 6. **Decided by:** the founder, on the language list: "тут я бы добавил бы флаги и убрал бы русский и поставил бы украинский"; asked which flags and which shape, "по стране языка" and "круглые 20px". **Binds:** `wireframes/_nav.js` `LANGS`, `design/_design.js`, `design/_theme.css`, `design/concept/assets/flags/`, `voice/docs/microcopy.md` G13 and 5.11-25.
+**Date:** 2026-10-30. **Stage:** 06, step 6. **Decided by:** the founder, on the language list: "тут я бы добавил бы флаги и убрал бы русский и поставил бы украинский"; asked which flags and which shape, "по стране языка" and "круглые 20px". **Binds:** `wireframes/_nav.js` `LANGS`, `design/_design.js`, `design/_theme.css`, `voice/docs/microcopy.md` G13 and 5.11-25.
 
 **What was decided.**
 
 1. **The ninth language is Ukrainian, `uk`, in the place of Russian.** The change is made in the grey shell, so every screen and the settings list take it, and the copy inherits it. It is the one option of the nine that is not the baseline's set, `baseline.md` section "Header". A code kept in the session from before the swap falls back to English.
-2. **A round 20px flag stands beside each language** in the coloured copy, in the list and on the closed control in the rail and the footer: English the United Kingdom, Chinese China, Portuguese Portugal, Spanish Spain, Ukrainian Ukraine, the rest by their own code. The flags are circle-flags 2.7.0, MIT, stored in `design/concept/assets/flags/`; `design/_design.js` names a flag from the code the renderer wrote. The grey screen draws none.
+2. **A round 20px flag stands beside each language** in the coloured copy, in the list and on the closed control in the rail and the footer: English the United Kingdom, Chinese China, Portuguese Portugal, Spanish Spain, Ukrainian Ukraine, the rest by their own code. The flags are circle-flags 2.7.0, MIT, inlined in `design/_theme.css` so they are there the moment the list opens, not fetched one by one, from the source files kept in `design/concept/assets/flags/`; `design/_design.js` names a flag from the code the renderer wrote. The grey screen draws none.
 
 **Rejected.** Keeping `D-42`'s "no flag icons". Flags by the CS2 audience, the United States for English and Brazil for Portuguese.
 
