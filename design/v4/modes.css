@@ -8,38 +8,40 @@
  * The objects are comp A's: a case, two cases clashing, a helmet, a crystal arrow; no weapon is drawn. */
 
 .wf-mode:has([data-icon="box"]) { --mode-obj: url(art/mode-cases-obj.webp); --mode-burst: url(art/mode-cases-burst.webp); }
-.wf-mode:has([data-icon="battle"]) { --mode-obj: url(art/mode-battles-obj.webp); --mode-burst: url(art/mode-battles-burst.webp); }
+.wf-mode:has([data-icon="battle"]) { --mode-obj: url(art/mode-battles-obj2.webp); --mode-burst: url(art/mode-battles-burst2.webp); } /* redrawn by Codex on 1 Nov 2026 with A's X of light, a blue and a red streak crossing in a white burst between the cases */
 .wf-mode:has([data-icon="target"]) { --mode-obj: url(art/mode-gunfights-obj.webp); --mode-burst: url(art/mode-gunfights-burst.webp); }
-.wf-mode:has([data-icon="arrow-up"]) { --mode-obj: url(art/mode-upgrade-obj.webp); --mode-burst: url(art/mode-upgrade-burst.webp); }
+.wf-mode:has([data-icon="arrow-up"]) { --mode-obj: url(art/mode-upgrade-obj2.webp); --mode-burst: url(art/mode-upgrade-burst2.webp); } /* redrawn by Codex on 1 Nov 2026 as A's crisp golden crystal arrow rising out of crystal shards */
 
-.wf-grid.wf-modes { padding-top: 22px; row-gap: 30px; } /* room for the objects that break the cards' top edge; measured at 1440 */
+.wf-grid.wf-modes { padding-top: 56px; row-gap: 64px; } /* room for the objects that break the cards' top edge; measured at 1440 */
 /* the card: comp A's about 1.75 to 1 at 1440, measured on pick 7; the art square is sized off the card's width */
 .wf-grid .wf-mode { overflow: visible; isolation: isolate; container-type: inline-size; justify-content: flex-start; gap: 0; min-height: 0; height: auto; aspect-ratio: 7 / 4; padding: 16px 16px 14px;
   --frame: min(84cqw, 270px); --rx: 26cqw; transition: filter .35s; } /* the object about three quarters of the card's width, as on pick 7 */
 /* each object framed as pick 7 frames it, measured at 1440: the helmet and the arrow smaller and further in, so they are not cut */
-.wf-grid .wf-mode:has([data-icon="battle"]) { --frame: min(80cqw, 260px); --rx: 29cqw; }
+.wf-grid .wf-mode:has([data-icon="battle"]) { --frame: min(80cqw, 260px); --rx: 29cqw; --by: 62cqw; } /* its cases sit low in their frame, so the frame rides higher to keep them over the act */
 .wf-grid .wf-mode:has([data-icon="target"]) { --frame: min(70cqw, 230px); --rx: 30cqw; }
 .wf-grid .wf-mode:has([data-icon="arrow-up"]) { --frame: min(70cqw, 230px); --rx: 30cqw; }
-.wf-grid .wf-mode:has([data-icon="arrow-up"]) .wf-mode-art::after { opacity: .3; } /* the gold burst washed the arrow out; its front copy is kept faint */
+.wf-grid .wf-mode:has([data-icon="arrow-up"]) { --fa: .25; } /* the gold burst would wash the arrow out; its front copy is kept faint */
+.wf-grid .wf-mode:has([data-icon="battle"]) { --fa: .55; } /* A's X runs in front of the cases, without veiling them */
 .wf-grid .wf-mode::before, .wf-grid .wf-mode::after { content: none; }
 
-/* layer 1, the burst, the art box's own picture: a square 1.3 times the object, its centre --rx in from the card's right edge and 40 % down the card;
+/* layer 1, the burst, the art box's own picture: a square 1.3 times the object, its centre --rx in from the card's right edge and 22 % down the card, high enough that the object breaks well over the top edge as A's do;
    cut at the card's right and bottom edges as A cuts it, free only over the top edge, where the object breaks out
-   (the card is 7 by 4, so 60 % of its height is 34.3cqw) */
-.wf-grid .wf-mode .wf-mode-art { position: absolute; z-index: 1; top: auto; bottom: calc(34.3cqw - var(--frame) * .65); right: calc(var(--rx) - var(--frame) * .65);
-  clip-path: inset(-26% calc(var(--frame) * .65 - var(--rx)) calc(var(--frame) * .65 - 34.3cqw) -60% round 0 0 12px 0); left: auto; width: calc(var(--frame) * 1.3); max-width: none; height: auto; aspect-ratio: 1; margin: 0;
+   (cqw reads the card's content width, 231px of 263 at 1440, so the card's height is 65.4cqw and 78 % of it is 51cqw) */
+.wf-grid .wf-mode .wf-mode-art { position: absolute; z-index: 1; top: auto; bottom: calc(var(--by, 51cqw) - var(--frame) * .65); right: calc(var(--rx) - var(--frame) * .65);
+  clip-path: inset(-40% calc(var(--frame) * .65 - var(--rx)) calc(var(--frame) * .65 - var(--by, 51cqw)) -60% round 0 0 12px 0); left: auto; width: calc(var(--frame) * 1.3); max-width: none; height: auto; aspect-ratio: 1; margin: 0;
   background: var(--mode-burst) center / contain no-repeat; filter: none; transform: none; pointer-events: none;
   -webkit-mask: radial-gradient(closest-side, #000 60%, transparent 100%); mask: radial-gradient(closest-side, #000 60%, transparent 100%);
-  animation: v4-burst 5s ease-in-out infinite alternate; transition: filter .35s, scale .5s var(--v4-ease-pop); }
+  transition: filter .35s, scale .5s var(--v4-ease-pop); } /* no opacity on this box: it would fade the object inside it too */
 /* layer 2, the object, floating */
-.wf-grid .wf-mode .wf-mode-art::before { content: ''; position: absolute; inset: 11.5%; background: var(--mode-obj) center / contain no-repeat; filter: drop-shadow(0 12px 14px rgba(6, 10, 30, .5));
+.wf-grid .wf-mode .wf-mode-art::before { content: ''; position: absolute; inset: 11.5%; background: var(--mode-obj) center / contain no-repeat; filter: saturate(1.3) brightness(1.1) contrast(1.06) drop-shadow(0 12px 14px rgba(6, 10, 30, .5)); /* A's objects read brighter and more saturated; measured by eye against pick 7 */
   animation: v4-float 4.6s ease-in-out infinite; transition: translate .4s var(--v4-ease-pop), rotate .4s var(--v4-ease-pop), scale .4s var(--v4-ease-pop); }
-.wf-grid .wf-mode:has([data-icon="arrow-up"]) .wf-mode-art::before { inset: 3% 8% 11%; filter: drop-shadow(0 0 14px rgba(250, 190, 60, .6)); } /* the arrow fills the burst's hole; a gold glow, not a dark shadow, on the gold card */
+.wf-grid .wf-mode:has([data-icon="arrow-up"]) .wf-mode-art::before { inset: 8%; filter: saturate(1.4) brightness(1.3) contrast(1.15) drop-shadow(0 0 3px rgba(255, 245, 200, .9)) drop-shadow(0 0 14px rgba(255, 210, 60, .7)); } /* the arrow drawn a little larger than the default inset, and edged in a pale gold light so it reads on the gold card */ /* the arrow fills the burst's hole; a gold glow, not a dark shadow, on the gold card */
 /* layer 3, a thinner copy of the burst in front of the object, only at its rim, so shards fly past it */
-.wf-grid .wf-mode .wf-mode-art::after { content: ''; position: absolute; inset: 0; background: var(--mode-burst) center / contain no-repeat; opacity: .5; transform: none;
-  -webkit-mask: radial-gradient(closest-side, transparent 46%, #000 74%); mask: radial-gradient(closest-side, transparent 46%, #000 74%); }
+.wf-grid .wf-mode .wf-mode-art::after { content: ''; position: absolute; inset: 0; background: var(--mode-burst) center / contain no-repeat; opacity: var(--fa, .5); transform: none;
+  -webkit-mask: radial-gradient(closest-side, transparent 46%, #000 74%); mask: radial-gradient(closest-side, transparent 46%, #000 74%);
+  animation: v4-burst 5s ease-in-out infinite alternate; } /* the burst breathes in this front copy only */
 @keyframes v4-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
-@keyframes v4-burst { from { opacity: .6; } to { opacity: .88; } }
+@keyframes v4-burst { from { opacity: calc(var(--fa, .5) * .6); } to { opacity: var(--fa, .5); } }
 @media (hover: hover) {
   .wf-grid .wf-mode:hover { filter: brightness(1.08); }
   .wf-grid .wf-mode:hover .wf-mode-art { filter: brightness(1.3) saturate(1.15); scale: 1.06; }
@@ -48,15 +50,15 @@
 
 /* the words at the top left over the colour, the act across the whole foot and over the object's foot */
 .wf-grid .wf-mode > :not(.wf-mode-art) { position: relative; z-index: 2; }
-.wf-grid .wf-mode h3, .wf-grid .wf-mode.is-later h3 { max-width: none; font-size: min(26px, 9.6cqw); line-height: 1.05; white-space: nowrap; text-shadow: 0 2px 10px rgba(6, 10, 30, .45); } /* one line, as A; measured at 1440 */
+.wf-grid .wf-mode h3, .wf-grid .wf-mode.is-later h3 { max-width: none; font-size: min(26px, 9.6cqw); line-height: 1.05; white-space: nowrap; text-shadow: 0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5); } /* one line, as A; measured at 1440 */
 .wf-grid .wf-mode p { max-width: 50cqw; margin: 6px 0 0; font-size: var(--size-chip); line-height: 1.3; text-shadow: 0 1px 6px rgba(6, 10, 30, .5); }
 .wf-grid .wf-mode > .wf-btn, .wf-grid .wf-mode > .wf-fig-missing { z-index: 3; align-self: stretch; display: flex; justify-content: center; align-items: center; width: auto; max-width: none; min-height: 40px; margin-top: auto; border-radius: 10px; font-size: var(--size-label); }
 .wf-grid .wf-mode > .wf-fig-missing { background: rgba(150, 160, 215, .26); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 6px 16px rgba(6, 10, 30, .3); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); } /* A's chip: a pale glass plate over the art, no stripes; those stay the live act's */
 
 /* a phone: one card a row; the card keeps A's proportion, the art capped so the words stay clear */
 @media (max-width: 599px) {
-  .wf-grid.wf-modes { padding-top: 18px; row-gap: 26px; }
-  .wf-grid .wf-mode, .wf-grid .wf-mode:has([data-icon]) { --frame: min(62cqw, 220px); --rx: 30cqw; }
+  .wf-grid.wf-modes { padding-top: 48px; row-gap: 56px; }
+  .wf-grid .wf-mode, .wf-grid .wf-mode:has([data-icon]) { --frame: min(62cqw, 220px); --rx: 30cqw; --by: 51cqw; } /* one card a row: every object at the same height, so no burst reaches the card above */
 }
 
 @media (prefers-reduced-motion: reduce) {
