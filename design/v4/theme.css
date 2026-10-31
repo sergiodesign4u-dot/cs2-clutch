@@ -20,7 +20,7 @@
 /* founder, 31 Oct 2026: "хедер ... полоской отдельной ... по центру логотип со свечением ... цвет розовый наш и падают частицы";
    read from skin.club's header strip and TrulyWin's centred, lit logo */
 @media (min-width: 900px) {
-  .wf-header { isolation: isolate; background: var(--color-ground); min-height: 84px; padding: 16px 32px 8px; }
+  .wf-header { isolation: isolate; background: var(--color-ground); min-height: 64px; padding: 14px 28px 6px; } /* a 56px strip; founder, "давай сделаем уже меньше по высоте" */
   .wf-header::before, .wf-header::after { content: ''; position: absolute; inset: 8px 12px 0; z-index: -1; border-radius: 16px; pointer-events: none; }
   .wf-header::before { background: radial-gradient(34% 130% at 50% 0%, rgba(251, 63, 138, .36), transparent 72%), linear-gradient(180deg, #16133C, #0D0C28);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); } /* the strip, --color-card lifted; the light of --color-pink falling from its top edge onto the logo */
@@ -31,13 +31,13 @@
     -webkit-mask: radial-gradient(30% 150% at 50% 0%, #000 15%, transparent 100%); mask: radial-gradient(30% 150% at 50% 0%, #000 15%, transparent 100%);
     animation: v4-fall 8s linear infinite; } /* three depths of pink particles, each falling one tile per loop, so slower when farther */
   /* the logo stays the rail's link home and is shown in the middle of the strip; the rail starts at the header's top, so the two move together */
-  .wf-rail .wf-rail-logo, .is-rail-collapsed .wf-rail .wf-rail-logo { position: absolute; z-index: 2; top: 46px; left: calc((100vw - var(--wf-body-x, 0px)) / 2 - 12px);
+  .wf-rail .wf-rail-logo, .is-rail-collapsed .wf-rail .wf-rail-logo { position: absolute; z-index: 2; top: 36px; left: calc((100vw - var(--wf-body-x, 0px)) / 2 - 12px);
     transform: translate(-50%, -50%); margin: 0; padding: 0; background: none; }
   /* the logo, founder of 31 Oct 2026: the updated glossy ring, "у нас там был кружок обновленный, надо его взять", and a calmer name
      without CS2, "что-то в логотип спокойнее текст, например как у скин клаба, и убрать CS2"; the name in Roboto, D-187 */
-  .wf-rail .wf-logo-mark, .is-rail-collapsed .wf-rail .wf-logo-mark { flex: 0 0 auto; display: flex; align-items: center; width: auto; height: 46px; padding-left: 56px; border: 0;
-    background: url(art/logo-mark.webp) left center / 46px 46px no-repeat; filter: drop-shadow(0 0 12px rgba(251, 63, 138, .45)); }
-  .wf-rail .wf-logo-mark::after { content: 'Clutch'; color: var(--color-text-hi); font-size: 28px; font-weight: 500; letter-spacing: .01em; line-height: 1; text-transform: none; }
+  .wf-rail .wf-logo-mark, .is-rail-collapsed .wf-rail .wf-logo-mark { flex: 0 0 auto; display: flex; align-items: center; width: auto; height: 38px; padding-left: 46px; border: 0;
+    background: url(art/logo-mark.webp) left center / 38px 38px no-repeat; filter: drop-shadow(0 0 12px rgba(251, 63, 138, .45)); }
+  .wf-rail .wf-logo-mark::after { content: 'Clutch'; color: var(--color-text-hi); font-size: 24px; font-weight: 500; letter-spacing: .01em; line-height: 1; text-transform: none; }
 }
 @keyframes v4-fall { to { background-position: 0 60px, 23px 107px, 51px 160px; } }
 
@@ -46,9 +46,9 @@
    the grid's areas move, the markup does not */
 @media (min-width: 900px) {
   .wf-screen-body { grid-template-areas: "header header" "rail feed" "rail main" "rail footer"; }
-  .wf-header { padding-left: 84px; }
+  .wf-header { padding-left: 76px; }
   /* the rail's own open and close control, drawn as a burger at the strip's top left */
-  .wf-rail .wf-rail-toggle { position: absolute; z-index: 3; top: 27px; left: 14px; right: auto; width: 44px; height: 44px; border: 0; border-radius: 12px;
+  .wf-rail .wf-rail-toggle { position: absolute; z-index: 3; top: 17px; left: 14px; right: auto; width: 38px; height: 38px; border: 0; border-radius: 10px;
     background: #1A1945; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); transition: background-color .2s; }
   .wf-rail .wf-rail-toggle:hover { background: #241F58; }
   .wf-rail .wf-rail-toggle::after, .is-rail-collapsed .wf-rail .wf-rail-toggle::after { width: 20px; height: 14px; transform: none; -webkit-mask: none; mask: none;
@@ -61,8 +61,8 @@
 @media (min-width: 900px) {
   /* the rail spans the header's row too, so the burger and the logo it carries sit on the header strip wherever the page starts;
      its panel is drawn from under the strip down, and the strip shows through the rail's top */
-  .wf-rail { grid-row: 1 / -1; grid-column: 1; top: 0; height: 100vh; margin: 0 0 0 12px; padding-top: 104px; border: 0; border-image: none; border-radius: 0; background: none; box-shadow: none; }
-  .wf-rail::before { content: ''; position: absolute; inset: 92px 0 8px; z-index: -1; border-radius: 16px; pointer-events: none;
+  .wf-rail { grid-row: 1 / -1; grid-column: 1; top: 0; height: 100vh; margin: 0 0 0 12px; padding-top: 84px; border: 0; border-image: none; border-radius: 0; background: none; box-shadow: none; }
+  .wf-rail::before { content: ''; position: absolute; inset: 72px 0 8px; z-index: -1; border-radius: 16px; pointer-events: none;
     background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
   .is-rail-overlay .wf-rail { top: 0; left: calc(var(--wf-body-x, 0px) + 12px); height: 100vh; background: none; box-shadow: none; }
   .wf-header { grid-column: 1 / -1; grid-row: 1; }
