@@ -1,0 +1,132 @@
+/* design/v2-b/theme.css, DIRECTION B "CINEMA", layered over ../_theme.css.
+ * An exploration for the founder's pick between three directions (31 Oct 2026), not a decision.
+ * The idea, from the founder's own cs2-promo: the real skin is the hero, oversized condensed type
+ * stands behind it, light and depth do the work that flying 3D props do elsewhere. No generated
+ * art on this page: every object is a real Steam render from concept/assets/skins.
+ * Grammar: three radii (2 4 6), one action colour (pink), gold for money only, blue for
+ * information only, rarity only on items. Display Antonio, text Archivo, labels JetBrains Mono. */
+
+:root {
+  --font-family: Archivo, sans-serif;
+  --font-display: Antonio, 'Archivo Narrow', sans-serif; /* the founder's display face in cs2-promo */
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace; /* small labels, as on serhiidesign.com */
+  --radius-s: 2px; --radius-m: 4px; --radius-l: 6px;
+  --art-ground: none;
+  --b-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  --b-skin-hero: url(../concept/assets/skins/usp-s-kill-confirmed.png);
+  --b-line: color-mix(in srgb, var(--color-text-hi) 10%, transparent);
+}
+
+/* the stage: a dark room with film grain over everything */
+body:where(:has(> .wf-screen-body)) { background: radial-gradient(80% 60% at 50% -10%, color-mix(in srgb, var(--color-blue) 10%, transparent), transparent 70%), var(--color-ground); }
+.wf-screen-body::after { content: ''; position: fixed; inset: 0; z-index: 50; pointer-events: none; background: var(--b-grain); opacity: .07; mix-blend-mode: overlay; }
+
+/* type */
+.wf-hero h1, .wf-sec-head h2, .wf-mode h3, .wf-tile-name, .wf-fig-v, .wf-event-name, .wf-ladder li, .wf-foot-h { font-family: var(--font-display); }
+.wf-hero h1 { font-size: clamp(32px, 4.2vw, 56px); font-weight: 700; line-height: 1; text-transform: uppercase; letter-spacing: -.005em; }
+.wf-hero-line, .wf-hero-line a { font-family: var(--font-mono); font-size: var(--size-chip); letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-muted); }
+
+/* buttons: a hard edge, not a pill */
+.wf-btn { border-radius: var(--radius-s); font-family: var(--font-family); font-weight: 700; letter-spacing: .14em; }
+.wf-mode .wf-btn { min-width: 0; padding: 0 var(--space-4); }
+
+/* section heads: a mono index, a big condensed title, a hairline */
+.wf-main { counter-reset: b-sec; }
+.wf-sec-head h2 { font-size: clamp(30px, 3vw, 44px); font-weight: 700; line-height: 1; text-transform: uppercase; gap: var(--space-3); align-items: baseline; }
+.wf-sec-head h2::before, .wf-sec:has(.wf-ladder) .wf-sec-head h2::before, .wf-sec:has(.wf-figs) .wf-sec-head h2::before, .wf-prose .wf-sec-head h2::before {
+  counter-increment: b-sec; content: counter(b-sec, decimal-leading-zero); flex: 0 0 auto; width: auto; height: auto; background: none; filter: none; -webkit-mask: none; mask: none;
+  color: var(--color-pink); font-family: var(--font-mono); font-size: var(--size-chip); font-weight: 700; letter-spacing: .1em; }
+.wf-sec-head::after { background: var(--b-line); }
+.wf-sec-sub { font-family: var(--font-family); font-size: var(--size-label); }
+
+/* --- the banner: the skin in front, the event's name behind it ---------------------- */
+.wf-event { background: var(--color-ticker); }
+.wf-event::before { inset: 0; animation: none; background:
+  radial-gradient(40% 70% at 64% 108%, color-mix(in srgb, var(--color-pink) 45%, transparent), transparent 70%),
+  radial-gradient(50% 60% at 30% -20%, color-mix(in srgb, var(--color-blue) 30%, transparent), transparent 70%),
+  linear-gradient(180deg, var(--color-ticker), var(--color-ground)); }
+.wf-event::after { animation: none; opacity: 1; background: linear-gradient(90deg, var(--color-ground), transparent 18%, transparent 82%, var(--color-ground)); }
+.wf-event .wf-banner-art { z-index: 2; pointer-events: none; }
+.wf-event .wf-banner-art::before { left: 50%; top: 50%; height: auto; width: min(500px, 52%); aspect-ratio: 4 / 3; translate: -34% -46%; background: var(--b-skin-hero) center / contain no-repeat;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .7)) drop-shadow(0 0 40px color-mix(in srgb, var(--color-pink) 35%, transparent)); animation: b-hover 6s ease-in-out infinite; }
+.wf-event .wf-banner-art::after { right: auto; left: 50%; bottom: 6%; width: min(440px, 46%); height: 30px; aspect-ratio: auto; translate: -34% 0; background: radial-gradient(closest-side, rgba(0, 0, 0, .75), transparent); animation: none; }
+@keyframes b-hover { 0%, 100% { transform: rotate(-9deg) translateY(0); } 50% { transform: rotate(-7deg) translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) { .wf-event .wf-banner-art::before { animation: none; transform: rotate(-8deg); } }
+.wf-event .wf-event-name { z-index: 1; width: auto; aspect-ratio: auto; left: 0; right: 0; top: 50%; bottom: auto; transform: translateY(-58%); translate: none; margin: 0; padding: 0 var(--space-4); text-align: center;
+  font-size: clamp(60px, 9.6vw, 148px); font-weight: 700; line-height: .86; letter-spacing: -.01em; text-transform: uppercase; color: var(--color-text-hi); text-shadow: none; filter: none; background: none; }
+@media (max-width: 899px) { .wf-event .wf-event-name { width: auto; top: 46%; } }
+@media (max-width: 599px) { .wf-event .wf-event-name { width: auto; top: 60%; font-size: 15vw; }
+  .wf-event .wf-banner-art::before { width: 78%; translate: -46% -38%; } }
+.wf-event .wf-event-clock, .wf-event .wf-event-go { z-index: 3; }
+.wf-event-clock { background: color-mix(in srgb, var(--color-ground) 70%, transparent); border: 1px solid var(--b-line); border-radius: var(--radius-s); }
+.wf-event-cell b { font-family: var(--font-mono); color: var(--color-text-hi); font-weight: 700; }
+.wf-event-cell span, .wf-event-end { font-family: var(--font-mono); letter-spacing: .06em; }
+
+/* --- the live feed: the skin on a pool of its rarity, a hard rarity rule under it ----- */
+.wf-feed { border-bottom: 1px solid var(--b-line); }
+.wf-feed-hit::before { opacity: 1; top: 10px; height: 50px; background: radial-gradient(closest-side, color-mix(in srgb, var(--r, var(--color-rarity-6)) 55%, transparent), transparent); -webkit-mask: none; mask: none; }
+.wf-feed-hit::after { top: auto; bottom: 0; left: 18%; width: 64%; height: 2px; margin-left: 0; opacity: 1; -webkit-mask: none; mask: none; }
+.wf-feed-hit .wf-feed-s { font-family: var(--font-mono); font-size: 9px; letter-spacing: .02em; }
+.wf-feed-head { border-radius: var(--radius-s); }
+.wf-feed-lbl { font-family: var(--font-mono); }
+
+/* --- the four modes: a plate, a real skin as the art, the name set big ----------------- */
+.wf-mode { border: 1px solid var(--b-line); border-radius: var(--radius-l); background: linear-gradient(160deg, var(--color-card), var(--color-ticker)); }
+.wf-mode::before { right: -10%; bottom: -30%; width: 70%; height: 80%; background: radial-gradient(closest-side, color-mix(in srgb, var(--color-pink) 45%, transparent), transparent); filter: none; opacity: 1; }
+.wf-mode.is-later::before { background: radial-gradient(closest-side, color-mix(in srgb, var(--color-blue) 22%, transparent), transparent); }
+.wf-mode h3, .wf-mode.is-later h3 { font-size: 30px; font-weight: 700; line-height: 1; text-transform: uppercase; }
+.wf-mode h3::before { display: none; }
+.wf-mode > p:not(.wf-fig-missing) { font-size: var(--size-label); color: var(--color-text-soft); }
+.wf-mode .wf-mode-art { top: 22%; right: -12%; width: 74%; max-width: 300px; height: 86%; background: var(--mode-art) center / contain no-repeat; transform: rotate(-14deg); filter: drop-shadow(0 16px 18px rgba(0, 0, 0, .6)); }
+.wf-mode:hover .wf-mode-art { transform: rotate(-10deg) scale(1.06); }
+.wf-mode.is-later .wf-mode-art { filter: grayscale(.8) brightness(.7) drop-shadow(0 16px 18px rgba(0, 0, 0, .6)); }
+.wf-mode:has([data-icon="box"]) { --mode-art: url(../concept/assets/skins/m4a1-s-hyper-beast.png); }
+.wf-mode:has([data-icon="battle"]) { --mode-art: url(../concept/assets/skins/awp-asiimov.png); }
+.wf-mode:has([data-icon="target"]) { --mode-art: url(../concept/assets/skins/desert-eagle-blaze.png); }
+.wf-mode:has([data-icon="arrow-up"]) { --mode-art: url(../concept/assets/skins/ak-47-vulcan.png); }
+.wf-mode .wf-fig-missing { border-radius: var(--radius-s); font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; background: color-mix(in srgb, var(--color-ground) 80%, transparent); box-shadow: inset 0 0 0 1px var(--b-line); }
+
+/* --- the case: no box, the best skin in it on a pool of the case's own light --------- */
+.wf-tile { border-radius: var(--radius-l); padding: var(--space-4) var(--space-3) var(--space-4); background: linear-gradient(180deg, color-mix(in srgb, var(--ch, var(--color-blue)) 9%, transparent), transparent 70%); box-shadow: inset 0 0 0 1px var(--b-line); }
+.wf-tile::before { display: none; }
+.wf-tile:hover { background: linear-gradient(180deg, color-mix(in srgb, var(--ch, var(--color-blue)) 18%, transparent), transparent 80%); }
+.wf-tile-art[data-art] { aspect-ratio: 1 / 1; background: radial-gradient(42% 14% at 50% 86%, rgba(0, 0, 0, .7), transparent), radial-gradient(closest-side, color-mix(in srgb, var(--ch, var(--color-blue)) 50%, transparent), transparent 75%); }
+.wf-tile-art[data-art]::after { top: 8%; left: 2%; width: 96%; height: 72%; transform: rotate(-12deg); filter: drop-shadow(0 18px 16px rgba(0, 0, 0, .55)); }
+.wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(-8deg) translateY(-10px); }
+.wf-tile-art[data-art="case-blue"] { --ch: var(--color-blue); } .wf-tile-art[data-art="case-gold"] { --ch: var(--color-gold); }
+.wf-tile-art[data-art="case-pink"] { --ch: var(--color-pink); } .wf-tile-art[data-art="case-violet"] { --ch: var(--color-rarity-3); }
+.wf-tile-art[data-art="case-ember"] { --ch: var(--color-rarity-2); }
+.wf-tile-name { font-size: 28px; font-weight: 700; line-height: 1; letter-spacing: .01em; }
+.wf-tile-cost { font-family: var(--font-family); font-weight: 800; }
+.wf-tile-cur { font-family: var(--font-mono); }
+
+/* --- daily cases: the five tiers as numbers, the reached one lit ---------------------- */
+.wf-panel { border-radius: var(--radius-l); background: radial-gradient(60% 100% at 50% 120%, color-mix(in srgb, var(--color-pink) 26%, transparent), transparent 70%), linear-gradient(160deg, var(--color-card), var(--color-ticker)); box-shadow: inset 0 0 0 1px var(--b-line); }
+.wf-ladder { counter-reset: b-tier; }
+.wf-ladder li { counter-increment: b-tier; font-size: 20px; letter-spacing: .04em; }
+.wf-ladder-art { display: grid; place-items: center; background: none; filter: none; }
+.wf-ladder-art::before { content: counter(b-tier, decimal-leading-zero); font-family: var(--font-display); font-size: 96px; font-weight: 700; line-height: 1; color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--color-text-hi) 45%, transparent); }
+.wf-ladder li.is-reached .wf-ladder-art::before { color: var(--color-pink); -webkit-text-stroke: 0; text-shadow: 0 0 30px color-mix(in srgb, var(--color-pink) 50%, transparent); }
+@media (min-width: 900px) { .wf-ladder::before { opacity: .35; } }
+@media (max-width: 899px) { .wf-ladder-art::before { font-size: 56px; } }
+.wf-panel-head .wf-fig { border: 1px solid var(--b-line); background: none; border-radius: var(--radius-s); }
+.wf-panel-head .wf-fig-v { font-family: var(--font-mono); color: var(--color-text-hi); }
+
+/* --- before you spend: four numbers, set as large as the banner title allows --------- */
+.wf-figs .wf-fig { border-radius: var(--radius-l); background: linear-gradient(160deg, var(--color-card), var(--color-ticker)); box-shadow: inset 0 0 0 1px var(--b-line); padding-top: var(--space-6); }
+.wf-figs .wf-fig:hover { background: linear-gradient(160deg, var(--color-card), var(--color-ticker)); box-shadow: inset 0 0 0 1px var(--color-pink); }
+.wf-figs .wf-fig::before, .wf-figs .wf-fig::after { display: none; }
+.wf-figs .wf-fig-v { font-size: clamp(40px, 4.4vw, 64px); font-weight: 700; line-height: 1; }
+.wf-fig-c, .wf-figs .wf-fig-c { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; }
+
+/* --- the explainer: words only, the measure kept ------------------------------------- */
+.wf-prose { border-radius: var(--radius-l); background: linear-gradient(160deg, var(--color-card), var(--color-ticker)); box-shadow: inset 0 0 0 1px var(--b-line); }
+.wf-prose::after { background: var(--b-skin-hero) center / contain no-repeat; transform: rotate(-12deg); filter: drop-shadow(0 18px 18px rgba(0, 0, 0, .6)); opacity: .9; }
+
+/* --- the footer numbers ------------------------------------------------------------------ */
+.wf-fband--stats { background: var(--color-ticker); border-top: 1px solid var(--b-line); border-bottom: 1px solid var(--b-line); }
+.wf-fband--stats::before { display: none; }
+.wf-foot-stats .wf-fig-v { color: var(--color-text-hi); font-size: clamp(32px, 3.4vw, 52px); }
+.wf-foot-stats .wf-fig-c { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-muted); }
+.wf-fig-ico .wf-icon { color: var(--color-pink); }
+.wf-foot-h { letter-spacing: .04em; font-size: 22px; }

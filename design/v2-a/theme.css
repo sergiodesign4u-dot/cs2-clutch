@@ -1,0 +1,98 @@
+/* design/v2-a/theme.css, DIRECTION A "ONE MATERIAL", layered over ../_theme.css.
+ * An exploration for the founder's pick between three directions (31 Oct 2026), not a decision.
+ * The idea: cohesion comes from one material, not from one colour. Every object on the page is
+ * the same gunmetal with a lit inlay, drawn once by Codex (art/), and the page tints the inlay per
+ * case or per tier; inside each case sits a real skin, never a drawn one.
+ * Grammar: radii 6 12 and the pill; one action colour (pink), gold for money only, blue for
+ * information only, rarity only on items; type stays Roboto, D-187. */
+
+:root {
+  --radius-s: 6px; --radius-m: 12px; --radius-l: 12px;
+  --art-ground: none;
+  --a-case-open: url(art/case-open.webp);
+  --a-case-closed: url(art/case-closed.webp);
+  --a-line: color-mix(in srgb, var(--color-text-hi) 8%, transparent);
+  --a-plate: linear-gradient(180deg, color-mix(in srgb, var(--color-card) 100%, var(--color-text-hi) 3%), var(--color-card));
+}
+
+body:where(:has(> .wf-screen-body)) { background: radial-gradient(70% 50% at 50% -10%, color-mix(in srgb, var(--color-blue) 12%, transparent), transparent 70%), var(--color-ground); }
+
+/* THE TINT: a layer in the case's colour, cut to the object's own shape, blended as colour, so the
+   dark body keeps its tone and only the lit inlay takes the hue. */
+.wf-tile-art[data-art]::before, .wf-ladder-art::before, .wf-mode .wf-mode-art::before {
+  content: ''; position: absolute; inset: 0; background: var(--tint, var(--color-text-hi)); mix-blend-mode: color; opacity: .8; pointer-events: none;
+  -webkit-mask: var(--obj) center / contain no-repeat; mask: var(--obj) center / contain no-repeat; }
+
+/* --- the banner: the one case, open, the skin rising out of it, the name typed beside -- */
+.wf-event { background: var(--color-ticker); }
+.wf-event::before { inset: 0; animation: none; background:
+  radial-gradient(34% 80% at 30% 70%, color-mix(in srgb, var(--color-pink) 38%, transparent), transparent 70%),
+  radial-gradient(40% 70% at 80% 0%, color-mix(in srgb, var(--color-blue) 22%, transparent), transparent 70%),
+  linear-gradient(180deg, var(--color-ticker), var(--color-ground)); }
+.wf-event::after { animation: none; opacity: 1; background: radial-gradient(circle, color-mix(in srgb, var(--color-text-hi) 50%, transparent) 0 1px, transparent 1.5px) 0 0 / 120px 120px, linear-gradient(90deg, var(--color-ground), transparent 15%, transparent 85%, var(--color-ground)); }
+.wf-event .wf-banner-art::before { left: 12%; top: 18%; height: 78%; aspect-ratio: 986 / 1178; background: var(--a-case-open) center / contain no-repeat; animation: none;
+  filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .6)) drop-shadow(0 0 30px color-mix(in srgb, var(--color-pink) 45%, transparent)); }
+.wf-event .wf-banner-art::after { right: auto; left: 7%; bottom: auto; top: 2%; height: 60%; aspect-ratio: 4 / 3; background: url(../concept/assets/skins/usp-s-kill-confirmed.png) center / contain no-repeat;
+  transform: rotate(-18deg); filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .6)); animation: a-rise 5s ease-in-out infinite; }
+@keyframes a-rise { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+@media (prefers-reduced-motion: reduce) { .wf-event .wf-banner-art::after { animation: none; } }
+.wf-event .wf-event-name { width: auto; aspect-ratio: auto; left: auto; right: 6%; top: 50%; bottom: auto; transform: translateY(-50%); translate: none; margin: 0; max-width: 46%; text-align: left;
+  font-size: clamp(40px, 5.4vw, 84px); font-weight: 900; line-height: .95; color: var(--color-text-hi); background: none; filter: none; text-shadow: none; }
+@media (max-width: 899px) { .wf-event .wf-event-name { width: auto; top: 50%; } }
+@media (max-width: 599px) { .wf-event .wf-event-name { width: auto; right: 5%; max-width: 52%; font-size: 9.4vw; }
+  .wf-event .wf-banner-art::before { left: -2%; top: 26%; height: 68%; } .wf-event .wf-banner-art::after { left: -6%; top: 10%; height: 48%; } }
+@media (min-width: 900px) { .wf-event .wf-event-go { left: auto; right: 6%; transform: none; } }
+.wf-event-clock { border: 1px solid var(--a-line); }
+
+/* --- the modes: one plate, one icon set, the live one lit pink, the rest unlit --------- */
+.wf-mode { --tint: var(--color-pink); border-radius: var(--radius-l); background: var(--a-plate); box-shadow: inset 0 0 0 1px var(--a-line); }
+.wf-mode.is-later { --tint: var(--color-text-muted); border: 0; }
+.wf-mode::before { background: radial-gradient(closest-side, color-mix(in srgb, var(--tint) 40%, transparent), transparent); filter: none; width: 60%; height: 90%; right: -6%; bottom: -16%; }
+.wf-mode h3::before { display: none; }
+.wf-mode .wf-mode-art { top: 14%; right: 4%; width: 44%; max-width: 170px; height: 76%; background: var(--mode-art) center / contain no-repeat; filter: drop-shadow(0 10px 14px rgba(0, 0, 0, .55)); }
+.wf-mode .wf-mode-art::before { --obj: var(--mode-art); }
+.wf-mode.is-later .wf-mode-art { opacity: .7; }
+.wf-mode:has([data-icon="box"]) { --mode-art: url(art/mode-cases.webp); }
+.wf-mode:has([data-icon="battle"]) { --mode-art: url(art/mode-battles.webp); }
+.wf-mode:has([data-icon="target"]) { --mode-art: url(art/mode-gunfights.webp); }
+.wf-mode:has([data-icon="arrow-up"]) { --mode-art: url(art/mode-upgrade.webp); }
+.wf-mode .wf-fig-missing { background: color-mix(in srgb, var(--color-ground) 70%, transparent); box-shadow: inset 0 0 0 1px var(--a-line); }
+
+/* --- the case: always the same case, its inlay in the case's colour, its best skin inside */
+.wf-tile { border-radius: var(--radius-l); }
+.wf-tile::before { display: none; }
+.wf-tile:hover { background: var(--a-plate); box-shadow: inset 0 0 0 1px var(--a-line); }
+.wf-tile-art[data-art] { aspect-ratio: 1 / 1; --obj: var(--a-case-open); background: var(--a-case-open) center 80% / 78% auto no-repeat; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .5)); }
+.wf-tile-art[data-art]::before { -webkit-mask-size: 78% auto; mask-size: 78% auto; -webkit-mask-position: center 80%; mask-position: center 80%; }
+.wf-tile-art[data-art]::after { top: 2%; left: 8%; width: 84%; height: 60%; transform: rotate(-14deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .5)); }
+.wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(-10deg) translateY(-10px); }
+.wf-tile-art[data-art="case-blue"] { --tint: var(--color-blue); } .wf-tile-art[data-art="case-gold"] { --tint: var(--color-gold); }
+.wf-tile-art[data-art="case-pink"] { --tint: var(--color-pink); } .wf-tile-art[data-art="case-violet"] { --tint: var(--color-rarity-3); }
+.wf-tile-art[data-art="case-ember"] { --tint: var(--color-rarity-2); }
+.wf-tile-name { font-size: var(--size-text); font-weight: 900; letter-spacing: .04em; }
+
+/* --- daily cases: the same case closed, five inlays from plain to gold ------------------ */
+.wf-panel { border-radius: var(--radius-l); background: radial-gradient(60% 90% at 50% 110%, color-mix(in srgb, var(--color-pink) 22%, transparent), transparent 70%), var(--a-plate); box-shadow: inset 0 0 0 1px var(--a-line); }
+.wf-ladder-art { position: relative; --obj: var(--a-case-closed); background: var(--a-case-closed) center / contain no-repeat; filter: drop-shadow(0 10px 12px rgba(0, 0, 0, .5)); }
+.wf-ladder li[data-step="1"] { --tint: var(--color-rarity-7); } .wf-ladder li[data-step="2"] { --tint: var(--color-blue); } .wf-ladder li[data-step="3"] { --tint: var(--color-rarity-4); }
+.wf-ladder li[data-step="4"] { --tint: var(--color-pink); } .wf-ladder li[data-step="5"] { --tint: var(--color-gold); }
+@media (min-width: 900px) { .wf-ladder::before { opacity: .4; } }
+
+/* --- before you spend: one plate, one information blue for every mark ------------------ */
+.wf-figs .wf-fig, .wf-figs .wf-fig:nth-child(n) { --tint: var(--color-blue); border-radius: var(--radius-l); background: var(--a-plate); box-shadow: inset 0 0 0 1px var(--a-line); }
+.wf-figs .wf-fig:hover { background: var(--a-plate); box-shadow: inset 0 0 0 1px var(--color-blue); }
+.wf-figs .wf-fig::before { opacity: .35; }
+
+/* --- the explainer: the closed case, lit pink ---------------------------------------- */
+.wf-prose { border-radius: var(--radius-l); background: var(--a-plate); box-shadow: inset 0 0 0 1px var(--a-line); }
+.wf-prose::after { background: var(--a-case-closed) center / contain no-repeat; filter: drop-shadow(0 0 30px color-mix(in srgb, var(--color-pink) 35%, transparent)) drop-shadow(0 18px 20px rgba(0, 0, 0, .6)); }
+
+/* --- the footer numbers: white figures, blue marks, no pink outside an action --------- */
+.wf-fband--stats { background: var(--color-ticker); border-top: 1px solid var(--a-line); }
+.wf-fband--stats::before { display: none; }
+.wf-foot-stats .wf-fig-v { color: var(--color-text-hi); }
+.wf-foot-stats .wf-fig-c { color: var(--color-text-muted); }
+.wf-fig-ico .wf-icon { color: var(--color-blue); }
+
+/* the back of a drop shows the same one case */
+.wf-feed-back .wf-feed-art[data-art^="case-"] { background: var(--a-case-open) center / contain no-repeat; }

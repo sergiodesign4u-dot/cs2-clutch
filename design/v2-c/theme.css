@@ -1,0 +1,85 @@
+/* design/v2-c/theme.css, DIRECTION C "EVENT WORLD", layered over ../_theme.css.
+ * An exploration for the founder's pick between three directions (31 Oct 2026), not a decision.
+ * The idea, as skin.club and key-drop do it: the whole page lives inside the current event's
+ * world, here Coldfront, a frozen outpost at night. Every picture is painted by Codex in one style
+ * under one light (art/); the skins inside the cases stay real.
+ * Grammar: radii 8 16 and the pill; one action colour (pink), gold for money only, ice blue for
+ * information and for the world's edges, rarity only on items. Display Chakra Petch, text Roboto. */
+
+:root {
+  --font-display: 'Chakra Petch', Roboto, sans-serif;
+  --radius-s: 8px; --radius-m: 16px; --radius-l: 16px;
+  --art-ground: url(art/ground.webp);
+  --art-banner-bg: url(art/banner.webp);
+  --art-mode-cases: url(art/mode-cases.webp);
+  --art-mode-battles: url(art/mode-battles.webp);
+  --art-mode-gunfights: url(art/mode-gunfights.webp);
+  --art-mode-upgrade: url(art/mode-upgrade.webp);
+  --art-case-ironbound: url(art/case-ironbound.webp);
+  --art-case-warsteel: url(art/case-warsteel.webp);
+  --art-case-coldfront: url(art/case-coldfront.webp);
+  --art-case-nightfall: url(art/case-nightfall.webp);
+  --art-case-emberforge: url(art/case-emberforge.webp);
+  --c-ice: color-mix(in srgb, var(--color-blue) 45%, transparent);
+  --c-plate: linear-gradient(180deg, color-mix(in srgb, var(--color-blue) 10%, var(--color-card)), var(--color-card) 60%);
+}
+
+body:where(:has(> .wf-screen-body)) { background: linear-gradient(180deg, color-mix(in srgb, var(--color-ground) 45%, transparent) 0, color-mix(in srgb, var(--color-ground) 45%, transparent) 900px, var(--color-ground) 1250px) 0 0 / 100% 1300px no-repeat,
+  var(--art-ground) 50% 0 / max(1920px, 100%) auto no-repeat, var(--color-ground); }
+
+/* type */
+.wf-hero h1, .wf-sec-head h2, .wf-mode h3, .wf-tile-name, .wf-event-name, .wf-ladder li, .wf-figs .wf-fig-v, .wf-foot-stats .wf-fig-v { font-family: var(--font-display); }
+.wf-hero h1 { font-size: clamp(26px, 3vw, 40px); text-transform: uppercase; }
+.wf-sec-head h2 { font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; }
+.wf-sec-head::after { background: linear-gradient(90deg, var(--c-ice), transparent); }
+
+/* --- the banner: one painted scene, the name typed over its calm middle -------------- */
+.wf-event::before { inset: -2%; background: var(--art-banner-bg) center 42% / cover no-repeat; }
+.wf-event .wf-banner-art::before, .wf-event .wf-banner-art::after { display: none; }
+.wf-event::after { background: radial-gradient(circle, var(--color-text-hi) 0 1px, transparent 1.5px) 0 0 / 90px 90px, radial-gradient(circle, color-mix(in srgb, var(--color-blue) 80%, transparent) 0 1.5px, transparent 2px) 30px 40px / 140px 140px; }
+@keyframes ban-snow { from { background-position: 0 0, 30px 40px; } to { background-position: -90px 900px, -110px 1440px; } }
+.wf-event .wf-event-name { width: auto; aspect-ratio: auto; left: 0; right: 0; top: 50%; bottom: auto; transform: translateY(-62%); translate: none; margin: 0 auto; max-width: 56%; text-align: center;
+  font-size: clamp(36px, 6vw, 92px); font-weight: 700; line-height: .95; letter-spacing: .02em; color: var(--color-text-hi); background: none; filter: none;
+  text-shadow: 0 0 24px color-mix(in srgb, var(--color-blue) 70%, transparent), 0 4px 0 var(--color-ground); }
+@media (max-width: 899px) { .wf-event .wf-event-name { width: auto; top: 50%; } }
+@media (max-width: 599px) { .wf-event .wf-event-name { width: auto; max-width: 70%; font-size: 10vw; } }
+.wf-event-clock { border: 1px solid var(--c-ice); }
+
+/* --- the modes: four scenes from the same world on an icy plate ---------------------- */
+.wf-mode { border-radius: var(--radius-l); background: var(--c-plate); box-shadow: inset 0 1px 0 var(--c-ice), inset 0 0 0 1px color-mix(in srgb, var(--color-blue) 14%, transparent); }
+.wf-mode.is-later { border: 0; }
+.wf-mode::before { background: radial-gradient(closest-side, color-mix(in srgb, var(--color-pink) 35%, transparent), transparent); filter: none; }
+.wf-mode.is-later::before { background: radial-gradient(closest-side, color-mix(in srgb, var(--color-blue) 30%, transparent), transparent); }
+.wf-mode .wf-mode-art { background: var(--mode-art) right 2px bottom 2px / auto 92% no-repeat; }
+.wf-mode.is-later .wf-mode-art { filter: saturate(.55) brightness(.8); }
+.wf-mode h3 { font-size: 20px; text-transform: uppercase; }
+.wf-mode h3::before { color: var(--color-blue); }
+
+/* --- the case: five dressings of one frozen case, the real skin above it ------------- */
+.wf-tile { border-radius: var(--radius-l); }
+.wf-tile::before { display: none; }
+.wf-tile:hover { background: var(--c-plate); box-shadow: inset 0 1px 0 var(--c-ice); }
+.wf-tile-art[data-art] { aspect-ratio: 1 / 1; background: var(--cover) center bottom / contain no-repeat; filter: drop-shadow(0 12px 16px rgba(0, 0, 0, .5)); }
+.wf-tile-art[data-art]::after { top: 4%; left: 6%; width: 88%; height: 52%; transform: rotate(-12deg); }
+.wf-tile-name { font-size: 18px; }
+
+/* --- daily cases: the same five cases climbing, on the world's ground ---------------- */
+.wf-panel { border-radius: var(--radius-l); background: linear-gradient(180deg, color-mix(in srgb, var(--color-ground) 30%, transparent), color-mix(in srgb, var(--color-ground) 80%, transparent)), var(--art-ground) center 70% / cover no-repeat, var(--color-card); box-shadow: inset 0 1px 0 var(--c-ice); }
+.wf-ladder li[data-step="1"] { --da: var(--art-case-ironbound); } .wf-ladder li[data-step="2"] { --da: var(--art-case-coldfront); } .wf-ladder li[data-step="3"] { --da: var(--art-case-nightfall); }
+.wf-ladder li[data-step="4"] { --da: var(--art-case-emberforge); } .wf-ladder li[data-step="5"] { --da: var(--art-case-warsteel); }
+
+/* --- before you spend: icy plates, one blue for every mark ---------------------------- */
+.wf-figs .wf-fig, .wf-figs .wf-fig:nth-child(n) { --tint: var(--color-blue); border-radius: var(--radius-l); background: var(--c-plate); box-shadow: inset 0 1px 0 var(--c-ice); }
+.wf-figs .wf-fig:hover { background: var(--c-plate); box-shadow: inset 0 0 0 1px var(--color-blue); }
+
+/* --- the explainer and the footer -------------------------------------------------- */
+.wf-prose { border-radius: var(--radius-l); background: var(--c-plate); box-shadow: inset 0 1px 0 var(--c-ice); }
+.wf-prose::after { background: var(--art-case-coldfront) center / contain no-repeat; filter: drop-shadow(0 0 30px color-mix(in srgb, var(--color-pink) 40%, transparent)); }
+.wf-foot-art { background-image: var(--art-case-coldfront); }
+.wf-foot-stats .wf-fig-v { color: var(--color-text-hi); }
+.wf-fig-ico .wf-icon { color: var(--color-blue); }
+
+/* a url() inside a custom property resolves against the sheet that USES it, so every background
+   that reads this direction's art is declared again here, where art/ is a sibling */
+.wf-ladder-art { background: var(--da) center / contain no-repeat; }
+.wf-feed-back .wf-feed-art[data-art] { background: var(--cover, var(--art)) center / contain no-repeat; }
