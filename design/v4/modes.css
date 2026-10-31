@@ -1,0 +1,60 @@
+/* design/v4/modes.css, the four game mode cards of v4. Loaded after theme.css and banner.css and over them.
+ * Comp A's mode row, the founder's pick of 31 Oct 2026: "вот это очень круто выглядит ... надо генерации
+ * новые лучше разбить по слоям". Each card is a full colour card with one glossy object bursting out over its
+ * top right edge, drawn by Codex in two layers on one frame: the object with its own alpha, and the burst
+ * of crystals, light and sparks, drawn on black and turned into alpha by its brightness. The page stacks the
+ * burst behind the object and a thinner copy of it in front, floats the object and lets the burst breathe.
+ * The objects are comp A's: a case, two cases clashing, a helmet, a crystal arrow; no weapon is drawn. */
+
+.wf-grid.wf-modes { padding-top: 40px; row-gap: 56px; } /* room for the objects that rise over the cards' top edge; measured at 1440 */
+.wf-grid .wf-mode { overflow: visible; isolation: isolate; container-type: inline-size; min-height: 196px; padding: 22px 20px 18px;
+  --frame: min(64cqw, 260px); } /* comp A's card, measured at 1440; the art square about three fifths of the card's width, small enough to leave the title clear, capped where the card grows wider */
+.wf-mode:has([data-icon="box"]) { --mode-obj: url(art/mode-cases-obj.webp); --mode-burst: url(art/mode-cases-burst.webp); }
+.wf-mode:has([data-icon="battle"]) { --mode-obj: url(art/mode-battles-obj.webp); --mode-burst: url(art/mode-battles-burst.webp); }
+.wf-mode:has([data-icon="target"]) { --mode-obj: url(art/mode-gunfights-obj.webp); --mode-burst: url(art/mode-gunfights-burst.webp); }
+.wf-mode:has([data-icon="arrow-up"]) { --mode-obj: url(art/mode-upgrade-obj.webp); --mode-burst: url(art/mode-upgrade-burst.webp); }
+
+/* one box for all three layers, the burst's square, 1.4 times the object, centred on it: the object's centre
+   sits 0.36 of its size in from the card's right edge and 0.36 of it down from the top, so it breaks the top edge;
+   the box fades out at its rim so the burst spills past the card softly instead of on a cut */
+.wf-grid .wf-mode::before { content: none; }
+.wf-grid .wf-mode::after { content: none; }
+/* layer 1, the burst behind the object, the box's own picture */
+.wf-grid .wf-mode .wf-mode-art { position: absolute; z-index: 1; top: calc(var(--frame) * -.46); right: calc(var(--frame) * -.4); bottom: auto; left: auto; width: calc(var(--frame) * 1.4); max-width: none; height: auto; aspect-ratio: 1; margin: 0;
+  background: var(--mode-burst) center / contain no-repeat; filter: none; transform: none; pointer-events: none;
+  -webkit-mask: radial-gradient(closest-side, #000 62%, transparent 100%); mask: radial-gradient(closest-side, #000 62%, transparent 100%);
+  animation: v4-burst 5s ease-in-out infinite alternate; transition: filter .35s; }
+/* layer 2, the object, floating */
+.wf-grid .wf-mode .wf-mode-art::before { content: ''; position: absolute; inset: 14.3%; background: var(--mode-obj) center / contain no-repeat; filter: drop-shadow(0 14px 16px rgba(6, 10, 30, .5));
+  animation: v4-float 4.6s ease-in-out infinite; transition: translate .4s var(--v4-ease-pop), rotate .4s var(--v4-ease-pop), scale .4s var(--v4-ease-pop); }
+/* the arrow's burst left a wider hole than the arrow fills; the arrow is drawn a little larger to fill it */
+.wf-grid .wf-mode:has([data-icon="arrow-up"]) .wf-mode-art::before { inset: 4% 9% 13%; filter: drop-shadow(0 0 14px rgba(250, 190, 60, .6)); } /* no dark shadow: on the gold card it read as a second arrow */ /* measured against the burst's hole at 1440 */
+/* layer 3, a thinner copy of the burst in front of the object, only at its rim, so shards fly past it */
+.wf-grid .wf-mode .wf-mode-art::after { content: ''; position: absolute; inset: 0; background: var(--mode-burst) center / contain no-repeat; opacity: .5; transform: none;
+  -webkit-mask: radial-gradient(closest-side, transparent 46%, #000 74%); mask: radial-gradient(closest-side, transparent 46%, #000 74%); }
+@keyframes v4-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+@keyframes v4-burst { from { opacity: .75; } to { opacity: 1; } }
+@media (hover: hover) {
+  .wf-grid .wf-mode:hover .wf-mode-art::before { scale: 1.07; rotate: -4deg; translate: 0 -10px; animation-play-state: paused; }
+  .wf-grid .wf-mode:hover .wf-mode-art { filter: brightness(1.3) saturate(1.1); }
+}
+
+/* the words on the left over the colour, the act across the whole foot */
+.wf-grid .wf-mode > :not(.wf-mode-art) { position: relative; z-index: 2; }
+.wf-grid .wf-mode > :not(.wf-mode-art, .wf-btn, .wf-fig-missing) { max-width: 50%; }
+.wf-grid .wf-mode h3, .wf-grid .wf-mode.is-later h3 { font-size: 28px; line-height: 1.05; } /* comp A's title; measured at 1440 */
+.wf-grid .wf-mode p { max-width: 100%; margin: 8px 0 16px; font-size: var(--size-label); line-height: 1.35; }
+.wf-grid .wf-mode > .wf-btn, .wf-grid .wf-mode > .wf-fig-missing { align-self: stretch; display: flex; justify-content: center; align-items: center; width: auto; max-width: none; min-height: 46px; margin-top: auto; border-radius: 10px; font-size: var(--size-label); }
+.wf-grid .wf-mode > .wf-fig-missing { background: var(--v4-stripes), rgba(6, 10, 30, .36); }
+
+/* a phone: one card a row, the art smaller so the title and the act stay clear */
+@media (max-width: 599px) {
+  .wf-grid.wf-modes { padding-top: 34px; row-gap: 44px; }
+  .wf-grid .wf-mode { --frame: 58cqw; }
+  .wf-grid .wf-mode > :not(.wf-mode-art, .wf-btn, .wf-fig-missing) { max-width: 56%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-grid .wf-mode .wf-mode-art, .wf-grid .wf-mode .wf-mode-art::before { animation: none; transition: none; }
+  .wf-grid .wf-mode:hover .wf-mode-art::before { scale: none; rotate: none; translate: none; }
+}
