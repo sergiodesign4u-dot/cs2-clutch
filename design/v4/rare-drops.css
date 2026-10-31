@@ -126,3 +126,11 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* the flame's four colours, from its hot core to its dark tip, read by rare-drops.js; plain hex because a shader cannot read a var() chain */
 .rd-blaze { --rd-hex-c1: #FFF4C2; --rd-hex-c2: #F6C915; --rd-hex-c3: #FF5A2E; --rd-hex-c4: #7A0F22; }
 .rd-plasma { --rd-hex-c1: #FFE0F4; --rd-hex-c2: #FB3F8A; --rd-hex-c3: #D22BCE; --rd-hex-c4: #3B1A7A; }
+
+/* ===== I, founder of 1 Nov 2026: "давай ещё попробуем с молнией, но такой, более по краям кусочками ходит, часть исчезает, часть появляется,
+   как настоящие мини-молнии вокруг карточки". E's landing, then short jagged discharges drawn live by rare-drops.js run in pieces along the
+   card's edge, live a fraction of a second, flicker and die while new ones strike elsewhere; now and then one jumps off the edge. ===== */
+.rd-volt { --rd-c1: #F2FBFF; --rd-c2: #8FD3FF; --rd-c3: #3955E8; --rd-c4: #1B2A8F; }
+.rd-volt .rd-rare::before { box-shadow: inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 18px rgba(57, 85, 232, .35); }
+.rd-volt .rd-rare .rd-skin { animation: none; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 8px rgba(143, 211, 255, .6)); }
+.rd-volt .rd-volt-gl { position: absolute; inset: -18px; width: calc(100% + 36px); height: calc(100% + 36px); z-index: 4; pointer-events: none; }

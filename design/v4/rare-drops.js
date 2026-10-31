@@ -49,3 +49,44 @@
     requestAnimationFrame(frame);
   });
 })();
+
+/* Living lightning round a rare drop, variant I: short jagged discharges along the card's edge. Each one takes a random stretch of the
+   edge, is bent by midpoint displacement into a crooked line, flickers for 90 to 260ms and dies, while new ones strike elsewhere;
+   sometimes a branch jumps off outward. Drawn on a 2D canvas with a blurred glow under a white-blue core. */
+(function () {
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  Array.prototype.forEach.call(document.querySelectorAll('.rd-volt-gl'), function (cv) {
+    var cx = cv.getContext('2d'), M = 18, bolts = [], dpr = Math.min(window.devicePixelRatio || 1, 2), on = true;
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { on = e[0].isIntersecting; }).observe(cv);
+    function size() { var w = cv.clientWidth, h = cv.clientHeight; if (cv.width !== w * dpr || cv.height !== h * dpr) { cv.width = w * dpr; cv.height = h * dpr; } return [w, h]; }
+    function edge(d, w, h) { var a = w - 2 * M, b = h - 2 * M, P = 2 * (a + b); d = ((d % P) + P) % P;
+      if (d < a) return [M + d, M, 0, -1]; d -= a; if (d < b) return [M + a, M + d, 1, 0]; d -= b; if (d < a) return [M + a - d, M + b, 0, 1]; d -= a; return [M, M + b - d, -1, 0]; }
+    function jag(pts, rough) { for (var pass = 0; pass < 3; pass++) { var out = [pts[0]]; for (var i = 1; i < pts.length; i++) { var p = pts[i - 1], q = pts[i];
+      var mx = (p[0] + q[0]) / 2, my = (p[1] + q[1]) / 2, dx = q[0] - p[0], dy = q[1] - p[1], len = Math.hypot(dx, dy) || 1, o = (Math.random() - .5) * rough * len / 14;
+      out.push([mx - dy / len * o, my + dx / len * o], q); } pts = out; rough *= .6; } return pts; }
+    function spawn(w, h) { var a = w - 2 * M, b = h - 2 * M, P = 2 * (a + b), s = Math.random() * P, L = 26 + Math.random() * 70, pts = [];
+      for (var d = 0; d <= L; d += 9) { var e = edge(s + d, w, h); pts.push([e[0] + e[2] * (Math.random() * 4 - 1), e[1] + e[3] * (Math.random() * 4 - 1)]); }
+      var bolt = { pts: jag(pts, 7), born: performance.now(), life: 90 + Math.random() * 170, br: null };
+      if (Math.random() < .35) { var k = Math.floor(Math.random() * bolt.pts.length), st = bolt.pts[k], n = edge(s + k * L / bolt.pts.length, w, h), len = 8 + Math.random() * 14;
+        bolt.br = jag([st, [st[0] + n[2] * len + (Math.random() - .5) * 10, st[1] + n[3] * len + (Math.random() - .5) * 10]], 9); }
+      bolts.push(bolt); }
+    function line(pts, width, color, blur, alpha) { cx.globalAlpha = alpha; cx.lineWidth = width; cx.strokeStyle = color; cx.shadowColor = '#8FD3FF'; cx.shadowBlur = blur;
+      cx.beginPath(); cx.moveTo(pts[0][0], pts[0][1]); for (var i = 1; i < pts.length; i++) cx.lineTo(pts[i][0], pts[i][1]); cx.stroke(); }
+    function frame(now) {
+      var wh = size(), w = wh[0], h = wh[1];
+      cx.setTransform(dpr, 0, 0, dpr, 0, 0); cx.clearRect(0, 0, w, h);
+      if (on) {
+        while (bolts.length < 3 || (bolts.length < 6 && Math.random() < .08)) spawn(w, h);
+        bolts = bolts.filter(function (b) { return now - b.born < b.life; });
+        cx.lineCap = cx.lineJoin = 'round';
+        bolts.forEach(function (b) { var f = .55 + Math.random() * .45;
+          line(b.pts, 4, 'rgba(57, 85, 232, .55)', 14, f); line(b.pts, 1.4, '#F2FBFF', 8, f);
+          if (b.br) { line(b.br, 2.5, 'rgba(57, 85, 232, .5)', 10, f * .8); line(b.br, 1, '#F2FBFF', 6, f * .8); } });
+        cx.globalAlpha = 1; cx.shadowBlur = 0;
+      }
+      if (!still) requestAnimationFrame(frame);
+    }
+    if (still) { var wh = size(); for (var i = 0; i < 4; i++) spawn(wh[0], wh[1]); }
+    requestAnimationFrame(frame);
+  });
+})();
