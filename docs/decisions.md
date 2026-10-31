@@ -6706,3 +6706,27 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **The cost.** Values live in one more sheet than the one source `D-204` names until v3 is folded into `_theme.css` by a named decision. The case art is generated, and generated art is what the founder flagged; it holds no figure and no lettering, which is where the AI look was found, but the founder's eye is the test. Codex delivered three of the five pictures on an opaque black ground; their alpha was rebuilt with ffmpeg from Coldfront's silhouette, the same body in the same place, plus a brightness key for the props that rise above the tray. The rest of the Home is still v1's, so the page mixes two grammars until every block is through.
 
 **Rejected.** Copying skin.club's chamfered lines and rifle case: the founder's "ми делаем свой", and a reference is an input, never an output. A dim hexagon visible at rest: it read as stray lines beside the case, so the socket appears only with the pointer.
+
+## D-209. v4: the first screen assembled from the founder's picks out of three Codex comps
+
+**Date:** 2026-10-31. **Stage:** 06, step 6. **Decided by:** the founder, on v3: "мне не нравится, ничего не помнялось, стало хуже, кейси ужасние мне все еще нравится версия 1 больше, давай может что то попробуем свое v4 ... сделаем такой свой [бейзлайн] как ми сделали би его лучше с вау єффектом", with eight screenshots of iGaming home pages; on the three comps: "Дааа мне єто уже больше намного нравится, прям хорошо но везде где то по немножку", followed by a pick per block; on the merged comp D: "он какой то не правильний ... я би шел по тому что я тебе написал, собирал би макет из тех частей что я тебе описал". **Closes:** `D-208`'s v3, rejected. **Binds:** `design/v4/`, new. `design/index.html`, `design/index-account.html`, `design/_theme.css`, `design/v2-*` and `design/v3/` are untouched.
+
+**What was decided.**
+
+1. **The look is chosen on whole-page comps before any code.** Codex drew three comps of the guest Home at 1440, all on v1's structure, order and copy, with the founder's eight screenshots as the bar for craft: A, colour cards; B, event cinema; C, clean premium. The founder picked from each by block. A fourth comp merging the picks, D, was rejected as a whole; v4 is built from the picked parts themselves.
+2. **The picks, block by block, as built in `design/v4/theme.css`:**
+   - **Logo:** the glossy swirl of A and C, rendered by Codex from our mark, shown where the rail shows the symbol alone.
+   - **Live drops:** B's tiles, each drop on its own dark card with the hexagon of its rarity lit, refined: a rarity light at the foot of every card and the newest card outlined.
+   - **Banner:** B's scene, redrawn by Codex without lettering: the soldier in winter camo opening the pink case under the aurora, the fortress behind. The title is B's ice lettering as its own picture over the scene; the typed words stay in the page.
+   - **Countdown:** C's panel, the end date across its top and four tiles under it.
+   - **Heading row:** B's, the H1 on the left and the reviews on the right as plain text with a white star, no third party logo.
+   - **Modes:** B's layout and pictures painted in A's colour, each card a full gradient: Cases pink to violet, Case battles blue, Gunfights red, Upgrade gold to orange.
+   - **Featured cases:** the low, wide, open, burning cases of comp D, with no card behind them, a pink price plate under each.
+3. **Skins stay real.** No weapon is drawn in any v4 picture. The mode cards carry real skins over light Codex drew on black, added to the card's colour with a screen blend: a Karambit Tiger Tooth and its mirror for Case battles, a Desert Eagle Blaze for Gunfights, an AK-47 Gold Arabesque for Upgrade. Each case shows the best drop it has paid lying in its tray, behind its front wall, rising out of it on hover.
+4. **Only the first screen is v4.** Everything under the featured cases is v1's until the founder has passed the first screen.
+
+**Proven.** Structural diff zero against `wireframes/index.html` at 360 and 1440; no horizontal scroll at nine widths, 320 to 1440; no failed request; captured at 1440 at rest and with a case under the pointer, and at 360.
+
+**The cost.** Values live in one more sheet than the one source `D-204` names until v4 folds into `_theme.css` by a named decision. All art is generated. Codex delivered the title and the five cases on an opaque black ground: the title's alpha was rebuilt from its brightness, the cases' from their brightness plus a drawn outline of the case body, and each case was cut once more into a front wall so the skin can sit inside it. The price figure is white on its pink plate, a departure from gold for every price, taken from the comps the founder picked; the coin stays gold. Upgrade's gold was darkened until white type holds on it. The banner does not move yet: the founder asked for it interactive and animated, and that is the next step.
+
+**Rejected.** v3's hexagonal case with a diorama inside: "кейси ужасние". The tall open chests drawn first for this record: "Кейси не очень", against comp D's flat ones. Comp D as a whole page.

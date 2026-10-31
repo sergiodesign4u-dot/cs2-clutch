@@ -1,0 +1,137 @@
+/* design/v4/theme.css, v4, layered over ../_theme.css. Built from the founder's own picks of 31 Oct
+ * 2026 out of three Codex comps (A colour cards, B event cinema, C clean premium): the banner of B,
+ * the countdown of C, the glossy logo of A and C, the live drops of B made brighter, the mode row
+ * laid out as B and painted as A, the cases of comp D (low, wide, open, burning) with the real skin
+ * in them. Only the first screen is v4; every block under the featured cases is still v1's. */
+
+:root {
+  --v4-banner-h: 440px; /* the banner at 1440; comp B, founder pick, the scene needs room for title, countdown and button stacked on its left */
+  --v4-radius: 12px; /* card and banner corner; comp A and B, founder pick */
+  --v4-drop: 112px; /* a live drop tile; comp B, founder pick, a dark card round the hexagon */
+  --v4-ease-pop: cubic-bezier(.34, 1.56, .64, 1); /* a lift that overshoots and settles; підібрано під характер, design principle 2 */
+  --v4-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); /* faint diagonal stripes on a filled button; comp A and C, founder pick */
+  --v4-mode-cases: linear-gradient(120deg, #FB3F8A, #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4 */
+  --v4-mode-battles: linear-gradient(120deg, #3955E8, #1B2A8F); /* blue; comp A, founder pick; from --color-rarity-5 */
+  --v4-mode-gunfights: linear-gradient(120deg, #D1273E, #7A0F22); /* red; comp A, founder pick; from --color-rarity-2 */
+  --v4-mode-upgrade: linear-gradient(120deg, #B57A06, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it */
+}
+
+/* --- the logo: the glossy swirl wherever the rail shows the symbol alone --------------------- */
+.is-rail-collapsed .wf-rail .wf-logo-mark { background: url(art/logo-mark.webp) center / 44px auto no-repeat; }
+
+/* --- live drops: every drop on its own dark card, the hexagon of its rarity lit -------------- */
+.wf-feed { background: var(--color-ground); border-bottom: 0; padding-block: var(--space-2); }
+.wf-feed-run { gap: 6px; }
+.wf-feed-i { flex-basis: var(--v4-drop); border-radius: 8px; background: linear-gradient(to top, color-mix(in srgb, var(--r, var(--color-rarity-6)) 22%, var(--color-card)), var(--color-card) 55%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-text-hi) 6%, transparent), inset 0 -2px 0 color-mix(in srgb, var(--r, var(--color-rarity-6)) 80%, transparent); }
+.wf-feed-i:first-child { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--r, var(--color-rarity-6)) 80%, transparent), inset 0 -2px 0 var(--r, var(--color-rarity-6)), 0 0 18px color-mix(in srgb, var(--r, var(--color-rarity-6)) 35%, transparent); }
+.wf-feed-hit { padding: 6px 4px var(--space-2); }
+.wf-feed-hit::before, .wf-feed-hit::after { top: 9px; width: 70px; height: 62px; margin-left: -35px; }
+.wf-feed-hit::before { opacity: .35; }
+.wf-feed-hit::after { opacity: 1; filter: drop-shadow(0 0 4px var(--r, var(--color-rarity-6))); }
+.wf-feed-hit .wf-feed-art { height: 64px; margin-bottom: 6px; position: relative; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .6)); }
+.wf-feed-hit .wf-feed-w { font-weight: 700; }
+.wf-feed-i.is-new .wf-feed-hit { min-width: var(--v4-drop); }
+@keyframes wf-feed-arrive { 0% { flex-basis: 0; margin-right: -6px; opacity: 0; transform: translateY(-100%); } 45% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 0; transform: translateY(-100%); } 100% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 1; transform: none; } }
+.wf-feed-head { border-radius: 0 0 0 8px; }
+
+/* --- the banner: one cinematic scene, the title, the countdown and the act on its left ------- */
+.wf-event { border-radius: 0; background: #0B0F2A; }
+.wf-event::before { inset: 0; background: url(art/banner-scene.webp) right 18% center / cover no-repeat; animation: none; }
+.wf-event::after { background: linear-gradient(90deg, rgba(6, 10, 30, .82), rgba(6, 10, 30, .35) 38%, transparent 60%), linear-gradient(to top, var(--color-ground), transparent 16%); opacity: 1; animation: none; }
+.wf-event .wf-banner-art::before, .wf-event .wf-banner-art::after { content: none; }
+@media (min-width: 900px) { .wf-event .wf-banner-art { height: var(--v4-banner-h); } }
+.wf-event .wf-event-name { width: min(380px, 34%); aspect-ratio: 1100 / 509; top: 32px; left: max(var(--space-5), (100% - var(--size-content)) / 2); right: auto; margin: 0; transform: none;
+  background-image: url(art/banner-title.webp); background-position: left center; filter: drop-shadow(0 6px 18px rgba(6, 10, 30, .7)); }
+/* THE COUNTDOWN AS COMP C DRAWS IT, founder pick: one dark panel, the end date across its top, four tiles under it */
+.wf-event-clock { top: 224px; right: auto; bottom: auto; left: max(var(--space-5), (100% - var(--size-content)) / 2); grid-template-columns: repeat(4, 72px); gap: 8px; padding: 10px; border-radius: var(--v4-radius);
+  background: rgba(6, 10, 30, .78); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 10px 30px rgba(6, 10, 30, .5); }
+.wf-event-end { grid-row: 1; grid-column: 1 / -1; padding-bottom: 8px; border-bottom: 1px solid rgba(101, 163, 255, .14); color: var(--color-text-soft); font-size: var(--size-xs); letter-spacing: .08em; text-transform: uppercase; }
+.wf-event-cell { grid-row: 2; padding: 7px 0 5px; border-radius: 8px; background: rgba(15, 14, 43, .9); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+.wf-event-cell b { color: var(--color-text-hi); font-size: 26px; font-weight: 900; line-height: 1; }
+.wf-event-cell span { margin-top: 4px; color: var(--color-text-soft); font-size: var(--size-micro); letter-spacing: .08em; }
+.wf-event-go { left: max(var(--space-5), (100% - var(--size-content)) / 2); top: 346px; bottom: auto; transform: none; min-width: 240px; min-height: 52px; border-radius: 8px; font-size: var(--size-text); font-weight: 900; letter-spacing: 1px;
+  background: var(--v4-stripes), var(--color-pink); box-shadow: 0 8px 24px rgba(251, 63, 138, .4); }
+@media (max-width: 899px) {
+  .wf-event .wf-banner-art { aspect-ratio: auto; height: 460px; }
+  .wf-event::before { background-position: 72% center; }
+  .wf-event::after { background: linear-gradient(to bottom, rgba(6, 10, 30, .55), transparent 30%, rgba(6, 10, 30, .3) 55%, var(--color-ground)); }
+  .wf-event .wf-event-name { width: min(300px, 78%); top: 20px; left: var(--space-4); }
+  .wf-event-clock { top: auto; left: var(--space-4); right: var(--space-4); bottom: 88px; grid-template-columns: repeat(4, 1fr); }
+  .wf-event-go { top: auto; left: var(--space-4); right: var(--space-4); bottom: 20px; min-width: 0; }
+}
+
+/* --- the heading row: the H1 on the left, the reviews on the right, as comp B ---------------- */
+@media (min-width: 900px) {
+  .wf-hero.wf-hero--short { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4); text-align: left; padding: var(--space-5) 0 var(--space-3); }
+  .wf-hero--short .wf-hero-line { margin: 0; white-space: nowrap; }
+}
+.wf-hero--short h1 { font-size: 28px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; }
+.wf-hero--short .wf-hero-line a { color: var(--color-text-soft); font-size: var(--size-text); text-decoration: none; }
+.wf-hero--short .wf-hero-line a::before { content: ''; display: inline-block; width: 18px; height: 18px; margin-right: 8px; vertical-align: -3px; background: var(--color-text-hi);
+  clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+
+/* --- the four modes: laid out as comp B, painted as comp A ----------------------------------- */
+.wf-mode { min-height: 150px; border-radius: var(--v4-radius); padding: 20px 20px 18px; background: var(--mode-fill); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); }
+.wf-mode:has([data-icon="box"]) { --mode-fill: var(--v4-mode-cases); --mode-art: url(art/mode-cases.webp); }
+.wf-mode:has([data-icon="battle"]) { --mode-fill: var(--v4-mode-battles); --mode-fx: url(art/mode-battles-fx.webp); --mode-art: url(../concept/assets/skins/karambit-tiger-tooth.png); }
+.wf-mode:has([data-icon="target"]) { --mode-fill: var(--v4-mode-gunfights); --mode-fx: url(art/mode-gunfights-fx.webp); --mode-art: url(../concept/assets/skins/desert-eagle-blaze.png); }
+.wf-mode:has([data-icon="arrow-up"]) { --mode-fill: var(--v4-mode-upgrade); --mode-fx: url(art/mode-upgrade-fx.webp); --mode-art: url(../concept/assets/skins/ak-47-gold-arabesque.png); }
+/* the light of the mode, drawn on black, added to the card's own colour */
+.wf-mode::before { inset: 0; left: auto; width: 62%; height: 100%; border-radius: 0; background: var(--mode-fx, none) center / cover no-repeat; opacity: 1; filter: none; mix-blend-mode: screen;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 35%); mask: linear-gradient(90deg, transparent, #000 35%); }
+/* v1 darkened the text end of the card to its plate; the colour card needs no help */
+.wf-mode::after { content: none; }
+.wf-mode .wf-mode-art { width: 52%; max-width: none; right: -4%; background: var(--mode-art) center / contain no-repeat; filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); transform: rotate(var(--mode-turn, 0deg)); transition: transform .35s var(--v4-ease-pop); }
+.wf-mode:has([data-icon="battle"]) .wf-mode-art { --mode-turn: -30deg; width: 40%; right: 4%; }
+.wf-mode:has([data-icon="battle"]) .wf-mode-art::after { content: ''; position: absolute; inset: 0; background: inherit; transform: scaleX(-1); }
+.wf-mode:has([data-icon="target"]) .wf-mode-art { --mode-turn: -8deg; width: 46%; right: 0; }
+.wf-mode:has([data-icon="arrow-up"]) .wf-mode-art { --mode-turn: -30deg; width: 62%; right: -8%; }
+.wf-mode:hover .wf-mode-art { transform: rotate(var(--mode-turn, 0deg)) scale(1.08); }
+.wf-mode > :not(.wf-mode-art) { max-width: 58%; }
+.wf-grid .wf-mode h3, .wf-grid .wf-mode.is-later h3 { font-size: 24px; line-height: 1.1; letter-spacing: .01em; text-transform: uppercase; color: var(--color-text-hi); text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
+.wf-mode h3::before { content: none; }
+.wf-mode p { max-width: 200px; margin: 6px 0 14px; color: var(--color-text-hi); text-shadow: 0 1px 2px rgba(6, 10, 30, .55); }
+.wf-mode .wf-btn { min-height: 40px; border-radius: 8px; padding: 0 var(--space-4); font-weight: 900; background: var(--v4-stripes), var(--color-pink); box-shadow: 0 6px 16px rgba(6, 10, 30, .35); border-color: rgba(255, 255, 255, .35); }
+.wf-mode > .wf-fig-missing, .wf-mode > .wf-btn { max-width: none; white-space: nowrap; }
+.wf-mode .wf-fig-missing { display: inline-flex; align-items: center; min-height: 38px; padding: 0 var(--space-4); border-radius: 8px; background: rgba(6, 10, 30, .38); color: var(--color-text-hi); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
+
+/* --- the featured cases: the open case of comp D, burning in its colour, the real skin in it -- */
+.wf-tile:has([data-art="case-blue"]) { --case: var(--color-blue); --v4-case: url(art/case-ironbound.webp); --v4-case-front: url(art/case-ironbound-front.webp); }
+.wf-tile:has([data-art="case-gold"]) { --case: var(--color-gold); --v4-case: url(art/case-warsteel.webp); --v4-case-front: url(art/case-warsteel-front.webp); }
+.wf-tile:has([data-art="case-pink"]) { --case: var(--color-pink); --v4-case: url(art/case-coldfront.webp); --v4-case-front: url(art/case-coldfront-front.webp); }
+.wf-tile:has([data-art="case-violet"]) { --case: #A35CFF; --v4-case: url(art/case-nightfall.webp); --v4-case-front: url(art/case-nightfall-front.webp); }
+.wf-tile:has([data-art="case-ember"]) { --case: #FF5A2E; --v4-case: url(art/case-emberforge.webp); --v4-case-front: url(art/case-emberforge-front.webp); }
+/* the case art bleeds past its column so the flames are not cut; the page never scrolls sideways for it */
+.wf-main { overflow-x: clip; }
+.wf-tile { overflow: visible; padding: var(--space-3) var(--space-2) var(--space-4); background: none; }
+.wf-tile:hover { background: none; }
+.wf-tile::before { content: none; }
+/* the light the burning case throws on the floor; a vertical margin in % is read off the tile's width, so it sits at the case's foot at any width */
+.wf-tile::after { content: ''; position: absolute; z-index: -1; left: 50%; top: var(--space-3); margin: 40% 0 0; width: 104%; height: auto; aspect-ratio: 5 / 1; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--case) 50%, transparent), transparent); transition: opacity .35s; opacity: .8; }
+/* three layers in one box, all on the same frame so they line up: the open case, the real skin lying in its tray, the front wall over the skin's foot */
+.wf-tile-art[data-art] { isolation: isolate; width: 124%; margin: -6% -12% 0; aspect-ratio: 3 / 2; background: var(--v4-case) center / 100% auto no-repeat; transition: transform .35s var(--v4-ease-pop), filter .35s; }
+.wf-tile-art[data-art]::before { content: ''; position: absolute; inset: 0; z-index: 2; background: var(--v4-case-front) center / 100% auto no-repeat; pointer-events: none; }
+.wf-tile-art[data-art]::after { z-index: 1; top: 12%; left: 9%; width: 82%; height: 50%; transform: rotate(-10deg); filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)) drop-shadow(0 0 12px color-mix(in srgb, var(--case) 70%, transparent));
+  transition: transform .5s var(--v4-ease-pop); }
+@media (hover: hover) {
+  .wf-tile:hover .wf-tile-art[data-art] { transform: translateY(-4px); filter: brightness(1.12); }
+  .wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(-6deg) translateY(-34%) scale(1.06); }
+  .wf-tile:hover::after { opacity: 1; transform: translateX(-50%); }
+}
+.wf-tile-name { font-size: var(--size-text); font-weight: 900; letter-spacing: .04em; }
+.wf-tile-risk { margin-block: 2px var(--space-2); }
+/* the price on a full width pink plate with a gold coin, as comps A and C, founder pick; the figure white on pink */
+.wf-tile-price { align-self: stretch; justify-content: center; align-items: center; gap: 6px; min-height: 40px; margin-top: 0; border-radius: 8px; background: var(--v4-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); }
+.wf-tile-cost { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; }
+.wf-tile-cur { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; }
+.wf-tile:hover .wf-tile-price { filter: brightness(1.1); }
+
+.wf-sec-head:has(+ .wf-grid .wf-tile) h2 { font-size: 26px; font-weight: 900; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-mode .wf-mode-art, .wf-tile-art[data-art], .wf-tile-art[data-art]::after { transition: none; }
+  .wf-tile:hover .wf-tile-art[data-art], .wf-tile:hover .wf-tile-art[data-art]::after { transform: none; }
+  .wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(-10deg); }
+}
