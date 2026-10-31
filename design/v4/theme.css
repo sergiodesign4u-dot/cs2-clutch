@@ -126,7 +126,8 @@
 .wf-feed-back .wf-feed-whon { font-size: var(--size-xs); }
 @media (prefers-reduced-motion: reduce) { .wf-feed-back, .wf-feed-back > * { transition: none; } }
 @keyframes wf-feed-arrive { 0% { flex-basis: 0; margin-right: -6px; opacity: 0; transform: translateY(-100%); } 45% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 0; transform: translateY(-100%); } 100% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 1; transform: none; } }
-.wf-feed-head { border-radius: 0 0 0 8px; }
+.wf-feed-head { top: 16px; right: 16px; min-height: 28px; border: 0; border-radius: var(--radius-pill); background: rgba(6, 10, 30, .82); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .4); } /* a chip with no edge, inset off the cards' corner; founder, "лайф давай сделаем чипом без обводки и поставим его чуть ниже" */
 /* the mode mark sits inside the card's corner, not on it; founder, "иконка сильно в углу" */
 .wf-feed-mode { top: 8px; right: 8px; width: 14px; height: 14px; opacity: .9; }
 
