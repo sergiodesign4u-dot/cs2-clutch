@@ -140,7 +140,14 @@
 .wf-feed-back .wf-feed-who { gap: 6px; min-height: 0; padding: 0; }
 .wf-feed-back .wf-feed-whon { font-size: var(--size-xs); }
 @media (prefers-reduced-motion: reduce) { .wf-feed-back, .wf-feed-back > * { transition: none; } }
-@keyframes wf-feed-arrive { 0% { flex-basis: 0; margin-right: -6px; opacity: 0; transform: translateY(-100%); } 45% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 0; transform: translateY(-100%); } 100% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 1; transform: none; } }
+/* A NEW DROP ARRIVES FROM THE SIDE, TURNING IN, founder of 1 Nov 2026: "появление не сверху а сбоку, может даже как-то 3д, типа появление под углом
+   карточки": the row opens its place while the card swings in on its left edge from 75 degrees, overshoots a little and settles flat */
+.wf-feed-i.is-new { animation-duration: .9s; animation-timing-function: cubic-bezier(.22, .8, .3, 1); transform-origin: 0 50%; }
+@keyframes wf-feed-arrive {
+  0% { flex-basis: 0; margin-right: -6px; opacity: 0; transform: perspective(700px) translateX(-24px) rotateY(75deg); }
+  45% { flex-basis: var(--v4-drop); margin-right: 0; opacity: .7; transform: perspective(700px) translateX(0) rotateY(28deg); }
+  78% { opacity: 1; transform: perspective(700px) rotateY(-6deg); }
+  100% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 1; transform: none; } }
 .wf-feed-head { top: 16px; right: 16px; min-height: 28px; border: 0; border-radius: var(--radius-pill); background: rgba(6, 10, 30, .82); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, .4); } /* a chip with no edge, inset off the cards' corner; founder, "лайф давай сделаем чипом без обводки и поставим его чуть ниже" */
 /* the mode mark sits inside the card's corner, not on it; founder, "иконка сильно в углу" */
