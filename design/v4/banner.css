@@ -1,0 +1,101 @@
+/* design/v4/banner.css, the Coldfront banner of v4, alive. Loaded after theme.css and over it.
+ * Comp B's scene, the founder's pick of 31 Oct 2026, split by Codex into four layers that share one
+ * frame: the plate (sky, mountains, fortress, snow), the soldier with the case, the light (the case's
+ * pink light, the ice, the fortress lamps) drawn on black, and the aurora drawn on black. The page
+ * stacks them and moves each on its own: the aurora breathes, snow falls in two depths, the case's
+ * light pulses, the soldier and the plate drift apart for depth. Under the pointer, or with the
+ * button focused, the case flares and the layers lean apart. Design principle 2: the motion is the
+ * event's weather and the case's pull, nothing else. Reduced motion keeps the picture, still. */
+
+.wf-event {
+  --scene-size: auto 600px; /* every layer on one frame: the 1536 by 1024 scene, Codex, D-209, widened to 2304 by mirroring the plate's edges, drawn 600px high so the soldier's head and the whole case fit 440px; measured at 1440 */
+  --scene-pos: right -66px top -96px; /* anchored to the right edge as the countdown is, so the head stays left of the countdown at every desktop width; measured at 1440 */
+  --scene-ease: cubic-bezier(.22, 1, .36, 1); /* a long settle for the lean on hover; підібрано під характер, design principle 2 */
+  /* falling snow, two depths, each a tile of scattered flakes so no grid reads; підібрано під характер, the comp B scene's own snow */
+  --snow-near: radial-gradient(circle at 12% 18%, rgba(255, 255, 255, .95) 0 2px, transparent 2.6px), radial-gradient(circle at 63% 9%, rgba(255, 255, 255, .8) 0 1.6px, transparent 2.2px),
+    radial-gradient(circle at 38% 57%, rgba(255, 255, 255, .9) 0 2.4px, transparent 3px), radial-gradient(circle at 86% 44%, rgba(255, 255, 255, .75) 0 1.8px, transparent 2.4px),
+    radial-gradient(circle at 21% 83%, rgba(255, 255, 255, .85) 0 1.5px, transparent 2.1px), radial-gradient(circle at 72% 76%, rgba(255, 255, 255, .95) 0 2.2px, transparent 2.8px);
+  --snow-far: radial-gradient(circle at 8% 31%, rgba(220, 230, 255, .7) 0 1px, transparent 1.5px), radial-gradient(circle at 47% 14%, rgba(220, 230, 255, .6) 0 .8px, transparent 1.3px),
+    radial-gradient(circle at 77% 61%, rgba(220, 230, 255, .7) 0 1.1px, transparent 1.6px), radial-gradient(circle at 29% 72%, rgba(220, 230, 255, .55) 0 .9px, transparent 1.4px),
+    radial-gradient(circle at 91% 22%, rgba(220, 230, 255, .65) 0 1px, transparent 1.5px), radial-gradient(circle at 58% 92%, rgba(220, 230, 255, .6) 0 .8px, transparent 1.3px);
+  background: #0B0F2A;
+}
+
+/* layer 1, the plate, with the shade that keeps the title and the countdown legible, and the fade into the page at the foot */
+.wf-event::before { inset: 0; z-index: -3;
+  background: linear-gradient(90deg, rgba(6, 10, 30, .78), rgba(6, 10, 30, .3) 34%, transparent 55%),
+    linear-gradient(to top, var(--color-ground), transparent 18%),
+    url(art/banner-plate.webp) var(--scene-pos) / var(--scene-size) no-repeat;
+  animation: v4-plate 26s ease-in-out infinite alternate; transition: translate .9s var(--scene-ease); }
+
+/* layer 2, the aurora and the far snow, added to the sky */
+.wf-event .wf-banner-art { z-index: auto; }
+/* v1 drew its own case and operator in these two boxes; they are reset to the banner's whole frame */
+.wf-event .wf-banner-art::before, .wf-event .wf-banner-art::after { width: auto; height: auto; aspect-ratio: auto; filter: none; transform-origin: 50% 50%; }
+.wf-event .wf-banner-art::before { content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none; mix-blend-mode: screen;
+  background: var(--snow-far), url(art/banner-aurora.webp) var(--scene-pos) / var(--scene-size) no-repeat;
+  background-size: 230px 230px, 230px 230px, 230px 230px, 340px 340px, 340px 340px, 340px 340px, var(--scene-size);
+  transform-origin: 60% 0;
+  animation: v4-aurora 9s ease-in-out infinite alternate, v4-snow-far 22s linear infinite; }
+
+/* layer 3, the soldier and the case; the foot melts into the page as the plate does */
+.wf-event .wf-banner-art::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url(art/banner-hero.webp) var(--scene-pos) / var(--scene-size) no-repeat;
+  -webkit-mask: linear-gradient(to top, transparent, #000 14%); mask: linear-gradient(to top, transparent, #000 14%);
+  animation: v4-hero 14s ease-in-out infinite alternate; transition: translate .9s var(--scene-ease); }
+
+/* layer 4, the light and the near snow, added over everything: the case pulses */
+.wf-event::after { inset: 0; z-index: 0; opacity: 1; pointer-events: none; mix-blend-mode: screen;
+  background: var(--snow-near), url(art/banner-glow.webp) var(--scene-pos) / var(--scene-size) no-repeat;
+  background-size: 300px 300px, 300px 300px, 300px 300px, 420px 420px, 420px 420px, 420px 420px, var(--scene-size);
+  animation: v4-pulse 3.2s ease-in-out infinite, v4-snow-near 11s linear infinite; transition: filter .6s var(--scene-ease); }
+
+@keyframes v4-plate { from { transform: scale(1.03) translateX(3px); } to { transform: scale(1.045) translateX(-3px); } }
+@keyframes v4-hero { from { transform: translate(0, 0) scale(1.01); } to { transform: translate(-6px, -3px) scale(1.025); } }
+@keyframes v4-aurora { 0% { opacity: .65; transform: scaleY(1) skewX(0); } 50% { opacity: 1; } 100% { opacity: .8; transform: scaleY(1.06) skewX(-2deg); } }
+@keyframes v4-pulse { 0%, 100% { filter: brightness(.9); } 50% { filter: brightness(1.35); } }
+@keyframes v4-snow-near { from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, var(--scene-pos); } to { background-position: -60px 300px, -60px 300px, -60px 300px, -84px 420px, -84px 420px, -84px 420px, var(--scene-pos); } }
+@keyframes v4-snow-far { from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, var(--scene-pos); } to { background-position: -30px 230px, -30px 230px, -30px 230px, -44px 340px, -44px 340px, -44px 340px, var(--scene-pos); } }
+
+/* under the pointer, or with the act focused: the case flares, the soldier leans in, the world falls back */
+@media (hover: hover) {
+  .wf-event:hover::after { animation-duration: 1.4s, 11s; filter: brightness(1.5); }
+  .wf-event:hover .wf-banner-art::after { translate: -14px -4px; }
+}
+.wf-event:has(.wf-event-go:focus-visible)::after { animation-duration: 1.4s, 11s; filter: brightness(1.5); }
+.wf-event:has(.wf-event-go:focus-visible) .wf-banner-art::after { translate: -14px -4px; }
+
+/* the title, the act under it on the left; the countdown in the top right corner, the founder's ask:
+   "давай таймер поставим справа в верхнем углу с отступами"; the same insets as the title */
+@media (min-width: 900px) {
+  .wf-event .wf-event-name { width: min(420px, 100% - 420px); top: 32px; } /* 420 by 194 at 1440, the title's 1100 by 509, comp B, founder pick; narrower where the countdown needs the room */
+  .wf-event-clock { top: 32px; left: auto; right: max(var(--space-5), (100% - var(--size-content)) / 2); background: rgba(6, 10, 30, .72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  .wf-event-go { top: auto; bottom: 138px; } /* under the title at 1440: 32 + 194 + 24 from the top of 440 */
+}
+.wf-event .wf-event-name, .wf-event .wf-event-clock, .wf-event .wf-event-go { z-index: 2; }
+
+/* the act: a light sweeps across it every few seconds, and at once under the pointer */
+.wf-event-go { position: absolute; overflow: hidden; isolation: isolate; }
+.wf-event-go::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%) -150% 0 / 200% 100% no-repeat;
+  animation: v4-sweep 4.5s ease-in-out infinite; }
+.wf-event-go:is(:hover, :focus-visible)::after { animation: v4-sweep .8s ease-out 1; }
+@keyframes v4-sweep { 0%, 70% { background-position: -150% 0; } 100% { background-position: 250% 0; } }
+
+/* a phone: the title, then the soldier and the case clear of everything, then the countdown, then the act */
+@media (max-width: 899px) {
+  .wf-event { --scene-size: auto 560px; --scene-pos: right -150px top 20px; } /* the case at the window's centre, the head under the title; measured at 360 */
+  .wf-event .wf-banner-art { height: 700px; }
+  .wf-event::before { inset: 0; background: linear-gradient(to bottom, rgba(6, 10, 30, .45), transparent 26%),
+      linear-gradient(to top, var(--color-ground) 18%, transparent 30%),
+      url(art/banner-plate.webp) var(--scene-pos) / var(--scene-size) no-repeat; }
+  .wf-event .wf-banner-art::after { inset: 0; -webkit-mask: linear-gradient(to top, transparent 22%, #000 30%); mask: linear-gradient(to top, transparent 22%, #000 30%); }
+  .wf-event .wf-event-name { width: min(290px, 78%); top: 16px; }
+  .wf-event-clock { top: auto; bottom: 84px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-event::before, .wf-event::after, .wf-event .wf-banner-art::before, .wf-event .wf-banner-art::after, .wf-event-go::after { animation: none; transition: none; }
+  .wf-event:hover::after, .wf-event:has(.wf-event-go:focus-visible)::after { filter: brightness(1.15); }
+  .wf-event:hover .wf-banner-art::after, .wf-event:has(.wf-event-go:focus-visible) .wf-banner-art::after { translate: none; }
+}
