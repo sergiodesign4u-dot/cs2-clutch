@@ -23,12 +23,41 @@
     </feTurbulence>
     <feDisplacementMap in="SourceGraphic" scale="9" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
+  <filter id="rd-burn" x="-40%" y="-60%" width="180%" height="220%">
+    <feTurbulence type="turbulence" baseFrequency="0.018 0.07" numOctaves="2" seed="7" result="t">
+      <animate attributeName="baseFrequency" dur="2.6s" values="0.018 0.07;0.024 0.095;0.015 0.06;0.018 0.07" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="t" scale="24" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
 </svg>
 <main class="rd-main">
   <header class="rd-head">
     <h1>Дорогой дроп, шесть вариантов</h1>
-    <p>Каждый вариант повторяется по кругу, чтобы его можно было рассмотреть. В середине каждой ленты дорогой дроп, по бокам обычные. Скин настоящий, Karambit Tiger Tooth. Выбери вариант или скажи, что смешать.</p>
+    <p>Новые варианты G и H сверху, первые шесть ниже. Каждый вариант повторяется по кругу, чтобы его можно было рассмотреть. В середине каждой ленты дорогой дроп, по бокам обычные. Скин настоящий, Karambit Tiger Tooth. Выбери вариант или скажи, что смешать.</p>
   </header>
+  <section class="rd-variant rd-live rd-blaze" id="blaze">
+    <h2>G. Удар, потом живой огонь</h2>
+    <p>Дорогой скин влетает с ударной волной и толкает соседей, дальше он остаётся в ленте и горит: языки пламени текут вверх из-под карточки, за скином, искры поднимаются. Огонь золотой, цвет высшей редкости.</p>
+    <div class="rd-row">
+      <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
+      <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
+      <div class="rd-card r1 rd-rare"><span class="rd-wave" aria-hidden="true"></span><span class="rd-flash" aria-hidden="true"></span><span class="rd-flames" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="rd-embers" aria-hidden="true"></span><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/karambit-tiger-tooth.png" alt=""><b>★ Karambit</b><span class="rd-s">Tiger Tooth</span></div>
+      <div class="rd-card r5"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/mp9-rose-iron.png" alt=""><b>MP9</b><span class="rd-s">Rose Iron</span></div>
+      <div class="rd-card r4"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt=""><b>Glock-18</b><span class="rd-s">Water Elemental</span></div>
+    </div>
+  </section>
+  <section class="rd-variant rd-live rd-plasma" id="plasma">
+    <h2>H. Удар, потом живая плазма</h2>
+    <p>То же появление, но горит нашим розово-фиолетовым светом, как плазма: языки мягче и выше, больше свечения.</p>
+    <div class="rd-row">
+      <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
+      <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
+      <div class="rd-card r1 rd-rare"><span class="rd-wave" aria-hidden="true"></span><span class="rd-flash" aria-hidden="true"></span><span class="rd-flames" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="rd-embers" aria-hidden="true"></span><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/karambit-tiger-tooth.png" alt=""><b>★ Karambit</b><span class="rd-s">Tiger Tooth</span></div>
+      <div class="rd-card r5"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/mp9-rose-iron.png" alt=""><b>MP9</b><span class="rd-s">Rose Iron</span></div>
+      <div class="rd-card r4"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt=""><b>Glock-18</b><span class="rd-s">Water Elemental</span></div>
+    </div>
+  </section>
+  <h2 class="rd-was">Первые шесть</h2>
   <section class="rd-variant rd-fire" id="fire">
     <h2>A. Огонь по краю</h2>
     <p>Карточка горит: пламя бежит по краю, языки огня поднимаются снизу, скин светится оранжевым.</p>
