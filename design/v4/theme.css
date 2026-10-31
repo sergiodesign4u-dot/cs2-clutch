@@ -37,6 +37,8 @@
 
 /* --- the banner: one cinematic scene, the title, the countdown and the act on its left ------- */
 .wf-event { border-radius: 0; background: #0B0F2A; }
+/* v1's four banner layers are not drawn here, so they are not fetched either */
+.wf-event { --art-banner-bg: none; --art-banner-case: none; --art-banner-operator: none; --art-banner-shards: none; }
 .wf-event::before { inset: 0; background: url(art/banner-scene.webp) right 18% center / cover no-repeat; animation: none; }
 .wf-event::after { background: linear-gradient(90deg, rgba(6, 10, 30, .82), rgba(6, 10, 30, .35) 38%, transparent 60%), linear-gradient(to top, var(--color-ground), transparent 16%); opacity: 1; animation: none; }
 .wf-event .wf-banner-art::before, .wf-event .wf-banner-art::after { content: none; }
