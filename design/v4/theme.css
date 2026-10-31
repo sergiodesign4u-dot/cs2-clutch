@@ -16,8 +16,42 @@
   --v4-mode-upgrade: linear-gradient(120deg, #B57A06, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it */
 }
 
-/* --- the logo: the glossy swirl wherever the rail shows the symbol alone --------------------- */
-.is-rail-collapsed .wf-rail .wf-logo-mark { background: url(art/logo-mark.webp) center / 44px auto no-repeat; }
+/* --- the header: its own strip, the logo in its middle in a pink glow, particles falling ------- */
+/* founder, 31 Oct 2026: "хедер ... полоской отдельной ... по центру логотип со свечением ... цвет розовый наш и падают частицы";
+   read from skin.club's header strip and TrulyWin's centred, lit logo */
+:root { --v4-rail-w: var(--size-rail); }
+.is-rail-collapsed, .is-rail-compact { --v4-rail-w: var(--size-rail-collapsed); }
+@media (min-width: 900px) {
+  .wf-header { isolation: isolate; background: var(--color-ground); min-height: 84px; padding: 16px 32px 8px; }
+  .wf-header::before, .wf-header::after { content: ''; position: absolute; inset: 8px 12px 0; z-index: -1; border-radius: 16px; pointer-events: none; }
+  .wf-header::before { background: radial-gradient(34% 130% at 50% 0%, rgba(251, 63, 138, .36), transparent 72%), linear-gradient(180deg, #16133C, #0D0C28);
+    box-shadow: inset 0 1px 0 rgba(251, 63, 138, .5), inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); } /* the strip, --color-card lifted; the light of --color-pink falling from its top edge onto the logo */
+  .wf-header::after { background: radial-gradient(circle, #FB3F8A 0 1.2px, transparent 1.8px) 0 0 / 70px 60px, radial-gradient(circle, rgba(255, 170, 205, .9) 0 1px, transparent 1.6px) 23px 17px / 110px 90px,
+      radial-gradient(circle, rgba(251, 63, 138, .7) 0 1.6px, transparent 2.3px) 51px 40px / 150px 120px;
+    -webkit-mask: radial-gradient(30% 150% at 50% 0%, #000 15%, transparent 100%); mask: radial-gradient(30% 150% at 50% 0%, #000 15%, transparent 100%);
+    animation: v4-fall 8s linear infinite; } /* three depths of pink particles, each falling one tile per loop, so slower when farther */
+  /* the logo stays the rail's link home and is shown in the middle of the strip */
+  .wf-rail .wf-rail-logo, .is-rail-collapsed .wf-rail .wf-rail-logo { position: fixed; z-index: 2; top: 46px; left: calc(var(--wf-body-x, 0px) + var(--v4-rail-w) + (100vw - var(--wf-body-x, 0px) - var(--v4-rail-w)) / 2);
+    transform: translate(-50%, -50%); margin: 0; padding: 0; background: none; }
+  .wf-rail .wf-logo-mark, .is-rail-collapsed .wf-rail .wf-logo-mark { flex: 0 0 auto; width: 176px; height: 50px; border: 0; background: url(../concept/assets/logo/lockup-screen.svg) center / contain no-repeat;
+    filter: drop-shadow(0 0 10px rgba(251, 63, 138, .55)) drop-shadow(0 0 26px rgba(251, 63, 138, .3)); }
+}
+@keyframes v4-fall { to { background-position: 0 60px, 23px 107px, 51px 160px; } }
+
+/* --- the rail: its own panel, every way to play on a rounded tile, the live one lit ----------- */
+/* founder pick of 31 Oct 2026, a dark panel of square tiles with the current one raised and edged */
+@media (min-width: 900px) {
+  .wf-rail { top: 8px; height: calc(100vh - 16px); margin: 8px 0 8px 8px; padding-top: 64px; border: 0; border-image: none; border-radius: 16px;
+    background: linear-gradient(180deg, #141A3A, #0D1129); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); } /* a navy a step off --color-card-2 toward --color-raised */
+  .wf-rail .wf-rail-item, .is-rail-collapsed .wf-rail .wf-rail-item { min-height: 46px; margin: 0 8px 8px; border-radius: 12px; background: #10152F; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .03); transition: background-color .2s, box-shadow .2s; }
+  .wf-rail a.wf-rail-item, .is-rail-collapsed .wf-rail a.wf-rail-item { background: linear-gradient(180deg, #2B3C70, #1D2A56); box-shadow: inset 0 0 0 1px rgba(160, 190, 255, .35), 0 0 16px rgba(101, 163, 255, .22); } /* the one live way to play, lit in --color-blue's family */
+  .wf-rail .wf-rail-item.is-later .wf-rail-ico { opacity: .55; }
+  .wf-rail .wf-rail-item:hover { background: #18204A; }
+  /* the sound and the language on the same tiles, at the panel's foot */
+  .wf-rail .wf-rail-amb, .is-rail-collapsed .wf-rail .wf-rail-amb { gap: 8px; margin: 0 8px 8px; border: 0; }
+  .wf-rail .wf-rail-snd, .wf-rail .wf-rail-lang, .is-rail-collapsed .wf-rail .wf-rail-snd, .is-rail-collapsed .wf-rail .wf-rail-lang { min-height: 46px; border: 0; border-radius: 12px; background: #10152F; }
+  .wf-rail a.wf-rail-item:hover, .is-rail-collapsed .wf-rail a.wf-rail-item:hover { background: linear-gradient(180deg, #34477F, #233163); }
+}
 
 /* --- live drops: comp B's card, founder pick of 31 Oct 2026, its hexagon turned so the points face the sides ---- */
 /* one dark card per drop, no edge; one hexagon line in the rarity's colour with its own glow; the skin
@@ -139,6 +173,7 @@
 .wf-sec-head:has(+ .wf-grid .wf-tile) h2 { font-size: 26px; font-weight: 900; }
 
 @media (prefers-reduced-motion: reduce) {
+  .wf-header::after { animation: none; }
   .wf-mode .wf-mode-art, .wf-tile-art[data-art], .wf-tile-art[data-art]::after { transition: none; }
   .wf-tile:hover .wf-tile-art[data-art], .wf-tile:hover .wf-tile-art[data-art]::after { transform: none; }
   .wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(-10deg); }
