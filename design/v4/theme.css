@@ -64,7 +64,7 @@
   .wf-rail { grid-row: 1 / -1; grid-column: 1; top: 0; height: 100vh; margin: 0 0 0 12px; padding-top: 84px; border: 0; border-image: none; border-radius: 0; background: none; box-shadow: none; }
   .wf-rail::before { content: ''; position: absolute; inset: 72px 0 8px; z-index: -1; border-radius: 16px; pointer-events: none;
     background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
-  .is-rail-overlay .wf-rail { top: 0; left: calc(var(--wf-body-x, 0px) + 12px); height: 100vh; background: none; box-shadow: none; }
+  .is-rail-overlay .wf-rail { top: 0; left: var(--wf-body-x, 0px); height: 100vh; background: none; box-shadow: none; } /* its 12px margin already sets it off the edge, so opening it moves nothing; founder, "идет смещение при открытии" */
   .wf-header { grid-column: 1 / -1; grid-row: 1; }
   .wf-rail .wf-rail-item, .is-rail-collapsed .wf-rail .wf-rail-item { min-height: 46px; margin: 0 8px 8px; border-radius: 12px; background: linear-gradient(180deg, #191842, #0F0E2B); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04); transition: background-color .2s, box-shadow .2s; }
   .wf-rail a.wf-rail-item, .is-rail-collapsed .wf-rail a.wf-rail-item { background: linear-gradient(180deg, #3B2470, #261A55); box-shadow: inset 0 0 0 1px rgba(251, 63, 138, .45), 0 0 16px rgba(251, 63, 138, .22); } /* the one live way to play, lit in --color-pink's light */
@@ -85,11 +85,22 @@
 .wf-feed-hit { padding: 8px 4px 10px; }
 .wf-feed-hit::before, .wf-feed-hit::after { top: 10px; left: 50%; opacity: 1; }
 /* THE BACKING UNDER THE SKIN AS THE BASELINE DRAWS IT, founder of 31 Oct 2026: "как у нас сейчас плюс как на дедди скинс подложку для скинов":
-   v1's hexagon of three lines, one dashed, over a fill running from clear to the rarity, here larger and brighter on comp B's card */
+   v1's hexagon of three lines, one dashed, over a fill running from clear to the rarity, here larger and brighter on comp B's card.
+   Then "самый внутренний бордер сделаем градиентом с верхнего левого угла (полностью прозрачен) в нижний правый": the innermost line
+   leaves the line layer and joins the fill's layer, so it runs from clear at the top left to the rarity at the bottom right with it */
+:root {
+  --v4-hex-outer: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3C/svg%3E"); /* the outer two of --shape-hex-line, the same paths */
+  --v4-hex-inner: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%221.6%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the inner line of --shape-hex-line, drawn a little heavier to carry the gradient */
+}
 .wf-feed-hit::before, .wf-feed-hit::after { top: 8px; width: 96px; height: 83px; margin-left: -48px; }
-.wf-feed-hit::before { opacity: .95; background: linear-gradient(135deg, transparent 15%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 75%, transparent));
-  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; }
-.wf-feed-hit::after { opacity: 1; background: color-mix(in srgb, var(--r, var(--color-rarity-6)) 75%, var(--color-text-hi)); -webkit-mask: var(--shape-hex-line) center / 100% 100% no-repeat; mask: var(--shape-hex-line) center / 100% 100% no-repeat; }
+.wf-feed-hit::before { opacity: 1; background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
+.wf-feed-hit::after { opacity: 1; background: color-mix(in srgb, var(--r, var(--color-rarity-6)) 75%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
+/* "снизу карточки добавим небольшую полосочку внизу по центру с закруглениями и свечением внутри карточки по рарити":
+   a short rounded bar in the rarity on the card's foot, and its light rising into the card */
+.wf-feed-i { background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); }
+.wf-feed-i::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: 44px; height: 3px; margin-left: -22px; border-radius: 3px 3px 0 0; pointer-events: none;
+  background: var(--r, var(--color-rarity-6)); box-shadow: 0 0 10px 1px var(--r, var(--color-rarity-6)); }
 .wf-feed-hit .wf-feed-art { position: relative; width: 128%; height: 80px; margin: 4px -14% 6px; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); transition: transform .3s var(--v4-ease-pop); }
 .wf-feed-i:hover .wf-feed-hit .wf-feed-art { transform: scale(1.08) rotate(-3deg); }
 .wf-feed-hit .wf-feed-w { font-size: var(--size-label); font-weight: 700; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
