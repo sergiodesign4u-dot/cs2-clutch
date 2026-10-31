@@ -7,7 +7,7 @@
 :root {
   --v4-banner-h: 440px; /* the banner at 1440; comp B, founder pick, the scene needs room for title, countdown and button stacked on its left */
   --v4-radius: 12px; /* card and banner corner; comp A and B, founder pick */
-  --v4-drop: 124px; /* a live drop tile; comp B, founder pick, a dark card round the hexagon, wide enough for a rifle larger than its hexagon */
+  --v4-drop: 104px; /* a live drop tile; comp B, founder pick, a dark card round the hexagon; 124px until the founder, "карточки сделать меньше, сейчас они сильно много места занимают" */
   --v4-ease-pop: cubic-bezier(.34, 1.56, .64, 1); /* a lift that overshoots and settles; підібрано під характер, design principle 2 */
   --v4-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); /* faint diagonal stripes on a filled button; comp A and C, founder pick */
   --v4-mode-cases: linear-gradient(120deg, #FB3F8A, #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4 */
@@ -99,7 +99,7 @@
   .wf-main > * { margin-inline: 8px 12px; }
 }
 .wf-feed-i { flex-basis: var(--v4-drop); border-radius: 6px; background: linear-gradient(to bottom, #191842, #0F0E2B); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); } /* card from --color-card, lifted a step at the top; comp B */
-.wf-feed-hit { padding: 8px 4px 10px; }
+.wf-feed-hit { padding: 6px 4px 8px; }
 .wf-feed-hit::before, .wf-feed-hit::after { top: 10px; left: 50%; opacity: 1; }
 /* THE BACKING UNDER THE SKIN AS THE BASELINE DRAWS IT, founder of 31 Oct 2026: "как у нас сейчас плюс как на дедди скинс подложку для скинов":
    v1's hexagon of three lines, one dashed, over a fill running from clear to the rarity, here larger and brighter on comp B's card.
@@ -109,19 +109,19 @@
   --v4-hex-outer: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3C/svg%3E"); /* the outer two of --shape-hex-line, the same paths */
   --v4-hex-inner: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%221.6%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the inner line of --shape-hex-line, drawn a little heavier to carry the gradient */
 }
-.wf-feed-hit::before, .wf-feed-hit::after { top: 8px; width: 96px; height: 83px; margin-left: -48px; }
+.wf-feed-hit::before, .wf-feed-hit::after { top: 7px; width: 78px; height: 68px; margin-left: -39px; }
 .wf-feed-hit::before { opacity: 1; background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 85%, transparent));
   -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
 .wf-feed-hit::after { opacity: 1; background: color-mix(in srgb, var(--r, var(--color-rarity-6)) 75%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
 /* "снизу карточки добавим небольшую полосочку внизу по центру с закруглениями и свечением внутри карточки по рарити":
    a short rounded bar in the rarity on the card's foot, and its light rising into the card */
 .wf-feed-i { background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); }
-.wf-feed-i::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: 44px; height: 3px; margin-left: -22px; border-radius: 3px 3px 0 0; pointer-events: none;
+.wf-feed-i::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: 36px; height: 3px; margin-left: -18px; border-radius: 3px 3px 0 0; pointer-events: none;
   background: var(--r, var(--color-rarity-6)); box-shadow: 0 0 10px 1px var(--r, var(--color-rarity-6)); }
-.wf-feed-hit .wf-feed-art { position: relative; width: 128%; height: 80px; margin: 4px -14% 6px; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); transition: transform .3s var(--v4-ease-pop); }
+.wf-feed-hit .wf-feed-art { position: relative; width: 128%; height: 64px; margin: 4px -14% 5px; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); transition: transform .3s var(--v4-ease-pop); }
 .wf-feed-i:hover .wf-feed-hit .wf-feed-art { transform: scale(1.08) rotate(-3deg); }
-.wf-feed-hit .wf-feed-w { font-size: var(--size-label); font-weight: 700; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
-.wf-feed-hit .wf-feed-s { margin-top: 3px; font-size: var(--size-xs); color: var(--color-text-hi); opacity: .85; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
+.wf-feed-hit .wf-feed-w { font-size: var(--size-xs); font-weight: 700; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
+.wf-feed-hit .wf-feed-s { margin-top: 2px; font-size: var(--size-chip); color: var(--color-text-hi); opacity: .85; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
 .wf-feed-i.is-new .wf-feed-hit { min-width: var(--v4-drop); }
 /* THE BACK OF A DROP, founder of 31 Oct 2026: "тут надо подровнять отступы и давай появление не сверху карточки, а с левого бока с каким-то
    интересным появлением": an opaque face in the card's own navy, so nothing of the front shows through; the case it came from, its name,
@@ -136,7 +136,7 @@
 .wf-feed-back > * { opacity: 0; translate: -14px 0; transition: opacity .25s ease-out .12s, translate .35s cubic-bezier(.34, 1.56, .64, 1) .12s; }
 .wf-feed-i:hover .wf-feed-back > *, .wf-feed-back:focus-within > * { opacity: 1; translate: 0 0; }
 .wf-feed-back .wf-feed-tocase { gap: 6px; padding: 0; }
-.wf-feed-back .wf-feed-art { width: 92px; height: 58px; margin: 0; }
+.wf-feed-back .wf-feed-art { width: 76px; height: 46px; margin: 0; }
 .wf-feed-back .wf-feed-tocase .wf-feed-w { font-size: var(--size-xs); font-weight: 700; letter-spacing: .06em; line-height: 1.2; }
 .wf-feed-back .wf-feed-who { gap: 6px; min-height: 0; padding: 0; }
 .wf-feed-back .wf-feed-whon { font-size: var(--size-xs); }
