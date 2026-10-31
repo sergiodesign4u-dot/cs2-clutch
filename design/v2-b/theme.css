@@ -55,8 +55,8 @@ body:where(:has(> .wf-screen-body)) { background: radial-gradient(80% 60% at 50%
 .wf-event .wf-event-name { z-index: 1; width: auto; aspect-ratio: auto; left: 0; right: 0; top: 50%; bottom: auto; transform: translateY(-58%); translate: none; margin: 0; padding: 0 var(--space-4); text-align: center;
   font-size: clamp(60px, 9.6vw, 148px); font-weight: 700; line-height: .86; letter-spacing: -.01em; text-transform: uppercase; color: var(--color-text-hi); text-shadow: none; filter: none; background: none; }
 @media (max-width: 899px) { .wf-event .wf-event-name { width: auto; top: 46%; } }
-@media (max-width: 599px) { .wf-event .wf-event-name { width: auto; top: 60%; font-size: 15vw; }
-  .wf-event .wf-banner-art::before { width: 78%; translate: -46% -38%; } }
+@media (max-width: 599px) { .wf-event .wf-event-name { width: auto; top: 50%; font-size: 13vw; }
+  .wf-event .wf-banner-art::before { width: 62%; translate: -30% -52%; } }
 .wf-event .wf-event-clock, .wf-event .wf-event-go { z-index: 3; }
 .wf-event-clock { background: color-mix(in srgb, var(--color-ground) 70%, transparent); border: 1px solid var(--b-line); border-radius: var(--radius-s); }
 .wf-event-cell b { font-family: var(--font-mono); color: var(--color-text-hi); font-weight: 700; }
