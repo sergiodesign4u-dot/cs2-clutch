@@ -1,0 +1,92 @@
+/* design/v3/theme.css, v3, layered over ../_theme.css. Built one block at a time against the
+ * founder's own marks (31 Oct 2026): keep the baseline's structure and colours, find our own
+ * grammar for shape and hover, keep the interface quiet and let the case carry the colour.
+ * Block 1 of the Home: Featured cases. Every other block is still v1's.
+ *
+ * The grammar, in one line: THE HEXAGON IS WHERE A DROP LIVES. It is already ours, inherited
+ * from the baseline's live drop ticker (--shape-hex-fill, --shape-hex-line in ../_theme.css),
+ * and it now runs on from the ticker into the case: a dim hexagon socket behind every case,
+ * lit in the case's colour when the pointer arrives; the price on a plate with the hexagon's
+ * 60 degree ends. One shape, no second motif beside it. */
+
+:root {
+  --v3-ease-pop: cubic-bezier(.34, 1.56, .64, 1); /* a lift that overshoots a little and settles; підібрано під характер, design principle 2, motion amplifies the reveal */
+  --v3-hex-end: 10px; /* the slant of a plate end on a 36px plate, 18 x tan 30deg, the ticker hexagon's 60 degree side; наявний бренд, --shape-hex-fill */
+}
+
+/* each case brings its own light, and only the case uses it */
+.wf-tile:has([data-art="case-blue"]) { --case: var(--color-blue); --v3-cover: url(art/case-ironbound.webp); }
+.wf-tile:has([data-art="case-gold"]) { --case: var(--color-gold); --v3-cover: url(art/case-warsteel.webp); }
+.wf-tile:has([data-art="case-pink"]) { --case: var(--color-pink); --v3-cover: url(art/case-coldfront.webp); }
+.wf-tile:has([data-art="case-violet"]) { --case: var(--color-rarity-3); --v3-cover: url(art/case-nightfall.webp); }
+.wf-tile:has([data-art="case-ember"]) { --case: var(--color-rarity-2); --v3-cover: url(art/case-emberforge.webp); }
+
+/* --- the tile: no plate, no card; the case stands in its socket ---------------------- */
+.wf-tile { --case: var(--color-blue); overflow: visible; padding: var(--space-4) var(--space-2) var(--space-5); border-radius: 0; background: none; transition: none; }
+.wf-tile:is(:hover, :focus-within) { background: none; }
+.wf-tile-link { position: relative; }
+
+/* the socket: the ticker's hexagon of three lines, absent at rest so the row stays quiet, turned into place and lit on hover */
+/* wider than the case so its six points show round it; centred on the case picture by a margin in %
+   of the tile's width: picture .96W tall, socket .83W tall, (.96 - .83) / 2 = 6 % */
+.wf-tile::before { top: var(--space-4); margin-top: 6%; left: 50%; width: 96%; height: auto; aspect-ratio: 136 / 118; z-index: -1; opacity: 0;
+  background: color-mix(in srgb, var(--case) 40%, transparent);
+  -webkit-mask: var(--shape-hex-line) center / contain no-repeat; mask: var(--shape-hex-line) center / contain no-repeat;
+  transform: translateX(-50%) rotate(-30deg) scale(.86); transition: transform .5s var(--v3-ease-pop), opacity .25s, background-color .3s; }
+/* the light the open case throws on the floor under it, in its colour */
+/* a vertical margin in % is read off the tile's WIDTH, so the light sits at the case's foot at any width */
+.wf-tile::after { top: var(--space-4); margin-top: 76%; left: 50%; width: 80%; height: auto; aspect-ratio: 4 / 1; z-index: -1; opacity: .45;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--case) 55%, transparent), transparent);
+  transform: translateX(-50%) scaleX(.8); transition: opacity .3s, transform .3s; }
+@media (hover: hover) {
+  .wf-tile:is(:hover, :focus-within)::before { opacity: 1; background: color-mix(in srgb, var(--case) 70%, transparent); transform: translateX(-50%) rotate(0deg) scale(1); }
+  .wf-tile:is(:hover, :focus-within)::after { opacity: .9; transform: translateX(-50%) scaleX(1); }
+}
+
+/* the case, and over its cradle the best drop it has paid, the real skin */
+/* the art is 1120 by 1168, one hexagonal case body for all five, drawn at 84 % so the socket shows;
+   the skin floats over the open tray, in front of the lit lid, at the cradle's own 12deg */
+.wf-tile-art[data-art] { aspect-ratio: 1120 / 1168; margin-bottom: var(--space-1); background: var(--v3-cover) center / 84% auto no-repeat;
+  filter: drop-shadow(0 14px 14px rgba(0, 0, 0, .55)); transition: transform .35s var(--v3-ease-pop); }
+.wf-tile-art[data-art]::after { top: 26%; left: 10%; width: 80%; height: 34%; transform: rotate(-12deg); filter: drop-shadow(0 10px 8px rgba(0, 0, 0, .7));
+  transition: transform .45s var(--v3-ease-pop); }
+@media (hover: hover) {
+  .wf-tile:is(:hover, :focus-within) .wf-tile-art[data-art] { transform: translateY(-6px); }
+  .wf-tile:is(:hover, :focus-within) .wf-tile-art[data-art]::after { transform: rotate(-6deg) translateY(-18%) scale(1.1); }
+}
+
+/* the name, the skulls, then the price on the hexagon plate */
+.wf-tile-name { font-size: var(--size-label); font-weight: 900; letter-spacing: .06em; }
+.wf-tile-risk { margin-block: var(--space-1) var(--space-2); }
+.wf-tile-price { position: relative; isolation: isolate; align-items: center; min-height: 36px; margin-top: 0; padding: 0 calc(var(--v3-hex-end) + var(--space-3));
+  --plate: polygon(var(--v3-hex-end) 0, calc(100% - var(--v3-hex-end)) 0, 100% 50%, calc(100% - var(--v3-hex-end)) 100%, var(--v3-hex-end) 100%, 0 50%); }
+.wf-tile-price::before, .wf-tile-price::after { content: ''; position: absolute; z-index: -1; clip-path: var(--plate); transition: background-color .3s; }
+.wf-tile-price::before { inset: 0; background: color-mix(in srgb, var(--color-text-hi) 10%, transparent); }
+.wf-tile-price::after { inset: 1px; background: var(--color-card); }
+@media (hover: hover) { .wf-tile:is(:hover, :focus-within) .wf-tile-price::before { background: color-mix(in srgb, var(--case) 75%, transparent); } }
+.wf-tile-price { flex-wrap: nowrap; white-space: nowrap; }
+.wf-tile-cost { font-size: var(--size-l); font-weight: 900; }
+/* two to a row on a phone: the plate keeps one line, the figure at the baseline's 20px */
+@media (max-width: 599px) {
+  .wf-tile-price { padding: 0 calc(var(--v3-hex-end) + var(--space-2)); gap: var(--space-1); }
+  .wf-tile-cost { font-size: var(--size-title); }
+}
+@media (max-width: 399px) {
+  .wf-tile-price { padding: 0 calc(var(--v3-hex-end) + var(--space-1)); gap: 2px; }
+  .wf-tile-cost { font-size: var(--size-text); }
+  .wf-tile-cost::before { margin-right: 3px; }
+}
+
+/* the favourite: the count and the heart on a small hexagon chip, shown with the pointer */
+.wf-tile .wf-fav { top: 0; right: 0; }
+.wf-tile .wf-fav::before { inset: 6px 2px; border-radius: 0; background: color-mix(in srgb, var(--color-card) 85%, transparent);
+  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0 50%); }
+.wf-tile .wf-fav-n { font-size: var(--size-xs); }
+.wf-tile .wf-fav-i { width: 16px; height: 16px; flex-basis: 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-tile::before, .wf-tile-art[data-art], .wf-tile-art[data-art]::after { transition: background-color .3s; }
+  .wf-tile:is(:hover, :focus-within)::before { transform: translateX(-50%) rotate(-30deg) scale(.86); }
+  .wf-tile:is(:hover, :focus-within) .wf-tile-art[data-art], .wf-tile:is(:hover, :focus-within) .wf-tile-art[data-art]::after { transform: none; }
+  .wf-tile:is(:hover, :focus-within) .wf-tile-art[data-art]::after { transform: rotate(-16deg); }
+}

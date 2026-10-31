@@ -6680,3 +6680,29 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **The cost.** While the exploration lasts, values live in three more sheets than the one source `D-204` names. B and C bring typefaces outside `D-187`. C rests on painted characters and scenes, the very look the founder called AI-like, so it carries that risk in the open. Codex delivered C's banner and ground letterboxed inside their canvas; both were cropped to the picture by hand with ffmpeg and cwebp.
 
 **Found while recording.** This file had lost 6612 lines in the commit of `D-205`, 6e2fc5f, which wrote the new entry over the log instead of after it. The log is restored from 5317406 with `D-205` and `D-206` appended again; `decisions.html` was never affected.
+
+## D-208. v3: our own grammar for shape and hover, built one block at a time, Featured cases first
+
+**Date:** 2026-10-31. **Stage:** 06, step 6. **Decided by:** the founder, on the three directions of `D-207`: "пока что наша v1 віглядит лучше чем все что ти сделал все v2 потому что все они виглядт очень ИИ"; on the bar: skin.club, "минималиситчніе но и при єтом виглядит как igaming site", its gradients, glows, stripes, shapes, cases and hover; on the four asks put to them: "1. разрешаю 2. а 3. да новая папка design/v3/ 4. разрешаю, но ми не строим скин-клаб ми делаем свой". **Amends:** `D-181` for shape language and component look only. **Binds:** `design/v3/`, new. `design/index.html`, `design/index-account.html`, `design/_theme.css` and `design/v2-*` are untouched.
+
+**What was decided.**
+
+1. **`D-207` is closed without a winner.** All three directions read as AI to the founder, v1 included but less so. The cause, read side by side at 1440 on 31 October: each direction was a theme sheet over v1's layout, so the surface changed and the composition did not; the space v1's dense art had filled was filled with stock devices instead, a radial glow behind an object, dot grids, mono section numbers, outline numerals, one object recoloured five times, one generated treatment on every surface. `v2-a`, `v2-b` and `v2-c` stay in git as the record.
+2. **Structure and colour stay inherited; shape language and component look become ours.** `D-181` collected them from the baseline; from here they are derived from one motif the baseline already gave us, the hexagon of its live drop ticker (`--shape-hex-fill`, `--shape-hex-line`). The rule of the grammar: **the hexagon is where a drop lives.** Typography stays Roboto, `D-187`; the palette stays `D-185`, `D-186`.
+3. **The work goes one block at a time in `design/v3/`**, each block shown beside v1 before the next starts. A new value in `design/v3/theme.css` carries its origin as `_theme.css` values do.
+4. **Case art through Codex, by the founder's standing rule that every image is generated there:** one case body for every case, five worlds inside it.
+
+**Block 1, Featured cases.**
+
+- **The case.** Codex drew one hexagonal hard case, open, its lid's inner panel lit, and inside it a small diorama per case: a steel vault for Ironbound, an armoury of brass and ingots for Warsteel, a frozen outpost for Coldfront, night rooftops for Nightfall, a forge for Emberforge (`design/v3/art/`). No people, no lettering, no weapons in the pictures. The real skin floats over the open tray at the cradle's angle, in front of the lit lid.
+- **The tile.** No plate and no card at rest; the case stands on the page. Under it the name, the baseline's three skulls, and the price on a plate whose ends are the ticker hexagon's 60 degree sides.
+- **The hover, and the same on keyboard focus.** The ticker's hexagon of three lines turns into place behind the case and lights in its colour; the case lifts 6px; the skin rises out of it and straightens; the plate's edge takes the case's colour; the light the case throws on the floor widens. One curve with a small overshoot, `--v3-ease-pop`. Reduced motion keeps the colour and drops the movement.
+- **Each case brings its own light** (`--case`), and only the case and its hover use it: pink for an action, gold for money and blue for information keep their roles elsewhere.
+
+**Read from.** skin.club's public home, walked live with Playwright at 1440 on 31 October 2026 and measured, not copied: a case card with no plate, art scaled 1.1 on hover with an overshooting curve over 0.3s, two 1px lines with chamfered ends sliding in over 0.2s, a price on a 60 degree plate. Taken: the quiet card and the hover as an event. Not taken: their long rifle case, their lines and their rarity strip; our motif is our own ticker's hexagon.
+
+**Proven.** Structural diff zero against `wireframes/index.html` at 360 and 1440; no horizontal scroll at nine widths, 320 to 1440; every price plate inside its tile and one line high at the same nine widths; no failed request; rest, hover, keyboard focus and a pressed favourite captured at 1440, rest at 360 and 320.
+
+**The cost.** Values live in one more sheet than the one source `D-204` names until v3 is folded into `_theme.css` by a named decision. The case art is generated, and generated art is what the founder flagged; it holds no figure and no lettering, which is where the AI look was found, but the founder's eye is the test. Codex delivered three of the five pictures on an opaque black ground; their alpha was rebuilt with ffmpeg from Coldfront's silhouette, the same body in the same place, plus a brightness key for the props that rise above the tray. The rest of the Home is still v1's, so the page mixes two grammars until every block is through.
+
+**Rejected.** Copying skin.club's chamfered lines and rifle case: the founder's "ми делаем свой", and a reference is an input, never an output. A dim hexagon visible at rest: it read as stray lines beside the case, so the socket appears only with the pointer.

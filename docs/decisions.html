@@ -3553,6 +3553,16 @@
       <span class="carry"><span class="k">Found while recording</span>docs/decisions.md had lost 6612 lines in the D-205 commit 6e2fc5f, which wrote over the log instead of after it. Restored from 5317406 with D-205 and D-206 appended again; this page was never affected.</span>
     </div>
   </div>
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-208</span><span class="dec-title">v3: our own grammar for shape and hover, built one block at a time, Featured cases first</span><span class="st st-locked">Stage 06</span></div>
+    <div class="dec-meta">2026-10-31 - the founder: "все v2 ... виглядт очень ИИ"; skin.club as the bar, "минималиситчніе но и при єтом виглядит как igaming site"; "1. разрешаю 2. а 3. да новая папка design/v3/ 4. разрешаю, но ми не строим скин-клаб ми делаем свой". Amends D-181 for shape language and component look only. Binds design/v3, new; v1 and v2 untouched</div>
+    <div class="dec-body">
+      <span class="carry"><span class="k">What was decided</span>D-207 closes without a winner: all three directions were theme sheets over v1's layout, so the surface changed and the composition did not, and the space v1's art had filled went to stock devices, a glow behind an object, dot grids, mono numbers, one object recoloured five times. Structure and colour stay inherited; shape language and component look become ours, derived from the hexagon of the baseline's own drop ticker: the hexagon is where a drop lives. Roboto stays, D-187. The work goes one block at a time in design/v3, each shown beside v1.</span>
+      <span class="carry"><span class="k">Block 1, Featured cases</span>One hexagonal case body drawn by Codex for all five cases, a small world inside each, a vault, an armoury, a frozen outpost, night rooftops, a forge, with no people, lettering or weapons in the pictures; the real skin floats over the open tray in front of the lit lid. No card at rest. The price sits on a plate with the hexagon's 60 degree ends. On hover and on keyboard focus the ticker's hexagon turns into place behind the case in its colour, the case lifts, the skin rises and straightens, the plate edge takes the case colour. Reduced motion keeps colour, drops movement.</span>
+      <span class="pick"><span class="k">Why</span>skin.club's home, walked live and measured on 31 October 2026: a quiet card and a hover that is an event. That principle is taken; their rifle case, chamfered lines and rarity strip are not. Proven: zero structural diff at 360 and 1440, no horizontal scroll at nine widths, every price plate inside its tile at nine widths, no failed request.</span>
+      <span class="drop"><span class="k">The cost</span>One more sheet of values until v3 folds into _theme.css by a named decision. The case art is generated and the founder's eye is the test. Three of Codex's five pictures came on an opaque ground; their alpha was rebuilt from Coldfront's silhouette with ffmpeg. The rest of the Home is still v1's until every block is through. Rejected: copying skin.club's lines and case; a dim hexagon at rest, which read as stray lines.</span>
+    </div>
+  </div>
 </section>
 
 </main>
