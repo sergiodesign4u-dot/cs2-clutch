@@ -117,11 +117,13 @@
 .wf-feed-i.is-new .wf-feed-hit { min-width: var(--v4-drop); }
 /* THE BACK OF A DROP, founder of 31 Oct 2026: "тут надо подровнять отступы и давай появление не сверху карточки, а с левого бока с каким-то
    интересным появлением": an opaque face in the card's own navy, so nothing of the front shows through; the case it came from, its name,
-   then who won it, on one centred column with even gaps; it wipes in from the left on a slanted edge lit in the rarity, its content a beat behind */
+   then who won it, on one centred column with even gaps; it wipes in from the left on a slanted edge, its content a beat behind */
 .wf-feed-back { justify-content: center; align-items: center; gap: 6px; padding: 10px 8px 12px; border-radius: 6px; transform: none; opacity: 1;
-  background: radial-gradient(80% 50% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 30%, transparent), transparent), linear-gradient(to bottom, #1D1B4A, #110F31);
+  background: radial-gradient(70% 42% at 50% 0%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 34%, transparent), transparent), radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 30%, transparent), transparent), linear-gradient(to bottom, #1D1B4A, #110F31);
   clip-path: polygon(0 0, 0 0, -30% 100%, -30% 100%); transition: clip-path .42s cubic-bezier(.65, 0, .35, 1); }
-.wf-feed-back::before { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; box-shadow: inset 2px 0 0 var(--r, var(--color-rarity-6)); }
+/* no edge on the side; the back answers the front's foot with the same rarity bar and light at its top; founder, "давай без бокового бордера, может лучше будет сверху показывать как снизу" */
+.wf-feed-back::before { content: ''; position: absolute; top: 0; left: 50%; width: 44px; height: 3px; margin-left: -22px; border-radius: 0 0 3px 3px; pointer-events: none;
+  background: var(--r, var(--color-rarity-6)); box-shadow: 0 0 10px 1px var(--r, var(--color-rarity-6)); }
 .wf-feed-i:hover .wf-feed-back, .wf-feed-back:focus-within { clip-path: polygon(0 0, 130% 0, 100% 100%, -30% 100%); transform: none; }
 .wf-feed-back > * { opacity: 0; translate: -14px 0; transition: opacity .25s ease-out .12s, translate .35s cubic-bezier(.34, 1.56, .64, 1) .12s; }
 .wf-feed-i:hover .wf-feed-back > *, .wf-feed-back:focus-within > * { opacity: 1; translate: 0 0; }
