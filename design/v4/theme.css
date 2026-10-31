@@ -90,6 +90,13 @@
    larger than the hexagon, over it, with a shadow under it; both names white, centred */
 .wf-feed { background: var(--color-ground); border-bottom: 0; padding-block: var(--space-2); }
 .wf-feed-run { gap: 6px; }
+/* ONE SPACING FOR THE FRAME, founder of 1 Nov 2026: "исправь отступы": 12px from the window's edges, 8px between every block
+   (the header strip, the rail panel, the live drops, the banner, the sections), so the cards, the banner and the sections share one left and one right edge */
+@media (min-width: 900px) {
+  .wf-feed { padding-block: 8px 0; }
+  .wf-feed-run, .wf-feed-run { padding-left: 8px; }
+  .wf-main > * { margin-inline: 8px 12px; }
+}
 .wf-feed-i { flex-basis: var(--v4-drop); border-radius: 6px; background: linear-gradient(to bottom, #191842, #0F0E2B); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); } /* card from --color-card, lifted a step at the top; comp B */
 .wf-feed-hit { padding: 8px 4px 10px; }
 .wf-feed-hit::before, .wf-feed-hit::after { top: 10px; left: 50%; opacity: 1; }

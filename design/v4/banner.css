@@ -103,8 +103,8 @@
 /* THE BANNER AS A BLOCK, founder of 31 Oct 2026: "давай баннер сделаем как блок с баннером как другие элементы, типа как хедер и в нем баннер":
    from 900px up it stands inset in the column with the header strip's 12px and 16px corner, not edge to edge */
 @media (min-width: 900px) {
-  .wf-main > .wf-event { margin: 0 12px; border-radius: 16px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 14px 34px rgba(0, 0, 0, .4); }
-  .wf-main > .wf-event:first-child { margin-top: calc(10px - var(--space-6)); } /* 10px under the live drops, as the drops sit under the header */
+  .wf-main > .wf-event { margin: 0 12px 0 8px; border-radius: 16px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 14px 34px rgba(0, 0, 0, .4); }
+  .wf-main > .wf-event:first-child { margin-top: calc(8px - var(--space-6)); } /* 8px under the live drops, as the drops sit 8px under the header */
   /* "типа вот так вот баннер сделать по форме": comp A's wide, low banner card; 360px keeps the soldier's head and the case in frame */
   /* the case in the banner's middle between the title and the countdown, as comp A sets its case; the plate, mirrored 500px wider
      on its right, fills the right end; measured at 1440 */
