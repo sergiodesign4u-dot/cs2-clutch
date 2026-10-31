@@ -7,7 +7,7 @@
 :root {
   --v4-banner-h: 440px; /* the banner at 1440; comp B, founder pick, the scene needs room for title, countdown and button stacked on its left */
   --v4-radius: 12px; /* card and banner corner; comp A and B, founder pick */
-  --v4-drop: 112px; /* a live drop tile; comp B, founder pick, a dark card round the hexagon */
+  --v4-drop: 124px; /* a live drop tile; comp B, founder pick, a dark card round the hexagon, wide enough for a rifle larger than its hexagon */
   --v4-ease-pop: cubic-bezier(.34, 1.56, .64, 1); /* a lift that overshoots and settles; підібрано під характер, design principle 2 */
   --v4-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); /* faint diagonal stripes on a filled button; comp A and C, founder pick */
   --v4-mode-cases: linear-gradient(120deg, #FB3F8A, #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4 */
@@ -19,18 +19,24 @@
 /* --- the logo: the glossy swirl wherever the rail shows the symbol alone --------------------- */
 .is-rail-collapsed .wf-rail .wf-logo-mark { background: url(art/logo-mark.webp) center / 44px auto no-repeat; }
 
-/* --- live drops: every drop on its own dark card, the hexagon of its rarity lit -------------- */
+/* --- live drops: comp B's card, founder pick of 31 Oct 2026, its hexagon turned so the points face the sides ---- */
+/* one dark card per drop, no edge; one hexagon line in the rarity's colour with its own glow; the skin
+   larger than the hexagon, over it, with a shadow under it; both names white, centred */
+:root {
+  --v4-hex-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 88'%3E%3Cpolygon points='2,44 25,3 75,3 98,44 75,85 25,85' fill='none' stroke='black' stroke-width='2.6' stroke-linejoin='round'/%3E%3C/svg%3E"); /* the ticker hexagon, points to the sides; founder, "ромб переверни чтобы острые углы были по бокам" */
+  --v4-hex-glow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -12 124 112'%3E%3Cfilter id='b' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='4'/%3E%3C/filter%3E%3Cpolygon points='2,44 25,3 75,3 98,44 75,85 25,85' fill='black' fill-opacity='.14'/%3E%3Cpolygon points='2,44 25,3 75,3 98,44 75,85 25,85' fill='none' stroke='black' stroke-width='5' filter='url(%23b)'/%3E%3C/svg%3E"); /* its glow and a faint fill, the same hexagon blurred; comp B */
+}
 .wf-feed { background: var(--color-ground); border-bottom: 0; padding-block: var(--space-2); }
 .wf-feed-run { gap: 6px; }
-.wf-feed-i { flex-basis: var(--v4-drop); border-radius: 8px; background: linear-gradient(to top, color-mix(in srgb, var(--r, var(--color-rarity-6)) 22%, var(--color-card)), var(--color-card) 55%);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-text-hi) 6%, transparent), inset 0 -2px 0 color-mix(in srgb, var(--r, var(--color-rarity-6)) 80%, transparent); }
-.wf-feed-i:first-child { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--r, var(--color-rarity-6)) 80%, transparent), inset 0 -2px 0 var(--r, var(--color-rarity-6)), 0 0 18px color-mix(in srgb, var(--r, var(--color-rarity-6)) 35%, transparent); }
-.wf-feed-hit { padding: 6px 4px var(--space-2); }
-.wf-feed-hit::before, .wf-feed-hit::after { top: 9px; width: 70px; height: 62px; margin-left: -35px; }
-.wf-feed-hit::before { opacity: .35; }
-.wf-feed-hit::after { opacity: 1; filter: drop-shadow(0 0 4px var(--r, var(--color-rarity-6))); }
-.wf-feed-hit .wf-feed-art { height: 64px; margin-bottom: 6px; position: relative; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .6)); }
-.wf-feed-hit .wf-feed-w { font-weight: 700; }
+.wf-feed-i { flex-basis: var(--v4-drop); border-radius: 6px; background: linear-gradient(to bottom, #191842, #0F0E2B); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); } /* card from --color-card, lifted a step at the top; comp B */
+.wf-feed-hit { padding: 8px 4px 10px; }
+.wf-feed-hit::before, .wf-feed-hit::after { top: 10px; left: 50%; opacity: 1; }
+.wf-feed-hit::after { width: 84px; height: 74px; margin-left: -42px; background: var(--r, var(--color-rarity-6)); -webkit-mask: var(--v4-hex-line) center / 100% 100% no-repeat; mask: var(--v4-hex-line) center / 100% 100% no-repeat; }
+.wf-feed-hit::before { top: 0; width: 104px; height: 94px; margin-left: -52px; background: var(--r, var(--color-rarity-6)); -webkit-mask: var(--v4-hex-glow) center / 100% 100% no-repeat; mask: var(--v4-hex-glow) center / 100% 100% no-repeat; }
+.wf-feed-hit .wf-feed-art { position: relative; width: 118%; height: 74px; margin: 2px -9% 8px; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); transition: transform .3s var(--v4-ease-pop); }
+.wf-feed-i:hover .wf-feed-hit .wf-feed-art { transform: scale(1.08) rotate(-3deg); }
+.wf-feed-hit .wf-feed-w { font-size: var(--size-label); font-weight: 700; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
+.wf-feed-hit .wf-feed-s { margin-top: 3px; font-size: var(--size-xs); color: var(--color-text-hi); opacity: .85; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
 .wf-feed-i.is-new .wf-feed-hit { min-width: var(--v4-drop); }
 @keyframes wf-feed-arrive { 0% { flex-basis: 0; margin-right: -6px; opacity: 0; transform: translateY(-100%); } 45% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 0; transform: translateY(-100%); } 100% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 1; transform: none; } }
 .wf-feed-head { border-radius: 0 0 0 8px; }
