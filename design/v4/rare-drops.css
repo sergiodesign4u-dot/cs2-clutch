@@ -1,0 +1,89 @@
+/* design/v4/rare-drops.css, a satellite exploration of v4, D-209: six ways a rare, expensive drop could land in the live drops.
+ * The card is v4's live drop card; each variant adds its own effect to the middle card and loops every 4s so it can be watched. */
+
+:root {
+  --rd-loop: 4s; /* one landing and its afterglow, then again; підібрано під характер, long enough to watch, short enough to compare */
+  --rd-gold: #F6C915; /* the rare drop's colour, --color-rarity-1, the top of the ladder */
+  --rd-fire: #FF5A2E; /* ember, as Emberforge's light in v4 */
+  --rd-zap: #8FD3FF; /* lightning, --color-blue lifted */
+}
+body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.rd-defs { position: absolute; width: 0; height: 0; }
+.rd-main { max-width: 980px; margin: 0 auto; padding: 32px 16px 80px; }
+@media (min-width: 1100px) { .rd-main { margin-left: calc(var(--nav-w, 248px) + 40px); } } /* clear of the roadmap sidebar, as docs pages do */
+.rd-head h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.rd-head p, .rd-variant p { margin: 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 70ch; }
+.rd-variant { margin-top: 40px; }
+.rd-variant h2 { margin: 0 0 4px; font-size: 20px; font-weight: 900; }
+.rd-row { position: relative; display: flex; gap: 8px; margin-top: 16px; padding: 14px 12px; border-radius: 14px; background: #0A0A20; overflow: visible; }
+
+/* the card, as v4's live drop card; its plate is a layer of its own, so a rare card's effect can sit behind it and show only round its edge */
+.rd-card { position: relative; isolation: isolate; flex: 0 0 140px; display: flex; flex-direction: column; align-items: center; padding: 10px 6px 14px; border-radius: 8px; text-align: center; }
+.rd-card::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); }
+.rd-card::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 44px; height: 3px; margin-left: -22px; border-radius: 3px 3px 0 0; background: var(--r); box-shadow: 0 0 10px 1px var(--r); }
+.rd-hex { position: absolute; z-index: -1; top: 10px; left: 50%; width: 100px; height: 87px; margin-left: -50px;
+  background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 85%, transparent)); -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; }
+.rd-hex::after { content: ''; position: absolute; inset: 0; background: color-mix(in srgb, var(--r) 75%, white); -webkit-mask: var(--shape-hex-line) center / 100% 100% no-repeat; mask: var(--shape-hex-line) center / 100% 100% no-repeat; }
+.rd-skin { position: relative; width: 132%; height: 84px; margin: 4px -16% 8px; object-fit: contain; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); }
+.rd-card b { font-size: 14px; font-weight: 700; }
+.rd-s { margin-top: 2px; font-size: 12px; opacity: .85; }
+.rd-fx, .rd-fx2 { position: absolute; pointer-events: none; }
+
+/* --- A, fire: flames run round the edge, tongues rise from the foot, the skin glows ember -------------------------------- */
+.rd-fire .rd-rare .rd-fx { inset: -7px; z-index: -2; border-radius: 14px; background: conic-gradient(from var(--rd-a, 0deg), var(--rd-fire), var(--rd-gold), #FF2E4D, var(--rd-fire), var(--rd-gold), var(--rd-fire));
+  filter: blur(6px); animation: rd-spin 1.6s linear infinite, rd-flicker .18s steps(2) infinite; }
+.rd-fire .rd-rare .rd-fx2 { left: -6px; right: -6px; bottom: -4px; height: 70%; z-index: 1; border-radius: 0 0 10px 10px; mix-blend-mode: screen;
+  background: radial-gradient(12% 40% at 15% 100%, var(--rd-fire), transparent), radial-gradient(10% 55% at 40% 100%, var(--rd-gold), transparent), radial-gradient(12% 45% at 65% 100%, #FF2E4D, transparent), radial-gradient(10% 60% at 88% 100%, var(--rd-fire), transparent);
+  animation: rd-tongues .9s ease-in-out infinite alternate; }
+.rd-fire .rd-rare .rd-skin { animation: rd-hot 1.2s ease-in-out infinite alternate; }
+@keyframes rd-tongues { from { transform: scaleY(.85); opacity: .8; } to { transform: scaleY(1.15) translateY(-6px); opacity: 1; } }
+@keyframes rd-hot { from { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 6px var(--rd-fire)); } to { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 16px var(--rd-gold)); } }
+@keyframes rd-flicker { 50% { opacity: .85; } }
+
+/* --- B, lightning: an arc trembling on the edge, flashes, blue light on the skin --------------------------------------- */
+.rd-bolt .rd-rare .rd-fx { inset: -3px; z-index: 2; border: 2px solid var(--rd-zap); border-radius: 10px; filter: url(#rd-zap) drop-shadow(0 0 6px var(--rd-zap)) drop-shadow(0 0 14px #3955E8); }
+.rd-bolt .rd-rare .rd-fx2 { inset: 0; z-index: 3; border-radius: 8px; background: radial-gradient(circle at 50% 40%, rgba(200, 235, 255, .9), transparent 60%); mix-blend-mode: screen; opacity: 0; animation: rd-flash var(--rd-loop) linear infinite; }
+.rd-bolt .rd-rare .rd-skin { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 10px var(--rd-zap)); }
+@keyframes rd-flash { 0%, 6%, 12%, 100% { opacity: 0; } 3%, 9% { opacity: 1; } 50% { opacity: 0; } 52% { opacity: .7; } 54% { opacity: 0; } }
+
+/* --- C, gold and holo: a gold edge circling, a holographic sheen sweeping, sparks round it ----------------------------- */
+.rd-gold .rd-rare .rd-fx { inset: -2px; z-index: -2; border-radius: 10px; background: conic-gradient(from var(--rd-a, 0deg), #FFF3B0, var(--rd-gold), #B8860B, var(--rd-gold), #FFF3B0); animation: rd-spin 3s linear infinite; }
+.rd-gold .rd-rare .rd-fx2 { inset: 0; z-index: 3; border-radius: 8px; mix-blend-mode: screen;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 120, 220, .35) 42%, rgba(120, 255, 240, .35) 50%, rgba(255, 240, 140, .4) 58%, transparent 70%) -160% 0 / 260% 100% no-repeat,
+    radial-gradient(circle, #fff 0 1.2px, transparent 2px) 12px 18px / 46px 52px, radial-gradient(circle, var(--rd-gold) 0 1.4px, transparent 2.2px) 30px 6px / 58px 64px;
+  animation: rd-sheen 2.4s ease-in-out infinite, rd-twinkle 1.1s steps(2) infinite; }
+@keyframes rd-sheen { 0% { background-position: -160% 0, 12px 18px, 30px 6px; } 60%, 100% { background-position: 160% 0, 12px 18px, 30px 6px; } }
+@keyframes rd-twinkle { 50% { opacity: .75; } }
+
+/* --- D, rays: light turning behind the skin, the card breathing gold and lifted ------------------------------------------- */
+.rd-rays .rd-rare { transform: translateY(-6px); box-shadow: 0 0 0 1px rgba(246, 201, 21, .6), 0 10px 30px rgba(246, 201, 21, .25); animation: rd-breathe 2s ease-in-out infinite alternate; }
+.rd-rays .rd-rare .rd-fx { top: -10px; left: 50%; width: 180px; height: 180px; margin-left: -90px; z-index: -1; border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 230, 140, .55) 0 8deg, transparent 8deg 24deg);
+  -webkit-mask: radial-gradient(closest-side, #000 20%, transparent); mask: radial-gradient(closest-side, #000 20%, transparent); animation: rd-turn 8s linear infinite; }
+@keyframes rd-breathe { from { box-shadow: 0 0 0 1px rgba(246, 201, 21, .5), 0 10px 24px rgba(246, 201, 21, .18); } to { box-shadow: 0 0 0 1px rgba(246, 201, 21, .9), 0 10px 40px rgba(246, 201, 21, .45); } }
+@keyframes rd-turn { to { transform: rotate(360deg); } }
+
+/* --- E, impact: the card lands with a flash and a shockwave, the neighbours flinch and catch the gold ------------------- */
+.rd-boom .rd-rare { animation: rd-land var(--rd-loop) cubic-bezier(.2, .9, .3, 1.2) infinite; }
+.rd-boom .rd-rare .rd-fx { top: 50%; left: 50%; width: 160px; height: 160px; margin: -80px 0 0 -80px; z-index: 4; border-radius: 50%; border: 3px solid var(--rd-gold); box-shadow: 0 0 20px var(--rd-gold), inset 0 0 20px var(--rd-gold); opacity: 0; animation: rd-wave var(--rd-loop) ease-out infinite; }
+.rd-boom .rd-rare .rd-fx2 { inset: 0; z-index: 5; border-radius: 8px; background: #fff; opacity: 0; animation: rd-white var(--rd-loop) ease-out infinite; }
+.rd-boom .rd-card:not(.rd-rare) { animation: rd-flinch var(--rd-loop) ease-out infinite; }
+@keyframes rd-land { 0% { transform: scale(.4) rotate(-8deg); opacity: 0; } 8% { transform: scale(1.12) rotate(2deg); opacity: 1; } 14%, 100% { transform: none; opacity: 1; } }
+@keyframes rd-wave { 0%, 6% { transform: scale(.2); opacity: 0; } 8% { opacity: 1; } 30%, 100% { transform: scale(2.6); opacity: 0; } }
+@keyframes rd-white { 6% { opacity: 0; } 8% { opacity: .9; } 16%, 100% { opacity: 0; } }
+@keyframes rd-flinch { 0%, 8% { transform: none; filter: none; } 10% { transform: translateX(-4px) rotate(-1.5deg); filter: sepia(1) saturate(4) hue-rotate(5deg); } 13% { transform: translateX(3px) rotate(1deg); } 18% { transform: none; filter: none; } }
+
+/* --- F, the whole row: fire runs round the strip's edge as the rare one lands, which keeps burning -------------------------- */
+.rd-lane .rd-row::before { content: ''; position: absolute; inset: -3px; z-index: -1; border-radius: 16px; padding: 3px;
+  background: conic-gradient(from var(--rd-a, 0deg), transparent 0 60%, var(--rd-fire) 72%, var(--rd-gold) 80%, #FF2E4D 88%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  filter: drop-shadow(0 0 6px var(--rd-fire)) drop-shadow(0 0 14px var(--rd-gold)); animation: rd-spin 1.8s linear infinite; }
+.rd-lane .rd-rare .rd-fx { inset: -3px; z-index: -2; border-radius: 11px; background: conic-gradient(from var(--rd-a, 0deg), var(--rd-fire), var(--rd-gold), #FF2E4D, var(--rd-fire)); filter: blur(4px); animation: rd-spin 1.4s linear infinite; }
+
+/* the turning angle for the conic edges */
+@property --rd-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@keyframes rd-spin { to { --rd-a: 360deg; } }
+
+@media (prefers-reduced-motion: reduce) { .rd-page *, .rd-page *::before, .rd-page *::after { animation: none !important; } }
+@media (max-width: 760px) { .rd-row { overflow-x: auto; } .rd-card { flex-basis: 124px; } }
