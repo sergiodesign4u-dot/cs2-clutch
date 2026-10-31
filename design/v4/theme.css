@@ -47,8 +47,9 @@
 @media (min-width: 900px) {
   .wf-screen-body { grid-template-areas: "header header" "rail feed" "rail main" "rail footer"; }
   .wf-header { padding-left: 76px; }
-  /* the rail's own open and close control, drawn as a burger at the strip's top left */
-  .wf-rail .wf-rail-toggle { position: absolute; z-index: 3; top: 17px; left: 14px; right: auto; width: 38px; height: 38px; border: 0; border-radius: 10px;
+  /* the rail's own open and close control, drawn as a burger at the strip's top left, the rail tiles' size on their column, 8px off the strip's left as they are off the panel's, centred on its height;
+     founder, "выровнять кнопку бургера относительно блока" and "выровнять относительно бокового меню тоже" */
+  .wf-rail .wf-rail-toggle { position: absolute; z-index: 3; top: 15px; left: 8px; right: auto; width: 42px; height: 42px; border: 0; border-radius: 12px;
     background: #1A1945; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); transition: background-color .2s; }
   .wf-rail .wf-rail-toggle:hover { background: #241F58; }
   .wf-rail .wf-rail-toggle::after, .is-rail-collapsed .wf-rail .wf-rail-toggle::after { width: 20px; height: 14px; transform: none; -webkit-mask: none; mask: none;
@@ -66,14 +67,16 @@
     background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
   .is-rail-overlay .wf-rail { top: 0; left: var(--wf-body-x, 0px); height: 100vh; background: none; box-shadow: none; } /* its 12px margin already sets it off the edge, so opening it moves nothing; founder, "идет смещение при открытии" */
   .wf-header { grid-column: 1 / -1; grid-row: 1; }
-  .wf-rail .wf-rail-item, .is-rail-collapsed .wf-rail .wf-rail-item { min-height: 46px; margin: 0 8px 8px; border-radius: 12px; background: linear-gradient(180deg, #191842, #0F0E2B); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04); transition: background-color .2s, box-shadow .2s; }
-  .wf-rail a.wf-rail-item, .is-rail-collapsed .wf-rail a.wf-rail-item { background: linear-gradient(180deg, #3B2470, #261A55); box-shadow: inset 0 0 0 1px rgba(251, 63, 138, .45), 0 0 16px rgba(251, 63, 138, .22); } /* the one live way to play, lit in --color-pink's light */
-  .wf-rail .wf-rail-item.is-later .wf-rail-ico { opacity: .55; }
-  .wf-rail .wf-rail-item:hover { background: #221F52; }
+  /* founder, 31 Oct 2026: "они какие-то растянутые как прямоугольники ... может сделать внутри просто темный фон близкий к бэкграунду, а не градиент
+     внутри градиента"; and Home has no row of its own, the logo leads there, so no tile is lit as the current page: square tiles in a dark
+     near the page ground, the live way to play told only by its full white icon */
+  .wf-rail .wf-rail-item, .is-rail-collapsed .wf-rail .wf-rail-item { min-height: 42px; margin: 0 8px 8px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); transition: background-color .2s, box-shadow .2s; }
+  .is-rail-collapsed .wf-rail .wf-rail-item { height: 42px; }
+  .wf-rail .wf-rail-item.is-later .wf-rail-ico { opacity: .5; }
+  .wf-rail .wf-rail-item:hover { background: #15133A; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
   /* the sound and the language on the same tiles, at the panel's foot */
   .wf-rail .wf-rail-amb, .is-rail-collapsed .wf-rail .wf-rail-amb { gap: 8px; margin: 0 8px 8px; border: 0; }
-  .wf-rail .wf-rail-snd, .wf-rail .wf-rail-lang, .is-rail-collapsed .wf-rail .wf-rail-snd, .is-rail-collapsed .wf-rail .wf-rail-lang { min-height: 46px; border: 0; border-radius: 12px; background: linear-gradient(180deg, #191842, #0F0E2B); }
-  .wf-rail a.wf-rail-item:hover, .is-rail-collapsed .wf-rail a.wf-rail-item:hover { background: linear-gradient(180deg, #46297F, #2E1F63); }
+  .wf-rail .wf-rail-snd, .wf-rail .wf-rail-lang, .is-rail-collapsed .wf-rail .wf-rail-snd, .is-rail-collapsed .wf-rail .wf-rail-lang { min-height: 42px; border: 0; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
 }
 
 /* --- live drops: comp B's card, founder pick of 31 Oct 2026, its hexagon turned so the points face the sides ---- */
@@ -106,6 +109,22 @@
 .wf-feed-hit .wf-feed-w { font-size: var(--size-label); font-weight: 700; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
 .wf-feed-hit .wf-feed-s { margin-top: 3px; font-size: var(--size-xs); color: var(--color-text-hi); opacity: .85; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
 .wf-feed-i.is-new .wf-feed-hit { min-width: var(--v4-drop); }
+/* THE BACK OF A DROP, founder of 31 Oct 2026: "тут надо подровнять отступы и давай появление не сверху карточки, а с левого бока с каким-то
+   интересным появлением": an opaque face in the card's own navy, so nothing of the front shows through; the case it came from, its name,
+   then who won it, on one centred column with even gaps; it wipes in from the left on a slanted edge lit in the rarity, its content a beat behind */
+.wf-feed-back { justify-content: center; align-items: center; gap: 6px; padding: 10px 8px 12px; border-radius: 6px; transform: none; opacity: 1;
+  background: radial-gradient(80% 50% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 30%, transparent), transparent), linear-gradient(to bottom, #1D1B4A, #110F31);
+  clip-path: polygon(0 0, 0 0, -30% 100%, -30% 100%); transition: clip-path .42s cubic-bezier(.65, 0, .35, 1); }
+.wf-feed-back::before { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; box-shadow: inset 2px 0 0 var(--r, var(--color-rarity-6)); }
+.wf-feed-i:hover .wf-feed-back, .wf-feed-back:focus-within { clip-path: polygon(0 0, 130% 0, 100% 100%, -30% 100%); transform: none; }
+.wf-feed-back > * { opacity: 0; translate: -14px 0; transition: opacity .25s ease-out .12s, translate .35s cubic-bezier(.34, 1.56, .64, 1) .12s; }
+.wf-feed-i:hover .wf-feed-back > *, .wf-feed-back:focus-within > * { opacity: 1; translate: 0 0; }
+.wf-feed-back .wf-feed-tocase { gap: 6px; padding: 0; }
+.wf-feed-back .wf-feed-art { width: 92px; height: 58px; margin: 0; }
+.wf-feed-back .wf-feed-tocase .wf-feed-w { font-size: var(--size-xs); font-weight: 700; letter-spacing: .06em; line-height: 1.2; }
+.wf-feed-back .wf-feed-who { gap: 6px; min-height: 0; padding: 0; }
+.wf-feed-back .wf-feed-whon { font-size: var(--size-xs); }
+@media (prefers-reduced-motion: reduce) { .wf-feed-back, .wf-feed-back > * { transition: none; } }
 @keyframes wf-feed-arrive { 0% { flex-basis: 0; margin-right: -6px; opacity: 0; transform: translateY(-100%); } 45% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 0; transform: translateY(-100%); } 100% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 1; transform: none; } }
 .wf-feed-head { border-radius: 0 0 0 8px; }
 /* the mode mark sits inside the card's corner, not on it; founder, "иконка сильно в углу" */
