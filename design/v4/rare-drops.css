@@ -113,26 +113,16 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 @keyframes rd-pushr { 0%, 6% { transform: none; } 9% { transform: translateX(7px) rotate(1.2deg); } 15%, 100% { transform: none; } }
 @keyframes rd-skinpulse { from { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 6px var(--rd-c2)); } to { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 16px var(--rd-c3)); } }
 /* the fire: six tongues under one living turbulence */
-/* behind the card's plate, so the card itself stays clean and the fire shows round its top and sides, as if it burns from behind */
+/* the fire is drawn live on a canvas by rare-drops.js, a noise flame scrolling up that never repeats; it stands behind the card's plate,
+   so the card stays clean and the fire rises round its top and sides */
 .rd-live .rd-row { padding-top: 110px; }
-.rd-live .rd-flames { position: absolute; left: -16px; right: -16px; bottom: 45%; height: 130%; z-index: -2; pointer-events: none; filter: url(#rd-burn) brightness(1.15); mix-blend-mode: screen;
-  -webkit-mask: linear-gradient(to top, #000 72%, transparent); mask: linear-gradient(to top, #000 72%, transparent); }
-.rd-live .rd-flames i { position: absolute; bottom: 0; width: 34%; height: 70%; border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%; transform-origin: 50% 100%;
-  background: linear-gradient(to top, var(--rd-c1) 0, var(--rd-c2) 30%, var(--rd-c3) 58%, color-mix(in srgb, var(--rd-c4) 60%, transparent) 80%, transparent 100%);
-  -webkit-mask: radial-gradient(50% 60% at 50% 60%, #000 55%, transparent); mask: radial-gradient(50% 60% at 50% 60%, #000 55%, transparent);
-  animation: rd-tongue 1.3s ease-in-out infinite alternate; opacity: .95; }
-.rd-live .rd-flames i:nth-child(1) { left: -2%; height: 52%; animation-duration: 1.1s; animation-delay: -.3s; }
-.rd-live .rd-flames i:nth-child(2) { left: 14%; height: 74%; animation-duration: 1.45s; animation-delay: -.8s; }
-.rd-live .rd-flames i:nth-child(3) { left: 33%; height: 92%; width: 36%; animation-duration: 1.25s; }
-.rd-live .rd-flames i:nth-child(4) { left: 52%; height: 70%; animation-duration: 1.6s; animation-delay: -.5s; }
-.rd-live .rd-flames i:nth-child(5) { left: 70%; height: 58%; animation-duration: 1.05s; animation-delay: -1s; }
-.rd-live .rd-flames i:nth-child(6) { left: 40%; height: 40%; width: 22%; animation-duration: .8s; animation-delay: -.2s; filter: brightness(1.4); }
-@keyframes rd-tongue { 0% { transform: scale(.9, .78) skewX(4deg); opacity: .8; } 50% { transform: scale(1.05, 1.08) skewX(-5deg); opacity: 1; } 100% { transform: scale(.95, 1.22) skewX(3deg); opacity: .85; } }
-.rd-plasma .rd-flames { height: 150%; }
-.rd-plasma .rd-flames i { animation-duration: 1.8s; }
+.rd-live .rd-fire-gl { position: absolute; left: -16%; bottom: 25%; width: 132%; height: 180%; z-index: -2; pointer-events: none; } /* its foot fades out behind the card, its sides stay close to the card */
 /* the embers */
 .rd-live .rd-embers { position: absolute; left: 0; right: 0; bottom: 0; height: 190%; z-index: 3; pointer-events: none; mix-blend-mode: screen;
   background: radial-gradient(circle, var(--rd-c1) 0 1.3px, transparent 2px) 14px 0 / 38px 64px, radial-gradient(circle, var(--rd-c2) 0 1.6px, transparent 2.4px) 31px 20px / 52px 86px;
   -webkit-mask: linear-gradient(to top, transparent, #000 15%, #000 45%, transparent); mask: linear-gradient(to top, transparent, #000 15%, #000 45%, transparent);
   animation: rd-rise 2.2s linear infinite; }
 @keyframes rd-rise { to { background-position: 4px -64px, 40px -66px; } }
+/* the flame's four colours, from its hot core to its dark tip, read by rare-drops.js; plain hex because a shader cannot read a var() chain */
+.rd-blaze { --rd-hex-c1: #FFF4C2; --rd-hex-c2: #F6C915; --rd-hex-c3: #FF5A2E; --rd-hex-c4: #7A0F22; }
+.rd-plasma { --rd-hex-c1: #FFE0F4; --rd-hex-c2: #FB3F8A; --rd-hex-c3: #D22BCE; --rd-hex-c4: #3B1A7A; }
