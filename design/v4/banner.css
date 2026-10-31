@@ -23,16 +23,16 @@
 
 /* layer 1, the plate, with the shade that keeps the title and the countdown legible, and the fade into the page at the foot */
 .wf-event::before { inset: 0; z-index: -3;
-  background: linear-gradient(90deg, rgba(6, 10, 30, .78), rgba(6, 10, 30, .3) 34%, transparent 55%),
-    linear-gradient(to top, var(--color-ground), transparent 18%),
-    url(art/banner-plate.webp) var(--scene-pos) / var(--scene-size) no-repeat;
+  background: linear-gradient(90deg, rgba(6, 10, 30, .5), rgba(6, 10, 30, .12) 30%, transparent 46%),
+    linear-gradient(to top, var(--color-ground), transparent 14%),
+    var(--plate, url(art/banner-plate.webp)) var(--plate-pos, var(--scene-pos)) / var(--plate-size, var(--scene-size)) no-repeat;
   animation: v4-plate 26s ease-in-out infinite alternate; transition: translate .9s var(--scene-ease); }
 
 /* layer 2, the aurora and the far snow, added to the sky */
 .wf-event .wf-banner-art { z-index: auto; }
 /* v1 drew its own case and operator in these two boxes; they are reset to the banner's whole frame */
 .wf-event .wf-banner-art::before, .wf-event .wf-banner-art::after { width: auto; height: auto; aspect-ratio: auto; filter: none; transform-origin: 50% 50%; }
-.wf-event .wf-banner-art::before { content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none; mix-blend-mode: screen;
+.wf-event .wf-banner-art::before { content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none; mix-blend-mode: normal;
   background: var(--snow-far), url(art/banner-aurora.webp) var(--scene-pos) / var(--scene-size) no-repeat;
   background-size: 230px 230px, 230px 230px, 230px 230px, 340px 340px, 340px 340px, 340px 340px, var(--scene-size);
   transform-origin: 60% 0;
@@ -45,7 +45,7 @@
   animation: v4-hero 14s ease-in-out infinite alternate; transition: translate .9s var(--scene-ease); }
 
 /* layer 4, the light and the near snow, added over everything: the case pulses */
-.wf-event::after { inset: 0; z-index: 0; opacity: 1; pointer-events: none; mix-blend-mode: screen;
+.wf-event::after { inset: 0; z-index: 0; opacity: 1; pointer-events: none; mix-blend-mode: normal;
   background: var(--snow-near), url(art/banner-glow.webp) var(--scene-pos) / var(--scene-size) no-repeat;
   background-size: 300px 300px, 300px 300px, 300px 300px, 420px 420px, 420px 420px, 420px 420px, var(--scene-size);
   animation: v4-pulse 3.2s ease-in-out infinite, v4-snow-near 11s linear infinite; transition: filter .6s var(--scene-ease); }
@@ -99,3 +99,23 @@
   .wf-event:hover::after, .wf-event:has(.wf-event-go:focus-visible)::after { filter: brightness(1.15); }
   .wf-event:hover .wf-banner-art::after, .wf-event:has(.wf-event-go:focus-visible) .wf-banner-art::after { translate: none; }
 }
+
+/* THE BANNER AS A BLOCK, founder of 31 Oct 2026: "давай баннер сделаем как блок с баннером как другие элементы, типа как хедер и в нем баннер":
+   from 900px up it stands inset in the column with the header strip's 12px and 16px corner, not edge to edge */
+@media (min-width: 900px) {
+  .wf-main > .wf-event { margin: 0 12px; border-radius: 16px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 14px 34px rgba(0, 0, 0, .4); }
+  .wf-main > .wf-event:first-child { margin-top: calc(10px - var(--space-6)); } /* 10px under the live drops, as the drops sit under the header */
+  /* "типа вот так вот баннер сделать по форме": comp A's wide, low banner card; 360px keeps the soldier's head and the case in frame */
+  /* the case in the banner's middle between the title and the countdown, as comp A sets its case; the plate, mirrored 500px wider
+     on its right, fills the right end; measured at 1440 */
+  /* offsets scale with the banner: the case's centre stays near 55 % of its width; a right offset in % is read off the
+     banner minus the picture, so 45 % plus a constant puts it there at every width (scene 1080px wide, plate 1315px) */
+  .wf-event { --scene-size: auto 480px; --scene-pos: right calc(45% + 214px) top -50px;
+    --plate: url(art/banner-plate-wide.webp); --plate-size: auto 480px; --plate-pos: right calc(45% + 86px) top -50px; }
+  .wf-event .wf-banner-art { height: 360px; }
+  .wf-event .wf-event-name { width: min(380px, 100% - 420px); top: 28px; }
+  .wf-event-clock { top: 28px; }
+  .wf-event-go { bottom: 28px; }
+}
+/* the plate lit a step, the founder asked for comp B's brightness: "перерисуй фон ярче как в B" */
+.wf-event::before { filter: brightness(1.08) saturate(1.1); }

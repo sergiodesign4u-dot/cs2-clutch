@@ -19,61 +19,82 @@
 /* --- the header: its own strip, the logo in its middle in a pink glow, particles falling ------- */
 /* founder, 31 Oct 2026: "хедер ... полоской отдельной ... по центру логотип со свечением ... цвет розовый наш и падают частицы";
    read from skin.club's header strip and TrulyWin's centred, lit logo */
-:root { --v4-rail-w: var(--size-rail); }
-.is-rail-collapsed, .is-rail-compact { --v4-rail-w: var(--size-rail-collapsed); }
 @media (min-width: 900px) {
   .wf-header { isolation: isolate; background: var(--color-ground); min-height: 84px; padding: 16px 32px 8px; }
   .wf-header::before, .wf-header::after { content: ''; position: absolute; inset: 8px 12px 0; z-index: -1; border-radius: 16px; pointer-events: none; }
   .wf-header::before { background: radial-gradient(34% 130% at 50% 0%, rgba(251, 63, 138, .36), transparent 72%), linear-gradient(180deg, #16133C, #0D0C28);
-    box-shadow: inset 0 1px 0 rgba(251, 63, 138, .5), inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); } /* the strip, --color-card lifted; the light of --color-pink falling from its top edge onto the logo */
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); } /* the strip, --color-card lifted; the light of --color-pink falling from its top edge onto the logo */
+  /* the pink edge only over the logo, fading out both ways along the top; founder, "не делай на всю ширину цветной бордер, сделай его частично градиентом по центру" */
+  .wf-header .wf-row::before { content: ''; position: absolute; z-index: 1; top: 8px; left: 28%; right: 28%; height: 2px; pointer-events: none; background: linear-gradient(90deg, transparent, #FF6FA8 50%, transparent); box-shadow: 0 0 10px rgba(251, 63, 138, .6); } /* --color-pink lifted a step so it reads over the pink light it sits in */
   .wf-header::after { background: radial-gradient(circle, #FB3F8A 0 1.2px, transparent 1.8px) 0 0 / 70px 60px, radial-gradient(circle, rgba(255, 170, 205, .9) 0 1px, transparent 1.6px) 23px 17px / 110px 90px,
       radial-gradient(circle, rgba(251, 63, 138, .7) 0 1.6px, transparent 2.3px) 51px 40px / 150px 120px;
     -webkit-mask: radial-gradient(30% 150% at 50% 0%, #000 15%, transparent 100%); mask: radial-gradient(30% 150% at 50% 0%, #000 15%, transparent 100%);
     animation: v4-fall 8s linear infinite; } /* three depths of pink particles, each falling one tile per loop, so slower when farther */
   /* the logo stays the rail's link home and is shown in the middle of the strip */
-  .wf-rail .wf-rail-logo, .is-rail-collapsed .wf-rail .wf-rail-logo { position: fixed; z-index: 2; top: 46px; left: calc(var(--wf-body-x, 0px) + var(--v4-rail-w) + (100vw - var(--wf-body-x, 0px) - var(--v4-rail-w)) / 2);
+  .wf-rail .wf-rail-logo, .is-rail-collapsed .wf-rail .wf-rail-logo { position: fixed; z-index: 2; top: 46px; left: calc(var(--wf-body-x, 0px) + (100vw - var(--wf-body-x, 0px)) / 2);
     transform: translate(-50%, -50%); margin: 0; padding: 0; background: none; }
-  .wf-rail .wf-logo-mark, .is-rail-collapsed .wf-rail .wf-logo-mark { flex: 0 0 auto; width: 176px; height: 50px; border: 0; background: url(../concept/assets/logo/lockup-screen.svg) center / contain no-repeat;
-    filter: drop-shadow(0 0 10px rgba(251, 63, 138, .55)) drop-shadow(0 0 26px rgba(251, 63, 138, .3)); }
+  /* the logo, founder of 31 Oct 2026: the updated glossy ring, "у нас там был кружок обновленный, надо его взять", and a calmer name
+     without CS2, "что-то в логотип спокойнее текст, например как у скин клаба, и убрать CS2"; the name in Roboto, D-187 */
+  .wf-rail .wf-logo-mark, .is-rail-collapsed .wf-rail .wf-logo-mark { flex: 0 0 auto; display: flex; align-items: center; width: auto; height: 46px; padding-left: 56px; border: 0;
+    background: url(art/logo-mark.webp) left center / 46px 46px no-repeat; filter: drop-shadow(0 0 12px rgba(251, 63, 138, .45)); }
+  .wf-rail .wf-logo-mark::after { content: 'Clutch'; color: var(--color-text-hi); font-size: 28px; font-weight: 500; letter-spacing: .01em; line-height: 1; text-transform: none; }
 }
 @keyframes v4-fall { to { background-position: 0 60px, 23px 107px, 51px 160px; } }
 
-/* --- the rail: its own panel, every way to play on a rounded tile, the live one lit ----------- */
-/* founder pick of 31 Oct 2026, a dark panel of square tiles with the current one raised and edged */
+/* --- the layout: the header across the whole width, the rail under it beside the content -------- */
+/* founder, 31 Oct 2026: "я бы его опустил, а главную навигацию сделал бы на всю ширину, под ним контент с боковым меню ... слева вверху бургер";
+   the grid's areas move, the markup does not */
 @media (min-width: 900px) {
-  .wf-rail { top: 8px; height: calc(100vh - 16px); margin: 8px 0 8px 8px; padding-top: 64px; border: 0; border-image: none; border-radius: 16px;
-    background: linear-gradient(180deg, #141A3A, #0D1129); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); } /* a navy a step off --color-card-2 toward --color-raised */
-  .wf-rail .wf-rail-item, .is-rail-collapsed .wf-rail .wf-rail-item { min-height: 46px; margin: 0 8px 8px; border-radius: 12px; background: #10152F; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .03); transition: background-color .2s, box-shadow .2s; }
-  .wf-rail a.wf-rail-item, .is-rail-collapsed .wf-rail a.wf-rail-item { background: linear-gradient(180deg, #2B3C70, #1D2A56); box-shadow: inset 0 0 0 1px rgba(160, 190, 255, .35), 0 0 16px rgba(101, 163, 255, .22); } /* the one live way to play, lit in --color-blue's family */
+  .wf-screen-body { grid-template-areas: "header header" "rail feed" "rail main" "rail footer"; }
+  .wf-header { padding-left: 84px; }
+  /* the rail's own open and close control, drawn as a burger at the strip's top left */
+  .wf-rail .wf-rail-toggle { position: fixed; z-index: 3; top: 27px; left: calc(var(--wf-body-x, 0px) + 26px); right: auto; width: 44px; height: 44px; border: 0; border-radius: 12px;
+    background: #1A1945; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); transition: background-color .2s; }
+  .wf-rail .wf-rail-toggle:hover { background: #241F58; }
+  .wf-rail .wf-rail-toggle::after, .is-rail-collapsed .wf-rail .wf-rail-toggle::after { width: 20px; height: 14px; transform: none; -webkit-mask: none; mask: none;
+    background: linear-gradient(var(--color-text-hi) 0 2px, transparent 2px 6px, var(--color-text-hi) 6px 8px, transparent 8px 12px, var(--color-text-hi) 12px 14px); border-radius: 1px; }
+}
+
+/* --- the rail: its own panel in the header's colours, every way to play on a rounded tile, the live one lit ---- */
+/* founder pick of 31 Oct 2026, a dark panel of square tiles with the current one raised and edged; "по цветам оно сейчас чуть выбивается":
+   the panel takes the header strip's navy, the tiles the live drop cards', the lit tile our pink */
+@media (min-width: 900px) {
+  .wf-rail { top: 92px; height: calc(100vh - 100px); margin: 0 0 8px 12px; padding-top: 12px; border: 0; border-image: none; border-radius: 16px;
+    background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
+  .is-rail-overlay .wf-rail { top: 92px; left: calc(var(--wf-body-x, 0px) + 12px); height: calc(100vh - 100px); }
+  .wf-rail .wf-rail-item, .is-rail-collapsed .wf-rail .wf-rail-item { min-height: 46px; margin: 0 8px 8px; border-radius: 12px; background: linear-gradient(180deg, #191842, #0F0E2B); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04); transition: background-color .2s, box-shadow .2s; }
+  .wf-rail a.wf-rail-item, .is-rail-collapsed .wf-rail a.wf-rail-item { background: linear-gradient(180deg, #3B2470, #261A55); box-shadow: inset 0 0 0 1px rgba(251, 63, 138, .45), 0 0 16px rgba(251, 63, 138, .22); } /* the one live way to play, lit in --color-pink's light */
   .wf-rail .wf-rail-item.is-later .wf-rail-ico { opacity: .55; }
-  .wf-rail .wf-rail-item:hover { background: #18204A; }
+  .wf-rail .wf-rail-item:hover { background: #221F52; }
   /* the sound and the language on the same tiles, at the panel's foot */
   .wf-rail .wf-rail-amb, .is-rail-collapsed .wf-rail .wf-rail-amb { gap: 8px; margin: 0 8px 8px; border: 0; }
-  .wf-rail .wf-rail-snd, .wf-rail .wf-rail-lang, .is-rail-collapsed .wf-rail .wf-rail-snd, .is-rail-collapsed .wf-rail .wf-rail-lang { min-height: 46px; border: 0; border-radius: 12px; background: #10152F; }
-  .wf-rail a.wf-rail-item:hover, .is-rail-collapsed .wf-rail a.wf-rail-item:hover { background: linear-gradient(180deg, #34477F, #233163); }
+  .wf-rail .wf-rail-snd, .wf-rail .wf-rail-lang, .is-rail-collapsed .wf-rail .wf-rail-snd, .is-rail-collapsed .wf-rail .wf-rail-lang { min-height: 46px; border: 0; border-radius: 12px; background: linear-gradient(180deg, #191842, #0F0E2B); }
+  .wf-rail a.wf-rail-item:hover, .is-rail-collapsed .wf-rail a.wf-rail-item:hover { background: linear-gradient(180deg, #46297F, #2E1F63); }
 }
 
 /* --- live drops: comp B's card, founder pick of 31 Oct 2026, its hexagon turned so the points face the sides ---- */
-/* one dark card per drop, no edge; one hexagon line in the rarity's colour with its own glow; the skin
+/* one dark card per drop, no edge; the baseline's hexagon backing in the rarity's colour; the skin
    larger than the hexagon, over it, with a shadow under it; both names white, centred */
-:root {
-  --v4-hex-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 88'%3E%3Cpolygon points='2,44 25,3 75,3 98,44 75,85 25,85' fill='none' stroke='black' stroke-width='2.6' stroke-linejoin='round'/%3E%3C/svg%3E"); /* the ticker hexagon, points to the sides; founder, "ромб переверни чтобы острые углы были по бокам" */
-  --v4-hex-glow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -12 124 112'%3E%3Cfilter id='b' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='4'/%3E%3C/filter%3E%3Cpolygon points='2,44 25,3 75,3 98,44 75,85 25,85' fill='black' fill-opacity='.14'/%3E%3Cpolygon points='2,44 25,3 75,3 98,44 75,85 25,85' fill='none' stroke='black' stroke-width='5' filter='url(%23b)'/%3E%3C/svg%3E"); /* its glow and a faint fill, the same hexagon blurred; comp B */
-}
 .wf-feed { background: var(--color-ground); border-bottom: 0; padding-block: var(--space-2); }
 .wf-feed-run { gap: 6px; }
 .wf-feed-i { flex-basis: var(--v4-drop); border-radius: 6px; background: linear-gradient(to bottom, #191842, #0F0E2B); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); } /* card from --color-card, lifted a step at the top; comp B */
 .wf-feed-hit { padding: 8px 4px 10px; }
 .wf-feed-hit::before, .wf-feed-hit::after { top: 10px; left: 50%; opacity: 1; }
-.wf-feed-hit::after { width: 84px; height: 74px; margin-left: -42px; background: var(--r, var(--color-rarity-6)); -webkit-mask: var(--v4-hex-line) center / 100% 100% no-repeat; mask: var(--v4-hex-line) center / 100% 100% no-repeat; }
-.wf-feed-hit::before { top: 0; width: 104px; height: 94px; margin-left: -52px; background: var(--r, var(--color-rarity-6)); -webkit-mask: var(--v4-hex-glow) center / 100% 100% no-repeat; mask: var(--v4-hex-glow) center / 100% 100% no-repeat; }
-.wf-feed-hit .wf-feed-art { position: relative; width: 118%; height: 74px; margin: 2px -9% 8px; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); transition: transform .3s var(--v4-ease-pop); }
+/* THE BACKING UNDER THE SKIN AS THE BASELINE DRAWS IT, founder of 31 Oct 2026: "как у нас сейчас плюс как на дедди скинс подложку для скинов":
+   v1's hexagon of three lines, one dashed, over a fill running from clear to the rarity, here larger and brighter on comp B's card */
+.wf-feed-hit::before, .wf-feed-hit::after { top: 8px; width: 96px; height: 83px; margin-left: -48px; }
+.wf-feed-hit::before { opacity: .95; background: linear-gradient(135deg, transparent 15%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 75%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; }
+.wf-feed-hit::after { opacity: 1; background: color-mix(in srgb, var(--r, var(--color-rarity-6)) 75%, var(--color-text-hi)); -webkit-mask: var(--shape-hex-line) center / 100% 100% no-repeat; mask: var(--shape-hex-line) center / 100% 100% no-repeat; }
+.wf-feed-hit .wf-feed-art { position: relative; width: 128%; height: 80px; margin: 4px -14% 6px; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); transition: transform .3s var(--v4-ease-pop); }
 .wf-feed-i:hover .wf-feed-hit .wf-feed-art { transform: scale(1.08) rotate(-3deg); }
 .wf-feed-hit .wf-feed-w { font-size: var(--size-label); font-weight: 700; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
 .wf-feed-hit .wf-feed-s { margin-top: 3px; font-size: var(--size-xs); color: var(--color-text-hi); opacity: .85; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
 .wf-feed-i.is-new .wf-feed-hit { min-width: var(--v4-drop); }
 @keyframes wf-feed-arrive { 0% { flex-basis: 0; margin-right: -6px; opacity: 0; transform: translateY(-100%); } 45% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 0; transform: translateY(-100%); } 100% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 1; transform: none; } }
 .wf-feed-head { border-radius: 0 0 0 8px; }
+/* the mode mark sits inside the card's corner, not on it; founder, "иконка сильно в углу" */
+.wf-feed-mode { top: 8px; right: 8px; width: 14px; height: 14px; opacity: .9; }
 
 /* --- the banner: one cinematic scene, the title, the countdown and the act on its left ------- */
 .wf-event { border-radius: 0; background: #0B0F2A; }
