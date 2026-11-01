@@ -154,8 +154,26 @@
 
   /* GOLDEN ORBIT. A comet of gold runs round the frame, a lap in 2.2s, with a tail fading over a third of the edge, and a fainter one
      opposite; each time a head passes a corner it throws off a spray of short sparks that die within a few pixels. */
+  // the card's frame as a rounded path, the same walk as edgeOf: from the top left end of the top edge, clockwise, with its outward normal
+  function roundEdgeOf(M, R) {
+    return function (d, w, h) {
+      var s1 = w - 2 * M - 2 * R, s2 = h - 2 * M - 2 * R, L = Math.PI * R / 2, P = 2 * (s1 + s2) + 4 * L, x0 = M, y0 = M, x1 = w - M, y1 = h - M; d = ((d % P) + P) % P;
+      function arc(cx0, cy0, a0, t) { var an = a0 + t / R; return [cx0 + Math.cos(an) * R, cy0 + Math.sin(an) * R, Math.cos(an), Math.sin(an)]; }
+      if (d < s1) return [x0 + R + d, y0, 0, -1]; d -= s1;
+      if (d < L) return arc(x1 - R, y0 + R, -Math.PI / 2, d); d -= L;
+      if (d < s2) return [x1, y0 + R + d, 1, 0]; d -= s2;
+      if (d < L) return arc(x1 - R, y1 - R, 0, d); d -= L;
+      if (d < s1) return [x1 - R - d, y1, 0, 1]; d -= s1;
+      if (d < L) return arc(x0 + R, y1 - R, Math.PI / 2, d); d -= L;
+      if (d < s2) return [x0, y1 - R - d, -1, 0]; d -= s2;
+      return arc(x0 + R, y0 + R, Math.PI, d);
+    };
+  }
+
+  /* The orbit rides the card's own 1px frame line, rounded as the card is, so the comet and the frame are one line and not two,
+     founder of 1 Nov 2026: "давай тут поправим, чтобы не было двойных линий". */
   FX.orbit = function (cv, M) {
-    var C = colours(cv), edge = edgeOf(M), sparks = [], last = -1;
+    var C = colours(cv), RAD = 6, edge = roundEdgeOf(M + .5, RAD - .5), sparks = [], last = -1;
     function comet(cx, w, h, head, P, strength) {
       var tail = P * .34, n = 48;
       for (var i = 0; i < n; i++) { var u0 = i / n, p = edge(head - u0 * tail, w, h), q = edge(head - (i + 1) / n * tail, w, h), k = Math.pow(1 - u0, 1.8);
@@ -167,14 +185,15 @@
       cx.globalAlpha = 1; cx.shadowBlur = 0; cx.fillStyle = g; cx.beginPath(); cx.arc(e[0], e[1], 6, 0, TAU); cx.fill();
     }
     loop2d(cv, function (cx, w, h, now) {
-      var a = w - 2 * M, b = h - 2 * M, P = 2 * (a + b), head = (now / 2200 * P) % P;
-      if (last >= 0) [0, a, a + b, 2 * a + b].forEach(function (c, i) { var passed = last <= head ? (last < c && c <= head) : (c > last || c <= head);
+      var Mo = M + .5, R = RAD - .5, s1 = w - 2 * Mo - 2 * R, s2 = h - 2 * Mo - 2 * R, L = Math.PI * R / 2, P = 2 * (s1 + s2) + 4 * L, head = (now / 2200 * P) % P;
+      // the middle of each rounded corner, top left first as before
+      if (last >= 0) [2 * s1 + 2 * s2 + 3.5 * L, s1 + L / 2, s1 + s2 + 1.5 * L, 2 * s1 + s2 + 2.5 * L].forEach(function (c, i) { var passed = last <= head ? (last < c && c <= head) : (c > last || c <= head);
         if (passed) { var e = edge(c, w, h), out = [[-1, -1], [1, -1], [1, 1], [-1, 1]][i];
           for (var k = 0; k < 8; k++) { var ang = Math.atan2(out[1], out[0]) + (Math.random() - .5) * 1.6, v = 10 + Math.random() * 16;
             sparks.push({ x: e[0], y: e[1], vx: Math.cos(ang) * v, vy: Math.sin(ang) * v, born: now, life: 260 + Math.random() * 300 }); } } });
       last = head;
-      cx.globalCompositeOperation = 'lighter'; cx.lineCap = 'round';
-      comet(cx, w, h, head, P, 1); comet(cx, w, h, head + P / 2, P, .4);
+      cx.globalCompositeOperation = 'lighter'; cx.lineCap = 'butt'; // butt ends, so the tail's short pieces do not bead where they overlap
+      comet(cx, w, h, head, P, 1); comet(cx, w, h, head + P / 2, P, .4); cx.lineCap = 'round';
       sparks = sparks.filter(function (s) { var k = (now - s.born) / s.life; if (k >= 1) return false; var t = (now - s.born) / 1000;
         var x = s.x + s.vx * t, y = s.y + s.vy * t; cx.globalAlpha = Math.pow(1 - k, 1.4); cx.strokeStyle = k < .3 ? C[0] : C[1]; cx.lineWidth = 1.2;
         cx.beginPath(); cx.moveTo(x, y); cx.lineTo(x - s.vx * .08, y - s.vy * .08); cx.stroke(); return true; });
