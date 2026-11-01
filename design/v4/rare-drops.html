@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rare drop, six ways</title>
+  <title>Rare drop</title>
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,52 +32,35 @@
 </svg>
 <main class="rd-main">
   <header class="rd-head">
-    <h1>Дорогой дроп</h1>
-    <p>Выбор 1 ноября: удар как появление, дальше уровень по шансу. 1–5% молнии, ниже 0.1% плазма, между ними третий уровень ещё ищем. Карточка-приз в двух раскладках, A и B. Ниже все прежние варианты. Скин настоящий, Karambit Tiger Tooth.</p>
+    <h1>Rare drop</h1>
+    <p>Picked on 1 November. A rare drop arrives once, the way every drop arrives in the live drops, turning in from the side; then it lands with a hit and a wave. After that it travels down the strip and keeps a look of its own, set by the chance it dropped with: lightning from 1 to 5%, a golden orbit or an ice rift from 0.1 to 1% (two candidates), plasma under 0.1%. Each strip below is the live drops at their real size, 104px cards between the header and the banner, 8px from each, so no effect reaches more than 8px off its card. The skin is real, Karambit Tiger Tooth. The chance on the card is a sample.</p>
+    <div class="rd-ctl" role="group" aria-label="Chance on the card"><span>Chance on the card</span><button type="button" class="rd-ctl-b" data-chance="bg" aria-pressed="true">Large, in the background</button><button type="button" class="rd-ctl-b" data-chance="chip" aria-pressed="false">Chip</button></div>
+    <div class="rd-ctl" role="group" aria-label="Crown"><span>Crown on the prize card</span><button type="button" class="rd-ctl-b" data-crown="corner" aria-pressed="true">Large, cut off in the corner</button><button type="button" class="rd-ctl-b" data-crown="top" aria-pressed="false">Small, on the top edge</button></div>
   </header>
-  <h2 class="rd-was">Уровни дорогого дропа</h2>
-  <p class="rd-note">Появление у всех уровней одно: удар со вспышкой и волной, соседи отталкиваются. Дальше карточка живёт по уровню шанса, с которым скин выпал из кейса. Шанс на карточке пример, не настоящая цифра.</p>
-  <section class="rd-variant rd-live rd-arc" id="tier-volt">
-    <h2>1–5%: молнии</h2>
-    <p>Разряды ползут по всем четырём сторонам и меняют излом, край под молнией подсвечивается. Сверху шанс, с которым выпал скин.</p>
-    <div class="rd-row">
-      <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
-      <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
-      <div class="rd-card r1 rd-rare rd-prize-a"><span class="rd-wave" aria-hidden="true"></span><span class="rd-flash" aria-hidden="true"></span><canvas class="rd-arc-gl" aria-hidden="true"></canvas><span class="rd-chance">2.40%</span><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/karambit-tiger-tooth.png" alt=""><b>★ Karambit</b><span class="rd-s">Tiger Tooth</span></div>
-      <div class="rd-card r5"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/mp9-rose-iron.png" alt=""><b>MP9</b><span class="rd-s">Rose Iron</span></div>
-      <div class="rd-card r4"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt=""><b>Glock-18</b><span class="rd-s">Water Elemental</span></div>
-    </div>
+  <section class="rd-tier rd-t-volt" id="tier-volt" data-fx="volt" data-chance="2.40%">
+    <h2>1 to 5%: lightning</h2>
+    <p>Short discharges crawl along all four edges and change their fork as they go; the edge under each lights up, and a strong one flashes into the card.</p>
+    <div class="rd-sim"></div>
   </section>
-  <section class="rd-variant rd-tbd" id="tier-mid">
-    <h2>0.1–1%: своя анимация, на выбор</h2>
-    <p>Здесь будет третий уровень, между молниями и плазмой. Варианты в сообщении, после выбора появится здесь.</p>
+  <section class="rd-tier rd-t-orbit" id="tier-orbit" data-fx="orbit" data-chance="0.42%">
+    <h2>0.1 to 1%, candidate one: golden orbit</h2>
+    <p>A comet of gold light runs round the frame with a fading tail, a fainter one opposite it, and throws sparks off at each corner; behind the skin, rays of gold turn slowly.</p>
+    <div class="rd-sim"></div>
   </section>
-  <section class="rd-variant rd-live rd-plasma" id="tier-plasma-a">
-    <h2>Ниже 0.1%: плазма, карточка-приз A</h2>
-    <p>Плазма сзади, рамка в цвете редкости как эквалайзер. Искры поднимаются по волнистой линии, мигают и медленно гаснут. Сверху крупно шанс, в правом нижнем углу на фоне корона.</p>
-    <div class="rd-row">
-      <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
-      <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
-      <div class="rd-card r1 rd-rare rd-prize-a"><span class="rd-wave" aria-hidden="true"></span><span class="rd-flash" aria-hidden="true"></span><span class="rd-eq" aria-hidden="true"></span><canvas class="rd-fire-gl" aria-hidden="true"></canvas><canvas class="rd-spark-gl" aria-hidden="true"></canvas><span class="rd-crown" aria-hidden="true"></span><span class="rd-chance">0.008%</span><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/karambit-tiger-tooth.png" alt=""><b>★ Karambit</b><span class="rd-s">Tiger Tooth</span></div>
-      <div class="rd-card r5"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/mp9-rose-iron.png" alt=""><b>MP9</b><span class="rd-s">Rose Iron</span></div>
-      <div class="rd-card r4"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt=""><b>Glock-18</b><span class="rd-s">Water Elemental</span></div>
-    </div>
+  <section class="rd-tier rd-t-frost" id="tier-frost" data-fx="frost" data-chance="0.42%">
+    <h2>0.1 to 1%, candidate two: ice rift</h2>
+    <p>The card freezes: frost crystals grow in from its edges and corners, now and then one melts away and grows again elsewhere, glints flash on the ice, and a cold mist drifts along the foot.</p>
+    <div class="rd-sim"></div>
   </section>
-  <section class="rd-variant rd-live rd-plasma" id="tier-plasma-b">
-    <h2>Ниже 0.1%: плазма, карточка-приз B</h2>
-    <p>То же, но корона стоит на верхнем краю карточки, а шанс сидит плашкой на нижнем краю, как подпись под кубком.</p>
-    <div class="rd-row">
-      <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
-      <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
-      <div class="rd-card r1 rd-rare rd-prize-b"><span class="rd-wave" aria-hidden="true"></span><span class="rd-flash" aria-hidden="true"></span><span class="rd-eq" aria-hidden="true"></span><canvas class="rd-fire-gl" aria-hidden="true"></canvas><canvas class="rd-spark-gl" aria-hidden="true"></canvas><span class="rd-crown" aria-hidden="true"></span><span class="rd-chance">0.008%</span><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/karambit-tiger-tooth.png" alt=""><b>★ Karambit</b><span class="rd-s">Tiger Tooth</span></div>
-      <div class="rd-card r5"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/mp9-rose-iron.png" alt=""><b>MP9</b><span class="rd-s">Rose Iron</span></div>
-      <div class="rd-card r4"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt=""><b>Glock-18</b><span class="rd-s">Water Elemental</span></div>
-    </div>
+  <section class="rd-tier rd-t-plasma" id="tier-plasma" data-fx="plasma" data-chance="0.008%" data-crown="1">
+    <h2>Under 0.1%: plasma, the prize card</h2>
+    <p>Plasma burns inside the card, from its foot up behind the skin. Sparks rise on a swaying path, flicker and fade out slowly. The frame, in the rarity's colour, rises and falls like an equalizer. A crown: large and cut off in the lower right corner, or small on the top edge, kept within the 8px to the header.</p>
+    <div class="rd-sim"></div>
   </section>
-  <h2 class="rd-was">Варианты до выбора</h2>
+  <h2 class="rd-was">Earlier explorations</h2>
   <section class="rd-variant rd-live rd-arc" id="arc">
-    <h2>I2. Молнии, доработка, синие</h2>
-    <p>Разряды больше не стоят на месте: каждый ползёт по краю и всё время меняет излом. Край под молнией загорается, сильный разряд вспыхивает светом внутри карточки, рамка тихо гудит светом. Молний больше, они ходят по всем четырём сторонам.</p>
+    <h2>I2. Lightning, refined, blue</h2>
+    <p>The discharges no longer stand still: each crawls along the edge and keeps changing its fork. The edge under a bolt lights up, a strong one flashes into the card, the frame hums with light. More bolts, on all four sides.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -87,8 +70,8 @@
     </div>
   </section>
   <section class="rd-variant rd-live rd-arc rd-arc-gold" id="arc-gold">
-    <h2>I2. То же, золотые</h2>
-    <p>Те же молнии в цвете высшей редкости: золотое ядро, оранжевый ореол. Совпадают с золотой полоской и шестиугольником ножа.</p>
+    <h2>I2. The same, gold</h2>
+    <p>The same lightning in the top rarity's colour: a gold core and an orange halo, matching the knife's gold bar and hexagon.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -98,8 +81,8 @@
     </div>
   </section>
   <section class="rd-variant rd-live rd-volt" id="volt">
-    <h2>I. Удар, потом живые молнии, как было</h2>
-    <p>То же появление, дальше карточку обвивают настоящие мини-молнии: короткие ломаные разряды бегут кусками по краю, одни гаснут, другие вспыхивают в новом месте, иногда разряд отскакивает от края в сторону. Ни одна не повторяется.</p>
+    <h2>I. Impact, then live lightning, as it was</h2>
+    <p>The same landing, then real mini lightning wraps the card: short jagged discharges run in pieces along the edge, some die, others strike somewhere new, now and then one jumps off the edge. None repeats.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -109,8 +92,8 @@
     </div>
   </section>
   <section class="rd-variant rd-live rd-blaze" id="blaze">
-    <h2>G. Удар, потом живой огонь</h2>
-    <p>Дорогой скин влетает с ударной волной и толкает соседей, дальше он остаётся в ленте и горит: за карточкой живой огонь, который считается в реальном времени и ни разу не повторяется, искры поднимаются. Огонь золотой, цвет высшей редкости.</p>
+    <h2>G. Impact, then live fire</h2>
+    <p>The rare skin flies in with a shockwave and pushes its neighbours, then stays in the strip and burns: live fire behind the card, computed in real time and never repeating, embers rising. The fire is gold, the top rarity's colour.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -120,8 +103,8 @@
     </div>
   </section>
   <section class="rd-variant rd-live rd-plasma" id="plasma">
-    <h2>H. Удар, потом живая плазма</h2>
-    <p>То же появление и тот же живой огонь, но нашим розово-фиолетовым светом, как плазма. Рамка карточки в цвете редкости и живёт как эквалайзер: свет поднимается снизу вверх, не до самого верха, левая и правая сторона каждая в своём ритме, ярче и тусклее.</p>
+    <h2>H. Impact, then live plasma</h2>
+    <p>The same landing and the same live fire, in our pink and violet light, like plasma. The card's frame is in the rarity's colour and lives like an equalizer: light rises from the foot, never quite to the top, each side on its own beat, brighter and dimmer.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -130,10 +113,10 @@
       <div class="rd-card r4"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt=""><b>Glock-18</b><span class="rd-s">Water Elemental</span></div>
     </div>
   </section>
-  <h2 class="rd-was">Первые шесть</h2>
+  <h2 class="rd-was">The first six</h2>
   <section class="rd-variant rd-fire" id="fire">
-    <h2>A. Огонь по краю</h2>
-    <p>Карточка горит: пламя бежит по краю, языки огня поднимаются снизу, скин светится оранжевым.</p>
+    <h2>A. Fire on the edge</h2>
+    <p>The card burns: flame runs along its edge, tongues of fire rise from the foot, the skin glows orange.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -143,8 +126,8 @@
     </div>
   </section>
   <section class="rd-variant rd-bolt" id="bolt">
-    <h2>B. Молния</h2>
-    <p>Электрическая дуга дрожит по краю карточки, вспышки, синий свет на скине.</p>
+    <h2>B. Lightning</h2>
+    <p>An electric arc trembles on the card's edge, with flashes and blue light on the skin.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -154,8 +137,8 @@
     </div>
   </section>
   <section class="rd-variant rd-gold" id="gold">
-    <h2>C. Золото и голограмма</h2>
-    <p>Золотой край крутится по кругу, по карточке проходит голографический блик, вокруг искры.</p>
+    <h2>C. Gold and holo</h2>
+    <p>A gold edge circles round, a holographic sheen sweeps the card, sparks round it.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -165,8 +148,8 @@
     </div>
   </section>
   <section class="rd-variant rd-rays" id="rays">
-    <h2>D. Лучи</h2>
-    <p>За скином вращаются лучи света, карточка дышит золотым свечением и чуть приподнята.</p>
+    <h2>D. Rays</h2>
+    <p>Rays of light turn behind the skin, the card breathes a gold glow and is lifted a little.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -176,8 +159,8 @@
     </div>
   </section>
   <section class="rd-variant rd-boom" id="boom">
-    <h2>E. Удар при появлении</h2>
-    <p>Карточка влетает со вспышкой и ударной волной, соседние карточки вздрагивают и на миг золотятся.</p>
+    <h2>E. Impact on landing</h2>
+    <p>The card flies in with a flash and a shockwave, the neighbours flinch and catch the gold for a moment.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>
@@ -187,8 +170,8 @@
     </div>
   </section>
   <section class="rd-variant rd-lane" id="lane">
-    <h2>F. Огонь по всей ленте</h2>
-    <p>Когда падает дорогой дроп, по краю всей ленты пробегает огонь, а сама карточка горит.</p>
+    <h2>F. Fire round the whole strip</h2>
+    <p>When a rare drop lands, fire runs round the edge of the whole strip, and the card itself burns.</p>
     <div class="rd-row">
       <div class="rd-card r2"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/ak-47-redline.png" alt=""><b>AK-47</b><span class="rd-s">Redline</span></div>
       <div class="rd-card r3"><span class="rd-hex" aria-hidden="true"></span><img class="rd-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""><b>M4A1-S</b><span class="rd-s">Hyper Beast</span></div>

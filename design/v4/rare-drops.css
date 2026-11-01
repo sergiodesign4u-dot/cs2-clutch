@@ -167,28 +167,107 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 @keyframes rd-eq-r { 0%, 100% { --rd-eqr: 55%; } 18% { --rd-eqr: 28%; } 33% { --rd-eqr: 80%; } 47% { --rd-eqr: 50%; } 62% { --rd-eqr: 94%; } 78% { --rd-eqr: 34%; } 90% { --rd-eqr: 70%; } }
 @keyframes rd-eq-glow { from { opacity: .75; } to { opacity: 1; } }
 
-/* ===== The tiers and the prize card, founder of 1 Nov 2026: "берем удар в целом как анимацию появления", lightning for drops of 1 to 5%,
-   plasma for those under 0.1%, a third look for 0.1 to 1% still to find; "карточку сделать более такую призовую ... корону в нижний правый
-   угол на фон ... а вверху процент ... вероятность с каким выпал скин" or "коронку сверху", so two layouts, A and B. The chance figure on
-   the card is a sample, D-124. ===== */
+/* ===== The tiers in a live strip, founder of 1 Nov 2026: "берем удар в целом как анимацию появления", then a look by the chance the skin
+   dropped with, lightning for 1 to 5%, plasma under 0.1%, "золотая орбита и ледяной разлом надо посмотреть" for 0.1 to 1%. Then: "появление
+   думаю делать один раз ... как у нас в ленте, такое 3D появление и потом бамс с волной, а дальше оно идёт по ленте и просто горит"; "карточки
+   стали меньше ... их высоту мы не будем увеличивать, они довольно плотно идут к хедеру и к баннеру"; the chance "на бэкграунд крупно в левый
+   угол сверху" or as a chip; the crown "больше и обрезать ... в угол нижний правый". So each tier plays in a strip built as v4's live drops,
+   the same 104px card, between a header and a banner 8px away, and no effect reaches further than that off its card. Built by rare-drops.js. ===== */
 .rd-note { margin: 8px 0 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 70ch; }
-.rd-tbd { padding: 16px; border: 1px dashed rgba(255, 255, 255, .14); border-radius: 14px; }
-:root { --rd-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M3 13 17 27 32 5 47 27 61 13 55 38H9Z'/%3E%3Crect x='9' y='40' width='46' height='6' rx='2'/%3E%3Ccircle cx='3' cy='11' r='3.5'/%3E%3Ccircle cx='32' cy='4' r='4'/%3E%3Ccircle cx='61' cy='11' r='3.5'/%3E%3C/svg%3E"); } /* drawn here, three peaks on a band */
-/* the chance, gold, as large as the card allows: the skin steps down to make room, the card keeps its height */
-.rd-chance { position: absolute; z-index: 3; top: 7px; left: 0; right: 0; text-align: center; font-size: 20px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums;
-  background: linear-gradient(to bottom, #FFF8D6, var(--r)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .9)) drop-shadow(0 0 6px color-mix(in srgb, var(--r) 70%, transparent)); }
-.rd-prize-a .rd-skin { height: 66px; margin-top: 22px; } /* 22 + 66 = 4 + 84, the card keeps the height of its neighbours */
-.rd-prize-a .rd-hex { top: 26px; }
-/* the crown: a masked gold plate inside a span that carries the glow, since a mask would cut a filter on the same box */
-.rd-crown { position: absolute; pointer-events: none; }
-.rd-crown::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFF8D6, var(--r) 50%, #9A6400);
+.rd-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; font-size: 14px; color: var(--color-text-soft); }
+.rd-ctl-b { padding: 7px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .16); background: transparent; color: var(--color-text-hi); font: inherit; font-weight: 700; cursor: pointer; }
+.rd-ctl-b[aria-pressed="true"] { background: var(--color-pink); border-color: transparent; }
+.rd-tier { margin-top: 40px; }
+.rd-tier h2 { margin: 0 0 4px; font-size: 20px; font-weight: 900; }
+.rd-tier p { margin: 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 70ch; }
+.rd-t-volt { --rd-c1: #F2FBFF; --rd-c2: #8FD3FF; --rd-c3: #3955E8; --rd-hex-c1: #F2FBFF; --rd-hex-c2: #8FD3FF; --rd-hex-c3: #3955E8; } /* I's blue */
+.rd-t-orbit { --rd-c1: #FFF6CF; --rd-c2: #F6C915; --rd-c3: #FF9A1F; --rd-hex-c1: #FFF6CF; --rd-hex-c2: #F6C915; --rd-hex-c3: #FF9A1F; } /* the top rarity's gold, its core near white, its tail warmer */
+.rd-t-frost { --rd-c1: #FFFFFF; --rd-c2: #BFE6FF; --rd-c3: #5AA9FF; --rd-hex-c1: #F4FBFF; --rd-hex-c2: #BFE6FF; --rd-hex-c3: #5AA9FF; } /* ice, after Coldfront's icy blue */
+.rd-t-plasma { --rd-c1: #FFE0F4; --rd-c2: #FB3F8A; --rd-c3: #D22BCE; --rd-hex-c1: #FFE0F4; --rd-hex-c2: #FB3F8A; --rd-hex-c3: #D22BCE; --rd-hex-c4: #3B1A7A; } /* H's plasma */
+:root { --rd-hex-outer: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3C/svg%3E"); /* v4's --v4-hex-outer, the same paths */
+  --rd-hex-inner: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%221.6%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* v4's --v4-hex-inner */
+  --rd-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M3 13 17 27 32 5 47 27 61 13 55 38H9Z'/%3E%3Crect x='9' y='40' width='46' height='6' rx='2'/%3E%3Ccircle cx='3' cy='11' r='3.5'/%3E%3Ccircle cx='32' cy='4' r='4'/%3E%3Ccircle cx='61' cy='11' r='3.5'/%3E%3C/svg%3E"); } /* drawn here, three peaks on a band */
+
+/* the stage: a header, the strip, the top of the banner, at v4's spacing */
+.rd-sim { position: relative; margin-top: 16px; padding: 8px 12px 0; border-radius: 14px; background: var(--color-ground); overflow: hidden; }
+.rd-sim-hdr { height: 56px; border-radius: 14px; background: linear-gradient(to bottom, #17153F, #0B0A22); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); } /* stands in for v4's header strip, 56px */
+.rd-sim-ban { height: 64px; border-radius: 14px 14px 0 0; background: url(art/banner-plate.webp) center 35% / cover; } /* the top of v4's banner */
+.rd-sim-strip { position: relative; z-index: 2; margin: -2px 0; padding: 10px 0; overflow: hidden; } /* 10px of room round the cards, 8px of it before the header and the banner */
+.rd-sim-run { display: flex; gap: 6px; padding-left: 8px; }
+.rd-replay { position: absolute; z-index: 5; top: 18px; right: 24px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .2); background: rgba(6, 10, 30, .7); color: var(--color-text-hi); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.rd-replay:hover { border-color: var(--rd-c2); }
+
+/* the card, v4's live drop card value for value */
+.rd-d { position: relative; isolation: isolate; flex: 0 0 104px; min-width: 0; display: flex; flex-direction: column; align-items: center; padding: 6px 4px 8px; border-radius: 6px; text-align: center; box-shadow: 0 6px 14px rgba(0, 0, 0, .35); }
+.rd-d::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; transition: box-shadow .4s;
+  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); }
+.rd-d::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: 36px; height: 3px; margin-left: -18px; border-radius: 3px 3px 0 0; background: var(--r); box-shadow: 0 0 10px 1px var(--r); }
+.rd-d-hex { position: absolute; z-index: -1; top: 7px; left: 50%; width: 78px; height: 68px; margin-left: -39px; background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--rd-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--rd-hex-inner) center / 100% 100% no-repeat; }
+.rd-d-hex::after { content: ''; position: absolute; inset: 0; background: color-mix(in srgb, var(--r) 75%, white); -webkit-mask: var(--rd-hex-outer) center / 100% 100% no-repeat; mask: var(--rd-hex-outer) center / 100% 100% no-repeat; }
+.rd-d img { position: relative; width: 128%; height: 64px; margin: 4px -14% 5px; object-fit: contain; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); }
+.rd-d b, .rd-d-s { position: relative; z-index: 2; line-height: 1; white-space: nowrap; text-shadow: 0 1px 2px rgba(0, 0, 0, .7); } /* line height 1 as v4 computes it, so the card is its 104 by 114px */
+.rd-d b { font-size: 13px; font-weight: 700; }
+.rd-d-s { margin-top: 2px; font-size: 12px; opacity: .85; }
+/* a new drop swings in on its left edge, as v4's wf-feed-arrive */
+.rd-d.is-new { animation: rd-arrive .9s cubic-bezier(.22, .8, .3, 1) both; transform-origin: 0 50%; }
+@keyframes rd-arrive {
+  0% { flex-basis: 0; margin-right: -6px; opacity: 0; transform: perspective(700px) translateX(-24px) rotateY(75deg); }
+  45% { flex-basis: 104px; margin-right: 0; opacity: .7; transform: perspective(700px) translateX(0) rotateY(28deg); }
+  78% { opacity: 1; transform: perspective(700px) rotateY(-6deg); }
+  100% { flex-basis: 104px; margin-right: 0; opacity: 1; transform: none; } }
+
+/* the hit, once: the card punches up, a flash, a wave in the tier's colour, the next two cards are shoved aside */
+.rd-d .rd-wave { position: absolute; z-index: 6; top: 50%; left: 50%; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%; pointer-events: none; opacity: 0;
+  border: 2px solid var(--rd-c2); box-shadow: 0 0 16px var(--rd-c2), inset 0 0 16px var(--rd-c3); }
+.rd-d .rd-flash { position: absolute; inset: 0; z-index: 5; border-radius: inherit; pointer-events: none; opacity: 0; mix-blend-mode: screen; background: radial-gradient(circle at 50% 45%, var(--rd-c1), transparent 72%); }
+.rd-d.is-hit { animation: rd-bump .5s cubic-bezier(.2, .9, .3, 1.3); }
+.rd-d.is-hit .rd-wave { animation: rd-hitwave .8s ease-out both; }
+.rd-d.is-hit .rd-flash { animation: rd-hitflash .7s ease-out both; }
+.rd-d.is-shoved { animation: rd-shove .6s ease-out; }
+@keyframes rd-bump { 0% { transform: scale(1); } 30% { transform: scale(1.12); } 100% { transform: none; } }
+@keyframes rd-hitwave { 0% { transform: scale(.3); opacity: 1; } 100% { transform: scale(2.1); opacity: 0; } }
+@keyframes rd-hitflash { 0% { opacity: .75; } 100% { opacity: 0; } }
+@keyframes rd-shove { 0% { transform: none; } 30% { transform: translateX(7px) rotate(1.2deg); } 100% { transform: none; } }
+
+/* the rare card's layers: a background layer cut to the card (the chance, the crown, the plasma, the rays), the effect canvas over the card */
+.rd-bg { position: absolute; inset: 0; z-index: -1; border-radius: inherit; overflow: hidden; pointer-events: none; }
+.rd-fx-gl { position: absolute; inset: -8px; width: calc(100% + 16px); height: calc(100% + 16px); z-index: 4; pointer-events: none; opacity: 0; transition: opacity .4s; }
+.rd-spark-gl { position: absolute; left: -8px; top: -8px; width: calc(100% + 16px); height: calc(100% + 8px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }
+.rd-d.is-live .rd-fx-gl, .rd-d.is-live .rd-spark-gl { opacity: 1; }
+/* the chance: large in the background, top left, or a chip; the page's switch picks */
+.rd-chance-bg { position: absolute; top: 3px; left: 5px; font-size: 24px; font-weight: 900; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; opacity: .55;
+  background: linear-gradient(to bottom, #FFF8D6, var(--r)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.rd-chance-chip { position: absolute; z-index: 3; top: 5px; left: 5px; display: none; padding: 2px 5px; border-radius: 999px; font-size: 10px; font-weight: 800; line-height: 1.2; font-variant-numeric: tabular-nums;
+  color: #FFE07A; background: rgba(15, 14, 43, .88); border: 1px solid var(--r); box-shadow: 0 0 8px color-mix(in srgb, var(--r) 45%, transparent); }
+.rd-chance-is-chip .rd-chance-bg { display: none; }
+.rd-chance-is-chip .rd-chance-chip { display: block; }
+/* the crown, large, cut off by the lower right corner */
+.rd-crown { position: absolute; right: -18px; bottom: -14px; width: 86px; height: 64px; transform: rotate(-16deg); opacity: .8; filter: drop-shadow(0 0 3px rgba(6, 4, 30, .7)); } /* a dark rim so it reads over the plasma */
+.rd-crown::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFE27A, var(--r) 45%, #B87800);
   -webkit-mask: var(--rd-crown) center / contain no-repeat; mask: var(--rd-crown) center / contain no-repeat; }
-.rd-prize-a .rd-crown { z-index: -1; right: 6px; bottom: 10px; width: 70px; height: 53px; transform: rotate(-14deg); opacity: .3; } /* behind the names, on the plate */
-.rd-prize-b .rd-crown { z-index: 4; top: -24px; left: 50%; width: 44px; height: 33px; margin-left: -22px;
-  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .8)) drop-shadow(0 0 7px var(--r)); animation: rd-crown 2.4s ease-in-out infinite alternate; }
-@keyframes rd-crown { from { transform: translateY(0); } to { transform: translateY(-3px); } }
-.rd-prize-b .rd-chance { top: auto; bottom: -10px; left: 50%; right: auto; transform: translateX(-50%); z-index: 4; padding: 3px 9px; border-radius: 999px; font-size: 12px;
-  background: #0F0E2B; border: 1px solid var(--r); -webkit-text-fill-color: #FFE07A; color: #FFE07A; filter: drop-shadow(0 0 6px color-mix(in srgb, var(--r) 60%, transparent)); }
-/* the sparks, drawn by rare-drops.js over the plasma, in place of the dotted embers */
-.rd-spark-gl { position: absolute; left: -20%; bottom: 0; width: 140%; height: 190%; z-index: 3; pointer-events: none; }
+/* or the crown on the top edge, founder: "корона может налазить на хедер, поэтому я бы её сделал меньше и чуть сместил бы вниз": 26px wide,
+   sunk into the frame so it rises 7px over the card, within the 8px to the header */
+.rd-crown-top { position: absolute; z-index: 4; top: -7px; left: 50%; width: 26px; height: 19px; margin-left: -13px; display: none; pointer-events: none;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .8)) drop-shadow(0 0 5px var(--r)); }
+.rd-crown-top::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFF8D6, var(--r) 50%, #9A6400);
+  -webkit-mask: var(--rd-crown) center / contain no-repeat; mask: var(--rd-crown) center / contain no-repeat; }
+.rd-crown-is-top .rd-crown { display: none; }
+.rd-crown-is-top .rd-crown-top { display: block; }
+/* each tier's frame once it is live */
+.rd-t-volt .rd-d.is-live::before { box-shadow: inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 12px rgba(57, 85, 232, .4); }
+.rd-t-orbit .rd-d.is-live::before { box-shadow: inset 0 0 0 1px rgba(246, 201, 21, .4), 0 0 12px rgba(246, 201, 21, .22); }
+.rd-t-frost .rd-d.is-live::before { box-shadow: inset 0 0 0 1px rgba(220, 240, 255, .7), inset 0 0 16px rgba(143, 211, 255, .4), 0 0 10px rgba(143, 211, 255, .3); }
+.rd-t-plasma .rd-d.is-live::before { box-shadow: 0 0 12px rgba(210, 43, 206, .45); }
+.rd-d .rd-eq { border-radius: 6px; opacity: 0; transition: opacity .4s; }
+.rd-d.is-live .rd-eq { opacity: 1; }
+.rd-d.is-rare.is-live img { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 8px color-mix(in srgb, var(--rd-c2) 55%, transparent)); }
+/* orbit: rays of gold turning slowly behind the skin */
+.rd-rays-in { position: absolute; top: -28px; left: 50%; width: 150px; height: 150px; margin-left: -75px; border-radius: 50%; opacity: 0; transition: opacity .6s;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 226, 140, .32) 0 7deg, transparent 7deg 22deg);
+  -webkit-mask: radial-gradient(closest-side, #000 15%, transparent); mask: radial-gradient(closest-side, #000 15%, transparent); animation: rd-turn 14s linear infinite; }
+.rd-d.is-live .rd-rays-in { opacity: 1; }
+/* plasma: the flame inside the card, under the hexagon and the skin */
+.rd-fire-in { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .5s; }
+.rd-d.is-live .rd-fire-in { opacity: .6; } /* held back so the names stay readable over it */
+@media (prefers-reduced-motion: reduce) { .rd-d, .rd-d *, .rd-d::before { animation: none !important; transition: none !important; } }
