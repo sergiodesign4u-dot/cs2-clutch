@@ -1502,17 +1502,29 @@ window.WF_PAY = window.WF_PAY || {
        section 6 of the node: new events do not shove a paused strip, and a
        target does not move while it is being aimed at. A resume never replays
        what was skipped, so no burst of old wins lands at once, E2. */
+    /* A COPY MAY PACE THE ARRIVALS, D-209, the founder of 1 November 2026: "темп сделать не прям такой одинаковый ... быстренько раз раз,
+       потом пауза". A page that declares window.WF_FEED_PACE is asked before each arrival and answers { row, wait }: a row of its own to
+       show, or none for the next sample row, and how long until the next one. window.WF_FEED_ARRIVED is told of each tile placed. A grey
+       screen declares neither and still gets one sample row every FEED_EVERY ms. */
     var FEED_EVERY = 3000, FEED_KEEP = 24, next = FEED.length - 1;
-    setInterval(function () {
-      if (!band.isConnected || document.hidden || band.classList.contains('is-held') ||
-          band.matches(':hover') || band.contains(document.activeElement)) return;
-      var li = feedTile(FEED[next]);
-      next = (next + FEED.length - 1) % FEED.length;
-      li.classList.add('is-new');
-      li.addEventListener('animationend', function () { li.classList.remove('is-new'); });
-      run.insertBefore(li, run.firstChild);
-      while (run.children.length > FEED_KEEP) run.removeChild(run.lastChild);
-    }, FEED_EVERY);
+    function arrive() {
+      if (!band.isConnected) return;
+      var wait = FEED_EVERY;
+      if (!(document.hidden || band.classList.contains('is-held') ||
+            band.matches(':hover') || band.contains(document.activeElement))) {
+        var plan = window.WF_FEED_PACE ? window.WF_FEED_PACE() : null, row = plan && plan.row;
+        if (!row) { row = FEED[next]; next = (next + FEED.length - 1) % FEED.length; }
+        var li = feedTile(row);
+        li.classList.add('is-new');
+        li.addEventListener('animationend', function (e) { if (e.target === li) li.classList.remove('is-new'); });
+        run.insertBefore(li, run.firstChild);
+        while (run.children.length > FEED_KEEP) run.removeChild(run.lastChild);
+        if (window.WF_FEED_ARRIVED) window.WF_FEED_ARRIVED(li, plan);
+        if (plan && plan.wait) wait = plan.wait;
+      }
+      setTimeout(arrive, wait);
+    }
+    setTimeout(arrive, FEED_EVERY);
 
     // ONE CONTROL, TWO PARENTS, which is the node's own wording: it is the pause
     // design principle 2 owes a strip that cannot be stopped, and it is the

@@ -1,0 +1,81 @@
+/* design/v4/rare.css, the rare drops in v4's live drops, D-209. Founder of 1 Nov 2026, after rare-drops.html: "да отлично давай их на хоум
+   пейдж ... 4-5 обычных, а потом одна редкая ... темп ... быстренько раз раз, потом пауза ... Все три редких дропа для демонстрации".
+   rare.js decides when one arrives and which; this file is its look, the three tiers taken on the exploration page, at the card's own
+   104 by 114px: lightning for 1 to 5%, the golden orbit for 0.1 to 1%, plasma under 0.1%. The effects are drawn by rare-fx.js. */
+
+/* the three rare skins' art, as design/_theme.css names the others; the path reads from design/, where _theme.css uses the var */
+[data-art="m4a4-the-emperor"] { --art: url(concept/assets/skins/m4a4-the-emperor.png); }
+[data-art="ak-47-gold-arabesque"] { --art: url(concept/assets/skins/ak-47-gold-arabesque.png); }
+[data-art="karambit-tiger-tooth"] { --art: url(concept/assets/skins/karambit-tiger-tooth.png); }
+
+/* each tier's colours, read by rare-fx.js as plain hex; the same as rare-drops.css */
+.v4-rare-volt { --rd-c1: #F2FBFF; --rd-c2: #8FD3FF; --rd-c3: #3955E8; --rd-hex-c1: #F2FBFF; --rd-hex-c2: #8FD3FF; --rd-hex-c3: #3955E8; }
+.v4-rare-orbit { --rd-c1: #FFF6CF; --rd-c2: #F6C915; --rd-c3: #FF9A1F; --rd-hex-c1: #FFF6CF; --rd-hex-c2: #F6C915; --rd-hex-c3: #FF9A1F; }
+.v4-rare-plasma { --rd-c1: #FFE0F4; --rd-c2: #FB3F8A; --rd-c3: #D22BCE; --rd-hex-c1: #FFE0F4; --rd-hex-c2: #FB3F8A; --rd-hex-c3: #D22BCE; --rd-hex-c4: #3B1A7A; }
+:root { --v4-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M3 13 17 27 32 5 47 27 61 13 55 38H9Z'/%3E%3Crect x='9' y='40' width='46' height='6' rx='2'/%3E%3Ccircle cx='3' cy='11' r='3.5'/%3E%3Ccircle cx='32' cy='4' r='4'/%3E%3Ccircle cx='61' cy='11' r='3.5'/%3E%3C/svg%3E"); } /* rare-drops.css's crown */
+
+/* the strip lets a rare card's light out above and below it, and still cuts at its ends */
+.wf-feed-clip { overflow-x: clip; overflow-y: visible; }
+
+/* the rare card: its plate moves to a layer of its own, so the plasma can burn behind it */
+.wf-feed-i.v4-rare { isolation: isolate; background: none; }
+.wf-feed-i.v4-rare::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; transition: box-shadow .4s;
+  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); } /* theme.css's plate, unchanged */
+.v4-rare-volt.is-live::before { box-shadow: inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 12px rgba(57, 85, 232, .4); }
+.v4-rare-orbit.is-live::before { box-shadow: inset 0 0 0 1px rgba(246, 201, 21, .4), 0 0 12px rgba(246, 201, 21, .22); }
+.v4-rare-plasma.is-live::before { box-shadow: 0 0 12px rgba(210, 43, 206, .45); }
+.v4-rare.is-live .wf-feed-hit .wf-feed-art { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 8px color-mix(in srgb, var(--rd-c2) 55%, transparent)); }
+
+/* the background layer, under the hexagon: cut out where the hexagon stands, founder, "на фоне совсем под ромбом тоже" */
+.v4-rare-bg { position: absolute; inset: 0; z-index: 0; border-radius: inherit; overflow: hidden; pointer-events: none;
+  -webkit-mask: linear-gradient(#000 0 0), var(--shape-hex-fill) 50% 7px / 78px 68px no-repeat; -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) exclude, var(--shape-hex-fill) 50% 7px / 78px 68px no-repeat; }
+.v4-rare-chance { position: absolute; top: 3px; left: 5px; font-size: 24px; font-weight: 900; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; opacity: .55;
+  background: linear-gradient(to bottom, #FFF8D6, var(--r)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; } /* the chance it dropped with, a sample, D-124 */
+.v4-rare-rays { position: absolute; top: -28px; left: 50%; width: 150px; height: 150px; margin-left: -75px; border-radius: 50%; opacity: 0; transition: opacity .6s;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 226, 140, .32) 0 7deg, transparent 7deg 22deg);
+  -webkit-mask: radial-gradient(closest-side, #000 15%, transparent); mask: radial-gradient(closest-side, #000 15%, transparent); animation: v4-rare-turn 14s linear infinite; }
+.v4-rare.is-live .v4-rare-rays { opacity: 1; }
+@keyframes v4-rare-turn { to { transform: rotate(360deg); } }
+.v4-rare-crown { position: absolute; right: -8px; bottom: -5px; width: 66px; height: 50px; transform: rotate(-24deg); opacity: .42; }
+.v4-rare-crown::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFE27A, var(--r) 45%, #B87800);
+  -webkit-mask: var(--v4-crown) center / contain no-repeat; mask: var(--v4-crown) center / contain no-repeat; }
+
+/* the header is sticky at z-index 30 and would hide the flame, so a live rare card stands over it while the page is at its top, as on
+   rare-drops.html where the founder took it; once the page scrolls, the header covers the strip again as it covers everything */
+.wf-feed-i.v4-rare.is-live { z-index: 31; }
+.v4-scrolled .wf-feed-i.v4-rare.is-live { z-index: auto; }
+/* the effect canvases: on the card, 8px past it; the plasma's flame behind the plate, its tips about 40px over the card */
+.v4-rare-fx { position: absolute; inset: -8px; width: calc(100% + 16px); height: calc(100% + 16px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }
+.v4-rare-sparks { position: absolute; left: -8px; top: -8px; width: calc(100% + 16px); height: calc(100% + 8px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }
+.v4-rare-fire { position: absolute; z-index: -2; top: -100px; left: -14%; width: 128%; height: calc(60% + 100px); pointer-events: none; opacity: 0; transition: opacity .5s; }
+.v4-rare.is-live .v4-rare-fx, .v4-rare.is-live .v4-rare-sparks, .v4-rare.is-live .v4-rare-fire { opacity: 1; }
+
+/* the plasma's frame, an equalizer in the rarity's colour, as rare-drops.css's .rd-eq */
+@property --v4-eql { syntax: '<percentage>'; inherits: false; initial-value: 40%; }
+@property --v4-eqr { syntax: '<percentage>'; inherits: false; initial-value: 40%; }
+.v4-rare-eq { position: absolute; inset: 0; z-index: 3; border-radius: inherit; padding: 1.5px; pointer-events: none; opacity: 0; transition: opacity .4s;
+  background:
+    linear-gradient(to top, color-mix(in srgb, var(--r) 55%, white) 0%, var(--r) calc(var(--v4-eql) * .45), transparent var(--v4-eql)) left / 50% 100% no-repeat,
+    linear-gradient(to top, color-mix(in srgb, var(--r) 55%, white) 0%, var(--r) calc(var(--v4-eqr) * .45), transparent var(--v4-eqr)) right / 50% 100% no-repeat,
+    color-mix(in srgb, var(--r) 22%, transparent);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  filter: drop-shadow(0 0 3px var(--r)) drop-shadow(0 0 8px color-mix(in srgb, var(--r) 60%, transparent));
+  animation: v4-eq-l 1.7s ease-in-out infinite, v4-eq-r 1.3s ease-in-out infinite; }
+.v4-rare.is-live .v4-rare-eq { opacity: 1; }
+@keyframes v4-eq-l { 0%, 100% { --v4-eql: 30%; } 14% { --v4-eql: 72%; } 26% { --v4-eql: 45%; } 41% { --v4-eql: 88%; } 55% { --v4-eql: 36%; } 70% { --v4-eql: 64%; } 84% { --v4-eql: 92%; } }
+@keyframes v4-eq-r { 0%, 100% { --v4-eqr: 55%; } 18% { --v4-eqr: 28%; } 33% { --v4-eqr: 80%; } 47% { --v4-eqr: 50%; } 62% { --v4-eqr: 94%; } 78% { --v4-eqr: 34%; } 90% { --v4-eqr: 70%; } }
+
+/* the hit, once, as the arrival settles: the card punches up, a flash, a wave in the tier's colour, the next two cards are shoved aside */
+.v4-rare-wave { position: absolute; z-index: 6; top: 50%; left: 50%; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%; pointer-events: none; opacity: 0;
+  border: 2px solid var(--rd-c2); box-shadow: 0 0 16px var(--rd-c2), inset 0 0 16px var(--rd-c3); }
+.v4-rare-flash { position: absolute; inset: 0; z-index: 5; border-radius: inherit; pointer-events: none; opacity: 0; mix-blend-mode: screen; background: radial-gradient(circle at 50% 45%, var(--rd-c1), transparent 72%); }
+.wf-feed-i.v4-rare.is-hit { animation: v4-rare-bump .5s cubic-bezier(.2, .9, .3, 1.3); }
+.v4-rare.is-hit .v4-rare-wave { animation: v4-rare-wave .8s ease-out both; }
+.v4-rare.is-hit .v4-rare-flash { animation: v4-rare-flash .7s ease-out both; }
+.wf-feed-i.v4-shoved { animation: v4-rare-shove .6s ease-out; }
+@keyframes v4-rare-bump { 0% { transform: scale(1); } 30% { transform: scale(1.12); } 100% { transform: none; } }
+@keyframes v4-rare-wave { 0% { transform: scale(.3); opacity: 1; } 100% { transform: scale(2.1); opacity: 0; } }
+@keyframes v4-rare-flash { 0% { opacity: .75; } 100% { opacity: 0; } }
+@keyframes v4-rare-shove { 0% { transform: none; } 30% { transform: translateX(7px) rotate(1.2deg); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .v4-rare, .v4-rare *, .v4-rare::before, .wf-feed-i.v4-shoved { animation: none !important; transition: none !important; } }
