@@ -90,3 +90,58 @@
     requestAnimationFrame(frame);
   });
 })();
+
+/* Variant I2, I refined: a discharge crawls along the edge for its life and is re-forked every 40 to 80ms, so it walks and flickers rather
+   than standing still; the straight edge under it glows, a strong one throws a flash of light into the card, and 3 to 7 live at once.
+   Colours come from the variant's --rd-hex-c1..c3: core, glow, deep. */
+(function () {
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rgba(hex, a) { var v = parseInt(hex.replace('#', ''), 16); return 'rgba(' + (v >> 16 & 255) + ',' + (v >> 8 & 255) + ',' + (v & 255) + ',' + a + ')'; }
+  Array.prototype.forEach.call(document.querySelectorAll('.rd-arc-gl'), function (cv) {
+    var cs = getComputedStyle(cv.closest('.rd-live')), C1 = cs.getPropertyValue('--rd-hex-c1').trim(), C2 = cs.getPropertyValue('--rd-hex-c2').trim(), C3 = cs.getPropertyValue('--rd-hex-c3').trim();
+    var cx = cv.getContext('2d'), M = 18, bolts = [], flashes = [], dpr = Math.min(window.devicePixelRatio || 1, 2), on = true;
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { on = e[0].isIntersecting; }).observe(cv);
+    function size() { var w = cv.clientWidth, h = cv.clientHeight; if (cv.width !== w * dpr || cv.height !== h * dpr) { cv.width = w * dpr; cv.height = h * dpr; } return [w, h]; }
+    function per(w, h) { return 2 * (w - 2 * M + h - 2 * M); }
+    function edge(d, w, h) { var a = w - 2 * M, b = h - 2 * M, P = 2 * (a + b); d = ((d % P) + P) % P;
+      if (d < a) return [M + d, M, 0, -1]; d -= a; if (d < b) return [M + a, M + d, 1, 0]; d -= b; if (d < a) return [M + a - d, M + b, 0, 1]; d -= a; return [M, M + b - d, -1, 0]; }
+    function jag(pts, rough) { for (var pass = 0; pass < 3; pass++) { var out = [pts[0]]; for (var i = 1; i < pts.length; i++) { var p = pts[i - 1], q = pts[i];
+      var mx = (p[0] + q[0]) / 2, my = (p[1] + q[1]) / 2, dx = q[0] - p[0], dy = q[1] - p[1], len = Math.hypot(dx, dy) || 1, o = (Math.random() - .5) * rough * len / 14;
+      out.push([mx - dy / len * o, my + dx / len * o], q); } pts = out; rough *= .6; } return pts; }
+    function spawn(w, h, now) { var big = Math.random() < .22;
+      bolts.push({ s: Math.random() * per(w, h), L: big ? 60 + Math.random() * 70 : 22 + Math.random() * 46, v: (Math.random() < .5 ? -1 : 1) * (.03 + Math.random() * .09),
+        born: now, life: big ? 380 + Math.random() * 360 : 200 + Math.random() * 320, big: big, next: 0 });
+      if (still) bolts[bolts.length - 1].born = now - bolts[bolts.length - 1].life * .3; /* a reader who asked for less motion gets one still frame, drawn mid-life */
+      if (big) flashes.push({ born: now, s: bolts[bolts.length - 1] }); }
+    function shape(b, w, h, now) { var s = b.s + b.v * (now - b.born), rim = [], pts = [];
+      for (var d = 0; d <= b.L; d += 8) { var e = edge(s + d, w, h); rim.push([e[0], e[1]]); pts.push([e[0] + e[2] * (Math.random() * 5 - 1.5), e[1] + e[3] * (Math.random() * 5 - 1.5)]); }
+      b.rim = rim; b.pts = jag(pts, b.big ? 9 : 7); b.mid = edge(s + b.L / 2, w, h); b.br = null;
+      if (Math.random() < (b.big ? .55 : .2)) { var k = Math.floor(Math.random() * b.pts.length), st = b.pts[k], n = edge(s + k * b.L / b.pts.length, w, h), len = 8 + Math.random() * (b.big ? 18 : 10);
+        b.br = jag([st, [st[0] + n[2] * len + (Math.random() - .5) * 12, st[1] + n[3] * len + (Math.random() - .5) * 12]], 9); }
+      b.next = now + 40 + Math.random() * 40; }
+    function line(pts, width, color, blur, alpha) { cx.globalAlpha = alpha; cx.lineWidth = width; cx.strokeStyle = color; cx.shadowColor = C2; cx.shadowBlur = blur;
+      cx.beginPath(); cx.moveTo(pts[0][0], pts[0][1]); for (var i = 1; i < pts.length; i++) cx.lineTo(pts[i][0], pts[i][1]); cx.stroke(); }
+    function frame(now) {
+      var wh = size(), w = wh[0], h = wh[1];
+      cx.setTransform(dpr, 0, 0, dpr, 0, 0); cx.clearRect(0, 0, w, h);
+      if (on) {
+        while (bolts.length < 3 || (bolts.length < 7 && Math.random() < .07)) spawn(w, h, now);
+        bolts = bolts.filter(function (b) { return now - b.born < b.life; });
+        flashes = flashes.filter(function (f) { return now - f.born < 240; });
+        cx.lineCap = cx.lineJoin = 'round';
+        cx.save(); cx.beginPath(); cx.rect(M, M, w - 2 * M, h - 2 * M); cx.clip(); cx.globalCompositeOperation = 'lighter';
+        flashes.forEach(function (f) { var b = f.s; if (!b.mid) return; var a = .32 * (1 - (now - f.born) / 240), g = cx.createRadialGradient(b.mid[0], b.mid[1], 0, b.mid[0], b.mid[1], 70);
+          g.addColorStop(0, rgba(C2, a)); g.addColorStop(1, rgba(C3, 0)); cx.globalAlpha = 1; cx.fillStyle = g; cx.fillRect(M, M, w - 2 * M, h - 2 * M); });
+        cx.restore();
+        bolts.forEach(function (b) { if (now >= b.next) shape(b, w, h, now);
+          var k = (now - b.born) / b.life, f = Math.min(1, k * 6) * Math.pow(1 - k, .6) * (.6 + Math.random() * .4);
+          line(b.rim, 5, rgba(C2, .35), 10, f);
+          line(b.pts, b.big ? 5 : 4, rgba(C3, .6), 14, f); line(b.pts, b.big ? 1.8 : 1.3, C1, 8, f);
+          if (b.br) { line(b.br, 2.5, rgba(C3, .5), 10, f * .8); line(b.br, 1, C1, 6, f * .8); } });
+        cx.globalAlpha = 1; cx.shadowBlur = 0;
+      }
+      if (!still) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  });
+})();
