@@ -21,9 +21,9 @@
 .wf-feed-i.v4-rare { isolation: isolate; background: none; }
 .wf-feed-i.v4-rare::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; transition: box-shadow .4s;
   background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); } /* theme.css's plate, unchanged */
-.v4-rare-volt.is-live::before { box-shadow: inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 12px rgba(57, 85, 232, .4); }
-.v4-rare-orbit.is-live::before { box-shadow: inset 0 0 0 1px rgba(246, 201, 21, .4), 0 0 12px rgba(246, 201, 21, .22); }
-.v4-rare-plasma.is-live::before { box-shadow: 0 0 12px rgba(210, 43, 206, .45); }
+.v4-rare-volt:is(.is-live, .is-calm)::before { box-shadow: inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 12px rgba(57, 85, 232, .4); }
+.v4-rare-orbit:is(.is-live, .is-calm)::before { box-shadow: inset 0 0 0 1px rgba(246, 201, 21, .4), 0 0 12px rgba(246, 201, 21, .22); }
+.v4-rare-plasma:is(.is-live, .is-calm)::before { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--r) 45%, transparent), 0 0 12px rgba(210, 43, 206, .45); }
 .v4-rare.is-live .wf-feed-hit .wf-feed-art { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 8px color-mix(in srgb, var(--rd-c2) 55%, transparent)); }
 
 /* the background layer, under the hexagon: cut out where the hexagon stands, founder, "на фоне совсем под ромбом тоже" */
@@ -43,15 +43,16 @@
 
 /* the header is sticky at z-index 30 and would hide the flame, so a live rare card stands over it while the page is at its top, as on
    rare-drops.html where the founder took it; once the page scrolls, the header covers the strip again as it covers everything */
-.wf-feed-i.v4-rare.is-live { z-index: 31; }
-.v4-scrolled .wf-feed-i.v4-rare.is-live { z-index: auto; }
+.wf-feed-i.v4-rare-plasma.is-live { z-index: 31; }
+.v4-scrolled .wf-feed-i.v4-rare-plasma.is-live { z-index: auto; } /* only the plasma has a flame to show over it */
 /* the effect canvases: on the card, 8px past it; the plasma's flame behind the plate, its tips about 40px over the card */
 .v4-rare-fx { position: absolute; inset: -8px; width: calc(100% + 16px); height: calc(100% + 16px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }
 .v4-rare-sparks { position: absolute; left: -8px; top: -8px; width: calc(100% + 16px); height: calc(100% + 8px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }
 .v4-rare-fire { position: absolute; z-index: -2; top: -100px; left: -14%; width: 128%; height: calc(60% + 100px); pointer-events: none; opacity: 0; transition: opacity .5s; }
 .v4-rare.is-live .v4-rare-fx, .v4-rare.is-live .v4-rare-sparks, .v4-rare.is-live .v4-rare-fire { opacity: 1; }
 
-/* the plasma's frame, an equalizer in the rarity's colour, as rare-drops.css's .rd-eq */
+/* the plasma's frame, an equalizer in the rarity's colour, as rare-drops.css's .rd-eq, without its two drop shadows: a filter over a
+   background repainted every frame was the costliest layer on the card */
 @property --v4-eql { syntax: '<percentage>'; inherits: false; initial-value: 40%; }
 @property --v4-eqr { syntax: '<percentage>'; inherits: false; initial-value: 40%; }
 .v4-rare-eq { position: absolute; inset: 0; z-index: 3; border-radius: inherit; padding: 1.5px; pointer-events: none; opacity: 0; transition: opacity .4s;
@@ -60,7 +61,6 @@
     linear-gradient(to top, color-mix(in srgb, var(--r) 55%, white) 0%, var(--r) calc(var(--v4-eqr) * .45), transparent var(--v4-eqr)) right / 50% 100% no-repeat,
     color-mix(in srgb, var(--r) 22%, transparent);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  filter: drop-shadow(0 0 3px var(--r)) drop-shadow(0 0 8px color-mix(in srgb, var(--r) 60%, transparent));
   animation: v4-eq-l 1.7s ease-in-out infinite, v4-eq-r 1.3s ease-in-out infinite; }
 .v4-rare.is-live .v4-rare-eq { opacity: 1; }
 @keyframes v4-eq-l { 0%, 100% { --v4-eql: 30%; } 14% { --v4-eql: 72%; } 26% { --v4-eql: 45%; } 41% { --v4-eql: 88%; } 55% { --v4-eql: 36%; } 70% { --v4-eql: 64%; } 84% { --v4-eql: 92%; } }

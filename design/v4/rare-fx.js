@@ -13,15 +13,24 @@
   function watch(cv) { var st = { on: true }; if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { st.on = e[0].isIntersecting; }).observe(cv); return st; }
 
   // a 2D canvas loop: sizes the canvas to its box, clears it, calls draw while it should
+  // PERFORMANCE, founder of 1 Nov 2026: "у меня теперь страница лагает". Measured on v4's Home in headless Chrome: with three rare cards
+  // live, 650ms of main thread work a second against 224 without them, script itself only 28, so the cost was painting. So: no shadowBlur
+  // anywhere, a glow is a second, wider, fainter stroke; a 2D effect draws 30 times a second, at most 1.5 device pixels per CSS pixel; a
+  // canvas off screen or not live is neither drawn nor cleared; a canvas taken out of the page stops, and a WebGL one gives its context
+  // back. With rare.js keeping one card live at a time it measured 245 against 198.
+  var DPR = Math.min(window.devicePixelRatio || 1, 1.5), STEP = 32;
   function loop2d(cv, draw) {
-    var cx = cv.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2), st = watch(cv), t0 = performance.now();
+    var cx = cv.getContext('2d'), st = watch(cv), t0 = performance.now(), lastDraw = -1e9, dirty = false;
     function frame(now) {
       if (!cv.isConnected) return;
-      var w = cv.clientWidth, h = cv.clientHeight;
-      if (cv.width !== w * dpr || cv.height !== h * dpr) { cv.width = w * dpr; cv.height = h * dpr; }
-      cx.setTransform(dpr, 0, 0, dpr, 0, 0); cx.clearRect(0, 0, w, h);
-      if (st.on && live(cv) && w && h) draw(cx, w, h, still ? t0 + 2600 : now);
-      if (!still || !w) requestAnimationFrame(frame);
+      if (!still) requestAnimationFrame(frame);
+      if (now - lastDraw < STEP && !still) return;
+      var w = cv.clientWidth, h = cv.clientHeight, go = st.on && live(cv) && w && h;
+      if (!go && !dirty) { if (still && !w) requestAnimationFrame(frame); return; }
+      lastDraw = now;
+      if (cv.width !== Math.round(w * DPR) || cv.height !== Math.round(h * DPR)) { cv.width = Math.round(w * DPR); cv.height = Math.round(h * DPR); }
+      cx.setTransform(DPR, 0, 0, DPR, 0, 0); cx.clearRect(0, 0, w, h); dirty = false;
+      if (go) { draw(cx, w, h, still ? t0 + 2600 : now); dirty = true; }
     }
     requestAnimationFrame(frame);
   }
@@ -33,8 +42,10 @@
   function jag(pts, rough) { for (var pass = 0; pass < 3; pass++) { var out = [pts[0]]; for (var i = 1; i < pts.length; i++) { var p = pts[i - 1], q = pts[i];
     var mx = (p[0] + q[0]) / 2, my = (p[1] + q[1]) / 2, dx = q[0] - p[0], dy = q[1] - p[1], len = Math.hypot(dx, dy) || 1, o = (Math.random() - .5) * rough * len / 14;
     out.push([mx - dy / len * o, my + dx / len * o], q); } pts = out; rough *= .6; } return pts; }
-  function stroke(cx, pts, width, color, glow, blur, alpha) { cx.globalAlpha = alpha; cx.lineWidth = width; cx.strokeStyle = color; cx.shadowColor = glow; cx.shadowBlur = blur;
-    cx.beginPath(); cx.moveTo(pts[0][0], pts[0][1]); for (var i = 1; i < pts.length; i++) cx.lineTo(pts[i][0], pts[i][1]); cx.stroke(); }
+  function stroke(cx, pts, width, color, glow, blur, alpha) {
+    cx.beginPath(); cx.moveTo(pts[0][0], pts[0][1]); for (var i = 1; i < pts.length; i++) cx.lineTo(pts[i][0], pts[i][1]);
+    if (blur) { cx.globalAlpha = alpha * .22; cx.lineWidth = width + blur; cx.strokeStyle = glow; cx.stroke(); }
+    cx.globalAlpha = alpha; cx.lineWidth = width; cx.strokeStyle = color; cx.stroke(); }
 
   var FX = {};
 
@@ -73,9 +84,12 @@
     var C = colours(cv); ['c1', 'c2', 'c3', 'c4'].forEach(function (k, i) { var c = rgb(C[i]); gl.uniform3f(gl.getUniformLocation(pr, k), c[0], c[1], c[2]); });
     gl.uniform1f(gl.getUniformLocation(pr, 'inside'), inside ? 1 : 0);
     // behind a card the flame is soft and drawn at three quarters; inside a card it is small and drawn sharp
-    var ur = gl.getUniformLocation(pr, 'r'), ut = gl.getUniformLocation(pr, 't'), st = watch(cv), t0 = performance.now(), sc = inside ? Math.min(window.devicePixelRatio || 1, 2) : .75;
+    var ur = gl.getUniformLocation(pr, 'r'), ut = gl.getUniformLocation(pr, 't'), st = watch(cv), t0 = performance.now(), sc = inside ? DPR : .75;
+    var lastDraw = -1e9;
     function frame(now) {
-      if (!cv.isConnected) return;
+      if (!cv.isConnected) { var lose = gl.getExtension('WEBGL_lose_context'); if (lose) lose.loseContext(); return; }
+      if (now - lastDraw < STEP && !still) { requestAnimationFrame(frame); return; }
+      lastDraw = now;
       var w = Math.round(cv.clientWidth * sc), hgt = Math.round(cv.clientHeight * sc);
       if (cv.width !== w || cv.height !== hgt) { cv.width = w; cv.height = hgt; gl.viewport(0, 0, w, hgt); }
       if (st.on && live(cv) && w && hgt) { gl.uniform2f(ur, w, hgt); gl.uniform1f(ut, still ? 3.0 : (now - t0) / 1000); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); }
@@ -145,8 +159,9 @@
     function comet(cx, w, h, head, P, strength) {
       var tail = P * .34, n = 48;
       for (var i = 0; i < n; i++) { var u0 = i / n, p = edge(head - u0 * tail, w, h), q = edge(head - (i + 1) / n * tail, w, h), k = Math.pow(1 - u0, 1.8);
-        cx.globalAlpha = k * strength; cx.lineWidth = .6 + 2.6 * (1 - u0); cx.strokeStyle = u0 < .15 ? C[0] : (u0 < .5 ? C[1] : C[2]); cx.shadowColor = C[1]; cx.shadowBlur = 8;
-        cx.beginPath(); cx.moveTo(p[0], p[1]); cx.lineTo(q[0], q[1]); cx.stroke(); }
+        cx.beginPath(); cx.moveTo(p[0], p[1]); cx.lineTo(q[0], q[1]);
+        cx.globalAlpha = k * strength * .2; cx.lineWidth = 6 * (1 - u0) + 1; cx.strokeStyle = C[1]; cx.stroke();
+        cx.globalAlpha = k * strength; cx.lineWidth = .6 + 2.6 * (1 - u0); cx.strokeStyle = u0 < .15 ? C[0] : (u0 < .5 ? C[1] : C[2]); cx.stroke(); }
       var e = edge(head, w, h), g = cx.createRadialGradient(e[0], e[1], 0, e[0], e[1], 6);
       g.addColorStop(0, rgba(C[0], strength)); g.addColorStop(.5, rgba(C[1], .6 * strength)); g.addColorStop(1, rgba(C[1], 0));
       cx.globalAlpha = 1; cx.shadowBlur = 0; cx.fillStyle = g; cx.beginPath(); cx.arc(e[0], e[1], 6, 0, TAU); cx.fill();
@@ -161,7 +176,7 @@
       cx.globalCompositeOperation = 'lighter'; cx.lineCap = 'round';
       comet(cx, w, h, head, P, 1); comet(cx, w, h, head + P / 2, P, .4);
       sparks = sparks.filter(function (s) { var k = (now - s.born) / s.life; if (k >= 1) return false; var t = (now - s.born) / 1000;
-        var x = s.x + s.vx * t, y = s.y + s.vy * t; cx.globalAlpha = Math.pow(1 - k, 1.4); cx.strokeStyle = k < .3 ? C[0] : C[1]; cx.lineWidth = 1.2; cx.shadowColor = C[1]; cx.shadowBlur = 4;
+        var x = s.x + s.vx * t, y = s.y + s.vy * t; cx.globalAlpha = Math.pow(1 - k, 1.4); cx.strokeStyle = k < .3 ? C[0] : C[1]; cx.lineWidth = 1.2;
         cx.beginPath(); cx.moveTo(x, y); cx.lineTo(x - s.vx * .08, y - s.vy * .08); cx.stroke(); return true; });
       cx.globalAlpha = 1; cx.shadowBlur = 0; cx.globalCompositeOperation = 'source-over';
     });
@@ -198,14 +213,14 @@
       for (var m = 0; m < 3; m++) { var span = w - 2 * M + 60, mx = M - 30 + ((now / 1000 * (8 + m * 4) + m * 45) % span), my = h - M - 6 - m * 5, g = cx.createRadialGradient(mx, my, 0, mx, my, 30);
         g.addColorStop(0, rgba(C[1], .16)); g.addColorStop(1, rgba(C[1], 0)); cx.fillStyle = g; cx.fillRect(M, M, w - 2 * M, h - 2 * M); }
       cx.restore();
-      cx.lineCap = 'round'; cx.shadowColor = C[2]; cx.shadowBlur = 4;
+      cx.lineCap = 'round';
       var tips = [];
       crystals.forEach(function (c) { var age = now - c.born, fade = Math.min(1, (c.die + 500 - now) / 500), a = Math.max(0, fade) * (.78 + .22 * Math.sin(now / 420 + c.ph));
         c.segs.forEach(function (s) { var p = Math.max(0, Math.min(1, (age - s.t0) / (s.t1 - s.t0))); if (!p) return;
           var x = s.x1 + (s.x2 - s.x1) * p, y = s.y1 + (s.y2 - s.y1) * p; cx.globalAlpha = a; cx.strokeStyle = rgba(C[0], .9); cx.lineWidth = s.w;
           cx.beginPath(); cx.moveTo(s.x1, s.y1); cx.lineTo(x, y); cx.stroke(); if (p === 1 && fade === 1) tips.push([s.x2, s.y2]); }); });
       if (tips.length && glints.length < 4 && (still || Math.random() < .08)) { var t = tips[Math.floor(Math.random() * tips.length)]; glints.push({ x: t[0], y: t[1], born: still ? now - 200 : now, life: 350 + Math.random() * 300, r: 2.5 + Math.random() * 2.5 }); }
-      cx.globalCompositeOperation = 'lighter'; cx.shadowColor = C[1]; cx.shadowBlur = 6; cx.strokeStyle = C[0]; cx.lineWidth = 1;
+      cx.globalCompositeOperation = 'lighter'; cx.strokeStyle = C[0]; cx.lineWidth = 1.2;
       glints = glints.filter(function (g) { var k = (now - g.born) / g.life; if (k >= 1) return false; var r = g.r * Math.sin(Math.PI * k);
         cx.globalAlpha = Math.sin(Math.PI * k); cx.beginPath(); cx.moveTo(g.x - r, g.y); cx.lineTo(g.x + r, g.y); cx.moveTo(g.x, g.y - r); cx.lineTo(g.x, g.y + r); cx.stroke(); return true; });
       cx.globalAlpha = 1; cx.shadowBlur = 0; cx.globalCompositeOperation = 'source-over';
@@ -225,8 +240,9 @@
       ps = ps.filter(function (p) { var k = (now - p.born) / p.life; if (k >= 1 || p.y < 1) return false;
         p.y -= p.vy * dt; if (Math.random() < .12) p.fl = .35 + Math.random() * .65;
         var x = p.x + Math.sin(p.ph + (now - p.born) / 1000 * p.fq * TAU) * p.amp, a = Math.min(1, k * 8) * Math.pow(1 - k, 1.6) * p.fl;
-        cx.globalAlpha = a; cx.fillStyle = p.c; cx.shadowColor = p.c; cx.shadowBlur = 5;
-        cx.beginPath(); cx.arc(x, p.y, p.r * (1 - k * .4), 0, TAU); cx.fill(); return true; });
+        var r = p.r * (1 - k * .4); cx.fillStyle = p.c;
+        cx.globalAlpha = a * .25; cx.beginPath(); cx.arc(x, p.y, r * 2.6, 0, TAU); cx.fill();
+        cx.globalAlpha = a; cx.beginPath(); cx.arc(x, p.y, r, 0, TAU); cx.fill(); return true; });
       cx.globalAlpha = 1; cx.shadowBlur = 0; cx.globalCompositeOperation = 'source-over';
     });
   };

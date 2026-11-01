@@ -43,6 +43,10 @@
     // the hit lands as the arrival settles, on its own animationend so the swing is never cut short
     var hit = false;
     function land() { if (hit) return; hit = true;
+      // one rare card burns at a time: the one before calms to its lit frame, and its canvases go, which stops their loops
+      Array.prototype.forEach.call(document.querySelectorAll('.v4-rare.is-live'), function (o) {
+        o.classList.remove('is-live'); o.classList.add('is-calm');
+        Array.prototype.forEach.call(o.querySelectorAll('canvas'), function (c) { c.remove(); }); });
       li.classList.add('is-hit', 'is-live');
       [li.nextElementSibling, li.nextElementSibling && li.nextElementSibling.nextElementSibling].forEach(function (n) {
         if (!n) return; n.classList.add('v4-shoved'); setTimeout(function () { n.classList.remove('v4-shoved'); }, 650); });
