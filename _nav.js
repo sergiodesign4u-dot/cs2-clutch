@@ -57,9 +57,28 @@ window.NAV = [
   { label: 'Wireframes',         pageLabel: 'Overview',  page: 'wireframes/overview.html', done: true },
   { label: 'Voice',              pageLabel: 'Voice',     page: 'voice/voice.html',         done: true },
 
+  // Each Home in colour is registered under its version, the current one first, founder of 1 November 2026: "надо добавить концепты
+  // v1-v4 какие есть и в текущем ... Concept v4 а в нем подпункты Home rare-drops cases". Every one was a satellite of concept.html before.
   { label: 'Concept', wip: true, children: [
       { label: 'Directions', page: 'design/concept/directions.html', done: true },
-      { label: 'Concept',    page: 'design/concept/concept.html',    done: true }
+      { label: 'Concept',    page: 'design/concept/concept.html',    done: true },
+      { subhead: 'Concept v4', items: [
+          { label: 'Home',        pageLabel: 'Home v4',            page: 'design/v4/index.html',      live: true },
+          { label: 'Rare drops',  pageLabel: 'Rare drops v4',      page: 'design/v4/rare-drops.html', live: true },
+          { label: 'Case screen', pageLabel: 'Case screen v4',     page: 'design/v4/case.html',       done: false }
+      ]},
+      { subhead: 'Concept v3', items: [
+          { label: 'Home',        pageLabel: 'Home v3',            page: 'design/v3/index.html',      live: true }
+      ]},
+      { subhead: 'Concept v2', items: [
+          { label: 'Home, direction A', pageLabel: 'Home v2 A',    page: 'design/v2-a/index.html',    live: true },
+          { label: 'Home, direction B', pageLabel: 'Home v2 B',    page: 'design/v2-b/index.html',    live: true },
+          { label: 'Home, direction C', pageLabel: 'Home v2 C',    page: 'design/v2-c/index.html',    live: true }
+      ]},
+      { subhead: 'Concept v1', items: [
+          { label: 'Home',           pageLabel: 'Home v1',           page: 'design/index.html',         live: true },
+          { label: 'Home, signed in', pageLabel: 'Home v1 signed in', page: 'design/index-account.html', live: true }
+      ]}
   ]},
 
   { label: 'UI + Visual',        pageLabel: 'Overview',  page: 'design/overview.html',     done: false },
@@ -479,6 +498,28 @@ window.NAV = [
   // The off-canvas toggle and the section observer are the same on every panel, so
   // they live in one function that both the inner panel and the roadmap call once.
   function mountChrome() {
+  // From 900px the panel can be put away, founder of 1 November 2026: "хочу чтобы панель скрывалась ... полосочку между боковой
+  // панелью и сайтом с тремя кружками ... нажимаешь и панель скрывается, потом нажимаешь обратно и появляется". A grip with three
+  // dots sits on the seam; hidden, the panel slides out, --nav-w drops to 0 so every page that keeps clear of it takes the width,
+  // and the grip stays at the window's edge as a tab. The choice is kept per browser.
+  var grip = el('button', 'nav-grip');
+  grip.type = 'button';
+  grip.appendChild(el('span', 'nav-grip-dots'));
+  document.body.appendChild(grip);
+  function setHidden(v) {
+    document.documentElement.classList.toggle('nav-is-hidden', v);
+    grip.setAttribute('aria-expanded', String(!v));
+    grip.setAttribute('aria-label', v ? 'Show navigation' : 'Hide navigation');
+    grip.title = v ? 'Show navigation' : 'Hide navigation';
+    try { localStorage.setItem('nav-hidden', v ? '1' : '0'); } catch (e) {}
+    // pages that measure their own body (the Home copies' rail) re-measure on resize
+    window.dispatchEvent(new Event('resize'));
+  }
+  var wasHidden = false;
+  try { wasHidden = localStorage.getItem('nav-hidden') === '1'; } catch (e) {}
+  setHidden(wasHidden);
+  grip.addEventListener('click', function () { setHidden(!document.documentElement.classList.contains('nav-is-hidden')); });
+
   // Mobile: the panel is off-canvas below 900px and needs a way in.
   var toggle = el('button', 'nav-toggle', '☰');
   toggle.setAttribute('aria-label', 'Toggle navigation');

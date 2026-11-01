@@ -147,3 +147,22 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
   to { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rd-c2) 75%, transparent), 0 0 28px color-mix(in srgb, var(--rd-c3) 60%, transparent); } }
 .rd-arc .rd-rare .rd-skin { animation: none; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 8px color-mix(in srgb, var(--rd-c2) 60%, transparent)); }
 .rd-arc .rd-arc-gl { position: absolute; inset: -18px; width: calc(100% + 36px); height: calc(100% + 36px); z-index: 4; pointer-events: none; }
+
+/* ===== H's frame, founder of 1 Nov 2026: "бордер обводки карточки самой сделай тоже с анимацией типа в цвет рарити ... а цвет плазмы сзади
+   оставлял как есть ... снизу вверх (не до конца как градиент) становится ярче и тусклее ... как эквалайзер". A 1.5px ring in the rarity's
+   colour: its light rises from the foot and falls back, the left and the right side each on its own beat, never quite reaching the top;
+   a faint full ring stays under it so the card keeps its edge. ===== */
+@property --rd-eql { syntax: '<percentage>'; inherits: false; initial-value: 40%; }
+@property --rd-eqr { syntax: '<percentage>'; inherits: false; initial-value: 40%; }
+.rd-plasma .rd-rare::before { box-shadow: 0 0 22px color-mix(in srgb, var(--rd-c3) 45%, transparent); } /* the pink ring gives way to the rarity's */
+.rd-eq { position: absolute; inset: 0; z-index: 3; border-radius: 8px; padding: 1.5px; pointer-events: none;
+  background:
+    linear-gradient(to top, color-mix(in srgb, var(--r) 55%, white) 0%, var(--r) calc(var(--rd-eql) * .45), transparent var(--rd-eql)) left / 50% 100% no-repeat,
+    linear-gradient(to top, color-mix(in srgb, var(--r) 55%, white) 0%, var(--r) calc(var(--rd-eqr) * .45), transparent var(--rd-eqr)) right / 50% 100% no-repeat,
+    color-mix(in srgb, var(--r) 22%, transparent);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  filter: drop-shadow(0 0 3px var(--r)) drop-shadow(0 0 8px color-mix(in srgb, var(--r) 60%, transparent));
+  animation: rd-eq-l 1.7s ease-in-out infinite, rd-eq-r 1.3s ease-in-out infinite, rd-eq-glow .9s ease-in-out infinite alternate; }
+@keyframes rd-eq-l { 0%, 100% { --rd-eql: 30%; } 14% { --rd-eql: 72%; } 26% { --rd-eql: 45%; } 41% { --rd-eql: 88%; } 55% { --rd-eql: 36%; } 70% { --rd-eql: 64%; } 84% { --rd-eql: 92%; } }
+@keyframes rd-eq-r { 0%, 100% { --rd-eqr: 55%; } 18% { --rd-eqr: 28%; } 33% { --rd-eqr: 80%; } 47% { --rd-eqr: 50%; } 62% { --rd-eqr: 94%; } 78% { --rd-eqr: 34%; } 90% { --rd-eqr: 70%; } }
+@keyframes rd-eq-glow { from { opacity: .75; } to { opacity: 1; } }

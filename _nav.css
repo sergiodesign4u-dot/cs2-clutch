@@ -1,7 +1,7 @@
 /* Look of the roadmap sidebar. Structure comes from /_nav.js, look comes from here,
    and no page describes nav-* rules of its own: one <link> is the whole contract.
-   Theme is nine variables. Eight are the course set; --nav-bg is added because the
-   panel is fixed over page content and needs an opaque plate of its own. */
+   Theme is ten variables. Eight are the course set; --nav-bg is added because the
+   panel is fixed over page content and needs an opaque plate of its own, --nav-w-open because --nav-w is the room pages keep and is 0 while the panel is put away. */
 
 :root {
   --nav-bg:     #050320;
@@ -10,7 +10,8 @@
   --nav-muted:  #6f6b90;
   --nav-rule:   rgba(255, 255, 255, 0.08);
   --nav-badge:  #fada62;
-  --nav-w:      248px;
+  --nav-w-open: 248px;
+  --nav-w:      var(--nav-w-open); /* drops to 0 while the panel is put away, see the grip below */
   --nav-size:   13px;
   --nav-lh:     1.45;
 }
@@ -19,7 +20,7 @@
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 200;
-  width: var(--nav-w);
+  width: var(--nav-w-open);
   padding: 26px 14px 40px;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -116,6 +117,28 @@ a.nav-sibling:hover { opacity: 1; background: rgba(255, 255, 255, 0.05); }
 .nav-sibling-l { flex: 1 1 auto; min-width: 0; font-size: 12.5px; line-height: 1.35; }
 .nav-siblings > .nav-sections { padding-left: 37px; margin: 0 0 5px; }
 
+/* From 900px the panel can be put away with a grip on its seam, founder of 1 November 2026. Hidden, it slides out and --nav-w
+   drops to 0, so every page that keeps clear of the panel by var(--nav-w) takes the width; the grip stays at the edge as a tab. */
+#sidebar { transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); }
+.nav-grip {
+  position: fixed; z-index: 201; top: 120px; left: calc(var(--nav-w) - 7px);
+  width: 14px; height: 64px; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer;
+  background: var(--nav-bg); border: 1px solid var(--nav-rule); border-radius: 7px;
+  transition: left 0.22s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s, background 0.15s;
+}
+.nav-grip:hover, .nav-grip:focus-visible { border-color: var(--nav-active); background: #120a2e; outline: none; }
+.nav-grip-dots, .nav-grip-dots::before, .nav-grip-dots::after { width: 4px; height: 4px; border-radius: 50%; background: var(--nav-muted); }
+.nav-grip-dots { position: relative; }
+.nav-grip-dots::before, .nav-grip-dots::after { content: ''; position: absolute; left: 0; }
+.nav-grip-dots::before { top: -8px; }
+.nav-grip-dots::after { top: 8px; }
+.nav-grip:hover .nav-grip-dots, .nav-grip:hover .nav-grip-dots::before, .nav-grip:hover .nav-grip-dots::after { background: var(--nav-active); }
+@media (min-width: 900px) {
+  :root.nav-is-hidden { --nav-w: 0px; }
+  :root.nav-is-hidden #sidebar { transform: translateX(-100%); }
+  :root.nav-is-hidden .nav-grip { left: 0; border-left: 0; border-radius: 0 7px 7px 0; }
+}
+
 /* Off-canvas below 900px */
 .nav-toggle {
   position: fixed; z-index: 202; top: 12px; left: 12px;
@@ -133,4 +156,5 @@ a.nav-sibling:hover { opacity: 1; background: rgba(255, 255, 255, 0.05); }
   #sidebar { padding-top: 62px; transform: translateX(-100%); transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); }
   #sidebar.is-open { transform: translateX(0); }
   .nav-toggle { display: flex; }
+  .nav-grip { display: none; }
 }
