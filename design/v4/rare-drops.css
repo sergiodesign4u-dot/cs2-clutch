@@ -174,9 +174,6 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
    угол сверху" or as a chip; the crown "больше и обрезать ... в угол нижний правый". So each tier plays in a strip built as v4's live drops,
    the same 104px card, between a header and a banner 8px away, and no effect reaches further than that off its card. Built by rare-drops.js. ===== */
 .rd-note { margin: 8px 0 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 70ch; }
-.rd-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; font-size: 14px; color: var(--color-text-soft); }
-.rd-ctl-b { padding: 7px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .16); background: transparent; color: var(--color-text-hi); font: inherit; font-weight: 700; cursor: pointer; }
-.rd-ctl-b[aria-pressed="true"] { background: var(--color-pink); border-color: transparent; }
 .rd-tier { margin-top: 40px; }
 .rd-tier h2 { margin: 0 0 4px; font-size: 20px; font-weight: 900; }
 .rd-tier p { margin: 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 70ch; }
@@ -192,7 +189,7 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .rd-sim { position: relative; margin-top: 16px; padding: 8px 12px 0; border-radius: 14px; background: var(--color-ground); overflow: hidden; }
 .rd-sim-hdr { height: 56px; border-radius: 14px; background: linear-gradient(to bottom, #17153F, #0B0A22); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); } /* stands in for v4's header strip, 56px */
 .rd-sim-ban { height: 64px; border-radius: 14px 14px 0 0; background: url(art/banner-plate.webp) center 35% / cover; } /* the top of v4's banner */
-.rd-sim-strip { position: relative; z-index: 2; margin: -2px 0; padding: 10px 0; overflow: hidden; } /* 10px of room round the cards, 8px of it before the header and the banner */
+.rd-sim-strip { position: relative; z-index: 2; margin: -2px 0; padding: 10px 0; overflow-x: clip; overflow-y: visible; } /* 10px of room round the cards, 8px of it before the header and the banner */
 .rd-sim-run { display: flex; gap: 6px; padding-left: 8px; }
 .rd-replay { position: absolute; z-index: 5; top: 18px; right: 24px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .2); background: rgba(6, 10, 30, .7); color: var(--color-text-hi); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
 .rd-replay:hover { border-color: var(--rd-c2); }
@@ -235,25 +232,13 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .rd-fx-gl { position: absolute; inset: -8px; width: calc(100% + 16px); height: calc(100% + 16px); z-index: 4; pointer-events: none; opacity: 0; transition: opacity .4s; }
 .rd-spark-gl { position: absolute; left: -8px; top: -8px; width: calc(100% + 16px); height: calc(100% + 8px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }
 .rd-d.is-live .rd-fx-gl, .rd-d.is-live .rd-spark-gl { opacity: 1; }
-/* the chance: large in the background, top left, or a chip; the page's switch picks */
+/* the chance, large in the background at the top left; founder of 1 Nov 2026 took it over the chip */
 .rd-chance-bg { position: absolute; top: 3px; left: 5px; font-size: 24px; font-weight: 900; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; opacity: .55;
   background: linear-gradient(to bottom, #FFF8D6, var(--r)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.rd-chance-chip { position: absolute; z-index: 3; top: 5px; left: 5px; display: none; padding: 2px 5px; border-radius: 999px; font-size: 10px; font-weight: 800; line-height: 1.2; font-variant-numeric: tabular-nums;
-  color: #FFE07A; background: rgba(15, 14, 43, .88); border: 1px solid var(--r); box-shadow: 0 0 8px color-mix(in srgb, var(--r) 45%, transparent); }
-.rd-chance-is-chip .rd-chance-bg { display: none; }
-.rd-chance-is-chip .rd-chance-chip { display: block; }
-/* the crown, large, cut off by the lower right corner */
-.rd-crown { position: absolute; right: -18px; bottom: -14px; width: 86px; height: 64px; transform: rotate(-16deg); opacity: .8; filter: drop-shadow(0 0 3px rgba(6, 4, 30, .7)); } /* a dark rim so it reads over the plasma */
+/* the crown, large, cut off by the lower right corner, faint, under everything */
+.rd-crown { position: absolute; right: -18px; bottom: -14px; width: 86px; height: 64px; transform: rotate(-16deg); opacity: .2; } /* founder: "корону наверное прозрачной сделаем на фоне под всем" */
 .rd-crown::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFE27A, var(--r) 45%, #B87800);
   -webkit-mask: var(--rd-crown) center / contain no-repeat; mask: var(--rd-crown) center / contain no-repeat; }
-/* or the crown on the top edge, founder: "корона может налазить на хедер, поэтому я бы её сделал меньше и чуть сместил бы вниз": 26px wide,
-   sunk into the frame so it rises 7px over the card, within the 8px to the header */
-.rd-crown-top { position: absolute; z-index: 4; top: -7px; left: 50%; width: 26px; height: 19px; margin-left: -13px; display: none; pointer-events: none;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .8)) drop-shadow(0 0 5px var(--r)); }
-.rd-crown-top::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFF8D6, var(--r) 50%, #9A6400);
-  -webkit-mask: var(--rd-crown) center / contain no-repeat; mask: var(--rd-crown) center / contain no-repeat; }
-.rd-crown-is-top .rd-crown { display: none; }
-.rd-crown-is-top .rd-crown-top { display: block; }
 /* each tier's frame once it is live */
 .rd-t-volt .rd-d.is-live::before { box-shadow: inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 12px rgba(57, 85, 232, .4); }
 .rd-t-orbit .rd-d.is-live::before { box-shadow: inset 0 0 0 1px rgba(246, 201, 21, .4), 0 0 12px rgba(246, 201, 21, .22); }
@@ -267,7 +252,12 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
   background: repeating-conic-gradient(from 0deg, rgba(255, 226, 140, .32) 0 7deg, transparent 7deg 22deg);
   -webkit-mask: radial-gradient(closest-side, #000 15%, transparent); mask: radial-gradient(closest-side, #000 15%, transparent); animation: rd-turn 14s linear infinite; }
 .rd-d.is-live .rd-rays-in { opacity: 1; }
-/* plasma: the flame inside the card, under the hexagon and the skin */
-.rd-fire-in { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .5s; }
-.rd-d.is-live .rd-fire-in { opacity: .6; } /* held back so the names stay readable over it */
-@media (prefers-reduced-motion: reduce) { .rd-d, .rd-d *, .rd-d::before { animation: none !important; transition: none !important; } }
+
+/* After the pick of 1 Nov 2026: lightning and the golden orbit are taken; the orbit "лучше давай на фоне совсем под ромбом тоже", so the
+   whole background layer, the rays and the chance with it, is cut out where the hexagon stands and reads as lying under it. The plasma is
+   to be edited: the crown faint under everything, and "пламя снаружи сделаем, посмотрим как будет выглядеть", so the flame burns behind
+   the card again, its tips about 40px over its top; in a real strip that is over the header, and the page shows it as it would be. */
+.rd-bg { -webkit-mask: linear-gradient(#000 0 0), var(--shape-hex-fill) 50% 7px / 78px 68px no-repeat; -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) exclude, var(--shape-hex-fill) 50% 7px / 78px 68px no-repeat; } /* the hexagon's own place, top 7px, 78 by 68 */
+.rd-fire-out { position: absolute; z-index: -2; top: -100px; left: -14%; width: 128%; height: calc(60% + 100px); /* the shader's flame tops out near two thirds of its canvas, so its tips stand about 40px over the card */ pointer-events: none; opacity: 0; transition: opacity .5s; }
+.rd-d.is-live .rd-fire-out { opacity: 1; }

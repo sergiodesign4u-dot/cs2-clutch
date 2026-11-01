@@ -255,7 +255,6 @@
   function rareCard(fx, chance, crown) {
     var d = card('karambit-tiger-tooth', '★ Karambit', 'Tiger Tooth', 'r1'); d.classList.add('is-rare');
     var bg = deco(el('span', 'rd-bg'));
-    if (fx === 'plasma') bg.appendChild(el('canvas', 'rd-fire-in'));
     if (fx === 'orbit') bg.appendChild(el('span', 'rd-rays-in'));
     bg.appendChild(el('span', 'rd-chance-bg', chance));
     if (crown) bg.appendChild(el('span', 'rd-crown'));
@@ -263,12 +262,11 @@
     d.insertBefore(deco(el('span', 'rd-flash')), d.firstChild); d.insertBefore(deco(el('span', 'rd-wave')), d.firstChild);
     if (fx === 'plasma') { d.appendChild(deco(el('span', 'rd-eq'))); d.appendChild(deco(el('canvas', 'rd-spark-gl'))); }
     else d.appendChild(deco(el('canvas', 'rd-fx-gl')));
-    if (crown) d.appendChild(deco(el('span', 'rd-crown-top')));
-    d.appendChild(el('span', 'rd-chance-chip', chance));
+    if (fx === 'plasma') d.insertBefore(deco(el('canvas', 'rd-fire-out')), d.firstChild); // behind the plate, rising over the card
     return d;
   }
   function mount(d, fx) {
-    if (fx === 'plasma') { FX.fire(d.querySelector('.rd-fire-in'), true); FX.sparks(d.querySelector('.rd-spark-gl')); }
+    if (fx === 'plasma') { FX.fire(d.querySelector('.rd-fire-out'), false); FX.sparks(d.querySelector('.rd-spark-gl')); }
     else FX[fx](d.querySelector('.rd-fx-gl'), 8);
   }
   Array.prototype.forEach.call(document.querySelectorAll('.rd-tier'), function (sec) {
@@ -294,13 +292,4 @@
     else play();
   });
 
-  // the page's switches: the chance large in the background or as a chip, the crown in the corner or on the top edge
-  Array.prototype.forEach.call(document.querySelectorAll('.rd-ctl'), function (g) {
-    var bs = g.querySelectorAll('.rd-ctl-b');
-    Array.prototype.forEach.call(bs, function (b) { b.addEventListener('click', function () {
-      Array.prototype.forEach.call(bs, function (o) { o.setAttribute('aria-pressed', String(o === b)); });
-      if (b.hasAttribute('data-chance')) document.body.classList.toggle('rd-chance-is-chip', b.getAttribute('data-chance') === 'chip');
-      if (b.hasAttribute('data-crown')) document.body.classList.toggle('rd-crown-is-top', b.getAttribute('data-crown') === 'top');
-    }); });
-  });
 })();
