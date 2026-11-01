@@ -236,7 +236,7 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .rd-chance-bg { position: absolute; top: 3px; left: 5px; font-size: 24px; font-weight: 900; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; opacity: .55;
   background: linear-gradient(to bottom, #FFF8D6, var(--r)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 /* the crown, large, cut off by the lower right corner, faint, under everything */
-.rd-crown { position: absolute; right: -5px; bottom: -3px; width: 56px; height: 42px; transform: rotate(-12deg); opacity: .42; } /* founder: "корону наверное прозрачной сделаем на фоне под всем", then "корону чуть поправим": smaller, so the whole crown sits in the corner under the hexagon and reads as one, only its right tip cut */
+.rd-crown { position: absolute; right: -8px; bottom: -5px; width: 66px; height: 50px; transform: rotate(-24deg); opacity: .42; } /* founder: "корону наверное прозрачной сделаем на фоне под всем", then "корону чуть поправим": smaller, so the whole crown sits in the corner under the hexagon and reads as one, only its right tip cut */
 .rd-crown::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFE27A, var(--r) 45%, #B87800);
   -webkit-mask: var(--rd-crown) center / contain no-repeat; mask: var(--rd-crown) center / contain no-repeat; }
 /* each tier's frame once it is live */
