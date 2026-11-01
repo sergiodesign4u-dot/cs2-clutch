@@ -230,7 +230,7 @@ Objects with no parent in any of the three legal classes. They are not in the ma
 |---|---|---|
 | Referral and affiliate standing | The baseline runs `/en/affiliate-program`, and `aarrr.md` "MVP product decision" treats it as a business line | **No user job stands behind it**, stated in `cjm-to-be.md`. It is locked into LATER by scope, so no step may cut it, and it has to acquire a parent before its own round opens |
 | Giveaway entry | The baseline runs `/en/giveaways` | No parent named anywhere |
-| Gunfight | The baseline runs `/en/gunfights` | No parent named anywhere |
+| Showdown | The baseline runs `/en/gunfights`, its own name, renamed here by `D-210` | No parent named anywhere |
 | Race and prize pot | The baseline runs `/en/race` and gives the pot the most valuable slot in its header | No parent named anywhere. Its position on the baseline is the most prominent of any parentless object |
 | Rewards hub, top wins, gift cards | The baseline runs `/en/rewards`, `/en/top-wins`, `/en/gift-cards` | No parent named anywhere |
 | Case category or collection | The baseline groups 239 cases into 13 categories | No job requires grouping. It becomes required only if the catalogue stays large, which `D-D` decides. Carried as a part of Case marked `[?]` rather than promoted |
@@ -463,7 +463,7 @@ Thirteen screens, listed once and specified in no round. They are in the map so 
 | **8.4** | Exchange | Hypothesis Job A, `jtbd.md` "Section 4" | Parent is a hypothesis marked `[?]` at its own source |
 | **8.5** | Rakeback and loyalty | Emotional Job 3, `jtbd.md` "Section 3" | The only mechanism for EJ3, which is why round 1 ships none |
 | **8.6** | Leaderboard | Hypothesis Job C, `jtbd.md` "Section 4" | Parent is a hypothesis marked `[?]` |
-| **8.7** | Gunfights | **None** | `[ORPHAN]` |
+| **8.7** | Showdowns | **None** | `[ORPHAN]` |
 | **8.8** | Giveaways | **None** | `[ORPHAN]` |
 | **8.9** | Race and prize pot | **None** | `[ORPHAN]` |
 | **8.10** | Rewards hub | **None** | `[ORPHAN]` |
@@ -696,7 +696,7 @@ Written at step 5, on 11 August 2026. Rows are the functional jobs from `jtbd.md
 | Exchange | Hypothesis Job A, `jtbd.md` "Section 4" | Parent is marked `[?]` at its own source |
 | Rakeback and loyalty | Emotional Job 3, `jtbd.md` "Section 3" | Emotional job, second table |
 | Leaderboard | Hypothesis Job C, `jtbd.md` "Section 4" | Parent is marked `[?]` |
-| Gunfights, Giveaways, Race and prize pot, Rewards hub, Top wins, Gift cards, Referral and affiliate | **None** | Seven declared orphans, already carried in the concept sitemap. Locked into LATER by scope, so no step may cut them. **Top wins was restored here at step 7:** it was in the step 1 object list and vanished from the step 2 screen list, which is why the count read seven while six were named |
+| Showdowns, Giveaways, Race and prize pot, Rewards hub, Top wins, Gift cards, Referral and affiliate | **None** | Seven declared orphans, already carried in the concept sitemap. Locked into LATER by scope, so no step may cut them. **Top wins was restored here at step 7:** it was in the step 1 object list and vanished from the step 2 screen list, which is why the count read seven while six were named |
 
 ### Orphan jobs, first, because they cost more
 

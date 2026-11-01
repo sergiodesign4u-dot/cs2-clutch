@@ -1054,7 +1054,7 @@ window.WF_PAY = window.WF_PAY || {
   // cards on Home have said it since D-27. Not a precedent for any other carrier.
   function railItems() {
     return [{ label: WF_STR.cases, file: 'catalogue.html' }]
-      .concat(['Case battles', 'Gunfights', 'Upgrade', 'Giveaways', 'Rewards hub', 'Top wins', 'Affiliate program', 'Exchange']
+      .concat(['Case battles', 'Showdowns', 'Upgrade', 'Giveaways', 'Rewards hub', 'Top wins', 'Affiliate program', 'Exchange']
         .map(function (l) { return { label: l, later: true }; }));
   }
 
@@ -4145,9 +4145,9 @@ window.WF_PAY = window.WF_PAY || {
     out.push('<section class="wf-banner wf-event" aria-label="Event">' +
       '<div class="wf-banner-art" aria-hidden="true"></div>' +
       '<p class="wf-banner-line wf-event-name">Coldfront week</p>' +
-      '<div class="wf-event-clock" role="timer" aria-label="Time left in Coldfront week" data-ends="2026-10-24T18:00:00Z">' +
+      '<div class="wf-event-clock" role="timer" aria-label="Time left in Coldfront week" data-ends="2026-11-30T18:00:00Z">' +
         cell('d', 'Days') + cell('h', 'Hours') + cell('m', 'Minutes') + cell('s', 'Seconds') +
-        '<span class="wf-event-end">Ends 24 Oct 2026, 18:00 UTC</span></div>' +
+        '<span class="wf-event-end">Ends 30 Nov 2026, 18:00 UTC</span></div>' +
       '<a class="wf-btn wf-event-go" href="' + caseHref('Coldfront', account) + '">See Coldfront</a></section>');
 
     // B3, THE H1, one line and centred over the cards, which is the
@@ -4166,7 +4166,7 @@ window.WF_PAY = window.WF_PAY || {
     // the cards say what they are. The H2 stays for the outline, hidden.
     out.push('<section class="wf-sec wf-sec--flush" aria-labelledby="h2-modes"><h2 id="h2-modes" class="wf-vh">Ways to play</h2><div class="wf-grid wf-modes">');
     [[WF_STR.cases, 'Open a case, see every chance.', true], ['Case battles', 'Open against someone, highest total wins.'],
-     ['Gunfights', 'One round, one opponent.'], ['Upgrade', 'Trade a skin for one worth more.']].forEach(function (m) {
+     ['Showdowns', 'One round, one opponent.'], ['Upgrade', 'Trade a skin for one worth more.']].forEach(function (m) {
       out.push('<article class="wf-mode' + (m[2] ? '' : ' is-later') + '"><span class="wf-mode-art" aria-hidden="true"></span><h3>' + m[0] + '</h3><p>' + m[1] + '</p>' +
         (m[2] ? '<a class="wf-btn" href="catalogue.html">Open a case</a>' : '<p class="wf-fig-missing">' + WF_STR.notLaunched + '</p>') + '</article>');
     });
@@ -4220,7 +4220,7 @@ window.WF_PAY = window.WF_PAY || {
 
   /* THE EVENT COUNTDOWN TICKS TO ITS PUBLISHED END, node 1.0 section 2.2 rule 2: it is
      computed from the end every second, never restarted per visit, and it stops at zero.
-     The end is a sample, D-124, so after 24 Oct 2026 the sample reads 00 everywhere. */
+     The end is a sample, D-124, so after 30 Nov 2026 the sample reads 00 everywhere. */
   function tickEvents() {
     var clocks = document.querySelectorAll('.wf-event-clock[data-ends]');
     if (!clocks.length) return;

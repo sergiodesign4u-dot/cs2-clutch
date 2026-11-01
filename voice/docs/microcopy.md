@@ -238,7 +238,7 @@ The Marks column flags where screens say the same thing in different words, or w
 | G166 | rail | Giveaways | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
 | G167 | rail | Rewards hub | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
 | G168 | rail | Top wins | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
-| G169 | rail | Affiliate program | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label; Case battles, Gunfights, Upgrade and Exchange, already inventoried, are now read in the rail too, recounted at step 8 |
+| G169 | rail | Affiliate program | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label; Case battles, Showdowns, Upgrade and Exchange, already inventoried, are now read in the rail too, recounted at step 8 |
 
 ## 2. By screen
 
@@ -293,7 +293,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.4-17 | main | Case battles | heading | `_nav.js dailyLadder/homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
 | 0.4-18 | main | Open against someone, highest total wins. | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | C10 | kept |
 | 0.4-19 | main | Not launched yet | text | `WF_STR.notLaunched`, `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept; since `D-199` also the rail's mark on its eight LATER rows, G165 |
-| 0.4-20 | main | Gunfights | heading | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
+| 0.4-20 | main | Showdowns | heading | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | renamed by `D-210`, was the baseline's own Gunfights |
 | 0.4-21 | main | One round, one opponent. | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | C9 | kept |
 | 0.4-22 | main | Upgrade | heading | `_nav.js homeBody/renderFooter` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
 | 0.4-23 | main | Trade a skin up for a better one. | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | C10 | Trade a skin for one worth more. |

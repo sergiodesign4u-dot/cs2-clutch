@@ -54,7 +54,7 @@ body:where(:has(> .wf-screen-body)) { background: radial-gradient(70% 50% at 50%
 .wf-mode.is-later .wf-mode-art { opacity: .7; }
 .wf-mode:has([data-icon="box"]) { --mode-art: url(art/mode-cases.webp); }
 .wf-mode:has([data-icon="battle"]) { --mode-art: url(art/mode-battles.webp); }
-.wf-mode:has([data-icon="target"]) { --mode-art: url(art/mode-gunfights.webp); }
+.wf-mode:has([data-icon="target"]) { --mode-art: url(art/mode-showdowns.webp); }
 .wf-mode:has([data-icon="arrow-up"]) { --mode-art: url(art/mode-upgrade.webp); }
 .wf-mode .wf-fig-missing { background: color-mix(in srgb, var(--color-ground) 70%, transparent); box-shadow: inset 0 0 0 1px var(--a-line); }
 

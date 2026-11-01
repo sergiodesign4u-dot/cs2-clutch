@@ -43,9 +43,9 @@
 
 **No parent, printed.** Events have no row in the CJM To-Be backlog and no parent in the three legal classes. The banner is carried by founder decision, `D-169`, as it was by `D-25`, and the cost `D-25` printed stands: a countdown beside a route to spending is pressure.
 
-**Samples, `D-124`, marked here:** the event, "Coldfront week", its end, 24 Oct 2026, 18:00 UTC, ~~and the time left, 6 d 08 h 39 m~~ **and the countdown, which since `D-172` is computed from that end every second.** The prototype draws one event to show the principle; which events run is operations', not this node's.
+**Samples, `D-124`, marked here:** the event, "Coldfront week", its end, 30 Nov 2026, 18:00 UTC, ~~and the time left, 6 d 08 h 39 m~~ **and the countdown, which since `D-172` is computed from that end every second.** The prototype draws one event to show the principle; which events run is operations', not this node's.
 
-**Extended the same day by `D-172`: the banner's anatomy is the baseline's**, founder capture `research/screens/baseline/founder_event_banner_17oct.png`, `baseline.md` section 12. The art fills the banner and carries the event's name; the countdown is a box in the top right corner, days, hours, minutes and seconds, ticking to the published end and stopping at zero; the one control sits centred at the foot. **One thing is ours:** the end is printed under the four figures, "Ends 24 Oct 2026, 18:00 UTC", because a clock with no stated end is the urgency `voice.md` "Forbidden" names. At 360px the art is taller, 1000 by 640, so the name, the box and the control do not touch; the H1 still begins on the first screen, at 485px against 584px.
+**Extended the same day by `D-172`: the banner's anatomy is the baseline's**, founder capture `research/screens/baseline/founder_event_banner_17oct.png`, `baseline.md` section 12. The art fills the banner and carries the event's name; the countdown is a box in the top right corner, days, hours, minutes and seconds, ticking to the published end and stopping at zero; the one control sits centred at the foot. **One thing is ours:** the end is printed under the four figures, "Ends 30 Nov 2026, 18:00 UTC", because a clock with no stated end is the urgency `voice.md` "Forbidden" names. At 360px the art is taller, 1000 by 640, so the name, the box and the control do not touch; the H1 still begins on the first screen, at 485px against 584px.
 
 ---
 
@@ -269,7 +269,7 @@
 
 1. **An unlaunched card carries no control, no link, no badge and no date.** It says "Not launched yet" in words. `D-19` calls advertising a destination that does not exist the rail defect, and the difference here is that the card states the absence rather than implying availability.
 2. **It never becomes a waiting list.** No notify control, no email field, no "coming soon" counter. That would turn a marked gap into an acquisition surface for a product that does not exist.
-3. **A card gains its link on the day its node exists**, not on the day the mode is announced. `case battles`, `gunfights` and `upgrades` are `LATER` in `CLAUDE.md` scope with no node, no route and no page.
+3. **A card gains its link on the day its node exists**, not on the day the mode is announced. `case battles`, `showdowns` and `upgrades` are `LATER` in `CLAUDE.md` scope with no node, no route and no page.
 4. **It is not a hub and it does not grow one.** Four cards, and a fifth arrives only with a fifth way to play. `home.md` section 0 refuses Clash.gg's hub of nine, and that refusal is unchanged: what `D-27` reversed is the deferral of the carrier, not the argument against a hub.
 
 **States:** the live card, and the unlaunched card. There is no third, and there is no loading state: this block renders from the map rather than from a feed.

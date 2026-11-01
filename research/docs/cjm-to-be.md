@@ -273,7 +273,7 @@ Eight groups cover the eight round 1 surfaces, and the mapping is not one to one
 | ~~Daily free case~~ | Founder Decision 3 at `jtbd.md:198`, plus the MVP product decision at `aarrr.md:172` | **Moved out of LATER on 11 August 2026.** It sat here provisionally for one step, the founder settled it, and it is now row I2 in group 8 with its missing parent stated there. The row is kept struck through rather than deleted, because the reason it was ever in LATER is the reason I2 carries a warning |
 | Referral programme | None in `jtbd.md`. A business line only, `aarrr.md:272` | **No user job stands behind it.** It is locked into LATER by scope, so this step cannot cut it. It has to acquire a parent before its own round opens |
 | Giveaways | None | Same |
-| Gunfights | None | Same |
+| Showdowns | None | Same |
 
 A distinction that is easy to lose and matters: **one-tap sharing of a result is not the referral programme.** Sharing is F4, it has a parent, and it is MVP. The referral and affiliate programme is a business mechanism with no job behind it and it is LATER.
 

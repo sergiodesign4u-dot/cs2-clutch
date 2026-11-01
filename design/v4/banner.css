@@ -110,8 +110,10 @@
      on its right, fills the right end; measured at 1440 */
   /* offsets scale with the banner: the case's centre stays near 55 % of its width; a right offset in % is read off the
      banner minus the picture, so 45 % plus a constant puts it there at every width (scene 1080px wide, plate 1315px) */
+  /* the plate never leaves the banner's edges, founder of 1 Nov 2026: "она не натянута у меня до конца". The 45 % offset walked it off the
+     right edge on any banner wider than 1124px, so the offset stops at the edge, and past 1315px wide, its width at 480px high, the plate grows with the banner */
   .wf-event { --scene-size: auto 480px; --scene-pos: right calc(45% + 214px) top -50px;
-    --plate: url(art/banner-plate-wide.webp); --plate-size: auto 480px; --plate-pos: right calc(45% + 86px) top -50px; }
+    --plate: url(art/banner-plate-wide.webp); --plate-size: max(100%, 1315px) auto; --plate-pos: right min(45% + 86px, 0px) top -50px; }
   .wf-event .wf-banner-art { height: 360px; }
   .wf-event .wf-event-name { width: min(380px, 100% - 420px); top: 28px; }
   .wf-event-clock { top: 28px; }
@@ -119,3 +121,15 @@
 }
 /* the plate lit a step, the founder asked for comp B's brightness: "перерисуй фон ярче как в B" */
 .wf-event::before { filter: brightness(1.08) saturate(1.1); }
+
+/* THE STORY, a draft on Wan 3.0, founder of 1 Nov 2026: "хочу историю на баннере ... на 10-15 секунд". The video lies over the still layers
+   and under the title, the countdown and the button, and fades in once it plays; the layers stop moving under it. banner-story.js starts it */
+.v4-story { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; pointer-events: none; opacity: 0; transition: opacity .6s ease; }
+.wf-event.has-story .v4-story { opacity: 1; }
+.wf-event.has-story::before, .wf-event.has-story::after, .wf-event.has-story .wf-banner-art::before, .wf-event.has-story .wf-banner-art::after { animation-play-state: paused; }
+/* a phone: the tall cut stands under the title and melts into the page above the countdown; the soldier and the case of the still layers leave so they do not show through the melt; measured at 360 */
+@media (max-width: 899px) {
+  .v4-story { inset: 40px 0 auto; height: 560px;
+    -webkit-mask: linear-gradient(to bottom, transparent, #000 44px, #000 76%, transparent); mask: linear-gradient(to bottom, transparent, #000 44px, #000 76%, transparent); }
+  .wf-event.has-story::after, .wf-event.has-story .wf-banner-art::after { opacity: 0; transition: opacity .6s ease; }
+}

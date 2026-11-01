@@ -53,7 +53,7 @@ One thing the re-run could not deliver, named rather than hidden: no product in 
 
 **Round 1:** home, case opening, registration and account, deposit, skin withdrawal to Steam, provably fair page with verification tool, geo block layer, responsible play page, public result page, roll history, profile, settings, public profile. Thirteen surfaces since `D-90` of 23 August 2026 added the public profile, twelve since `D-36` of 20 August 2026, and before that the list moved twice on 11 August 2026, both times by founder decision: responsible play was restored after the CJM stage found it named in the Lean UX canvas and dropped from both scope lists with no verdict, and the public result page was added at the 03b gate because row `F4` puts a shared object into the world and nothing said what that object was.
 
-**Later:** case battles, gunfights, upgrades, in-platform exchange, giveaways, leaderboards, referral programme, rakeback.
+**Later:** case battles, showdowns, upgrades, in-platform exchange, giveaways, leaderboards, referral programme, rakeback.
 
 ## Locked decisions
 

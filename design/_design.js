@@ -29,7 +29,7 @@
   // A placeholder icon, by the words beside it.
   var ICONS = {
     'Cases opened': 'box', 'Upgrades': 'arrow-up', 'Total users': 'users', 'Online now': 'pulse',
-    'Cases': 'box', 'Case battles': 'battle', 'Gunfights': 'target', 'Upgrade': 'arrow-up',
+    'Cases': 'box', 'Case battles': 'battle', 'Showdowns': 'target', 'Upgrade': 'arrow-up',
     // D-197: the rail's eight not launched yet, after the baseline's own marks.
     'Giveaways': 'diamond', 'Rewards hub': 'gift', 'Top wins': 'cup', 'Affiliate program': 'dollar', 'Exchange': 'swap'
   };

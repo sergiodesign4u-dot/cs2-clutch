@@ -9,7 +9,7 @@
 
 .wf-mode:has([data-icon="box"]) { --mode-obj: url(art/mode-cases-obj.webp); --mode-burst: url(art/mode-cases-burst.webp); }
 .wf-mode:has([data-icon="battle"]) { --mode-obj: url(art/mode-battles-obj2.webp); --mode-burst: url(art/mode-battles-burst2.webp); } /* redrawn by Codex on 1 Nov 2026 with A's X of light, a blue and a red streak crossing in a white burst between the cases */
-.wf-mode:has([data-icon="target"]) { --mode-obj: url(art/mode-gunfights-obj.webp); --mode-burst: url(art/mode-gunfights-burst.webp); }
+.wf-mode:has([data-icon="target"]) { --mode-obj: url(art/mode-showdowns-obj.webp); --mode-burst: url(art/mode-showdowns-burst.webp); }
 .wf-mode:has([data-icon="arrow-up"]) { --mode-obj: url(art/mode-upgrade-obj2.webp); --mode-burst: url(art/mode-upgrade-burst2.webp); } /* redrawn by Codex on 1 Nov 2026 as A's crisp golden crystal arrow rising out of crystal shards */
 
 .wf-grid.wf-modes { padding-top: 56px; row-gap: 64px; } /* room for the objects that break the cards' top edge; measured at 1440 */

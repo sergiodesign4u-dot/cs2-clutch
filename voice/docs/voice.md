@@ -197,6 +197,7 @@
 | **Hype adjectives** | amazing, epic, massive, incredible, exclusive, insane, unmatched, "nonstop excitement", "the thrill of" | The figure, or nothing |
 | **The exclamation mark**, anywhere in the product | "The page you are looking for is not available!" (baseline) · "Attention! Minimal deposit {n} BTC" (baseline) | "This page is not available." · "The smallest deposit is {n} BTC." |
 | **Alarm in capitals** | "ATTENTION!!! Before you submit this ticket, please review the ARTICLES HERE" (baseline) | "Most answers are already in Questions and answers, above." |
+| **The baseline's own mode names** | "Gunfights", "Shootings" (baseline) | "Showdowns" |
 | **A dead end** | "History is empty..." (baseline) · "Nothing here yet" | "No rounds yet. Open a case and it is listed here." |
 | **The loader's small talk** | "Magic is happening", "Preparing something special", "Hang tight" | Say what loads: "Reading the round" · or nothing |
 | **Celebrating a result** | "Congratulations!" · "Nice pull!" · "Better luck next time" · "Not bad!" | The item, its value, what can be done with it: "AK-47 Slate. Value 6.20 coins." |
