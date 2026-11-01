@@ -166,3 +166,29 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 @keyframes rd-eq-l { 0%, 100% { --rd-eql: 30%; } 14% { --rd-eql: 72%; } 26% { --rd-eql: 45%; } 41% { --rd-eql: 88%; } 55% { --rd-eql: 36%; } 70% { --rd-eql: 64%; } 84% { --rd-eql: 92%; } }
 @keyframes rd-eq-r { 0%, 100% { --rd-eqr: 55%; } 18% { --rd-eqr: 28%; } 33% { --rd-eqr: 80%; } 47% { --rd-eqr: 50%; } 62% { --rd-eqr: 94%; } 78% { --rd-eqr: 34%; } 90% { --rd-eqr: 70%; } }
 @keyframes rd-eq-glow { from { opacity: .75; } to { opacity: 1; } }
+
+/* ===== The tiers and the prize card, founder of 1 Nov 2026: "берем удар в целом как анимацию появления", lightning for drops of 1 to 5%,
+   plasma for those under 0.1%, a third look for 0.1 to 1% still to find; "карточку сделать более такую призовую ... корону в нижний правый
+   угол на фон ... а вверху процент ... вероятность с каким выпал скин" or "коронку сверху", so two layouts, A and B. The chance figure on
+   the card is a sample, D-124. ===== */
+.rd-note { margin: 8px 0 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 70ch; }
+.rd-tbd { padding: 16px; border: 1px dashed rgba(255, 255, 255, .14); border-radius: 14px; }
+:root { --rd-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M3 13 17 27 32 5 47 27 61 13 55 38H9Z'/%3E%3Crect x='9' y='40' width='46' height='6' rx='2'/%3E%3Ccircle cx='3' cy='11' r='3.5'/%3E%3Ccircle cx='32' cy='4' r='4'/%3E%3Ccircle cx='61' cy='11' r='3.5'/%3E%3C/svg%3E"); } /* drawn here, three peaks on a band */
+/* the chance, gold, as large as the card allows: the skin steps down to make room, the card keeps its height */
+.rd-chance { position: absolute; z-index: 3; top: 7px; left: 0; right: 0; text-align: center; font-size: 20px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums;
+  background: linear-gradient(to bottom, #FFF8D6, var(--r)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .9)) drop-shadow(0 0 6px color-mix(in srgb, var(--r) 70%, transparent)); }
+.rd-prize-a .rd-skin { height: 66px; margin-top: 22px; } /* 22 + 66 = 4 + 84, the card keeps the height of its neighbours */
+.rd-prize-a .rd-hex { top: 26px; }
+/* the crown: a masked gold plate inside a span that carries the glow, since a mask would cut a filter on the same box */
+.rd-crown { position: absolute; pointer-events: none; }
+.rd-crown::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFF8D6, var(--r) 50%, #9A6400);
+  -webkit-mask: var(--rd-crown) center / contain no-repeat; mask: var(--rd-crown) center / contain no-repeat; }
+.rd-prize-a .rd-crown { z-index: -1; right: 6px; bottom: 10px; width: 70px; height: 53px; transform: rotate(-14deg); opacity: .3; } /* behind the names, on the plate */
+.rd-prize-b .rd-crown { z-index: 4; top: -24px; left: 50%; width: 44px; height: 33px; margin-left: -22px;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .8)) drop-shadow(0 0 7px var(--r)); animation: rd-crown 2.4s ease-in-out infinite alternate; }
+@keyframes rd-crown { from { transform: translateY(0); } to { transform: translateY(-3px); } }
+.rd-prize-b .rd-chance { top: auto; bottom: -10px; left: 50%; right: auto; transform: translateX(-50%); z-index: 4; padding: 3px 9px; border-radius: 999px; font-size: 12px;
+  background: #0F0E2B; border: 1px solid var(--r); -webkit-text-fill-color: #FFE07A; color: #FFE07A; filter: drop-shadow(0 0 6px color-mix(in srgb, var(--r) 60%, transparent)); }
+/* the sparks, drawn by rare-drops.js over the plasma, in place of the dotted embers */
+.rd-spark-gl { position: absolute; left: -20%; bottom: 0; width: 140%; height: 190%; z-index: 3; pointer-events: none; }

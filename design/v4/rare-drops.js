@@ -145,3 +145,35 @@
     requestAnimationFrame(frame);
   });
 })();
+
+/* Sparks over the plasma, founder of 1 Nov 2026: "точки надо как-то сделать как искры, типа чуть мигать должны и затухать потихонечку, как
+   искры пламени", drawn as wavy lines rising through the card. Each spark rises from the card's lower part on a swaying path, flickers,
+   and fades out slowly over 1.4 to 3.4s; about 30 at once, in the variant's core and glow colours. */
+(function () {
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  Array.prototype.forEach.call(document.querySelectorAll('.rd-spark-gl'), function (cv) {
+    var cs = getComputedStyle(cv.closest('.rd-live')), C = [cs.getPropertyValue('--rd-hex-c1').trim(), cs.getPropertyValue('--rd-hex-c2').trim()];
+    var cx = cv.getContext('2d'), ps = [], dpr = Math.min(window.devicePixelRatio || 1, 2), on = true, last = performance.now();
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { on = e[0].isIntersecting; }).observe(cv);
+    function size() { var w = cv.clientWidth, h = cv.clientHeight; if (cv.width !== w * dpr || cv.height !== h * dpr) { cv.width = w * dpr; cv.height = h * dpr; } return [w, h]; }
+    function spawn(w, h, now) { var life = 1400 + Math.random() * 2000;
+      ps.push({ x: w * (.16 + Math.random() * .68), y: h - Math.random() * (h / 1.9) * .75, vy: 16 + Math.random() * 30, amp: 3 + Math.random() * 8, fq: .7 + Math.random() * 1.5,
+        ph: Math.random() * 6.3, born: still ? now - life * .4 : now, life: life, r: .9 + Math.random() * 1.4, c: C[Math.random() < .45 ? 0 : 1], fl: 1 }); }
+    function frame(now) {
+      var wh = size(), w = wh[0], h = wh[1], dt = Math.min(50, now - last) / 1000; last = now;
+      cx.setTransform(dpr, 0, 0, dpr, 0, 0); cx.clearRect(0, 0, w, h);
+      if (on) {
+        while (ps.length < 30 && (still || Math.random() < .35)) spawn(w, h, now);
+        cx.globalCompositeOperation = 'lighter';
+        ps = ps.filter(function (p) { var k = (now - p.born) / p.life; if (k >= 1 || p.y < 0) return false;
+          p.y -= p.vy * dt; if (Math.random() < .12) p.fl = .35 + Math.random() * .65;
+          var x = p.x + Math.sin(p.ph + (now - p.born) / 1000 * p.fq * 6.283) * p.amp, a = Math.min(1, k * 8) * Math.pow(1 - k, 1.6) * p.fl;
+          cx.globalAlpha = a; cx.fillStyle = p.c; cx.shadowColor = p.c; cx.shadowBlur = 6;
+          cx.beginPath(); cx.arc(x, p.y, p.r * (1 - k * .4), 0, 6.283); cx.fill(); return true; });
+        cx.globalAlpha = 1; cx.shadowBlur = 0; cx.globalCompositeOperation = 'source-over';
+      }
+      if (!still) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  });
+})();
