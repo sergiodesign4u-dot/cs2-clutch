@@ -257,7 +257,7 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
    whole background layer, the rays and the chance with it, is cut out where the hexagon stands and reads as lying under it. The plasma is
    to be edited: the crown faint under everything, and "пламя снаружи сделаем, посмотрим как будет выглядеть", so the flame burns behind
    the card again, its tips about 40px over its top; in a real strip that is over the header, and the page shows it as it would be. */
-.rd-bg { -webkit-mask: linear-gradient(#000 0 0), var(--shape-hex-fill) 50% 7px / 78px 68px no-repeat; -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) exclude, var(--shape-hex-fill) 50% 7px / 78px 68px no-repeat; } /* the hexagon's own place, top 7px, 78 by 68 */
+.rd-d.is-rare .rd-d-hex { background: linear-gradient(135deg, transparent 34%, color-mix(in srgb, var(--r) 85%, transparent)); } /* the background lies under the hexagon,
+   whose inner plate clears towards its upper left corner, founder: "подложку самую внутреннюю всё-таки с прозрачностью у левого верхнего угла" */
 .rd-fire-out { position: absolute; z-index: -2; top: -100px; left: -14%; width: 128%; height: calc(60% + 100px); /* the shader's flame tops out near two thirds of its canvas, so its tips stand about 40px over the card */ pointer-events: none; opacity: 0; transition: opacity .5s; }
 .rd-d.is-live .rd-fire-out { opacity: 1; }

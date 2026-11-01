@@ -26,10 +26,11 @@
 .v4-rare-plasma:is(.is-live, .is-calm)::before { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--r) 45%, transparent), 0 0 12px rgba(210, 43, 206, .45); }
 .v4-rare.is-live .wf-feed-hit .wf-feed-art { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 8px color-mix(in srgb, var(--rd-c2) 55%, transparent)); }
 
-/* the background layer, under the hexagon: cut out where the hexagon stands, founder, "на фоне совсем под ромбом тоже" */
-.v4-rare-bg { position: absolute; inset: 0; z-index: 0; border-radius: inherit; overflow: hidden; pointer-events: none;
-  -webkit-mask: linear-gradient(#000 0 0), var(--shape-hex-fill) 50% 7px / 78px 68px no-repeat; -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) exclude, var(--shape-hex-fill) 50% 7px / 78px 68px no-repeat; }
+/* the background layer, under the hexagon, founder: "на фоне совсем под ромбом тоже". It is no longer cut out where the hexagon stands:
+   it lies under it, and the hexagon's inner plate clears towards its upper left corner, founder of 1 Nov 2026, "давай сделаем подложку
+   самую внутреннюю всё-таки с прозрачностью у левого верхнего угла", so the chance and the rays show through there and fade under the rest */
+.v4-rare-bg { position: absolute; inset: 0; z-index: 0; border-radius: inherit; overflow: hidden; pointer-events: none; }
+.v4-rare .wf-feed-hit::before { background: linear-gradient(135deg, transparent 34%, color-mix(in srgb, var(--r) 85%, transparent)); } /* theme.css clears to 12% */
 .v4-rare-chance { position: absolute; top: 3px; left: 5px; font-size: 24px; font-weight: 900; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; opacity: .55;
   background: linear-gradient(to bottom, #FFF8D6, var(--r)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; } /* the chance it dropped with, a sample, D-124 */
 .v4-rare-rays { position: absolute; top: -28px; left: 50%; width: 150px; height: 150px; margin-left: -75px; border-radius: 50%; opacity: 0; transition: opacity .6s;
