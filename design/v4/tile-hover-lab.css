@@ -1,0 +1,81 @@
+/* design/v4/tile-hover-lab.css, a satellite of v4: the card a case tile raises under the pointer, six fills side by side on the real tiles.
+ * Founder of 2 Nov 2026: "вроде и норм но что то не так, может прозрачность добавить, может градиентом прозрачность, может есть еще
+ * какие то варианти". The tiles are Home's own markup with Home's own css; only the card's fill differs per row. */
+
+body { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.hl { max-width: 1240px; margin: 0 auto; padding: 32px 20px 80px; }
+@media (min-width: 900px) { .hl { margin-left: calc(var(--nav-w, 248px) + 24px); margin-right: 24px; max-width: none; } }
+.hl h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.hl > p { margin: 0 0 16px; max-width: 92ch; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; }
+.hl-opts { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0 0 28px; }
+.hl-pin { display: inline-flex; align-items: center; gap: 10px; color: var(--color-text-soft); font-size: 14px; cursor: pointer; }
+.hl-pin input { width: 18px; height: 18px; accent-color: var(--color-pink); }
+
+.hv { margin: 0 0 40px; }
+.hv-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 0 0 18px; }
+.hv-h h2 { margin: 0; font-size: 20px; font-weight: 900; }
+.hv-h p { margin: 0; color: var(--color-text-soft); font-size: 14px; line-height: 1.45; }
+.hv-h .hv-rec { padding: 3px 8px; border-radius: 6px; background: var(--color-pink); color: var(--color-text-hi); font-size: 12px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.hv .wf-grid { padding-top: 12px; }
+
+/* each case's two fill colours and its light, the same values case-tiles.css uses for --tile-g */
+.wf-tile:has([data-art="case-blue"]) { --c1: #3955E8; --c2: #1B2A8F; --hue: #65A3FF; }
+.wf-tile:has([data-art="case-gold"]) { --c1: #B57A06; --c2: #B4400F; --hue: #FFC44D; }
+.wf-tile:has([data-art="case-pink"]) { --c1: #FB3F8A; --c2: #8E2BC9; --hue: #FB3F8A; }
+.wf-tile:has([data-art="case-violet"]) { --c1: #8E2BC9; --c2: #3B1A8F; --hue: #A35CFF; }
+.wf-tile:has([data-art="case-ember"]) { --c1: #D1273E; --c2: #7A0F22; --hue: #FF5A4E; }
+
+/* A keeps the solid card Home had before row G was chosen, so the row still shows what "now" was */
+.hv[data-v="a"] .v4-fx { background: var(--tile-g); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), 0 14px 30px rgba(4, 6, 20, .5); -webkit-mask: none; mask: none; }
+.hv:is([data-v="b"], [data-v="d"], [data-v="e"], [data-v="f"]) .v4-fx { -webkit-mask: none; mask: none; }
+/* B. glass: the same colours at 42%, the page blurred behind, a thin light edge */
+.hv[data-v="b"] .v4-fx { background: linear-gradient(120deg, color-mix(in srgb, var(--c1) 42%, transparent), color-mix(in srgb, var(--c2) 42%, transparent));
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18), 0 14px 30px rgba(4, 6, 20, .5); }
+/* C. gradient fade: full colour at the foot, fading out toward the case */
+.hv[data-v="c"] .v4-fx { -webkit-mask: linear-gradient(to top, #000 30%, transparent 100%); mask: linear-gradient(to top, #000 30%, transparent 100%); box-shadow: none; }
+/* D. edge: a dark card with a 2px edge in the case's light, a little colour rising from the foot */
+.hv[data-v="d"] .v4-fx { background: linear-gradient(to top, color-mix(in srgb, var(--c1) 30%, transparent), rgba(11, 10, 34, .85) 70%);
+  box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--hue), 0 14px 30px rgba(4, 6, 20, .5); }
+/* E. striped and muted: the daily cards' and the rail's stripes, the colour toned down, a soft light in the case's colour */
+.hv[data-v="e"] .v4-fx { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--c1) 55%, #0F0E2B), color-mix(in srgb, var(--c2) 50%, #0B0A22));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 18px 30px rgba(6, 10, 30, .6), 0 0 30px color-mix(in srgb, var(--hue) 35%, transparent); }
+/* F. dark with a lit top: navy tinted by the case colour, a 2px line of its light along the top */
+.hv[data-v="f"] .v4-fx { background: linear-gradient(180deg, color-mix(in srgb, var(--c1) 22%, #100E2E), #0B0A22);
+  box-shadow: inset 0 var(--size-edge, 2px) 0 var(--hue), inset 0 0 0 1px rgba(255, 255, 255, .08), 0 14px 30px rgba(4, 6, 20, .5); }
+
+/* G. C and E together, founder of 2 Nov 2026: the stripes over the case's full colour, fading out toward the case */
+.hv[data-v="g"] .v4-fx { background: var(--btn-stripes), var(--tile-g); -webkit-mask: linear-gradient(to top, #000 30%, transparent 100%); mask: linear-gradient(to top, #000 30%, transparent 100%); box-shadow: none; }
+/* H. the same with E's muted colour */
+.hv[data-v="h"] .v4-fx { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--c1) 55%, #0F0E2B), color-mix(in srgb, var(--c2) 50%, #0B0A22));
+  -webkit-mask: linear-gradient(to top, #000 30%, transparent 100%); mask: linear-gradient(to top, #000 30%, transparent 100%); box-shadow: none; }
+
+/* "centre the case", founder of 2 Nov 2026: "кейс стоит вроде по центру но визуально смотриться из-за подложки смещенным". Measured on
+   all five cases-v2/*-c pictures: the case's body, the lower third, spans 7% to 79% of the picture, its middle at 43.2%, while the
+   open lid reaches right. The picture moves right by 6.8% of its width so the body, not the picture, stands on the card's centre line */
+.hl.is-centred .wf-tile-art[data-art] { translate: 6.8% 0; }
+.hl:not(.is-centred) .wf-tile-art[data-art] { translate: none; }
+
+/* "show every card": the card raised on every tile at once, for comparing without the pointer */
+.hl.is-pinned .v4-fx { opacity: 1; translate: 0 0; }
+
+/* the four risk bands side by side */
+.hv-bands { display: flex; flex-wrap: wrap; gap: 16px 40px; }
+.hv-bands > div { display: grid; justify-items: center; gap: 6px; }
+.hv-bands b { color: var(--color-text-soft); font-size: 13px; }
+
+/* round 2, founder of 2 Nov 2026: a plate under the price on G's colour. Each shows under the pointer, on keyboard focus and with every
+   card shown; at rest the price stays plain, as on Home */
+.hl-round { margin: 8px 0 6px; font-size: 22px; font-weight: 900; }
+.hl-round-p { margin: 0 0 24px; max-width: 92ch; color: var(--color-text-soft); font-size: 14px; line-height: 1.5; }
+.hv[data-p] .wf-tile-price { transition: background .2s, box-shadow .2s, padding .2s; border-radius: 10px; }
+.hv[data-p="1"] :is(.wf-tile:hover, .wf-tile:focus-within) .wf-tile-price, .hl.is-pinned .hv[data-p="1"] .wf-tile-price {
+  padding: 0 14px; background: rgba(11, 10, 34, .82); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
+.hv[data-p="2"] :is(.wf-tile:hover, .wf-tile:focus-within) .wf-tile-price, .hl.is-pinned .hv[data-p="2"] .wf-tile-price {
+  padding: 0 14px; background: rgba(11, 10, 34, .85); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-money, #FFC44D); }
+.hv[data-p="3"] :is(.wf-tile:hover, .wf-tile:focus-within) .wf-tile-price, .hl.is-pinned .hv[data-p="3"] .wf-tile-price {
+  padding: 0 14px; background: var(--color-money, #FFC44D); box-shadow: 0 6px 16px rgba(6, 10, 30, .4); }
+.hv[data-p="3"] :is(.wf-tile:hover, .wf-tile:focus-within) .wf-tile-cost, .hl.is-pinned .hv[data-p="3"] .wf-tile-cost { color: #16133C; }
+.hv[data-p="4"] .v4-fx::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(to top, rgba(11, 10, 34, .88) 0, rgba(11, 10, 34, .55) 26%, transparent 52%); }
+.hv[data-p="5"] .v4-fx::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 64px; border-radius: 0 0 16px 16px; background: rgba(11, 10, 34, .82); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1); }
+/* P1 is on Home now through case-tiles.css, so P0 takes the pill away again to keep showing what was before */
+.hv[data-p="0"] .wf-tile .wf-tile-price { padding: 0; background: none; box-shadow: none; }

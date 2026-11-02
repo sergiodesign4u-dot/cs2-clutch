@@ -1,0 +1,30 @@
+/* design/v4/buttons.css, one button for v4, founder of 2 Nov 2026: "кнопки везде сделать одинаковые по закруглениям и по типам большая
+ * средняя и маленькая которые мы сможем переиспользовать дальше по сайту". One radius, three sizes, two kinds. .v4-btn with --l, --m or
+ * --s and --ghost is the class to reuse; the block under it binds the buttons Home already has to the same values. */
+
+:root { --btn-radius: 10px; --btn-l: 52px; --btn-m: 40px; --btn-s: 32px; --btn-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .1) 0 14px, transparent 14px 28px); }
+
+.v4-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; border: 0; border-radius: var(--btn-radius); color: var(--color-text-hi); font-family: inherit; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; cursor: pointer; background: var(--btn-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); transition: filter .2s, translate .2s, box-shadow .2s; }
+.v4-btn--l { min-height: var(--btn-l); padding: 0 28px; font-size: 16px; }
+.v4-btn--m { min-height: var(--btn-m); padding: 0 20px; font-size: 13px; }
+.v4-btn--s { min-height: var(--btn-s); padding: 0 14px; font-size: 12px; }
+/* the ghost, founder of 2 Nov 2026: "Ghost кнопки ну такое себе, может розовий бордер?". The pink edge of --size-edge, the baseline's own rose border */
+.v4-btn--ghost { background: rgba(11, 10, 34, .55); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); transition: filter .2s, translate .2s, box-shadow .2s, background-color .2s; }
+@media (hover: hover) {
+  .v4-btn--ghost:not([aria-disabled="true"]):not(:disabled):hover { filter: none; background: rgba(251, 63, 138, .16); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink), 0 6px 18px rgba(251, 63, 138, .22); }
+}
+.v4-btn[aria-disabled="true"], .v4-btn:disabled { color: var(--color-text-soft); background: rgba(150, 160, 215, .14); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); cursor: not-allowed; }
+.v4-btn:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+@media (hover: hover) {
+  .v4-btn:not([aria-disabled="true"]):not(:disabled):hover { filter: brightness(1.1); translate: 0 -1px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v4-btn { transition: none; }
+  .v4-btn:hover { translate: none; }
+}
+
+/* Home's buttons, bound to the same values; the rail's sound and language controls are not buttons of this family */
+html body a.wf-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: var(--btn-m); padding: 0 20px; border: 0; border-radius: var(--btn-radius); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; background: var(--btn-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); }
+html body a.wf-btn.wf-event-go { min-height: var(--btn-l); padding: 0 28px; font-size: 16px; }
+html body .wf-grid .wf-mode > a.wf-btn, html body .wf-grid .wf-mode > .wf-fig-missing { min-height: var(--btn-m); border-radius: var(--btn-radius); padding: 0; font-size: min(13px, 4.6cqw); letter-spacing: .06em; }
+html body .wf-screen-body a.wf-btn:not(.wf-event-go) { min-height: var(--btn-m); font-size: 13px; }

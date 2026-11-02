@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="../../_nav.css">
+  <style>
+    body { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+    main { max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; }
+    @media (min-width: 1100px) { main { margin-left: calc(var(--nav-w, 248px) + 40px); } }
+    h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+    main > p { margin: 0 0 32px; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; }
+    .bl { display: grid; grid-template-columns: 110px repeat(3, auto); gap: 20px 24px; align-items: center; justify-content: start; }
+    .bl b { color: var(--color-text-soft); font-size: 13px; font-weight: 700; }
+    @media (max-width: 640px) { .bl { grid-template-columns: 1fr; justify-items: start; } }
+  </style>
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A satellite of v4: the one button of v4, founder of 2 Nov 2026. One radius, three sizes, two kinds, and the disabled state. -->
+<main>
+  <h1>Buttons</h1>
+  <p>One radius of 10px. Large 52px, medium 40px, small 32px. Use <code>.v4-btn</code> with <code>--l</code>, <code>--m</code> or <code>--s</code>, and <code>--ghost</code> for the quiet kind: a dark fill with the 2px pink edge, which fills with pink under the pointer.</p>
+  <div class="bl">
+    <b></b><b>Large</b><b>Medium</b><b>Small</b>
+    <b>Primary</b><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a>
+    <b>Ghost</b><a class="v4-btn v4-btn--l v4-btn--ghost" href="#b">All cases</a><a class="v4-btn v4-btn--m v4-btn--ghost" href="#b">Support</a><a class="v4-btn v4-btn--s v4-btn--ghost" href="#b">Details</a>
+    <b>Disabled</b><span class="v4-btn v4-btn--l" aria-disabled="true">Not launched yet</span><span class="v4-btn v4-btn--m" aria-disabled="true">Not launched yet</span><span class="v4-btn v4-btn--s" aria-disabled="true">Not launched yet</span>
+  </div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

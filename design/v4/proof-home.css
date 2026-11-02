@@ -1,0 +1,146 @@
+/* design/v4/proof-home.css, the Before you spend block as A6 refined, for v4's Home and for A6 refined in proof-lab.html. Drawn by
+ * proof-home.js. Every class starts x6-, so nothing of Home's wf- layer is touched; the block lays itself out by its own width, container x6.
+ * Founder decisions it carries, 2 Nov 2026: two tickets, the money strip with the striped pink stub and the "Every round" plate in the
+ * provably fair blue beside two checked rounds (A6, "этот варик близок к тому что я хочу"), compact at mid widths ("такой огромный" was the
+ * fault, round 6), the approved Ironbound case with the Redline in its tray, money in gold #FFC44D with coin 6 and no word "coins" on screen. */
+.x6-frame { container: x6 / inline-size; }
+.x6 { position: relative; color: var(--color-text-hi); font-family: var(--font-family); text-align: left; }
+.x6 a { color: inherit; text-decoration: none; }
+.x6 small { font-size: .56em; font-weight: 700; }
+.x6 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .02em; overflow-wrap: anywhere; }
+.x6 .nw { white-space: nowrap; }
+.x6 .nw > svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; }
+/* the ticket on a ruler of 100 000: the round's range in white, the ticket a mark inside it */
+.x6-t { display: block; margin-top: 10px; font-size: 12px; color: rgba(255, 255, 255, .88); }
+.x6-t b { color: #fff; font-weight: 900; }
+.x6-ruler { position: relative; display: block; width: 100%; height: 6px; margin-top: 6px; border-radius: 3px; background: rgba(6, 10, 30, .38); }
+.x6-ruler i { position: absolute; top: 0; bottom: 0; left: calc(var(--a) * 1%); width: max(4px, calc((var(--b) - var(--a)) * 1%)); border-radius: 3px; background: rgba(255, 255, 255, .62); }
+.x6-ruler b { position: absolute; top: -4px; left: calc(var(--t) * 1%); width: 3px; height: 14px; margin-left: -1.5px; border-radius: 2px; background: #fff; box-shadow: 0 0 0 2px rgba(6, 10, 30, .3); }
+/* on Home: the block carries its own title, the pink stub, so the section's heading is hidden and still names the section for a screen
+   reader through aria-labelledby, as daily-home.css does for the ladder */
+.wf-sec:has(.x6-frame) > .wf-sec-head { display: none; }
+
+/* ======================================================================================================================
+   , founder of 2 Nov 2026: "в целом получился хорошо", but at a mid width "такой огромный". The desktop composition
+   holds as long as it honestly fits: figures, paddings, labels and the case scale with the block (cqw of the x6 container), and each
+   fold happens at a block width measured from the content, not from a device. Fresh x6 classes, so no earlier round's fold reaches it.
+   ====================================================================================================================== */
+.x6 { --money: #FFC44D; --stub: clamp(132px, 14.4cqw, 170px); --fig: clamp(40px, 4.4cqw, 52px); --pad: clamp(14px, 1.86cqw, 22px); --rtp: calc((100cqw - var(--stub)) * 1.6 / 3.6);
+  --case-h: clamp(84px, calc(var(--rtp) * .36), 178px); margin-top: clamp(24px, 3cqw, 40px); }
+.x6 .nw > svg { width: 14px; height: 14px; }
+.x6-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* the money strip: the striped stub, then RTP with the case, the median time, the commission */
+.x6-strip { position: relative; display: grid; grid-template-columns: var(--stub) minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr); border-radius: var(--v4-radius);
+  background: linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .55); }
+.x6-stub { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: var(--pad); border-radius: var(--v4-radius) 0 0 var(--v4-radius);
+  background: var(--btn-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
+.x6-stub svg { width: 30px; height: 34px; fill: #fff; }
+.x6-stub .x6-tick { stroke: var(--color-pink); }
+.x6-stub h2 { margin: 0; font-size: clamp(20px, 2.2cqw, 26px); font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
+.x6-p { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: clamp(160px, 16.6cqw, 196px); padding: var(--pad); transition: background-color .2s; }
+.x6-p + .x6-p::before { content: ''; position: absolute; left: 0; top: var(--pad); bottom: var(--pad); width: 1px; background: rgba(255, 255, 255, .18); }
+.x6-p:last-child { border-radius: 0 var(--v4-radius) var(--v4-radius) 0; }
+.x6-k { position: relative; display: block; font-size: clamp(11px, 1.02cqw, 12px); font-weight: 900; letter-spacing: .06em; line-height: 1.25; text-transform: uppercase; color: rgba(255, 255, 255, .88); }
+.x6-v { position: relative; display: block; margin-top: 8px; font-size: var(--fig); font-weight: 900; line-height: 1; letter-spacing: -.01em; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(6, 10, 30, .3); }
+.x6-fee .x6-v { color: var(--money); }
+.x6-say { position: relative; display: block; margin-top: 8px; color: rgba(255, 255, 255, .86); font-size: clamp(13px, 1.2cqw, 14px); line-height: 1.4; }
+.x6-money { color: var(--money); font-weight: 700; white-space: nowrap; }
+.x6-coin { width: 1em; height: 1em; margin-right: 4px; vertical-align: -2px; }
+.x6-go { position: relative; display: block; margin-top: auto; padding-top: 14px; color: #fff; font-size: clamp(12px, 1.1cqw, 13px); font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+.x6-go svg { transition: translate .2s var(--v4-ease-pop); }
+.x6 a:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: -3px; }
+
+/* Ironbound beside the RTP: its height a share of the panel's own width, so it shrinks with the panel and no gap opens between them */
+.x6-rtp { isolation: isolate; clip-path: inset(-90px 0 0 0); overflow-x: clip; }
+.x6-rtp > .x6-k, .x6-rtp > .x6-v { max-width: 48%; }
+.x6-rtp > .x6-say { max-width: 44%; }
+.x6-case { position: absolute; z-index: 0; right: -3%; bottom: -8px; height: var(--case-h); aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--v4-ease-pop); }
+.x6-case .b, .x6-case .f { position: absolute; inset: 0; background: url(art/cases-v2/ironbound-c.webp) center / 100% auto no-repeat; }
+.x6-case .b { filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); }
+.x6-case .f { z-index: 2; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
+.x6-case .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); transition: transform .45s var(--v4-ease-pop); }
+
+/* the second ticket: the "Every round" plate in the provably fair blue, then two round cards */
+.x6-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1.35fr); gap: 12px; margin-top: clamp(46px, 4.9cqw, 58px); }
+.x6-plate { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: var(--pad); border-radius: var(--v4-radius);
+  background: var(--btn-stripes), linear-gradient(160deg, #0F7EA6, #1F55C9 58%, #24359E); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .5); }
+.x6-fig { display: block; }
+.x6-word { display: block; margin-top: 6px; font-size: clamp(26px, 3cqw, 36px); font-weight: 900; line-height: 1; white-space: nowrap; text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
+.x6-hash { box-sizing: border-box; display: flex; flex-direction: column; gap: 4px; width: 100%; margin: 12px 0 14px; padding: 9px 12px; border-radius: 8px; background: rgba(6, 10, 30, .42); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.x6-ok { display: inline-flex; align-items: center; gap: 6px; color: var(--color-green); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.x6-ok svg { width: 14px; height: 14px; fill: var(--color-green); }
+.x6-btn { margin-top: auto; }
+.x6-card { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: clamp(170px, 16cqw, 188px); padding: var(--pad);
+  border-radius: var(--v4-radius); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
+  clip-path: inset(-100px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); overflow-x: clip; transition: filter .2s; }
+.x6-card > :not(.x6-skin) { position: relative; z-index: 1; }
+.x6-skin { position: absolute; z-index: 0; right: -3%; top: calc(-1 * clamp(36px, 4.6cqw, 54px)); width: 50%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--v4-ease-pop); }
+.x6-r { font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
+.x6-w { margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255, 255, 255, .9); }
+.x6-s { max-width: 54%; font-size: clamp(18px, 1.9cqw, 22px); font-weight: 900; line-height: 1.1; }
+.x6-from { margin-top: 4px; font-size: 12px; color: rgba(255, 255, 255, .82); }
+.x6-card .x6-t { margin-top: 12px; }
+.x6-cgo { margin-top: auto; padding-top: 14px; color: #fff; font-size: 13px; font-weight: 700; }
+.x6-cgo svg { transition: translate .2s var(--v4-ease-pop); }
+@media (hover: hover) {
+  a.x6-p:hover { background-color: rgba(255, 255, 255, .06); }
+  .x6-rtp:hover .x6-case { transform: scale(1.04); }
+  .x6-rtp:hover .x6-case .sk { transform: translate(-50%, -66%) rotate(-12deg) scale(1.06); }
+  .x6-card:hover { filter: brightness(1.08); }
+  .x6-card:hover .x6-skin { transform: translateY(-6px) rotate(-16deg) scale(1.05); }
+  a.x6-p:hover .x6-go svg, .x6-card:hover .x6-cgo svg { translate: 3px 0; }
+}
+@media (prefers-reduced-motion: reduce) { .x6-case, .x6-case .sk, .x6-card, .x6-skin, .x6-go svg, .x6-cgo svg { transition: none; } }
+
+/* FOLD 1, block under 820px: measured, the stub column (132px) beside RTP with its case (300px), the median (its link, 160px, and
+   its paddings) and the commission stops fitting, so the stub becomes a slim bar across the top and the three panels keep the row */
+@container x6 (max-width: 819px) {
+  .x6 { --money: #FFC44D; --stub: 0px; --rtp: calc(100cqw * 1.25 / 3.1); }
+  .x6-strip { grid-template-columns: minmax(0, 1.25fr) minmax(188px, 1fr) minmax(158px, .85fr); }
+  .x6-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; padding: 12px var(--pad); border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .x6-stub svg { width: 22px; height: 25px; }
+  .x6-stub h2 { font-size: 20px; }
+  .x6-rtp { border-radius: 0 0 0 var(--v4-radius); }
+  .x6-p:last-child { border-radius: 0 0 var(--v4-radius) 0; }
+}
+/* the second ticket, block under 600px: the plate (its hash box needs about 200px) and two cards no longer fit three across, so the
+   plate becomes one compact row, its hash box taking the slack, and the two cards sit side by side under it */
+@container x6 (max-width: 599px) {
+  .x6-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: clamp(46px, 9cqw, 54px); margin-top: 12px; }
+  .x6-plate { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+  .x6-fig { max-width: 190px; }
+  .x6-hash { flex: 1 1 170px; width: auto; margin: 0; }
+  .x6-btn { margin-top: 0; }
+}
+/* FOLD 2, block under 576px: the three money panels no longer fit one row (RTP 230px, median 188px, commission 158px); RTP takes the
+   row, the two withdrawal figures share the next */
+@container x6 (max-width: 575px) {
+  .x6 { --rtp: 100cqw; --case-h: clamp(84px, calc(var(--rtp) * .3), 170px); }
+  .x6-strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .x6-rtp { grid-column: 1 / -1; border-radius: 0; min-height: 0; }
+  .x6-rtp > .x6-say { max-width: 50%; }
+  .x6-rtp + .x6-p { border-radius: 0 0 0 var(--v4-radius); }
+  .x6-p.x6-rtp + .x6-p::before { left: var(--pad); right: var(--pad); top: 0; bottom: auto; width: auto; height: 1px; }
+  .x6-fee::after { content: ''; position: absolute; left: var(--pad); right: var(--pad); top: 0; height: 1px; background: rgba(255, 255, 255, .18); }
+}
+/* FOLD 3, block under 480px, a phone: everything stacks */
+@container x6 (max-width: 479px) {
+  .x6 { --case-h: 112px; }
+  .x6-strip { grid-template-columns: minmax(0, 1fr); }
+  .x6-rtp + .x6-p { border-radius: 0; }
+  .x6-fee { border-radius: 0 0 var(--v4-radius) var(--v4-radius); }
+  .x6-p.x6-fee::before { left: var(--pad); right: var(--pad); top: 0; bottom: auto; width: auto; height: 1px; }
+  .x6-p { min-height: 0; }
+  .x6-fee::after { content: none; }
+  .x6-case { bottom: 34px; } /* it stands on the link's line, so the link runs under it */
+  .x6-row { grid-template-columns: minmax(0, 1fr); row-gap: 48px; }
+  .x6-plate { flex-direction: column; align-items: flex-start; }
+  .x6-fig { max-width: none; }
+  .x6-hash { flex: none; width: 100%; margin: 12px 0 14px; }
+  .x6-card { min-height: 0; }
+  .x6-skin { top: -44px; width: 54%; }
+}
+@container x6 (max-width: 819px) { .x6-case { bottom: calc(var(--pad) + 24px); } } /* a narrow RTP panel: the case stands on the link's line, so the link runs under it */
+/* on Home the section's own rhythm spaces the block, as it spaces every section; the top margin is the lab's */
+.wf-sec > .x6-frame .x6 { margin-top: 0; }

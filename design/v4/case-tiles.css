@@ -1,0 +1,147 @@
+/* design/v4/case-tiles.css, v4's case tiles. Founder of 2 Nov 2026: no plate behind the price, no word coins, a taller tile, an effect
+ * under the pointer. Round 2, same day: the first hover copied a competitor's cut corner frame and hexagon button, "никакого творчества",
+ * so it is rebuilt from this product's own parts. Under the pointer a tile does what a rail row does: it takes its own card, in its case's
+ * colour, and the case breaks out of the card's top edge as the Showdowns helmet does in the rail; the skin rises out of the open case,
+ * a preview of the reveal; the price gives way to the act in the site's own ghost button. The link's accessible name still says coins. */
+
+.wf-tile { padding: var(--space-4) var(--space-2) var(--space-5); }
+.wf-tile-link { position: relative; isolation: isolate; }
+.wf-tile-art[data-art] { margin-bottom: var(--space-3); }
+
+/* the price, plain */
+.wf-tile-price { position: relative; align-self: center; min-height: 40px; margin-top: var(--space-1); padding: 0; background: none; box-shadow: none; }
+.wf-tile-cur { display: none; }
+.wf-tile-cost { color: #FFC44D; font-size: 20px; font-weight: 900; font-variant-numeric: tabular-nums; transition: opacity .2s, translate .25s; }
+.wf-tile-price::before { transition: opacity .2s; }
+.wf-tile:hover .wf-tile-price { filter: none; }
+
+/* round 3 of the cases, founder of 2 Nov 2026 "да": one case under every name, different details, cases-v2/*-c. Each picture is one layer
+   with no world behind it; the skin lies across the tray between the picture and a copy of it cut at the rim, as on cases-lab.html */
+.wf-tile:has([data-art]) { --v4-world: none; --v4-rim: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
+.wf-tile:has([data-art="case-blue"]) { --v4-case: url(art/cases-v2/ironbound-c.webp); }
+.wf-tile:has([data-art="case-gold"]) { --v4-case: url(art/cases-v2/warsteel-c.webp); }
+.wf-tile:has([data-art="case-pink"]) { --v4-case: url(art/cases-v2/coldfront-c.webp); }
+.wf-tile:has([data-art="case-violet"]) { --v4-case: url(art/cases-v2/nightfall-c.webp); }
+.wf-tile:has([data-art="case-ember"]) { --v4-case: url(art/cases-v2/emberforge-c.webp); }
+
+/* money is gold #FFC44D everywhere, the coin's own gold, founder of 2 Nov 2026 */
+:root { --color-money: #FFC44D; }
+.wf-tile-cost { color: var(--color-money); }
+
+/* the favourite, founder of 2 Nov 2026: "иконку руки я би поменял на сердечко", a heart; pressed, it pops and a few small hearts, stars and
+   strokes scatter, case-tiles.js; the count stays beside it */
+.wf-tile .wf-fav-i { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.4-4.5-9.6-9.1C.9 8.6 3 4.6 6.8 4.6c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 4 4.4 7.3C19.4 16.5 12 21 12 21z'/%3E%3C/svg%3E"); width: 20px; height: 20px; flex-basis: 20px; transition: scale .2s cubic-bezier(.3, 1.6, .5, 1); }
+.wf-tile .wf-fav { overflow: visible; }
+.wf-tile .wf-fav:hover .wf-fav-i { scale: 1.12; }
+.v4-burst { position: absolute; z-index: 3; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; }
+.v4-burst i { position: absolute; left: 0; top: 0; display: block; background: var(--bc); }
+.v4-burst i[data-s="heart"] { -webkit-mask: var(--v4-heart) center / contain no-repeat; mask: var(--v4-heart) center / contain no-repeat; }
+.v4-burst i[data-s="star"] { clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%); }
+.v4-burst i[data-s="stroke"] { border-radius: 2px; }
+:root { --v4-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.4-4.5-9.6-9.1C.9 8.6 3 4.6 6.8 4.6c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 4 4.4 7.3C19.4 16.5 12 21 12 21z'/%3E%3C/svg%3E"); }
+
+/* the act, the ghost of buttons.css at its medium size. Round 3, founder: "я би не показивал би кнопку Open a case", so it is not shown;
+   the price stays under the pointer and the whole tile is the link */
+.v4-open { display: none !important; }
+.v4-open { position: absolute; left: 50%; top: 50%; translate: -50% -20%; display: flex; align-items: center; justify-content: center; box-sizing: border-box; min-width: 148px; min-height: var(--btn-m, 40px); padding: 0 18px; border-radius: var(--btn-radius, 10px); background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); color: var(--color-text-hi); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s, translate .25s cubic-bezier(.22, 1, .36, 1); }
+
+/* the card: the tile's own, in its case's colour, starting under the lid so the case stands out of its top edge */
+.v4-fx { position: absolute; z-index: -1; left: -4px; right: -4px; top: 30%; bottom: -10px; border-radius: 16px; pointer-events: none; opacity: 0; translate: 0 10px;
+  background: var(--tile-g, linear-gradient(120deg, #FB3F8A, #8E2BC9));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), 0 14px 30px rgba(4, 6, 20, .5);
+  transition: opacity .22s, translate .3s cubic-bezier(.22, 1, .36, 1); }
+/* the same fills the mode cards and the rail's cards wear, one per case colour */
+.wf-tile:has([data-art="case-blue"]) { --tile-g: linear-gradient(120deg, #3955E8, #1B2A8F); }
+.wf-tile:has([data-art="case-gold"]) { --tile-g: linear-gradient(120deg, #B57A06, #B4400F); }
+.wf-tile:has([data-art="case-pink"]) { --tile-g: linear-gradient(120deg, #FB3F8A, #8E2BC9); }
+.wf-tile:has([data-art="case-violet"]) { --tile-g: linear-gradient(120deg, #8E2BC9, #3B1A8F); }
+.wf-tile:has([data-art="case-ember"]) { --tile-g: linear-gradient(120deg, #D1273E, #7A0F22); }
+/* founder of 2 Nov 2026, row G of tile-hover-lab.html: the stripes over the case's full colour, the card fading out toward the case, so the
+   case rises out of the colour with no top edge; the mask takes the shadow with it, so none is drawn */
+.v4-fx { background: var(--btn-stripes), var(--tile-g, linear-gradient(120deg, #FB3F8A, #8E2BC9)); box-shadow: none;
+  -webkit-mask: linear-gradient(to top, #000 30%, transparent 100%); mask: linear-gradient(to top, #000 30%, transparent 100%); }
+/* the same day: "кейс стоит вроде по центру но визуально смотриться смещенным". On all five cases-v2/*-c pictures the case's body, the
+   lower third, has its middle at 43.2% of the picture while the open lid reaches right; the picture moves right 6.8% of its width so the
+   body stands on the tile's centre line, at rest and under the pointer */
+.wf-tile-art[data-art] { translate: 6.8% 0; }
+.v4-fx > * { display: none; } /* the old frame and sparks, if a cached script still adds them */
+
+@media (hover: hover) {
+  .wf-tile:hover .v4-fx, .wf-tile-link:focus-visible .v4-fx { opacity: 1; translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v4-fx, .v4-open, .wf-tile-cost { transition: none; }
+  .wf-tile:hover .v4-fx { translate: none; }
+}
+
+/* the risk, founder of 2 Nov 2026: "черепа нам ни к чему, давай сделаем молнии, 4 штуки: Low, Medium, High и Extreme". Four bolts, one to four
+   lit in the band's colour, the rest in the unlit tone the skulls had; the words stay in the page for a screen reader, as before (D-193).
+   Extreme has no case yet: Home's five are low, medium and high, and the fourth band's threshold and its words are not decided */
+:root { --icon-bolt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.6 1 4 11.2h5l-1.6 7.8L16 8.6h-5.2z'/%3E%3C/svg%3E"); --color-risk-extreme: #FF4D3D; }
+.wf-tile-risk { width: 80px; height: 22px; }
+.wf-tile-risk::before { width: 80px; height: 20px; background: linear-gradient(90deg, var(--rc) 0 calc(var(--n) * 20px), var(--color-skull-off) 0);
+  -webkit-mask: var(--icon-bolt) left center / 20px 20px repeat-x; mask: var(--icon-bolt) left center / 20px 20px repeat-x; }
+.wf-tile-risk[data-risk="extreme"] { --n: 4; --rc: var(--color-risk-extreme); }
+
+/* the favourite, founder of 2 Nov 2026: "в верхний правий кут над кейсом, показивать только когда наводишь, но добавленний кейс должен
+   показивать что он добавлен". The tile gains a 36px strip at its top and the favourite sits in its right corner, above the case rather
+   than on the skin, as a small dark pill. Under the pointer or keyboard focus it shows; at rest it is hidden unless the case is a
+   favourite, which then stays shown with a pink heart and a pink edge. With no pointer to hover with, it always shows (_theme.css) */
+.wf-tile { padding-top: calc(var(--space-4) + 36px); }
+.wf-tile .wf-fav { top: 2px; right: 2px; min-height: 40px; padding: 0 6px; isolation: isolate; }
+.wf-tile .wf-fav::before { content: ''; z-index: -1; inset: 6px 0; border: 0; border-radius: 10px; background: rgba(11, 10, 34, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.wf-tile .wf-fav > * { margin: 0 4px; }
+.wf-tile .wf-fav[aria-pressed="true"] { color: var(--color-pink); }
+.wf-tile .wf-fav[aria-pressed="true"]::before { box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); }
+.wf-tile .wf-fav .wf-fav-n { color: var(--color-text-hi); font-weight: 700; }
+
+/* the bolts as four marks, case-tiles.js, founder of 2 Nov 2026: "хочу ховер какой то интересний и показивать тултип какой это уровень
+   риска". Under the tile the lit bolts brighten. Under the pointer on the bolts themselves the meter charges: a pulse runs left to right
+   through all four, the unlit ones flicker in the band's colour and fall dark again, the lit ones strike, a little larger with a light in
+   their colour, and stay lit; beside them a tooltip names the band in the tile's own words. Still under reduced motion: the tooltip only */
+.wf-tile-risk:has(.v4-bolts)::before { display: none; }
+.wf-tile-risk:has(.v4-bolts) { overflow: visible; }
+.v4-bolts { position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; }
+.v4-bolts i { position: relative; display: block; width: 20px; height: 20px; transition: filter .2s, scale .2s; }
+.v4-bolts i::before { content: ''; position: absolute; inset: 0; background: var(--color-skull-off);
+  -webkit-mask: var(--icon-bolt) center / 20px 20px no-repeat; mask: var(--icon-bolt) center / 20px 20px no-repeat; }
+.v4-bolts i.is-on::before { background: var(--rc); }
+@media (hover: hover) {
+  .wf-tile:hover .v4-bolts i.is-on { filter: brightness(1.2) drop-shadow(0 0 4px color-mix(in srgb, var(--rc) 60%, transparent)); }
+  .wf-tile-risk:hover .v4-bolts i.is-on { animation: v4-strike .5s cubic-bezier(.3, 1.6, .5, 1) calc(var(--k) * 70ms) both; filter: brightness(1.3) drop-shadow(0 0 6px var(--rc)); }
+  .wf-tile-risk:hover .v4-bolts i:not(.is-on) { animation: v4-flicker .5s ease-out calc(var(--k) * 70ms) both; }
+}
+@keyframes v4-strike { 0% { scale: 1; translate: 0 0; } 35% { scale: 1.4; translate: 0 -3px; } 100% { scale: 1.15; translate: 0 -1px; } }
+@keyframes v4-flicker { 0%, 100% { filter: none; } 30% { filter: drop-shadow(0 0 4px var(--rc)); } }
+.wf-tile-risk:hover .v4-bolts i:not(.is-on)::before { animation: v4-flicker-fill .5s ease-out calc(var(--k) * 70ms) both; }
+@keyframes v4-flicker-fill { 0%, 100% { background: var(--color-skull-off); } 30% { background: color-mix(in srgb, var(--rc) 55%, var(--color-skull-off)); } }
+
+/* the tooltip: the band in words, beside the bolts on their right so it covers neither the name above nor the price below, the site's dark pill with a filled tail in the band's colour */
+.v4-risk-tip { position: absolute; z-index: 5; left: calc(100% + 10px); top: 50%; translate: -4px -50%; padding: 6px 10px; border-radius: 8px; background: rgb(11, 10, 34);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rc) 70%, transparent), 0 8px 18px rgba(4, 6, 20, .5); color: var(--color-text-hi); font-size: 12px; font-weight: 700; line-height: 1.2;
+  white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .15s, translate .2s cubic-bezier(.22, 1, .36, 1); }
+.v4-risk-tip::after { content: ''; position: absolute; right: 100%; top: 50%; width: 6px; height: 10px; translate: 0 -50%; background: color-mix(in srgb, var(--rc) 70%, rgb(11, 10, 34)); clip-path: polygon(100% 0, 100% 100%, 0 50%); }
+.wf-tile-risk:hover .v4-risk-tip { opacity: 1; translate: 0 -50%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-tile-risk:hover .v4-bolts i, .wf-tile-risk:hover .v4-bolts i::before { animation: none; }
+  .v4-risk-tip { transition: none; }
+}
+/* the tooltip on the bolts' left where the right has no room, case-tiles.js */
+.v4-risk-tip.is-left { left: auto; right: calc(100% + 10px); translate: 4px -50%; }
+.v4-risk-tip.is-left::after { right: auto; left: 100%; clip-path: polygon(0 0, 0 100%, 100% 50%); }
+.wf-tile-risk:hover .v4-risk-tip.is-left { translate: 0 -50%; }
+
+/* the coin, founder of 2 Nov 2026: "поставь монетку которую ми приняли", coin 6 of brand-lab.html, the gold ring with the bolt on navy,
+   art/brand/coin-6-small.svg; it replaces the drawn gold disc beside every price and the header's balance. The items held keep their pistol */
+.wf-coin, .wf-tile-cost::before, .wf-panel-head .wf-fig:has(+ .wf-fig) .wf-fig-v::before { border-radius: 0; background: url(art/brand/coin-6-small.svg) center / contain no-repeat; box-shadow: none; }
+/* at rest the hidden tooltip waits over the bolts, so a tooltip of the last tile cannot widen the page sideways while unseen */
+.wf-tile-risk:not(:hover) .v4-risk-tip { left: 0; right: auto; }
+
+/* the price under the pointer, founder of 2 Nov 2026, P1 of tile-hover-lab.html: on G's colour the price "читается плоховато", so under the
+   pointer and on keyboard focus it stands on a dark pill with a thin light edge, the plate of the daily boxes and the favourite. At rest
+   it stays plain */
+.wf-tile .wf-tile-price { border-radius: 10px; transition: background .2s, box-shadow .2s, padding .2s; }
+.wf-tile:is(:hover, :focus-within) .wf-tile-price { padding: 0 14px; background: rgba(11, 10, 34, .82); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
+@media (prefers-reduced-motion: reduce) { .wf-tile .wf-tile-price { transition: none; } }

@@ -65,6 +65,14 @@ window.NAV = [
       { subhead: 'Concept v4', items: [
           { label: 'Home',        pageLabel: 'Home v4',            page: 'design/v4/index.html',      live: true },
           { label: 'Rare drops',  pageLabel: 'Rare drops v4',      page: 'design/v4/rare-drops.html', live: true },
+          { label: 'Case art',    pageLabel: 'Case art v4',        page: 'design/v4/cases-lab.html',  live: true },
+          { label: 'Mode cards',  pageLabel: 'Mode cards v4',      page: 'design/v4/modes-lab.html',  live: true },
+          { label: 'Side menu',   pageLabel: 'Side menu v4',       page: 'design/v4/rail-lab.html',   live: true },
+          { label: 'Daily cases', pageLabel: 'Daily cases v4',     page: 'design/v4/daily-lab.html',  live: true },
+          { label: 'Before you spend', pageLabel: 'Before you spend v4', page: 'design/v4/proof-lab.html', live: true },
+          { label: 'Logo and coin', pageLabel: 'Logo and coin v4',  page: 'design/v4/brand-lab.html',  live: true },
+          { label: 'Buttons',     pageLabel: 'Buttons v4',         page: 'design/v4/buttons-lab.html', live: true },
+          { label: 'Case tile hover', pageLabel: 'Case tile hover v4', page: 'design/v4/tile-hover-lab.html', live: true },
           { label: 'Case screen', pageLabel: 'Case screen v4',     page: 'design/v4/case.html',       done: false }
       ]},
       { subhead: 'Concept v3', items: [

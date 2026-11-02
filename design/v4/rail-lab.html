@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side menu</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="rail-icons.css">
+  <link rel="stylesheet" href="rail-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body class="rl-page">
+<aside id="sidebar"></aside>
+<!-- A satellite exploration of v4's rail, founder of 2 Nov 2026, round 3: the card, B, chosen. Every rail is built from the one list below, at real size. -->
+<main class="rl-main">
+  <header class="rl-head">
+    <h1>Side menu, B1</h1>
+    <p>B1, the founder's pick, finished. Drawn open at 250 by 760 and closed at 70. Point at a row for its hover; in the closed rail the row's card comes out beside it.</p>
+  </header>
+
+  <div class="rl-set" id="rl-set"></div>
+
+  <section class="rl-past">
+    <h2>Round 3, what changed</h2>
+    <ul>
+      <li><b>One card for every row:</b> Cases had the button's stripes and the hover cards did not. The stripes are the language of a button, the cards on Home have none, so no row has them now.</li>
+      <li><b>The marks:</b> at rest every mark has the menu's own grey, the same as its word, not the colour of its mode. A mark turns white when its row is lit: Cases always, any other row under the pointer.</li>
+      <li><b>Cases breaks out of its card</b> as the Showdowns helmet does under the pointer: this week's case stands on the card's floor and rises above its top edge. The list starts a little lower to give it room.</li>
+      <li><b>Sound and language</b> are back to the two tiles of the current rail, side by side, stacked when closed.</li>
+      <li><b>B2:</b> dropped, the founder took B1.</li>
+      <li><b>The logo:</b> tried here in round 3 and taken out in round 4: the logo lives in the header, where Home now carries logo 10.</li>
+    </ul>
+    <h2>Round 4, what changed</h2>
+    <ul>
+      <li><b>The closed rail's name:</b> the grey plate beside a closed row read as a stock tooltip. It is now the row's own card coming out of the rail: its mode colour, its name, and for Cases this week's case, for the eight the words Not launched yet and the mode's object.</li>
+      <li><b>Case battles:</b> its hover sends up the two crossed daggers of its mode card, not one knife.</li>
+    </ul>
+    <h2>Round 5, what changed</h2>
+    <ul>
+      <li><b>The closed rail's chip</b> stands beside its tile with a gap, its own rounded shape, rather than joining the tile into one strip.</li>
+      <li><b>Stripes are back on every card:</b> Cases, each card under the pointer and the chip, the same faint stripes as Home's buttons.</li>
+    </ul>
+    <h2>Round 2, what changed</h2>
+    <ul>
+      <li><b>A, C and D:</b> dropped, the founder took B.</li>
+      <li><b>B's live row:</b> 74px tall, 18px type and a case standing out of it, so it read as a banner rather than the chosen row. It now has the rows' 48px and 14px.</li>
+      <li><b>The icon:</b> 12px from the edge and 4px inside the coloured card. It now sits 20px from the edge, 12px inside the card, the same column in every row and in the foot.</li>
+      <li><b>The closed rail:</b> not drawn in round 2. Drawn here at 70px, the width the theme already gives it.</li>
+    </ul>
+    <h2>Round 1, dropped because</h2>
+    <ul>
+      <li><b>Every direction:</b> with the sentence gone the eight rows looked live, so it came back, once, as their heading.</li>
+      <li><b>A tiny LATER chip:</b> the same repetition at a smaller size, and a second word for one state, which D-199 closed.</li>
+      <li><b>Groups named Play, Earn, Trade:</b> three invented words, one of them over a single row. The real boundary is live against not launched.</li>
+      <li><b>A colour tile on every row:</b> the colour went on what does not exist yet and Cases lost. It stays as the hover.</li>
+      <li><b>A deck of four mode tiles:</b> the icons left the edge, three of the four were dead, and it cannot close to the small rail.</li>
+      <li><b>A pink fade behind the live row:</b> read as a stock active state.</li>
+    </ul>
+  </section>
+</main>
+<script>
+(function () {
+  /* the rail's one list; the names and the mark are the product's own, the colour is the row's mode card */
+  var ROWS = [['Cases', 'box', 'pink'], ['Case battles', 'battle', 'blue'], ['Showdowns', 'target', 'red'], ['Upgrade', 'arrow-up', 'gold'], ['Giveaways', 'diamond', 'cyan'], ['Rewards hub', 'gift', 'pink'], ['Top wins', 'cup', 'gold'], ['Affiliate program', 'dollar', 'gold'], ['Exchange', 'swap', 'blue']];
+  var SOC = ['facebook', 'youtube', 'instagram', 'tiktok', 'telegram', 'discord', 'x'];
+  var WHY = 'Not launched yet';
+  var VARIANTS = [
+    ['b1', 'B1, The held card', 'The chosen row keeps its card in the pink of its mode card, and this week\'s case stands on the card and rises out of its top. The other rows take their own card under the pointer, and the four with a mode card send its object up the same way.']
+  ];
+
+  function row(r, pin) {
+    var live = r === ROWS[0];
+    var cls = 'wf-rail-item ' + (live ? 'is-live' : 'is-later') + (pin ? ' is-h' : '');
+    var attrs = ' class="' + cls + '" data-c="' + r[2] + '" data-m="' + r[1] + '"';
+    var body = '<span class="wf-rail-ico" data-icon="' + r[1] + '"></span><span class="wf-rail-lbl">' + r[0] + (live ? '' : '<span class="rl-why"><span class="rl-comma">, </span>' + WHY + '</span>') + '</span>';
+    return live ? '<a href="index.html" aria-current="page"' + attrs + '>' + body + '</a>' : '<span tabindex="0" role="link" aria-disabled="true"' + attrs + '>' + body + '</span>';
+  }
+
+  function foot() {
+    return '<div class="rl-foot"><div class="rl-amb"><button type="button" class="wf-rail-snd" aria-pressed="true"><span class="rl-snd-t">Sound on</span></button><button type="button" class="rl-lang" aria-label="Language, English"><i></i><b>EN</b></button></div>' +
+      '<div class="rl-soc-h">Social</div><div class="rl-soc">' + SOC.map(function (s) { return '<i style="--ic: var(--icon-' + s + ')"></i>'; }).join('') + '</div></div>';
+  }
+
+  function rail(v, closed) {
+    var rest = ROWS.slice(1).map(function (r) { return row(r); }).join('');
+    return '<nav class="rl-rail' + (closed ? ' rl-rail--closed' : '') + '" data-v="' + v[0] + '" aria-label="' + v[1] + (closed ? ', closed' : '') + '"><div class="rl-list rl-list--live">' + row(ROWS[0]) + '</div><div class="rl-sec"><span>' + WHY + '</span></div><div class="rl-list">' + rest + '</div>' + foot() + '</nav>';
+  }
+
+  document.getElementById('rl-set').innerHTML = VARIANTS.map(function (v) {
+    return '<article class="rl-slot"><h2>' + v[1] + '</h2><p>' + v[2] + '</p>' +
+      '<div class="rl-pair"><div><div class="rl-note">Open</div>' + rail(v) + '</div><div><div class="rl-note">Closed</div>' + rail(v, true) + '</div>' +
+      '<div><div class="rl-note">Under the pointer, held still</div><div class="rl-rail rl-rail--pin" data-v="' + v[0] + '" aria-hidden="true">' + row(ROWS[0], true) + row(ROWS[1], true) + row(ROWS[3], true) + row(ROWS[6], true) + '</div>' +
+      '<div class="rl-note">Closed, under the pointer</div><div class="rl-rail rl-rail--pin rl-rail--closed" data-v="' + v[0] + '" aria-hidden="true">' + row(ROWS[0]) + row(ROWS[3], true) + '</div></div></div></article>';
+  }).join('');
+
+  /* the sound control answers: it swaps its word and its mark, as the rail's does */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.wf-rail-snd');
+    if (!b) return;
+    var on = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    b.querySelector('.rl-snd-t').textContent = on ? 'Sound on' : 'Sound off';
+  });
+})();
+</script>
+<script src="rail-icons.js"></script>
+<script>
+window.NAV_BASE = '../../';
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

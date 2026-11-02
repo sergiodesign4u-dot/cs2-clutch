@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case tile hover</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="case-tiles.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="tile-hover-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A satellite of v4, founder of 2 Nov 2026: the card a case tile raises under the pointer, eight fills on Home's own tiles. Row A is
+     Home as it is now; B to H change only the card's fill. Nothing here is on Home until the founder picks one. -->
+<main class="hl is-centred" id="hl">
+  <h1>Case tile hover</h1>
+  <p>Under the pointer a case tile raises its own card in its case's colour, and the case breaks out of the card's top. Row G is on Home, founder's choice of 2 Nov 2026; row A is what Home had before. The rows change only the card's fill; the tiles, the cases and the motion are Home's own. Hover any tile, or show every card at once to compare the rows.</p>
+  <div class="hl-opts"><label class="hl-pin"><input type="checkbox" id="pin"> Show every card at once</label>
+  <label class="hl-pin"><input type="checkbox" id="mid" checked> Centre the case's body on the card</label></div>
+  <section class="hv hv-risk"><div class="hv-h"><h2>Risk, four bands</h2><p>Bolts in place of the skulls, founder of 2 Nov 2026. Extreme has no case yet; its threshold and words are to be decided.</p></div>
+    <div class="hv-bands">
+      <div><span class="wf-tile-risk" data-risk="low">Low-risk case</span><b>Low</b></div>
+      <div><span class="wf-tile-risk" data-risk="medium">Medium-risk case</span><b>Medium</b></div>
+      <div><span class="wf-tile-risk" data-risk="high">High-risk case</span><b>High</b></div>
+      <div><span class="wf-tile-risk" data-risk="extreme">Extreme-risk case</span><b>Extreme</b></div>
+    </div></section>
+  <h2 class="hl-round">Round 2: a plate under the price</h2>
+  <p class="hl-round-p">Founder of 2 Nov 2026: G is on Home, but on its colour the price "читается плоховато". Every row here is G; under the pointer the price takes a plate. Hover a tile, or show every card at once.</p>
+  <div id="prices"></div>
+  <h2 class="hl-round">Round 1: the card</h2>
+  <div id="rows"></div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+(function () {
+  var CASES = [
+    ['Ironbound', 'case-blue', '12.40', 'medium', 'Medium-risk case', '829'],
+    ['Warsteel', 'case-gold', '4.90', 'low', 'Low-risk case', '1 204'],
+    ['Coldfront', 'case-pink', '2.10', 'low', 'Low-risk case', '311'],
+    ['Nightfall', 'case-violet', '31.00', 'high', 'High-risk case', '96'],
+    ['Emberforge', 'case-ember', '7.50', 'medium', 'Medium-risk case', '452']
+  ];
+  var ROWS = [
+    ['a', 'A. Before', 'The solid gradient card Home had before G was chosen.'],
+    ['b', 'B. Glass', 'The same colours at 42%, the page blurred behind, a thin light edge.'],
+    ['c', 'C. Gradient fade', 'Full colour at the foot, fading out toward the case, so the case rises out of the colour with no top edge.'],
+    ['d', 'D. Edge', 'A dark card with a 2px edge in the case\'s light, as the ghost buttons have, a little colour rising from the foot.'],
+    ['e', 'E. Striped, muted', 'The stripes of the daily cards and the side menu, the colour toned down, a soft light in the case\'s colour.'],
+    ['f', 'F. Dark with a lit top', 'A navy card tinted by the case colour, with a 2px line of its light along the top.']
+  ];
+  /* founder, 2 Nov 2026: C is the better one, try it with E's stripes; the two new rows go first */
+  ROWS.unshift(['g', 'G. C with stripes', 'C\'s fade, with E\'s stripes over the case\'s full colour. Chosen 2 Nov 2026, now on Home.', true], ['h', 'H. C with stripes, muted', 'C\'s fade, with E\'s stripes over E\'s toned down colour.']);
+  function tile(c) {
+    return '<article class="wf-tile"><a class="wf-tile-link" href="#' + c[0].toLowerCase() + '" aria-label="' + c[0] + ', ' + c[2] + ' coins, ' + c[4] + '">' +
+      '<span class="wf-tile-art" aria-hidden="true" data-art="' + c[1] + '"></span><span class="wf-tile-name">' + c[0] + '</span>' +
+      '<span class="wf-tile-risk" data-risk="' + c[3] + '">' + c[4] + '</span><span class="wf-tile-price"><span class="wf-tile-cost">' + c[2] + '</span><span class="wf-tile-cur">coins</span></span></a>' +
+      '<button class="wf-fav" type="button" aria-pressed="false" aria-label="Favorite, marked by ' + c[5] + ' people"><span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">' + c[5] + '</span></button></article>';
+  }
+  var PRICES = [
+    ['0', 'P0. Before', 'The price straight on the card, as Home had it before P1 was chosen.'],
+    ['1', 'P1. Dark pill', 'The price on a dark pill with a thin light edge, the plate the daily boxes and the favourite use. Chosen 2 Nov 2026, now on Home.', true],
+    ['2', 'P2. Dark pill, gold edge', 'The same pill with a 2px edge in the money\'s gold.'],
+    ['3', 'P3. Gold pill', 'The figure in dark navy on a gold pill, the coin on it. The loudest.'],
+    ['4', 'P4. Dark foot', 'No pill: the card darkens toward its foot, so the price stands on navy.'],
+    ['5', 'P5. Foot strip', 'A dark strip across the card\'s foot, full width, the price in it.']
+  ];
+  document.getElementById('prices').innerHTML = PRICES.map(function (r) {
+    return '<section class="hv" data-v="g" data-p="' + r[0] + '"><div class="hv-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="hv-rec">On Home</span>' : '') + '<p>' + r[2] + '</p></div>' +
+      '<div class="wf-grid">' + CASES.map(tile).join('') + '</div></section>';
+  }).join('');
+  document.getElementById('rows').innerHTML = ROWS.map(function (r) {
+    return '<section class="hv" data-v="' + r[0] + '"><div class="hv-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="hv-rec">On Home</span>' : '') + '<p>' + r[2] + '</p></div>' +
+      '<div class="wf-grid">' + CASES.map(tile).join('') + '</div></section>';
+  }).join('');
+  /* the favourite toggles here as on Home, so its burst can be seen */
+  document.addEventListener('click', function (e) {
+    var f = e.target.closest('.wf-fav');
+    if (f) f.setAttribute('aria-pressed', f.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    if (e.target.closest('.wf-tile-link')) e.preventDefault();
+  });
+  document.getElementById('mid').addEventListener('change', function (e) { document.getElementById('hl').classList.toggle('is-centred', e.target.checked); });
+  document.getElementById('pin').addEventListener('change', function (e) { document.getElementById('hl').classList.toggle('is-pinned', e.target.checked); });
+})();
+</script>
+<script src="case-tiles.js"></script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

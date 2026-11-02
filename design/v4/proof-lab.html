@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Before you spend</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="proof-lab.css">
+  <link rel="stylesheet" href="proof-home.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body class="pl-page">
+<aside id="sidebar"></aside>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pl-shield" viewBox="0 0 24 24"><path d="M12 1.5 3.5 4.6v6.2c0 5.2 3.6 9.8 8.5 11.7 4.9-1.9 8.5-6.5 8.5-11.7V4.6z"/><path class="pl-tick" d="m8.2 11.9 2.7 2.7 5-5.2" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="pl-arrow" viewBox="0 0 16 16"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="pl-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/><path d="m4.6 8.3 2.3 2.3 4.6-4.9" fill="none" stroke="#060A1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<!-- A satellite exploration of v4: the Before you spend block, round 2, four directions at Home's width. Words are Home's and the destination
+     pages' own (voice/docs/microcopy.md); numbers are the samples the wireframes already print (wireframes/_nav.js: WF_PUB, WF_STR.rtpEv,
+     CASE_ITEMS, ROUNDS.ak/glock/m4). Principle 1: published numbers at the moment of spending, each one leading to the page that proves it. -->
+<main class="pl-main">
+  <header class="pl-head">
+    <h1>Before you spend, round 6</h1>
+    <p>The founder on A6: "в целом получился хорошо", but at a mid width it was "такой огромный". There the stub became a full-width bar, the RTP panel took a whole row with the case far off to the right, and the "Every round" plate stretched into a long strip, so the block stood about 1.7 times its desktop height. A6 refined keeps the desktop composition for as long as it honestly fits. Below that it folds one step at a time, at block widths measured from the content.</p>
+  </header>
+
+  <!-- A6 REFINED ===================================================================================== -->
+  <section class="pl-var" id="var-a6r">
+    <p class="pl-cap"><b class="is-w">A6</b> Two tickets, refined. The same composition as round 5's A6. The figures, the paddings and the case now scale with the block, so the three money panels and the second ticket keep their rows at mid widths. <span class="pl-sample">Samples: 94.2 %, an expected value of 11.68 coins, 1 h 40 m, 6 h 15 m, 0 %, two rounds on Ironbound of 18 Aug 2026 with their tickets and ranges, the hash 4f2a91c7…7e15b208. For a guest the two withdrawal links open sign in first, as on Home.</span></p>
+    <div class="pl-frame" data-v4-proof><!-- drawn by proof-home.js, window.V4Proof.render, the renderer v4's Home uses too --></div>
+  </section>
+
+  <section class="pl-var pl-notes">
+    <h2>What changed from round 5</h2>
+    <ul>
+      <li><b>The money row holds.</b> The three money panels stay in one row down to a block 576px wide. Their figures run from 52px to 40px, and their paddings and labels scale with the block too. Each fold was set from measured content, not from a device: at the narrow end the median's panel needs 188px (its link "How a withdrawal settles" is 160px on one line, plus its paddings), the commission's 158px and RTP with its case 230px.</li>
+      <li><b>The stub folds slim.</b> It stays a left column down to a block 820px wide, the point where the 132px column no longer fits beside the three panels. Below that it becomes a slim bar across the top, one line of heading, not a full plate.</li>
+      <li><b>The case shrinks with its panel.</b> Its height is a share of the RTP panel's width, so the gap between the figure and the case does not open up.</li>
+      <li><b>The second ticket keeps its row.</b> The plate and the two cards stay three across down to a 600px block. Below that the plate turns into one compact row with the hash box taking the slack, and the two cards sit side by side. Under 480px everything stacks, as on a phone.</li>
+      <li><b>The coin, not the word.</b> "11.68 coins" is now coin 6 (art/brand/coin-6-small.svg) and 11.68. The word "coins" stays for screen readers only, as on Home.</li>
+    </ul>
+  </section>
+
+  <details class="pl-round2">
+    <summary>Round 5: A6, A7 as the founder saw them</summary>
+
+  <!-- A6. TWO TICKETS, recommended ================================================================ -->
+  <section class="pl-var" id="var-a6">
+    <p class="pl-cap"><b class="is-w">A6</b> Two tickets, recommended. The strip keeps its three money figures. "Every round" moves down onto its own striped plate in the provably fair blue, with the hash of a checked round, to the left of two round cards. In each card the skin breaks out over the top right corner and the words and the ruler use the card's whole width. <span class="pl-sample">Samples: 94.2 %, 11.68 coins, 1 h 40 m, 6 h 15 m, 0 %, two rounds on Ironbound of 18 Aug 2026 with their tickets and ranges, the hash 4f2a91c7…7e15b208 on the plate. For a guest the two withdrawal links open sign in first, as on Home.</span></p>
+    <div class="pl-frame">
+      <div class="tk tk--v2 tk--v3 tk--three">
+        <div class="tk-strip">
+          <div class="tk-stub"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+          <a class="tk-p tk-rtp" href="../../wireframes/case.html#h2-pays">
+            <span class="tk-case2" aria-hidden="true"><span class="b"></span><img class="sk" src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384"><span class="f"></span></span>
+            <span class="tk-k">Tested RTP, Ironbound</span>
+            <span class="tk-v">94.2<small> %</small></span>
+            <span class="tk-say">Expected value <span class="tk-money">11.68&#160;coins</span> at this cost.</span>
+            <span class="tk-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p" href="../../wireframes/withdraw.html">
+            <span class="tk-k">Median time to Steam</span>
+            <span class="tk-v">1<small> h </small>40<small> m</small></span>
+            <span class="tk-say">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span>
+            <span class="tk-go">How a withdrawal <span class="nw">settles<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p tk-fee" href="../../wireframes/withdraw.html#h3-total">
+            <span class="tk-k">Our commission on withdrawals</span>
+            <span class="tk-v">0<small> %</small></span>
+            <span class="tk-say">Withdrawals go to Steam, commission free.</span>
+            <span class="tk-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+        </div>
+        <div class="t6">
+          <div class="t6-plate">
+            <a class="t6-fig" href="../../wireframes/fair.html"><span class="tk-k">Checkable without an account</span><span class="tk-v tk-v--word">Every round</span></a>
+            <span class="tk-hash t6-hash"><code>4f2a91c7…7e15b208</code><span class="tk-ok"><svg><use href="#pl-ok"/></svg>Recomputed: matches</span></span>
+            <a class="v4-btn v4-btn--s t6-btn" href="../../wireframes/fair.html">Check a round</a>
+          </div>
+          <a class="c6" href="../../wireframes/result.html?round=glock" style="--r1:#6B42B9; --r2:#2E1A63">
+            <img class="c6-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt="" width="512" height="384">
+            <span class="c6-r">Restricted</span>
+            <span class="c6-w">Glock-18</span><b class="c6-s">Water Elemental</b>
+            <span class="c6-from">won from Ironbound, 18 Aug 14:58</span>
+            <span class="rc-t">ticket <b>29&#160;684</b> of 100&#160;000</span>
+            <span class="tr" style="--a:23; --b:37; --t:29.684" role="img" aria-label="Ticket 29 684, in the range 23 001 to 37 000"><i></i><b></b></span>
+            <span class="c6-go">Check this <span class="nw">round<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="c6" href="../../wireframes/result.html" style="--r1:#D1273E; --r2:#7A0F22">
+            <img class="c6-skin" src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384">
+            <span class="c6-r">Covert</span>
+            <span class="c6-w">AK-47</span><b class="c6-s">Redline</b>
+            <span class="c6-from">won from Ironbound, 18 Aug 14:44</span>
+            <span class="rc-t">ticket <b>2&#160;417</b> of 100&#160;000</span>
+            <span class="tr" style="--a:0; --b:3.18; --t:2.417" role="img" aria-label="Ticket 2 417, in the range 1 to 3 180"><i></i><b></b></span>
+            <span class="c6-go">Check this <span class="nw">round<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A7. THE STRIP WITH A TURNING ROUND, reworked ================================================ -->
+  <section class="pl-var" id="var-a7">
+    <p class="pl-cap"><b class="is-w">A7</b> The strip with a turning round, reworked. The stub is striped pink again. The three links stand on one line and one baseline. The last panel ends on the pink "Check this round" button, with the marks that turn the rounds beside it. <span class="pl-sample">Samples: 94.2 %, 11.68 coins, 1 h 40 m, 6 h 15 m, 0 %, three rounds on Ironbound of 18 Aug 2026 with their tickets and ranges.</span></p>
+    <div class="pl-frame">
+      <div class="tk tk--v2 tk--v3 tk--turn tk--turn2">
+        <div class="tk-strip">
+          <div class="tk-stub"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+          <a class="tk-p tk-rtp" href="../../wireframes/case.html#h2-pays">
+            <span class="tk-case2" aria-hidden="true"><span class="b"></span><img class="sk" src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384"><span class="f"></span></span>
+            <span class="tk-k">Tested RTP, Ironbound</span>
+            <span class="tk-v">94.2<small> %</small></span>
+            <span class="tk-say">Expected value <span class="tk-money">11.68&#160;coins</span> at this cost.</span>
+            <span class="tk-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p" href="../../wireframes/withdraw.html">
+            <span class="tk-k">Median time to Steam</span>
+            <span class="tk-v">1<small> h </small>40<small> m</small></span>
+            <span class="tk-say">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span>
+            <span class="tk-go">How a withdrawal <span class="nw">settles<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p tk-fee" href="../../wireframes/withdraw.html#h3-total">
+            <span class="tk-k">Our commission on withdrawals</span>
+            <span class="tk-v">0<small> %</small></span>
+            <span class="tk-say">Withdrawals go to Steam, commission free.</span>
+            <span class="tk-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <div class="tk-p tk-round tt" aria-roledescription="carousel" aria-label="Checked rounds">
+            <a class="tk-fig" href="../../wireframes/fair.html"><span class="tk-k">Checkable without an account</span><span class="tk-v tk-v--word">Every round</span></a>
+            <div class="tt-slide" aria-roledescription="slide" aria-label="1 of 3">
+              <img class="tt-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt="" width="512" height="384">
+              <span class="tt-n">Glock-18 | Water Elemental</span>
+              <span class="rc-t">ticket <b>29&#160;684</b> of 100&#160;000</span>
+              <span class="tr" style="--a:23; --b:37; --t:29.684" role="img" aria-label="Ticket 29 684, in the range 23 001 to 37 000"><i></i><b></b></span>
+              <a class="v4-btn v4-btn--s tt-btn" href="../../wireframes/result.html?round=glock">Check this round</a>
+            </div>
+            <div class="tt-slide" aria-roledescription="slide" aria-label="2 of 3" hidden>
+              <img class="tt-skin" src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384">
+              <span class="tt-n">AK-47 | Redline</span>
+              <span class="rc-t">ticket <b>2&#160;417</b> of 100&#160;000</span>
+              <span class="tr" style="--a:0; --b:3.18; --t:2.417" role="img" aria-label="Ticket 2 417, in the range 1 to 3 180"><i></i><b></b></span>
+              <a class="v4-btn v4-btn--s tt-btn" href="../../wireframes/result.html">Check this round</a>
+            </div>
+            <div class="tt-slide" aria-roledescription="slide" aria-label="3 of 3" hidden>
+              <img class="tt-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt="" width="512" height="384">
+              <span class="tt-n">M4A1-S | Hyper Beast</span>
+              <span class="rc-t">ticket <b>6&#160;112</b> of 100&#160;000</span>
+              <span class="tr" style="--a:4.2; --b:8.8; --t:6.112" role="img" aria-label="Ticket 6 112, in the range 4 201 to 8 800"><i></i><b></b></span>
+              <a class="v4-btn v4-btn--s tt-btn" href="../../wireframes/result.html?round=m4">Check this round</a>
+            </div>
+            <div class="tt-dots"><button type="button" aria-pressed="true" aria-label="Glock-18 | Water Elemental"></button><button type="button" aria-pressed="false" aria-label="AK-47 | Redline"></button><button type="button" aria-pressed="false" aria-label="M4A1-S | Hyper Beast"></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl-var pl-notes">
+    <h2>What changed from round 4</h2>
+    <ul>
+      <li><b>The stub is striped again</b>, the founder's pick ("вот так мне нравится"). It overrides "stripes for buttons only" for this one heading plate. In A6 the "Every round" plate wears the same stripes, so the two plates read as a pair.</li>
+      <li><b>A6, after the founder's "этот варик близок": the "Every round" plate gets a colour of its own</b> ("другой цвет карточки нужно"). It is a striped teal to blue, the shield's provably fair blue taken deeper, so it no longer merges with the pink stub and stands apart from the violet and red cards beside it. It carries round 2's hash box ("давай добавим"), and its button is now the pink striped "Check a round".</li>
+      <li><b>A6: the last panel moved down.</b> The strip keeps three figure panels. "Every round" now stands on its own plate on the left of the round cards, the founder's "с конца уберем и перенесем вниз, слева от карточек".</li>
+      <li><b>A6: two cards, not three.</b> The Glock-18 | Water Elemental and the AK-47 | Redline, a Restricted and a Covert, so the two colours differ. The skin now breaks out over each card's top right corner, as in A5's panel. The words and the ruler use the card's width, so nothing sits empty under the skin.</li>
+      <li><b>One line, one baseline for the links</b>, in A6 and A7. The panel widths were set so that "What this case pays", "How a withdrawal settles" and "What this settles at" each fit on one line at 1558. Every link sits at the foot of its panel. No wording changed.</li>
+      <li><b>A7: the last panel ends on the button.</b> The pink striped "Check this round" (`.v4-btn--s`), with the marks beside it. The first round shown is now the Glock-18, as in the founder's screenshot.</li>
+    </ul>
+  </section>
+
+  </details>
+
+  <details class="pl-round2">
+    <summary>Round 4: A4, A5 as the founder saw them</summary>
+
+  <!-- A4. THE STRIP AND THREE ROUNDS, recommended ================================================= -->
+  <section class="pl-var" id="var-a4">
+    <p class="pl-cap"><b class="is-w">A4</b> The strip and three rounds, recommended. A2's strip unchanged in form; its last panel now holds the verifier, and the rounds it checks stand under it as three cards. <span class="pl-sample">Samples: 94.2 %, 11.68 coins, 1 h 40 m, 6 h 15 m, 0 %, three rounds on Ironbound of 18 Aug 2026 with their tickets and ranges. For a guest the two withdrawal links open sign in first, as on Home.</span></p>
+    <div class="pl-frame">
+      <div class="tk tk--v2">
+        <div class="tk-strip">
+          <div class="tk-stub"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+          <a class="tk-p tk-rtp" href="../../wireframes/case.html#h2-pays">
+            <span class="tk-case2" aria-hidden="true"><span class="b"></span><img class="sk" src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384"><span class="f"></span></span>
+            <span class="tk-k">Tested RTP, Ironbound</span>
+            <span class="tk-v">94.2<small> %</small></span>
+            <span class="tk-say">Expected value <span class="tk-money">11.68&#160;coins</span> at this cost.</span>
+            <span class="tk-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p" href="../../wireframes/withdraw.html">
+            <span class="tk-k">Median time to Steam</span>
+            <span class="tk-v">1<small> h </small>40<small> m</small></span>
+            <span class="tk-say">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span>
+            <span class="tk-go">How a withdrawal <span class="nw">settles<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p tk-fee" href="../../wireframes/withdraw.html#h3-total">
+            <span class="tk-k">Our commission on withdrawals</span>
+            <span class="tk-v">0<small> %</small></span>
+            <span class="tk-say">Withdrawals go to Steam, commission free.</span>
+            <span class="tk-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <div class="tk-p tk-round">
+            <a class="tk-fig" href="../../wireframes/fair.html"><span class="tk-k">Checkable without an account</span><span class="tk-v tk-v--word">Every round</span></a>
+            <a class="v4-btn v4-btn--s tk-btn" href="../../wireframes/fair.html">Check a round</a>
+          </div>
+        </div>
+        <ol class="rc">
+          <li class="rc-card" style="--r1:#D22BCE; --r2:#6E1470">
+            <img class="rc-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt="" width="512" height="384">
+            <span class="rc-r">Classified</span>
+            <span class="rc-w">M4A1-S</span><b class="rc-s">Hyper Beast</b>
+            <span class="rc-from">won from Ironbound, 18 Aug 15:06</span>
+            <span class="rc-t">ticket <b>6&#160;112</b> of 100&#160;000</span>
+            <span class="tr" style="--a:4.2; --b:8.8; --t:6.112" role="img" aria-label="Ticket 6 112, in the range 4 201 to 8 800"><i></i><b></b></span>
+            <a class="rc-go" href="../../wireframes/result.html?round=m4">Check this <span class="nw">round<svg><use href="#pl-arrow"/></svg></span></a>
+          </li>
+          <li class="rc-card" style="--r1:#6B42B9; --r2:#2E1A63">
+            <img class="rc-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt="" width="512" height="384">
+            <span class="rc-r">Restricted</span>
+            <span class="rc-w">Glock-18</span><b class="rc-s">Water Elemental</b>
+            <span class="rc-from">won from Ironbound, 18 Aug 14:58</span>
+            <span class="rc-t">ticket <b>29&#160;684</b> of 100&#160;000</span>
+            <span class="tr" style="--a:23; --b:37; --t:29.684" role="img" aria-label="Ticket 29 684, in the range 23 001 to 37 000"><i></i><b></b></span>
+            <a class="rc-go" href="../../wireframes/result.html?round=glock">Check this <span class="nw">round<svg><use href="#pl-arrow"/></svg></span></a>
+          </li>
+          <li class="rc-card" style="--r1:#D1273E; --r2:#7A0F22">
+            <img class="rc-skin" src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384">
+            <span class="rc-r">Covert</span>
+            <span class="rc-w">AK-47</span><b class="rc-s">Redline</b>
+            <span class="rc-from">won from Ironbound, 18 Aug 14:44</span>
+            <span class="rc-t">ticket <b>2&#160;417</b> of 100&#160;000</span>
+            <span class="tr" style="--a:0; --b:3.18; --t:2.417" role="img" aria-label="Ticket 2 417, in the range 1 to 3 180"><i></i><b></b></span>
+            <a class="rc-go" href="../../wireframes/result.html">Check this <span class="nw">round<svg><use href="#pl-arrow"/></svg></span></a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- A5. THE STRIP WITH A TURNING ROUND ========================================================== -->
+  <section class="pl-var" id="var-a5">
+    <p class="pl-cap"><b class="is-w">A5</b> The strip with a turning round. One strip tall, as A2. The last panel keeps its words and holds one checked round at a time: the skin breaks the strip's top edge as Ironbound does at the other end, its ticket on the ruler, its check. The three marks under it turn to the other rounds, and the panel turns by itself every six seconds unless the pointer or the keyboard is on it, or the reader asked for less motion. <span class="pl-sample">Samples: 94.2 %, 11.68 coins, 1 h 40 m, 6 h 15 m, 0 %, three rounds on Ironbound of 18 Aug 2026 with their tickets and ranges.</span></p>
+    <div class="pl-frame">
+      <div class="tk tk--v2 tk--turn">
+        <div class="tk-strip">
+          <div class="tk-stub"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+          <a class="tk-p tk-rtp" href="../../wireframes/case.html#h2-pays">
+            <span class="tk-case2" aria-hidden="true"><span class="b"></span><img class="sk" src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384"><span class="f"></span></span>
+            <span class="tk-k">Tested RTP, Ironbound</span>
+            <span class="tk-v">94.2<small> %</small></span>
+            <span class="tk-say">Expected value <span class="tk-money">11.68&#160;coins</span> at this cost.</span>
+            <span class="tk-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p" href="../../wireframes/withdraw.html">
+            <span class="tk-k">Median time to Steam</span>
+            <span class="tk-v">1<small> h </small>40<small> m</small></span>
+            <span class="tk-say">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span>
+            <span class="tk-go">How a withdrawal <span class="nw">settles<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p tk-fee" href="../../wireframes/withdraw.html#h3-total">
+            <span class="tk-k">Our commission on withdrawals</span>
+            <span class="tk-v">0<small> %</small></span>
+            <span class="tk-say">Withdrawals go to Steam, commission free.</span>
+            <span class="tk-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <div class="tk-p tk-round tt" aria-roledescription="carousel" aria-label="Checked rounds">
+            <a class="tk-fig" href="../../wireframes/fair.html"><span class="tk-k">Checkable without an account</span><span class="tk-v tk-v--word">Every round</span></a>
+            <div class="tt-slide" style="--r1:#D22BCE" aria-roledescription="slide" aria-label="1 of 3">
+              <img class="tt-skin" src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt="" width="512" height="384">
+              <span class="tt-n">M4A1-S | Hyper Beast</span>
+              <span class="rc-t">ticket <b>6&#160;112</b> of 100&#160;000</span>
+              <span class="tr" style="--a:4.2; --b:8.8; --t:6.112" role="img" aria-label="Ticket 6 112, in the range 4 201 to 8 800"><i></i><b></b></span>
+              <a class="tt-go" href="../../wireframes/result.html?round=m4">Check this <span class="nw">round<svg><use href="#pl-arrow"/></svg></span></a>
+            </div>
+            <div class="tt-slide" style="--r1:#6B42B9" aria-roledescription="slide" aria-label="2 of 3" hidden>
+              <img class="tt-skin" src="../concept/assets/skins/glock-18-water-elemental.png" alt="" width="512" height="384">
+              <span class="tt-n">Glock-18 | Water Elemental</span>
+              <span class="rc-t">ticket <b>29&#160;684</b> of 100&#160;000</span>
+              <span class="tr" style="--a:23; --b:37; --t:29.684" role="img" aria-label="Ticket 29 684, in the range 23 001 to 37 000"><i></i><b></b></span>
+              <a class="tt-go" href="../../wireframes/result.html?round=glock">Check this <span class="nw">round<svg><use href="#pl-arrow"/></svg></span></a>
+            </div>
+            <div class="tt-slide" style="--r1:#D1273E" aria-roledescription="slide" aria-label="3 of 3" hidden>
+              <img class="tt-skin" src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384">
+              <span class="tt-n">AK-47 | Redline</span>
+              <span class="rc-t">ticket <b>2&#160;417</b> of 100&#160;000</span>
+              <span class="tr" style="--a:0; --b:3.18; --t:2.417" role="img" aria-label="Ticket 2 417, in the range 1 to 3 180"><i></i><b></b></span>
+              <a class="tt-go" href="../../wireframes/result.html">Check this <span class="nw">round<svg><use href="#pl-arrow"/></svg></span></a>
+            </div>
+            <div class="tt-dots"><button type="button" style="--r1:#D22BCE" aria-pressed="true" aria-label="M4A1-S | Hyper Beast"></button><button type="button" style="--r1:#6B42B9" aria-pressed="false" aria-label="Glock-18 | Water Elemental"></button><button type="button" style="--r1:#D1273E" aria-pressed="false" aria-label="AK-47 | Redline"></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl-var pl-notes">
+    <h2>What changed from round 3</h2>
+    <ul>
+      <li><b>The feed of rows is gone.</b> Small dark thumbnails on near-black rows, a mono hash and a blue link three times over, and a pink edge on the first row that said nothing a reader could name. Each round is now a card in its rarity's colour (A4), or one round at a time in the strip (A5); the hash stays on the round's own page, one click away.</li>
+      <li><b>The ticket is drawn.</b> "ticket 2 417 of 100 000" on a short ruler: the round's range in white, the ticket a mark inside it. That is what a check proves, drawn before the click.</li>
+      <li><b>Ironbound is the approved new case</b> (art/cases-v2/ironbound-c.webp), the AK-47 | Redline over its tray. The Redline because it is Ironbound's own top item in the drop table; the Vulcan the cases lab shows is a Warsteel drop.</li>
+      <li><b>The last panel in A4 holds the verifier.</b> "Check a round" goes to the fair page's checker, so the cards keep "Check this round" for themselves and no act is said twice.</li>
+      <li><b>Money in gold #FFC44D:</b> the 0 % and the 11.68 coins. RTP and the tickets stay white: they are not amounts.</li>
+      <li><b>The stub lost its stripes.</b> Stripes mean a button in this family, and the stub is a heading plate that nothing presses; it keeps the pink.</li>
+    </ul>
+  </section>
+
+  </details>
+
+  <details class="pl-round2">
+    <summary>Round 3: AD, A2, D2 as the founder saw them</summary>
+
+  <!-- AD. THE TICKET AND THE FEED, recommended =================================================== -->
+  <section class="pl-var" id="var-ad">
+    <p class="pl-cap"><b class="is-w">AD</b> The ticket and the feed, recommended. A2's strip for the three figures about money, and under it, as one object, D2's feed of checked rounds in place of the single hash. <span class="pl-sample">Samples: 94.2 %, 11.68 coins, 1 h 40 m, 6 h 15 m, 0 %, three rounds on Ironbound of 18 Aug 2026 with their tickets and hashes. For a guest the two withdrawal links open sign in first, as on Home.</span></p>
+    <div class="pl-frame">
+      <div class="tk tk--deck">
+        <div class="tk-strip">
+          <div class="tk-stub"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+          <a class="tk-p tk-rtp" href="../../wireframes/case.html#h2-pays">
+            <span class="tk-burst" aria-hidden="true"></span><span class="tk-case" aria-hidden="true"><i class="c"></i><i class="s"></i><i class="r"></i></span>
+            <span class="tk-k">Tested RTP, Ironbound</span>
+            <span class="tk-v">94.2<small> %</small></span>
+            <span class="tk-say">Expected value 11.68&#160;coins at this cost.</span>
+            <span class="tk-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p" href="../../wireframes/withdraw.html">
+            <span class="tk-k">Median time to Steam</span>
+            <span class="tk-v">1<small> h </small>40<small> m</small></span>
+            <span class="tk-say">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span>
+            <span class="tk-go">How a withdrawal <span class="nw">settles<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p tk-fee" href="../../wireframes/withdraw.html#h3-total">
+            <span class="tk-k">Our commission on withdrawals</span>
+            <span class="tk-v">0<small> %</small></span>
+            <span class="tk-say">Withdrawals go to Steam, commission free.</span>
+            <span class="tk-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+        </div>
+        <div class="fd fd--deck">
+          <a class="fd-h" href="../../wireframes/fair.html"><b>Every round</b><span>Checkable without an account</span><span class="fd-go">Provably <span class="nw">fair<svg><use href="#pl-arrow"/></svg></span></span></a>
+          <ol class="fd-rows">
+            <li class="is-last"><img src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt="" width="512" height="384"><span class="fd-n">M4A1-S | Hyper Beast</span><span class="fd-t">ticket 6 112</span><code>e04b7d2a</code><a href="../../wireframes/result.html?round=m4">Check this round</a></li>
+            <li><img src="../concept/assets/skins/glock-18-water-elemental.png" alt="" width="512" height="384"><span class="fd-n">Glock-18 | Water Elemental</span><span class="fd-t">ticket 29 684</span><code>a3f91c58</code><a href="../../wireframes/result.html?round=glock">Check this round</a></li>
+            <li><img src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384"><span class="fd-n">AK-47 | Redline</span><span class="fd-t">ticket 2 417</span><code>4f2a91c7</code><a href="../../wireframes/result.html">Check this round</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A2. THE CASE TICKET, refined ================================================================ -->
+  <section class="pl-var" id="var-a2">
+    <p class="pl-cap"><b class="is-w">A2</b> The case ticket, refined. One strip, no coupon: the panels part on a hairline instead of tear dots. Every panel reads in one glance: what it is, one big figure, one line in words, where it leads. Ironbound stands in its own panel and breaks only the strip's top edge, as the mode cards' art does. <span class="pl-sample">Samples: 94.2 %, 11.68 coins, 1 h 40 m, 6 h 15 m, 0 %, the round of 18 Aug 2026 14:44 and its hash. For a guest the two withdrawal links open sign in first, as on Home.</span></p>
+    <div class="pl-frame">
+      <div class="tk">
+        <div class="tk-strip">
+          <div class="tk-stub"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+          <a class="tk-p tk-rtp" href="../../wireframes/case.html#h2-pays">
+            <span class="tk-burst" aria-hidden="true"></span><span class="tk-case" aria-hidden="true"><i class="c"></i><i class="s"></i><i class="r"></i></span>
+            <span class="tk-k">Tested RTP, Ironbound</span>
+            <span class="tk-v">94.2<small> %</small></span>
+            <span class="tk-say">Expected value 11.68&#160;coins at this cost.</span>
+            <span class="tk-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p" href="../../wireframes/withdraw.html">
+            <span class="tk-k">Median time to Steam</span>
+            <span class="tk-v">1<small> h </small>40<small> m</small></span>
+            <span class="tk-say">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span>
+            <span class="tk-go">How a withdrawal <span class="nw">settles<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="tk-p tk-fee" href="../../wireframes/withdraw.html#h3-total">
+            <span class="tk-k">Our commission on withdrawals</span>
+            <span class="tk-v">0<small> %</small></span>
+            <span class="tk-say">Withdrawals go to Steam, commission free.</span>
+            <span class="tk-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <div class="tk-p tk-round">
+            <a class="tk-fig" href="../../wireframes/fair.html"><span class="tk-k">Checkable without an account</span><span class="tk-v tk-v--word">Every round</span></a>
+            <span class="tk-hash"><code>4f2a91c7…7e15b208</code><span class="tk-ok"><svg><use href="#pl-ok"/></svg>Recomputed: matches</span></span>
+            <a class="v4-btn v4-btn--s tk-btn" href="../../wireframes/result.html">Check this round</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D2. THE HUD SCOREBOARD, refined ============================================================== -->
+  <section class="pl-var" id="var-d2">
+    <p class="pl-cap"><b class="is-w">D2</b> The HUD scoreboard, refined. The slanted plates and the clock stay; each one now names where it leads. The feed is three rounds, the newest edged in our pink, and at 360 each row is the skin, its name, its ticket and the check. <span class="pl-sample">Samples: 94.2 %, 1 h 40 m, 6 h 15 m, 0 %, three rounds on Ironbound of 18 Aug 2026 with their tickets and hashes.</span></p>
+    <div class="pl-frame">
+      <div class="pl-h"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+      <div class="hd">
+        <div class="hd-score">
+          <a class="hd-team hd-team--l" href="../../wireframes/case.html#h2-pays"><span class="hd-v">94.2<small> %</small></span><span class="hd-c">Tested RTP, Ironbound</span><span class="hd-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span></a>
+          <a class="hd-clock" href="../../wireframes/withdraw.html"><span class="hd-v">1<small> h </small>40<small> m</small></span><span class="hd-c">Median time to Steam</span><span class="hd-s">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span><span class="hd-go">How a withdrawal <span class="nw">settles<svg><use href="#pl-arrow"/></svg></span></span></a>
+          <a class="hd-team hd-team--r" href="../../wireframes/withdraw.html#h3-total"><span class="hd-v">0<small> %</small></span><span class="hd-c">Our commission on withdrawals</span><span class="hd-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span></a>
+        </div>
+        <div class="fd">
+          <a class="fd-h" href="../../wireframes/fair.html"><b>Every round</b><span>Checkable without an account</span><span class="fd-go">Provably <span class="nw">fair<svg><use href="#pl-arrow"/></svg></span></span></a>
+          <ol class="fd-rows">
+            <li class="is-last"><img src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt="" width="512" height="384"><span class="fd-n">M4A1-S | Hyper Beast</span><span class="fd-t">ticket 6 112</span><code>e04b7d2a</code><a href="../../wireframes/result.html?round=m4">Check this round</a></li>
+            <li><img src="../concept/assets/skins/glock-18-water-elemental.png" alt="" width="512" height="384"><span class="fd-n">Glock-18 | Water Elemental</span><span class="fd-t">ticket 29 684</span><code>a3f91c58</code><a href="../../wireframes/result.html?round=glock">Check this round</a></li>
+            <li><img src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384"><span class="fd-n">AK-47 | Redline</span><span class="fd-t">ticket 2 417</span><code>4f2a91c7</code><a href="../../wireframes/result.html">Check this round</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl-var pl-notes">
+    <h2>What changed from round 2</h2>
+    <ul>
+      <li><b>A to A2.</b> Each panel is one label, one figure, one line, one link; the rarity bar, its legend and the time bar left. The tear dots and dashed cuts are gone: the panels part on a hairline. Ironbound no longer hangs over the strip: it stands in its panel, its flames end at the panel's edge and only the case and the skin break the top edge, the mode cards' move.</li>
+      <li><b>D to D2.</b> The plates and the clock stay as they were drawn. Each now carries its link by name, the plates lose their second sentence, the newest round is edged in our pink rather than CS2's red, and the feed holds at three rows that keep one line each at 360.</li>
+      <li><b>AD, new.</b> A2's strip over D2's feed: the single hash of A2's last panel becomes three rounds anyone can check.</li>
+      <li><b>The withdrawal link.</b> "Send to Steam" read as an act. It is now "How a withdrawal settles", the microcopy row G141 that the case page already uses for the same page. The commission keeps "What this settles at", the heading on that page where the 0 % stands.</li>
+    </ul>
+  </section>
+
+  </details>
+
+  <details class="pl-round2">
+    <summary>Round 2: A, B, C, D as the founder saw them</summary>
+
+  <!-- A. THE CASE TICKET ======================================================================= -->
+  <section class="pl-var" id="var-a">
+    <p class="pl-cap"><b>A</b> The case ticket, recommended. Round 1's strip in Home's colours: the pink stub keeps the heading, the RTP panel holds the case it was tested on and that case's chances by rarity, and each tear line opens a different kind of figure. <span class="pl-sample">Samples: 94.2 %, expected value 11.68 coins at 12.40, the four rarity chances of Ironbound, 1 h 40 m and 6 h 15 m, 0 %, the round of 18 Aug 2026 14:44 and its hash. For a guest the two withdrawal links open sign in first, as on Home.</span></p>
+    <div class="pl-frame">
+      <div class="pa">
+        <div class="pa-stub"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+
+        <a class="pa-sec pa-rtp" href="../../wireframes/case.html#h2-pays">
+          <span class="pl-case pa-case" aria-hidden="true"><i class="w"></i><i class="c"></i><i class="s"></i><i class="r"></i></span>
+          <span class="pa-v">94.2<small> %</small></span>
+          <span class="pa-c">Tested RTP, Ironbound</span>
+          <span class="pa-odds" role="img" aria-label="Chance by rarity: Covert 4.2 %, Classified 6.8 %, Restricted 26 %, Mil-Spec 63 %">
+            <i style="--w:4.2; --k:var(--color-rarity-2)"></i><i style="--w:6.8; --k:var(--color-rarity-3)"></i><i style="--w:26; --k:var(--color-rarity-4)"></i><i style="--w:63; --k:var(--color-rarity-5)"></i>
+          </span>
+          <span class="pa-key" aria-hidden="true"><span style="--k:var(--color-rarity-2)">Covert 4.2 %</span><span style="--k:var(--color-rarity-3)">Classified 6.8 %</span><span style="--k:var(--color-rarity-4)">Restricted 26 %</span><span style="--k:var(--color-rarity-5)">Mil-Spec 63 %</span></span>
+          <span class="pa-say">RTP 94.2 %, tested. Expected value 11.68&#160;coins at this cost.</span>
+          <span class="pa-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span>
+        </a>
+
+        <a class="pa-sec pa-time" href="../../wireframes/withdraw.html">
+          <span class="pa-v">1<small> h </small>40<small> m</small></span>
+          <span class="pa-c">Median time to Steam</span>
+          <span class="pa-track" role="img" aria-label="Median 1 h 40 m, nine in ten within 6 h 15 m"><i></i><b></b></span>
+          <span class="pa-track-k" aria-hidden="true"><span>0</span><span>6 h 15 m</span></span>
+          <span class="pa-say">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span>
+          <span class="pa-go">Send to <span class="nw">Steam<svg><use href="#pl-arrow"/></svg></span></span>
+        </a>
+
+        <a class="pa-sec pa-fee" href="../../wireframes/withdraw.html#h3-total">
+          <span class="pa-v">0<small> %</small></span>
+          <span class="pa-c">Our commission on withdrawals</span>
+          <span class="pa-say">Withdrawals go to Steam, commission free.</span>
+          <span class="pa-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span>
+        </a>
+
+        <div class="pa-sec pa-round">
+          <a class="pa-round-fig" href="../../wireframes/fair.html"><span class="pa-v pa-v--word">Every round</span><span class="pa-c">Checkable without an account</span></a>
+          <span class="pa-hash"><span class="pa-hash-l">Server seed hash, published before the round</span><code>4f2a91c7…7e15b208</code><span class="pa-ok"><svg><use href="#pl-ok"/></svg>Recomputed: matches</span></span>
+          <span class="pa-acts"><a class="v4-btn v4-btn--s" href="../../wireframes/result.html">Check this round</a><a class="pa-go" href="../../wireframes/fair.html">Provably <span class="nw">fair<svg><use href="#pl-arrow"/></svg></span></a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B. THE LIVE CHECK ========================================================================= -->
+  <section class="pl-var" id="var-b">
+    <p class="pl-cap"><b>B</b> The live check: one figure large, and it is the one that proves itself. The last round on Ironbound with its seeds, its hash and where its ticket landed; under the pointer it recomputes. The other three stand beside it as one column of different rows. <span class="pl-sample">Samples: the round AK-47 | Redline of 18 Aug 2026 14:44, its hash, client seed, nonce and ticket; 94.2 %, 11.68 coins, 1 h 40 m, 6 h 15 m, 0 %.</span></p>
+    <div class="pl-frame">
+      <div class="pl-h"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+      <div class="pb">
+        <div class="pb-proof" tabindex="-1">
+          <a class="pb-top" href="../../wireframes/fair.html"><span class="pb-big">Every round</span><span class="pb-cap">Checkable without an account</span></a>
+          <div class="pb-round">
+            <span class="pb-skin" aria-hidden="true"><img src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384"></span>
+            <span class="pb-who"><b>AK-47 | Redline, won from Ironbound</b><span>Field-Tested · StatTrak · Covert · 18 Aug 2026 14:44</span></span>
+            <span class="pb-ok"><svg><use href="#pl-ok"/></svg>Recomputed: matches</span>
+          </div>
+          <div class="pb-ruler">
+            <span class="pb-ruler-l">Ticket range it landed in <b>1 to 3 180</b> of 100 000</span>
+            <span class="pb-bar" role="img" aria-label="Ticket 2 417, in the range 1 to 3 180"><i class="pb-range"></i><i class="pb-tick"><b>ticket 2 417</b></i></span>
+          </div>
+          <dl class="pb-dl">
+            <div><dt>Server seed hash, published before the round</dt><dd><code>4f2a91c7e0b83d5619ac7f20…7e15b208</code></dd></div>
+            <div><dt>Client seed</dt><dd><code>7d19f4a2</code></dd></div>
+            <div><dt>Nonce</dt><dd><code>41 207</code></dd></div>
+          </dl>
+          <div class="pb-acts"><a class="v4-btn v4-btn--m" href="../../wireframes/result.html">Check this round</a><a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/fair.html">Provably fair</a></div>
+        </div>
+        <div class="pb-side">
+          <a class="pb-row pb-row--rtp" href="../../wireframes/case.html#h2-pays">
+            <span class="pb-v">94.2<small> %</small></span>
+            <span class="pb-t"><b>Tested RTP, Ironbound</b><span>Expected value 11.68&#160;coins at this cost.</span></span>
+            <span class="pb-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="pb-row pb-row--time" href="../../wireframes/withdraw.html">
+            <span class="pb-v">1<small> h </small>40<small> m</small></span>
+            <span class="pb-t"><b>Median time to Steam</b><span>Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span></span>
+            <span class="pb-go">Send to <span class="nw">Steam<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+          <a class="pb-row pb-row--fee" href="../../wireframes/withdraw.html#h3-total">
+            <span class="pb-v">0<small> %</small></span>
+            <span class="pb-t"><b>Our commission on withdrawals</b><span>Withdrawals go to Steam, commission free.</span></span>
+            <span class="pb-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C. FOUR CARDS, FOUR STORIES ================================================================ -->
+  <section class="pl-var" id="var-c">
+    <p class="pl-cap"><b>C</b> Four cards, four stories: the mode cards' paint and the rail's grammar. Each card has its own colour, width and mark, and the mark tells its figure in about a second under the pointer or the keyboard: the needle climbs to 94.2, the clock runs to 1 h 40 m, the coin turns and nothing is taken, the shield signs off the round. <span class="pl-sample">Samples: 94.2 %, 11.68 coins, 1 h 40 m, 6 h 15 m, 0 %, the hash of the round of 18 Aug 2026 14:44.</span></p>
+    <div class="pl-frame">
+      <div class="pl-h"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+      <div class="pc">
+        <a class="pc-card pc-rtp" href="../../wireframes/case.html#h2-pays">
+          <span class="pl-case pc-case" aria-hidden="true"><i class="w"></i><i class="c"></i><i class="s"></i><i class="r"></i></span>
+          <span class="pc-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path class="pc-g-tr" d="M8 34 A16 16 0 0 1 40 34" pathLength="100"/><path class="pc-g-on" d="M8 34 A16 16 0 0 1 40 34" pathLength="100"/><line class="pc-g-nd" x1="24" y1="34" x2="36.3" y2="31.7"/><circle cx="24" cy="34" r="3" fill="currentColor"/></svg></span>
+          <span class="pc-v">94.2<small> %</small></span>
+          <span class="pc-c">Tested RTP, Ironbound</span>
+          <span class="pc-say">Expected value 11.68&#160;coins at this cost.</span>
+          <span class="pc-go">What this case <span class="nw">pays<svg><use href="#pl-arrow"/></svg></span></span>
+        </a>
+        <a class="pc-card pc-time" href="../../wireframes/withdraw.html">
+          <span class="pc-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="3"/><line class="pc-c-h" x1="24" y1="24" x2="24" y2="15" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line class="pc-c-m" x1="24" y1="24" x2="24" y2="11.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="24" r="2.4" fill="currentColor"/></svg></span>
+          <span class="pc-v">1<small> h </small>40<small> m</small></span>
+          <span class="pc-c">Median time to Steam</span>
+          <span class="pc-say">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span>
+          <span class="pc-go">Send to <span class="nw">Steam<svg><use href="#pl-arrow"/></svg></span></span>
+        </a>
+        <a class="pc-card pc-fee" href="../../wireframes/withdraw.html#h3-total">
+          <span class="pc-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><g class="pc-coin"><circle cx="24" cy="24" r="15" fill="currentColor"/><circle cx="24" cy="24" r="11" fill="none" stroke="#B4400F" stroke-opacity=".45" stroke-width="1.6"/><path d="M24 17.5c-3 0-4.4 2.9-4.4 6.5s1.4 6.5 4.4 6.5 4.4-2.9 4.4-6.5-1.4-6.5-4.4-6.5z" fill="none" stroke="#7A2A08" stroke-width="2.6"/></g></svg></span>
+          <span class="pc-v">0<small> %</small></span>
+          <span class="pc-c">Our commission on withdrawals</span>
+          <span class="pc-say">Withdrawals go to Steam, commission free.</span>
+          <span class="pc-go">What this settles <span class="nw">at<svg><use href="#pl-arrow"/></svg></span></span>
+        </a>
+        <div class="pc-card pc-round">
+          <span class="pc-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5 9 10.5v11c0 9.4 6.4 17.6 15 21 8.6-3.4 15-11.6 15-21v-11z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path class="pc-s-tk" d="m16.5 24 5 5 10-10.5" fill="none" stroke="var(--color-green)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/></svg></span>
+          <a class="pc-fig" href="../../wireframes/fair.html"><span class="pc-v pc-v--word">Every round</span><span class="pc-c">Checkable without an account</span></a>
+          <span class="pc-hash"><span>Server seed hash, published before the round</span><code>4f2a91c7…7e15b208</code></span>
+          <a class="v4-btn v4-btn--s pc-btn" href="../../wireframes/result.html">Check this round</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D. THE HUD SCOREBOARD ===================================================================== -->
+  <section class="pl-var" id="var-d">
+    <p class="pl-cap"><b>D</b> The HUD scoreboard: CS2's own top of screen. The two figures about money stand where the team scores stand, the withdrawal time takes the round clock's place, and the kill feed becomes a feed of checked rounds, each with its hash and its link. <span class="pl-sample">Samples: 94.2 %, 1 h 40 m, 6 h 15 m, 0 %, three rounds on Ironbound of 18 Aug 2026 with their tickets and hashes.</span></p>
+    <div class="pl-frame">
+      <div class="pl-h"><svg><use href="#pl-shield"/></svg><h2>Before you spend</h2></div>
+      <div class="pd">
+        <div class="pd-score">
+          <a class="pd-team pd-team--l" href="../../wireframes/case.html#h2-pays"><span class="pd-v">94.2<small> %</small></span><span class="pd-c">Tested RTP, Ironbound</span><span class="pd-s">Expected value 11.68&#160;coins at this cost.</span></a>
+          <a class="pd-clock" href="../../wireframes/withdraw.html"><span class="pd-v">1<small> h </small>40<small> m</small></span><span class="pd-c">Median time to Steam</span><span class="pd-s">Nine in ten arrive within 6&#160;h&#160;15&#160;m.</span></a>
+          <a class="pd-team pd-team--r" href="../../wireframes/withdraw.html#h3-total"><span class="pd-v">0<small> %</small></span><span class="pd-c">Our commission on withdrawals</span><span class="pd-s">Withdrawals go to Steam, commission free.</span></a>
+        </div>
+        <div class="pd-feed">
+          <a class="pd-feed-h" href="../../wireframes/fair.html"><b>Every round</b><span>Checkable without an account</span><span class="pd-go">Provably <span class="nw">fair<svg><use href="#pl-arrow"/></svg></span></span></a>
+          <ol class="pd-rows">
+            <li class="is-last"><img src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt="" width="512" height="384"><span class="pd-n">M4A1-S | Hyper Beast</span><span class="pd-k">ticket 6 112</span><code>e04b7d2a</code><a href="../../wireframes/result.html?round=m4">Check this round</a></li>
+            <li><img src="../concept/assets/skins/glock-18-water-elemental.png" alt="" width="512" height="384"><span class="pd-n">Glock-18 | Water Elemental</span><span class="pd-k">ticket 29 684</span><code>a3f91c58</code><a href="../../wireframes/result.html?round=glock">Check this round</a></li>
+            <li><img src="../concept/assets/skins/ak-47-redline.png" alt="" width="512" height="384"><span class="pd-n">AK-47 | Redline</span><span class="pd-k">ticket 2 417</span><code>4f2a91c7</code><a href="../../wireframes/result.html">Check this round</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </details>
+
+  <section class="pl-var pl-dropped">
+    <h2>Round 1, dropped because</h2>
+    <ul>
+      <li><b>A, the ledger.</b> Hairlines and big figures on the ground read as a spreadsheet: no colour, nothing to press, and the block vanished between the daily cases and the prose under it.</li>
+      <li><b>B, the instruments.</b> The gauges were drawings around a number rather than proof of it, and four equal cards in a row repeated the shape four times.</li>
+      <li><b>C, the ticket.</b> The least bad, and its strip, stub, colour and big figures are round 2's A. Dropped as it stood: a flat paper coupon, four equal yellow boxes, nothing to click into and nothing on it that proved anything.</li>
+      <li><b>D, one hero figure.</b> One number crowded the other three into a side column of text. Its idea of putting the case beside its RTP lives on in A and C; its idea of one large figure lives on in B, where the large one is a round anyone can check.</li>
+      <li><b>E, the departure board.</b> Flip tiles are an airport, not CS2, and at 360 the tiles shrank until the figures stopped reading.</li>
+    </ul>
+  </section>
+</main>
+<script>
+/* A5: the last panel turns through three checked rounds; a mark picks one, the panel turns by itself every six seconds
+   unless the pointer or the keyboard is on it, or the reader asked for less motion */
+document.querySelectorAll('.tt').forEach(function (t) {
+  var slides = t.querySelectorAll('.tt-slide'), dots = t.querySelectorAll('.tt-dots button'), i = 0, held = false;
+  function show(n) { i = n; slides.forEach(function (s, k) { s.hidden = k !== n; }); dots.forEach(function (d, k) { d.setAttribute('aria-pressed', String(k === n)); }); }
+  dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); }); });
+  ['mouseenter', 'focusin'].forEach(function (e) { t.addEventListener(e, function () { held = true; }); });
+  ['mouseleave', 'focusout'].forEach(function (e) { t.addEventListener(e, function () { held = false; }); });
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(function () { if (!held && !document.hidden) show((i + 1) % slides.length); }, 6000);
+});
+</script>
+<script>
+window.NAV_BASE = '../../';
+</script>
+<script src="proof-home.js"></script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

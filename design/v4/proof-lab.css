@@ -1,0 +1,681 @@
+/* design/v4/proof-lab.css, a satellite exploration of v4: the Before you spend block, round 2, four directions. Founder of 2 Nov 2026 on
+ * round 1: "все очень плохо выглядит, наименее плохо C, но тоже так себе". What held in C: one bold strip, strong colour, big figures, a stub
+ * with the heading. What failed: a flat paper coupon, four equal boxes, nothing to click into, nothing that proves anything, no product in it.
+ * Every direction here keeps the weight and lends its materials from Home: the mode cards' gradients (theme.css --v4-mode-*), the case
+ * tile's four layers, the pink striped button (buttons.css .v4-btn), the rail's marks that tell a story under the pointer (rail-icons.css).
+ * Each block lays itself out by its own width, so a chosen direction carries to Home as it stands. */
+
+body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.pl-main { box-sizing: border-box; max-width: 1213px; margin: 0 auto; padding: 32px 16px 80px; }
+@media (min-width: 900px) { .pl-main { margin-left: calc(var(--nav-w, 248px) + 24px); } } /* clear of the roadmap sidebar, which is a panel from 900px */
+.pl-head h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.pl-head p { margin: 0 0 10px; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 86ch; }
+.pl-head .pl-rec { color: var(--color-text-hi); }
+.pl-rec b { color: var(--color-pink); }
+
+.pl-var { margin-top: 56px; }
+.pl-cap { margin: 0 0 22px; color: var(--color-text-soft); font-size: 15px; line-height: 1.45; max-width: 110ch; }
+.pl-cap > b { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 6px; border-radius: 6px; background: var(--color-pink); color: var(--color-text-hi); font-size: 13px; font-weight: 900; }
+.pl-sample { display: block; margin-top: 4px; color: var(--color-text-muted); font-size: 13px; }
+.pl-frame { container: pl / inline-size; }
+.pl-frame a { color: inherit; text-decoration: none; }
+.pl-frame a:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+.pl-frame small { font-size: .56em; font-weight: 700; }
+.pl-frame code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .02em; overflow-wrap: anywhere; }
+.pl-frame svg { flex: 0 0 auto; }
+
+/* Home's section line */
+.pl-h { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.pl-h svg { width: 22px; height: 25px; fill: var(--color-blue); }
+.pl-tick { stroke: var(--color-ground); }
+.pl-h h2 { margin: 0; font-size: 22px; font-weight: 900; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+.pl-h::after { content: ''; flex: 1 1 auto; height: 1px; background: var(--color-blue); }
+
+/* a link's destination, named, with its arrow */
+.pa-go, .pb-go, .pc-go, .pd-go { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+:is(.pa-go, .pb-go, .pc-go, .pd-go) svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+@media (hover: hover) { :is(a:hover > .pa-go, a.pa-go:hover, a:hover > .pb-go, a:hover > .pc-go, a:hover .pd-go) svg { translate: 3px 0; } }
+
+/* Ironbound as Home's tile draws it: the world, the case, the real skin in it, the case's front cut along its rim over the skin */
+.pl-case { position: absolute; aspect-ratio: 3 / 2; pointer-events: none; transition: transform .45s var(--v4-ease-pop); }
+.pl-case i { position: absolute; inset: 0; }
+.pl-case .w { background: url(art/cases/ironbound-world.webp) center / 100% auto no-repeat; }
+.pl-case .c, .pl-case .r { background: url(art/cases/ironbound-case.webp) center / 100% auto no-repeat; }
+.pl-case .r { clip-path: polygon(0 46.5%, 18% 46.5%, 70% 48%, 80% 49.5%, 100% 50%, 100% 100%, 0 100%); }
+.pl-case .s { inset: -4% auto auto 20%; width: 62%; height: 70%; background: url(../concept/assets/skins/ak-47-redline.png) center / contain no-repeat; transform: rotate(7deg);
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); transition: transform .45s var(--v4-ease-pop); }
+@media (hover: hover) {
+  a:hover > .pl-case { transform: scale(1.05); }
+  a:hover > .pl-case .s { transform: rotate(4deg) translateY(-12%) scale(1.1); }
+}
+
+/* the green line that says a round was recomputed and matched */
+.pa-ok, .pb-ok { display: inline-flex; align-items: center; gap: 6px; color: var(--color-green); font-size: 12px; font-weight: 700; white-space: nowrap; }
+:is(.pa-ok, .pb-ok) svg { width: 14px; height: 14px; fill: var(--color-green); }
+
+/* A. THE CASE TICKET ------------------------------------------------------------------------------------------------------ */
+/* one strip in the Cases card's pink and violet run into Ironbound's blue; the stub pink and striped as round 1's; each tear line is a
+   dashed cut with a notch top and bottom in the page ground; every panel a different width for a different kind of figure */
+.pa { --cut: 2px dashed rgba(255, 255, 255, .28); position: relative; display: grid; grid-template-columns: 150px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, .88fr) minmax(0, 1.22fr);
+  margin-top: 60px; border-radius: var(--v4-radius); background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .035) 0 14px, transparent 14px 28px), linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .55); }
+.pa-stub { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 22px 20px; border-radius: var(--v4-radius) 0 0 var(--v4-radius);
+  background: var(--btn-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
+.pa-stub svg { width: 30px; height: 34px; fill: #fff; }
+.pa-stub .pl-tick { stroke: var(--color-pink); }
+.pa-stub h2 { margin: 0; font-size: 26px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
+.pa-sec { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 24px 22px 20px; border-left: var(--cut); transition: background-color .2s; }
+.pa-sec::before, .pa-sec::after { content: ''; position: absolute; left: -11px; width: 20px; height: 20px; border-radius: 50%; background: var(--color-ground); } /* the notches */
+.pa-sec::before { top: -10px; } .pa-sec::after { bottom: -10px; }
+.pa-v { display: block; font-size: 52px; font-weight: 900; line-height: 1; letter-spacing: -.01em; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(6, 10, 30, .3); }
+.pa-v--word { font-size: 34px; }
+.pa-c { display: block; margin-top: 8px; font-size: 13px; font-weight: 700; letter-spacing: .04em; line-height: 1.25; text-transform: uppercase; }
+.pa-say { display: block; margin-top: 10px; color: rgba(255, 255, 255, .86); font-size: 14px; line-height: 1.4; }
+.pa-sec > .pa-go, .pa-acts { margin-top: auto; padding-top: 16px; }
+.pa-go { color: #fff; }
+
+.pa-rtp > :not(.pl-case) { position: relative; }
+.pa-rtp > .pa-v, .pa-rtp > .pa-c { max-width: 52%; }
+.pa-case { right: -4%; top: -64px; width: 58%; }
+.pa-odds { display: flex; gap: 2px; width: 100%; height: 10px; margin-top: 16px; }
+.pa-odds i { flex: var(--w) 0 0; min-width: 4px; border-radius: 3px; background: var(--k); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25); }
+.pa-key { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; font-size: 12px; font-weight: 500; color: rgba(255, 255, 255, .86); }
+.pa-key span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.pa-key span::before { content: ''; width: 8px; height: 8px; border-radius: 2px; background: var(--k); box-shadow: 0 0 0 1px rgba(255, 255, 255, .3); }
+
+.pa-track { position: relative; display: block; width: 100%; height: 10px; margin-top: 16px; border-radius: 5px; background: rgba(6, 10, 30, .35); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18); }
+.pa-track i { position: absolute; inset: 0 auto 0 0; width: 26.7%; border-radius: 5px; background: var(--color-gold); } /* 1 h 40 m of 6 h 15 m */
+.pa-track b { position: absolute; top: -4px; left: 26.7%; width: 4px; height: 18px; margin-left: -2px; border-radius: 2px; background: #fff; box-shadow: 0 0 0 2px rgba(6, 10, 30, .35); }
+.pa-track-k { display: flex; justify-content: space-between; width: 100%; margin-top: 6px; color: rgba(255, 255, 255, .7); font-size: 12px; font-weight: 500; }
+
+.pa-fee .pa-v { color: var(--color-gold); }
+
+.pa-round { gap: 0; }
+.pa-round-fig { display: block; }
+.pa-hash { display: flex; flex-direction: column; gap: 4px; width: 100%; margin-top: 14px; padding: 10px 12px; box-sizing: border-box; border-radius: 8px; background: rgba(6, 10, 30, .42); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.pa-hash-l { color: rgba(255, 255, 255, .7); font-size: 11px; font-weight: 500; }
+.pa-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+
+@media (hover: hover) {
+  .pa-sec:is(a):hover, .pa-round:hover { background-color: rgba(255, 255, 255, .06); }
+  .pa-time:hover .pa-track i { animation: pa-fill .9s var(--v4-ease-pop); }
+  .pa-time:hover .pa-track b { animation: pa-mark .9s var(--v4-ease-pop); }
+}
+@keyframes pa-fill { from { width: 0; } }
+@keyframes pa-mark { from { left: 0; } }
+
+/* B. THE LIVE CHECK ----------------------------------------------------------------------------------------------------- */
+.pb { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px; }
+.pb-proof { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 26px 28px 28px; border-radius: var(--v4-radius);
+  background: radial-gradient(80% 70% at 100% 0%, rgba(209, 39, 62, .28), transparent 60%), linear-gradient(150deg, #1B1A4E, #0F0E2B 70%);
+  box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .22), inset 0 1px 0 rgba(255, 255, 255, .12), 0 14px 34px rgba(6, 10, 30, .55); outline: none; }
+.pb-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; }
+.pb-big { font-size: 56px; font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: -.005em; }
+.pb-cap { color: var(--color-text-soft); font-size: 15px; font-weight: 700; }
+.pb-round { display: grid; grid-template-columns: 116px minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 12px 16px 12px 12px; border-radius: 10px; background: rgba(6, 10, 30, .5); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+.pb-skin { position: relative; display: grid; place-items: center; width: 116px; height: 78px; }
+.pb-skin::before { content: ''; position: absolute; inset: 4px 14px; background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--color-rarity-2) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; } /* Home's live drop backing, in Covert's colour */
+.pb-skin img { position: relative; width: 116px; height: auto; transform: rotate(-8deg); filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); }
+.pb-who { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.pb-who b { font-size: 16px; font-weight: 900; }
+.pb-who span { color: var(--color-text-muted); font-size: 13px; }
+.pb-ok { padding: 6px 10px; border-radius: var(--radius-pill); background: rgba(51, 204, 102, .14); box-shadow: inset 0 0 0 1px rgba(51, 204, 102, .4); }
+.pb-ruler { display: flex; flex-direction: column; gap: 8px; }
+.pb-ruler-l { color: var(--color-text-soft); font-size: 13px; }
+.pb-ruler-l b { color: var(--color-text-hi); }
+.pb-bar { position: relative; display: block; height: 12px; margin-top: 22px; border-radius: 6px; background: linear-gradient(90deg, rgba(209, 39, 62, .25), rgba(57, 85, 232, .2)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.pb-range { position: absolute; left: 0; top: 0; bottom: 0; width: 3.18%; min-width: 6px; border-radius: 6px 0 0 6px; background: var(--color-rarity-2); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .4); }
+.pb-range, .pb-tick { font-style: normal; }
+.pb-tick { position: absolute; top: -6px; left: 2.417%; width: 3px; height: 24px; margin-left: -1px; border-radius: 2px; background: #fff; }
+.pb-tick b { position: absolute; bottom: calc(100% + 4px); left: -2px; white-space: nowrap; font-size: 12px; font-weight: 900; }
+.pb-dl { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, .8fr); gap: 12px; margin: 0; }
+.pb-dl div { min-width: 0; }
+.pb-dl dt { margin-bottom: 4px; color: var(--color-text-muted); font-size: 12px; }
+.pb-dl dd { margin: 0; color: var(--color-text-hi); }
+.pb-acts { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.pb-side { display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.pb-row { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "v t" "go go"; align-content: center; gap: 12px 18px; padding: 18px 22px; border-radius: var(--v4-radius); overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), 0 10px 26px rgba(6, 10, 30, .45); transition: filter .2s; }
+.pb-row--rtp { background: var(--v4-mode-battles); }
+.pb-row--time { background: var(--v4-mode-cases); }
+.pb-row--fee { background: var(--v4-mode-upgrade); }
+.pb-v { grid-area: v; align-self: center; font-size: 44px; font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pb-t { grid-area: t; display: flex; flex-direction: column; justify-content: center; gap: 4px; min-width: 0; }
+.pb-t b { font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.pb-t span { color: rgba(255, 255, 255, .88); font-size: 14px; line-height: 1.35; }
+.pb-go { grid-area: go; }
+@media (hover: hover) { .pb-row:hover { filter: brightness(1.1); } }
+/* under the pointer the round is recomputed: the ticket runs the ruler and lands in its range, then the match is said */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pb-proof:is(:hover, :focus-within) .pb-tick { animation: pb-run 1.1s cubic-bezier(.3, .7, .3, 1); }
+  .pb-proof:is(:hover, :focus-within) .pb-ok { animation: pb-ok 1.5s var(--v4-ease-pop); }
+  .pb-proof:is(:hover, :focus-within) .pb-dl code { animation: pb-read 1.1s steps(6); }
+}
+@keyframes pb-run { 0% { left: 100%; } 55% { left: 1%; } 75% { left: 3.6%; } 100% { left: 2.417%; } }
+@keyframes pb-ok { 0%, 70% { opacity: 0; scale: .7; } 100% { opacity: 1; scale: 1; } }
+@keyframes pb-read { 0%, 100% { color: var(--color-text-hi); } 50% { color: var(--color-blue); } }
+
+/* C. FOUR CARDS, FOUR STORIES ------------------------------------------------------------------------------------------- */
+.pc { display: grid; grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr) minmax(0, .84fr) minmax(0, 1.18fr); gap: 12px; padding-top: 18px; }
+.pc-card { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 270px; padding: 20px 20px 18px; border-radius: var(--v4-radius);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); transition: filter .2s, translate .2s; }
+.pc-rtp { background: var(--v4-mode-battles); }
+.pc-time { background: var(--v4-mode-cases); }
+.pc-fee { background: var(--v4-mode-upgrade); }
+.pc-round { background: radial-gradient(90% 60% at 100% 0%, rgba(251, 63, 138, .22), transparent 70%), linear-gradient(160deg, #1C1A4E, #0F0E2B); box-shadow: inset 0 0 0 1px rgba(251, 63, 138, .45), 0 10px 30px rgba(6, 10, 30, .45); }
+.pc-mark { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: auto; border-radius: 12px; color: #fff; background: rgba(6, 10, 30, .3); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16); }
+.pc-mark svg { width: 40px; height: 40px; overflow: visible; }
+.pc-fee .pc-mark { color: var(--color-gold); }
+.pc-g-tr, .pc-g-on { fill: none; stroke-width: 5; stroke-linecap: round; }
+.pc-g-tr { stroke: rgba(255, 255, 255, .25); }
+.pc-g-on { stroke: var(--color-gold); stroke-dasharray: 94.2 100; }
+.pc-g-nd { stroke: currentColor; stroke-width: 3; stroke-linecap: round; }
+.pc-c-h { transform-box: view-box; transform-origin: 24px 24px; transform: rotate(50deg); } /* 1 h 40 m on the hour hand */
+.pc-c-m { transform-box: view-box; transform-origin: 24px 24px; transform: rotate(240deg); } /* and 40 on the minute hand */
+.pc-coin { transform-box: view-box; transform-origin: 24px 24px; }
+.pc-v { display: block; margin-top: 22px; font-size: 54px; font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(6, 10, 30, .3); }
+.pc-v--word { font-size: 36px; }
+.pc-c { display: block; margin-top: 8px; font-size: 13px; font-weight: 900; letter-spacing: .04em; line-height: 1.25; text-transform: uppercase; }
+.pc-say { display: block; margin: 8px 0 16px; color: rgba(255, 255, 255, .88); font-size: 14px; line-height: 1.4; }
+.pc-go { margin-top: auto; }
+.pc-rtp > :not(.pl-case) { position: relative; max-width: 58%; }
+.pc-rtp > .pc-say, .pc-rtp > .pc-go { max-width: none; }
+.pc-case { right: -6%; top: -30px; width: 58%; }
+.pc-fig { display: block; }
+.pc-fig::after { content: ''; position: absolute; inset: 0; border-radius: inherit; } /* the card is the figure's link; the round's own button stands over it */
+.pc-hash { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 4px; width: 100%; box-sizing: border-box; margin: 12px 0 14px; padding: 9px 12px; border-radius: 8px; background: rgba(6, 10, 30, .5); pointer-events: none; }
+.pc-hash span { color: var(--color-text-muted); font-size: 11px; }
+.pc-btn { position: relative; z-index: 1; margin-top: auto; }
+@media (hover: hover) { .pc-card:is(a, :has(.pc-fig:hover)):hover { filter: brightness(1.08); translate: 0 -2px; } }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pc-rtp:is(:hover, :focus-visible) .pc-g-on { animation: pc-arc .95s var(--v4-ease-pop); }
+  .pc-rtp:is(:hover, :focus-visible) .pc-g-nd { transform-box: view-box; transform-origin: 24px 34px; animation: pc-needle .95s var(--v4-ease-pop); }
+  .pc-time:is(:hover, :focus-visible) .pc-c-m { animation: pc-min .95s cubic-bezier(.3, .7, .3, 1); }
+  .pc-time:is(:hover, :focus-visible) .pc-c-h { animation: pc-hour .95s cubic-bezier(.3, .7, .3, 1); }
+  .pc-fee:is(:hover, :focus-visible) .pc-coin { animation: pc-toss .95s cubic-bezier(.3, .7, .3, 1); }
+  .pc-round:is(:hover, :focus-within) .pc-s-tk { animation: pc-sign .95s cubic-bezier(.3, .7, .3, 1); }
+}
+@keyframes pc-arc { from { stroke-dasharray: 0 100; } }
+@keyframes pc-needle { from { transform: rotate(-169.6deg); } }
+@keyframes pc-min { from { transform: rotate(-120deg); } }
+@keyframes pc-hour { from { transform: rotate(0deg); } }
+@keyframes pc-toss { 0%, 100% { transform: none; } 12% { transform: translateY(2px) scale(1.06, .92); } 30% { transform: translateY(-9px) scaleX(0); } 46% { transform: translateY(-12px) scaleX(-1); } 62% { transform: translateY(-8px) scaleX(0); } 78% { transform: scaleX(1); } 88% { transform: scale(1.1, .9); } }
+@keyframes pc-sign { 0%, 25% { stroke-dasharray: 0 1; } 100% { stroke-dasharray: 1 1; } }
+
+/* D. THE HUD SCOREBOARD ------------------------------------------------------------------------------------------------- */
+/* CS2's top of screen: two team plates leaning in on a clock, slanted by clip-path; under them the kill feed, read as checked rounds */
+.pd { display: grid; gap: 14px; padding: 22px; border-radius: var(--v4-radius); background: linear-gradient(180deg, #121444, #0A0B26); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 14px 34px rgba(6, 10, 30, .5); }
+.pd-score { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .92fr) minmax(0, 1fr); align-items: stretch; }
+.pd-team, .pd-clock { position: relative; box-sizing: border-box; display: flex; flex-direction: column; min-width: 0; padding: 18px 30px 20px; transition: filter .2s; }
+.pd-team--l { align-items: flex-end; text-align: right; padding-right: 46px; background: linear-gradient(90deg, #1B2A8F, #3955E8); clip-path: polygon(0 0, 100% 0, calc(100% - 26px) 100%, 0 100%); border-radius: 10px 0 0 10px; }
+.pd-team--r { align-items: flex-start; padding-left: 46px; background: linear-gradient(270deg, #B4400F, #B57A06); clip-path: polygon(0 0, 100% 0, 100% 100%, 26px 100%); border-radius: 0 10px 10px 0; }
+.pd-clock { z-index: 1; align-items: center; text-align: center; margin: -8px -20px; padding: 22px 40px 24px; background: linear-gradient(180deg, #23215C, #0F0E2B); clip-path: polygon(0 0, 100% 0, calc(100% - 22px) 100%, 22px 100%); }
+.pd-clock::before { content: ''; position: absolute; left: 22px; right: 22px; top: 0; height: 3px; background: var(--color-pink); }
+.pd-v { display: block; font-size: 50px; font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(6, 10, 30, .35); }
+.pd-clock .pd-v { font-size: 56px; }
+.pd-c { display: block; margin-top: 8px; font-size: 13px; font-weight: 900; letter-spacing: .05em; line-height: 1.25; text-transform: uppercase; }
+.pd-s { display: block; margin-top: 6px; color: rgba(255, 255, 255, .86); font-size: 14px; line-height: 1.35; }
+.pd-team--r .pd-v { color: #fff; }
+.pd-feed { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; }
+.pd-feed-h { display: flex; flex-direction: column; gap: 6px; padding: 4px 4px 4px 8px; }
+.pd-feed-h b { font-size: 34px; font-weight: 900; line-height: 1; text-transform: uppercase; }
+.pd-feed-h > span:not(.pd-go) { color: var(--color-text-soft); font-size: 14px; font-weight: 700; }
+.pd-feed-h .pd-go { margin-top: 6px; color: var(--color-blue); }
+.pd-rows { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.pd-rows li { display: grid; grid-template-columns: 54px minmax(0, 1.5fr) auto auto auto; align-items: center; gap: 14px; min-height: 40px; padding: 4px 14px 4px 8px; border-radius: 4px;
+  background: rgba(2, 12, 23, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); font-size: 14px; }
+.pd-rows li.is-last { box-shadow: inset 0 0 0 2px var(--color-rarity-2); } /* CS2's own kill in the feed is edged in red; here the newest round */
+.pd-rows img { width: 54px; height: auto; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, .7)); }
+.pd-n { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pd-k { color: var(--color-gold); font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pd-rows code { color: var(--color-text-muted); }
+.pd-rows a { color: var(--color-blue); font-size: 13px; font-weight: 700; white-space: nowrap; }
+@media (hover: hover) {
+  .pd-team:hover, .pd-clock:hover { filter: brightness(1.12); }
+  .pd-rows a:hover { color: var(--color-text-hi); }
+}
+
+/* round 1, dropped */
+.pl-dropped h2 { margin: 0 0 12px; font-size: 20px; font-weight: 900; }
+.pl-dropped ul { margin: 0; padding-left: 20px; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 100ch; }
+.pl-dropped li + li { margin-top: 6px; }
+.pl-dropped b { color: var(--color-text-hi); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pl-case, .pl-case .s, :is(.pa-go, .pb-go, .pc-go, .pd-go) svg, .pc-card { transition: none; }
+}
+
+/* NARROW: the block's own width decides ---------------------------------------------------------------------------------- */
+@container pl (max-width: 1080px) {
+  /* A: the stub a row across the top, the case's panel across the strip, the two withdrawal figures side by side, the round across the foot;
+     every tear line horizontal, its notches at the strip's two sides only */
+  .pa { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin-top: 0; }
+  .pa-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 12px; padding: 16px 20px; border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .pa-stub svg { width: 24px; height: 28px; }
+  .pa-stub h2 { font-size: 22px; }
+  .pa-sec { border-left: 0; border-top: var(--cut); }
+  .pa-rtp, .pa-round { grid-column: 1 / -1; }
+  .pa-fee { border-left: var(--cut); }
+  .pa-sec::before { top: -11px; left: -10px; } .pa-sec::after { top: -11px; bottom: auto; left: auto; right: -10px; }
+  .pa-time::after, .pa-fee::before { content: none; }
+  .pa-rtp > .pa-odds, .pa-rtp > .pa-key, .pa-rtp > .pa-say { max-width: 58%; }
+  .pa-case { top: -8px; right: 0; width: min(40%, 340px); }
+
+  .pb { grid-template-columns: minmax(0, 1fr); }
+  .pb-side { grid-template-rows: none; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pb-row { grid-template-columns: minmax(0, 1fr); grid-template-areas: "v" "t" "go"; align-content: start; }
+
+  .pc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pd-feed { grid-template-columns: minmax(0, 1fr); }
+}
+
+@container pl (max-width: 640px) {
+  /* A: one column, the stub a row across the top, each tear line horizontal with its notches on the sides */
+  .pa { grid-template-columns: minmax(0, 1fr); margin-top: 0; }
+  .pa-stub { padding: 16px 18px; }
+  .pa-sec { grid-column: auto; padding: 20px 18px 18px; }
+  .pa-fee { border-left: 0; }
+  .pa-time::after, .pa-fee::before { content: ''; }
+  .pa-rtp > .pa-odds, .pa-rtp > .pa-key, .pa-rtp > .pa-say { max-width: none; }
+  .pa-case { top: -6px; right: -4%; width: 56%; }
+  .pa-v { font-size: 46px; }
+  .pa-v--word { font-size: 32px; }
+
+  .pb-proof { padding: 18px 16px 20px; gap: 16px; }
+  .pb-big { font-size: 40px; }
+  .pb-round { grid-template-columns: 84px minmax(0, 1fr); gap: 10px 12px; padding: 10px; }
+  .pb-skin { width: 84px; height: 58px; }
+  .pb-skin img { width: 84px; }
+  .pb-ok { grid-column: 1 / -1; justify-self: start; }
+  .pb-who b { font-size: 14px; }
+  .pb-who span { font-size: 12px; }
+  .pb-dl { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .pb-dl div:first-child { grid-column: 1 / -1; }
+  .pb-acts .v4-btn { flex: 1 1 auto; }
+  .pb-side { grid-template-columns: minmax(0, 1fr); }
+  .pb-row { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "v t" "go go"; padding: 16px; gap: 10px 14px; }
+  .pb-v { font-size: 34px; }
+
+  .pc { grid-template-columns: minmax(0, 1fr); padding-top: 14px; }
+  .pc-card { min-height: 0; }
+  .pc-v { font-size: 46px; margin-top: 16px; }
+  .pc-case { top: -14px; width: 50%; right: -4%; }
+
+  .pd { padding: 14px; }
+  .pd-score { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; }
+  .pd-clock { grid-column: 1 / -1; grid-row: 1; margin: 0 0 8px; padding: 16px 16px 18px; border-radius: 10px; clip-path: none; }
+  .pd-clock::before { left: 0; right: 0; border-radius: 10px 10px 0 0; }
+  .pd-team { padding: 14px 14px 16px; }
+  .pd-team--l { padding-right: 24px; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+  .pd-team--r { padding-left: 24px; clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%); }
+  .pd-v { font-size: 34px; }
+  .pd-clock .pd-v { font-size: 44px; }
+  .pd-c { font-size: 11px; }
+  .pd-s { font-size: 13px; }
+  .pd-feed-h b { font-size: 28px; }
+  .pd-rows li { grid-template-columns: 40px minmax(0, 1fr) auto; grid-template-areas: "i n n" "i k a"; gap: 2px 10px; padding: 6px 10px 6px 6px; }
+  .pd-rows img { grid-area: i; width: 40px; }
+  .pd-n { grid-area: n; }
+  .pd-k { grid-area: k; font-size: 13px; }
+  .pd-rows code { display: none; }
+  .pd-rows a { grid-area: a; }
+}
+
+/* ======================================================================================================================
+   ROUND 3, founder of 2 Nov 2026 on round 2: "наверное A или D, но надо доработать и сделать лучше".
+   A2 and AD share the strip (.tk); D2 and AD share the feed of checked rounds (.fd).
+   ====================================================================================================================== */
+.pl-cap > b.is-w { width: auto; padding: 0 7px; }
+.pl-notes h2, .pl-round2 > summary { margin: 0 0 12px; font-size: 20px; font-weight: 900; }
+.pl-notes ul { margin: 0; padding-left: 20px; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 100ch; }
+.pl-notes li + li { margin-top: 6px; }
+.pl-notes b { color: var(--color-text-hi); }
+.pl-round2 { margin-top: 56px; padding: 18px 20px; border-radius: var(--v4-radius); background: var(--color-card); box-shadow: inset 0 0 0 1px var(--color-line-soft); }
+.pl-round2 > summary { margin: 0; cursor: pointer; }
+.pl-round2[open] > summary { margin-bottom: 8px; }
+
+/* THE STRIP: the Cases card's pink and violet run into Ironbound's blue, the stub pink and striped; no tear dots, no dashed cuts,
+   the panels part on a hairline that stops short of the strip's edges */
+.tk { margin-top: 64px; } /* room for what breaks the strip's top edge */
+.tk-strip { position: relative; display: grid; grid-template-columns: 144px minmax(0, 2fr) minmax(0, 1.02fr) minmax(0, .9fr) minmax(0, 1.08fr); border-radius: var(--v4-radius);
+  background: linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .55); }
+.tk--deck .tk-strip { grid-template-columns: 160px minmax(0, 2.1fr) minmax(0, 1.1fr) minmax(0, 1fr); border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+.tk-stub { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 22px 20px; border-radius: var(--v4-radius) 0 0 var(--v4-radius);
+  background: var(--btn-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
+.tk--deck .tk-stub { border-radius: var(--v4-radius) 0 0 0; }
+.tk-stub svg { width: 30px; height: 34px; fill: #fff; }
+.tk-stub .pl-tick { stroke: var(--color-pink); }
+.tk-stub h2 { margin: 0; font-size: 26px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
+.tk-p { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 196px; padding: 22px 22px 20px; transition: background-color .2s; }
+.tk-p + .tk-p::before { content: ''; position: absolute; left: 0; top: 22px; bottom: 22px; width: 1px; background: rgba(255, 255, 255, .18); }
+.tk-p:last-child { border-radius: 0 var(--v4-radius) var(--v4-radius) 0; }
+.tk--deck .tk-p:last-child { border-radius: 0 var(--v4-radius) 0 0; }
+.tk-k { position: relative; display: block; font-size: 12px; font-weight: 900; letter-spacing: .06em; line-height: 1.25; text-transform: uppercase; color: rgba(255, 255, 255, .88); }
+.tk-v { position: relative; display: block; margin-top: 8px; font-size: 52px; font-weight: 900; line-height: 1; letter-spacing: -.01em; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(6, 10, 30, .3); }
+.tk-v--word { font-size: 32px; }
+.tk-fee .tk-v { color: var(--color-gold); }
+.tk-say { position: relative; display: block; margin-top: 8px; color: rgba(255, 255, 255, .86); font-size: 14px; line-height: 1.4; }
+.tk-go { position: relative; display: block; margin-top: auto; padding-top: 14px; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+.tk-go svg, .hd-go svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: translate .2s var(--v4-ease-pop); }
+.pl-frame .tk a:focus-visible, .pl-frame .hd a:focus-visible { outline-offset: -3px; } /* the panels clip, so the ring is drawn inside */
+
+/* Ironbound stands in its panel: the flames are the panel's and end at its edges, the case and the skin break the top edge only;
+   the grammar of Home's mode cards (modes.css), the layers of Home's case tile (theme.css) */
+.tk-rtp { isolation: isolate; clip-path: inset(-90px 0 0 0); overflow-x: clip; } /* clip-path only paints; overflow-x keeps the page from scrolling sideways at 360 */
+.tk-rtp > .tk-k, .tk-rtp > .tk-v, .tk-rtp > .tk-say { max-width: 44%; }
+.tk--deck .tk-rtp > .tk-say { max-width: 40%; }
+.tk-burst { position: absolute; z-index: -1; inset: 0; background: url(art/cases/ironbound-world.webp) right -30px bottom -26px / auto 150% no-repeat;
+  -webkit-mask: linear-gradient(90deg, transparent 30%, #000 62%); mask: linear-gradient(90deg, transparent 30%, #000 62%); pointer-events: none; }
+.tk-case { position: absolute; z-index: 0; right: -14%; bottom: -6px; height: calc(100% + var(--rise, 44px)); aspect-ratio: 3 / 2; pointer-events: none; transition: transform .45s var(--v4-ease-pop); transform-origin: 60% 90%; }
+.tk-case i { position: absolute; inset: 0; }
+.tk-case .c, .tk-case .r { background: url(art/cases/ironbound-case.webp) center / 100% auto no-repeat; }
+.tk-case .c { filter: drop-shadow(0 10px 12px rgba(6, 10, 30, .5)); }
+.tk-case .r { clip-path: polygon(0 46.5%, 18% 46.5%, 70% 48%, 80% 49.5%, 100% 50%, 100% 100%, 0 100%); }
+.tk-case .s { inset: -14% auto auto 18%; width: 64%; height: 74%; background: url(../concept/assets/skins/ak-47-redline.png) center / contain no-repeat; transform: rotate(7deg);
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); transition: transform .45s var(--v4-ease-pop); }
+
+/* the last panel: the round, its hash, its check */
+.nw { white-space: nowrap; }
+.nw > svg { display: inline; margin-left: 6px; vertical-align: -2px; }
+.tk:not(.tk--deck) .tk-case { --rise: 18px; right: -20%; }
+.tk-round { gap: 0; }
+.tk-fig { display: block; }
+.tk-hash { display: flex; flex-direction: column; gap: 4px; width: 100%; box-sizing: border-box; margin-top: 12px; padding: 9px 12px; border-radius: 8px; background: rgba(6, 10, 30, .42); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.tk-ok { display: inline-flex; align-items: center; gap: 6px; color: var(--color-green); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.tk-ok svg { width: 14px; height: 14px; fill: var(--color-green); }
+.tk-btn { margin-top: auto; }
+.tk-round > .tk-btn { margin-top: 14px; }
+
+@media (hover: hover) {
+  a.tk-p:hover, .tk-round:hover { background-color: rgba(255, 255, 255, .06); }
+  a.tk-p:hover .tk-go svg, .fd-h:hover .fd-go svg, .hd a:hover .hd-go svg { translate: 3px 0; }
+  .tk-rtp:hover .tk-case { transform: scale(1.05) rotate(-2deg) translateY(-4px); }
+  .tk-rtp:hover .tk-case .s { transform: rotate(3deg) translateY(-12%) scale(1.08); }
+}
+
+/* THE FEED OF CHECKED ROUNDS: CS2's kill feed read as rounds; three rows, the newest edged in our pink */
+.fd { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; }
+.fd--deck { padding: 18px 22px 20px; border-radius: 0 0 var(--v4-radius) var(--v4-radius); background: linear-gradient(180deg, #121444, #0A0B26); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .16), 0 14px 34px rgba(6, 10, 30, .5); }
+.fd-h { display: flex; flex-direction: column; gap: 6px; padding: 4px 4px 4px 8px; }
+.fd-h b { font-size: 32px; font-weight: 900; line-height: 1; text-transform: uppercase; }
+.fd-h > span:not(.fd-go) { color: var(--color-text-soft); font-size: 14px; font-weight: 700; }
+.fd-go { display: block; margin-top: 6px; color: var(--color-blue); font-size: 13px; font-weight: 700; }
+.fd-go svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+.fd-rows { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.fd-rows li { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto auto auto; align-items: center; gap: 14px; min-height: 40px; padding: 4px 14px 4px 8px; border-radius: 6px;
+  background: rgba(2, 12, 23, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); font-size: 14px; }
+.fd-rows li.is-last { box-shadow: inset 0 0 0 2px var(--color-pink); }
+.fd-rows img { width: 52px; height: auto; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, .7)); }
+.fd-n { min-width: 0; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fd-t { color: var(--color-gold); font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.fd-rows code { color: var(--color-text-muted); }
+.fd-rows a { color: var(--color-blue); font-size: 13px; font-weight: 700; white-space: nowrap; }
+@media (hover: hover) { .fd-rows a:hover { color: var(--color-text-hi); } }
+
+/* THE HUD: two team plates leaning in on the clock, as round 2's D, each naming where it leads */
+.hd { display: grid; gap: 16px; padding: 22px; border-radius: var(--v4-radius); background: linear-gradient(180deg, #121444, #0A0B26); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 14px 34px rgba(6, 10, 30, .5); }
+.hd-score { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr) minmax(0, 1fr); align-items: stretch; }
+.hd-team, .hd-clock { position: relative; box-sizing: border-box; display: flex; flex-direction: column; min-width: 0; padding: 18px 30px 18px; transition: filter .2s; }
+.hd-team--l { align-items: flex-end; text-align: right; padding-right: 48px; background: linear-gradient(90deg, #1B2A8F, #3955E8); clip-path: polygon(0 0, 100% 0, calc(100% - 26px) 100%, 0 100%); border-radius: 10px 0 0 10px; }
+.hd-team--r { align-items: flex-start; padding-left: 48px; background: linear-gradient(270deg, #B4400F, #B57A06); clip-path: polygon(0 0, 100% 0, 100% 100%, 26px 100%); border-radius: 0 10px 10px 0; }
+.hd-clock { z-index: 1; align-items: center; text-align: center; margin: -8px -20px; padding: 22px 44px 20px; background: linear-gradient(180deg, #23215C, #0F0E2B); clip-path: polygon(0 0, 100% 0, calc(100% - 22px) 100%, 22px 100%); }
+.hd-clock::before { content: ''; position: absolute; left: 22px; right: 22px; top: 0; height: 3px; background: var(--color-pink); }
+.hd-v { display: block; font-size: 50px; font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(6, 10, 30, .35); }
+.hd-clock .hd-v { font-size: 56px; }
+.hd-c { display: block; margin-top: 8px; font-size: 13px; font-weight: 900; letter-spacing: .05em; line-height: 1.25; text-transform: uppercase; }
+.hd-s { display: block; margin-top: 6px; color: rgba(255, 255, 255, .86); font-size: 14px; line-height: 1.35; }
+.hd-go { display: block; margin-top: auto; padding-top: 12px; color: #fff; font-size: 13px; font-weight: 700; }
+@media (hover: hover) { .hd-team:hover, .hd-clock:hover { filter: brightness(1.12); } }
+
+@media (prefers-reduced-motion: reduce) { .tk-case, .tk-case .s, .tk-go svg, .fd-go svg, .hd-go svg { transition: none; } }
+
+/* round 3, the block's own width decides */
+@container pl (max-width: 1080px) {
+  .tk { margin-top: 40px; }
+  .tk-strip, .tk--deck .tk-strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .tk-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; padding: 16px 20px; } /* the heading on the left, so what breaks the case panel's top edge rises beside it, not over it */
+  .tk-stub, .tk--deck .tk-stub { border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .tk-stub svg { width: 24px; height: 28px; }
+  .tk-stub h2 { font-size: 22px; }
+  .tk-rtp, .tk-round { grid-column: 1 / -1; }
+  .tk-rtp { clip-path: inset(-60px 0 0 0); }
+  .tk .tk-case, .tk:not(.tk--deck) .tk-case { --rise: 40px; right: 0; }
+  .tk-burst { background-position: right 10px bottom -26px; }
+  .tk-rtp > .tk-k, .tk-rtp > .tk-v, .tk-rtp > .tk-say, .tk--deck .tk-rtp > .tk-say { max-width: 50%; }
+  .tk-p + .tk-p::before { left: 22px; right: 22px; top: 0; bottom: auto; width: auto; height: 1px; }
+  .tk-p:last-child, .tk--deck .tk-p:last-child { border-radius: 0 0 var(--v4-radius) var(--v4-radius); }
+  .tk--deck .tk-p:last-child { border-radius: 0; }
+  .tk-strip > .tk-p:nth-child(4):not(:last-child)::before, .tk--deck .tk-strip > .tk-p:nth-child(4)::before { top: 22px; bottom: 22px; left: 0; right: auto; width: 1px; height: auto; } /* the two withdrawal figures side by side part on an upright line */
+  .tk-round > .tk-btn { align-self: flex-start; }
+  .tk--deck .tk-strip > .tk-p:nth-child(3), .tk--deck .tk-strip > .tk-p:nth-child(4) { grid-column: auto; }
+  .fd { grid-template-columns: minmax(0, 1fr); }
+  .hd-c { font-size: 12px; }
+}
+
+@container pl (max-width: 640px) {
+  .tk { margin-top: 28px; }
+  .tk-strip, .tk--deck .tk-strip { grid-template-columns: minmax(0, 1fr); }
+  .tk-stub { padding: 14px 18px; }
+  .tk-p { min-height: 0; padding: 18px; }
+  .tk-p + .tk-p::before, .tk-strip > .tk-p:nth-child(4):not(:last-child)::before, .tk--deck .tk-strip > .tk-p:nth-child(4)::before { left: 18px; right: 18px; top: 0; bottom: auto; width: auto; height: 1px; }
+  .tk-rtp { min-height: 168px; clip-path: inset(-40px 0 0 0); }
+  .tk-rtp > .tk-k, .tk-rtp > .tk-v, .tk-rtp > .tk-say, .tk--deck .tk-rtp > .tk-say { max-width: 50%; }
+  .tk .tk-case, .tk:not(.tk--deck) .tk-case { height: 116px; right: -2%; bottom: auto; top: 14px; }
+  .tk-burst { background-size: auto 120%; background-position: right -40px top -20px; }
+  .tk-v { font-size: 46px; }
+  .tk-v--word { font-size: 32px; }
+  .fd--deck { padding: 14px; }
+  .fd-h { padding: 2px; }
+  .fd-h b { font-size: 26px; }
+  .fd-rows li { grid-template-columns: 40px minmax(0, 1fr) auto; grid-template-areas: "i n n" "i t a"; gap: 0 10px; padding: 6px 10px 6px 6px; }
+  .fd-rows img { grid-area: i; width: 40px; }
+  .fd-n { grid-area: n; font-size: 13px; }
+  .fd-t { grid-area: t; font-size: 13px; }
+  .fd-rows code { display: none; }
+  .fd-rows a { grid-area: a; }
+
+  .hd { padding: 14px; }
+  .hd-score { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .hd-clock { grid-column: 1 / -1; grid-row: 1; margin: 0 0 8px; padding: 16px 16px 16px; border-radius: 10px; clip-path: none; }
+  .hd-clock::before { left: 0; right: 0; border-radius: 10px 10px 0 0; }
+  .hd-team { padding: 14px 14px 14px; }
+  .hd-team--l { padding-right: 24px; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+  .hd-team--r { padding-left: 24px; clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%); }
+  .hd-v { font-size: 34px; }
+  .hd-clock .hd-v { font-size: 44px; }
+  .hd-c { font-size: 11px; }
+  .hd-s { font-size: 13px; }
+  .hd-go { font-size: 12px; }
+}
+
+/* ======================================================================================================================
+   ROUND 4, founder of 2 Nov 2026 on round 3: "визуально нравится A2, но хотелось бы что-то вроде AD, только список скинов там
+   некрасиво выглядит, давай улучшим". A2's strip (.tk) is the base; the checked rounds join it as cards (.rc, A4) or turning in its
+   last panel (.tt, A5). Ironbound is the approved new case, art/cases-v2/ironbound-c.webp. Money is gold #FFC44D, founder of
+   2 Nov 2026. Stripes are the buttons' alone, so the stub, a heading plate nothing presses, keeps its pink and loses them.
+   ====================================================================================================================== */
+.pl-page { --money: #FFC44D; }
+.tk--v2 .tk-stub { background: linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
+.tk--v2 .tk-fee .tk-v, .tk-money { color: var(--money); }
+.tk-money { font-weight: 700; }
+.tk--turn .tk-strip { grid-template-columns: 144px minmax(0, 2fr) minmax(0, 1fr) minmax(0, .9fr) minmax(0, 1.5fr); }
+.tk--v2 .tk-rtp > .tk-k, .tk--v2 .tk-rtp > .tk-v { max-width: 46%; }
+.tk--v2 .tk-rtp > .tk-say { max-width: 40%; }
+
+/* Ironbound, the new case: its back, the skin over its tray, its front cut along the tray's rim over the skin (the cases lab's layers);
+   the case sits low on the panel's right with its foot in the bottom edge, the drop rises out of it and breaks the strip's top edge */
+.tk-case2 { position: absolute; z-index: 0; right: -3%; bottom: -8px; height: 168px; aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--v4-ease-pop); }
+.tk-case2 .b, .tk-case2 .f { position: absolute; inset: 0; background: url(art/cases-v2/ironbound-c.webp) center / 100% auto no-repeat; }
+.tk-case2 .b { filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); }
+.tk-case2 .f { z-index: 2; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
+.tk-case2 .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); transition: transform .45s var(--v4-ease-pop); }
+@media (hover: hover) {
+  .tk-rtp:hover .tk-case2 { transform: scale(1.04); }
+  .tk-rtp:hover .tk-case2 .sk { transform: translate(-50%, -66%) rotate(-12deg) scale(1.06); }
+}
+
+/* the ticket on a ruler of 100 000: the round's range in white, the ticket a mark inside it */
+.rc-t { display: block; margin-top: 10px; font-size: 12px; color: rgba(255, 255, 255, .88); }
+.rc-t b { color: #fff; font-weight: 900; }
+.tr { position: relative; display: block; width: 100%; height: 6px; margin-top: 6px; border-radius: 3px; background: rgba(6, 10, 30, .38); }
+.tr i { position: absolute; top: 0; bottom: 0; left: calc(var(--a) * 1%); width: max(4px, calc((var(--b) - var(--a)) * 1%)); border-radius: 3px; background: rgba(255, 255, 255, .62); }
+.tr b { position: absolute; top: -4px; left: calc(var(--t) * 1%); width: 3px; height: 14px; margin-left: -1.5px; border-radius: 2px; background: #fff; box-shadow: 0 0 0 2px rgba(6, 10, 30, .3); }
+
+/* A4: three round cards, each painted as Home's mode cards: its rarity's colour, the skin large and over the top edge only */
+.rc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 46px 0 0; padding: 0; list-style: none; }
+.rc-card { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 160px; padding: 16px 18px 16px 48%;
+  border-radius: var(--v4-radius); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
+  clip-path: inset(-80px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); transition: filter .2s; }
+.rc-card > :not(.rc-skin) { position: relative; z-index: 1; }
+.rc-skin { position: absolute; z-index: 0; left: -1%; top: -38px; width: 52%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--v4-ease-pop); }
+.rc-r { font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
+.rc-w { margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255, 255, 255, .9); }
+.rc-s { font-size: 20px; font-weight: 900; line-height: 1.1; }
+.rc-from { margin-top: 4px; font-size: 12px; color: rgba(255, 255, 255, .8); }
+.rc-go { margin-top: auto; padding-top: 12px; color: #fff; font-size: 13px; font-weight: 700; }
+.rc-go::after { content: ''; position: absolute; inset: 0; } /* the whole card is the round's link */
+.pl-frame .rc-go:focus-visible { outline: 0; }
+.rc-card:has(.rc-go:focus-visible) { outline: 2px solid #fff; outline-offset: 2px; }
+@media (hover: hover) {
+  .rc-card:hover { filter: brightness(1.08); }
+  .rc-card:hover .rc-skin { transform: translateY(-6px) rotate(-16deg) scale(1.06); }
+  .rc-card:hover .rc-go svg { translate: 3px 0; }
+}
+.rc-go svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+
+/* A5: the strip's last panel turns through the rounds; the skin breaks the top edge as the drop does at the strip's other end */
+.tt { isolation: isolate; clip-path: inset(-90px 0 0 0); overflow-x: clip; }
+.tt > .tk-fig { position: relative; z-index: 1; max-width: 52%; }
+.tt .tk-v--word { font-size: 28px; }
+.tt-slide { display: flex; flex-direction: column; align-items: flex-start; width: 100%; margin-top: 12px; }
+.tt-slide[hidden] { display: none; }
+.tt-slide > :not(.tt-skin) { position: relative; z-index: 1; }
+.tt-skin { position: absolute; z-index: 0; right: -2%; top: -50px; width: 62%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); }
+.tt-n { font-size: 15px; font-weight: 900; }
+.tt-slide .rc-t { margin-top: 6px; }
+.tt-go { margin-top: 12px; color: #fff; font-size: 13px; font-weight: 700; }
+.tt-go svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+.tt-dots { position: absolute; z-index: 1; right: 14px; bottom: 12px; display: flex; }
+.tt-dots button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; } /* a 24px target round a small mark */
+.tt-dots button::before { content: ''; width: 8px; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, .4); transition: width .25s var(--v4-ease-pop), background-color .2s; }
+.tt-dots button[aria-pressed="true"]::before { width: 20px; background: #fff; }
+.tt-dots button:focus-visible { outline: 2px solid #fff; outline-offset: -2px; border-radius: 6px; }
+@media (hover: hover) { .tt-go:hover svg { translate: 3px 0; } .tt-dots button:hover::before { background: rgba(255, 255, 255, .8); } }
+@media (prefers-reduced-motion: no-preference) {
+  .tt-slide:not([hidden]) .tt-skin { animation: tt-skin .55s var(--v4-ease-pop); }
+  .tt-slide:not([hidden]) > :not(.tt-skin) { animation: tt-text .35s ease-out; }
+}
+@keyframes tt-skin { from { opacity: 0; transform: translateY(18px) rotate(-2deg) scale(.88); } }
+@keyframes tt-text { from { opacity: 0; translate: 0 6px; } }
+@media (prefers-reduced-motion: reduce) { .tk-case2, .tk-case2 .sk, .rc-skin, .rc-card, .rc-go svg, .tt-go svg { transition: none; } }
+
+@container pl (max-width: 1080px) {
+  .tk--turn .tk-strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .tk--v2 .tk-rtp > .tk-k, .tk--v2 .tk-rtp > .tk-v, .tk--v2 .tk-rtp > .tk-say { max-width: 50%; }
+  .tk-case2 { right: 0; bottom: -20px; height: calc(100% + 10px); }
+  .tt > .tk-fig { max-width: 60%; }
+  .tt-skin { right: 4%; top: -34px; width: min(34%, 280px); }
+}
+@container pl (max-width: 820px) {
+  .rc { grid-template-columns: minmax(0, 1fr); row-gap: 34px; margin-top: 40px; }
+}
+@container pl (max-width: 640px) {
+  .tk--turn .tk-strip { grid-template-columns: minmax(0, 1fr); }
+  .tk-case2 { right: -3%; bottom: -6px; height: 128px; }
+  .tk--v2 .tk-rtp { min-height: 176px; }
+  /* the three cards turn into a row the thumb pulls sideways, each card most of the width with the next one showing; the row scrolls, the page does not */
+  .rc { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; gap: 10px; margin: 6px 0 0; padding: 40px 0 6px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .rc::-webkit-scrollbar { display: none; }
+  .rc-card { min-height: 0; padding: 14px 14px 14px 46%; scroll-snap-align: start; }
+  .rc-skin { top: -30px; width: 54%; }
+  .rc-from { font-size: 11px; }
+  .rc-s { font-size: 18px; }
+  .tt > .tk-fig { max-width: 62%; }
+  .tt-skin { right: -6%; top: -18px; width: 46%; }
+}
+
+/* ======================================================================================================================
+   ROUND 5, founder of 2 Nov 2026 on round 4: A4 "в целом да, но доработать", and A5 liked too. A6 from A4, A7 from A5.
+   The stub striped again, his pick, "вот так мне нравится": this one heading plate keeps the buttons' stripes. Every link on one line
+   and one baseline, "выровнять кнопки". A6: the last panel moves down to the left of two round cards, "с конца уберем и перенесем
+   вниз, поставим слева от карточек скинов"; each card as A5's panel, "как типа тут": the skin over the top right corner, the words across.
+   A7: the last panel ends on the pink button, "может в конце сделать такую кнопку".
+   ====================================================================================================================== */
+.tk--v3 .tk-stub { background: var(--btn-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
+.tk--v3 .tk-go { white-space: nowrap; } /* one line each; the panels are sized so it fits at 1558 */
+.tk--three .tk-strip { grid-template-columns: 170px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr); }
+.tk--three .tk-case2 { height: 178px; }
+.tk--turn2 .tk-strip { grid-template-columns: 136px minmax(0, 1.6fr) minmax(0, 1.1fr) minmax(0, 1.02fr) minmax(0, 1.3fr); }
+.tk--turn2 .tk-case2 { height: 116px; right: -2%; bottom: 34px; } /* it stands on the links' line, so the link runs under it, not through it */
+.tk--turn2 .tk-rtp > .tk-say { max-width: 46%; }
+.tk--turn2 .tk-p { padding-inline: 20px; }
+
+/* A7: the turning panel ends on the button, the marks beside it on the same line */
+.tk--turn2 .tt-slide { flex: 1 1 auto; }
+.tt-btn { position: relative; z-index: 1; margin-top: auto; }
+.tk--turn2 .tt-slide .tr { margin-bottom: 14px; }
+.tk--turn2 .tt-dots { bottom: 24px; right: 14px; }
+
+/* A6: the second ticket, the "Every round" plate in the stub's striped pink, then two round cards */
+.t6 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1.35fr); gap: 12px; margin-top: 58px; }
+.t6-plate { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 22px; border-radius: var(--v4-radius);
+  background: var(--btn-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .5); }
+.t6-fig { display: block; }
+.t6-plate .tk-v--word { font-size: 36px; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
+.t6-btn { margin-top: auto; }
+.c6 { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 188px; padding: 18px 20px 18px;
+  border-radius: var(--v4-radius); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
+  clip-path: inset(-100px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); overflow-x: clip; transition: filter .2s; }
+.c6 > :not(.c6-skin) { position: relative; z-index: 1; }
+.c6-skin { position: absolute; z-index: 0; right: -3%; top: -54px; width: 50%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--v4-ease-pop); }
+.c6-r { font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
+.c6-w { margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255, 255, 255, .9); }
+.c6-s { max-width: 54%; font-size: 22px; font-weight: 900; line-height: 1.1; }
+.c6-from { margin-top: 4px; font-size: 12px; color: rgba(255, 255, 255, .82); }
+.c6 .rc-t { margin-top: 14px; }
+.c6-go { margin-top: auto; padding-top: 14px; color: #fff; font-size: 13px; font-weight: 700; }
+.c6-go svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+.pl-frame a.c6:focus-visible { outline-offset: 2px; }
+@media (hover: hover) {
+  .c6:hover { filter: brightness(1.08); }
+  .c6:hover .c6-skin { transform: translateY(-6px) rotate(-16deg) scale(1.05); }
+  .c6:hover .c6-go svg { translate: 3px 0; }
+}
+@media (prefers-reduced-motion: reduce) { .c6, .c6-skin, .c6-go svg { transition: none; } }
+
+@container pl (max-width: 1080px) {
+  .tk--three .tk-strip, .tk--turn2 .tk-strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .tk--three .tk-strip > .tk-p:nth-child(4)::before { top: 22px; bottom: 22px; left: 0; right: auto; width: 1px; height: auto; }
+  .tk--three .tk-strip > .tk-p:nth-child(3) { border-radius: 0 0 0 var(--v4-radius); }
+  .tk--three .tk-strip > .tk-p:nth-child(4) { border-radius: 0 0 var(--v4-radius) 0; }
+  .tk--three .tk-case2, .tk--turn2 .tk-case2 { height: 178px; right: 0; }
+  .t6 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: 62px; margin-top: 12px; }
+  .t6-plate { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; }
+  .t6-btn { margin-top: 0; }
+}
+@container pl (max-width: 640px) {
+  .tk--three .tk-strip, .tk--turn2 .tk-strip { grid-template-columns: minmax(0, 1fr); }
+  .tk--three .tk-strip > .tk-p:nth-child(4)::before { left: 18px; right: 18px; top: 0; bottom: auto; width: auto; height: 1px; }
+  .tk--three .tk-strip > .tk-p:nth-child(3) { border-radius: 0; }
+  .tk--three .tk-strip > .tk-p:nth-child(4) { border-radius: 0 0 var(--v4-radius) var(--v4-radius); }
+  .tk--three .tk-case2, .tk--turn2 .tk-case2 { height: 116px; right: -3%; bottom: 34px; }
+  .t6 { grid-template-columns: minmax(0, 1fr); row-gap: 56px; }
+  .t6-plate { padding: 18px; }
+  .t6-plate .tk-v--word { font-size: 30px; }
+  .c6 { min-height: 0; padding: 16px; }
+  .c6-skin { top: -44px; width: 54%; }
+  .c6-s { font-size: 20px; }
+}
+
+/* A6 after the founder, 2 Nov 2026: "другой цвет карточки нужно" and the hash box, "давай добавим". The plate keeps its stripes and takes the
+   shield's provably fair blue taken deeper, teal to blue: its own colour beside the pink stub, the violet Glock card and the red AK card.
+   White type holds on its lightest end (#0F7EA6, about 4.6 to 1) */
+.t6-plate { background: var(--btn-stripes), linear-gradient(160deg, #0F7EA6, #1F55C9 58%, #24359E); }
+.t6-plate .tk-v--word { text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
+.t6-hash { margin: 14px 0 16px; }
+@container pl (max-width: 1080px) { .t6-hash { flex: 1 1 260px; width: auto; margin: 0; } }
+@container pl (max-width: 640px) { .t6-hash { flex-basis: 100%; } }
+
+/* ROUND 6, A6 refined, moved to proof-home.css: one stylesheet and one renderer, proof-home.js, draw it here and on v4's Home, so the two cannot drift */

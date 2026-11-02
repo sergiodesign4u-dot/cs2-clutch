@@ -1,0 +1,66 @@
+/* design/v4/cases-lab.css, a satellite exploration of v4, D-209: one case skeleton with decoration on top, founder of 1 Nov 2026:
+ * "сделаем каркас ... угол, крышка, размер ... а на каркас накладывал бы украшалки". A case is a sandwich: the picture, a real skin,
+ * the same picture again cut at the box's rim, so the skin stands inside the box. */
+
+body.cl-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.cl-main { max-width: 1100px; margin: 0 auto; padding: 32px 16px 80px; overflow-x: clip; } /* the v1 world reaches 6% past its tile, 4px past a 360 screen */
+@media (min-width: 1100px) { .cl-main { margin-left: calc(var(--nav-w, 248px) + 40px); } } /* clear of the roadmap sidebar, as rare-drops.css does */
+.cl-head h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.cl-head p { margin: 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 70ch; }
+.cl-dir { margin-top: 40px; }
+.cl-dir h2 { margin: 0; font-size: 20px; font-weight: 900; }
+
+.cl-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; }
+.cl-row--one { grid-template-columns: minmax(0, 440px); }
+.cl-tile { display: flex; flex-direction: column; min-width: 0; text-align: center; }
+.cl-tile h3 { position: relative; z-index: 4; margin: 26px 0 8px; font-size: 16px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+
+/* the sandwich; the box's rim runs in perspective, so the front copy is cut along it, measured on the picture */
+.cl-case { position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 3 / 2; border-radius: 14px; background: var(--pic) center / cover no-repeat; }
+.cl-case::after { content: ''; position: absolute; z-index: 2; inset: 0; background: inherit; clip-path: polygon(0 48%, 12.6% 47.9%, 78.1% 52.3%, 87.9% 57.3%, 100% 58%, 100% 100%, 0 100%); pointer-events: none; }
+.cl-skin { position: absolute; z-index: 1; left: 47%; top: 34%; width: 72%; height: auto; transform: translate(-50%, -50%) rotate(7deg);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .7)) drop-shadow(0 0 14px var(--lit, transparent)); transition: transform .4s cubic-bezier(.22, 1, .36, 1); }
+
+/* a case with no card: world, case, skin, the case's front cut along its rim. Every layer has its own alpha on one 3 by 2 frame */
+.cl-stage { position: relative; isolation: isolate; aspect-ratio: 3 / 2; }
+.cl-stage > span { position: absolute; inset: 0; pointer-events: none; background-position: center; background-size: 100% auto; background-repeat: no-repeat; }
+.cl-world { z-index: 0; inset: 2% -6% -12% !important; background-image: var(--world); -webkit-mask: radial-gradient(closest-side, #000 74%, transparent); mask: radial-gradient(closest-side, #000 74%, transparent); transition: filter .35s; }
+.cl-back { z-index: 1; background-image: var(--case); }
+.cl-stage > .cl-back, .cl-stage > .cl-front { transform-origin: 50% 82%; transition: scale .45s cubic-bezier(.22, 1, .36, 1); }
+.cl-front { z-index: 3; background-image: var(--case); clip-path: polygon(0 48%, 18% 48%, 68.9% 48.4%, 79.8% 50.2%, 100% 51%, 100% 100%, 0 100%); }
+.cl-stage .cl-skin { left: 51%; top: 31%; width: 62%; }
+.cl-dir > p { margin: 4px 0 0; color: var(--color-text-soft); font-size: 15px; }
+
+.cl-price { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; border-radius: 8px; background: var(--color-pink); color: var(--color-text-hi); font-size: 16px; font-weight: 700; text-decoration: none; }
+.cl-price b { width: 14px; height: 14px; border-radius: 50%; background: var(--color-gold); }
+
+@media (hover: hover) {
+  .cl-tile:hover .cl-skin { transform: translate(-50%, -66%) rotate(4deg) scale(1.14); }
+  .cl-tile:hover .cl-price { filter: brightness(1.1); }
+  .cl-tile:hover .cl-world { filter: brightness(1.25); }
+  .cl-tile:hover .cl-back, .cl-tile:hover .cl-front { scale: 1.06; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cl-skin, .cl-back, .cl-front { transition: none; }
+  .cl-tile:hover .cl-back, .cl-tile:hover .cl-front { scale: none; }
+  .cl-tile:hover .cl-skin { transform: translate(-50%, -50%) rotate(7deg); }
+}
+
+/* version 2: the Welcome case's form, the theme inside. The picture, a real skin across the tray, the picture cut along the front wall */
+.cl-row--v2 { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+.cl-v2-stage { position: relative; isolation: isolate; aspect-ratio: 3 / 2; transform-origin: 50% 80%; transition: scale .45s cubic-bezier(.22, 1, .36, 1); }
+.cl-v2-stage > span { position: absolute; inset: 0; background: var(--pic) center / 100% auto no-repeat; pointer-events: none; }
+.cl-v2-back { z-index: 1; }
+.cl-v2-front { z-index: 3; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
+.cl-v2-skin { position: absolute; z-index: 2; left: 44%; top: 34%; width: 60%; height: auto; transform: translate(-50%, -50%) rotate(14deg); filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .6)); transition: transform .45s cubic-bezier(.22, 1, .36, 1); }
+.cl-v2-price { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0; color: #FFC44D; font-size: 20px; font-weight: 900; }
+.cl-v2-price b { width: 16px; height: 16px; border-radius: 50%; background: var(--color-gold); }
+@media (hover: hover) {
+  .cl-v2:hover .cl-v2-stage { scale: 1.05; }
+  .cl-v2:hover .cl-v2-skin { transform: translate(-50%, -62%) rotate(10deg) scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cl-v2-stage, .cl-v2-skin { transition: none; }
+  .cl-v2:hover .cl-v2-stage { scale: none; }
+  .cl-v2:hover .cl-v2-skin { transform: translate(-50%, -50%) rotate(14deg); }
+}

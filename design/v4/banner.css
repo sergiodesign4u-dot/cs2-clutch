@@ -68,7 +68,7 @@
 /* the title, the act under it on the left; the countdown in the top right corner, the founder's ask:
    "давай таймер поставим справа в верхнем углу с отступами"; the same insets as the title */
 @media (min-width: 900px) {
-  .wf-event .wf-event-name { width: min(420px, 100% - 420px); top: 32px; } /* 420 by 194 at 1440, the title's 1100 by 509, comp B, founder pick; narrower where the countdown needs the room */
+  .wf-event .wf-event-name { width: min(420px, 100% - 420px); top: 32px; }
   .wf-event-clock { top: 32px; left: auto; right: max(var(--space-5), (100% - var(--size-content)) / 2); background: rgba(6, 10, 30, .72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
   .wf-event-go { top: auto; bottom: 138px; } /* under the title at 1440: 32 + 194 + 24 from the top of 440 */
 }
@@ -90,7 +90,7 @@
       linear-gradient(to top, var(--color-ground) 18%, transparent 30%),
       url(art/banner-plate.webp) var(--scene-pos) / var(--scene-size) no-repeat; }
   .wf-event .wf-banner-art::after { inset: 0; -webkit-mask: linear-gradient(to top, transparent 22%, #000 30%); mask: linear-gradient(to top, transparent 22%, #000 30%); }
-  .wf-event .wf-event-name { width: min(290px, 78%); top: 16px; }
+  .wf-event .wf-event-name { width: min(330px, 90%); top: 16px; }
   .wf-event-clock { top: auto; bottom: 84px; }
 }
 
@@ -115,7 +115,7 @@
   .wf-event { --scene-size: auto 480px; --scene-pos: right calc(45% + 214px) top -50px;
     --plate: url(art/banner-plate-wide.webp); --plate-size: max(100%, 1315px) auto; --plate-pos: right min(45% + 86px, 0px) top -50px; }
   .wf-event .wf-banner-art { height: 360px; }
-  .wf-event .wf-event-name { width: min(380px, 100% - 420px); top: 28px; }
+  .wf-event .wf-event-name { width: min(500px, 100% - 420px); top: 28px; } /* 500 by 206, the title's 1100 by 454; narrower where the countdown needs the room */
   .wf-event-clock { top: 28px; }
   .wf-event-go { bottom: 28px; }
 }

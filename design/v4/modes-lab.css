@@ -1,0 +1,62 @@
+/* design/v4/modes-lab.css, a satellite exploration of v4, D-209: the mode cards tried side by side, founder of 1 Nov 2026: "давай наверное
+ * сделаем страницу с баннерами отдельную и там будем пробовать варианти". A card here is Home's size and proportion. A skin is always
+ * a real file; each picture is placed by --x, --y, --w in cqw of the card, --r turns it, --f flips it, --g is its coloured rim. */
+
+body.ml-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.ml-main { max-width: 1250px; margin: 0 auto; padding: 32px 16px 80px; }
+@media (min-width: 1100px) { .ml-main { margin-left: calc(var(--nav-w, 248px) + 40px); } }
+.ml-main h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.ml-main > header p { margin: 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; }
+.ml-main section { margin-top: 44px; }
+.ml-main h2 { margin: 0 0 16px; font-size: 20px; font-weight: 900; }
+
+.ml-row, .ml-page .wf-grid.wf-modes { display: grid; grid-template-columns: repeat(auto-fill, 283px); gap: 44px 16px; }
+.ml-row { row-gap: 16px; }
+
+.ml-card { --edge: rgba(101, 163, 255, .35); --fill: #0A1030; --title: var(--color-text-hi); position: relative; isolation: isolate; container-type: inline-size; overflow: hidden; aspect-ratio: 7 / 4; border-radius: 14px; background: var(--fill); box-shadow: inset 0 0 0 1.5px var(--edge); transition: filter .35s; }
+.ml-card h3, .ml-card p, .ml-act { position: relative; z-index: 4; }
+.ml-card h3 { margin: 16px 0 0 16px; color: var(--title); font-size: min(24px, 8.6cqw); font-weight: 900; line-height: 1.05; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; text-shadow: 0 2px 8px rgba(6, 10, 30, .7); }
+.ml-card p { max-width: 52cqw; margin: 5px 0 0 16px; font-size: 12px; line-height: 1.3; text-shadow: 0 1px 6px rgba(6, 10, 30, .8); }
+/* the short act: it stops at the art, as the references do */
+.ml-card .ml-act { position: absolute; left: 16px; bottom: 14px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 56cqw; max-width: none; min-height: 36px; margin: 0; border-radius: 8px; background: rgba(66, 74, 128, .62); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); color: var(--color-text-hi); font-size: 12px; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.ml-card .ml-act.is-live { background: var(--v4-stripes), var(--color-pink); }
+
+.ml-tag { position: absolute; z-index: 4; right: 8px; top: 8px; padding: 2px 6px; border-radius: 6px; background: rgba(6, 10, 30, .72); color: var(--color-text-soft); font-size: 11px; font-weight: 700; }
+
+.ml-light, .ml-skin { position: absolute; left: calc(var(--x) * 1cqw); top: calc(var(--y) * 1cqw); width: calc(var(--w) * 1cqw); height: auto; pointer-events: none; }
+.ml-light { z-index: 1; -webkit-mask: radial-gradient(closest-side, #000 58%, transparent); mask: radial-gradient(closest-side, #000 58%, transparent); transition: filter .35s; } /* a light never shows the square it was drawn on */
+.ml-skin { z-index: 2; transform: rotate(calc(var(--r, 0) * 1deg)) scaleX(var(--f, 1)); filter: drop-shadow(0 6px 8px rgba(6, 10, 30, .7)) drop-shadow(0 0 7px var(--g, transparent)); transition: translate .4s var(--v4-ease-pop), scale .4s var(--v4-ease-pop); }
+.ml-bullet { z-index: 3; }
+.ml-low { filter: saturate(.5) brightness(.8) drop-shadow(0 6px 8px rgba(6, 10, 30, .7)); }
+
+/* the fills */
+.ml-pink { --edge: rgba(251, 63, 138, .55); --title: #FF7DB6; --fill: radial-gradient(90cqw 80cqw at 80% 40%, #4A0F52, #12082E 72%); }
+.ml-blue { --edge: rgba(46, 139, 255, .6); --title: #BFE3FF; --fill: radial-gradient(90cqw 80cqw at 78% 45%, #0F3C9E, #081238 72%); }
+.ml-gold { --edge: rgba(255, 196, 77, .45); --title: #FFC44D; --fill: radial-gradient(90cqw 80cqw at 80% 45%, #4A2A08, #0C0E26 72%); }
+.ml-goldd { --edge: rgba(255, 196, 77, .45); --title: #FFC44D; --fill: radial-gradient(70cqw 70cqw at 76% 45%, #3A2A10, #0C0E26 72%); }
+.ml-violet { --edge: rgba(193, 77, 255, .5); --title: #C98BFF; --fill: radial-gradient(90cqw 80cqw at 80% 40%, #3A1466, #0C0A2C 72%); }
+.ml-versus { --edge: rgba(255, 255, 255, .22); --title: #FFFFFF; --fill: linear-gradient(112deg, #0E2F8C 0 58%, #6E2308 58.2% 100%); }
+.ml-clash { --edge: rgba(255, 255, 255, .22); --fill: #0A1030; }
+.ml-scene { --edge: transparent; --fill: url(art/mode-battles-scene.webp) center / cover no-repeat; }
+.ml-open { --edge: rgba(251, 63, 138, .4); --fill: #0A0616; }
+
+/* case against case: Home's own two cases, cut along the slash */
+.ml-half { position: absolute; z-index: 0; inset: 0; background: center / cover no-repeat; }
+.ml-half--l { background-image: url(art/cases-lab/cold.webp); background-position: 70% 50%; clip-path: polygon(0 0, 66% 0, 46% 100%, 0 100%); }
+.ml-half--r { background-image: url(art/cases-lab/ember.webp); background-position: 30% 50%; clip-path: polygon(66% 0, 100% 0, 100% 100%, 46% 100%); }
+.ml-clash::after { content: ''; position: absolute; z-index: 3; inset: 0; background: linear-gradient(90deg, rgba(6, 10, 30, .82), rgba(6, 10, 30, .5) 40%, transparent 62%); pointer-events: none; }
+
+/* the new case: world, case, a real skin, the case's front cut at its rim */
+.ml-pic { position: absolute; z-index: 1; inset: -16cqw -4cqw -10cqw 26cqw; background: url(art/cases-lab/ember-case.webp) center / 100% auto no-repeat, url(art/cases-lab/ember-world.webp) center 70% / 100% auto no-repeat; }
+.ml-pic--front { z-index: 3; background: url(art/cases-lab/ember-case.webp) center / 100% auto no-repeat; clip-path: polygon(0 48%, 18% 48%, 68.9% 48.4%, 79.8% 50.2%, 100% 51%, 100% 100%, 0 100%); }
+.ml-goldd .ml-light { filter: brightness(1.7); }
+
+@media (hover: hover) {
+  .ml-card:hover { filter: brightness(1.08); }
+  .ml-card:hover .ml-skin { translate: 0 -1.5cqw; scale: 1.05; }
+  .ml-card:hover .ml-light { filter: brightness(1.25); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ml-card, .ml-skin, .ml-light { transition: none; }
+  .ml-card:hover .ml-skin { translate: none; scale: none; }
+}

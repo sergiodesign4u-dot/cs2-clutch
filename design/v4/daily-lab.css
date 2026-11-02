@@ -1,0 +1,738 @@
+/* design/v4/daily-lab.css, a satellite exploration of v4, round 2: the Daily cases ladder in four directions. Founder of 2 Nov 2026 on
+ * round 1: it was not clear "how to show the current level, how much has been wagered already and how much is left to the next free
+ * case, which ones were opened, which one is available and where the player is now". A tier's colour and picture are set once, on .t1 to
+ * .t5, in the family of Home's mode cards, theme.css; a case is the sandwich of cases-lab.css. Each direction lays itself out by its own
+ * width, so a phone and a squeezed desktop get the same answer. */
+
+body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.dl-main { box-sizing: border-box; max-width: 1460px; margin: 0 auto; padding: 32px 16px 80px; }
+@media (min-width: 900px) { .dl-main { margin-left: calc(var(--nav-w, 248px) + 24px); } } /* clear of the roadmap sidebar, a panel from 900px */
+.dl-head h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.dl-head p { margin: 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 92ch; }
+.dl-head p + p { margin-top: 12px; }
+.dl-head b { color: var(--color-text-hi); }
+.dl-rec { padding: 12px 16px; border-radius: 12px; background: rgba(251, 63, 138, .1); box-shadow: inset 3px 0 0 var(--color-pink); }
+
+.dl-var { margin-top: 56px; }
+.dl-cap { margin: 0 0 12px; color: var(--color-text-soft); font-size: 15px; line-height: 1.4; }
+.dl-cap > b { display: inline-grid; place-items: center; box-sizing: border-box; min-width: 24px; padding: 0 5px; height: 24px; margin-right: 6px; border-radius: 6px; background: var(--color-pink); color: var(--color-text-hi); font-size: 13px; font-weight: 900; }
+.dl-switch { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.dl-sample { margin: 12px 0 0; color: var(--color-text-muted); font-size: 13px; line-height: 1.4; }
+.dl-frame { container: dl / inline-size; overflow-x: clip; } /* the case art may stand out of a card; it never scrolls the page sideways */
+
+/* the five tiers, once; the gradients are the mode cards' family, theme.css --v4-mode-* */
+.t1 { --hue: #C9D2E3; --g1: #7D88A8; --g2: #333C5A; --case: url(art/cases/warsteel-case.webp); --skin: url(../concept/assets/skins/p250-sand-dune.png); --tone: grayscale(1) brightness(1.25); --rim: polygon(0 46.5%, 18% 46.5%, 70% 48%, 80% 49.5%, 100% 50%, 100% 100%, 0 100%); }
+.t2 { --hue: #65A3FF; --g1: #3955E8; --g2: #1B2A8F; --case: url(art/cases/ironbound-case.webp); --skin: url(../concept/assets/skins/glock-18-water-elemental.png); --rim: polygon(0 46.5%, 18% 46.5%, 70% 48%, 80% 49.5%, 100% 50%, 100% 100%, 0 100%); }
+.t3 { --hue: #A35CFF; --g1: #8E2BC9; --g2: #41157A; --case: url(art/cases/nightfall-case.webp); --skin: url(../concept/assets/skins/m4a1-s-hyper-beast.png); }
+.t4 { --hue: #FB3F8A; --g1: #FB3F8A; --g2: #8E1F5E; --case: url(art/cases/coldfront-case.webp); --skin: url(../concept/assets/skins/ak-47-vulcan.png); }
+.t5 { --hue: #FADA62; --g1: #C98A0A; --g2: #B4400F; --case: url(art/cases/emberforge-case.webp); --skin: url(../concept/assets/skins/karambit-tiger-tooth.png); }
+
+/* a case: the case, a real skin in it, the case's front cut along its rim */
+.dl-art { position: relative; display: block; aspect-ratio: 3 / 2; }
+.dl-art i { position: absolute; inset: 0; background: center / 100% auto no-repeat; filter: var(--tone, none); }
+.dl-art i:nth-child(1) { display: none; }
+.dl-art i:nth-child(2), .dl-art i:nth-child(4) { background-image: var(--case); }
+.dl-art i:nth-child(3) { inset: -6% 20% 30%; background: var(--skin) center / contain no-repeat; transform: rotate(7deg); filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); }
+.dl-art i:nth-child(4) { clip-path: var(--rim, polygon(0 48%, 18% 48%, 68.9% 48.4%, 79.8% 50.2%, 100% 51%, 100% 100%, 0 100%)); }
+/* a tier not reached keeps its colour, quieter; its case greys */
+.is-next .dl-art, .is-locked .dl-art { filter: grayscale(.6) brightness(.66); }
+
+/* the words every direction shares */
+.dl-t { margin: 0; font-size: 36px; font-weight: 900; line-height: 1; text-transform: uppercase; }
+.dl-l { margin: 8px 0 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.4; }
+.dl-note { margin: 10px 0 0; color: var(--color-text-soft); font-size: 14px; line-height: 1.4; }
+.dl-facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.dl-fact { display: grid; gap: 2px; padding: 9px 14px; border-radius: 10px; background: rgba(6, 10, 30, .55); box-shadow: inset 0 0 0 1px var(--color-line-soft); }
+.dl-fact b { font-size: 20px; font-weight: 900; line-height: 1.1; white-space: nowrap; }
+.dl-fact span { color: var(--color-text-muted); font-size: 12px; }
+.dl-fact.is-remain b { color: var(--color-gold); } /* coins, the coin's colour */
+.dl-fact.is-reset b { color: var(--color-blue); }
+.dl-act { display: grid; gap: 6px; justify-items: start; }
+.dl-say { margin: 0; min-height: 18px; color: var(--color-text-soft); font-size: 13px; }
+.dl-say:empty { display: none; }
+
+/* a tier's status, in words and an icon, never by colour alone */
+.dl-st { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; box-sizing: border-box; padding: 5px 10px 5px 8px; border-radius: 8px; background: rgba(6, 10, 30, .62); color: var(--color-text-hi); font-size: 13px; font-weight: 700; line-height: 1.2; }
+.dl-st svg { flex: 0 0 14px; width: 14px; height: 14px; fill: currentColor; }
+.dl-st.is-opened svg { fill: var(--color-green); }
+.dl-st.is-open { background: var(--color-text-hi); color: var(--color-ground); }
+.dl-st.is-next { color: var(--color-gold); }
+.dl-st.is-locked { color: var(--color-text-muted); }
+.dl-st.is-info { color: var(--color-text-soft); }
+
+/* the panel every direction stands on: the header strip's navy, theme.css */
+.va, .vb, .vc, .vd { box-sizing: border-box; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+
+/* A. five cards on one track ---------------------------------------------------------------- */
+.va { --gap: 12px; display: flex; flex-direction: column; padding: 28px; }
+.va-head { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; }
+.va-title { flex: 1 1 320px; min-width: 0; }
+.va-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gap); margin: 72px 0 0; padding: 0; list-style: none; }
+.va-card { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 8px; min-width: 0; height: 200px; padding: 14px 14px 16px; border-radius: 16px;
+  background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.va-card .dl-art { position: absolute; left: -4%; right: -4%; top: -60px; }
+.va-name { font-size: 24px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .4); }
+.va-card.is-open { translate: 0 -8px; box-shadow: inset 0 0 0 3px var(--color-text-hi), 0 14px 28px rgba(6, 10, 30, .5); }
+.va-card.is-next, .va-card.is-locked { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); color: var(--color-text-soft); }
+.va-track { position: relative; height: 70px; margin-top: 18px; }
+.va-bar { position: absolute; left: 0; right: 0; top: 32px; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, .08); }
+.va-fill { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, #C9D2E3 10%, #65A3FF 30%, #A35CFF 50%, #FB3F8A 70%, #FADA62 90%); clip-path: inset(0 calc(100% - var(--pos)) 0 0 round 4px); }
+.va-tick { position: absolute; top: 28px; display: grid; justify-items: center; gap: 6px; translate: -50% 0; }
+.va-tick b { width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; background: #0D0C28; box-shadow: inset 0 0 0 3px var(--hue); }
+.va-tick.is-on b { background: var(--hue); box-shadow: 0 0 0 3px #0D0C28; }
+.va-tick em { color: var(--color-text-muted); font-size: 13px; font-style: normal; font-weight: 700; white-space: nowrap; }
+.va-tick.is-on em { color: var(--color-text-hi); }
+.va-me { position: absolute; z-index: 2; top: 0; translate: -50% 0; padding: 3px 8px; border-radius: 6px; background: var(--color-text-hi); color: var(--color-ground); font-size: 13px; font-weight: 900; white-space: nowrap; }
+.va-me::after { content: ''; position: absolute; left: 50%; top: 100%; margin-left: -5px; border: 5px solid transparent; border-top-color: var(--color-text-hi); }
+.va-unit { margin: 4px 0 0; color: var(--color-text-muted); font-size: 13px; }
+
+/* B. the tier I can open now, large ------------------------------------------------------------ */
+.vb { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 28px; padding: 28px; }
+.vb-focus { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; min-height: 410px; margin-top: 36px; padding: 22px; border-radius: 16px;
+  background: var(--btn-stripes), linear-gradient(140deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.vb-focus .dl-art { position: absolute; left: -5%; right: -5%; top: -64px; }
+.vb-focus.is-opened .dl-art { filter: brightness(.85); }
+.vb-fcopy { position: relative; display: grid; gap: 10px; justify-items: start; }
+.vb-kicker { color: rgba(255, 255, 255, .8); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.vb-name { margin-top: -6px; font-size: 44px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 10px rgba(6, 10, 30, .4); }
+.vb-side { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.vb-top { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 14px 20px; }
+.vb-top > div:first-child { flex: 1 1 280px; min-width: 0; }
+.vb-next { padding: 18px 20px; border-radius: 14px; background: rgba(6, 10, 30, .5); box-shadow: inset 0 0 0 1px var(--color-line-soft); }
+.vb-k { color: var(--color-text-muted); font-size: 13px; }
+.vb-next > b { display: block; margin: 2px 0 12px; color: var(--color-gold); font-size: 34px; font-weight: 900; line-height: 1.05; }
+.vb-next p { margin: 6px 0 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.45; }
+.vb-next.is-limit .dl-note { margin: 0; }
+.vb-bar { height: 12px; border-radius: 6px; background: rgba(255, 255, 255, .08); overflow: hidden; }
+.vb-bar i { display: block; height: 100%; border-radius: inherit; background: var(--btn-stripes), linear-gradient(90deg, var(--g1), var(--hue)); }
+.vb-ends { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; color: var(--color-text-muted); font-size: 13px; }
+.vb-ends .vb-now { color: var(--color-text-hi); font-weight: 700; text-align: center; }
+.vb-mini { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: auto 0 0; padding: 0; list-style: none; }
+.vb-tile { display: grid; align-content: start; gap: 6px; min-width: 0; padding: 0 0 10px; border-radius: 12px; background: rgba(6, 10, 30, .4); box-shadow: inset 0 0 0 1px var(--color-line-soft); }
+.vb-tile > b, .vb-tile > .dl-st { margin: 0 10px; justify-self: start; }
+.vb-tile > b { font-size: 16px; font-weight: 900; text-transform: uppercase; }
+.vb-tile .dl-st { font-size: 12px; }
+.vb-thumb { display: block; padding: 4px 6px 0; border-radius: 12px 12px 0 0; background: var(--btn-stripes), linear-gradient(140deg, var(--g1), var(--g2)); }
+.vb-tile.is-next .vb-thumb, .vb-tile.is-locked .vb-thumb { background: var(--btn-stripes), linear-gradient(140deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
+.vb-tile.is-focus { box-shadow: inset 0 0 0 2px var(--color-text-hi); }
+
+/* C. the pass ---------------------------------------------------------------------------------- */
+.vc { padding: 28px; }
+.vc-head { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; }
+.vc-pass { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 8px; margin: 60px 0 0; padding: 0; list-style: none; }
+.vc-col { display: grid; grid-template-rows: auto auto auto 1fr; gap: 12px; min-width: 0; }
+.vc-plate { position: relative; height: 150px; }
+.vc-plate::before { content: ''; position: absolute; inset: 0; background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
+.vc-col:first-child .vc-plate::before { clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%); border-radius: 14px 0 0 14px; }
+.vc-col:last-child .vc-plate::before { clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%); border-radius: 0 14px 14px 0; }
+.vc-col.is-next .vc-plate::before, .vc-col.is-locked .vc-plate::before { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
+.vc-col.is-open .vc-plate::before { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 80%, #fff), var(--g2)); }
+.vc-plate .dl-art { position: absolute; z-index: 1; left: 4%; right: 4%; top: -52px; }
+.vc-name { position: absolute; z-index: 2; left: 22px; bottom: 12px; font-size: 22px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .5); }
+.vc-col.is-next .vc-name, .vc-col.is-locked .vc-name { color: var(--color-text-soft); }
+.vc-seg { position: relative; height: 16px; background: rgba(255, 255, 255, .08); clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+.vc-seg i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: var(--btn-stripes), var(--hue); }
+.vc-at { color: var(--color-text-muted); font-size: 13px; font-weight: 700; }
+.vc-at.is-on { color: var(--color-text-hi); }
+.vc-at.is-part { color: var(--color-gold); }
+.vc-act { display: flex; align-items: flex-start; min-height: 32px; }
+.vc-act:empty { display: none; }
+.vc .dl-say { margin-top: 14px; }
+
+/* D. the ring and the list --------------------------------------------------------------------- */
+.vd { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 32px; padding: 28px; }
+.vd-dial { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px 20px; border-radius: 16px; background: rgba(6, 10, 30, .5); box-shadow: inset 0 0 0 1px var(--color-line-soft); text-align: center; }
+.vd-dial .dl-note { margin: 0; }
+.vd-ring { position: relative; width: 220px; aspect-ratio: 1; }
+.vd-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); fill: none; stroke-width: 14; }
+.vd-track { stroke: rgba(255, 255, 255, .08); }
+.vd-arc { stroke: var(--hue); stroke-linecap: round; }
+.vd-ring.is-plain { box-sizing: border-box; border-radius: 50%; box-shadow: inset 0 0 0 14px rgba(255, 255, 255, .06); }
+.vd-centre { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 4px; padding: 0 34px; }
+.vd-centre b { font-size: 44px; font-weight: 900; line-height: 1; }
+.vd-centre span { color: var(--color-text-muted); font-size: 13px; line-height: 1.3; }
+.vd-next { margin: 0; color: var(--color-text-soft); font-size: 16px; }
+.vd-next b { color: var(--color-gold); font-weight: 900; }
+.vd-list { min-width: 0; }
+.vd-rows { margin: 18px 0 0; padding: 0; list-style: none; }
+.vd-row { display: grid; grid-template-columns: 120px minmax(0, 1fr) 200px 160px; /* fixed status and act columns, so the five statuses stand in one line */ align-items: center; gap: 16px; padding: 10px 12px 10px 0; box-shadow: inset 0 -1px 0 var(--color-line-soft); }
+.vd-row:last-child { box-shadow: none; }
+.vd-row.is-open { border-radius: 12px; background: linear-gradient(90deg, color-mix(in srgb, var(--hue) 22%, transparent), transparent 70%); }
+.vd-thumb { position: relative; height: 70px; border-radius: 12px; background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); }
+.vd-row.is-next .vd-thumb, .vd-row.is-locked .vd-thumb { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
+.vd-thumb .dl-art { position: absolute; left: -2px; right: -2px; top: -18px; }
+.vd-name { display: grid; gap: 2px; min-width: 0; }
+.vd-name b { font-size: 20px; font-weight: 900; text-transform: uppercase; }
+.vd-at { color: var(--color-text-muted); font-size: 13px; }
+.vd-act { justify-self: end; }
+.vd .dl-say { margin-top: 12px; }
+
+/* the round 1 list */
+.dl-dropped h2 { margin: 0 0 10px; font-size: 20px; font-weight: 900; }
+.dl-dropped ul { margin: 0; padding-left: 20px; color: var(--color-text-soft); font-size: 15px; line-height: 1.6; max-width: 92ch; }
+.dl-dropped b { color: var(--color-text-hi); }
+
+/* narrow: the panel's own width decides ------------------------------------------------------------ */
+@container dl (max-width: 760px) {
+  .dl-t { font-size: 28px; }
+  .dl-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+  .dl-fact { padding: 8px 12px; }
+  .dl-fact.is-reset:nth-child(odd) { grid-column: 1 / -1; } /* the reset alone on its row spans it */
+  .dl-fact b { font-size: 18px; }
+
+  /* A: the track goes above the list, the cards become rows with the case on their left */
+  .va { --gap: 0px; padding: 20px 16px; }
+  .va-title { flex-basis: 100%; }
+  .va-head .dl-act { width: 100%; }
+  .va-head .v4-btn { width: 100%; }
+  .va-track { order: 1; margin-top: 18px; }
+  .va-unit { order: 2; }
+  .va-row { order: 3; grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 18px; }
+  .va-card { height: 92px; justify-content: center; padding: 12px 12px 12px 124px; }
+  .va-card .dl-art { left: -6px; right: auto; top: 50%; width: 132px; translate: 0 -50%; }
+  .va-card.is-open { translate: none; }
+  .va-name { font-size: 20px; }
+  .va-tick em { font-size: 12px; }
+
+  /* B: one column, the heading first, then the tier at full size, the road, the five as rows */
+  .vb { display: flex; flex-direction: column; gap: 20px; padding: 20px 16px; }
+  .vb-side { display: contents; }
+  .vb-top { order: 0; } .vb-focus { order: 1; } .vb-next { order: 2; } .vb-mini { order: 3; }
+  .vb-focus { min-height: 330px; margin-top: 40px; padding: 18px; }
+  .vb-focus .dl-art { top: -50px; }
+  .vb-focus .v4-btn { width: 100%; }
+  .vb-fcopy { justify-items: stretch; }
+  .vb-fcopy > .dl-st, .vb-kicker { justify-self: start; }
+  .vb-name { font-size: 36px; }
+  .vb-next > b { font-size: 28px; }
+  .vb-ends { flex-wrap: wrap; }
+  .vb-ends .vb-now { order: 3; flex-basis: 100%; text-align: left; }
+  .vb-mini { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .vb-tile { grid-template-columns: 104px minmax(0, 1fr); align-items: center; gap: 4px 12px; padding: 0 10px 0 0; }
+  .vb-thumb { grid-row: 1 / span 2; border-radius: 12px 0 0 12px; padding: 2px 4px; }
+  .vb-tile > b, .vb-tile > .dl-st { margin: 0; }
+  .vb-tile > b { align-self: end; padding-top: 10px; }
+  .vb-tile > .dl-st { align-self: start; margin-bottom: 10px; }
+
+  /* C: the pass stands up, a segment beside each tier, filling downward */
+  .vc { padding: 20px 16px; }
+  .vc-head .dl-act, .vc-head .v4-btn { width: 100%; }
+  .vc-pass { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 30px; }
+  .vc-col { grid-template-columns: 12px minmax(0, 1fr); grid-template-rows: auto auto auto; gap: 8px 12px; }
+  .vc-seg { grid-column: 1; grid-row: 1 / span 3; height: auto; border-radius: 6px; clip-path: none; }
+  .vc-seg i { inset: 0 0 auto 0; width: auto; height: calc(var(--f) * 100%); }
+  .vc-plate, .vc-at, .vc-act { grid-column: 2; }
+  .vc-plate { height: 88px; margin-top: 10px; }
+  .vc-plate::before, .vc-col:first-child .vc-plate::before, .vc-col:last-child .vc-plate::before { clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%); border-radius: 12px 0 0 12px; }
+  .vc-plate .dl-art { left: -6px; right: auto; top: 50%; width: 126px; translate: 0 -50%; }
+  .vc-name { left: 128px; bottom: auto; top: 50%; translate: 0 -50%; font-size: 20px; }
+  .vc-act { min-height: 0; }
+  .vc-act:empty { display: none; }
+
+  /* D: the ring on top, the rows under it */
+  .vd { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 20px 16px; }
+  .vd-ring { width: 190px; }
+  .vd-centre b { font-size: 38px; }
+  .vd-dial .v4-btn { width: 100%; }
+  .vd-row { grid-template-columns: 96px minmax(0, 1fr); grid-template-areas: "th nm" "th st" "th act"; gap: 6px 12px; padding: 10px 8px 10px 0; }
+  .vd-thumb { grid-area: th; height: 64px; }
+  .vd-thumb .dl-art { top: -12px; }
+  .vd-name { grid-area: nm; }
+  .vd-st { grid-area: st; min-width: 0; }
+  .vd-act { grid-area: act; justify-self: start; }
+  .vd-act:empty { display: none; }
+  .vd-name b { font-size: 18px; }
+}
+
+/* ===== round 3: A, B and C refined ===================================================================== */
+.r1, .r2, .r3 { box-sizing: border-box; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); padding: 28px; }
+.dl-old { margin-top: 56px; }
+.dl-old > summary { cursor: pointer; color: var(--color-text-hi); font-size: 20px; font-weight: 900; }
+.dl-old[open] > summary { margin-bottom: 8px; }
+
+/* the head: the title, and one quiet line for the reset; no stat boxes to compete with the meter */
+.r-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px 24px; }
+.r-title { flex: 1 1 320px; min-width: 0; }
+.r-side { display: grid; gap: 10px; justify-items: end; }
+.r-reset { margin: 0; color: var(--color-text-muted); font-size: 14px; }
+.r-reset b { color: var(--color-blue); font-size: 18px; font-weight: 900; }
+.r-unit { margin: 10px 0 0; color: var(--color-text-muted); font-size: 13px; }
+.r1 .dl-say, .r2 .dl-say, .r3 .dl-say { margin-top: 10px; }
+/* a tier not reached keeps its colour, quieter */
+.r1-col.is-next .r1-card, .r1-col.is-locked .r1-card, .r2-row.is-next .r2-thumb, .r2-row.is-locked .r2-thumb {
+  background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
+
+/* R1. five cards on a segmented meter -------------------------------------------------------------- */
+.r1-row { display: grid; grid-template-columns: var(--cols); align-items: end; gap: 0 10px; margin: 78px 0 0; padding: 0; list-style: none; }
+.r1-col { display: grid; gap: 10px; min-width: 0; }
+.r1-card { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 8px; height: 200px; padding: 14px 14px 16px; border-radius: 16px;
+  background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.r1-card .dl-art { position: absolute; left: -4%; right: -4%; top: -58px; }
+.r1-name { font-size: 22px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .4); }
+.r1-col.is-next .r1-name, .r1-col.is-locked .r1-name { color: var(--color-text-soft); }
+.r1-col:not(.is-hero) .dl-st { font-size: 12px; white-space: nowrap; }
+.r1-col.is-hero .r1-card { height: 258px; padding: 18px 20px 20px; gap: 12px; background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 82%, #fff), var(--g2));
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .9), 0 16px 32px rgba(6, 10, 30, .5); }
+.r1-col.is-hero .r1-card .dl-art { left: 10%; right: 10%; top: -66px; }
+.r1-col.is-hero .r1-name { font-size: 34px; }
+/* C's segment, straight under its own card; the white mark is where the person stands */
+.r1-seg { position: relative; height: 14px; background: rgba(255, 255, 255, .08); clip-path: polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%); }
+.r1-seg i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: var(--btn-stripes), var(--hue); }
+.r1-seg.is-part::after, .r2-seg.is-part::after, .r3-band.is-part::after { content: ''; position: absolute; background: var(--color-text-hi); }
+.r1-seg.is-part::after { top: 0; bottom: 0; left: calc(var(--f) * 100% - 2px); width: 4px; }
+.r1-at { color: var(--color-text-muted); font-size: 13px; font-weight: 700; text-align: right; white-space: nowrap; }
+.r1-at.is-on { color: var(--color-text-hi); }
+.r1-at.is-part { color: var(--color-gold); text-align: left; }
+
+/* R2. the climb ------------------------------------------------------------------------------------- */
+.r2 { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "hero top" "hero facts" "hero ladder" "hero say"; grid-template-rows: auto auto 1fr auto; gap: 14px 32px; }
+.r2-top { grid-area: top; }
+.r2-facts { grid-area: facts; display: flex; flex-wrap: wrap; gap: 4px 24px; margin: 0; color: var(--color-text-muted); font-size: 14px; }
+.r2-facts b { color: var(--color-text-hi); font-size: 18px; font-weight: 900; }
+.r2-facts b.is-reset { color: var(--color-blue); }
+.r2 .dl-say { grid-area: say; margin: 0; }
+.r2-hero { grid-area: hero; position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; min-height: 440px; margin-top: 44px; padding: 22px; border-radius: 16px;
+  background: var(--btn-stripes), linear-gradient(140deg, color-mix(in srgb, var(--g1) 82%, #fff), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 16px 32px rgba(6, 10, 30, .45); }
+.r2-hero.is-opened { background: var(--btn-stripes), linear-gradient(140deg, var(--g1), var(--g2)); }
+.r2-hero .dl-art { position: absolute; left: -2%; right: -2%; top: -64px; }
+.r2-copy { position: relative; display: grid; gap: 10px; justify-items: start; }
+.r2-kicker { color: rgba(255, 255, 255, .85); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.r2-name { margin-top: -6px; font-size: 46px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 10px rgba(6, 10, 30, .4); }
+.r2-ladder { grid-area: ladder; display: grid; align-content: start; gap: 8px; margin: 4px 0 0; padding: 0; list-style: none; }
+.r2-row { display: grid; grid-template-columns: 12px 112px minmax(0, 1fr) auto; grid-template-areas: "seg th nm st"; align-items: center; gap: 0 16px; min-height: 74px; padding-right: 12px; border-radius: 12px; }
+.r2.is-plain .r2-row { grid-template-columns: 112px minmax(0, 1fr) auto; grid-template-areas: "th nm st"; }
+.r2-row.is-hero { background: linear-gradient(90deg, color-mix(in srgb, var(--hue) 20%, transparent), transparent 75%); }
+/* the rungs fill from the bottom, Silver first, so the meter climbs with the ladder */
+.r2-seg { grid-area: seg; position: relative; align-self: stretch; border-radius: 6px; background: rgba(255, 255, 255, .08); }
+.r2-seg i { position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--f) * 100%); border-radius: inherit; background: var(--btn-stripes), var(--hue); }
+.r2-seg.is-part::after { left: -3px; right: -3px; bottom: calc(var(--f) * 100% - 2px); height: 4px; border-radius: 2px; }
+.r2-thumb { grid-area: th; position: relative; height: 64px; border-radius: 12px; background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); }
+.r2-thumb .dl-art { position: absolute; left: -2px; right: -2px; top: -16px; }
+.r2-nm { grid-area: nm; display: grid; gap: 2px; min-width: 0; }
+.r2-nm b { font-size: 20px; font-weight: 900; text-transform: uppercase; }
+.r2-row.is-next .r2-nm b, .r2-row.is-locked .r2-nm b { color: var(--color-text-soft); }
+.r2-at { color: var(--color-text-muted); font-size: 13px; font-weight: 700; }
+.r2-at.is-on { color: var(--color-text-hi); }
+.r2-at.is-part { color: var(--color-gold); }
+.r2-st { grid-area: st; }
+
+/* R3. the meter as the object ------------------------------------------------------------------------ */
+.r3-pass { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end; gap: 0 8px; margin: 34px 0 0; padding: 0; list-style: none; }
+.r3-col { display: grid; gap: 10px; min-width: 0; }
+.r3-col .dl-art { z-index: 2; margin: 0 -4% -16%; }
+.r3-band { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; height: 60px; padding: 0 22px 0 24px; background: color-mix(in srgb, var(--g2) 26%, #0B0A22);
+  clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%); }
+.r3-col:first-child .r3-band { clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%); border-radius: 12px 0 0 12px; }
+.r3-col:last-child .r3-band { clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%); border-radius: 0 12px 12px 0; }
+.r3-band i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); }
+.r3.is-guest .r3-band i { opacity: .6; } /* a guest sees what exists, nothing reached */
+.r3-band b { position: relative; font-size: 20px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 1px 6px rgba(6, 10, 30, .5); }
+.r3-band em { position: relative; color: var(--color-text-hi); font-size: 13px; font-style: normal; font-weight: 700; white-space: nowrap; text-shadow: 0 1px 4px rgba(6, 10, 30, .7); }
+/* the mark where the person stands cuts the band's edges only, so it never crosses the figures */
+.r3-band.is-part::after { top: 0; bottom: 0; left: calc(var(--f) * 100% - 2px); width: 4px; background: linear-gradient(var(--color-text-hi) 0 14px, transparent 14px calc(100% - 14px), var(--color-text-hi) calc(100% - 14px)); }
+.r3-col.is-next .r3-band b, .r3-col.is-locked .r3-band b { color: var(--color-text-soft); }
+.r3-st { display: flex; align-items: center; min-height: 32px; }
+.r3-st:empty { display: none; }
+
+@container dl (max-width: 760px) {
+  .r1, .r2, .r3 { padding: 20px 16px; }
+  .r-side { justify-items: start; width: 100%; }
+  .r-side .v4-btn { width: 100%; }
+
+  /* R1: rows, the segment standing beside each card, filling downward */
+  .r1-row { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 26px; }
+  .r1-col { grid-template-columns: 10px minmax(0, 1fr); gap: 6px 12px; }
+  .r1.is-plain .r1-col { grid-template-columns: minmax(0, 1fr); }
+  .r1-seg { grid-column: 1; grid-row: 1 / span 2; height: auto; border-radius: 5px; clip-path: none; }
+  .r1-seg i { inset: 0 0 auto 0; width: auto; height: calc(var(--f) * 100%); }
+  .r1-seg.is-part::after { left: 0; right: 0; width: auto; top: calc(var(--f) * 100% - 2px); bottom: auto; height: 4px; }
+  .r1-card, .r1-at { grid-column: 2; }
+  .r1.is-plain .r1-card { grid-column: 1; }
+  .r1-at, .r1-at.is-part { text-align: left; }
+  .r1-card { height: 92px; justify-content: center; padding: 12px 12px 12px 124px; }
+  .r1-card .dl-art { left: -6px; right: auto; top: 50%; width: 128px; translate: 0 -50%; }
+  .r1-name { font-size: 20px; }
+  .r1-col.is-hero .r1-card { height: auto; margin-top: 26px; padding: 128px 14px 14px; align-items: stretch; }
+  .r1-col.is-hero .r1-card .dl-art { left: 8%; right: 8%; width: auto; top: -30px; translate: none; }
+  .r1-col.is-hero .r1-name { font-size: 30px; }
+
+  /* R2: the title, the open tier, the ladder */
+  .r2 { grid-template-columns: minmax(0, 1fr); grid-template-areas: "top" "hero" "facts" "ladder" "say"; grid-template-rows: none; gap: 16px; }
+  .r2-hero { min-height: 330px; margin-top: 44px; padding: 18px; }
+  .r2-hero .dl-art { top: -50px; }
+  .r2-copy { justify-items: stretch; }
+  .r2-copy > .dl-st, .r2-kicker { justify-self: start; }
+  .r2-name { font-size: 38px; }
+  .r2-row { grid-template-columns: 10px 88px minmax(0, 1fr); grid-template-areas: "seg th nm" "seg th st"; gap: 4px 12px; padding: 6px 8px 6px 0; }
+  .r2.is-plain .r2-row { grid-template-columns: 88px minmax(0, 1fr); grid-template-areas: "th nm" "th st"; }
+  .r2-thumb { height: 60px; }
+  .r2-st:empty { display: none; }
+  .r2-nm b { font-size: 18px; }
+
+  /* R3: each band its own row, the case beside it */
+  .r3-pass { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 22px; }
+  .r3-col { grid-template-columns: 108px minmax(0, 1fr); gap: 6px 10px; align-items: center; }
+  .r3-col .dl-art { grid-row: 1 / span 2; margin: 0; }
+  .r3-band, .r3-col:first-child .r3-band, .r3-col:last-child .r3-band { height: 56px; padding: 0 16px 0 14px; border-radius: 10px 0 0 10px; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+  .r3-band b { font-size: 17px; }
+  .r3-band em { font-size: 12px; }
+  .r3-st { min-height: 0; }
+}
+
+/* ===== round 4: R3.2 ===================================================================================== */
+/* the case each tier gives, by colour, from the approved art, cases-v2: steel, ice, violet, bronze, fire. No stripes on a band: stripes
+   are the buttons', founder of 2 Nov 2026, so the one striped thing in the block is the one that can be pressed. Money is gold #FFC44D */
+.r32 { --money: #FFC44D; box-sizing: border-box; padding: 28px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.u1 { --hue: #C9D2E3; --g1: #8C98B8; --g2: #3E4866; --case: url(art/cases-v2/ironbound-c.webp); --skin: url(../concept/assets/skins/p250-sand-dune.png); }
+.u2 { --hue: #65A3FF; --g1: #3E7BEA; --g2: #1B3A8F; --case: url(art/cases-v2/coldfront-c.webp); --skin: url(../concept/assets/skins/glock-18-water-elemental.png); }
+.u3 { --hue: #A35CFF; --g1: #8E2BC9; --g2: #41157A; --case: url(art/cases-v2/nightfall-c.webp); --skin: url(../concept/assets/skins/m4a1-s-hyper-beast.png); }
+.u4 { --hue: #E0A35A; --g1: #C27C2C; --g2: #6E3B14; --case: url(art/cases-v2/warsteel-c.webp); --skin: url(../concept/assets/skins/ak-47-gold-arabesque.png); }
+.u5 { --hue: #FF6A2B; --g1: #F0521E; --g2: #8E1A0C; --case: url(art/cases-v2/emberforge-c.webp); --skin: url(../concept/assets/skins/karambit-tiger-tooth.png); }
+
+/* the v2 case: the case, a real skin over its tray, the case's front cut along its rim, as cases-lab.css draws it */
+.dl-art2 { position: relative; display: block; aspect-ratio: 3 / 2; }
+.dl-art2 i { position: absolute; inset: 0; background: var(--case) center / 100% auto no-repeat; }
+.dl-art2 i:nth-child(2) { left: 14%; right: auto; width: 60%; top: 4%; bottom: auto; height: 60%; background: var(--skin) center / contain no-repeat; transform: rotate(14deg); filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .6)); }
+.dl-art2 i:nth-child(3) { clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
+
+.r32-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px 24px; }
+.r32-side { display: grid; gap: 8px; justify-items: end; text-align: right; }
+.r32-remain { display: grid; gap: 2px; }
+.r32-remain b { color: var(--money); font-size: 34px; font-weight: 900; line-height: 1; }
+.r32-remain span { color: var(--color-text-soft); font-size: 14px; }
+.r32 .dl-say { margin-top: 12px; }
+
+.r32-pass { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end; gap: 0 8px; margin: 24px 0 0; padding: 0; list-style: none; }
+.r32.is-acct .r32-pass { padding-bottom: 40px; } /* room for the marker under the band being filled */
+.r32-col { position: relative; display: grid; min-width: 0; }
+.r32-col .dl-art2 { z-index: 2; margin: 0 2% -4%; } /* the v2 case fills more of its frame, so it stands on the band's edge rather than sinking into its name */
+/* not yet: the case stays lit, a little lower */
+.r32-col.is-next .dl-art2, .r32-col.is-locked .dl-art2 { filter: brightness(.8) saturate(.8); }
+
+.r32-band { position: relative; display: grid; grid-template-rows: 60px minmax(44px, auto); clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%); }
+.r32-col:first-child .r32-band { clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%); border-radius: 12px 0 0 12px; }
+.r32-col:last-child .r32-band { clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%); border-radius: 0 12px 12px 0; }
+/* the top: the tier's colour at a mid tint, filled in full colour as far as the wager reached */
+.r32-top { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 3px; padding: 0 20px 0 26px; background: color-mix(in srgb, var(--g1) 38%, #2A2960); }
+.r32-top > i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: linear-gradient(120deg, var(--g1), var(--g2)); }
+.r32.is-guest .r32-top > i { opacity: .75; } /* a guest sees what exists, nothing reached */
+.r32-top b { position: relative; font-size: 21px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 1px 6px rgba(6, 10, 30, .45); }
+.r32-top span { position: relative; color: rgba(255, 255, 255, .85); font-size: 12px; font-weight: 700; }
+/* the foot: one line, the status in words; the open tier's foot holds its button */
+.r32-foot { display: flex; align-items: center; padding: 6px 18px 6px 18px; background: rgba(6, 10, 30, .72); }
+.r32-col:first-child .r32-foot { padding-left: 16px; }
+.r32-line { display: inline-flex; align-items: center; gap: 6px; color: var(--color-text-hi); font-size: 13px; font-weight: 700; line-height: 1.25; }
+.r32-line svg { flex: 0 0 14px; width: 14px; height: 14px; fill: currentColor; }
+.r32-line.is-opened svg { fill: var(--color-green); }
+.r32-line.is-locked, .r32-line.is-info { color: var(--color-text-soft); }
+.r32-m { color: var(--money); font-weight: 900; white-space: nowrap; }
+/* the tier you can open now stands higher, brighter */
+.r32-col.is-hero { translate: 0 -14px; }
+.r32-col.is-hero .r32-top > i { background: linear-gradient(120deg, color-mix(in srgb, var(--g1) 78%, #fff), var(--g2)); }
+.r32-col.is-hero .r32-band { grid-template-rows: 60px 56px; }
+.r32-col.is-hero .r32-foot .v4-btn { width: 100%; padding: 0 10px; }
+/* where you are: round 2 A's marker, under the band being filled */
+.r32-you { position: absolute; z-index: 3; top: calc(100% + 10px); left: calc(var(--f) * 100%); translate: -50% 0; padding: 4px 9px; border-radius: 6px; background: var(--color-text-hi); color: var(--color-ground); font-size: 13px; font-weight: 900; white-space: nowrap; }
+.r32-you::before { content: ''; position: absolute; left: 50%; bottom: 100%; margin-left: -5px; border: 5px solid transparent; border-bottom-color: var(--color-text-hi); }
+
+@container dl (max-width: 760px) {
+  .r32 { padding: 20px 16px; }
+  .r32-side { justify-items: start; text-align: left; width: 100%; }
+  .r32-side .v4-btn { width: 100%; }
+  .r32-remain b { font-size: 28px; }
+  .r32-pass, .r32.is-acct .r32-pass { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 18px; padding-bottom: 0; }
+  .r32-col { grid-template-columns: 100px minmax(0, 1fr); align-items: center; column-gap: 8px; }
+  .r32-col .dl-art2 { margin: 0; }
+  .r32-band, .r32-col:first-child .r32-band, .r32-col:last-child .r32-band { grid-template-rows: 50px minmax(38px, auto); border-radius: 10px 0 0 10px; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+  .r32-top { padding: 0 18px 0 14px; }
+  .r32-top b { font-size: 18px; }
+  .r32-foot, .r32-col:first-child .r32-foot { padding: 6px 16px 6px 12px; }
+  .r32-line { font-size: 12px; }
+  /* the marker in the flow, under its band, still at the wager's place */
+  .r32-you { position: relative; top: auto; left: auto; grid-column: 2; justify-self: start; margin: 10px 0 0 min(calc(var(--f) * 100%), calc(100% - 64px)); } /* kept inside the band's width */
+  /* the open tier across the full width, its case above its band */
+  .r32-col.is-hero { translate: none; grid-template-columns: minmax(0, 1fr); }
+  .r32-col.is-hero .dl-art2 { margin: 0 14% -4%; }
+  .r32-col.is-hero .r32-band { grid-template-rows: 54px 56px; clip-path: none; border-radius: 12px; }
+  .r32-col.is-hero .r32-top b { font-size: 22px; }
+}
+
+/* ===== round 5: R3.3 ===================================================================================== */
+/* R3's look back: the emblem cases of the daily family at full glow, every band in full colour with its stripes. Not reached is told by
+   the empty fill line along the band's foot, the lock and the words, never by draining the colour. Money is gold #FFC44D */
+.r33 { --money: #FFC44D; box-sizing: border-box; padding: 28px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.r33 .r32-remain b, .r33 .r32-m { color: var(--money); }
+.dl-why { margin: 4px 0 18px; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 92ch; }
+.r33 .dl-say { margin-top: 12px; }
+.r33-pass { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end; gap: 0 8px; margin: 26px 0 0; padding: 0; list-style: none; }
+.r33.is-acct .r33-pass { padding-bottom: 40px; } /* room for the marker */
+.r33-col { position: relative; display: grid; min-width: 0; }
+.r33-col .dl-art { z-index: 2; margin: 0 -4% -16%; }
+.r33-col.is-next .dl-art, .r33-col.is-locked .dl-art { filter: none; } /* every case at full glow: a reward ahead, not a reward missing */
+.r33-band { position: relative; display: grid; align-content: center; justify-items: start; gap: 8px; min-height: 100px; box-sizing: border-box; padding: 14px 18px 20px 24px;
+  background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%); }
+.r33-col:first-child .r33-band { clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%); border-radius: 12px 0 0 12px; padding-left: 18px; }
+.r33-col:last-child .r33-band { clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%); border-radius: 0 12px 12px 0; }
+.r33-band > b { font-size: 21px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 1px 6px rgba(6, 10, 30, .45); }
+/* the status: a small dark chip inside its band, so the gold figure reads on every colour */
+.r33-band .r32-line { padding: 5px 9px 5px 8px; border-radius: 8px; background: rgba(6, 10, 30, .62); font-size: 12px; white-space: nowrap; }
+.r33-col:last-child .r33-band { padding-right: 14px; }
+.r33-band .r32-line.is-locked, .r33-band .r32-line.is-info { color: var(--color-text-hi); }
+/* the fill line along the band's foot: full when reached, empty when not, part filled where you are */
+.r33-bar { position: absolute; left: 24px; right: 18px; bottom: 8px; height: 5px; border-radius: 3px; background: rgba(6, 10, 30, .5); }
+.r33-col:first-child .r33-bar { left: 18px; }
+.r33-bar i { display: block; width: calc(var(--f) * 100%); height: 100%; border-radius: inherit; background: var(--color-text-hi); }
+/* the tier you can open now: higher, brighter, its button in its band */
+.r33-col.is-hero { translate: 0 -14px; }
+.r33-col.is-hero .r33-band { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 78%, #fff), var(--g2)); }
+.r33-col.is-hero .r33-band .v4-btn { justify-self: stretch; padding: 0 10px; }
+/* where you are, under the band being filled, at the end of its fill line */
+.r33-you { position: absolute; z-index: 3; top: calc(100% + 10px); left: calc(24px + var(--f) * (100% - 42px)); translate: -50% 0; padding: 4px 9px; border-radius: 6px; background: var(--color-text-hi); color: var(--color-ground); font-size: 13px; font-weight: 900; white-space: nowrap; }
+.r33-you::before { content: ''; position: absolute; left: 50%; bottom: 100%; margin-left: -5px; border: 5px solid transparent; border-bottom-color: var(--color-text-hi); }
+
+@container dl (max-width: 760px) {
+  .r33 { padding: 20px 16px; }
+  .r33-pass, .r33.is-acct .r33-pass { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 18px; padding-bottom: 0; }
+  .r33-col { grid-template-columns: 104px minmax(0, 1fr); align-items: center; column-gap: 8px; }
+  .r33-col .dl-art { margin: 0 -6px; }
+  .r33-band, .r33-col:first-child .r33-band, .r33-col:last-child .r33-band { min-height: 92px; padding: 12px 18px 18px 14px; border-radius: 10px 0 0 10px; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+  .r33-bar, .r33-col:first-child .r33-bar { left: 14px; right: 18px; }
+  .r33-band > b { font-size: 18px; }
+  .r33-band .r32-line { font-size: 12px; white-space: normal; }
+  .r33-you { position: relative; top: auto; left: auto; grid-column: 2; justify-self: start; margin: 10px 0 0 min(calc(14px + var(--f) * (100% - 32px)), calc(100% - 64px)); }
+  .r33-col.is-hero { translate: none; grid-template-columns: minmax(0, 1fr); }
+  .r33-col.is-hero .dl-art { margin: 0 12% -14%; }
+  .r33-col.is-hero .r33-band { clip-path: none; border-radius: 12px; }
+  .r33-col.is-hero .r33-band > b { font-size: 22px; }
+}
+
+/* ===== round 6: R6, round 2 A with three moments reworked =============================================== */
+.r6 { --money: #FFC44D; }
+.r6 .r32-m { color: var(--money); }
+.r6-side { display: grid; gap: 10px; justify-items: end; margin-left: auto; }
+.r6 .dl-say { order: 4; margin-top: 10px; }
+/* 1. the available card is the action: higher, in its own brighter light, the button inside it; no white frame */
+.r6 .va-card.is-hero { translate: 0 -12px; background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 78%, #fff), var(--g2));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 18px 30px rgba(6, 10, 30, .55); }
+.r6 .va-card.is-hero .v4-btn { align-self: stretch; padding: 0 10px; }
+/* "ready": the skin lifts a little out of its tray and settles, slowly */
+.r6 .va-card.is-hero .dl-art i:nth-child(3) { animation: r6-lift 2.6s ease-in-out infinite alternate; }
+@keyframes r6-lift { to { translate: 0 -8%; } }
+/* the figures on the cards are money, gold */
+.r6 .dl-st.is-locked .r32-m, .r6 .dl-st.is-info .r32-m { color: var(--money); }
+/* 2 and 3. the track: the fill in the colours of the climb, ending in the hue of the tier it climbs toward; the marker pinned to its end */
+.r6 .va-bar { top: 31px; height: 10px; border-radius: 5px; }
+.r6 .va-fill { inset: 0 auto 0 0; width: var(--pos); border-radius: inherit; clip-path: none; background: linear-gradient(90deg, #C9D2E3, var(--to)); }
+.r6 .va-tick em { color: var(--money); opacity: .6; }
+.r6 .va-tick.is-on em { opacity: 1; }
+.r6 .va-tick.is-next b { animation: r6-breathe 1.8s ease-in-out infinite; } /* the next tier's dot breathes */
+@keyframes r6-breathe { 50% { scale: 1.3; } }
+.r6-pin { position: absolute; z-index: 2; top: 22px; left: var(--pos); width: 2px; height: 10px; margin-left: -1px; background: var(--color-pink); }
+.r6-you { position: absolute; z-index: 3; top: 0; left: max(var(--pos), 118px); translate: -100% 0; display: inline-flex; align-items: center; gap: 6px; box-sizing: border-box; height: 24px; padding: 0 10px 0 6px; border-radius: 12px;
+  background: rgba(11, 10, 34, .94); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); color: var(--money); font-size: 13px; font-weight: 900; white-space: nowrap; }
+.r6-coin { flex: 0 0 14px; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #FFE7A3, var(--money) 55%, #C98A0A); box-shadow: inset 0 0 0 2px rgba(120, 70, 0, .35); }
+@media (prefers-reduced-motion: reduce) {
+  .r6 .va-card.is-hero .dl-art i:nth-child(3), .r6 .va-tick.is-next b { animation: none; }
+}
+@container dl (max-width: 760px) {
+  .r6-side { justify-items: start; margin-left: 0; width: 100%; }
+  .r6-side .v4-btn { width: 100%; }
+  /* the available card across its row, its case above its name, the button full width */
+  .r6 .va-card.is-hero { height: auto; translate: none; margin-top: 30px; padding: 118px 14px 14px; align-items: stretch; justify-content: flex-end; }
+  .r6 .va-card.is-hero .dl-art { left: 10%; right: 10%; width: auto; top: -30px; translate: none; }
+  .r6 .va-card.is-hero .va-name { font-size: 24px; }
+}
+
+/* ===== round 7: R7, R6 with round 2 A's head back and refined ========================================== */
+/* the head: the boxes and the one button on one line, all the button's height and radius */
+.r7 .va-head { align-items: center; }
+.r7-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.r7-boxes { display: flex; flex-wrap: wrap; gap: 10px; }
+.r7-box { display: inline-flex; align-items: center; gap: 10px; box-sizing: border-box; height: var(--btn-l, 52px); padding: 0 16px 0 12px; border-radius: var(--btn-radius, 10px);
+  background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.r7-box > div { display: grid; gap: 2px; }
+.r7-box b { font-size: 18px; font-weight: 900; line-height: 1.05; white-space: nowrap; }
+.r7-box span { color: var(--color-text-muted); font-size: 12px; white-space: nowrap; }
+.r7-box.is-money b { color: var(--money); }
+.r7-box.is-time b { color: var(--color-blue); }
+.r7-box .r6-coin { flex-basis: 20px; width: 20px; height: 20px; }
+.r7-clock { flex: 0 0 20px; width: 20px; height: 20px; fill: none; stroke: var(--color-blue); stroke-width: 2.2; stroke-linecap: round; }
+/* the remaining box points at the tier it is about: its colour as an edge and a tint */
+.r7-box.is-remain { background: linear-gradient(120deg, color-mix(in srgb, var(--tier) 30%, rgba(11, 10, 34, .72)), rgba(11, 10, 34, .72)); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--tier); }
+.r7-box.is-remain span { color: var(--color-text-soft); }
+/* the available card: raised and lit as in R6, ready, pressable; its chip in the ghost family's pink edge */
+.r7 .dl-st.is-ready { background: rgba(11, 10, 34, .78); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); color: var(--color-text-hi); }
+.r7 .dl-st.is-ready svg { fill: var(--color-pink); }
+/* the fill: full width under a clip, so its colour stops land on the dots */
+.r7 .va-fill { inset: 0; width: auto; clip-path: inset(0 calc(100% - var(--pos)) 0 0 round 5px); }
+@container dl (max-width: 760px) {
+  .r7-row, .r7-boxes { width: 100%; }
+  .r7-boxes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .r7-box { padding: 0 10px; gap: 8px; }
+  .r7-box b { font-size: 16px; }
+  .r7-box span { font-size: 11px; white-space: normal; line-height: 1.15; }
+  .r7-box.is-time:nth-child(odd) { grid-column: 1 / -1; }
+  .r7-row .v4-btn { width: 100%; }
+}
+/* founder, 2 Nov 2026: the marker keeps its round corners and points at the fill's end with a filled chat tail, not a line; the tail is the pin
+   restyled, drawn under the pill so it fills the space below the pill's rounded corner down to its tip on the end of the fill */
+.r7 .r6-you { background: rgb(11, 10, 34); }
+.r7 .r6-pin { top: 14px; left: calc(var(--pos) - 22px); width: 22px; height: 17px; margin: 0; background: var(--color-pink); clip-path: polygon(0 0, 100% 0, 100% 100%); }
+/* founder, 2 Nov 2026: the boxes and the button stand in one row with the title, the line under the title runs the full width below them */
+@container dl (min-width: 761px) and (max-width: 1079px) { /* too narrow for one row: the title and its line, then the boxes and the button across the full width */
+  .r7 .va-title { flex-basis: 100%; }
+  .r7-row { flex: 1 1 100%; }
+  .r7-boxes { flex: 1 1 auto; }
+  .r7-box { flex: 1 1 auto; }
+  .r7-row .v4-btn { flex: 1 1 auto; }
+}
+/* founder, 2 Nov 2026: the next tier's chip, its words white and its figure gold as money is everywhere; the lock pink, and every few
+   seconds its shackle tugs up twice and the body gives a small shake, the case that is close to opening */
+.r7 .dl-st.is-next { color: var(--color-text-hi); }
+.r7 .r7-lock { overflow: visible; }
+.r7 .r7-body { fill: var(--color-pink); transform-origin: 12px 21px; animation: r7-shake 3.2s ease-in-out infinite; }
+.r7 .r7-shackle { fill: none; stroke: var(--color-pink); stroke-width: 2.4; stroke-linecap: round; animation: r7-tug 3.2s ease-in-out infinite; }
+@keyframes r7-tug { 0%, 66%, 100% { translate: 0 0; } 72% { translate: 0 -3px; } 78% { translate: 0 0; } 83% { translate: 0 -2px; } 88% { translate: 0 0; } }
+@keyframes r7-shake { 0%, 70%, 92%, 100% { rotate: 0deg; } 74% { rotate: -8deg; } 80% { rotate: 7deg; } 85% { rotate: -5deg; } 89% { rotate: 3deg; } }
+@media (prefers-reduced-motion: reduce) { .r7 .r7-body, .r7 .r7-shackle { animation: none; } }
+/* founder, 2 Nov 2026: the cases as they were and a little bigger, the cards lower. The case stands on a line 70px above the card's foot,
+   so it never reaches the name however wide the card grows, and the row's top margin follows the case's height (card width * 1.14 * 2/3) */
+@container dl (min-width: 761px) {
+  .r7 .va-row { margin-top: max(56px, calc((100cqi - 104px) / 5 * .76 - 70px)); }
+  .r7 .va-card { height: 166px; transition: translate .22s cubic-bezier(.2, .8, .2, 1), box-shadow .22s ease; }
+  .r7 .va-card .dl-art { left: -7%; right: -7%; top: auto; bottom: 70px; }
+}
+/* hover: the card rises a little, its shadow deepens and it glows in its own tier's colour */
+@media (hover: hover) {
+  .r7 .va-card:hover { translate: 0 -6px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 18px 30px rgba(6, 10, 30, .6), 0 0 36px color-mix(in srgb, var(--hue) 60%, transparent); }
+  .r7 .va-card.is-hero:hover { translate: 0 -18px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 24px 36px rgba(6, 10, 30, .6), 0 0 40px color-mix(in srgb, var(--hue) 70%, transparent); }
+}
+@media (prefers-reduced-motion: reduce) { .r7 .va-card { transition: none; } .r7 .va-card:hover { translate: none; } .r7 .va-card.is-hero:hover { translate: 0 -12px; } }
+@container dl (min-width: 1080px) {
+  .r7 .va-head { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0 24px; }
+  .r7 .va-title { display: contents; }
+  .r7 .dl-t { grid-column: 1; grid-row: 1; }
+  .r7 .r7-row { grid-column: 2; grid-row: 1; justify-self: end; justify-content: flex-end; }
+  .r7 .dl-l, .r7 .dl-note { grid-column: 1 / -1; }
+  .r7 .dl-l { margin-top: 14px; }
+}
+.r7 .va-card.is-hero .dl-st { align-self: flex-start; } /* the chip keeps its own width when the card stretches on a phone */
+
+/* ===== round 8: R8, R7 with the branded Daily cases and the background scene ============================ */
+/* founder approved, 2 Nov 2026: one branded Daily case form for the five tiers, stencilled DAILY and the tier name, tinted in the tier colour,
+   the tier's emblem on the open lid, more props from tier to tier; drawn open and empty so the real skin sits inside, under the front rim */
+.r8 .t1 { --case: url(art/daily-cases/silver.webp); --tone: none; --rim: var(--rim-silver); }
+.r8 .t2 { --case: url(art/daily-cases/nova.webp); --rim: var(--rim-nova); }
+.r8 .t3 { --case: url(art/daily-cases/guardian.webp); --rim: var(--rim-guardian); }
+.r8 .t4 { --case: url(art/daily-cases/legend.webp); --rim: var(--rim-legend); }
+.r8 .t5 { --case: url(art/daily-cases/elite.webp); --rim: var(--rim-elite); }
+/* the background, approved option 1: a dim warehouse of cases on the panel's right, fading out to the left under the title, at 15% */
+.r8 { position: relative; isolation: isolate; }
+.r8::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: .15;
+  background: url(art/daily-bg.webp) right center / cover no-repeat;
+  -webkit-mask: linear-gradient(90deg, transparent 18%, #000 64%); mask: linear-gradient(90deg, transparent 18%, #000 64%); }
+@container dl (max-width: 760px) {
+  /* a phone's panel is tall: the scene keeps its own proportion at the top and fades out downward instead */
+  .r8::before { background: url(art/daily-bg.webp) 82% 0 / auto 440px no-repeat; -webkit-mask: linear-gradient(180deg, #000 0, transparent 440px); mask: linear-gradient(180deg, #000 0, transparent 440px); }
+}
+/* each case's front rim, measured on its own 900x600 picture on a 5% grid: the left end wall's top edge, the front wall's top edge, the right end;
+   everything under the line is drawn over the skin, so the skin sits inside the tray */
+.r8 {
+  --rim-silver: polygon(0 47.5%, 7.6% 47.5%, 14.4% 59.5%, 92.2% 53.7%, 96.7% 50%, 100% 50%, 100% 100%, 0 100%);
+  --rim-nova: polygon(0 48%, 8% 48%, 15% 60.5%, 93.3% 49.7%, 97% 47%, 100% 47%, 100% 100%, 0 100%);
+  --rim-guardian: polygon(0 47.5%, 5.5% 47.5%, 17.5% 57.5%, 93% 50.5%, 97% 48%, 100% 48%, 100% 100%, 0 100%);
+  --rim-legend: polygon(0 48%, 6.5% 48.3%, 85% 57.5%, 88% 48%, 100% 48%, 100% 100%, 0 100%);
+  --rim-elite: polygon(0 48.5%, 12% 48.5%, 18.5% 61%, 92.5% 53%, 95% 50%, 100% 50%, 100% 100%, 0 100%);
+}
+/* the Daily cases fill more of their frame than the v1 cases, so the skin is set smaller and lower, over the tray, and the lid's emblem stays in view */
+.r8 .dl-art i:nth-child(3) { inset: 16% 25% 33% 24%; }
+/* the Daily cases fill their frame almost edge to edge, so they stand a size smaller than R7's and on a higher line: 82px above the card's
+   foot, 98px on the available card, whose button is taller than a chip; the row's top margin follows the smaller case (card width * .92 * 2/3) */
+@container dl (min-width: 761px) {
+  .r8 .va-card .dl-art { left: 4%; right: 4%; bottom: 82px; }
+  .r8 .va-card.is-hero .dl-art { bottom: 98px; }
+  .r8 .va-row { margin-top: max(48px, calc((100cqi - 104px) / 5 * .613 - 82px + 24px)); }
+}
+/* below 1200px of panel the cards are narrow enough for a chip to take two lines, so every case stands on the available card's line, 98px;
+   the row's top margin clears the highest case, the raised available one: its height (card width * .613) less 166 - 98 px, plus its 12px lift and 14px air */
+@container dl (min-width: 761px) {
+  .r8 .va-row { margin-top: max(48px, calc((100cqi - 104px) / 5 * .613 - 42px)); }
+}
+@container dl (min-width: 761px) and (max-width: 1199px) {
+  .r8 .va-card .dl-art { bottom: 98px; }
+}
+/* a phone: the Daily case fills its frame, so on a row card it gets a narrower box that ends 8px before the name's column (124px), and the
+   available card's case gets more room above its name */
+@container dl (max-width: 760px) {
+  .r8 .va-card .dl-art { left: 4px; width: 112px; }
+  .r8 .va-card.is-hero { padding-top: 140px; }
+  .r8 .va-card.is-hero .dl-art { left: 10%; right: 10%; width: auto; }
+}
+
+/* founder, 2 Nov 2026, "да": in R8 the tiers ahead keep their full colour, case and card alike, as a guest sees them; the lock on the chip
+   says the tier is closed, so the richest cases no longer look the dullest */
+.r8 .va-card.is-next, .r8 .va-card.is-locked { background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); color: var(--color-text-hi); }
+.r8 .is-next .dl-art, .r8 .is-locked .dl-art { filter: none; }
+
+/* ===== round 9: R9, one case for the series, a filling that grows, more real skins with every tier ======== */
+/* founder, 2 Nov 2026: the five cases faced different ways and barely differed. One base picture, four edits of it, keyed to 900x600 and
+   aligned within 1px on the case body (measured against the base on three templates); the filling grows: Silver closed, Nova ajar with a few
+   coins, Guardian open with a pile, Legend heaped with dust, Elite overflowing with a burst. The skins are our real pictures, 0 to 4 */
+.r9 .t1 { --case: url(art/daily-cases-v2/silver.webp); }
+.r9 .t2 { --case: url(art/daily-cases-v2/nova.webp); }
+.r9 .t3 { --case: url(art/daily-cases-v2/guardian.webp); }
+.r9 .t4 { --case: url(art/daily-cases-v2/legend.webp); }
+.r9 .t5 { --case: url(art/daily-cases-v2/elite.webp); }
+.r9 .dl-art9 > span { position: absolute; display: block; }
+.r9 .c9 { inset: 0; background: var(--case) center / 100% auto no-repeat; }
+/* the case is shot almost head on, so its front wall's top edge runs level at 55% on every picture: under it, the case is drawn over the skins */
+.r9 .c9-front { clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); }
+.r9 .k9 { display: none; background: center / contain no-repeat; filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .65)); }
+/* k9-a and k9-b stand in the tray, under the front rim; k9-c and k9-d lean on the case, in front of it */
+.r9 .t2 .k9-c { display: block; background-image: url(../concept/assets/skins/glock-18-water-elemental.png); left: 62%; top: 46%; width: 36%; height: 36%; rotate: 24deg; }
+.r9 .t3 .k9-a { display: block; background-image: url(../concept/assets/skins/m4a1-s-hyper-beast.png); left: 22%; top: 12%; width: 56%; height: 48%; rotate: -16deg; }
+.r9 .t3 .k9-c { display: block; background-image: url(../concept/assets/skins/usp-s-kill-confirmed.png); left: 0; top: 48%; width: 34%; height: 34%; rotate: -26deg; }
+.r9 .t4 .k9-a { display: block; background-image: url(../concept/assets/skins/ak-47-vulcan.png); left: 14%; top: 10%; width: 56%; height: 48%; rotate: -18deg; }
+.r9 .t4 .k9-b { display: block; background-image: url(../concept/assets/skins/awp-asiimov.png); left: 34%; top: 6%; width: 60%; height: 48%; rotate: 16deg; }
+.r9 .t4 .k9-d { display: block; background-image: url(../concept/assets/skins/desert-eagle-blaze.png); left: 66%; top: 50%; width: 32%; height: 32%; rotate: 22deg; }
+.r9 .t5 .k9-a { display: block; background-image: url(../concept/assets/skins/karambit-tiger-tooth.png); left: 32%; top: 0; width: 40%; height: 44%; rotate: -12deg; }
+.r9 .t5 .k9-b { display: block; background-image: url(../concept/assets/skins/m4a4-the-emperor.png); left: 12%; top: 14%; width: 56%; height: 44%; rotate: 14deg; }
+.r9 .t5 .k9-c { display: block; background-image: url(../concept/assets/skins/ak-47-gold-arabesque.png); left: -4%; top: 44%; width: 40%; height: 36%; rotate: -30deg; }
+.r9 .t5 .k9-d { display: block; background-image: url(../concept/assets/skins/awp-neo-noir.png); left: 60%; top: 42%; width: 44%; height: 36%; rotate: 30deg; }
+/* "ready": on the available card the skins lift a little and settle, as R6's did */
+.r9 .va-card.is-hero .k9 { animation: r6-lift 2.6s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .r9 .va-card.is-hero .k9 { animation: none; } }
+/* the case fills only the lower middle of its picture, the top kept for the lid and the loot, so the picture is drawn wider than R8's and stands
+   on the name's line; the row's top margin clears the raised available card's picture, whose top 8% is empty */
+@container dl (min-width: 761px) {
+  .r9 .va-card .dl-art { left: -10%; right: -10%; bottom: 76px; }
+  .r9 .va-card.is-hero .dl-art { bottom: 92px; }
+  .r9 .va-row { margin-top: max(56px, calc((100cqi - 104px) / 5 * .736 - 48px)); }
+}
+@container dl (min-width: 761px) and (max-width: 1199px) {
+  .r9 .va-card .dl-art { bottom: 92px; }
+}
+@container dl (max-width: 760px) {
+  .r9 .va-card .dl-art { left: -2px; width: 124px; }
+  .r9 .va-card.is-hero .dl-art { left: 6%; right: 6%; width: auto; }
+}
+/* larger, so the skins read: the picture is drawn at 132% of the card's width, the case body about 85% of it; the margin follows */
+@container dl (min-width: 761px) {
+  .r9 .va-card .dl-art { left: -16%; right: -16%; }
+  .r9 .va-row { margin-top: max(56px, calc((100cqi - 104px) / 5 * .81 - 48px)); }
+}
+/* the leaning skins kept within a few pixels of their own card, so a tier's loot does not lean on its neighbour */
+.r9 .t2 .k9-c { left: 56%; }
+.r9 .t4 .k9-b { left: 30%; width: 56%; }
+.r9 .t4 .k9-d { left: 62%; }
+.r9 .t5 .k9-c { left: 6%; width: 36%; }
+.r9 .t5 .k9-d { left: 58%; width: 38%; }
+.r9 .t2 .k9-c { left: 50%; }
+.r9 .t4 .k9-d { left: 56%; }
+.r9 .t5 .k9-d { left: 52%; width: 36%; }
+/* a phone: the row card's picture ends exactly at the name's column (124px), its content, at most 96% of the picture, 5px before it;
+   the available card's picture stands 44px above the card so its box clears the name */
+@container dl (max-width: 760px) {
+  .r9 .va-card .dl-art { left: -10px; width: 134px; }
+  .r9 .va-card.is-hero .dl-art { top: -44px; }
+}

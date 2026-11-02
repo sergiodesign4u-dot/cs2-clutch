@@ -1,0 +1,104 @@
+/* design/v4/rail-b1.css, Home's rail as the founder's B1, chosen on rail-lab.html, 2 Nov 2026: "сайд меню отличное ставим на home".
+ * Loaded after theme.css and rail-icons.css and over them; the rail's state classes sit on <html>, so the selectors start at :root. What it carries over from the lab:
+ * - every row is a 48px line; its card, 8px in from the panel's edge with the mark 12px inside it, is its ::before, in its mode card's fill
+ *   under the button stripes;
+ * - Cases, the one live row, keeps its card and this week's case stands on it and rises out of its top;
+ * - the eight rows not launched are grey at rest, mark and word alike, and take their own card under the pointer, the four with a mode card
+ *   sending its object up; "Not launched yet" is printed once as their heading (rail-b1.js) and stays in each row for a screen reader;
+ * - closed, a row's name comes out beside its tile as a chip in its fill, with Not launched yet and the mode's object.
+ * The closed chip's selectors repeat .wf-rail-lbl to outrank _theme.css's D-206 tooltip, which they replace. Porting note kept from the lab: theme's ".wf-rail-item.is-later > * { opacity: .45 }" is overridden here, not deleted. */
+
+@media (min-width: 900px) {
+  :root body .wf-rail { --rb-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); --rb-dim: var(--color-text-muted); }
+
+  /* the mode fills, the same as the mode cards and the lab */
+  :root body .wf-rail .wf-rail-item { --g: linear-gradient(120deg, #FB3F8A, #8E2BC9); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="battle"]), :root body .wf-rail .wf-rail-item:has([data-icon="swap"]) { --g: linear-gradient(120deg, #3955E8, #1B2A8F); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="target"]) { --g: linear-gradient(120deg, #D1273E, #7A0F22); }
+  :root body .wf-rail .wf-rail-item:is(:has([data-icon="arrow-up"]), :has([data-icon="cup"]), :has([data-icon="dollar"])) { --g: linear-gradient(120deg, #B57A06, #B4400F); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="diamond"]) { --g: linear-gradient(120deg, #2C7FD6, #1B2A8F); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="box"]) { --peek: url(art/cases-v2/coldfront-c.webp); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="battle"]) { --peek: url(art/mode-battles-crossed.webp); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="target"]) { --peek: url(art/mode-showdowns-obj4.webp); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="arrow-up"]) { --peek: url(art/mode-upgrade-obj4.webp); }
+
+  /* a row */
+  :root body .wf-rail .wf-rail-item { position: relative; isolation: isolate; display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-height: 48px; height: auto; margin: 0 0 2px; padding: 0 16px 0 20px;
+    border: 0; border-radius: 0; background: none; box-shadow: none; color: var(--rb-dim); font-size: 14px; font-weight: 500; letter-spacing: .01em; text-transform: uppercase; transition: color .16s; }
+  :root body .wf-rail .wf-rail-item:hover { background: none; box-shadow: none; }
+  :root body .wf-rail .wf-rail-item.is-later > *, :root body .wf-rail .wf-rail-item.is-later .wf-rail-ico { opacity: 1; }
+  :root body .wf-rail .wf-rail-item .wf-rail-ico { flex: 0 0 24px; width: 24px; height: 24px; color: var(--rb-dim); transition: color .16s; }
+  :root body .wf-rail .wf-rail-item .wf-rail-lbl { position: relative; z-index: 1; flex: 1 1 auto; min-width: 0; }
+  :root body .wf-rail .wf-rail-soon { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  :root body .wf-rail .wf-rail-item::before { content: ''; position: absolute; z-index: -1; inset: 2px 8px; border-radius: 12px; background: var(--rb-stripes), var(--g); opacity: 0; transition: opacity .16s, filter .16s; pointer-events: none; }
+  :root body .wf-rail .wf-rail-item::after { content: ''; position: absolute; z-index: 0; right: 18px; bottom: 2px; width: 56px; height: 56px; background: var(--peek, none) center bottom / contain no-repeat; filter: drop-shadow(0 4px 5px rgba(6, 10, 30, .5)); opacity: 0; transform: translateY(8px) scale(.8); transform-origin: 50% 100%; transition: opacity .16s, transform .24s cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
+
+  /* Cases, the live row, held in its card, its case standing on it */
+  :root body .wf-rail .wf-rail-item:not(.is-later) { margin-top: 16px; color: var(--color-text-hi); font-weight: 900; }
+  :root body .wf-rail .wf-rail-item:not(.is-later)::before { opacity: 1; }
+  :root body .wf-rail .wf-rail-item:not(.is-later) .wf-rail-ico[data-ri] { color: var(--color-text-hi); }
+  :root body .wf-rail .wf-rail-item:not(.is-later)::after { right: 12px; width: 100px; height: 67px; opacity: 1; transform: none; }
+  :root body .wf-rail .wf-rail-item:not(.is-later):is(:hover, :focus-visible)::after { transform: translateY(-3px) rotate(-3deg) scale(1.06); }
+  :root body .wf-rail .wf-rail-item:not(.is-later):is(:hover, :focus-visible)::before { filter: brightness(1.08); }
+
+  /* the eight under the pointer */
+  :root body .wf-rail .wf-rail-item.is-later:is(:hover, :focus-visible) { z-index: 2; color: var(--color-text-hi); font-weight: 700; }
+  :root body .wf-rail .wf-rail-item.is-later:is(:hover, :focus-visible)::before { opacity: 1; }
+  :root body .wf-rail .wf-rail-item.is-later:is(:hover, :focus-visible) .wf-rail-ico[data-ri] { color: var(--color-text-hi); }
+  :root body .wf-rail .wf-rail-item.is-later:is(:hover, :focus-visible)::after { opacity: 1; transform: none; }
+  :root body .wf-rail .wf-rail-item:focus-visible { outline: 2px solid var(--color-blue); outline-offset: -2px; }
+
+  /* the sentence, once, over the eight */
+  :root body .wf-rail .v4-rail-sec { display: flex; align-items: center; gap: 10px; min-height: 28px; margin: 4px 0 2px; padding: 0 16px 0 20px; color: var(--rb-dim); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  :root body .wf-rail .v4-rail-sec::after { content: ''; flex: 1 1 auto; height: 1px; background: rgba(255, 255, 255, .08); }
+
+  /* the foot, as the lab draws it, founder of 2 Nov 2026 "видишь разницу? ... давай сделаем как ми вот тут сделали": it hangs at the panel's
+     foot under a hairline, the sound and the language as two tiles, then Social on the rows' left column and its marks in one even row */
+  :root body .wf-rail .wf-rail-foot { margin-top: auto; padding: 10px 0 8px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08); }
+  :root body .wf-rail .wf-rail-amb { margin: 0 8px; }
+  :root body .wf-rail .wf-rail-soc { display: block; margin: 0; padding: 0; text-align: left; }
+  :root body .wf-rail .wf-rail-soc-h { display: block; margin: 12px 12px 8px 20px; color: var(--rb-dim); font-size: 12px; font-weight: 500; text-align: left; }
+  :root body .wf-rail .wf-rail-soc-row { display: flex; justify-content: space-between; gap: 0; box-sizing: border-box; width: auto; max-width: none; margin: 0 18px 0 20px; padding: 0; }
+  :root body .wf-rail .wf-rail-soc-row .wf-rail-ico { flex: 0 0 18px; width: 18px; min-width: 0; height: 18px; margin: 0; padding: 0; color: var(--rb-dim); opacity: .8; }
+
+  :root.is-rail-collapsed body .wf-rail .wf-rail-soc { display: none; } /* closed, the social row stays out, as on the theme and the lab */
+  /* CLOSED: the same cards as tiles, the icon in their middle; the name comes out as a chip in the row's fill, beside the tile */
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item { justify-content: center; gap: 0; padding: 0; }
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item::before { inset: 2px 8px; }
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item:not(.is-later)::after { content: none; }
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item[data-lbl]:is(:hover, :focus-visible)::after { content: none; }
+  :root.is-rail-collapsed body .wf-rail .v4-rail-sec { justify-content: center; padding: 0 14px; }
+  :root.is-rail-collapsed body .wf-rail .v4-rail-sec span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item > .wf-rail-lbl.wf-rail-lbl.wf-rail-lbl { position: absolute; z-index: 60; left: calc(100% + 8px); top: 50%; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; min-width: 150px; min-height: 44px; padding: 7px 14px; border: 0; border-radius: 12px; transform: none; gap: 0; align-items: flex-start; line-height: 1.2;
+    background: var(--rb-stripes), var(--g); box-shadow: 0 10px 24px rgba(4, 6, 20, .45); color: var(--color-text-hi); font-size: 13px; font-weight: 900; letter-spacing: .04em; white-space: nowrap; opacity: 0; translate: 0 -50%; clip-path: inset(-60px 100% -10px 0); pointer-events: none; transition: opacity .12s, clip-path .26s cubic-bezier(.22, 1, .36, 1); }
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item.is-later > .wf-rail-lbl.wf-rail-lbl.wf-rail-lbl[data-chip]::after { content: attr(data-chip); display: block; min-height: 0; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; margin-top: 2px; color: rgba(255, 255, 255, .78); font-size: 10px; font-weight: 700; letter-spacing: .06em; }
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item:is(:has([data-icon="box"]), :has([data-icon="battle"]), :has([data-icon="target"]), :has([data-icon="arrow-up"])) > .wf-rail-lbl.wf-rail-lbl.wf-rail-lbl { padding-right: 72px; }
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item:is(:has([data-icon="box"]), :has([data-icon="battle"]), :has([data-icon="target"]), :has([data-icon="arrow-up"])) > .wf-rail-lbl.wf-rail-lbl.wf-rail-lbl::before { content: ''; position: absolute; right: 8px; bottom: 2px; width: 58px; height: 58px; background: var(--peek) center bottom / contain no-repeat; filter: drop-shadow(0 4px 5px rgba(6, 10, 30, .5)); }
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item:has([data-icon="box"]) > .wf-rail-lbl.wf-rail-lbl.wf-rail-lbl::before { width: 76px; right: 0; }
+  :root.is-rail-collapsed body .wf-rail .wf-rail-item:is(:hover, :focus-visible) > .wf-rail-lbl.wf-rail-lbl.wf-rail-lbl { opacity: 1; clip-path: inset(-60px -10px -10px 0); }
+}
+
+@media (min-width: 900px) and (prefers-reduced-motion: reduce) {
+  :root body .wf-rail .wf-rail-item, :root body .wf-rail .wf-rail-item::before, :root body .wf-rail .wf-rail-item::after, :root.is-rail-collapsed body .wf-rail .wf-rail-item > .wf-rail-lbl.wf-rail-lbl.wf-rail-lbl { transition: none; }
+}
+
+/* founder, 2 Nov 2026, on a Mac: the language tile ran out of the window's foot. The rail fits every window height: the rows give up height,
+   48px down to 30px, before the foot can leave the screen; 274px is everything in the open rail that is not a row (logo, heading, foot with its social row, gaps).
+   Below 600px tall the "Not launched yet" heading goes too; each row still says it to a screen reader */
+@media (min-width: 900px) {
+  :root body .wf-rail .wf-rail-item { min-height: clamp(34px, calc((100dvh - 274px) / 9 - 2px), 48px); }
+}
+@media (min-width: 900px) and (max-height: 600px) {
+  :root body .wf-rail .v4-rail-sec { display: none; }
+  :root body .wf-rail .wf-rail-item { min-height: clamp(30px, calc((100dvh - 240px) / 9 - 2px), 48px); }
+}
+
+/* founder, 2 Nov 2026, on Home: "у нас не активний пункт кейсов". The Cases row wears its lit card and its rising case only where it is
+   the current page (.is-current, wireframes/_nav.js). Elsewhere it is a plain live row, white where the rows not launched are grey,
+   and takes its card and its case under the pointer or keyboard focus, as the other rows take theirs */
+@media (min-width: 900px) {
+  :root body .wf-rail .wf-rail-item:not(.is-later):not(.is-current)::before { opacity: 0; }
+  :root body .wf-rail .wf-rail-item:not(.is-later):not(.is-current)::after { opacity: 0; transform: translateY(8px) scale(.8); }
+  :root body .wf-rail .wf-rail-item:not(.is-later):not(.is-current):is(:hover, :focus-visible)::before { opacity: 1; }
+  :root body .wf-rail .wf-rail-item:not(.is-later):not(.is-current):is(:hover, :focus-visible)::after { opacity: 1; transform: translateY(-3px) rotate(-3deg) scale(1.06); }
+}

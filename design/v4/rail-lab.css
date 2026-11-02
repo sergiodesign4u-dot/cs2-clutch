@@ -1,0 +1,129 @@
+/* design/v4/rail-lab.css, a satellite exploration of v4's rail, founder of 2 Nov 2026. Round 3: B, the card, chosen, with what the founder
+ * said of it: "пункт cases он сейчас виглядит как баннер а не как активний пункт меню ... не понятно как будет виглядеть свернутое меню ...
+ * иконка сильно близко к левому краю, я би сместил". So the live row has the rows' height and type, every card sits 8px in from the rail's
+ * edge with its icon 12px inside it (20px from the edge), and each variant is drawn closed at the theme's 70px as well as open.
+ * Rows carry .wf-rail-item and .wf-rail-ico so rail-icons.js dresses them and rail-icons.css plays their stories. */
+
+body.rl-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.rl-main { box-sizing: border-box; max-width: 1180px; padding: 32px 16px 80px; }
+@media (max-width: 1099px) { .rl-main { padding-top: 64px; } } /* clear of the roadmap's menu button */
+@media (min-width: 1100px) { .rl-main { margin-left: calc(var(--nav-w, 248px) + 24px); } } /* clear of the roadmap sidebar */
+.rl-head h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.rl-head p { margin: 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 70ch; }
+
+.rl-set { display: flex; flex-direction: column; gap: 56px; margin-top: 32px; }
+.rl-slot { min-width: 0; }
+.rl-slot h2 { margin: 0; font-size: 16px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; }
+.rl-slot h2 + p { margin: 6px 0 12px; max-width: 70ch; color: var(--color-text-soft); font-size: 13px; line-height: 1.5; }
+.rl-pair { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 40px; }
+.rl-note { margin: 0 0 8px; color: var(--color-text-muted); font-size: 12px; }
+.rl-note:not(:first-child) { margin-top: 20px; }
+
+/* the panel, as v4 draws it */
+.rl-rail { --card-x: 8px; --edge: 20px; --hair: rgba(255, 255, 255, .08); --dim: var(--color-text-muted); position: relative; box-sizing: border-box; display: flex; flex-direction: column; width: 250px; height: 760px; padding: 10px 0 12px; border-radius: 16px;
+  background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
+.rl-rail--pin { height: auto; padding: 6px 0; }
+.rl-list { display: flex; flex-direction: column; gap: 2px; }
+
+/* one row's colour under the pointer, the same colour and fill its mode card wears on the Home */
+[data-c="pink"] { --c: var(--color-pink); --g: linear-gradient(120deg, #FB3F8A, #8E2BC9); }
+[data-c="blue"] { --c: var(--color-blue); --g: linear-gradient(120deg, #3955E8, #1B2A8F); }
+[data-c="red"] { --c: #F0506A; --g: linear-gradient(120deg, #D1273E, #7A0F22); }
+[data-c="gold"] { --c: var(--color-gold); --g: linear-gradient(120deg, #B57A06, #B4400F); }
+[data-c="cyan"] { --c: #8BC2FF; --g: linear-gradient(120deg, #2C7FD6, #1B2A8F); }
+
+/* a row: the card is its ::before, 8px in from the rail's edge; the icon starts 12px inside the card */
+.rl-rail .wf-rail-item { position: relative; isolation: isolate; display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-height: 48px; margin: 0; padding: 0 16px 0 var(--edge); border: 0; border-radius: 0; background: none; box-shadow: none; color: var(--dim); font-size: 14px; font-weight: 500; line-height: 1.15; letter-spacing: .01em; text-decoration: none; text-transform: uppercase; transition: color .16s; }
+.rl-rail .wf-rail-item.is-later { display: flex; cursor: not-allowed; }
+.rl-rail .wf-rail-item.is-later > * { opacity: 1; }
+.rl-rail .wf-rail-item.is-live { color: var(--color-text-hi); font-weight: 900; }
+.rl-rail .wf-rail-item .wf-rail-ico { flex: 0 0 24px; width: 24px; height: 24px; border: 0; background: none; -webkit-mask: none; mask: none; color: var(--dim); }
+.rl-rail .wf-rail-lbl { flex: 1 1 auto; min-width: 0; position: relative; z-index: 1; }
+.rl-rail .wf-rail-item:is(:hover, :focus-visible, .is-h) { color: var(--color-text-hi); }
+.rl-rail .wf-rail-item:focus-visible { outline: 2px solid var(--color-blue); outline-offset: -2px; }
+.rl-why { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* round 5, founder: "давай на фон полосочки": every card, live, under the pointer and in the closed chip, wears the Home buttons' faint stripes over its fill */
+.rl-rail { --rl-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); }
+.rl-rail .wf-rail-item::before { content: ''; position: absolute; z-index: -1; inset: 2px var(--card-x); border-radius: 12px; background: var(--rl-stripes), var(--g); opacity: 0; transition: opacity .16s; }
+
+/* the eight rows not launched: a tinted mark at rest, their own card under the pointer, and the four modes with a card send its object up */
+.rl-rail .is-later .wf-rail-ico { color: var(--dim); transition: color .16s; } /* round 3: the menu's grey at rest, white when lit, founder of 2 Nov 2026 */
+.rl-rail .is-later:is(:hover, :focus-visible, .is-h) { z-index: 2; font-weight: 700; }
+.rl-rail .is-later:is(:hover, :focus-visible, .is-h)::before { opacity: 1; }
+.rl-rail .is-later:is(:hover, :focus-visible, .is-h) .wf-rail-ico { color: var(--color-text-hi); }
+.rl-rail .is-later::after { content: ''; position: absolute; right: 12px; bottom: 2px; width: 56px; height: 56px; background: var(--peek, none) center bottom / contain no-repeat; opacity: 0; transform: translateY(8px) scale(.8); transform-origin: 50% 100%; transition: opacity .16s, transform .24s cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
+.rl-rail .is-later:is(:hover, :focus-visible, .is-h)::after { opacity: 1; transform: none; }
+[data-m="battle"] { --peek: url(art/mode-battles-crossed.webp); } /* round 4: the mode card's two crossed daggers, composed from its two knives */
+[data-m="box"] { --peek: url(art/cases-v2/coldfront-c.webp); }
+[data-m="target"] { --peek: url(art/mode-showdowns-obj4.webp); }
+[data-m="arrow-up"] { --peek: url(art/mode-upgrade-obj4.webp); }
+
+/* B1, THE HELD CARD: the chosen row keeps its card, the mode card's pink with the button's stripes, and this week's case looks in from the right */
+[data-v="b1"] .is-live::before { opacity: 1; } /* the card of its mode; stripes on every card since round 5 */
+[data-v="b1"] .is-live .wf-rail-ico { color: var(--color-text-hi); }
+/* this week's case stands on the card's floor and rises out of its top edge, as the Showdowns helmet does under the pointer */
+[data-v="b1"] .is-live::after { content: ''; position: absolute; right: 10px; bottom: 2px; width: 100px; height: 67px; background: url(art/cases-v2/coldfront-c.webp) center bottom / contain no-repeat; filter: drop-shadow(0 4px 5px rgba(6, 10, 30, .55)); transform-origin: 50% 100%; transition: transform .24s cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
+[data-v="b1"] .is-live:is(:hover, :focus-visible, .is-h)::after { transform: translateY(-3px) rotate(-3deg) scale(1.06); }
+[data-v="b1"] .is-live:is(:hover, :focus-visible, .is-h)::before { filter: brightness(1.08); }
+.rl-list--live { margin-top: 18px; } /* room for the case above its card */
+
+
+/* the sentence, once: the only real boundary in this list is live against not launched */
+.rl-sec { display: flex; align-items: center; gap: 10px; min-height: 28px; margin-top: 6px; padding: 0 16px 0 var(--edge); color: var(--dim); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.rl-sec::after { content: ''; flex: 1 1 auto; height: 1px; background: var(--hair); }
+
+/* the foot hangs from the same two columns as the rows: the speaker under the icons, the language under the labels */
+.rl-foot { position: relative; margin-top: auto; padding: 10px 0 0; box-shadow: inset 0 1px 0 var(--hair); }
+/* sound and language, round 3: back to the current rail's two tiles side by side, theme.css's #0B0A22 with its hairline */
+.rl-amb { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 var(--card-x); }
+.rl-rail .wf-rail-snd, .rl-rail .rl-lang { display: flex; align-items: center; justify-content: center; gap: 10px; box-sizing: border-box; width: 100%; min-width: 0; min-height: 42px; margin: 0; padding: 0 10px; border: 0; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); color: var(--color-text-soft); font: 700 14px var(--font-family); letter-spacing: 0; text-transform: none; cursor: pointer; transition: color .16s, background-color .16s; }
+.rl-rail .wf-rail-snd:hover, .rl-rail .rl-lang:hover { background: #141235; }
+.rl-rail .wf-rail-snd::before { content: none; display: none; }
+.rl-rail .wf-rail-snd .ri { flex: 0 0 24px; width: 24px; height: 24px; margin: 0; }
+.rl-rail .wf-rail-snd:is(:hover, :focus-visible) { color: var(--color-text-hi); }
+.rl-rail .wf-rail-snd:focus-visible { outline: 2px solid var(--color-blue); outline-offset: -2px; }
+.rl-snd-t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.rl-rail .rl-lang:is(:hover, :focus-visible) { color: var(--color-text-hi); }
+.rl-rail .rl-lang:focus-visible { outline: 2px solid var(--color-blue); outline-offset: -2px; }
+.rl-lang i { flex: 0 0 20px; width: 20px; height: 20px; border-radius: 50%; background: url(../concept/assets/flags/gb.svg) center / cover no-repeat; }
+.rl-lang b { font-weight: 700; }
+.rl-lang b::after { content: ''; display: inline-block; margin-left: 8px; border: 4px solid transparent; border-top: 5px solid currentColor; border-bottom: 0; vertical-align: middle; }
+.rl-soc-h { margin: 8px 12px 6px var(--edge); color: var(--dim); font-size: 12px; }
+.rl-soc { display: flex; justify-content: space-between; margin: 0 18px 0 var(--edge); }
+.rl-soc i { flex: 0 0 18px; width: 18px; height: 18px; background: var(--dim); opacity: .7; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; transition: opacity .16s, background-color .16s; }
+.rl-soc i:hover { opacity: 1; background: var(--color-text-hi); }
+
+/* CLOSED, at the theme's --size-rail-collapsed of 70px: the same cards, 54 wide, the icon in their middle. The sentence becomes a rule,
+   the language its flag, the social row goes; under the pointer a row's name and, for the eight, the sentence come out beside it */
+.rl-rail--closed { width: var(--size-rail-collapsed, 70px); }
+.rl-rail--closed .wf-rail-item { justify-content: center; gap: 0; padding: 0; }
+.rl-rail--closed .wf-rail-item::after { content: none; }
+[data-v="b1"].rl-rail--closed .is-live::after { content: none; }
+.rl-pair > div:nth-child(2) { margin-right: 150px; } /* room for the names that come out of the closed rail */
+/* round 4, founder: "тут ховер интереснее, серая плашка скучная". The name comes out as the row's own card: its mode fill, its name, under it
+   Not launched yet for the eight, and the mode's object standing on the card's right end and rising out of its top, as in the open rail */
+.rl-rail.rl-rail--closed .wf-rail-item > .wf-rail-lbl { position: absolute; z-index: 5; left: calc(100% + 4px); top: 50%; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; min-width: 150px; min-height: 44px; padding: 7px 14px; border-radius: 12px; background: var(--rl-stripes), var(--g); box-shadow: 0 10px 24px rgba(4, 6, 20, .45); color: var(--color-text-hi); font-size: 13px; font-weight: 900; letter-spacing: .04em; white-space: nowrap; opacity: 0; translate: 0 -50%; clip-path: inset(-60px 100% -10px 0); pointer-events: none; transition: opacity .12s, clip-path .26s cubic-bezier(.22, 1, .36, 1); }
+.rl-rail.rl-rail--closed .wf-rail-item:has(.wf-rail-lbl):is([data-m="box"], [data-m="battle"], [data-m="target"], [data-m="arrow-up"]) > .wf-rail-lbl { padding-right: 70px; }
+.rl-rail.rl-rail--closed .wf-rail-item:is([data-m="box"], [data-m="battle"], [data-m="target"], [data-m="arrow-up"]) > .wf-rail-lbl::after { content: ''; position: absolute; right: 8px; bottom: 2px; width: 58px; height: 58px; background: var(--peek) center bottom / contain no-repeat; filter: drop-shadow(0 4px 5px rgba(6, 10, 30, .5)); }
+.rl-rail.rl-rail--closed .wf-rail-item[data-m="box"] > .wf-rail-lbl::after { width: 76px; right: 0; }
+.rl-rail--closed .rl-why { position: static; width: auto; height: auto; overflow: visible; clip-path: none; display: block; margin-top: 2px; color: rgba(255, 255, 255, .78); font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+/* round 5, founder: "рядом такой чип показивать а не всей полоской": the tile keeps its own shape and the chip stands beside it */
+.rl-rail--closed .rl-comma { display: none; } /* the comma is for the open rail's screen reader line */
+.rl-rail.rl-rail--closed .wf-rail-item:is(:hover, :focus-visible, .is-h) > .wf-rail-lbl { opacity: 1; clip-path: inset(-60px -10px -10px 0); }
+.rl-rail--closed .rl-sec { justify-content: center; padding: 0 16px; }
+.rl-rail--closed .rl-sec span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.rl-rail--closed .rl-amb { grid-template-columns: 1fr; }
+.rl-rail--closed .wf-rail-snd, .rl-rail--closed .rl-lang { padding: 0; }
+.rl-rail--closed .rl-lang b { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.rl-rail--closed .rl-soc-h, .rl-rail--closed .rl-soc { display: none; }
+
+/* what changed, what was dropped */
+.rl-past { margin-top: 56px; max-width: 76ch; }
+.rl-past h2 { margin: 24px 0 12px; font-size: 16px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; }
+.rl-past ul { margin: 0; padding: 0 0 0 18px; color: var(--color-text-soft); font-size: 14px; line-height: 1.55; }
+.rl-past li + li { margin-top: 6px; }
+.rl-past b { color: var(--color-text-hi); font-weight: 700; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rl-rail .wf-rail-item, .rl-rail .wf-rail-item::before, .rl-rail .wf-rail-item::after, .rl-rail--closed .wf-rail-lbl { transition: none; }
+}

@@ -32,13 +32,14 @@
     -webkit-mask: radial-gradient(42% 160% at 50% 0%, #000 20%, transparent 100%); mask: radial-gradient(42% 160% at 50% 0%, #000 20%, transparent 100%);
     animation: v4-fall 9s linear infinite; }
   /* the logo stays the rail's link home and is shown in the middle of the strip; the rail starts at the header's top, so the two move together */
-  .wf-rail .wf-rail-logo, .is-rail-collapsed .wf-rail .wf-rail-logo { position: absolute; z-index: 2; top: 36px; left: calc((100vw - var(--wf-body-x, 0px)) / 2 - 12px);
+  .wf-rail .wf-rail-logo, .is-rail-collapsed .wf-rail .wf-rail-logo { position: absolute; z-index: 2; top: 36px; left: calc((100vw / var(--z, 1) - var(--wf-body-x, 0px)) / 2 - 12px);
     transform: translate(-50%, -50%); margin: 0; padding: 0; background: none; }
   /* the logo, founder of 31 Oct 2026: the updated glossy ring, "у нас там был кружок обновленный, надо его взять", and a calmer name
      without CS2, "что-то в логотип спокойнее текст, например как у скин клаба, и убрать CS2"; the name in Roboto, D-187 */
-  .wf-rail .wf-logo-mark, .is-rail-collapsed .wf-rail .wf-logo-mark { flex: 0 0 auto; display: flex; align-items: center; width: auto; height: 38px; padding-left: 46px; border: 0;
-    background: url(art/logo-mark.webp) left center / 38px 38px no-repeat; filter: drop-shadow(0 0 12px rgba(251, 63, 138, .45)); }
-  .wf-rail .wf-logo-mark::after { content: 'Clutch'; color: var(--color-text-hi); font-size: 24px; font-weight: 500; letter-spacing: .01em; line-height: 1; text-transform: none; }
+  /* founder of 2 Nov 2026, "Давай попробуем 10 вариант ... у нас лого в хедере": logo 10, Twin metal, from brand-lab.html, in the header's middle */
+  .wf-rail .wf-logo-mark, .is-rail-collapsed .wf-rail .wf-logo-mark { flex: 0 0 auto; display: flex; align-items: center; width: 142px; height: 38px; padding: 0; border: 0;
+    background: url(art/brand/logo2-10.svg) left center / contain no-repeat; filter: none; }
+  .wf-rail .wf-logo-mark::after { content: none; }
 }
 @keyframes v4-fall { to { background-position: 0 230px, 120px 220px; } }
 
@@ -162,8 +163,8 @@
 .wf-event::after { background: linear-gradient(90deg, rgba(6, 10, 30, .82), rgba(6, 10, 30, .35) 38%, transparent 60%), linear-gradient(to top, var(--color-ground), transparent 16%); opacity: 1; animation: none; }
 .wf-event .wf-banner-art::before, .wf-event .wf-banner-art::after { content: none; }
 @media (min-width: 900px) { .wf-event .wf-banner-art { height: var(--v4-banner-h); } }
-.wf-event .wf-event-name { width: min(380px, 34%); aspect-ratio: 1100 / 509; top: 32px; left: max(var(--space-5), (100% - var(--size-content)) / 2); right: auto; margin: 0; transform: none;
-  background-image: url(art/banner-title.webp); background-position: left center; filter: drop-shadow(0 6px 18px rgba(6, 10, 30, .7)); }
+.wf-event .wf-event-name { width: min(380px, 34%); aspect-ratio: 1100 / 454; top: 32px; left: max(var(--space-5), (100% - var(--size-content)) / 2); right: auto; margin: 0; transform: none;
+  background-image: url(art/banner-title-d.webp); background-position: left center; /* the first version's wide COLDFRONT over WEEK on the left in pink ice with white light, founder of 1 Nov 2026: "раньше було лучше", and no ice block; the founder's pick */ filter: drop-shadow(0 1px 2px rgba(6, 10, 30, .9)) drop-shadow(0 6px 18px rgba(6, 10, 30, .75)); }
 /* THE COUNTDOWN AS COMP C DRAWS IT, founder pick: one dark panel, the end date across its top, four tiles under it */
 .wf-event-clock { top: 224px; right: auto; bottom: auto; left: max(var(--space-5), (100% - var(--size-content)) / 2); grid-template-columns: repeat(4, 72px); gap: 8px; padding: 10px; border-radius: var(--v4-radius);
   background: rgba(6, 10, 30, .78); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 10px 30px rgba(6, 10, 30, .5); }
@@ -218,28 +219,25 @@
 .wf-mode .wf-fig-missing { display: inline-flex; align-items: center; min-height: 38px; padding: 0 var(--space-4); border-radius: 8px; background: rgba(6, 10, 30, .38); color: var(--color-text-hi); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
 
 /* --- the featured cases: the open case of comp D, burning in its colour, the real skin in it -- */
-.wf-tile:has([data-art="case-blue"]) { --case: var(--color-blue); --v4-case: url(art/case-ironbound.webp); --v4-case-front: url(art/case-ironbound-front.webp); }
-.wf-tile:has([data-art="case-gold"]) { --case: var(--color-gold); --v4-case: url(art/case-warsteel.webp); --v4-case-front: url(art/case-warsteel-front.webp); }
-.wf-tile:has([data-art="case-pink"]) { --case: var(--color-pink); --v4-case: url(art/case-coldfront.webp); --v4-case-front: url(art/case-coldfront-front.webp); }
-.wf-tile:has([data-art="case-violet"]) { --case: #A35CFF; --v4-case: url(art/case-nightfall.webp); --v4-case-front: url(art/case-nightfall-front.webp); }
-.wf-tile:has([data-art="case-ember"]) { --case: #FF5A2E; --v4-case: url(art/case-emberforge.webp); --v4-case-front: url(art/case-emberforge-front.webp); }
+.wf-tile:has([data-art="case-blue"]) { --case: var(--color-blue); --v4-case: url(art/cases/ironbound-case.webp); --v4-world: url(art/cases/ironbound-world.webp); --v4-rim: polygon(0 46.5%, 18% 46.5%, 70% 48%, 80% 49.5%, 100% 50%, 100% 100%, 0 100%); }
+.wf-tile:has([data-art="case-gold"]) { --case: var(--color-gold); --v4-case: url(art/cases/warsteel-case.webp); --v4-world: url(art/cases/warsteel-world.webp); --v4-rim: polygon(0 46.5%, 18% 46.5%, 70% 48%, 80% 49.5%, 100% 50%, 100% 100%, 0 100%); }
+.wf-tile:has([data-art="case-pink"]) { --case: var(--color-pink); --v4-case: url(art/cases/coldfront-case.webp); --v4-world: url(art/cases/coldfront-world.webp); }
+.wf-tile:has([data-art="case-violet"]) { --case: #A35CFF; --v4-case: url(art/cases/nightfall-case.webp); --v4-world: url(art/cases/nightfall-world.webp); }
+.wf-tile:has([data-art="case-ember"]) { --case: #FF5A2E; --v4-case: url(art/cases/emberforge-case.webp); --v4-world: url(art/cases/emberforge-world.webp); }
 /* the case art bleeds past its column so the flames are not cut; the page never scrolls sideways for it */
 .wf-main { overflow-x: clip; }
 .wf-tile { overflow: visible; padding: var(--space-3) var(--space-2) var(--space-4); background: none; }
 .wf-tile:hover { background: none; }
 .wf-tile::before { content: none; }
-/* the light the burning case throws on the floor; a vertical margin in % is read off the tile's width, so it sits at the case's foot at any width */
-.wf-tile::after { content: ''; position: absolute; z-index: -1; left: 50%; top: var(--space-3); margin: 40% 0 0; width: 104%; height: auto; aspect-ratio: 5 / 1; transform: translateX(-50%); border-radius: 50%;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--case) 50%, transparent), transparent); transition: opacity .35s; opacity: .8; }
-/* three layers in one box, all on the same frame so they line up: the open case, the real skin lying in its tray, the front wall over the skin's foot */
-.wf-tile-art[data-art] { isolation: isolate; width: 124%; margin: -6% -12% 0; aspect-ratio: 3 / 2; background: var(--v4-case) center / 100% auto no-repeat; transition: transform .35s var(--v4-ease-pop), filter .35s; }
-.wf-tile-art[data-art]::before { content: ''; position: absolute; inset: 0; z-index: 2; background: var(--v4-case-front) center / 100% auto no-repeat; pointer-events: none; }
-.wf-tile-art[data-art]::after { z-index: 1; top: 12%; left: 9%; width: 82%; height: 50%; transform: rotate(-10deg); filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)) drop-shadow(0 0 12px color-mix(in srgb, var(--case) 70%, transparent));
-  transition: transform .5s var(--v4-ease-pop); }
+.wf-tile::after { content: none; }
+/* four layers on one frame, founder of 1 Nov 2026: "кейсики мне нравится": the world around the case and the case itself on the box, a real skin, the case again cut along its rim. No rectangle anywhere; every layer carries its own alpha */
+.wf-tile-art[data-art] { isolation: isolate; width: 124%; margin: -6% -12% 0; aspect-ratio: 3 / 2; background: var(--v4-case) center / 100% auto no-repeat, var(--v4-world) center / 100% auto no-repeat; transform-origin: 50% 82%; transition: transform .45s var(--v4-ease-pop), filter .35s; }
+.wf-tile-art[data-art]::before { content: ''; position: absolute; inset: 0; z-index: 2; background: var(--v4-case) center / 100% auto no-repeat; clip-path: var(--v4-rim, polygon(0 48%, 18% 48%, 68.9% 48.4%, 79.8% 50.2%, 100% 51%, 100% 100%, 0 100%)); pointer-events: none; }
+.wf-tile-art[data-art]::after { z-index: 1; top: -4%; left: 20%; width: 62%; height: 70%; transform: rotate(7deg); filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)) drop-shadow(0 0 10px color-mix(in srgb, var(--case) 70%, transparent));
+  transition: transform .45s var(--v4-ease-pop); }
 @media (hover: hover) {
-  .wf-tile:hover .wf-tile-art[data-art] { transform: translateY(-4px); filter: brightness(1.12); }
-  .wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(-6deg) translateY(-34%) scale(1.06); }
-  .wf-tile:hover::after { opacity: 1; transform: translateX(-50%); }
+  .wf-tile:hover .wf-tile-art[data-art] { transform: scale(1.06); filter: brightness(1.1); }
+  .wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(4deg) translateY(-14%) scale(1.14); }
 }
 .wf-tile-name { font-size: var(--size-text); font-weight: 900; letter-spacing: .04em; }
 .wf-tile-risk { margin-block: 2px var(--space-2); }
@@ -257,3 +255,21 @@
   .wf-tile:hover .wf-tile-art[data-art], .wf-tile:hover .wf-tile-art[data-art]::after { transform: none; }
   .wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(-10deg); }
 }
+
+/* A BIG SCREEN, founder of 1 Nov 2026 on 3822px: "надо что то с этим думать". Past 2200px the page does not widen, it grows: the art stretched with the
+   column while the words stayed at their size. Each step keeps about 1900px of layout, the width v4 is drawn for, so type, art and the banner's crop keep their proportions */
+@media (min-width: 2200px) { html { --z: 1.2; zoom: var(--z); overflow-x: clip; } .wf-rail, .is-rail-overlay .wf-rail { height: calc(100vh / var(--z)); } } /* a viewport unit grows with the zoom, so it is divided back */
+@media (min-width: 2560px) { html { --z: 1.35; } }
+@media (min-width: 2880px) { html { --z: 1.5; } }
+@media (min-width: 3200px) { html { --z: 1.7; } }
+@media (min-width: 3600px) { html { --z: 1.9; } }
+@media (min-width: 3800px) { html { --z: 2; } }
+
+/* the content under the banner stands clear of the column's edges, founder of 1 Nov 2026: "чтоби оно не так сильно прилипало к краям"; the banner keeps its own margin, and its title, countdown and act line up with this edge */
+@media (min-width: 900px) { .wf-main > :not(.wf-event) { --v4-gutter: 32px; margin-inline: max(var(--v4-gutter), (100% - 1560px) / 2); } }
+@media (min-width: 1200px) { .wf-main > :not(.wf-event) { --v4-gutter: 56px; }
+  .wf-event .wf-event-name, .wf-event-go { left: max(48px, (100% - 1560px) / 2); }
+  .wf-event-clock { right: max(44px, (100% - 1560px) / 2); } }
+
+/* the rail's marks stand close to its edge, founder of 2 Nov 2026 */
+@media (min-width: 900px) { html body .wf-rail .wf-rail-item { padding-left: 12px; gap: 2px 12px; } }

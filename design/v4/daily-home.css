@@ -1,0 +1,193 @@
+/* design/v4/daily-home.css, the Daily cases ladder as R9, for v4's Home and for R9 in daily-lab.html. Drawn by daily-home.js. Every class
+ * starts dc-, so nothing of Home's wf- layer is touched. The panel lays itself out by its own width, container dc.
+ * Founder decisions it carries, 2 Nov 2026: one Daily case for the series, its filling growing from Silver to Elite (art/daily-cases-v2/),
+ * the real skins 0 to 4; R8's background scene and full colour on the tiers ahead; R7's head boxes, the open button on the card, the
+ * marker with its chat tail, the animated lock, the hover lift; money in gold #FFC44D with coin 6 and no word "coins" on screen. */
+
+.dc-frame { container: dc / inline-size; }
+.dc { --money: #FFC44D; --gap: 12px; position: relative; isolation: isolate; display: flex; flex-direction: column; box-sizing: border-box; padding: 28px; border-radius: 16px;
+  background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); color: var(--color-text-hi); font-family: var(--font-family); text-align: left; }
+/* the background scene, approved option 1: a dim warehouse of cases on the panel's right, fading out to the left, at 15% */
+.dc::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: .15; background: url(art/daily-bg.webp) right center / cover no-repeat;
+  -webkit-mask: linear-gradient(90deg, transparent 18%, #000 64%); mask: linear-gradient(90deg, transparent 18%, #000 64%); }
+/* the five tiers: their colour, their case */
+.dc-t1 { --hue: #C9D2E3; --g1: #7D88A8; --g2: #333C5A; --case: url(art/daily-cases-v2/silver.webp); }
+.dc-t2 { --hue: #65A3FF; --g1: #3955E8; --g2: #1B2A8F; --case: url(art/daily-cases-v2/nova.webp); }
+.dc-t3 { --hue: #A35CFF; --g1: #8E2BC9; --g2: #41157A; --case: url(art/daily-cases-v2/guardian.webp); }
+.dc-t4 { --hue: #FB3F8A; --g1: #FB3F8A; --g2: #8E1F5E; --case: url(art/daily-cases-v2/legend.webp); }
+.dc-t5 { --hue: #FADA62; --g1: #C98A0A; --g2: #B4400F; --case: url(art/daily-cases-v2/elite.webp); }
+/* "coins" for a screen reader only */
+.dc-sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* coin 6, art/brand/coin-6-small.svg, the gold ring with the bolt on navy, as on Home's prices */
+.dc-coin { display: inline-block; flex: 0 0 auto; width: 1em; height: 1em; background: url(art/brand/coin-6-small.svg) center / contain no-repeat; }
+.dc-m { display: inline-flex; align-items: center; gap: 3px; color: var(--money); font-weight: 900; white-space: nowrap; vertical-align: bottom; }
+.dc-m .dc-coin { width: 13px; height: 13px; }
+
+/* ---- the head: R7's boxes and, for a guest, the one button, all 52px ---- */
+.dc-head { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; }
+.dc-title { flex: 1 1 320px; min-width: 0; }
+.dc-t { margin: 0; font-size: 36px; font-weight: 900; line-height: 1; text-transform: uppercase; }
+.dc-l { margin: 8px 0 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.4; }
+.dc-note { margin: 10px 0 0; color: var(--color-text-soft); font-size: 14px; line-height: 1.4; }
+.dc-head:not(.has-title) .dc-note { margin: 0; }
+.dc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.dc-boxes { display: flex; flex-wrap: wrap; gap: 10px; }
+.dc-box { display: inline-flex; align-items: center; gap: 10px; box-sizing: border-box; height: var(--btn-l, 52px); padding: 0 16px 0 12px; border-radius: var(--btn-radius, 10px);
+  background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.dc-box > div { display: grid; gap: 2px; }
+.dc-box b { font-size: 18px; font-weight: 900; line-height: 1.05; white-space: nowrap; }
+.dc-box span { color: var(--color-text-muted); font-size: 12px; white-space: nowrap; }
+.dc-box.is-money b { color: var(--money); }
+.dc-box.is-time b { color: var(--color-blue); }
+.dc-box .dc-coin { width: 20px; height: 20px; }
+.dc-clock { flex: 0 0 20px; width: 20px; height: 20px; fill: none; stroke: var(--color-blue); stroke-width: 2.2; stroke-linecap: round; }
+/* the remaining box points at the tier it is about: its colour as an edge and a tint */
+.dc-box.is-remain { background: linear-gradient(120deg, color-mix(in srgb, var(--tier) 30%, rgba(11, 10, 34, .72)), rgba(11, 10, 34, .72)); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--tier); }
+.dc-box.is-remain span { color: var(--color-text-soft); }
+@container dc (min-width: 1080px) {
+  .dc-head.has-title { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0 24px; }
+  .dc-head.has-title .dc-title { display: contents; }
+  .dc-head.has-title .dc-t { grid-column: 1; grid-row: 1; }
+  .dc-head.has-title .dc-row { grid-column: 2; grid-row: 1; justify-self: end; justify-content: flex-end; }
+  .dc-head.has-title .dc-l, .dc-head.has-title .dc-note { grid-column: 1 / -1; }
+  .dc-head.has-title .dc-l { margin-top: 14px; }
+}
+@container dc (min-width: 761px) and (max-width: 1079px) {
+  .dc-head.has-title .dc-title { flex-basis: 100%; }
+  .dc-row { flex: 1 1 100%; }
+  .dc-boxes, .dc-box, .dc-row .v4-btn { flex: 1 1 auto; }
+}
+
+/* ---- the cards ---- */
+.dc-cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gap); padding: 0; list-style: none;
+  /* the row stands just under the head: its top margin is the highest picture pixel's reach above the cards plus 20px of air. That pixel is
+     a skin rising out of a case at 6.2% of a picture 0.88 card widths tall, standing 76px above the card's foot (92px below 1200px); fitted
+     to the reach measured on the page at 1558 and 1366, 100px and 84px */
+  margin: max(20px, calc((100cqi - 104px) / 5 * .825 - 70px)) 0 0; }
+.dc-card { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 8px; min-width: 0; height: 166px;
+  padding: 14px 14px 16px; border-radius: 16px; background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25);
+  color: var(--color-text-hi); transition: translate .22s cubic-bezier(.2, .8, .2, 1), box-shadow .22s ease; }
+.dc-name { position: relative; font-size: 24px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .4); }
+/* the available card is the action: higher, in its own brighter light, its button inside it */
+.dc-card.is-hero { translate: 0 -12px; background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 78%, #fff), var(--g2));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 18px 30px rgba(6, 10, 30, .55); }
+.dc-card.is-hero .v4-btn { position: relative; align-self: stretch; padding: 0 10px; }
+@media (hover: hover) {
+  .dc-card:hover { translate: 0 -6px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 18px 30px rgba(6, 10, 30, .6), 0 0 36px color-mix(in srgb, var(--hue) 60%, transparent); }
+  .dc-card.is-hero:hover { translate: 0 -18px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 24px 36px rgba(6, 10, 30, .6), 0 0 40px color-mix(in srgb, var(--hue) 70%, transparent); }
+}
+/* the case: the picture behind, the skins in its tray, the case's front over them (its front wall's top edge is level at 55% in every
+   picture), the skins leaning in front of it */
+.dc-art { position: absolute; left: -16%; right: -16%; bottom: 76px; aspect-ratio: 3 / 2; pointer-events: none; }
+.dc-card.is-hero .dc-art { bottom: 92px; }
+.dc-art > span { position: absolute; display: block; }
+.dc-case { inset: 0; background: var(--case) center / 100% auto no-repeat; }
+.dc-front { clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); }
+.dc-skin { background: center / contain no-repeat; filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .65)); }
+.dc-t2 .dc-s-c { left: 50%; top: 46%; width: 36%; height: 36%; rotate: 24deg; }
+.dc-t3 .dc-s-a { left: 22%; top: 12%; width: 56%; height: 48%; rotate: -16deg; }
+.dc-t3 .dc-s-c { left: 0; top: 48%; width: 34%; height: 34%; rotate: -26deg; }
+.dc-t4 .dc-s-a { left: 14%; top: 10%; width: 56%; height: 48%; rotate: -18deg; }
+.dc-t4 .dc-s-b { left: 30%; top: 6%; width: 56%; height: 48%; rotate: 16deg; }
+.dc-t4 .dc-s-d { left: 56%; top: 50%; width: 32%; height: 32%; rotate: 22deg; }
+.dc-t5 .dc-s-a { left: 32%; top: 0; width: 40%; height: 44%; rotate: -12deg; }
+.dc-t5 .dc-s-b { left: 12%; top: 14%; width: 56%; height: 44%; rotate: 14deg; }
+.dc-t5 .dc-s-c { left: 6%; top: 44%; width: 36%; height: 36%; rotate: -30deg; }
+.dc-t5 .dc-s-d { left: 52%; top: 42%; width: 36%; height: 36%; rotate: 30deg; }
+/* "ready": on the available card the skins lift a little and settle */
+.dc-card.is-hero .dc-skin { animation: dc-lift 2.6s ease-in-out infinite alternate; }
+@keyframes dc-lift { to { translate: 0 -8%; } }
+@container dc (min-width: 761px) and (max-width: 1199px) {
+  /* narrow enough for a chip to take two lines: every case stands on the available card's line, and the row's margin follows */
+  .dc-art { bottom: 92px; }
+  .dc-cards { margin-top: max(20px, calc((100cqi - 104px) / 5 * .825 - 54px)); }
+}
+
+/* ---- the statuses ---- */
+.dc-chip { position: relative; display: inline-flex; align-items: center; gap: 6px; max-width: 100%; box-sizing: border-box; padding: 5px 10px 5px 8px; border-radius: 8px;
+  background: rgba(6, 10, 30, .62); color: var(--color-text-hi); font-size: 13px; font-weight: 700; line-height: 1.2; }
+.dc-chip svg { flex: 0 0 14px; width: 14px; height: 14px; fill: currentColor; }
+.dc-chip.is-opened svg { fill: var(--color-green); }
+.dc-chip.is-open { background: var(--color-text-hi); color: var(--color-ground); }
+.dc-chip.is-locked { color: var(--color-text-muted); }
+/* the next tier's lock: pink, and every few seconds its shackle tugs up twice and the body gives a small shake */
+.dc-lock { overflow: visible; }
+.dc-body { fill: var(--color-pink); transform-origin: 12px 21px; animation: dc-shake 3.2s ease-in-out infinite; }
+.dc-shackle { fill: none; stroke: var(--color-pink); stroke-width: 2.4; stroke-linecap: round; animation: dc-tug 3.2s ease-in-out infinite; }
+@keyframes dc-tug { 0%, 66%, 100% { translate: 0 0; } 72% { translate: 0 -3px; } 78% { translate: 0 0; } 83% { translate: 0 -2px; } 88% { translate: 0 0; } }
+@keyframes dc-shake { 0%, 70%, 92%, 100% { rotate: 0deg; } 74% { rotate: -8deg; } 80% { rotate: 7deg; } 85% { rotate: -5deg; } 89% { rotate: 3deg; } }
+
+/* ---- the track: the fill passes through each tier's colour at its dot; the marker sits on the fill's end with a chat tail ---- */
+.dc-track { position: relative; height: 70px; margin-top: 18px; }
+.dc-bar { position: absolute; left: 0; right: 0; top: 31px; height: 10px; border-radius: 5px; background: rgba(255, 255, 255, .08); }
+.dc-fill { position: absolute; inset: 0; border-radius: inherit; clip-path: inset(0 calc(100% - var(--pos)) 0 0 round 5px); }
+.dc-tick { position: absolute; top: 28px; display: grid; justify-items: center; gap: 6px; translate: -50% 0; }
+.dc-tick b { width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; background: #0D0C28; box-shadow: inset 0 0 0 3px var(--hue); }
+.dc-tick.is-on b { background: var(--hue); box-shadow: 0 0 0 3px #0D0C28; }
+.dc-tick.is-next b { animation: dc-breathe 1.8s ease-in-out infinite; }
+@keyframes dc-breathe { 50% { scale: 1.3; } }
+.dc-tick em { color: var(--money); opacity: .6; font-size: 13px; font-style: normal; font-weight: 700; white-space: nowrap; }
+.dc-tick.is-on em { opacity: 1; }
+.dc-pin { position: absolute; z-index: 2; top: 14px; left: calc(var(--pos) - 22px); width: 22px; height: 17px; background: var(--color-pink); clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.dc-you { position: absolute; z-index: 3; top: 0; left: max(var(--pos), 84px); translate: -100% 0; display: inline-flex; align-items: center; gap: 5px; box-sizing: border-box; height: 24px;
+  padding: 0 10px 0 6px; border-radius: 12px; background: rgb(11, 10, 34); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); color: var(--money); font-size: 13px; font-weight: 900; white-space: nowrap; }
+.dc-you .dc-coin { width: 14px; height: 14px; }
+.dc-unit { display: flex; align-items: center; gap: 6px; margin: 4px 0 0; color: var(--color-text-muted); font-size: 13px; }
+.dc-unit .dc-coin { width: 14px; height: 14px; }
+.dc-say { order: 4; margin: 10px 0 0; color: var(--color-text-soft); font-size: 13px; }
+.dc-say:empty { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-card { transition: none; }
+  .dc-card:hover { translate: none; }
+  .dc-card.is-hero:hover { translate: 0 -12px; }
+  .dc-card.is-hero .dc-skin, .dc-tick.is-next b, .dc-body, .dc-shackle { animation: none; }
+}
+
+/* ---- a phone ---- */
+@container dc (max-width: 760px) {
+  .dc { --gap: 0px; padding: 20px 16px; }
+  .dc::before { background: url(art/daily-bg.webp) 82% 0 / auto 440px no-repeat; -webkit-mask: linear-gradient(180deg, #000 0, transparent 440px); mask: linear-gradient(180deg, #000 0, transparent 440px); }
+  .dc-t { font-size: 28px; }
+  .dc-head.has-title .dc-title { flex-basis: 100%; }
+  .dc-row, .dc-boxes { width: 100%; }
+  .dc-boxes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .dc-box { padding: 0 10px; gap: 8px; }
+  .dc-box b { font-size: 16px; }
+  .dc-box span { font-size: 11px; white-space: normal; line-height: 1.15; }
+  .dc-box.is-time:nth-child(odd) { grid-column: 1 / -1; }
+  .dc-row .v4-btn { width: 100%; }
+  .dc-track { order: 1; margin-top: 18px; }
+  .dc-unit { order: 2; }
+  .dc-tick em { font-size: 12px; }
+  /* the cards become rows, the case on their left, bigger than R9's 85px: a 170px picture, its case body 109px, its content ending
+     at most at 97% of the picture (Elite's coins), 7px before the name's column at 154px */
+  .dc-cards { order: 3; grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 18px; }
+  .dc-card { height: auto; min-height: 100px; justify-content: center; padding: 12px 12px 12px 154px; }
+  .dc-art { left: -18px; right: auto; bottom: auto; top: 50%; width: 170px; translate: 0 -50%; }
+  .dc-name { font-size: 20px; }
+  .dc-chip { font-size: 12px; }
+  /* the available card across its row, its case above its name; no margin above it: its picture's top half is empty air, so it reaches up
+     over the gap without leaving a hole, and its case starts inside the card */
+  .dc-card.is-hero { translate: none; padding: 100px 14px 14px; align-items: stretch; justify-content: flex-end; }
+  .dc-card.is-hero .dc-art { left: 6%; right: 6%; width: auto; top: -64px; translate: none; }
+  .dc-card.is-hero .dc-name { font-size: 24px; }
+  .dc-card.is-hero:hover { translate: 0 -6px; }
+}
+
+/* founder of 2 Nov 2026, on Home: "должно быть" as in the lab. The panel carries its own title, with the boxes and the button in its row
+   and the line under it; Home's section heading above the panel is hidden, and the section's aria-labelledby still reads it */
+.wf-sec:has(.dc-frame) > .wf-sec-head { display: none; }
+
+/* the same day: for a signed in person the cases not yet reached are darkened, the case and its skins, so the reachable ones lead; the
+   card keeps its colour and the chip says what is missing */
+.dc.is-acct .dc-card:is(.is-next, .is-locked) .dc-art { filter: brightness(.45) saturate(.75); }
+
+/* the guest's marker, founder of 2 Nov 2026, redrawn the same day: no dot apart from the track; the track's own rounded start is filled, a
+   12px round cap in Silver's colour, "чуть заполнено", a start and not a figure. The signed in marker's pill turned to the right stands
+   from the cap's edge, its tail's tip on the cap, saying "Sign in to see your wager" and opening sign in */
+.dc-start { position: absolute; z-index: 1; left: -1px; top: 30px; width: 12px; height: 12px; border-radius: 50%; background: #C9D2E3; }
+.dc-pin.is-start { left: 11px; clip-path: polygon(0 0, 100% 0, 0 100%); }
+.dc-you.is-start { left: 11px; translate: none; color: var(--color-text-hi); text-decoration: none; }
+.dc-you.is-start:hover { filter: brightness(1.12); }
+.dc-you.is-start:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
