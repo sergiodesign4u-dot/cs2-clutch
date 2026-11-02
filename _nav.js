@@ -70,9 +70,11 @@ window.NAV = [
           { label: 'Side menu',   pageLabel: 'Side menu v4',       page: 'design/v4/rail-lab.html',   live: true },
           { label: 'Daily cases', pageLabel: 'Daily cases v4',     page: 'design/v4/daily-lab.html',  live: true },
           { label: 'Before you spend', pageLabel: 'Before you spend v4', page: 'design/v4/proof-lab.html', live: true },
+          { label: 'What opening involves', pageLabel: 'What opening involves v4', page: 'design/v4/seo-lab.html', live: true },
           { label: 'Logo and coin', pageLabel: 'Logo and coin v4',  page: 'design/v4/brand-lab.html',  live: true },
           { label: 'Buttons',     pageLabel: 'Buttons v4',         page: 'design/v4/buttons-lab.html', live: true },
           { label: 'Case tile hover', pageLabel: 'Case tile hover v4', page: 'design/v4/tile-hover-lab.html', live: true },
+          { label: 'Section headings', pageLabel: 'Section headings v4', page: 'design/v4/heading-lab.html', live: true },
           { label: 'Case screen', pageLabel: 'Case screen v4',     page: 'design/v4/case.html',       done: false }
       ]},
       { subhead: 'Concept v3', items: [

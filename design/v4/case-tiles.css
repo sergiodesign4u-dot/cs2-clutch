@@ -23,6 +23,13 @@
 .wf-tile:has([data-art="case-pink"]) { --v4-case: url(art/cases-v2/coldfront-c.webp); }
 .wf-tile:has([data-art="case-violet"]) { --v4-case: url(art/cases-v2/nightfall-c.webp); }
 .wf-tile:has([data-art="case-ember"]) { --v4-case: url(art/cases-v2/emberforge-c.webp); }
+/* the same cases on the back of a Live drops card, the side its pointer turns up with the case the drop came from, founder of 2 Nov 2026:
+   "при ховере би поставить обновленние кейси"; _theme.css still points that side at the v1 pictures through --cover; a url in a custom property resolves against the sheet that uses it, so the picture is set here directly */
+.wf-feed-back .wf-feed-art[data-art="case-blue"] { background-image: url(art/cases-v2/ironbound-c.webp); }
+.wf-feed-back .wf-feed-art[data-art="case-gold"] { background-image: url(art/cases-v2/warsteel-c.webp); }
+.wf-feed-back .wf-feed-art[data-art="case-pink"] { background-image: url(art/cases-v2/coldfront-c.webp); }
+.wf-feed-back .wf-feed-art[data-art="case-violet"] { background-image: url(art/cases-v2/nightfall-c.webp); }
+.wf-feed-back .wf-feed-art[data-art="case-ember"] { background-image: url(art/cases-v2/emberforge-c.webp); }
 
 /* money is gold #FFC44D everywhere, the coin's own gold, founder of 2 Nov 2026 */
 :root { --color-money: #FFC44D; }

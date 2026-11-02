@@ -1,0 +1,185 @@
+/* design/v4/heading-lab.css, a satellite of v4: six directions for Home's section headings. Founder of 2 Nov 2026: "мне надо придумать
+ * прикольные заголовки, крутые визуально, современные, игровые, привлекательные". Options, not a decision: Home is not touched.
+ * Every device here is one the site already owns: --btn-stripes and --btn-radius (buttons.css), the pink 2px edge and filled tail of the
+ * daily ladder's marker (daily-home.css .dc-you, .dc-pin), coin 6's bolt and logo 10's mark (art/brand), the daily tier hues
+ * (daily-home.css .dc-t1 to .dc-t5) and the mode gradients (theme.css --v4-mode-*). Roboto only, D-187. No glow, no dot grid, no numbering. */
+
+body.hd-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.hd-main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 80px; }
+@media (min-width: 900px) { .hd-main { margin-left: calc(var(--nav-w, 248px) + 24px); margin-right: 24px; max-width: none; } }
+@media (max-width: 899px) { .hd-main { padding-top: 62px; } } /* below 900px the fixed menu button sits at the top left */
+.hd-main > h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.hd-lead { margin: 0; max-width: 92ch; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; }
+.hd-cap { margin: 0 0 12px; color: var(--color-text-muted); font-size: 13px; }
+.hd-cap-s { display: none; }
+@media (max-width: 899px) { .hd-cap-w { display: none; } .hd-cap-s { display: inline; } } /* below 900px the board is itself the phone view */
+
+/* today, drawn from _theme.css's own rule: the blue thumbs up, uppercase Roboto 900 at 26px, a 1px blue line */
+.hd-today { margin-top: 24px; padding: 20px; border: 1px solid var(--color-line-soft); border-radius: 12px; }
+.hd-today-head { display: flex; align-items: center; gap: 8px; font-size: 26px; font-weight: 900; line-height: 1.1; text-transform: uppercase; }
+.hd-like { flex: 0 0 24px; height: 24px; background: var(--color-blue); -webkit-mask: var(--icon-like) center / contain no-repeat; mask: var(--icon-like) center / contain no-repeat; }
+.hd-today-head i { flex: 1; min-width: 48px; height: 1px; margin-left: 8px; background: var(--color-blue); }
+@media (max-width: 599px) { .hd-today-head { font-size: 20px; } }
+
+.hd-rec { margin-top: 16px; padding: 18px 20px; border-radius: 12px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 2px var(--color-pink); }
+.hd-rec h2 { margin: 0 0 6px; font-size: 18px; font-weight: 900; }
+.hd-rec p { margin: 0; max-width: 92ch; color: var(--color-text-soft); font-size: 14px; line-height: 1.5; }
+
+/* one direction: its name and idea, then the board at full width, then the same titles at 360 */
+.hd { display: grid; gap: 20px; margin-top: 28px; padding: 24px; border: 1px solid var(--color-line-soft); border-radius: 16px; }
+.hd.is-rec { border-color: var(--color-pink); }
+.hd-meta h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 0 0 6px; font-size: 20px; font-weight: 900; }
+.hd-tag { padding: 4px 10px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 2px var(--color-pink); color: var(--color-text-hi); font-size: 12px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.hd-meta p { margin: 0; max-width: 92ch; color: var(--color-text-soft); font-size: 14px; line-height: 1.5; }
+.hd-meta .hd-risk { margin-top: 4px; color: var(--color-text-muted); }
+.hd-replay { margin-top: 12px; }
+.hd-board, .hd-phone { container-type: inline-size; display: grid; gap: 36px; padding: 28px 0 8px; }
+.hd-phone { box-sizing: border-box; width: 360px; max-width: 100%; padding: 24px 16px; border-radius: 16px; background: var(--color-ground); box-shadow: inset 0 0 0 1px var(--color-line-soft); }
+@media (max-width: 899px) { .hd-narrow { display: none; } .hd { padding: 16px; } .hd-board { padding-top: 12px; } } /* on a phone the board itself is the 360 view */
+
+/* ------------------------------------------------------------------ shared */
+/* the title and its line share one row at every width, so a long title wraps inside its own column and the line keeps at least 32px */
+.hx { display: grid; grid-template-columns: minmax(0, max-content) minmax(32px, 1fr); align-items: center; gap: 8px 14px; }
+.hx > .hx-t { grid-column: 1; }
+.hx--b, .hx--e, .hx--f { grid-template-columns: minmax(0, 1fr); } /* no line beside these three */
+.hx > .hx-t { justify-self: start; } /* a sub line under the title never stretches the pill or the slab */
+.hx-t { display: flex; align-items: center; gap: 12px; min-width: 0; margin: 0; color: var(--color-text-hi); font-size: 26px; font-weight: 900; line-height: 1.12; letter-spacing: .01em; text-transform: uppercase; }
+.hx-w { min-width: 0; overflow-wrap: anywhere; }
+.hx-sub { grid-column: 1 / -1; margin: 0; color: var(--color-text); font-size: 14px; line-height: 1.45; }
+.hx-bolt { flex: none; width: 18px; height: 18px; fill: #FFC44D; } /* coin 6's gold, as on the coin, not --color-gold */
+.hx-bolt--s { width: 12px; height: 12px; }
+.hx-livebar { display: flex; align-items: center; min-height: 40px; padding: 0 12px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.hx-live { display: inline-flex; align-items: center; gap: 8px; color: var(--color-text-hi); font-size: 12px; font-weight: 900; letter-spacing: .08em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+@container (max-width: 600px) {
+  .hx-t { font-size: 20px; }
+  .hx-sub { font-size: 13px; }
+}
+
+/* ------------------------------------------------------------------ a, Tab: the button's stripes on a tab rooted on a 2px pink line */
+.hx--a { align-items: end; gap: 0; }
+.hx--a .hx-t { padding: 10px 18px 9px; border-radius: var(--btn-radius) var(--btn-radius) 0 0; background: var(--btn-stripes), var(--color-pink); }
+.hx--a::after { content: ''; grid-column: 2; grid-row: 1; height: 2px; background: var(--color-pink); transform-origin: left; }
+.hx--a .hx-sub { margin-top: 10px; }
+.hx-live--a { padding: 6px 10px 5px; border-radius: 8px 8px 0 0; background: var(--btn-stripes), var(--color-pink); box-shadow: 0 2px 0 var(--color-pink); }
+@container (max-width: 600px) { .hx--a .hx-t { padding: 8px 14px 7px; } }
+
+/* ------------------------------------------------------------------ b, Callout: the ladder marker's pill, its 2px pink edge and filled tail */
+.hx--b { gap: 22px 14px; }
+.hx--b .hx-t { position: relative; gap: 10px; min-height: 48px; box-sizing: border-box; padding: 8px 22px 8px 16px; border-radius: 24px; background: #0B0A22; box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); }
+.hx--b .hx-t::after { content: ''; position: absolute; left: 22px; bottom: -13px; width: 20px; height: 14px; background: var(--color-pink); clip-path: polygon(0 0, 100% 0, 0 100%); }
+.hx--b .hx-bolt { width: 20px; height: 20px; }
+.hx-live--b { position: relative; padding: 6px 12px 6px 9px; border-radius: 14px; box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); }
+@container (max-width: 600px) { .hx--b .hx-t { min-height: 40px; padding: 7px 16px 7px 12px; border-radius: 20px; } .hx--b .hx-t::after { left: 18px; } }
+
+/* ------------------------------------------------------------------ c, Brand bolt: logo 10's mark, a 2px pink line that fades */
+.hx--c .hx-mark { flex: none; width: 34px; height: 34px; }
+.hx--c::after { content: ''; grid-column: 2; grid-row: 1; height: 2px; background: linear-gradient(90deg, var(--color-pink), rgba(251, 63, 138, 0)); transform-origin: left; }
+.hx-live--c .hx-mark { width: 18px; height: 18px; }
+@container (max-width: 600px) { .hx--c .hx-mark { width: 28px; height: 28px; } }
+
+/* ------------------------------------------------------------------ d, Tier climb: the five daily tier hues, silver to gold, as slanted bars */
+.hx-bars { display: inline-flex; flex: none; align-items: flex-end; gap: 4px; height: 30px; transform: skewX(-16deg); }
+.hx-bars i { display: block; width: 6px; border-radius: 1px; transform-origin: bottom; }
+.hx-bars i:nth-child(1) { height: 30%; background: #C9D2E3; }
+.hx-bars i:nth-child(2) { height: 47%; background: #65A3FF; }
+.hx-bars i:nth-child(3) { height: 64%; background: #A35CFF; }
+.hx-bars i:nth-child(4) { height: 82%; background: #FB3F8A; }
+.hx-bars i:nth-child(5) { height: 100%; background: #FADA62; }
+.hx--d::after { content: ''; grid-column: 2; grid-row: 1; height: 1px; background: var(--color-line); }
+.hx-live--d .hx-bars { gap: 2px; height: 14px; }
+.hx-live--d .hx-bars i { width: 3px; }
+@container (max-width: 600px) { .hx--d .hx-t { gap: 10px; } .hx--d .hx-bars { height: 22px; gap: 3px; } .hx--d .hx-bars i { width: 4px; } }
+
+/* ------------------------------------------------------------------ e, Mode slab: a mode gradient on a slab with a cut end */
+.hx--e { --tone: var(--v4-mode-cases); }
+.hx--e[data-tone="upgrade"] { --tone: var(--v4-mode-upgrade); }
+.hx--e[data-tone="battles"] { --tone: var(--v4-mode-battles); }
+.hx--e .hx-t { padding: 10px 34px 10px 18px; border-radius: var(--btn-radius) 0 0 var(--btn-radius); background: var(--tone); clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%); }
+.hx-live--e { padding: 6px 18px 6px 10px; border-radius: 6px 0 0 6px; background: var(--v4-mode-cases); clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 100%, 0 100%); }
+@container (max-width: 600px) { .hx--e .hx-t { padding: 8px 26px 8px 14px; clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%); } }
+
+/* ------------------------------------------------------------------ f, Marker: larger type over a striped pink band, the stripes as a highlighter */
+.hx--f .hx-t { display: block; font-size: 34px; line-height: 1.2; }
+.hx--f .hx-w { padding: 0 6px; background: var(--btn-stripes) left 0 bottom .2em / 100% .46em no-repeat, linear-gradient(var(--color-pink), var(--color-pink)) left 0 bottom .2em / 100% .46em no-repeat; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.hx-live--f .hx-w { padding: 0 4px; background: linear-gradient(var(--color-pink), var(--color-pink)) left bottom / 100% 45% no-repeat; }
+@container (max-width: 600px) { .hx--f .hx-t { font-size: 24px; line-height: 1.25; } }
+
+/* ------------------------------------------------------------------ motion: once, on first view; .hd-motion is only set when reduced motion is off */
+.hd-motion .hx--a::after, .hd-motion .hx--c::after { transform: scaleX(0); }
+.hd-motion .hx--a.is-in::after, .hd-motion .hx--c.is-in::after { transform: scaleX(1); transition: transform .5s cubic-bezier(.2, .7, .2, 1) .1s; }
+.hd-motion .hx--b .hx-t::after { transform: scale(0); transform-origin: 0 0; }
+.hd-motion .hx--b.is-in .hx-t::after { transform: scale(1); transition: transform .25s var(--v4-ease-pop, ease-out) .15s; }
+.hd-motion .hx--d .hx-bars i, .hd-motion .hx-live--d .hx-bars i { transform: scaleY(.15); opacity: .35; }
+.hd-motion .is-in .hx-bars i { transform: scaleY(1); opacity: 1; transition: transform .24s var(--v4-ease-pop, ease-out), opacity .24s; }
+.hd-motion .is-in .hx-bars i:nth-child(2) { transition-delay: .06s; }
+.hd-motion .is-in .hx-bars i:nth-child(3) { transition-delay: .12s; }
+.hd-motion .is-in .hx-bars i:nth-child(4) { transition-delay: .18s; }
+.hd-motion .is-in .hx-bars i:nth-child(5) { transition-delay: .24s; }
+.hd-motion .hx--e .hx-t { translate: -12px 0; opacity: 0; }
+.hd-motion .hx--e.is-in .hx-t { translate: 0 0; opacity: 1; transition: translate .3s cubic-bezier(.2, .7, .2, 1), opacity .3s; }
+.hd-motion .hx--f .hx-w { background-size: 0% .46em, 0% .46em; }
+.hd-motion .hx--f.is-in .hx-w { background-size: 100% .46em, 100% .46em; transition: background-size .45s cubic-bezier(.2, .7, .2, 1) .1s; }
+@media (prefers-reduced-motion: reduce) { .hx, .hx *, .hx::after, .hx-live * { transition: none !important; } }
+
+/* ================================================================== ROUND 2, founder of 2 Nov 2026: the slab with an icon, the slab to the
+   end with a fade, Brand bolt with the set's marks, and more. Each section's mark is the set's mask (_theme.css --icon-*), drawn in
+   currentColor; every row keeps Home's words and the 26px Roboto 900 title. */
+.hd-round { margin: 48px 0 8px; font-size: 24px; font-weight: 900; }
+.hd-out { margin-top: 48px; }
+.hd-out > summary { cursor: pointer; color: var(--color-text-soft); font-size: 16px; font-weight: 700; }
+.hx[data-tone="cases"] { --tc: #FB3F8A; --tg: var(--v4-mode-cases); }
+.hx[data-tone="upgrade"] { --tc: #E08A12; --tg: var(--v4-mode-upgrade); }
+.hx[data-tone="battles"] { --tc: #4A6BFF; --tg: var(--v4-mode-battles); }
+.hx-mk { display: inline-grid; place-items: center; flex: none; }
+.hx-ic { display: block; width: 24px; height: 24px; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.hx-live .hx-ic { width: 14px; height: 14px; }
+@container (max-width: 600px) { .hx-ic { width: 20px; height: 20px; } }
+
+/* E1: Mode slab, its mark in white before the title */
+.hx--e1 .hx-t { gap: 12px; }
+.hx-live--e1 { gap: 6px; }
+
+/* E2: the slab to the end of the content, its colour fading out to the right; the fill is a layer under the title so the words never fade */
+.hx--e2 { grid-template-columns: minmax(0, 1fr); }
+.hx--e2 > .hx-t { justify-self: stretch; position: relative; isolation: isolate; padding: 10px 18px; }
+.hx--e2 .hx-t::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: var(--btn-radius); background: var(--tg);
+  -webkit-mask: linear-gradient(90deg, #000 0, #000 28%, transparent 100%); mask: linear-gradient(90deg, #000 0, #000 28%, transparent 100%); transform-origin: left; }
+.hx-live--e2 { position: relative; isolation: isolate; gap: 6px; flex: 1; padding: 6px 10px; }
+.hx-live--e2::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: 6px; background: var(--v4-mode-cases); -webkit-mask: linear-gradient(90deg, #000 0, #000 15%, transparent 60%); mask: linear-gradient(90deg, #000 0, #000 15%, transparent 60%); }
+@container (max-width: 600px) { .hx--e2 > .hx-t { padding: 8px 14px; } .hx--e2 .hx-t::before { -webkit-mask: linear-gradient(90deg, #000 0, #000 45%, transparent 100%); mask: linear-gradient(90deg, #000 0, #000 45%, transparent 100%); } }
+
+/* E3: the short slab and, after its cut end, a 2px line in its colour fading out */
+.hx--e3 { gap: 8px 10px; }
+.hx--e3 .hx-t { padding: 10px 34px 10px 18px; border-radius: var(--btn-radius) 0 0 var(--btn-radius); background: var(--tg); clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%); }
+.hx--e3::after { content: ''; grid-column: 2; grid-row: 1; height: 2px; background: linear-gradient(90deg, var(--tc), transparent); transform-origin: left; }
+.hx-live--e3 { gap: 6px; padding: 6px 18px 6px 10px; border-radius: 6px 0 0 6px; background: var(--v4-mode-cases); clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 100%, 0 100%); }
+@container (max-width: 600px) { .hx--e3 .hx-t { padding: 8px 26px 8px 14px; clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%); } }
+
+/* C2: the mark in coin 6's gold on the logo's pink disc, Brand bolt's fading pink line */
+.hx--c2 .hx-mk { width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FF6FA8, #FB3F8A 55%, #C8246A); box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .18); color: #FFC44D; }
+.hx--c2 .hx-ic { width: 22px; height: 22px; }
+.hx-live--c2 .hx-mk { width: 20px; height: 20px; border-radius: 50%; background: #FB3F8A; color: #FFC44D; }
+.hx-live--c2 .hx-ic { width: 12px; height: 12px; }
+@container (max-width: 600px) { .hx--c2 .hx-mk { width: 32px; height: 32px; } .hx--c2 .hx-ic { width: 18px; height: 18px; } }
+
+/* C3: the mark alone in pink, the fading pink line */
+.hx--c3 .hx-mk, .hx-live--c3 .hx-mk { color: var(--color-pink); }
+.hx--c3 .hx-ic { width: 30px; height: 30px; }
+@container (max-width: 600px) { .hx--c3 .hx-ic { width: 24px; height: 24px; } }
+
+/* H: the side menu's mode card as a tile, its stripes over the mode colour, the mark in white; the line in the section's colour */
+.hx--h .hx-mk { width: 42px; height: 42px; border-radius: 12px; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--tg); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); color: #fff; }
+.hx--h .hx-ic { width: 22px; height: 22px; }
+.hx--h::after { background: linear-gradient(90deg, var(--tc), rgba(0, 0, 0, 0)); }
+.hx-live--h .hx-mk { width: 22px; height: 22px; border-radius: 6px; background: var(--v4-mode-cases); color: #fff; }
+.hx-live--h .hx-ic { width: 12px; height: 12px; }
+@container (max-width: 600px) { .hx--h .hx-mk { width: 34px; height: 34px; border-radius: 10px; } .hx--h .hx-ic { width: 18px; height: 18px; } }
+
+/* motion, once on first view: the slab slides in, the fill sweeps out, the line draws, the mark pops */
+.hd-motion .hx--e2 .hx-t::before, .hd-motion .hx--e3::after { transform: scaleX(0); }
+.hd-motion .hx--e2.is-in .hx-t::before, .hd-motion .hx--e3.is-in::after { transform: scaleX(1); transition: transform .55s cubic-bezier(.2, .7, .2, 1) .1s; }
+.hd-motion .hx--e3 .hx-t { translate: -12px 0; opacity: 0; }
+.hd-motion .hx--e3.is-in .hx-t { translate: 0 0; opacity: 1; transition: translate .3s cubic-bezier(.2, .7, .2, 1), opacity .3s; }
+.hd-motion :is(.hx--e1, .hx--c2, .hx--c3, .hx--h) .hx-mk { scale: .4; opacity: 0; }
+.hd-motion :is(.hx--e1, .hx--c2, .hx--c3, .hx--h).is-in .hx-mk { scale: 1; opacity: 1; transition: scale .3s var(--v4-ease-pop, ease-out) .12s, opacity .2s .12s; }
+@media (prefers-reduced-motion: reduce) { .hx::before, .hx .hx-t::before { transition: none !important; } }

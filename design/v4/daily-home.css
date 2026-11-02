@@ -191,3 +191,23 @@
 .dc-you.is-start { left: 11px; translate: none; color: var(--color-text-hi); text-decoration: none; }
 .dc-you.is-start:hover { filter: brightness(1.12); }
 .dc-you.is-start:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+
+/* founder of 2 Nov 2026 at a panel about 1050px wide, "тоже что то поломалось мне вообще не нравится": between 761 and 1079px the head row
+   stretched every box and the button to fill it, so a guest's one reset box and one button became two half-width bars. A guest keeps both
+   at their own width; from 900px of the panel they stand beside the title as above 1080px, below that under it on the left */
+@container dc (min-width: 761px) and (max-width: 1079px) {
+  .dc.is-guest .dc-boxes, .dc.is-guest .dc-box, .dc.is-guest .dc-row .v4-btn { flex: 0 0 auto; }
+}
+@container dc (min-width: 900px) and (max-width: 1079px) {
+  .dc.is-guest .dc-head.has-title { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0 24px; }
+  .dc.is-guest .dc-head.has-title .dc-title { display: contents; }
+  .dc.is-guest .dc-head.has-title .dc-t { grid-column: 1; grid-row: 1; }
+  .dc.is-guest .dc-head.has-title .dc-row { grid-column: 2; grid-row: 1; justify-self: end; justify-content: flex-end; flex: none; }
+  .dc.is-guest .dc-head.has-title .dc-l { grid-column: 1 / -1; margin-top: 14px; }
+}
+/* the same below 760px while the panel is still wider than a phone: the reset box and the button side by side at their own width */
+@container dc (min-width: 561px) and (max-width: 760px) {
+  .dc.is-guest .dc-row { width: auto; flex-wrap: nowrap; }
+  .dc.is-guest .dc-boxes { display: flex; width: auto; }
+  .dc.is-guest .dc-box, .dc.is-guest .dc-row .v4-btn { flex: 0 0 auto; }
+}

@@ -1,0 +1,211 @@
+/* design/v4/seo-lab.css, a satellite exploration of v4: Home's SEO block, "What opening a case here involves", founder of 2 Nov 2026,
+ * "давай делать вот эту секцию". Three directions in the language of the blocks above it on Home: the striped plates, the new Ironbound case
+ * (art/cases-v2/ironbound-c.webp) with a real skin in its tray, coin 6, the dark pills, links as in Before you spend. No glow, no dot grid, no
+ * decorative numbering, no effect filling space. Each block lays itself out by its own width, container sl. */
+
+body.sl-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.sl-main { box-sizing: border-box; max-width: 1213px; margin: 0 auto; padding: 32px 16px 80px; }
+@media (min-width: 900px) { .sl-main { margin-left: calc(var(--nav-w, 248px) + 24px); } }
+.sl-head h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.sl-head p, .sl-now p { margin: 0 0 10px; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 86ch; }
+.sl-head .sl-rec { color: var(--color-text-hi); }
+.sl-rec b { color: var(--color-pink); }
+.sl-now h2 { margin: 0 0 10px; font-size: 20px; font-weight: 900; }
+.sl-now a { color: var(--color-blue); }
+.sl-var { margin-top: 56px; }
+.sl-cap { margin: 0 0 22px; color: var(--color-text-soft); font-size: 15px; line-height: 1.45; max-width: 110ch; }
+.sl-cap > b { display: inline-grid; place-items: center; min-width: 24px; height: 24px; margin-right: 6px; padding: 0 6px; box-sizing: border-box; border-radius: 6px; background: var(--color-pink); color: var(--color-text-hi); font-size: 13px; font-weight: 900; }
+.sl-sample { display: block; margin-top: 4px; color: var(--color-text-muted); font-size: 13px; }
+.sl-frame { container: sl / inline-size; }
+.sl-frame a { color: inherit; text-decoration: none; }
+.sl-frame a:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+
+/* shared: the heading as Home writes it, with coin 6 for its mark; a link with its arrow; a dark pill; the case with the skin in its tray */
+.sl-h2 { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.sl-h2 img { flex: 0 0 auto; width: 26px; height: 26px; }
+.sl-h2 h2 { margin: 0; font-size: 26px; font-weight: 900; line-height: 1.1; text-transform: uppercase; }
+.sl-h2::after { content: ''; flex: 1 1 40px; height: 1px; background: var(--color-blue); }
+.sl-h2--plain::after { content: none; }
+.nw { white-space: nowrap; }
+.nw > svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: translate .2s var(--v4-ease-pop); }
+.sl-go { display: inline-block; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+@media (hover: hover) { .sl-go:hover .nw > svg { translate: 3px 0; } }
+.sl-pill { display: inline-flex; align-items: center; gap: 7px; box-sizing: border-box; min-height: 30px; padding: 0 12px; border-radius: var(--btn-radius, 10px);
+  background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); color: var(--color-text-hi); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.sl-pill--ico img, .sl-pill--ico svg { flex: 0 0 auto; width: 14px; height: 14px; }
+.sl-pill--ok svg { fill: var(--color-green); }
+.sl-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.sl-case { position: absolute; aspect-ratio: 3 / 2; pointer-events: none; }
+.sl-case .b, .sl-case .f { position: absolute; inset: 0; background: url(art/cases-v2/ironbound-c.webp) center / 100% auto no-repeat; }
+.sl-case .b { filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); }
+.sl-case .f { z-index: 2; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
+.sl-case .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); }
+.sl-t { display: block; font-size: 12px; color: rgba(255, 255, 255, .88); }
+.sl-t b { color: #fff; font-weight: 900; }
+.sl-ruler { position: relative; display: block; width: 100%; height: 6px; margin-top: 6px; border-radius: 3px; background: rgba(6, 10, 30, .38); }
+.sl-ruler i { position: absolute; top: 0; bottom: 0; left: calc(var(--a) * 1%); width: max(4px, calc((var(--b) - var(--a)) * 1%)); border-radius: 3px; background: rgba(255, 255, 255, .62); }
+.sl-ruler b { position: absolute; top: -4px; left: calc(var(--t) * 1%); width: 3px; height: 14px; margin-left: -1.5px; border-radius: 2px; background: #fff; box-shadow: 0 0 0 2px rgba(6, 10, 30, .3); }
+.sl-ok { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; color: var(--color-green); font-size: 12px; font-weight: 700; }
+.sl-ok svg { width: 14px; height: 14px; fill: var(--color-green); }
+
+/* S1: three claims, three cards; the picture breaks out over the top right corner only, the words take the card's width */
+.s1-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 44px; }
+.s1-card { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 250px; padding: 22px;
+  border-radius: var(--v4-radius); background: var(--btn-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
+  clip-path: inset(-100px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); overflow-x: clip; }
+.s1-card > :not(.s1-art):not(.s1-skin) { position: relative; z-index: 1; }
+.s1-c1 { --g: linear-gradient(140deg, #3955E8, #1B2A8F); }
+.s1-c2 { --g: linear-gradient(140deg, #6B42B9, #2E1A63); }
+.s1-c3 { --g: linear-gradient(160deg, #0F7EA6, #1F55C9 58%, #24359E); }
+.s1-k { font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .85); }
+.s1-p { max-width: 40ch; margin: 44px 0 0; color: rgba(255, 255, 255, .94); font-size: 17px; font-weight: 500; line-height: 1.45; }
+.s1-card .sl-go { margin-top: auto; padding-top: 16px; }
+.s1-art { z-index: 0; right: -6%; top: -66px; height: 128px; }
+.s1-skin { position: absolute; z-index: 0; right: -2%; top: -46px; width: 46%; height: auto; transform: rotate(-14deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); }
+.s1-card .sl-proof { display: block; width: 100%; margin-top: 16px; padding: 12px 14px; box-sizing: border-box; border-radius: 8px; background: rgba(6, 10, 30, .42); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+
+.sl-bar { display: flex; gap: 2px; height: 8px; margin-top: 8px; }
+.sl-bar i { flex: var(--w) 0 0; min-width: 4px; border-radius: 3px; background: var(--k); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25); }
+.sl-key { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; font-size: 12px; color: rgba(255, 255, 255, .86); }
+.sl-key span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.sl-key span::before { content: ''; width: 8px; height: 8px; border-radius: 2px; background: var(--k); box-shadow: 0 0 0 1px rgba(255, 255, 255, .3); }
+
+/* S2: the third ticket, a striped stub in Ironbound's blue with the heading and the case, three panels of text parted on hairlines */
+.s2 { display: grid; grid-template-columns: 250px repeat(3, minmax(0, 1fr)); border-radius: var(--v4-radius); background: linear-gradient(100deg, #1F1E5E, #261D66 50%, #2E1A63);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 14px 34px rgba(6, 10, 30, .5); }
+.s2-stub { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-height: 250px; padding: 22px; border-radius: var(--v4-radius) 0 0 var(--v4-radius);
+  background: var(--btn-stripes), linear-gradient(160deg, #4A6BFF, #3955E8 50%, #1B2A8F); overflow: hidden; }
+.s2-coin { width: 28px; height: 28px; }
+.s2-stub h2 { position: relative; z-index: 1; margin: 0; font-size: 24px; font-weight: 900; line-height: 1.05; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
+.s2-art { z-index: 0; right: -14%; bottom: -10px; height: 116px; }
+.s2-p { position: relative; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 22px; }
+.s2-p + .s2-p::before { content: ''; position: absolute; left: 0; top: 22px; bottom: 22px; width: 1px; background: rgba(255, 255, 255, .16); }
+.s2-p p { margin: 14px 0 0; color: rgba(255, 255, 255, .92); font-size: 16px; line-height: 1.5; }
+.s2-p .sl-go { margin-top: auto; padding-top: 16px; }
+
+/* S3: the case, read; the paragraph whole on the left, the case on a striped plate on the right, read by three pills */
+.s3 { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 24px; padding: 28px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.s3-text { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.s3-p { max-width: 58ch; margin: 0; color: rgba(255, 255, 255, .9); font-size: 17px; line-height: 1.65; }
+.s3-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 20px; }
+.s3-stage { position: relative; min-height: 300px; border-radius: var(--v4-radius); background: var(--btn-stripes), linear-gradient(150deg, #3955E8, #1B2A8F); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22); overflow: hidden; }
+.s3-art { left: 50%; bottom: 8px; height: 220px; translate: -50% 0; }
+.s3-pin { position: absolute; z-index: 3; }
+.s3-pin1 { left: 16px; top: 18px; }
+.s3-pin2 { right: 16px; top: 64px; }
+.s3-pin3 { left: 16px; bottom: 18px; }
+
+/* narrow: the block's own width decides */
+@container sl (max-width: 900px) {
+  .s1-row { grid-template-columns: minmax(0, 1fr); row-gap: 48px; padding-top: 40px; }
+  .s1-card { min-height: 0; }
+  .s1-p { margin-top: 12px; max-width: 64%; }
+  .s1-c2 .s1-p, .s1-c3 .s1-p { max-width: 64%; }
+  .s1-art { top: auto; bottom: 10px; right: -2%; height: 140px; }
+  .s1-skin { top: 50%; translate: 0 -50%; width: 36%; }
+  .s1-card .sl-proof { max-width: 64%; }
+  .s2 { grid-template-columns: minmax(0, 1fr); }
+  .s2-stub { min-height: 0; flex-direction: row; align-items: center; padding: 16px 22px; border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .s2-stub h2 { font-size: 22px; max-width: 62%; }
+  .s2-art { right: -4%; bottom: -24px; height: 100px; }
+  .s2-p + .s2-p::before { left: 22px; right: 22px; top: 0; bottom: auto; width: auto; height: 1px; }
+  .s3 { grid-template-columns: minmax(0, 1fr); }
+}
+@container sl (max-width: 560px) {
+  .sl-h2 h2 { font-size: 21px; }
+  .s1-card { padding: 18px; }
+  .s1-p { max-width: none; font-size: 16px; margin-top: 12px; }
+  .s1-c2 .s1-p, .s1-c3 .s1-p, .s1-card .sl-proof { max-width: none; }
+  .s1-c1 .s1-p { max-width: none; padding-top: 0; }
+  .s1-art { top: -56px; bottom: auto; right: -6%; height: 110px; }
+  .s1-skin { top: -40px; translate: none; width: 48%; }
+  .s1-k { max-width: 52%; }
+  .s2-stub { padding: 14px 18px; }
+  .s2-stub h2 { font-size: 19px; max-width: 64%; }
+  .s2-art { height: 84px; bottom: -18px; }
+  .s2-p { padding: 18px; }
+  .s2-p p { font-size: 15px; }
+  .s3 { padding: 18px; gap: 18px; }
+  .s3-p { font-size: 16px; }
+  .s3-stage { min-height: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; }
+  .s3-art { position: relative; left: auto; bottom: auto; translate: none; align-self: center; height: 170px; margin: 4px 0; order: 2; }
+  .s3-pin { position: static; white-space: normal; }
+  .s3-pin1 { order: 1; } .s3-pin2 { order: 3; } .s3-pin3 { order: 4; }
+}
+/* after the first look: the proof card has no picture, so at a narrow width its words and box take the card's whole width; the S2 bar lets
+   its case break out over its top edge rather than cut it */
+@container sl (max-width: 900px) {
+  .s1-c3 .s1-p, .s1-c3 .sl-proof { max-width: none; }
+  .s2-stub { overflow: visible; }
+  .s2-art { bottom: -4px; height: 88px; right: 2%; }
+}
+@container sl (max-width: 560px) { .s2-art { height: 76px; right: -2%; } }
+
+/* ROUND 2, founder of 2 Nov 2026, from S3: "сделай больше кейс, поставь другой кейс, кнопка провабли феир сделать главной, заголвок
+   поднять, не использовать коины а использовать иконки и сделать еще пару других вариантов". The markup and R1 are seo-home.css and
+   seo-home.js, the same files Home uses since "давай r1 поставим на главную"; this file adds the case switch and rows R2 to R4. */
+.sl-round { margin: 80px 0 6px; font-size: 22px; font-weight: 900; }
+.sl-round-p { margin: 0; color: var(--color-text-soft); font-size: 14px; }
+.sx-cases { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; margin-top: 16px; color: var(--color-text-soft); font-size: 14px; }
+.sx-cases label { display: inline-flex; align-items: center; gap: 8px; color: var(--color-text-hi); cursor: pointer; }
+.sx-cases input { width: 18px; height: 18px; margin: 0; accent-color: var(--color-pink); }
+
+.sl-main { --case: url(art/cases-v2/nightfall-c.webp); --c1: #8E2BC9; --c2: #3B1A8F; }
+.sl-main[data-case="ember"] { --case: url(art/cases-v2/emberforge-c.webp); --c1: #D1273E; --c2: #7A0F22; }
+.sl-main[data-case="war"] { --case: url(art/cases-v2/warsteel-c.webp); --c1: #B57A06; --c2: #B4400F; }
+.sl-main[data-case="cold"] { --case: url(art/cases-v2/coldfront-c.webp); --c1: #FB3F8A; --c2: #8E2BC9; }
+
+/* R2: the heading over both columns, the case taller than its plate, its lid over the plate's top edge; only the foot and sides clip */
+.sxb { grid-template-areas: "h h" "t s"; row-gap: 22px; }
+.sxb .sx-p { margin-top: 0; }
+.sxb .sx-stage { margin-top: 72px; min-height: 270px; overflow: visible; clip-path: inset(-400px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); }
+.sxb .sx-art { bottom: 58px; width: min(100%, 520px); }
+.sxb .sx-pins { position: absolute; z-index: 3; left: 14px; right: 14px; bottom: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+.sxb .sx-pin { position: static; }
+
+/* R3: the quotes as a list under the paragraph, the plate holds only the case, on its middle */
+.sxc .sx-pins { display: none; }
+.sxc .sx-facts { display: grid; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; }
+.sxc .sx-facts li { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 700; }
+.sxc .sx-stage { min-height: 400px; }
+.sxc .sx-art { top: 50%; bottom: auto; width: min(100%, 540px); translate: calc(-50% + 6.8%) -50%; }
+
+/* R4: the whole block is the plate; the case breaks out over its top right corner; on a coloured plate the main button turns white */
+#var-r4 .sl-frame { padding-top: 70px; }
+.sxd { background: var(--btn-stripes), linear-gradient(140deg, var(--c1), var(--c2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .5); }
+.sxd .sx-h .sx-ic { color: #fff; }
+.sxd .sx-p { color: #fff; }
+.sxd .sx-stage { min-height: 340px; background: none; box-shadow: none; overflow: visible; }
+.sxd .sx-art { left: auto; right: -4%; top: -96px; bottom: auto; width: min(108%, 560px); translate: none; }
+.sxd .sx-pins { position: absolute; z-index: 3; left: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.sxd .sx-pin { position: static; }
+.sxd .sx-fair { background: var(--btn-stripes), #fff; color: #16133C; box-shadow: 0 6px 18px rgba(6, 10, 30, .35); }
+.sxd .sx-acts .sl-go { color: #fff; }
+
+@container sl (max-width: 1000px) {
+  .sxb .sx-stage { margin-top: 60px; min-height: 250px; }
+  .sxd .sx-art { top: -60px; }
+}
+@container sl (min-width: 721px) and (max-width: 1000px) {
+  .sxb { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .sxb .sx-art { bottom: 106px; }
+  .sxb .sx-stage { margin-top: 40px; min-height: 300px; }
+}
+@container sl (max-width: 720px) {
+  #var-r4 .sl-frame { padding-top: 30px; }
+  .sxb { grid-template-columns: minmax(0, 1fr); grid-template-areas: "h" "t" "s"; }
+  .sxb .sx-stage { margin-top: 90px; }
+  .sxb .sx-art { width: min(80%, 440px); }
+  .sxc .sx-stage { min-height: 320px; }
+  .sxd .sx-stage { min-height: 300px; }
+  .sxd .sx-art { top: -40px; right: 0; width: min(100%, 520px); }
+}
+@container sl (max-width: 560px) {
+  .sxb .sx-stage, .sxc .sx-stage, .sxd .sx-stage { display: flex; flex-direction: column; min-height: 0; padding-bottom: 14px; }
+  .sxb .sx-art, .sxc .sx-art, .sxd .sx-art { position: relative; left: auto; right: auto; top: auto; bottom: auto; align-self: center; width: 100%; translate: 6.8% 0; margin: 6px 0; }
+  .sxb .sx-stage { margin-top: 64px; }
+  .sxb .sx-art { margin-top: -64px; }
+  .sxd .sx-art { margin-top: 44px; }
+  .sxb .sx-pins, .sxd .sx-pins { position: static; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 0 14px; }
+}

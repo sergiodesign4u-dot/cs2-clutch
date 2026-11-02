@@ -144,3 +144,12 @@
 @container x6 (max-width: 819px) { .x6-case { bottom: calc(var(--pad) + 24px); } } /* a narrow RTP panel: the case stands on the link's line, so the link runs under it */
 /* on Home the section's own rhythm spaces the block, as it spaces every section; the top margin is the lab's */
 .wf-sec > .x6-frame .x6 { margin-top: 0; }
+
+/* founder of 2 Nov 2026, after the push: the Glock a little lower, the AK a little larger and whole, no longer cut at the card's right
+   edge, and the round cards pulled up toward the strip above. The AK sits inside the card's right edge with a smaller tilt; the gap to
+   the strip falls from 46 to 58px down to 30 to 40px, which the lower skins leave room for */
+@container x6 (min-width: 600px) { .x6-row { margin-top: clamp(30px, 3cqw, 40px); } }
+.x6-card .x6-skin[src*="glock"] { top: calc(-1 * clamp(14px, 2cqw, 26px)); }
+.x6-card .x6-skin[src*="ak-47"] { right: 4%; top: calc(-1 * clamp(24px, 3cqw, 36px)); width: 58%; transform: rotate(-8deg); }
+@media (hover: hover) { .x6-card:hover .x6-skin[src*="ak-47"] { transform: translateY(-6px) rotate(-10deg) scale(1.03); } }
+@container x6 (max-width: 479px) { .x6-card .x6-skin[src*="glock"] { right: 3%; } } /* on a phone the Glock stays inside the screen */

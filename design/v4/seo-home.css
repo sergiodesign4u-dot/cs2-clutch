@@ -1,0 +1,90 @@
+/* design/v4/seo-home.css, Home's SEO block as R1, founder of 2 Nov 2026: "давай r1 поставим на главную", on Nightfall. The markup is
+ * seo-home.js's window.V4Seo.render; seo-lab.html loads this file too and adds only its other three rows, so Home and the lab cannot drift.
+ * The block lays itself out by its own width, container sl. Icons are the set's masks from _theme.css; the percent sign is new, drawn in the
+ * set's solid style. The case's plate takes the case's tile colours from case-tiles.css.
+ * Classes carry the sx prefix: the first draft named the block .r2, which is also the ticker's rarity class in _theme.css, and its grid and
+ * panel landed on every red drop in Live drops, emptying those cards. */
+
+.v4-seo { --case: url(art/cases-v2/nightfall-c.webp); --c1: #8E2BC9; --c2: #3B1A8F; }
+.wf-main > .v4-seo { margin-top: var(--space-6); }
+/* Home's sections set a soft grey for their text; the block's words, button and link stay white, as in the lab */
+.v4-seo-frame { container: sl / inline-size; color: var(--color-text-hi); }
+.v4-seo-frame a { color: inherit; text-decoration: none; }
+.v4-seo-frame a:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+
+/* shared parts: a link with its arrow, a dark pill, the case with a real skin in its tray (the front of the case drawn over the skin) */
+.nw { white-space: nowrap; }
+.nw > svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: translate .2s var(--v4-ease-pop); }
+.sl-go { display: inline-block; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+@media (hover: hover) { .sl-go:hover .nw > svg { translate: 3px 0; } }
+.sl-pill { display: inline-flex; align-items: center; gap: 7px; box-sizing: border-box; min-height: 30px; padding: 0 12px; border-radius: var(--btn-radius, 10px);
+  background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); color: var(--color-text-hi); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.sl-case { position: absolute; aspect-ratio: 3 / 2; pointer-events: none; }
+.sl-case .b, .sl-case .f { position: absolute; inset: 0; background: url(art/cases-v2/ironbound-c.webp) center / 100% auto no-repeat; }
+.sl-case .b { filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); }
+.sl-case .f { z-index: 2; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
+.sl-case .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); }
+.sx .sl-case .b, .sx .sl-case .f { background-image: var(--case); }
+
+.sx-ic { display: inline-block; flex: 0 0 auto; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.sx-ic--box { --ic: var(--icon-box); }
+.sx-ic--target { --ic: var(--icon-target); }
+.sx-ic--shield { --ic: var(--icon-shield); }
+.sx-ic--pct { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill-rule='evenodd'%3E%3Cpath d='M7 2.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 2.7a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM17 12.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 2.7a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8z'/%3E%3Cpath d='M18.3 2.6l2.6 2.6L5.7 21.4l-2.6-2.6z'/%3E%3C/g%3E%3C/svg%3E"); }
+
+/* R1: the paragraph whole on the left under the heading, the case filling its striped plate on the right, three quotes on the plate */
+.sx { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); grid-template-rows: auto 1fr; grid-template-areas: "h s" "t s"; column-gap: 32px;
+  padding: 28px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.sx-h { grid-area: h; display: flex; align-items: center; gap: 12px; min-width: 0; }
+/* the heading's mark as Home's other headings wear it since "берем" on heading-lab.html's Menu tile: the case in white on a striped tile in the
+   cases colour (heading-home.css) */
+.sx-h { position: relative; gap: 14px; }
+.sx-h::before { content: ''; flex: 0 0 42px; height: 42px; border-radius: 12px; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-cases); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.sx-h .sx-ic { position: absolute; left: 10px; top: 50%; width: 22px; height: 22px; margin-top: -11px; color: #fff; }
+.sx-h h2 { margin: 0; color: var(--color-text-hi); font-size: 26px; font-weight: 900; line-height: 1.1; text-transform: uppercase; }
+.sx-text { grid-area: t; min-width: 0; }
+.sx-p { max-width: 60ch; margin: 18px 0 0; color: rgba(255, 255, 255, .9); font-size: 17px; line-height: 1.65; }
+.sx-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 26px; }
+.sx-fair { gap: 10px; }
+.sx-fair .sx-ic { width: 18px; height: 18px; }
+.sx-stage { grid-area: s; position: relative; isolation: isolate; min-width: 0; min-height: 380px; border-radius: var(--v4-radius);
+  background: var(--btn-stripes), linear-gradient(150deg, var(--c1), var(--c2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22); overflow: hidden; }
+/* the case's body sits at 43.2% of its picture (case-tiles.css), so it moves right by 6.8% of its width to stand on the plate's centre */
+.sx-art { left: 50%; bottom: 0; width: min(96%, 480px); translate: calc(-50% + 6.8%) 0; }
+.sx-pin { position: absolute; z-index: 3; }
+.sx-pin .sx-ic { width: 15px; height: 15px; color: var(--color-pink); }
+.sx .is-ok .sx-ic, .sx-tile.is-ok { color: var(--color-green); }
+.sx-pin1 { left: 16px; top: 18px; }
+.sx-pin2 { right: 16px; top: 18px; }
+.sx-pin3 { left: 16px; bottom: 18px; }
+.sx-facts { display: none; }
+.sx-tile { display: inline-grid; place-items: center; flex: 0 0 auto; width: 34px; height: 34px; border-radius: 8px; background: rgba(255, 255, 255, .06); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); color: var(--color-pink); }
+.sx-tile .sx-ic { width: 18px; height: 18px; }
+
+/* the block's own width decides: below 1000px the two columns go even and the second quote goes under the first; below 720px one column;
+   below 560px the case and the quotes stack inside the plate */
+@container sl (max-width: 1000px) {
+  .sx { column-gap: 24px; }
+  .sx-p { font-size: 16px; }
+  .sx-stage { min-height: 340px; }
+}
+@container sl (min-width: 721px) and (max-width: 1000px) {
+  .sx { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .sx-pin2 { left: 16px; right: auto; top: 54px; }
+}
+@container sl (max-width: 720px) {
+  .sx { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-template-areas: "h" "t" "s"; row-gap: 22px; }
+  .sx-p { margin-top: 0; }
+  .sx-stage { min-height: 320px; }
+}
+@container sl (max-width: 560px) {
+  .sx { padding: 18px; }
+  .sx-h::before { flex-basis: 34px; height: 34px; border-radius: 10px; }
+  .sx-h .sx-ic { left: 8px; width: 18px; height: 18px; margin-top: -9px; }
+  .sx-h h2 { font-size: 21px; }
+  .sx-p { font-size: 16px; }
+  .sx-stage { display: flex; flex-direction: column; min-height: 0; padding-bottom: 14px; }
+  .sx-art { position: relative; left: auto; right: auto; top: auto; bottom: auto; align-self: center; width: 100%; translate: 6.8% 0; margin: 6px 0; }
+  .sx-pins { position: static; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 0 14px; }
+  .sx-pin { position: static; white-space: normal; }
+}
