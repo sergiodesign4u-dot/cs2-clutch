@@ -145,6 +145,11 @@
 .wf-coin, .wf-tile-cost::before, .wf-panel-head .wf-fig:has(+ .wf-fig) .wf-fig-v::before { border-radius: 0; background: url(art/brand/coin-6-small.svg) center / contain no-repeat; box-shadow: none; }
 /* at rest the hidden tooltip waits over the bolts, so a tooltip of the last tile cannot widen the page sideways while unseen */
 .wf-tile-risk:not(:hover) .v4-risk-tip { left: 0; right: auto; }
+/* founder of 2 Nov 2026, "баг анимашки ... чтобы тултип не прыгал": leaving the bolts, the tooltip jumped back onto them at once while it was
+   still fading out. Going back to rest, the move waits until the fade has ended; arriving, it moves at once, before the fade in */
+.v4-risk-tip { transition: opacity .15s, translate .2s cubic-bezier(.22, 1, .36, 1), left 0s .2s, right 0s .2s; }
+.wf-tile-risk:hover .v4-risk-tip { transition: opacity .15s, translate .2s cubic-bezier(.22, 1, .36, 1), left 0s, right 0s; }
+@media (prefers-reduced-motion: reduce) { .v4-risk-tip, .wf-tile-risk:hover .v4-risk-tip { transition: none; } }
 
 /* the price under the pointer, founder of 2 Nov 2026, P1 of tile-hover-lab.html: on G's colour the price "читается плоховато", so under the
    pointer and on keyboard focus it stands on a dark pill with a thin light edge, the plate of the daily boxes and the favourite. At rest

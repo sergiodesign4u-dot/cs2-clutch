@@ -75,6 +75,8 @@ window.NAV = [
           { label: 'Buttons',     pageLabel: 'Buttons v4',         page: 'design/v4/buttons-lab.html', live: true },
           { label: 'Case tile hover', pageLabel: 'Case tile hover v4', page: 'design/v4/tile-hover-lab.html', live: true },
           { label: 'Section headings', pageLabel: 'Section headings v4', page: 'design/v4/heading-lab.html', live: true },
+          { label: 'Footer', pageLabel: 'Footer v4', page: 'design/v4/footer-lab.html', live: true },
+          { label: 'Sign in', pageLabel: 'Sign in v4', page: 'design/v4/signin-lab.html', live: true },
           { label: 'Case screen', pageLabel: 'Case screen v4',     page: 'design/v4/case.html',       done: false }
       ]},
       { subhead: 'Concept v3', items: [

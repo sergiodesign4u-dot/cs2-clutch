@@ -67,3 +67,9 @@
   .wf-grid .wf-mode:hover .wf-mode-art { scale: none; rotate: none; translate: none; }
   .wf-grid .wf-mode:has([data-icon="battle"]):hover .wf-mode-art::before, .wf-grid .wf-mode:has([data-icon="battle"]):hover .wf-mode-art::after { animation: none; }
 }
+
+/* founder of 2 Nov 2026 at about 1215px, "у нас просто гигантские карточки режимов": between 900 and 1279px _theme.css put the four cards in two
+   rows of two, each card half the column wide and, at 7 to 4, near 290px tall. Everything in a card is drawn in its own width (cqw), so the
+   row of four holds there as it does above 1280px, only smaller, down to 1100px, where a card is about 230px wide; below it, its words wrap and its button
+   runs past its foot, so two rows of two stay from 900 to 1099px */
+@media (min-width: 1100px) and (max-width: 1279px) { .wf-grid.wf-modes { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

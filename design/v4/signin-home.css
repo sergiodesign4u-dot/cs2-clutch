@@ -1,0 +1,161 @@
+/* design/v4/signin-home.css, v4's sign in dialog: Operators round 2 of signin-lab.html on the Battles blue panel, founder of 3 Nov 2026,
+ * "давай вот такой вариант", then "переносим на главную". The markup comes from signin-home.js (window.V4Signin.render), which the lab and
+ * Home both call, so they cannot drift. The site's own language only: Roboto, the button family of buttons.css, the mode gradients, the
+ * footer strip's dark plate. The dialog lays itself out by its own width (container dlg), so the same markup is the 1558 dialog and the
+ * 360 sheet. The lab's other directions keep their rules in signin-lab.css on top of the base here. */
+
+/* ------------------------------------------------------------------ the dialog, mobile first */
+.sd { position: relative; isolation: isolate; display: grid; grid-template-areas: "art" "body" "extra"; width: 100%; max-width: 900px; overflow: hidden;
+  background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); text-align: left; }
+.sd[hidden] { display: none; }
+.sd-art { grid-area: art; position: relative; overflow: hidden; }
+.sd-body { grid-area: body; position: relative; z-index: 1; min-width: 0; padding: 22px 16px 24px; }
+.sd > .sd-proofs, .sd > .sd-plates { grid-area: extra; min-width: 0; }
+.sd-close { position: absolute; z-index: 5; top: 10px; right: 10px; display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 12px; background: rgba(11, 10, 34, .85); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); color: var(--color-text-hi); cursor: pointer; }
+.sd-close:hover { background: #241F58; }
+.sd-close:focus-visible, .sd-box:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+.sd-close-i { width: 16px; height: 16px; }
+.sd-h { margin: 0 0 16px; font-size: 24px; font-weight: 900; line-height: 1.1; text-transform: uppercase; }
+
+/* the two declarations, each its own row and its own act */
+.sd-consent { display: grid; gap: 8px; }
+.sd-cbx { display: flex; align-items: center; gap: 12px; min-height: 48px; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); color: var(--color-text-soft); font-size: 14px; line-height: 1.4; cursor: pointer; transition: box-shadow .2s, background-color .2s; }
+.sd-cbx a { color: var(--color-pink); font-weight: 700; text-decoration: none; }
+.sd-cbx a:hover { text-decoration: underline; }
+.sd-cbx-t { flex: 1; min-width: 0; }
+.sd-box { flex: none; display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 7px; background: transparent; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .4); cursor: pointer; transition: background-color .15s, box-shadow .15s; }
+.sd-box svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset .18s ease-out; }
+.sd-cbx.is-set { color: var(--color-text-hi); box-shadow: inset 0 0 0 1px rgba(251, 63, 138, .45); }
+.sd-cbx.is-set .sd-box { background: var(--color-pink); box-shadow: none; }
+.sd-cbx.is-set .sd-box svg { stroke-dashoffset: 0; }
+/* the refusal: the row that is missing says so with an edge and a short nudge, and the words sit right above the buttons */
+.sd-cbx.is-missing { box-shadow: inset 0 0 0 2px #FF4D6A; animation: sd-nudge .32s ease-out; }
+.sd-cbx.is-missing .sd-box { box-shadow: inset 0 0 0 2px #FF4D6A; }
+@keyframes sd-nudge { 25% { translate: -5px 0; } 55% { translate: 4px 0; } 80% { translate: -2px 0; } }
+.sd-why { min-height: 0; margin: 10px 0 12px; color: var(--color-text-soft); font-size: 14px; line-height: 1.4; }
+.sd-why:empty { margin: 8px 0; }
+.sd.is-asked .sd-why { padding: 8px 12px; border-radius: 10px; background: rgba(209, 39, 62, .16); box-shadow: inset 3px 0 0 #FF4D6A; color: var(--color-text-hi); }
+
+.sd-steam { width: 100%; gap: 10px; }
+.sd-pv-i { flex: none; width: 20px; height: 20px; }
+.sd-provs .sd-pv-i { width: 16px; height: 16px; }
+.sd-or { display: flex; align-items: center; gap: 12px; margin: 14px 0 10px; color: var(--color-text-muted); font-size: 13px; }
+.sd-or::before, .sd-or::after { content: ''; flex: 1; height: 1px; background: var(--color-line-soft); }
+.sd-provs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.sd-provs .v4-btn { gap: 8px; min-width: 0; padding: 0 8px; letter-spacing: .02em; text-transform: none; font-size: 14px; }
+.sd-cost { margin: 12px 0 0; color: var(--color-text-muted); font-size: 13px; line-height: 1.45; }
+.sd-cost b { color: var(--color-text-hi); }
+.sd-never { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--color-line-soft); color: var(--color-text-muted); font-size: 13px; line-height: 1.45; }
+
+/* the proofs: three lines Home already shows, as dark pills */
+.sd-proofs { display: grid; gap: 8px; margin: 0; padding: 0 16px 20px; list-style: none; }
+.sd-pf { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; background: rgba(11, 10, 34, .82); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); }
+.sd-pf-i { flex: none; width: 34px; height: 34px; border-radius: 10px; background: var(--btn-stripes), var(--color-pink); -webkit-mask: none; mask: none; position: relative; }
+.sd-pf-i::after, .sd-plate-i::after { content: ''; position: absolute; inset: 8px; background: #fff; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.sd-pf-t { display: grid; min-width: 0; font-size: 14px; line-height: 1.3; }
+.sd-pf-t b { font-weight: 700; }
+.sd-pf-s { color: var(--color-text-soft); font-size: 13px; }
+
+@container dlg (min-width: 760px) {
+  .sd { grid-template-columns: minmax(0, 400px) minmax(0, 1fr); grid-template-areas: "art body"; border-radius: 18px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 30px 60px rgba(0, 0, 0, .45); }
+  .sd > .sd-proofs, .sd > .sd-plates { grid-area: art; z-index: 2; }
+  .sd-body { align-self: center; padding: 36px 36px 30px; }
+  .sd-h { font-size: 28px; margin-bottom: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sd-cbx, .sd-box, .sd-box svg { transition: none; }
+  .sd-cbx.is-missing { animation: none; }
+}
+
+/* ================================================================== round 2, founder of 3 Nov 2026 on Operators: "заголовки надо как-то
+   сделать в одной линии", "закрыть кнопка выглядит вообще не очень, там квадрат потом круг потом крестик", "это выглядит как-то плотно ...
+   может это как-то внизу диалога", "выделить подложкой темной как на футере, и иконку добавить", "фоны попробовать попереключать" */
+.sd-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* the close: a cross and nothing around it until the pointer is on it */
+.sd .sd-x { width: 36px; height: 36px; border-radius: 10px; background: none; box-shadow: none; color: rgba(255, 255, 255, .75); transition: color .15s, background-color .15s; }
+.sd .sd-x::before, .sd .sd-x::after { content: ''; position: absolute; left: 50%; top: 50%; width: 18px; height: 2.5px; margin: -1.25px 0 0 -9px; border-radius: 2px; background: currentColor; rotate: 45deg; transition: rotate .2s; }
+.sd .sd-x::after { rotate: -45deg; }
+.sd .sd-x:hover { color: #fff; background: rgba(255, 255, 255, .1); }
+.sd .sd-x:hover::before { rotate: 135deg; } .sd .sd-x:hover::after { rotate: 45deg; }
+
+/* the form breathes: no standing "both declarations made" row, the refusal only when there is one */
+.sd--e .sd-why, .sd--f .sd-why { margin: 0; }
+.sd--e.is-asked .sd-why, .sd--f.is-asked .sd-why { margin-top: 12px; }
+.sd--e .sd-steam, .sd--f .sd-steam { margin-top: 16px; }
+.sd--e .sd-or, .sd--f .sd-or { margin: 18px 0 12px; }
+
+/* the foot plate: the footer strip's dark ground, a shield on the line that answers the fear */
+.sd-note { display: grid; gap: 10px; margin-top: 24px; padding: 14px; border-radius: 14px; background: rgba(6, 8, 24, .7); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+.sd-note p { display: flex; align-items: center; gap: 12px; margin: 0; color: var(--color-text-muted); font-size: 13px; line-height: 1.4; }
+.sd-note p.is-guard { color: var(--color-text-hi); font-weight: 700; }
+.sd-note b { color: var(--color-text-hi); }
+.sd-note-i { position: relative; flex: none; width: 30px; height: 30px; border-radius: 9px; background: rgba(255, 255, 255, .06); }
+.sd-note-i::after { content: ''; position: absolute; inset: 7px; background: var(--color-text-soft); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.sd-note .is-guard .sd-note-i { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 6px, transparent 6px 12px), var(--v4-mode-battles); }
+.sd-note .is-guard .sd-note-i::after { background: #fff; }
+
+/* round 2, second pass, founder of 3 Nov 2026: "давай вот такой вариант" (Operators round 2 on Battles blue), "иконки выровнять визуально",
+   "какая-то проблема со стим иконкой", "ошибки без ИИ слопа" */
+/* the note's tiles are tiles: the theme's [data-icon] rule masked the tile itself to the glyph, so Steam's ring with its holes read as a
+   broken mark; the tile keeps no mask and only its ::after draws the glyph, white on Steam's own dark blue */
+.sd-note-i { -webkit-mask: none; mask: none; }
+.sd-note .is-steam .sd-note-i { background: linear-gradient(140deg, #2A475E, #171D25); }
+.sd-note .is-steam .sd-note-i::after { inset: 6px; background: #fff; }
+/* the three provider marks are drawn on different grids: Discord is wide and short, X thin and tall, Google a ring, so one box size made
+   them look three sizes; each gets the size that makes them read the same, centred on the label's capitals */
+.sd--e .sd-provs .v4-btn, .sd--f .sd-provs .v4-btn { gap: 10px; }
+.sd--e .sd-provs [data-icon="google"], .sd--f .sd-provs [data-icon="google"] { width: 17px; height: 17px; }
+.sd--e .sd-provs [data-icon="discord"], .sd--f .sd-provs [data-icon="discord"] { width: 20px; height: 20px; }
+.sd--e .sd-provs [data-icon="x"], .sd--f .sd-provs [data-icon="x"] { width: 15px; height: 15px; }
+/* the close, founder of 3 Nov 2026: "у крестика сделаем темную прозрачную подложку плюс по ховеру крестик становится красным": a dark
+   see-through tile always under the cross, and the cross turns the error red under the pointer */
+.sd .sd-x, .sd--e .sd-close, .sd--f .sd-close { background: rgba(6, 8, 24, .45); color: #fff; }
+.sd .sd-x:hover { background: rgba(6, 8, 24, .6); color: #FF4D6A; }
+@container dlg (min-width: 760px) { .sd--e .sd-close { color: #fff; } }
+/* the refusal: no tinted box and no coloured side stripe; one line in the error red under the rows it names, led by a small round mark */
+.sd--e.is-asked .sd-why, .sd--f.is-asked .sd-why { position: relative; margin-top: 12px; padding: 0 0 0 26px; border-radius: 0; background: none; box-shadow: none; color: #FF8297; font-size: 14px; line-height: 20px; }
+.sd--e.is-asked .sd-why b, .sd--f.is-asked .sd-why b { font-weight: 700; }
+.sd--e.is-asked .sd-why::before, .sd--f.is-asked .sd-why::before { content: '!'; position: absolute; left: 0; top: 1px; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: #FF4D6A; color: #fff; font-size: 12px; font-weight: 900; line-height: 1; }
+
+/* ------------------------------------------------------------------ e, Operators round 2 */
+.sd--e { grid-template-areas: "art" "body"; }
+.sd--e > .sd-proofs { display: none; }
+.sd--e .sd-art { min-height: 168px; }
+.sd--e .sd-art-h { position: relative; z-index: 1; max-width: 58%; margin: 0; padding: 22px 16px; font-size: 20px; font-weight: 900; line-height: 1.12; text-transform: uppercase; }
+.sd--e .sd-agents { position: absolute; right: -36px; bottom: 0; height: 100%; width: auto; }
+.sd--e .sd-close { top: 8px; right: 8px; color: #fff; }
+.sd--e .sd-body { padding: 20px 16px 16px; }
+.sd--e .sd-h { margin-bottom: 16px; }
+@container dlg (min-width: 760px) {
+  .sd--e { grid-template-columns: minmax(0, 400px) minmax(0, 1fr); grid-template-areas: "art body"; min-height: 600px; }
+  .sd--e .sd-art { min-height: 0; }
+  .sd--e .sd-art-h { max-width: 340px; padding: 34px 30px 0; font-size: 30px; }
+  .sd--e .sd-agents { right: auto; bottom: 0; left: -30px; width: calc(100% + 60px); height: auto; }
+  /* the form takes the room the panel gives it instead of leaving a hole above the plate */
+  .sd--e .sd-consent { gap: 10px; }
+  .sd--e .sd-cbx { min-height: 58px; padding: 12px 16px; font-size: 15px; }
+  .sd--e .sd-steam { margin-top: 22px; }
+  .sd--e .sd-or { margin: 24px 0 16px; }
+  .sd--e > .sd-proofs { display: grid; grid-area: art; align-self: start; margin-top: 190px; padding: 0 30px; }
+  /* the two headings share a top: both 30px, both 34px down, and the cross sits at the end of that line */
+  .sd--e .sd-body { align-self: stretch; display: flex; flex-direction: column; padding: 34px 36px 28px; }
+  .sd--e .sd-h { margin: 0 0 28px; padding-right: 48px; font-size: 30px; line-height: 1.12; }
+  .sd--e .sd-close { top: 32px; right: 26px; color: rgba(255, 255, 255, .75); }
+  .sd--e .sd-note { margin-top: auto; }
+  .sd--e .sd-provs { margin-bottom: 24px; }
+}
+
+/* ================================================================== on Home: wireframes/_nav.js opens its dialog host and signin-home.js
+   fills .wf-dlg with the dialog above; these lift the theme's grey frame (_theme.css .wf-dlg) off it */
+.wf-auth-host .wf-dlg-wrap { container: dlg / inline-size; }
+.wf-auth-host .wf-dlg.sd { display: grid; flex-direction: unset; max-width: 900px; margin: auto; padding: 0; border: 0; border-radius: 0; color: var(--color-text-hi);
+  background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); align-content: start; }
+/* the theme gives every button a 44px tap floor; the box keeps its 24px square because its whole row is the press, and the cross its
+   36px tile */
+.wf-auth-host .wf-dlg.sd .sd-box { min-width: 0; min-height: 0; width: 24px; height: 24px; }
+.wf-auth-host .wf-dlg.sd .sd-x { min-width: 0; min-height: 0; padding: 0; width: 36px; height: 36px; }
+@container dlg (min-width: 760px) {
+  .wf-auth-host .wf-dlg.sd { align-content: stretch; border-radius: 18px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 30px 60px rgba(0, 0, 0, .45); }
+}

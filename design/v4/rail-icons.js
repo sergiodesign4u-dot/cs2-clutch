@@ -39,6 +39,15 @@
 
   S.dollar = '<g class="ri-coin"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12.75 6C12.75 5.58579 12.4142 5.25 12 5.25C11.5858 5.25 11.25 5.58579 11.25 6V6.31673C9.61957 6.60867 8.25 7.83361 8.25 9.5C8.25 11.4172 10.0628 12.75 12 12.75C13.3765 12.75 14.25 13.6557 14.25 14.5C14.25 15.3443 13.3765 16.25 12 16.25C10.6235 16.25 9.75 15.3443 9.75 14.5C9.75 14.0858 9.41421 13.75 9 13.75C8.58579 13.75 8.25 14.0858 8.25 14.5C8.25 16.1664 9.61957 17.3913 11.25 17.6833V18C11.25 18.4142 11.5858 18.75 12 18.75C12.4142 18.75 12.75 18.4142 12.75 18V17.6833C14.3804 17.3913 15.75 16.1664 15.75 14.5C15.75 12.5828 13.9372 11.25 12 11.25C10.6235 11.25 9.75 10.3443 9.75 9.5C9.75 8.65573 10.6235 7.75 12 7.75C13.3765 7.75 14.25 8.65573 14.25 9.5C14.25 9.91421 14.5858 10.25 15 10.25C15.4142 10.25 15.75 9.91421 15.75 9.5C15.75 7.83361 14.3804 6.60867 12.75 6.31673V6Z"/></g>';
 
+  /* founder of 3 Nov 2026: the footer's counters play the rail's stories, and two marks the rail has no row for get stories of their own.
+     users: the second person joins from behind, the first hops, two sparks; online: the person nods, the tick draws again, a live ring */
+  S.users = '<g class="ri-p2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15.2 4.2a3.6 3.6 0 0 1 0 6.8M18 14.6c2 .9 3.4 2.9 3.4 5.4"/></g>' +
+    '<g class="ri-p1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="7.6" r="3.6"/><path d="M2.6 20.4c0-3.6 2.9-6.2 6.4-6.2s6.4 2.6 6.4 6.2z"/></g>' +
+    '<g class="ri-x ri-joins"><path class="ri-j1" d="M20.6 2.2l.5 1.1 1.1.5-1.1.5-.5 1.1-.5-1.1-1.1-.5 1.1-.5z"/><path class="ri-j2" d="M22.4 7.4l.4.8.8.4-.8.4-.4.8-.4-.8-.8-.4.8-.4z"/></g>';
+  S.online = '<g class="ri-me" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7.6" r="3.6"/><path d="M2.6 20.4c0-3.6 2.9-6.2 6.4-6.2 1.6 0 3 .5 4.1 1.4"/></g>' +
+    '<path class="ri-tick" d="M15.4 13.4l2.2 2.2 4.2-4.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '<circle class="ri-x ri-live" cx="18.4" cy="13.4" r="5.2" fill="none" stroke-width="1.4"/>';
+
   S.swap = '<g class="ri-swap"><path class="ri-upper" d="M10.25 4.00003C10.25 3.69074 10.0602 3.41317 9.77191 3.30105C9.48366 3.18892 9.15614 3.26524 8.94715 3.49324L3.44715 9.49324C3.24617 9.71248 3.19374 10.0298 3.3135 10.302C3.43327 10.5743 3.70259 10.75 4.00002 10.75H20C20.4142 10.75 20.75 10.4142 20.75 10C20.75 9.58582 20.4142 9.25003 20 9.25003L10.25 9.25003V4.00003Z"/><path class="ri-lower" d="M13.75 20L13.75 14.75H4.00002C3.5858 14.75 3.25002 14.4142 3.25002 14C3.25002 13.5858 3.5858 13.25 4.00002 13.25L20 13.25C20.2974 13.25 20.5668 13.4258 20.6865 13.698C20.8063 13.9703 20.7539 14.2876 20.5529 14.5068L15.0529 20.5068C14.8439 20.7348 14.5164 20.8111 14.2281 20.699C13.9399 20.5869 13.75 20.3093 13.75 20Z"/></g>';
 
   var SPEAKER = '<path class="ri-cone" d="M3 9.2h3.6L11.5 5v14l-4.9-4.2H3z"/>';
@@ -68,6 +77,9 @@
     dress();
     if (shell) new MutationObserver(dress).observe(shell, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-icon', 'aria-pressed'] });
   }
+
+  /* the drawings for other places that play the same stories, the footer's counters among them */
+  window.V4RailIcons = { svg: function (id) { return S[id] ? svg(id, S[id]) : ''; } };
 
   if (document.readyState === 'complete') start();
   else window.addEventListener('load', start);

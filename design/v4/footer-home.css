@@ -1,0 +1,409 @@
+/* design/v4/footer-home.css, v4's footer, the I of footer-lab.html on Home since 3 Nov 2026. The rules of every footer the lab drew live
+ * here, since I is the last of a line of variants built one on another (D, E, F, G, H, I) and the lab still shows them all; the lab's own
+ * page layout stays in footer-lab.css. Markup: footer-home.js, window.V4Footer.render. Container ft. */
+
+/* ---------------------------------------------------------------- shared parts */
+.ft { position: relative; isolation: isolate; color: var(--color-text-hi); }
+.ft a { color: inherit; text-decoration: none; }
+.fl-ic { display: block; width: 20px; height: 20px; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.fl-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.fl-stat { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.fl-tile { display: grid; place-items: center; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-cases); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.fl-stat:nth-child(2) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-upgrade); }
+.fl-stat:nth-child(3) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-battles); }
+.fl-stat:nth-child(4) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-showdowns); }
+.fl-tile .fl-ic { width: 22px; height: 22px; color: #fff; }
+.fl-sv { display: grid; gap: 2px; min-width: 0; }
+.fl-sv b { font-size: 24px; font-weight: 900; line-height: 1.05; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.fl-sv span { color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.fl-stat.is-live .fl-sv span::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: var(--color-green); vertical-align: 1px; animation: fl-live 2s ease-in-out infinite; }
+@keyframes fl-live { 50% { opacity: .35; } }
+
+.fl-mid { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 2.6fr); gap: 32px; }
+.fl-cols { display: grid; grid-template-columns: .7fr 1fr 1.25fr 1fr; gap: 24px; }
+.fl-col { display: grid; align-content: start; gap: 12px; }
+.fl-col h3 { margin: 0 0 4px; color: var(--color-text-muted); font-size: 12px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.fl-col a, .fl-linklike { width: fit-content; color: var(--color-text-hi); font-size: 15px; line-height: 1.3; }
+.fl-linklike { padding: 0; border: 0; background: none; font: inherit; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+@media (hover: hover) { .fl-col a:hover { color: var(--color-pink); } }
+.fl-brand { display: grid; align-content: start; gap: 16px; }
+.fl-logo { display: block; width: 168px; height: 46px; background: url(art/brand/logo2-10.svg) left center / contain no-repeat; }
+.fl-ident { margin: 0; color: var(--color-text-muted); font-size: 13px; line-height: 1.45; }
+.fl-help { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.fl-help > span { font-size: 15px; font-weight: 900; text-transform: uppercase; }
+.fl-soc { display: flex; flex-wrap: wrap; gap: 8px; }
+.fl-sq { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); color: var(--color-text-soft); transition: background .2s, color .2s; }
+.fl-sq .fl-ic { width: 18px; height: 18px; }
+@media (hover: hover) { .fl-sq:hover { background: var(--btn-stripes), var(--color-pink); color: #fff; } }
+
+.fl-age { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.fl-age-m { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; box-shadow: inset 0 0 0 2px var(--color-pink); font-size: 15px; font-weight: 900; }
+.fl-age p { margin: 0; max-width: 70ch; color: var(--color-text-soft); font-size: 13px; line-height: 1.45; }
+.fl-age p + p { margin-top: 4px; }
+.fl-tp { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+.fl-tp-stars { display: flex; gap: 3px; }
+.fl-tp-stars i { position: relative; width: 20px; height: 20px; border-radius: 3px; background: #00B67A; }
+.fl-tp-stars i::after { content: ''; position: absolute; inset: 3px; background: #fff; -webkit-mask: var(--icon-star) center / contain no-repeat; mask: var(--icon-star) center / contain no-repeat; }
+.fl-tp-stars i.is-part { background: linear-gradient(90deg, #00B67A 10%, #3B3F5C 10%); }
+.fl-tp b { font-size: 22px; font-weight: 900; }
+.fl-tp > span:last-child { color: var(--color-text-soft); font-size: 12px; line-height: 1.25; }
+.fl-lang { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; min-height: 44px; padding: 0 14px; border: 0; border-radius: var(--btn-radius); background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); color: var(--color-text-hi); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.fl-flag { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(#1B2A8F, #1B2A8F); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .2); }
+.fl-caret { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; rotate: 45deg; translate: 0 -2px; margin-left: 6px; }
+.fl-pay { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.fl-pay li { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border-radius: 10px; background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); color: var(--color-text-soft); font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.fl-pay .fl-ic { width: 16px; height: 16px; color: var(--color-money, #FFC44D); }
+.fl-fine { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; color: var(--color-text-muted); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+
+/* the trust plates: striped doors in the menu's colours, the round anyone can check beside responsible play */
+.fl-plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.fl-plate { position: relative; display: flex; align-items: center; gap: 14px; min-height: 72px; padding: 12px 44px 12px 14px; border-radius: 14px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 24px rgba(6, 10, 30, .4); transition: translate .2s, filter .2s; }
+.fl-plate.is-rg { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-battles); }
+.fl-plate.is-pf { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), linear-gradient(140deg, #0F7EA6, #1F55C9 60%, #24359E); }
+.fl-pt { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; background: rgba(6, 10, 30, .35); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18); }
+.fl-pt .fl-ic { width: 24px; height: 24px; color: #fff; }
+.fl-plate.is-rg .fl-pt .fl-ic { color: #FFC44D; }
+.fl-ptx { display: grid; gap: 3px; min-width: 0; }
+.fl-ptx b { font-size: 16px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; }
+.fl-ptx > span { color: rgba(255, 255, 255, .85); font-size: 13px; }
+.fl-go { position: absolute; right: 18px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-right: 2.5px solid #fff; border-top: 2.5px solid #fff; rotate: 45deg; transition: translate .2s; }
+@media (hover: hover) { .fl-plate:hover { translate: 0 -2px; filter: brightness(1.08); } .fl-plate:hover .fl-go { translate: 3px -3px; } }
+
+/* the case breaking out over the footer's top right corner, Nightfall */
+.fl-case { position: absolute; z-index: 2; right: 2%; top: -62px; width: min(26%, 300px); aspect-ratio: 3 / 2; background: url(art/cases-v2/nightfall-c.webp) center / contain no-repeat; filter: drop-shadow(0 14px 18px rgba(4, 6, 20, .6)); pointer-events: none; }
+
+/* ---------------------------------------------------------------- D: a block, a trust row on top, a dark strip at the foot */
+.ft-d, .ft-a { margin: 0 8px; padding: 28px; border-radius: 20px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 20px 40px rgba(4, 6, 20, .5); }
+.ft-d .fl-top { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; align-items: center; padding-right: 26%; }
+.ft-d .fl-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; }
+.ft-d .fl-mid { margin-top: 34px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, .07); }
+.fl-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 30px; padding: 16px 20px; border-radius: 14px; background: rgba(6, 10, 30, .55); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+.fl-strip .fl-age { flex: 1 1 360px; }
+.fl-end { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; margin-top: 18px; }
+.fl-end .fl-fine { flex: 1 1 auto; justify-content: flex-end; }
+
+/* ---------------------------------------------------------------- A: a block, counters in one line, the case on top */
+.ft-a .fl-stats { padding-right: 26%; }
+.ft-a .fl-mid { margin-top: 34px; }
+.fl-base { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 28px; margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .07); }
+.fl-base-r { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.ft-a .fl-base .fl-age { flex: 1 1 380px; }
+.ft-a .fl-fine, .ft-b .fl-fine { margin-top: 20px; }
+
+/* ---------------------------------------------------------------- B: full width, trust plates first, large counters */
+.ft-b { padding: 28px 28px 22px; border-top: 2px solid rgba(74, 107, 255, .5); background: linear-gradient(180deg, #120F33, #08071C); }
+.ft-b .fl-stats { margin-top: 28px; padding: 22px 0; border-top: 1px solid rgba(255, 255, 255, .07); border-bottom: 1px solid rgba(255, 255, 255, .07); }
+.ft-b .fl-sv b { font-size: 30px; color: var(--color-pink); }
+.ft-b .fl-mid { margin-top: 30px; }
+.fl-legal { margin-top: 22px; }
+
+/* ---------------------------------------------------------------- C: a dimmed scene, the counters on it, columns in a floating panel */
+.ft-c { padding: 34px 28px 22px; overflow: hidden; border-radius: 20px; }
+.fl-scene { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, rgba(6, 10, 30, .55), rgba(6, 10, 30, .92) 70%), url(art/banner-scene.webp) center 30% / cover no-repeat; }
+.ft-c .fl-stat { flex-direction: column; gap: 8px; text-align: center; }
+.ft-c .fl-sv b { font-size: 32px; text-shadow: 0 2px 12px rgba(6, 10, 30, .6); }
+.ft-c .fl-tile { display: none; }
+.fl-float { display: grid; grid-template-columns: minmax(200px, 1fr) minmax(0, 2.6fr); gap: 32px; margin-top: 30px; padding: 28px; border-radius: 18px; background: rgba(11, 10, 34, .82); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); }
+.ft-c .fl-strip { margin-top: 14px; background: rgba(11, 10, 34, .82); }
+.ft-c .fl-end { margin-top: 16px; }
+
+/* ---------------------------------------------------------------- narrow: the footer's own width decides */
+@container ft (max-width: 1000px) {
+  .fl-mid, .fl-float { grid-template-columns: minmax(0, 1fr); }
+  .fl-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .ft-d .fl-top { grid-template-columns: minmax(0, 1fr); padding-right: 30%; }
+  .fl-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ft-a .fl-stats { padding-right: 30%; }
+}
+@container ft (max-width: 560px) {
+  .ft-d, .ft-a { margin: 0; padding: 18px; border-radius: 16px; }
+  .ft-b, .ft-c { padding: 20px 16px; }
+  .ft-d .fl-top, .ft-a .fl-stats { padding-right: 0; padding-top: 70px; }
+  .fl-case { right: 50%; translate: 50% 0; top: -56px; width: 220px; }
+  .fl-plates { grid-template-columns: minmax(0, 1fr); }
+  .fl-stats { gap: 14px 12px; }
+  .fl-sv b, .ft-b .fl-sv b, .ft-c .fl-sv b { font-size: 20px; }
+  .fl-tile { width: 38px; height: 38px; border-radius: 10px; }
+  .fl-tile .fl-ic { width: 18px; height: 18px; }
+  .fl-sv span { font-size: 10px; }
+  .fl-float { padding: 18px; }
+  .fl-strip { padding: 14px; }
+  .fl-fine, .fl-end .fl-fine { justify-content: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) { .fl-stat.is-live .fl-sv span::before { animation: none; } .fl-plate, .fl-go { transition: none; } }
+
+/* after the first look: the case stood on the counters and on the Platform column, and pushed the trust plates into three lines. It now
+   sits on the block's top edge, its foot 22px into the block, and the rows below it take the whole width; on a phone the counters shrink
+   so 367 013 504 keeps clear of its neighbour */
+.fl-case { width: 220px; top: -125px; right: 28px; }
+.ft-d .fl-top, .ft-a .fl-stats { padding-right: 0; }
+.ft-d .fl-top, .ft-a .fl-stats { margin-top: 6px; }
+@container ft (max-width: 1000px) { .ft-d .fl-top, .ft-a .fl-stats { padding-right: 0; } }
+@container ft (max-width: 560px) {
+  .fl-case { width: 200px; top: -112px; right: 50%; }
+  .ft-d .fl-top, .ft-a .fl-stats { padding-top: 0; }
+  .fl-sv b, .ft-b .fl-sv b, .ft-c .fl-sv b { font-size: 17px; }
+  .fl-tile { width: 32px; height: 32px; border-radius: 9px; }
+  .fl-tile .fl-ic { width: 16px; height: 16px; }
+  .fl-stat { gap: 8px; }
+}
+
+/* ================================================================ E: D round 2, founder of 2 Nov 2026 ("траст пилот давай уберем ...") */
+.fl-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ft-e { margin: 0 8px; border-radius: 20px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 20px 40px rgba(4, 6, 20, .5); overflow: hidden; }
+/* the counters' band: a darker ground and two borders, brightest in the middle; the top one blue with its light falling into the band */
+.fe-band { position: relative; padding: 34px 28px 30px; background: radial-gradient(60% 140% at 50% 0%, rgba(74, 107, 255, .22), transparent 70%), linear-gradient(90deg, rgba(6, 8, 24, .2), rgba(6, 8, 24, .75) 50%, rgba(6, 8, 24, .2)); }
+.fe-band::before, .fe-band::after { content: ''; position: absolute; left: 0; right: 0; height: 2px; }
+.fe-band::before { top: 0; background: linear-gradient(90deg, transparent, #4A6BFF 50%, transparent); }
+.fe-band::after { bottom: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .28) 50%, transparent); }
+.fe-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.fe-stat { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.fe-stat > .fl-ic { flex: 0 0 auto; width: 46px; height: 46px; color: #fff; }
+.fe-stat > span { display: grid; gap: 6px; min-width: 0; }
+.fe-stat b { color: #FB3F8A; font-size: 40px; font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(251, 63, 138, .45); }
+.fe-stat b + span { color: var(--color-text-soft); font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.fe-stat.is-live b + span::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: var(--color-green); vertical-align: 1px; animation: fl-live 2s ease-in-out infinite; }
+/* the middle: brand, three columns (Play stacked over Platform), the operators standing at the right on the strip */
+.fe-mid { position: relative; display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 1.7fr); gap: 32px; padding: 34px 28px 0; padding-right: calc(28px + 30%); min-height: 300px; }
+.fe-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.fe-gap { height: 14px; }
+.fe-agents { position: absolute; right: 12px; bottom: 0; width: 34%; height: calc(100% + 40px); background: url(art/footer-agents.webp) right bottom / contain no-repeat; pointer-events: none; }
+/* the strip: the two trust plates and the language, the age and market lines under them, on a dark ground */
+.fe-strip { position: relative; z-index: 1; margin: 0 28px; padding: 18px; border-radius: 16px; background: rgba(6, 8, 24, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+.fe-strip-top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.fe-strip-top .fl-plates { flex: 1 1 520px; }
+.fe-strip .fl-plate { min-height: 64px; }
+.fe-legal { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 14px; }
+.fe-legal p { margin: 0; flex: 1 1 320px; color: var(--color-text-soft); font-size: 13px; line-height: 1.45; }
+/* the foot: payment cards with their marks in one muted tone, then the fine print */
+.fe-end { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 20px 28px 24px; }
+.fe-pay { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.fe-pay li { display: grid; place-items: center; width: 84px; height: 44px; border-radius: 10px; background: rgba(255, 255, 255, .04); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); color: rgba(205, 205, 235, .62); }
+.fe-pay svg { height: 22px; width: auto; max-width: 60px; }
+.fe-end .fl-fine { flex: 1 1 auto; justify-content: flex-end; }
+
+@container ft (max-width: 1000px) {
+  .fe-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+  .fe-mid { grid-template-columns: minmax(0, 1fr); padding-right: calc(28px + 34%); }
+  .fe-agents { width: 38%; height: 70%; }
+}
+@container ft (max-width: 560px) {
+  .ft-e { margin: 0; border-radius: 16px; }
+  .fe-band { padding: 24px 16px 22px; }
+  .fe-stat { gap: 10px; }
+  .fe-stat > .fl-ic { width: 28px; height: 28px; }
+  .fe-stat b { font-size: 22px; }
+  .fe-stat b + span { font-size: 10px; }
+  .fe-mid { padding: 24px 16px 0; min-height: 0; }
+  .fe-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fe-agents { position: relative; display: block; right: auto; width: 100%; height: 200px; margin-top: 8px; background-position: center bottom; }
+  .fe-strip { margin: 0 8px; padding: 12px; }
+  .fe-end { padding: 16px; }
+  .fe-pay li { width: 68px; height: 40px; }
+  .fe-end .fl-fine { justify-content: flex-start; }
+}
+/* after the first look at E: four 40px counters ran into each other at Home's 1558 width, and the payment marks were too faint to read */
+.fe-stat b { font-size: min(40px, 2.65cqw); }
+.fe-stat > .fl-ic { width: min(46px, 3.4cqw); height: min(46px, 3.4cqw); }
+.fe-stat { gap: 12px; }
+.fe-pay li { color: rgba(215, 215, 240, .8); }
+@container ft (max-width: 1000px) { .fe-stat b { font-size: 30px; } .fe-stat > .fl-ic { width: 38px; height: 38px; } }
+@container ft (max-width: 560px) { .fe-stat b { font-size: 22px; } .fe-stat > .fl-ic { width: 28px; height: 28px; } }
+/* on a phone two counters side by side touched; each stands its icon over its figure */
+@container ft (max-width: 560px) { .fe-stat { flex-direction: column; align-items: flex-start; gap: 8px; } .fe-stat b { font-size: 21px; } }
+
+/* ================================================================ F and G: E round 3, founder of 3 Nov 2026 */
+.ft-f { background: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); }
+/* the bands: square, a dark ground fading to both sides, lines brightest in the middle; blue on top of the counters, pink under them */
+.ff-band, .ff-foot { position: relative; isolation: isolate; }
+.ff-band::before, .ff-foot::before { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, transparent, rgba(5, 6, 20, .85) 22%, rgba(5, 6, 20, .85) 78%, transparent); }
+.ff-band { padding: 36px 28px 32px; background: radial-gradient(50% 120% at 50% 0%, rgba(74, 107, 255, .2), transparent 70%); }
+.ff-band::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, transparent, #FB3F8A 50%, transparent); }
+.ff-band > .ff-stats::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, #4A6BFF 50%, transparent); }
+.ff-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.ff-stat { display: flex; align-items: center; justify-content: center; gap: 14px; min-width: 0; }
+.ff-stat .fl-tile { width: min(58px, 4.4cqw); height: min(58px, 4.4cqw); border-radius: 14px; }
+.ff-stat .fl-tile .fl-ic { width: 55%; height: 55%; }
+.ff-stat > span:last-child { display: grid; gap: 6px; min-width: 0; }
+.ff-stat b { color: #FB3F8A; font-size: min(38px, 2.6cqw); font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(251, 63, 138, .45); }
+.ff-stat b + span { color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.ff-stat.is-live b + span::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: var(--color-green); vertical-align: 1px; animation: fl-live 2s ease-in-out infinite; }
+/* the strip: the red 18+ plate, the round plate, the language, nothing else */
+.ff-strip { position: relative; z-index: 1; margin: 0 28px; padding: 14px; border-radius: 16px; background: rgba(6, 8, 24, .7); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.ff-plates { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.ft-g .ff-plates { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.fl-plate.is-18 { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-showdowns); }
+.ff-18 { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: #fff; color: #B4142E; font-size: 15px; font-weight: 900; letter-spacing: -.02em; box-shadow: 0 4px 10px rgba(60, 0, 10, .35); }
+/* the foot: the payment cards and the age and market lines on one row, the fine print under them, on a band like the counters' */
+.ff-foot { margin-top: 28px; padding: 26px 28px 24px; }
+.ff-foot::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, #FB3F8A 50%, transparent); }
+.ff-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; }
+.ff-legal { flex: 1 1 380px; max-width: 640px; }
+.ff-legal p { margin: 0; color: var(--color-text-muted); font-size: 12.5px; line-height: 1.5; }
+.ff-legal p + p { margin-top: 4px; }
+.ff-foot .fl-fine { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, .06); }
+/* G: everything in the foot on the centre line */
+.ft-g .ff-foot-in { display: grid; justify-items: center; gap: 16px; text-align: center; }
+.ft-g .ff-legal { max-width: 760px; }
+.ft-g .ff-last { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 28px; }
+.ft-g .ff-last .fl-fine { margin: 0; padding: 0; border: 0; gap: 6px 24px; justify-content: center; }
+.ft-g .fe-pay { justify-content: center; }
+
+@container ft (max-width: 1000px) {
+  .ff-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+  .ff-stat { justify-content: flex-start; }
+  .ff-stat .fl-tile { width: 50px; height: 50px; }
+  .ff-stat b { font-size: 30px; }
+  .ff-plates { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .ff-plates .fl-lang { grid-column: 1 / -1; justify-self: start; }
+}
+@container ft (max-width: 560px) {
+  .ff-band { padding: 26px 14px 22px; }
+  .ff-stat { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .ff-stat .fl-tile { width: 36px; height: 36px; border-radius: 10px; }
+  .ff-stat b { font-size: 21px; }
+  .ff-stat b + span { font-size: 10px; }
+  .ff-strip { margin: 0 8px; padding: 10px; }
+  .ff-plates, .ft-g .ff-plates { grid-template-columns: minmax(0, 1fr); }
+  .ff-foot { padding: 20px 14px; }
+}
+/* each counter's tile in its own mode colour, as on E's first draw */
+.ff-stat:nth-child(2) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-upgrade); }
+.ff-stat:nth-child(3) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-battles); }
+.ff-stat:nth-child(4) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-showdowns); }
+
+/* ================================================================ H: G round 4, founder of 3 Nov 2026 */
+/* the block's rounded corners come back; the bands inside it keep their fade to the sides */
+.ft-h { margin: 0 8px; border-radius: 20px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 20px 40px rgba(4, 6, 20, .5); }
+/* two operators back to back, narrower than the three, so the columns keep their room */
+.ft-h .fe-agents { width: 24%; right: 3%; background-image: url(art/footer-agents-2.webp), url(art/footer-agents.webp); background-size: contain, 0 0; }
+.ft-h .fe-mid { padding-right: calc(28px + 24%); }
+/* the foot: payment cards at the left end and the language at the right end of one row; the texts stay on the centre line */
+.fh-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; width: 100%; }
+.ft-h .ff-foot-in { gap: 18px; }
+.ft-h .fe-pay { justify-content: flex-start; }
+.ft-h .ff-foot .fl-fine { justify-content: center; margin: 0; padding: 0; border: 0; gap: 6px 28px; }
+@container ft (max-width: 1000px) { .ft-h .fe-mid { padding-right: calc(28px + 28%); } .ft-h .fe-agents { width: 28%; } }
+@container ft (max-width: 560px) {
+  .ft-h { margin: 0; border-radius: 16px; }
+  .ft-h .fe-mid { padding-right: 16px; }
+  .ft-h .fe-agents { width: 100%; right: auto; }
+  .fh-row { justify-content: center; }
+  .ft-h .fe-pay { justify-content: center; }
+}
+
+/* ================================================================ I: H with the payment cards in the strip, two rows of three */
+.fi-strip { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.ft-i .fe-pay { display: grid; grid-template-columns: repeat(3, 66px); gap: 6px; }
+.ft-i .fe-pay li { width: 66px; height: 31px; border-radius: 8px; }
+.ft-i .fe-pay svg { height: 17px; }
+/* the age and market lines take the row's whole width, each on one line where it fits, founder of 3 Nov 2026: "можно писать в одну строчку
+   ... не обязательно его делать удобно читаемым" */
+.ft-i .ff-legal, .ft-i .ff-legal p { max-width: none; }
+.ft-i .ff-legal { flex: 1 1 420px; text-align: left; }
+.ft-i .fh-row { align-items: center; }
+@container ft (max-width: 1000px) { .fi-strip { grid-template-columns: minmax(0, 1fr); } .ft-i .fe-pay { grid-template-columns: repeat(6, minmax(0, 1fr)); } .ft-i .fe-pay li { width: auto; } }
+@container ft (max-width: 560px) { .ft-i .fe-pay { grid-template-columns: repeat(3, minmax(0, 1fr)); } .ft-i .ff-legal { text-align: center; } }
+
+/* the phone, founder of 3 Nov 2026, "и еще надо мобилку подправить": the counters stood each icon over its figure, two by two, airy and
+   loose; they become one list, the tile beside its figure and label. The operators stood alone between the links and the strip; they move
+   up beside the Company column, into the empty half of its row, their feet on the strip as on a wide screen */
+@container ft (max-width: 560px) {
+  .ff-stats { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .ff-stat { flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; }
+  .ff-stat .fl-tile { width: 40px; height: 40px; border-radius: 11px; }
+  .ff-stat > span:last-child { gap: 3px; }
+  .ff-stat b { font-size: 24px; }
+  .ff-stat b + span { font-size: 11px; }
+  .ft-h .fe-mid { position: relative; padding-bottom: 0; }
+  .ft-h .fe-agents { position: absolute; display: block; right: 4px; bottom: 0; width: 50%; height: 290px; margin: 0; background-position: right bottom; }
+}
+/* the same day, "стало хуже" for the list and "перестарался" for the operators: the counters go back to two by two, each now centred in its
+   half, tile, figure and label stacked tight; the operators shrink to a third of the width, still beside Company with their feet on the strip */
+@container ft (max-width: 560px) {
+  .ff-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 8px; }
+  .ff-stat { flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; text-align: center; }
+  .ff-stat .fl-tile { width: 36px; height: 36px; border-radius: 10px; }
+  .ff-stat > span:last-child { justify-items: center; gap: 4px; }
+  .ff-stat b { font-size: 21px; }
+  .ff-stat b + span { font-size: 10px; }
+  .ft-h .fe-agents { width: 36%; height: 200px; right: 10px; }
+}
+/* "людей можно оставить и побольше, но проблема в другом, оно прибито к пунктам меню": the last link sat on the strip's edge. The links get
+   36px of air above the strip, and the operators grow back and stand lower, their legs going behind the strip as on a wide screen */
+@container ft (max-width: 560px) {
+  .ft-h .fe-mid { padding-bottom: 36px; }
+  .ft-h .fe-agents { width: 46%; height: 280px; right: 4px; bottom: -34px; }
+}
+
+
+/* ================================================================ on Home: #wf-footer holds I, set off the side menu as a block */
+#wf-footer.v4-foot { container: ft / inline-size; border-top: 0; background: none; padding: 0 var(--space-5, 24px) 24px; }
+#wf-footer.v4-foot .ft-h { margin: 0; }
+/* the language control is _nav.js's own, moved in whole; here it wears the footer's dark pill */
+.v4-foot .fh-lang { flex: 0 0 auto; }
+.v4-foot .fh-lang .wf-rail-lang { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 0; border-radius: var(--btn-radius, 10px);
+  background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); color: var(--color-text-hi); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+
+/* the payment marks open deposit: under the pointer and on focus a card lifts, its mark turns white and its edge pink */
+.fe-pay li { padding: 0; }
+.fh-pay { display: grid; place-items: center; width: 100%; height: 100%; border-radius: inherit; color: inherit; text-decoration: none;
+  transition: translate .2s cubic-bezier(.2, .7, .2, 1), color .2s, background-color .2s, box-shadow .2s; }
+.fh-pay svg { height: 22px; width: auto; max-width: 60px; }
+.ft-i .fh-pay svg { height: 17px; }
+@media (hover: hover) { .fh-pay:hover { translate: 0 -2px; color: #fff; background-color: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px var(--color-pink), 0 8px 16px rgba(4, 6, 20, .45); } }
+.fh-pay:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; color: #fff; }
+
+/* the icons move under the pointer and on focus, a short story each: the case's lid hops, the bars climb, the people lean in, the online
+   mark nods; the 18+ disc turns once, the target's ring tightens. At rest the plain glyph; reduced motion keeps them still */
+.ff-stat .fl-tile, .fl-pt, .ff-18 { transition: translate .25s cubic-bezier(.2, .7, .2, 1), rotate .25s cubic-bezier(.2, .7, .2, 1); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .ff-stat:hover .fl-tile { translate: 0 -3px; rotate: -6deg; }
+  .ff-stat:nth-child(1):hover .fl-ic { animation: fh-hop .6s cubic-bezier(.3, 1.6, .5, 1); }
+  .ff-stat:nth-child(2):hover .fl-ic { animation: fh-climb .7s cubic-bezier(.2, .7, .2, 1); }
+  .ff-stat:nth-child(3):hover .fl-ic { animation: fh-lean .6s ease-in-out; }
+  .ff-stat:nth-child(4):hover .fl-ic { animation: fh-nod .6s ease-in-out; }
+  .fl-plate.is-18:hover .ff-18 { animation: fh-spin .7s cubic-bezier(.2, .7, .2, 1); }
+  .fl-plate.is-pf:hover .fl-pt .fl-ic { animation: fh-aim .7s cubic-bezier(.2, .7, .2, 1); }
+}
+@keyframes fh-hop { 0% { translate: 0 0; } 35% { translate: 0 -5px; scale: 1.08; } 70% { translate: 0 1px; scale: .98; } 100% { translate: 0 0; } }
+@keyframes fh-climb { 0% { translate: 0 0; opacity: 1; } 45% { translate: 0 -14px; opacity: 0; } 46% { translate: 0 12px; opacity: 0; } 100% { translate: 0 0; opacity: 1; } }
+@keyframes fh-lean { 0%, 100% { rotate: 0deg; } 30% { rotate: -10deg; } 65% { rotate: 7deg; } }
+@keyframes fh-nod { 0%, 100% { translate: 0 0; } 30% { translate: 0 3px; } 60% { translate: 0 -2px; } }
+@keyframes fh-spin { 0% { rotate: 0deg; scale: 1; } 60% { rotate: 380deg; scale: 1.08; } 100% { rotate: 360deg; scale: 1; } }
+@keyframes fh-aim { 0% { rotate: 0deg; scale: 1; } 50% { rotate: 90deg; scale: .82; } 100% { rotate: 90deg; scale: 1; } }
+
+/* founder of 3 Nov 2026: "у нас есть анимации этих иконок, сделай такие же", and the users and online marks were "очень скучные". The
+   counters' marks are now the rail's drawings and play the rail's stories (rail-icons.css, .v4-ri-host), the round plate's target too;
+   the tile's tilt stays; the earlier one-line moves are dropped for them */
+.fl-ri { display: block; width: 56%; height: 56%; color: #fff; }
+.fl-ri .ri { width: 100%; height: 100%; }
+.ff-stat, .fl-plate.is-pf { --ra: #fff; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .ff-stat:nth-child(n):hover .fl-ic, .fl-plate.is-pf:hover .fl-pt .fl-ic { animation: none; }
+  .ff-stat:focus-visible .fl-tile { translate: 0 -3px; rotate: -6deg; }
+}
+.ff-stat:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 4px; border-radius: 12px; }
+.fl-pt .fl-ri { width: 26px; height: 26px; }
+
+/* the language list opened over the strip, half under it, and ran past the block's right edge: the block no longer clips, the foot stands
+   over the strip, and the list opens up and to the left from its control */
+#wf-footer.v4-foot .ft-h { overflow: visible; }
+.v4-foot .ff-foot { z-index: 2; }
+.v4-foot .fh-lang { position: relative; z-index: 3; }
+.v4-foot .fh-lang .wf-lang-pop { left: auto; right: 0; }
+/* the footer's side margins are the banner's, founder of 3 Nov 2026 ("отступы как у баннера"): 8px from the side menu and 12px from the
+   window's edge on a wide screen, as .wf-banner is set; edge to edge on a phone, as the banner is there. Its foot stops 8px above the
+   window's bottom, where the side menu's panel stops (.wf-rail::before in theme.css, inset 72px 0 8px), founder of 3 Nov 2026: "нижний
+   отступ как у бокового меню" */
+#wf-footer.v4-foot { padding: 0 12px 8px 8px; }
+/* a large soft blue light rising off the block's blue top line, brightest over its middle where the line is, founder of 3 Nov 2026:
+   "хочу еще вот тут свечение большое и нежное синие"; it stands only above the block, so nothing inside it is tinted */
+#wf-footer.v4-foot .ft-h { position: relative; isolation: isolate; }
+#wf-footer.v4-foot .ft-h::before { content: ''; position: absolute; z-index: -1; left: 6%; right: 6%; bottom: 100%; height: 220px; pointer-events: none;
+  background: radial-gradient(50% 100% at 50% 100%, rgba(74, 107, 255, .26), rgba(74, 107, 255, .1) 45%, transparent 100%); }
+@media (max-width: 899px) {
+  #wf-footer.v4-foot .ft-h::before { left: 0; right: 0; height: 140px; }
+  #wf-footer.v4-foot { padding: 0 0 16px; }
+  #wf-footer.v4-foot .ft-h { border-radius: 0; box-shadow: none; }
+}

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in v4</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="signin-home.css">
+  <link rel="stylesheet" href="signin-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body class="sx-page">
+<aside id="sidebar"></aside>
+<!-- A satellite of v4, founder of 3 Nov 2026: "let's do sign in next, right now it is very bad ... something like this [Keydrop's login,
+     a big illustrated panel on the left, the form on the right], but that is only a nice example and we need something of our own".
+     Four directions on the dialog's own words, word for word from wireframes/_nav.js authCard; the left panel sells the site's own proofs,
+     every line already on Home, and offers nothing. D-26 and D-58 hold in all four: two checkboxes, live buttons, a refusal that names what is
+     missing. Nothing on Home changes until one is chosen. -->
+<main class="sx-main">
+  <h1>Sign in</h1>
+  <p class="sx-lead">Four directions for the sign in dialog, each at full width and at 360. Every word is the dialog's own, and the panel beside the form carries lines Home already shows: published odds, every round checkable, items to Steam. No bonus and no offer at the door. In every direction the two declarations stay separate, the buttons stay live, and a press with something unticked is refused with the reason beside the buttons; the 360 frames are drawn in that refused state.</p>
+
+  <aside class="sx-rec" aria-label="Round 2">
+    <h2>Round 2: Operators, on your notes</h2>
+    <p>Operators was the one to keep, with a list of fixes. Both headings now start on one line at the top, and the close is a plain cross on that same line, with no square and no circle. "Both declarations made" no longer takes a row of its own: it is still read out by a screen reader, and a refusal still shows above the Steam button. The two reassurance lines move to the foot of the dialog, on a dark plate like the footer's strip, with a shield beside "We never ask for your password". Under each heading a row of backgrounds switches the panel, so you can try them on the real dialog. A second take, Operators centred, follows the single column of the references you sent, with the operators rising over the dialog's top edge.</p>
+  </aside>
+
+  <section class="sx is-rec" id="dir-e" aria-labelledby="sx-e" data-build="e" data-bg="battles">
+    <header class="sx-meta">
+      <h2 id="sx-e">Operators, round 2<span class="sx-tag">Recommended</span></h2>
+      <p>The panel and the form share one top line: Home's H1 on the left and SIGN IN on the right start at the same height, and the cross closes from the end of that line. The form is the declarations, the Steam button and three quiet ones; the reassurance sits at the foot on its own dark plate.</p>
+      <p class="sx-cost">At 360 the proofs leave the sheet, so the phone shows only the band, the form and the plate. The operators are footer art, so on Home they would appear twice.</p>
+    </header>
+    <div class="sx-bgs" role="group" aria-label="Panel background"></div>
+    <p class="sx-cap"><span class="sx-cap-w">Full width, as over Home at 1558. Tick, press, close: it all answers.</span><span class="sx-cap-s">As on a phone, this screen</span></p>
+    <div class="sx-stage"><div class="sx-slot" data-dlg="e"></div></div>
+    <div class="sx-narrow">
+      <p class="sx-cap">At 360, after Sign in with Steam was pressed with nothing ticked</p>
+      <div class="sx-phone"><div class="sx-slot" data-dlg="e" data-asked></div></div>
+    </div>
+  </section>
+
+  <section class="sx" id="dir-f" aria-labelledby="sx-f" data-build="f">
+    <header class="sx-meta">
+      <h2 id="sx-f">Operators, centred</h2>
+      <p>One column, as in the references you sent: the panel becomes a band across the top, two operators rise out of it over the dialog's edge, SIGN IN and Home's H1 sit centred under them, then the same form and the same plate.</p>
+      <p class="sx-cost">Quieter and narrower, 500px, and the same at 1558 and 360. The three proofs do not fit this shape, so it carries only the H1.</p>
+    </header>
+    <div class="sx-bgs" role="group" aria-label="Band background"></div>
+    <p class="sx-cap"><span class="sx-cap-w">Full width, as over Home at 1558. Tick, press, close: it all answers.</span><span class="sx-cap-s">As on a phone, this screen</span></p>
+    <div class="sx-stage"><div class="sx-slot" data-dlg="f"></div></div>
+    <div class="sx-narrow">
+      <p class="sx-cap">At 360, after Sign in with Steam was pressed with nothing ticked</p>
+      <div class="sx-phone"><div class="sx-slot" data-dlg="f" data-asked></div></div>
+    </div>
+  </section>
+
+  <details class="sx-old">
+    <summary>Round 1, for comparison: Operators as first drawn, Case wakes, Striped plates, Scene</summary>
+  <aside class="sx-rec" aria-label="Round 1 recommendation">
+    <h2>Round 1 recommendation: Operators</h2>
+    <p>It answers the reference you brought with what is ours: a coloured panel with people in it and a headline, the way the eye expects a door to look, but the people are our operators, the headline is Home's own, and where a competitor promises free money the panel lists three things the site proves. The form stays the plain, fast part: one pink act, three quiet ones, the two declarations above them and the refusal right beside the buttons. At 360 it keeps the operators as a band and moves the proofs under the form, so the job on a phone is still one screen. Take the red 18+ plate from Striped plates into it if you want the age line louder.</p>
+  </aside>
+
+  <section class="sx" id="dir-a" aria-labelledby="sx-a">
+    <header class="sx-meta">
+      <h2 id="sx-a">Operators, round 1</h2>
+      <p>A pink striped panel in the cases gradient with the three operators standing in it, Home's H1 over them and the three proofs as a short list: the site's own truth where a competitor puts a bonus.</p>
+      <p class="sx-cost">Closest to the reference you brought, made ours. The operators are footer art, so they would appear twice on Home; at 360 they shrink to a band and the proofs move under the form.</p>
+    </header>
+    <p class="sx-cap"><span class="sx-cap-w">Full width, as over Home at 1558. Tick, press, close: it all answers.</span><span class="sx-cap-s">As on a phone, this screen</span></p>
+    <div class="sx-stage">
+      <div class="sx-slot">
+        <div class="sd sd--a" role="dialog" aria-labelledby="aw-h" data-n="0">
+          <button class="sd-close" type="button" aria-label="Close"><span class="sd-close-i" data-icon="close" style="--ic: var(--icon-close)" aria-hidden="true"></span></button>
+          <div class="sd-art" aria-hidden="true"><p class="sd-art-h">CS2 case opening with published odds</p><img class="sd-agents" src="art/footer-agents.webp" alt="" loading="lazy"></div>
+          <div class="sd-body">
+            <h3 class="sd-h" id="aw-h">Sign in</h3>
+            <div class="sd-consent">
+              <div class="sd-cbx"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="aw-t1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="aw-t1">I agree to the <a href="../../wireframes/legal.html">Terms of use</a> and the <a href="../../wireframes/legal-unpublished.html?doc=privacy">Privacy policy</a>.</span></div>
+              <div class="sd-cbx sd-cbx--age"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="aw-t2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="aw-t2">I declare that I am 18 or over.</span></div>
+            </div>
+            <p class="sd-why" aria-live="polite"></p>
+            <a class="v4-btn v4-btn--l sd-steam" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span>Sign in with Steam</a>
+            <p class="sd-or"><span>or continue with</span></p>
+            <div class="sd-provs">
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="google" style="--ic: var(--icon-google)" aria-hidden="true"></span>Google</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="discord" style="--ic: var(--icon-discord)" aria-hidden="true"></span>Discord</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="x" style="--ic: var(--icon-x)" aria-hidden="true"></span>X</a>
+            </div>
+            <p class="sd-cost">To send items to Steam, <b>link your Steam account</b>, any time.</p>
+            <p class="sd-never">We never ask for your password or change your Steam profile.</p>
+          </div>
+          <ul class="sd-proofs sd-proofs--a"><li class="sd-pf"><span class="sd-pf-i" data-icon="box" style="--ic: var(--icon-box)" aria-hidden="true"></span><span class="sd-pf-t"><b>Open a case, see every chance.</b></span></li><li class="sd-pf"><span class="sd-pf-i" data-icon="shield" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="sd-pf-t"><b>Every round</b><span class="sd-pf-s">Checkable without an account</span></span></li><li class="sd-pf"><span class="sd-pf-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span><span class="sd-pf-t"><b>Withdrawals go to Steam, commission free.</b></span></li></ul>
+        </div>
+        <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>
+      </div>
+    </div>
+    <div class="sx-narrow">
+      <p class="sx-cap">At 360, after Sign in with Steam was pressed with nothing ticked</p>
+      <div class="sx-phone">
+        <div class="sx-slot">
+        <div class="sd sd--a is-asked" role="dialog" aria-labelledby="an-h" data-n="0">
+          <button class="sd-close" type="button" aria-label="Close"><span class="sd-close-i" data-icon="close" style="--ic: var(--icon-close)" aria-hidden="true"></span></button>
+          <div class="sd-art" aria-hidden="true"><p class="sd-art-h">CS2 case opening with published odds</p><img class="sd-agents" src="art/footer-agents.webp" alt="" loading="lazy"></div>
+          <div class="sd-body">
+            <h3 class="sd-h" id="an-h">Sign in</h3>
+            <div class="sd-consent">
+              <div class="sd-cbx is-missing"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="an-t1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="an-t1">I agree to the <a href="../../wireframes/legal.html">Terms of use</a> and the <a href="../../wireframes/legal-unpublished.html?doc=privacy">Privacy policy</a>.</span></div>
+              <div class="sd-cbx sd-cbx--age is-missing"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="an-t2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="an-t2">I declare that I am 18 or over.</span></div>
+            </div>
+            <p class="sd-why" aria-live="polite"><b>Tick both to continue.</b> Neither declaration has been made yet.</p>
+            <a class="v4-btn v4-btn--l sd-steam" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span>Sign in with Steam</a>
+            <p class="sd-or"><span>or continue with</span></p>
+            <div class="sd-provs">
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="google" style="--ic: var(--icon-google)" aria-hidden="true"></span>Google</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="discord" style="--ic: var(--icon-discord)" aria-hidden="true"></span>Discord</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="x" style="--ic: var(--icon-x)" aria-hidden="true"></span>X</a>
+            </div>
+            <p class="sd-cost">To send items to Steam, <b>link your Steam account</b>, any time.</p>
+            <p class="sd-never">We never ask for your password or change your Steam profile.</p>
+          </div>
+          <ul class="sd-proofs sd-proofs--a"><li class="sd-pf"><span class="sd-pf-i" data-icon="box" style="--ic: var(--icon-box)" aria-hidden="true"></span><span class="sd-pf-t"><b>Open a case, see every chance.</b></span></li><li class="sd-pf"><span class="sd-pf-i" data-icon="shield" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="sd-pf-t"><b>Every round</b><span class="sd-pf-s">Checkable without an account</span></span></li><li class="sd-pf"><span class="sd-pf-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span><span class="sd-pf-t"><b>Withdrawals go to Steam, commission free.</b></span></li></ul>
+        </div>
+        <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sx" id="dir-b" aria-labelledby="sx-b">
+    <header class="sx-meta">
+      <h2 id="sx-b">Case wakes</h2>
+      <p>Coldfront sits shut behind the heading. Each declaration ticked lets the case come further out of its front, and with both ticked it stands open: consent is the act that opens it.</p>
+      <p class="sx-cost">The motion has a job, it shows the two ticks are what the door waits for. Its cost: the picture says "open a case" at the moment the person is only signing in.</p>
+    </header>
+    <p class="sx-cap"><span class="sx-cap-w">Full width, as over Home at 1558. Tick, press, close: it all answers.</span><span class="sx-cap-s">As on a phone, this screen</span></p>
+    <div class="sx-stage">
+      <div class="sx-slot">
+        <div class="sd sd--b" role="dialog" aria-labelledby="bw-h" data-n="0">
+          <button class="sd-close" type="button" aria-label="Close"><span class="sd-close-i" data-icon="close" style="--ic: var(--icon-close)" aria-hidden="true"></span></button>
+          <div class="sd-art" aria-hidden="true"><p class="sd-art-h">Open a case, see every chance.</p><div class="sd-case"><img class="sd-case-open" src="art/case-coldfront.webp" alt="" loading="lazy"><img class="sd-case-front" src="art/case-coldfront-front.webp" alt="" loading="lazy"></div></div>
+          <div class="sd-body">
+            <h3 class="sd-h" id="bw-h">Sign in</h3>
+            <div class="sd-consent">
+              <div class="sd-cbx"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="bw-t1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="bw-t1">I agree to the <a href="../../wireframes/legal.html">Terms of use</a> and the <a href="../../wireframes/legal-unpublished.html?doc=privacy">Privacy policy</a>.</span></div>
+              <div class="sd-cbx sd-cbx--age"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="bw-t2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="bw-t2">I declare that I am 18 or over.</span></div>
+            </div>
+            <p class="sd-why" aria-live="polite"></p>
+            <a class="v4-btn v4-btn--l sd-steam" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span>Sign in with Steam</a>
+            <p class="sd-or"><span>or continue with</span></p>
+            <div class="sd-provs">
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="google" style="--ic: var(--icon-google)" aria-hidden="true"></span>Google</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="discord" style="--ic: var(--icon-discord)" aria-hidden="true"></span>Discord</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="x" style="--ic: var(--icon-x)" aria-hidden="true"></span>X</a>
+            </div>
+            <p class="sd-cost">To send items to Steam, <b>link your Steam account</b>, any time.</p>
+            <p class="sd-never">We never ask for your password or change your Steam profile.</p>
+          </div>
+          
+        </div>
+        <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>
+      </div>
+    </div>
+    <div class="sx-narrow">
+      <p class="sx-cap">At 360, after Sign in with Steam was pressed with nothing ticked</p>
+      <div class="sx-phone">
+        <div class="sx-slot">
+        <div class="sd sd--b is-asked" role="dialog" aria-labelledby="bn-h" data-n="0">
+          <button class="sd-close" type="button" aria-label="Close"><span class="sd-close-i" data-icon="close" style="--ic: var(--icon-close)" aria-hidden="true"></span></button>
+          <div class="sd-art" aria-hidden="true"><p class="sd-art-h">Open a case, see every chance.</p><div class="sd-case"><img class="sd-case-open" src="art/case-coldfront.webp" alt="" loading="lazy"><img class="sd-case-front" src="art/case-coldfront-front.webp" alt="" loading="lazy"></div></div>
+          <div class="sd-body">
+            <h3 class="sd-h" id="bn-h">Sign in</h3>
+            <div class="sd-consent">
+              <div class="sd-cbx is-missing"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="bn-t1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="bn-t1">I agree to the <a href="../../wireframes/legal.html">Terms of use</a> and the <a href="../../wireframes/legal-unpublished.html?doc=privacy">Privacy policy</a>.</span></div>
+              <div class="sd-cbx sd-cbx--age is-missing"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="bn-t2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="bn-t2">I declare that I am 18 or over.</span></div>
+            </div>
+            <p class="sd-why" aria-live="polite"><b>Tick both to continue.</b> Neither declaration has been made yet.</p>
+            <a class="v4-btn v4-btn--l sd-steam" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span>Sign in with Steam</a>
+            <p class="sd-or"><span>or continue with</span></p>
+            <div class="sd-provs">
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="google" style="--ic: var(--icon-google)" aria-hidden="true"></span>Google</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="discord" style="--ic: var(--icon-discord)" aria-hidden="true"></span>Discord</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="x" style="--ic: var(--icon-x)" aria-hidden="true"></span>X</a>
+            </div>
+            <p class="sd-cost">To send items to Steam, <b>link your Steam account</b>, any time.</p>
+            <p class="sd-never">We never ask for your password or change your Steam profile.</p>
+          </div>
+          
+        </div>
+        <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sx" id="dir-c" aria-labelledby="sx-c">
+    <header class="sx-meta">
+      <h2 id="sx-c">Striped plates</h2>
+      <p>The three proofs on striped plates in the mode gradients, as Before you spend and the footer draw them, and the age declaration itself on the footer's red 18+ plate with the white disc.</p>
+      <p class="sx-cost">The age line stops being small print and becomes the most visible row of the form. No picture, so no operators or cases; the brand carries it alone.</p>
+    </header>
+    <p class="sx-cap"><span class="sx-cap-w">Full width, as over Home at 1558. Tick, press, close: it all answers.</span><span class="sx-cap-s">As on a phone, this screen</span></p>
+    <div class="sx-stage">
+      <div class="sx-slot">
+        <div class="sd sd--c" role="dialog" aria-labelledby="cw-h" data-n="0">
+          <button class="sd-close" type="button" aria-label="Close"><span class="sd-close-i" data-icon="close" style="--ic: var(--icon-close)" aria-hidden="true"></span></button>
+          <div class="sd-art" aria-hidden="true"><img class="sd-logo" src="art/brand/logo2-10.svg" alt=""></div>
+          <div class="sd-body">
+            <h3 class="sd-h" id="cw-h">Sign in</h3>
+            <div class="sd-consent">
+              <div class="sd-cbx"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="cw-t1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="cw-t1">I agree to the <a href="../../wireframes/legal.html">Terms of use</a> and the <a href="../../wireframes/legal-unpublished.html?doc=privacy">Privacy policy</a>.</span></div>
+              <div class="sd-cbx sd-cbx--age"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="cw-t2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="cw-t2">I declare that I am 18 or over.</span><span class="sd-18" aria-hidden="true">18+</span></div>
+            </div>
+            <p class="sd-why" aria-live="polite"></p>
+            <a class="v4-btn v4-btn--l sd-steam" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span>Sign in with Steam</a>
+            <p class="sd-or"><span>or continue with</span></p>
+            <div class="sd-provs">
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="google" style="--ic: var(--icon-google)" aria-hidden="true"></span>Google</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="discord" style="--ic: var(--icon-discord)" aria-hidden="true"></span>Discord</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="x" style="--ic: var(--icon-x)" aria-hidden="true"></span>X</a>
+            </div>
+            <p class="sd-cost">To send items to Steam, <b>link your Steam account</b>, any time.</p>
+            <p class="sd-never">We never ask for your password or change your Steam profile.</p>
+          </div>
+          <ul class="sd-plates"><li class="sd-plate is-cases"><span class="sd-plate-i" data-icon="box" style="--ic: var(--icon-box)" aria-hidden="true"></span><span class="sd-pf-t"><b>Open a case, see every chance.</b></span></li><li class="sd-plate is-battles"><span class="sd-plate-i" data-icon="shield" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="sd-pf-t"><b>Every round</b><span class="sd-pf-s">Checkable without an account</span></span></li><li class="sd-plate is-pf"><span class="sd-plate-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span><span class="sd-pf-t"><b>Withdrawals go to Steam, commission free.</b></span></li></ul>
+        </div>
+        <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>
+      </div>
+    </div>
+    <div class="sx-narrow">
+      <p class="sx-cap">At 360, after Sign in with Steam was pressed with nothing ticked</p>
+      <div class="sx-phone">
+        <div class="sx-slot">
+        <div class="sd sd--c is-asked" role="dialog" aria-labelledby="cn-h" data-n="0">
+          <button class="sd-close" type="button" aria-label="Close"><span class="sd-close-i" data-icon="close" style="--ic: var(--icon-close)" aria-hidden="true"></span></button>
+          <div class="sd-art" aria-hidden="true"><img class="sd-logo" src="art/brand/logo2-10.svg" alt=""></div>
+          <div class="sd-body">
+            <h3 class="sd-h" id="cn-h">Sign in</h3>
+            <div class="sd-consent">
+              <div class="sd-cbx is-missing"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="cn-t1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="cn-t1">I agree to the <a href="../../wireframes/legal.html">Terms of use</a> and the <a href="../../wireframes/legal-unpublished.html?doc=privacy">Privacy policy</a>.</span></div>
+              <div class="sd-cbx sd-cbx--age is-missing"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="cn-t2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="cn-t2">I declare that I am 18 or over.</span><span class="sd-18" aria-hidden="true">18+</span></div>
+            </div>
+            <p class="sd-why" aria-live="polite"><b>Tick both to continue.</b> Neither declaration has been made yet.</p>
+            <a class="v4-btn v4-btn--l sd-steam" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span>Sign in with Steam</a>
+            <p class="sd-or"><span>or continue with</span></p>
+            <div class="sd-provs">
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="google" style="--ic: var(--icon-google)" aria-hidden="true"></span>Google</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="discord" style="--ic: var(--icon-discord)" aria-hidden="true"></span>Discord</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="x" style="--ic: var(--icon-x)" aria-hidden="true"></span>X</a>
+            </div>
+            <p class="sd-cost">To send items to Steam, <b>link your Steam account</b>, any time.</p>
+            <p class="sd-never">We never ask for your password or change your Steam profile.</p>
+          </div>
+          <ul class="sd-plates"><li class="sd-plate is-cases"><span class="sd-plate-i" data-icon="box" style="--ic: var(--icon-box)" aria-hidden="true"></span><span class="sd-pf-t"><b>Open a case, see every chance.</b></span></li><li class="sd-plate is-battles"><span class="sd-plate-i" data-icon="shield" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="sd-pf-t"><b>Every round</b><span class="sd-pf-s">Checkable without an account</span></span></li><li class="sd-plate is-pf"><span class="sd-plate-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span><span class="sd-pf-t"><b>Withdrawals go to Steam, commission free.</b></span></li></ul>
+        </div>
+        <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sx" id="dir-d" aria-labelledby="sx-d">
+    <header class="sx-meta">
+      <h2 id="sx-d">Scene</h2>
+      <p>The banner's Coldfront scene runs edge to edge, Home's H1 sits on it, and the form floats on the right as a dark card.</p>
+      <p class="sx-cost">The richest at 1558 and the weakest at 360, where the scene has to shrink to a strip above the card. It reuses the event banner's picture, so the door looks like the event.</p>
+    </header>
+    <p class="sx-cap"><span class="sx-cap-w">Full width, as over Home at 1558. Tick, press, close: it all answers.</span><span class="sx-cap-s">As on a phone, this screen</span></p>
+    <div class="sx-stage">
+      <div class="sx-slot">
+        <div class="sd sd--d" role="dialog" aria-labelledby="dw-h" data-n="0">
+          <button class="sd-close" type="button" aria-label="Close"><span class="sd-close-i" data-icon="close" style="--ic: var(--icon-close)" aria-hidden="true"></span></button>
+          <div class="sd-art" aria-hidden="true"><img class="sd-scene" src="art/banner-scene.webp" alt="" loading="lazy"><p class="sd-art-h">CS2 case opening with published odds</p></div>
+          <div class="sd-body">
+            <h3 class="sd-h" id="dw-h">Sign in</h3>
+            <div class="sd-consent">
+              <div class="sd-cbx"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="dw-t1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="dw-t1">I agree to the <a href="../../wireframes/legal.html">Terms of use</a> and the <a href="../../wireframes/legal-unpublished.html?doc=privacy">Privacy policy</a>.</span></div>
+              <div class="sd-cbx sd-cbx--age"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="dw-t2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="dw-t2">I declare that I am 18 or over.</span></div>
+            </div>
+            <p class="sd-why" aria-live="polite"></p>
+            <a class="v4-btn v4-btn--l sd-steam" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span>Sign in with Steam</a>
+            <p class="sd-or"><span>or continue with</span></p>
+            <div class="sd-provs">
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="google" style="--ic: var(--icon-google)" aria-hidden="true"></span>Google</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="discord" style="--ic: var(--icon-discord)" aria-hidden="true"></span>Discord</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="x" style="--ic: var(--icon-x)" aria-hidden="true"></span>X</a>
+            </div>
+            <p class="sd-cost">To send items to Steam, <b>link your Steam account</b>, any time.</p>
+            <p class="sd-never">We never ask for your password or change your Steam profile.</p>
+          </div>
+          <ul class="sd-proofs sd-proofs--d"><li class="sd-pf"><span class="sd-pf-i" data-icon="box" style="--ic: var(--icon-box)" aria-hidden="true"></span><span class="sd-pf-t"><b>Open a case, see every chance.</b></span></li><li class="sd-pf"><span class="sd-pf-i" data-icon="shield" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="sd-pf-t"><b>Every round</b><span class="sd-pf-s">Checkable without an account</span></span></li><li class="sd-pf"><span class="sd-pf-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span><span class="sd-pf-t"><b>Withdrawals go to Steam, commission free.</b></span></li></ul>
+        </div>
+        <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>
+      </div>
+    </div>
+    <div class="sx-narrow">
+      <p class="sx-cap">At 360, after Sign in with Steam was pressed with nothing ticked</p>
+      <div class="sx-phone">
+        <div class="sx-slot">
+        <div class="sd sd--d is-asked" role="dialog" aria-labelledby="dn-h" data-n="0">
+          <button class="sd-close" type="button" aria-label="Close"><span class="sd-close-i" data-icon="close" style="--ic: var(--icon-close)" aria-hidden="true"></span></button>
+          <div class="sd-art" aria-hidden="true"><img class="sd-scene" src="art/banner-scene.webp" alt="" loading="lazy"><p class="sd-art-h">CS2 case opening with published odds</p></div>
+          <div class="sd-body">
+            <h3 class="sd-h" id="dn-h">Sign in</h3>
+            <div class="sd-consent">
+              <div class="sd-cbx is-missing"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="dn-t1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="dn-t1">I agree to the <a href="../../wireframes/legal.html">Terms of use</a> and the <a href="../../wireframes/legal-unpublished.html?doc=privacy">Privacy policy</a>.</span></div>
+              <div class="sd-cbx sd-cbx--age is-missing"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="dn-t2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><span class="sd-cbx-t" id="dn-t2">I declare that I am 18 or over.</span></div>
+            </div>
+            <p class="sd-why" aria-live="polite"><b>Tick both to continue.</b> Neither declaration has been made yet.</p>
+            <a class="v4-btn v4-btn--l sd-steam" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span>Sign in with Steam</a>
+            <p class="sd-or"><span>or continue with</span></p>
+            <div class="sd-provs">
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="google" style="--ic: var(--icon-google)" aria-hidden="true"></span>Google</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="discord" style="--ic: var(--icon-discord)" aria-hidden="true"></span>Discord</a>
+              <a class="v4-btn v4-btn--m v4-btn--ghost" href="../../wireframes/index-account.html" data-go><span class="sd-pv-i" data-icon="x" style="--ic: var(--icon-x)" aria-hidden="true"></span>X</a>
+            </div>
+            <p class="sd-cost">To send items to Steam, <b>link your Steam account</b>, any time.</p>
+            <p class="sd-never">We never ask for your password or change your Steam profile.</p>
+          </div>
+          <ul class="sd-proofs sd-proofs--d"><li class="sd-pf"><span class="sd-pf-i" data-icon="box" style="--ic: var(--icon-box)" aria-hidden="true"></span><span class="sd-pf-t"><b>Open a case, see every chance.</b></span></li><li class="sd-pf"><span class="sd-pf-i" data-icon="shield" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="sd-pf-t"><b>Every round</b><span class="sd-pf-s">Checkable without an account</span></span></li><li class="sd-pf"><span class="sd-pf-i" data-icon="steam" style="--ic: var(--icon-steam)" aria-hidden="true"></span><span class="sd-pf-t"><b>Withdrawals go to Steam, commission free.</b></span></li></ul>
+        </div>
+        <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </details>
+</main>
+<script src="signin-home.js"></script>
+<script>
+// ROUND 2 builds its dialogs from one template, so the wide and the 360 dialog of a take cannot drift; the words are the dialog's own,
+// word for word from wireframes/_nav.js authCard. The background row sets one value on every dialog of its section, swatch included.
+(() => {
+  const W = '../../wireframes/';
+  const BG = [
+    ['cases', 'Cases pink', 'var(--btn-stripes), var(--v4-mode-cases)'],
+    ['battles', 'Battles blue', 'var(--btn-stripes), var(--v4-mode-battles)'],
+    ['showdowns', 'Showdowns red', 'var(--btn-stripes), var(--v4-mode-showdowns)'],
+    ['upgrade', 'Upgrades gold', 'var(--btn-stripes), var(--v4-mode-upgrade)'],
+    ['night', 'Night', 'radial-gradient(90% 55% at 50% 100%, rgba(251, 63, 138, .45), transparent 70%), radial-gradient(80% 45% at 15% 0%, rgba(74, 107, 255, .4), transparent 70%), linear-gradient(180deg, #1B1747, #0B0A22)'],
+    ['aurora', 'Aurora', 'url(art/banner-aurora.webp) 62% 0 / auto 70% no-repeat, radial-gradient(90% 55% at 50% 100%, rgba(74, 107, 255, .35), transparent 70%), linear-gradient(180deg, #140F3A, #0B0A22)'],
+    ['coldfront', 'Coldfront', 'linear-gradient(180deg, rgba(11, 10, 34, .25), rgba(11, 10, 34, .7)), url(art/banner-scene.webp) 70% 30% / cover no-repeat'],
+    ['warehouse', 'Warehouse', 'linear-gradient(180deg, rgba(11, 10, 34, .05), rgba(11, 10, 34, .55)), url(art/daily-bg.webp) 85% 50% / cover no-repeat'],
+    ['clash', 'Clash', 'linear-gradient(180deg, rgba(11, 10, 34, .3), rgba(11, 10, 34, .6)), url(art/mode-battles-scene.webp) 50% 50% / cover no-repeat']
+  ];
+  const ic = n => `data-icon="${n}" style="--ic: var(--icon-${n})" aria-hidden="true"`;
+  const tick = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  let k = 0;
+  const dialog = (kind, asked) => {
+    const id = 'r2' + kind + (++k), miss = asked ? ' is-missing' : '';
+    // round 2 is Home's dialog now: the lab draws it with Home's own renderer, signin-home.js
+    if (kind === 'e') return `<div class="sd sd--e${asked ? ' is-asked' : ''}" role="dialog" aria-labelledby="${id}-h" data-n="0" data-bg="battles">${window.V4Signin.render({ id, base: W, go: W + 'index-account.html', asked })}</div>
+    <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>`;
+    const proofs = kind === 'e' ? `<ul class="sd-proofs"><li class="sd-pf"><span class="sd-pf-i" ${ic('box')}></span><span class="sd-pf-t"><b>Open a case, see every chance.</b></span></li><li class="sd-pf"><span class="sd-pf-i" ${ic('shield')}></span><span class="sd-pf-t"><b>Every round</b><span class="sd-pf-s">Checkable without an account</span></span></li><li class="sd-pf"><span class="sd-pf-i" ${ic('steam')}></span><span class="sd-pf-t"><b>Withdrawals go to Steam, commission free.</b></span></li></ul>` : '';
+    const art = kind === 'e'
+      ? `<div class="sd-art" aria-hidden="true"><p class="sd-art-h">CS2 case opening with published odds</p><img class="sd-agents" src="art/footer-agents.webp" alt=""></div>`
+      : `<div class="sd-art" aria-hidden="true"></div><img class="sd-agents" src="art/footer-agents-2.webp" alt="" aria-hidden="true">`;
+    const sub = kind === 'f' ? '<p class="sd-sub">CS2 case opening with published odds</p>' : '';
+    return `<div class="sd sd--${kind}${asked ? ' is-asked' : ''}" role="dialog" aria-labelledby="${id}-h" data-n="0" data-bg="cases">
+      <button class="sd-close sd-x" type="button" aria-label="Close"></button>
+      ${art}${proofs}
+      <div class="sd-body">
+        <h3 class="sd-h" id="${id}-h">Sign in</h3>${sub}
+        <div class="sd-consent">
+          <div class="sd-cbx${miss}"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="${id}-t1">${tick}</button><span class="sd-cbx-t" id="${id}-t1">I agree to the <a href="${W}legal.html">Terms of use</a> and the <a href="${W}legal-unpublished.html?doc=privacy">Privacy policy</a>.</span></div>
+          <div class="sd-cbx sd-cbx--age${miss}"><button class="sd-box" type="button" role="checkbox" aria-checked="false" aria-labelledby="${id}-t2">${tick}</button><span class="sd-cbx-t" id="${id}-t2">I declare that I am 18 or over.</span></div>
+        </div>
+        <p class="sd-why" aria-live="polite">${asked ? '<b>Tick both to continue.</b> Neither declaration has been made yet.' : ''}</p>
+        <a class="v4-btn v4-btn--l sd-steam" href="${W}index-account.html" data-go><span class="sd-pv-i" ${ic('steam')}></span>Sign in with Steam</a>
+        <p class="sd-or"><span>or continue with</span></p>
+        <div class="sd-provs">
+          <a class="v4-btn v4-btn--m v4-btn--ghost" href="${W}index-account.html" data-go><span class="sd-pv-i" ${ic('google')}></span>Google</a>
+          <a class="v4-btn v4-btn--m v4-btn--ghost" href="${W}index-account.html" data-go><span class="sd-pv-i" ${ic('discord')}></span>Discord</a>
+          <a class="v4-btn v4-btn--m v4-btn--ghost" href="${W}index-account.html" data-go><span class="sd-pv-i" ${ic('x')}></span>X</a>
+        </div>
+        <div class="sd-note">
+          <p class="is-guard"><span class="sd-note-i" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span>We never ask for your password or change your Steam profile.</span></p>
+          <p class="is-steam"><span class="sd-note-i" style="--ic: var(--icon-steam)" aria-hidden="true"></span><span>To send items to Steam, <b>link your Steam account</b>, any time.</span></p>
+        </div>
+      </div>
+    </div>
+    <button class="v4-btn v4-btn--m sx-reopen" type="button" hidden>Sign in</button>`;
+  };
+  document.querySelectorAll('[data-build]').forEach(sec => {
+    sec.querySelectorAll('[data-dlg]').forEach(slot => { slot.innerHTML = dialog(slot.dataset.dlg, slot.hasAttribute('data-asked')); });
+    const row = sec.querySelector('.sx-bgs');
+    const start = sec.dataset.bg || 'cases';
+    row.innerHTML = '<span class="sx-bgs-l">Background</span>' + BG.map(b => `<button class="sx-bg" type="button" data-bg="${b[0]}" aria-pressed="${b[0] === start}"><i style="background: ${b[2]}"></i>${b[1]}</button>`).join('');
+    const set = key => {
+      const v = BG.find(b => b[0] === key)[2];
+      sec.querySelectorAll('.sd').forEach(d => { d.dataset.bg = key; d.querySelector('.sd-art').style.background = v; });
+      row.querySelectorAll('.sx-bg').forEach(b => b.setAttribute('aria-pressed', b.dataset.bg === key));
+    };
+    row.addEventListener('click', e => { const b = e.target.closest('.sx-bg'); if (b) set(b.dataset.bg); });
+    set(start);
+  });
+})();
+</script>
+<script>
+window.NAV_BASE = '../../';
+// THE DECLARATIONS BEHAVE as wireframes/_nav.js wireAuth does, D-58: two real checkboxes, live buttons, and a press with one missing is
+// refused with words that name which one. Opening a linked document is not agreeing to it.
+(() => {
+  const say = {
+    both: '<b>Tick both to continue.</b> Neither declaration has been made yet.',
+    terms: '<b>The agreement to the terms is still missing.</b>',
+    age: '<b>The age declaration is still missing.</b>',
+    done: '<span class="sd-sr">Both declarations made.</span>'
+  };
+  document.querySelectorAll('.sd').forEach(d => {
+    const rows = [...d.querySelectorAll('.sd-cbx')];
+    const why = d.querySelector('.sd-why');
+    const n = () => rows.filter(r => r.classList.contains('is-set')).length;
+    const settle = () => {
+      d.dataset.n = n();
+      if (n() === 2) { d.classList.remove('is-asked'); why.innerHTML = say.done; }
+      else if (d.classList.contains('is-asked')) {
+        const m = rows.map(r => !r.classList.contains('is-set'));
+        why.innerHTML = m[0] && m[1] ? say.both : (m[0] ? say.terms : say.age);
+      } else why.innerHTML = '';
+    };
+    rows.forEach(r => {
+      const b = r.querySelector('.sd-box');
+      r.addEventListener('click', e => {
+        if (e.target.closest('a')) return;
+        e.preventDefault();
+        const on = !r.classList.contains('is-set');
+        r.classList.toggle('is-set', on);
+        if (on) r.classList.remove('is-missing');
+        b.setAttribute('aria-checked', on ? 'true' : 'false');
+        settle();
+      });
+    });
+    d.addEventListener('click', e => {
+      const go = e.target.closest('[data-go]');
+      if (!go || n() === 2) return;
+      e.preventDefault();
+      d.classList.add('is-asked');
+      rows.forEach(r => { if (!r.classList.contains('is-set')) { r.classList.remove('is-missing'); void r.offsetWidth; r.classList.add('is-missing'); } });
+      settle();
+      const first = d.querySelector('.sd-cbx.is-missing .sd-box');
+      if (first) first.focus({ preventScroll: true });
+    });
+    // the close control closes; in the lab the dialog then leaves a Sign in button that brings it back
+    const slot = d.closest('.sx-slot');
+    const again = slot.querySelector('.sx-reopen');
+    d.querySelector('.sd-close').addEventListener('click', () => { d.hidden = true; again.hidden = false; again.focus(); });
+    again.addEventListener('click', () => { d.hidden = false; again.hidden = true; d.querySelector('.sd-close').focus(); });
+  });
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

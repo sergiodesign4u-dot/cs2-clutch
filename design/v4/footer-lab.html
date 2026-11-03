@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer v4</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="rail-icons.css">
+  <link rel="stylesheet" href="footer-home.css">
+  <link rel="stylesheet" href="footer-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body class="fl-page">
+<aside id="sidebar"></aside>
+<!-- A satellite of v4, founder of 2 Nov 2026: "нужно что то делать с футером, сейчас он слабовато смотрится ... упирается в боковое меню ...
+     подумать как сделать футер более траст, более привлекательным, игровым и интересным", after Skin.Club, Keydrop and SkinFans. Four
+     directions on the footer's own content, word for word from wireframes/_nav.js: the four counters, the four link columns, the identity
+     line, the 18+ and market lines, the language, the payment methods, the peg. Nothing on Home changes until one is chosen. -->
+<main class="fl-main">
+  <h1>Footer</h1>
+  <p class="fl-lead">Home's footer today runs from the side menu's edge to the window's, a band of counters, five columns on an empty ground and v1's neon case. Four directions, each built from the footer's own content and words, and from what the blocks above it already use: the striped plates, the menu tiles, the dark pills, the new cases. Every figure is a sample, as on Home. Each is shown as wide as Home's main column at 1558 and on a phone.</p>
+  <aside class="fl-rec"><h2>On Home: I, H with the payments in the strip</h2><p>I is H with the payment cards in the strip and the age lines at the foot's left, the founder's other option; H is G after the founder's second note of 3 Nov 2026; F and G, E after the first note of 3 Nov, follow it; E, D after the notes of 2 Nov, follows them. Round 1 follows: D as first drawn, then A, B and C. Round 1's reasoning for D: A's panel takes the footer off the side menu's edge and gives it a body; B's striped 18+ plate puts responsible play first, as a door rather than fine print, and the strongest trust claim, a round anyone can check, sits beside it. The counters move up beside the plates, the columns get the room, and the base becomes one dark strip with the age line, Trustpilot and the language. It is the one that reads as part of the page above it rather than as a different site under it.</p></aside>
+  <div id="fl-rows"></div>
+</main>
+<script src="rail-icons.js"></script>
+<script src="footer-home.js"></script>
+<script>
+window.NAV_BASE = '../../';
+(function () {
+  var W = '../../wireframes/';
+  var ICON = function (n) { return '<span class="fl-ic" style="--ic: var(--icon-' + n + ')" aria-hidden="true"></span>'; };
+  var STATS = [['367 013 504', 'Cases opened', 'box', 'catalogue.html'], ['3 349 339', 'Upgrades', 'arrow-up'], ['1 864 228', 'Total users', 'users'], ['882', 'Online now', 'pulse', null, 'live']];
+  var COLS = [
+    ['Play', [['Cases', 'catalogue.html']]],
+    ['Cases', [['All cases', 'catalogue.html'], ['Daily cases', 'catalogue.html#cat-daily'], ['Featured cases', 'catalogue.html#cat-featured'], ['Community cases', 'catalogue.html#cat-community'], ['Classic cases', 'catalogue.html#cat-classic']]],
+    ['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal-unpublished.html?doc=privacy'], ['Cookie policy', 'legal-unpublished.html?doc=cookie'], ['Refund and payments policy', 'legal-refund.html'], ['Cookie settings', null]]],
+    ['Platform', [['Provably fair', 'fair.html'], ['Support', 'support.html'], ['Responsible play', 'responsible.html']]]
+  ];
+  var SOC = ['discord', 'telegram', 'x', 'youtube', 'tiktok', 'instagram', 'facebook'];
+
+  function stats() {
+    return '<div class="fl-stats">' + STATS.map(function (s) {
+      var tag = s[3] ? 'a' : 'div';
+      return '<' + tag + ' class="fl-stat' + (s[4] ? ' is-live' : '') + '"' + (s[3] ? ' href="' + W + s[3] + '"' : '') + '><span class="fl-tile">' + ICON(s[2]) + '</span><span class="fl-sv"><b>' + s[0] + '</b><span>' + s[1] + '</span></span></' + tag + '>';
+    }).join('') + '</div>';
+  }
+  function cols() {
+    return '<div class="fl-cols">' + COLS.map(function (c) {
+      return '<nav class="fl-col" aria-label="' + c[0] + '"><h3>' + c[0] + '</h3>' + c[1].map(function (l) {
+        return l[1] ? '<a href="' + W + l[1] + '">' + l[0] + '</a>' : '<button type="button" class="fl-linklike">' + l[0] + '</button>';
+      }).join('') + '</nav>';
+    }).join('') + '</div>';
+  }
+  function brand(withSoc) {
+    return '<div class="fl-brand"><a class="fl-logo" href="index.html" aria-label="CS2 Clutch, home"></a>' +
+      '<p class="fl-ident">Operating company · Registration no. · Registered address</p>' +
+      '<div class="fl-help"><span>Need help?</span><a class="v4-btn v4-btn--m" href="' + W + 'support.html">Support</a></div>' +
+      (withSoc ? soc() : '') + '</div>';
+  }
+  function soc() { return '<div class="fl-soc">' + SOC.map(function (s) { return '<a class="fl-sq" href="#" aria-label="' + s + '">' + ICON(s) + '</a>'; }).join('') + '</div>'; }
+  function tp() { return '<a class="fl-tp" href="#"><span class="fl-tp-stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="is-part"></i></span><b>4.1</b><span>Trustpilot<br>1 870 reviews</span></a>'; }
+  function lang() { return '<button class="fl-lang" type="button"><span class="fl-flag" aria-hidden="true"></span>English<span class="fl-caret" aria-hidden="true"></span></button>'; }
+  function pay() { return '<ul class="fl-pay" aria-label="Payment methods"><li>' + ICON('dollar') + 'Card</li><li>' + ICON('send') + 'Wallet</li><li>' + ICON('diamond') + 'Crypto</li></ul>'; }
+  function age(short) {
+    return '<div class="fl-age"><span class="fl-age-m" aria-hidden="true">18+</span><div><p>For people 18 or over. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start.</p>' +
+      (short ? '' : '<p>Available only in the countries we have cleared. Anywhere else, this site says so before anything can be paid.</p>') + '</div></div>';
+  }
+  function plates() {
+    return '<div class="fl-plates"><a class="fl-plate is-rg" href="' + W + 'responsible.html"><span class="fl-pt">' + ICON('shield') + '</span><span class="fl-ptx"><b>18+ · Play responsibly</b><span>For people 18 or over</span></span><span class="fl-go" aria-hidden="true"></span></a>' +
+      '<a class="fl-plate is-pf" href="' + W + 'fair.html"><span class="fl-pt">' + ICON('target') + '</span><span class="fl-ptx"><b>Every round</b><span>Checkable without an account</span></span><span class="fl-go" aria-hidden="true"></span></a></div>';
+  }
+  function fine() { return '<div class="fl-fine"><span>© 2026 CS2 Clutch. All rights reserved</span><span>Prices are in coins. 1 coin = $1.00</span></div>'; }
+  var CASE = '<span class="fl-case" aria-hidden="true"></span>';
+
+  /* payment marks drawn as plain monochrome shapes for realism; which methods ship is [?], so they are samples */
+  var PAY = [
+    ['Visa', '<svg viewBox="0 0 60 20"><text x="30" y="16" text-anchor="middle" font-family="Arial Black, Arial" font-weight="900" font-style="italic" font-size="18" fill="currentColor">VISA</text></svg>'],
+    ['Mastercard', '<svg viewBox="0 0 60 30"><circle cx="24" cy="15" r="11" fill="currentColor" opacity=".75"/><circle cx="36" cy="15" r="11" fill="currentColor" opacity=".45"/></svg>'],
+    ['Google Pay', '<svg viewBox="0 0 60 20"><text x="30" y="15" text-anchor="middle" font-family="Arial" font-weight="700" font-size="15" fill="currentColor">G Pay</text></svg>'],
+    ['Bitcoin', '<svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="12" fill="currentColor" opacity=".8"/><text x="15" y="20.5" text-anchor="middle" font-family="Arial" font-weight="900" font-size="15" fill="#0B0A22">₿</text></svg>'],
+    ['Ethereum', '<svg viewBox="0 0 30 30"><path d="M15 3l7 12-7 4-7-4z" fill="currentColor" opacity=".85"/><path d="M15 21l7-4.5L15 27l-7-10.5z" fill="currentColor" opacity=".6"/></svg>'],
+    ['Tether', '<svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="12" fill="currentColor" opacity=".8"/><path d="M9 9h12v3h-4.5v10h-3V12H9z" fill="#0B0A22"/></svg>']
+  ];
+  function payCards() { return '<ul class="fe-pay" aria-label="Payment methods">' + PAY.map(function (p) { return '<li title="' + p[0] + '"><span class="fl-sr">' + p[0] + '</span>' + p[1] + '</li>'; }).join('') + '</ul>'; }
+  function colsE() {
+    var c = function (i) { var k = COLS[i]; return '<h3>' + k[0] + '</h3>' + k[1].map(function (l) { return l[1] ? '<a href="' + W + l[1] + '">' + l[0] + '</a>' : '<button type="button" class="fl-linklike">' + l[0] + '</button>'; }).join(''); };
+    return '<div class="fe-cols"><nav class="fl-col" aria-label="Play and platform">' + c(0) + '<span class="fe-gap"></span>' + c(3) + '</nav><nav class="fl-col" aria-label="Cases">' + c(1) + '</nav><nav class="fl-col" aria-label="Company">' + c(2) + '</nav></div>';
+  }
+  function statsE() {
+    return '<div class="fe-band"><div class="fe-stats">' + STATS.map(function (s) {
+      var tag = s[3] ? 'a' : 'div';
+      return '<' + tag + ' class="fe-stat' + (s[4] ? ' is-live' : '') + '"' + (s[3] ? ' href="' + W + s[3] + '"' : '') + '>' + ICON(s[2]) + '<span><b>' + s[0] + '</b><span>' + s[1] + '</span></span></' + tag + '>';
+    }).join('') + '</div></div>';
+  }
+  /* F and G, founder of 3 Nov 2026 on E: the 18+ plate red and striped with a white 18+ disc; the age and market lines leave the strip
+     for the foot, which ends on a band like the counters'; the counters spread evenly, on the menu tiles again; the bands have square ends
+     that fade to the left and right */
+  function platesF(lang) {
+    return '<div class="ff-plates"><a class="fl-plate is-18" href="' + W + 'responsible.html"><span class="ff-18" aria-hidden="true">18+</span><span class="fl-ptx"><b>Play responsibly</b><span>For people 18 or over</span></span><span class="fl-go" aria-hidden="true"></span></a>' +
+      '<a class="fl-plate is-pf" href="' + W + 'fair.html"><span class="fl-pt">' + ICON('target') + '</span><span class="fl-ptx"><b>Every round</b><span>Checkable without an account</span></span><span class="fl-go" aria-hidden="true"></span></a>' + (lang ? lang : '') + '</div>';
+  }
+  function statsF() {
+    return '<div class="ff-band"><div class="ff-stats">' + STATS.map(function (s) {
+      var tag = s[3] ? 'a' : 'div';
+      return '<' + tag + ' class="ff-stat' + (s[4] ? ' is-live' : '') + '"' + (s[3] ? ' href="' + W + s[3] + '"' : '') + '><span class="fl-tile">' + ICON(s[2]) + '</span><span><b>' + s[0] + '</b><span>' + s[1] + '</span></span></' + tag + '>';
+    }).join('') + '</div></div>';
+  }
+  var LEGAL = '<p>For people 18 or over. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start.</p><p>Available only in the countries we have cleared. Anywhere else, this site says so before anything can be paid.</p>';
+  var V = {
+    /* I is on Home: drawn by Home's own renderer, footer-home.js */
+    i: function () { return '<footer class="ft-wrap">' + window.V4Footer.render({ base: W, guest: true }) + '</footer>'; },
+    h: function () {
+      return '<footer class="ft ft-f ft-g ft-h">' + statsF() + '<div class="fe-mid">' + brand(true) + colsE() + '<span class="fe-agents" aria-hidden="true"></span></div>' +
+        '<div class="ff-strip">' + platesF() + '</div>' +
+        '<div class="ff-foot"><div class="ff-foot-in"><div class="fh-row">' + payCards() + lang() + '</div><div class="ff-legal">' + LEGAL + '</div>' + fine() + '</div></div></footer>';
+    },
+    f: function () {
+      return '<footer class="ft ft-f">' + statsF() + '<div class="fe-mid">' + brand(true) + colsE() + '<span class="fe-agents" aria-hidden="true"></span></div>' +
+        '<div class="ff-strip">' + platesF(lang()) + '</div>' +
+        '<div class="ff-foot"><div class="ff-foot-in"><div class="ff-row">' + payCards() + '<div class="ff-legal">' + LEGAL + '</div></div>' + fine() + '</div></div></footer>';
+    },
+    g: function () {
+      return '<footer class="ft ft-f ft-g">' + statsF() + '<div class="fe-mid">' + brand(true) + colsE() + '<span class="fe-agents" aria-hidden="true"></span></div>' +
+        '<div class="ff-strip">' + platesF() + '</div>' +
+        '<div class="ff-foot"><div class="ff-foot-in">' + payCards() + '<div class="ff-legal">' + LEGAL + '</div><div class="ff-last">' + lang() + fine() + '</div></div></div></footer>';
+    },
+    e: function () {
+      return '<footer class="ft ft-e">' + statsE() + '<div class="fe-mid">' + brand(true) + colsE() + '<span class="fe-agents" aria-hidden="true"></span></div>' +
+        '<div class="fe-strip"><div class="fe-strip-top">' + plates() + lang() + '</div><div class="fe-legal"><p>For people 18 or over. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start.</p><p>Available only in the countries we have cleared. Anywhere else, this site says so before anything can be paid.</p></div></div>' +
+        '<div class="fe-end">' + payCards() + fine() + '</div></footer>';
+    },
+    a: function () {
+      return '<footer class="ft ft-a">' + CASE + stats() + '<div class="fl-mid">' + brand(true) + cols() + '</div>' +
+        '<div class="fl-base">' + age() + '<div class="fl-base-r">' + tp() + lang() + pay() + '</div></div>' + fine() + '</footer>';
+    },
+    b: function () {
+      return '<footer class="ft ft-b">' + plates() + stats() + '<div class="fl-mid">' + brand(false) + cols() + '</div>' +
+        '<div class="fl-base">' + soc() + '<div class="fl-base-r">' + lang() + pay() + '</div></div>' + '<div class="fl-legal">' + age() + '</div>' + fine() + '</footer>';
+    },
+    c: function () {
+      return '<footer class="ft ft-c"><span class="fl-scene" aria-hidden="true"></span>' + stats() +
+        '<div class="fl-float">' + brand(true) + cols() + '</div>' +
+        '<div class="fl-strip">' + age(true) + tp() + lang() + '</div>' + '<div class="fl-end">' + pay() + fine() + '</div></footer>';
+    },
+    d: function () {
+      return '<footer class="ft ft-d">' + CASE + '<div class="fl-top">' + plates() + stats() + '</div>' + '<div class="fl-mid">' + brand(true) + cols() + '</div>' +
+        '<div class="fl-strip">' + age() + tp() + lang() + '</div>' + '<div class="fl-end">' + pay() + fine() + '</div></footer>';
+    }
+  };
+  var ROWS = [
+    ['i', 'I. H, payments in the strip', 'On Home since 3 Nov 2026. Founder of 3 Nov 2026 on H, as one more option: the payment cards move up into the strip beside the two plates, in two rows of three, and the age and market lines take their place at the foot\'s left end, the language still at its right end, the fine print centred under them.', true],
+    ['h', 'H. G, round 4', 'Founder of 3 Nov 2026 on G, "I like this one a lot": the block keeps its rounded corners again, the bands inside it still fading to the sides; the payment cards take the foot\'s left end and the language its right end, on one row, while the age and market lines and the fine print stay on the centre line under them; two operators standing back to back take the place of the three, so they need less width and the Company column keeps its room.'],
+    ['f', 'F. E, round 3', 'Founder of 3 Nov 2026 on E. The footer runs full width with square ends; its two bands, the counters on top and the foot at the bottom, fade out to the left and the right and are edged by lines that are brightest in the middle, blue on top and pink below. The counters stand evenly across the band, large, pink and lit, on the side menu\'s tiles again. The 18+ plate is red and striped, a white 18+ disc and "For people 18 or over" beside it; the strip holds only the two plates and the language. The age and market lines go down into the foot beside the payment cards, the fine print under them.'],
+    ['g', 'G. F, centred foot', 'F with the foot laid out on its centre line, as SkinFans ends: the payment cards, the age and market lines, then the language and the fine print, each centred. The strip holds the two plates at full width.'],
+    ['e', 'E. D, round 2', 'Founder of 2 Nov 2026 on D: "let's drop Trustpilot ... why repeat ourselves". Trustpilot is gone, Home\'s hero already carries it; the two trust plates move down into the dark 18+ strip, which loses its 18+ circle since the first plate says 18+; the hanging case is gone. The top is one band for the counters, set off by a dark ground and two borders that are brightest in the middle and fade to the sides, the top one blue with a soft blue light under it, as the old footer had; the counters large, pink and lit, as on the old footer. Three operators stand at the right of the links, cut by the strip. The payment methods are cards with their marks in one muted tone. The marks are drawn samples: which methods ship is still [?].'],
+    ['d', 'D. Block with a trust plate', 'Round 1\'s recommendation. A rounded block set off the side menu and the window, as Before you spend and Daily cases are. Its top row: the striped 18+ plate that opens Responsible play and the plate for the round anyone can check, then the four counters on menu tiles. The columns in the middle, the Nightfall case breaking out of the block\'s top right corner. A dark strip at the foot with the age lines, Trustpilot and the language; the payment methods and the peg under it.',],
+    ['a', 'A. Footer as a block', 'Skin.Club\'s order in our language. The footer becomes one rounded panel with room around it, so it no longer runs into the side menu. The counters sit in one line of small tiles, the brand and socials on the left, the four columns, and the new case breaking out of the panel\'s top. The base row carries the age lines, Trustpilot, the language and the payment methods.'],
+    ['b', 'B. Trust first', 'Keydrop\'s 18+ plate, made a door: a striped plate in the menu\'s blue that opens Responsible play, beside one for the round anyone can check. Then the counters as large figures, the columns, socials and language, the age and market lines in full, and the fine print. Full width, as today, but the first thing it says is how to play safely.'],
+    ['c', 'C. Scene', 'SkinFans\' build in our world: the Coldfront banner\'s scene dimmed behind the whole footer, the counters standing on it, the columns floating in a dark panel, and one dark strip with the age line, Trustpilot and the language. The most like a game\'s menu of the four, and the heaviest.']
+  ];
+  document.getElementById('fl-rows').innerHTML = ROWS.map(function (r) {
+    var html = V[r[0]]();
+    return '<section class="fl-var' + (r[3] ? ' is-rec' : '') + '" id="ft-' + r[0] + '"><h2>' + r[1] + (r[3] ? '<span class="fl-tag">Recommended</span>' : '') + '</h2><p>' + r[2] + '</p>' +
+      '<p class="fl-cap">As wide as Home\'s main column at 1558</p><div class="fl-frame">' + html + '</div>' +
+      '<p class="fl-cap">On a phone</p><div class="fl-frame fl-phone">' + html + '</div></section>';
+  }).join('');
+  document.addEventListener('click', function (e) { if (e.target.closest('.ft a')) e.preventDefault(); });
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

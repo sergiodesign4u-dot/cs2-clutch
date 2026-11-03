@@ -1,0 +1,144 @@
+/* design/v4/signin-lab.css, a satellite of v4: four directions for the sign in dialog. Founder of 3 Nov 2026: "let's do sign in next, right
+ * now it is very bad ... something like this [Keydrop's login], but that is only a nice example and we need something of our own".
+ * The site's own language only: Roboto, the button family of buttons.css (--btn-stripes, pink as the one act, the pink edged ghost), the
+ * mode gradients --v4-mode-*, the footer's striped plates and its red 18+ plate with the white disc (footer-home.css .fl-plate.is-18, .ff-18),
+ * dark pills. No glow, no dot grid, no numbering, no overlay fill. The dialog lays itself out by its own width (a container), so the same
+ * markup is the 1558 dialog and the 360 sheet. */
+
+body.sx-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.sx-main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 80px; }
+@media (min-width: 900px) { .sx-main { margin-left: calc(var(--nav-w, 248px) + 24px); margin-right: 24px; max-width: none; } }
+@media (max-width: 899px) { .sx-main { padding-top: 62px; } }
+.sx-main > h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.sx-lead { margin: 0; max-width: 92ch; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; }
+.sx-rec { margin-top: 16px; padding: 18px 20px; border-radius: 12px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 2px var(--color-pink); }
+.sx-rec h2 { margin: 0 0 6px; font-size: 18px; font-weight: 900; }
+.sx-rec p { margin: 0; max-width: 92ch; color: var(--color-text-soft); font-size: 14px; line-height: 1.5; }
+
+.sx { display: grid; gap: 14px; margin-top: 28px; padding: 24px; border: 1px solid var(--color-line-soft); border-radius: 16px; }
+.sx.is-rec { border-color: var(--color-pink); }
+.sx-meta h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 0 0 6px; font-size: 20px; font-weight: 900; }
+.sx-tag { padding: 4px 10px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 2px var(--color-pink); font-size: 12px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.sx-meta p { margin: 0; max-width: 92ch; color: var(--color-text-soft); font-size: 14px; line-height: 1.5; }
+.sx-meta .sx-cost { margin-top: 4px; color: var(--color-text-muted); }
+.sx-cap { margin: 8px 0 0; color: var(--color-text-muted); font-size: 13px; }
+.sx-cap-s { display: none; }
+/* the stage stands for Home under its scrim: the dialog centred on the ground, as it opens at 1558 */
+.sx-stage { container: dlg / inline-size; padding: 40px 24px; border-radius: 16px; background: rgba(3, 5, 16, .9); box-shadow: inset 0 0 0 1px var(--color-line-soft); }
+.sx-phone { container: dlg / inline-size; box-sizing: border-box; width: 360px; max-width: 100%; border-radius: 16px; overflow: hidden; background: #0D0C28; box-shadow: inset 0 0 0 1px var(--color-line-soft); }
+.sx-slot { display: grid; justify-items: center; }
+.sx-reopen { margin: 40px auto; }
+.sx-reopen[hidden] { display: none; }
+@media (max-width: 899px) {
+  .sx { padding: 14px; }
+  .sx-narrow { display: none; }  /* on a phone the stage itself is the 360 view */
+  .sx-cap-w { display: none; } .sx-cap-s { display: inline; }
+  .sx-stage { padding: 0; background: none; box-shadow: none; }
+}
+
+/* the dialog itself, its base and Operators round 2, lives in signin-home.css since 3 Nov 2026; this file keeps the lab page and the other directions */
+
+/* ------------------------------------------------------------------ a, Operators: the cases gradient, striped, the three operators in it */
+.sd--a .sd-art { min-height: 168px; background: var(--btn-stripes), var(--v4-mode-cases); }
+.sd--a .sd-art-h { position: relative; z-index: 1; max-width: 58%; margin: 0; padding: 22px 16px; font-size: 20px; font-weight: 900; line-height: 1.12; text-transform: uppercase; }
+.sd--a .sd-agents { position: absolute; right: -36px; bottom: 0; height: 100%; width: auto; }
+.sd--a .sd-proofs { padding-top: 0; }
+@container dlg (min-width: 760px) {
+  .sd--a .sd-art { min-height: 600px; }
+  .sd--a .sd-art-h { max-width: 330px; padding: 34px 30px 0; font-size: 30px; }
+  .sd--a .sd-agents { right: auto; left: -30px; width: calc(100% + 60px); height: auto; }
+  .sd--a > .sd-proofs { align-self: start; margin-top: 178px; padding: 0 30px; }
+}
+
+/* ------------------------------------------------------------------ b, Case wakes: Coldfront comes out of its front as the declarations are made */
+.sd--b .sd-art { padding: 22px 16px 0; background: linear-gradient(180deg, #1B1747, #0B0A22); }
+.sd--b .sd-art-h { max-width: 75%; margin: 0; font-size: 18px; font-weight: 900; line-height: 1.15; text-transform: uppercase; }
+.sd-case { position: relative; width: min(100%, 300px); aspect-ratio: 3 / 2; margin: 0 auto; }
+.sd-case img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.sd-case-open { --top: 50%; clip-path: inset(var(--top) 0 0 0); filter: saturate(.35) brightness(.7); transition: clip-path .45s cubic-bezier(.2, .7, .2, 1), filter .45s; }
+.sd--b[data-n="1"] .sd-case-open { --top: 28%; filter: saturate(.75) brightness(.9); }
+.sd--b[data-n="2"] .sd-case-open { --top: 0%; filter: none; }
+.sd-case-front { filter: saturate(.5) brightness(.8); transition: filter .45s; }
+.sd--b[data-n="2"] .sd-case-front { filter: none; }
+@container dlg (min-width: 760px) {
+  .sd--b .sd-art { display: grid; align-content: center; gap: 24px; padding: 40px 30px; }
+  .sd--b .sd-art-h { font-size: 28px; }
+  .sd-case { width: calc(100% + 40px); margin: 0 -20px; }
+}
+
+/* ------------------------------------------------------------------ c, Striped plates: the footer's plates, and the age row on its red 18+ plate */
+.sd--c .sd-art { padding: 16px; }
+.sd-logo { display: block; height: 30px; width: auto; }
+.sd-plates { display: grid; gap: 10px; margin: 0; padding: 0 16px 20px; list-style: none; }
+.sd-plate { display: flex; align-items: center; gap: 12px; min-height: 64px; box-sizing: border-box; padding: 10px 14px; border-radius: 14px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.sd-plate.is-cases { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-cases); }
+.sd-plate.is-battles { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-battles); }
+.sd-plate.is-pf { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), linear-gradient(140deg, #0F7EA6, #1F55C9 60%, #24359E); }
+.sd-plate-i { position: relative; flex: none; width: 38px; height: 38px; border-radius: 11px; background: rgba(6, 10, 30, .35); -webkit-mask: none; mask: none; }
+.sd-plate .sd-pf-s { color: rgba(255, 255, 255, .85); }
+.sd--c .sd-cbx--age { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-showdowns); color: var(--color-text-hi); font-weight: 700; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.sd--c .sd-cbx--age .sd-box { box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .85); }
+.sd--c .sd-cbx--age.is-set .sd-box { background: #fff; }
+.sd--c .sd-cbx--age.is-set .sd-box svg { stroke: #B4142E; }
+.sd--c .sd-cbx--age.is-missing { box-shadow: inset 0 0 0 2px #fff; }
+.sd-18 { display: grid; place-items: center; flex: none; width: 38px; height: 38px; border-radius: 50%; background: #fff; color: #B4142E; font-size: 13px; font-weight: 900; letter-spacing: -.02em; box-shadow: 0 4px 10px rgba(60, 0, 10, .35); }
+@container dlg (min-width: 760px) {
+  .sd--c { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); }
+  .sd--c .sd-art { padding: 34px 28px; background: linear-gradient(180deg, #0B0A22, #100F2C); box-shadow: inset -1px 0 0 rgba(255, 255, 255, .06); }
+  .sd-logo { height: 38px; }
+  .sd--c > .sd-plates { align-self: center; padding: 0 28px; }
+}
+
+/* ------------------------------------------------------------------ d, Scene: the banner's Coldfront scene edge to edge, the form a card on it */
+.sd--d .sd-art { min-height: 200px; }
+.sd-scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 45% 35%; }
+.sd--d .sd-art-h { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; margin: 0; padding: 40px 16px 16px; background: linear-gradient(0deg, rgba(6, 10, 30, .92), rgba(6, 10, 30, 0)); font-size: 20px; font-weight: 900; line-height: 1.12; text-transform: uppercase; }
+.sd--d .sd-proofs { padding-top: 4px; }
+@container dlg (min-width: 760px) {
+  .sd--d { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); grid-template-areas: "art body"; min-height: 620px; background: #0B0A22; }
+  .sd--d .sd-art { grid-area: 1 / 1 / 2 / 3; }
+  .sd--d .sd-scene { left: -40%; width: 140%; object-position: 50% 30%; } /* the soldier and the case sit left of the card, not under it */
+  .sd--d .sd-art-h { left: 0; right: 440px; padding: 120px 32px 28px; font-size: 32px; background: linear-gradient(0deg, rgba(6, 10, 30, .9), rgba(6, 10, 30, 0)); }
+  .sd--d .sd-body { grid-area: body; align-self: center; margin: 24px 24px 24px 0; padding: 30px 28px 26px; border-radius: 16px; background: rgba(11, 10, 34, .93); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+  .sd--d > .sd-proofs { grid-area: art; align-self: start; display: flex; flex-wrap: wrap; gap: 8px; padding: 28px 32px 0; }
+  .sd--d .sd-pf { padding: 8px 12px 8px 8px; }
+  .sd--d .sd-pf-i { width: 28px; height: 28px; }
+  .sd--d .sd-pf-i::after { inset: 6px; }
+  .sd--d .sd-close { top: 34px; right: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sd-cbx, .sd-box, .sd-box svg, .sd-case-open, .sd-case-front { transition: none; }
+  .sd-cbx.is-missing { animation: none; }
+}
+
+.sx-old { margin-top: 36px; }
+.sx-old > summary { cursor: pointer; color: var(--color-text-soft); font-size: 15px; font-weight: 700; }
+.sx-old[open] > summary { margin-bottom: 4px; }
+
+/* the background row: a swatch drawn with the very value the dialog gets */
+.sx-bgs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.sx-bgs-l { margin-right: 4px; color: var(--color-text-muted); font-size: 13px; }
+.sx-bg { display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 12px 0 6px; border: 0; border-radius: 10px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); color: var(--color-text-soft); font: 700 13px var(--font-family); cursor: pointer; }
+.sx-bg i { width: 22px; height: 22px; border-radius: 6px; }
+.sx-bg:hover { color: var(--color-text-hi); }
+.sx-bg[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--color-pink); color: var(--color-text-hi); }
+.sx-bg:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+
+/* ------------------------------------------------------------------ f, Operators centred: a band on top, two operators rising over the edge */
+.sd--f { display: block; max-width: 500px; margin-top: 56px; overflow: visible; border-radius: 20px; }
+.sd--f .sd-art { height: 150px; border-radius: 20px 20px 0 0; }
+.sd--f .sd-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, #16133C); }
+.sd--f .sd-agents { position: absolute; z-index: 1; left: 50%; top: -56px; height: 206px; width: auto; translate: -50% 0; pointer-events: none; -webkit-mask: linear-gradient(180deg, #000 70%, transparent); mask: linear-gradient(180deg, #000 70%, transparent); }
+.sd--f .sd-close { top: 10px; right: 10px; color: #fff; }
+.sd--f .sd-body { padding: 4px 16px 16px; }
+.sd--f .sd-h { margin: 0; text-align: center; font-size: 26px; line-height: 1.12; }
+.sd--f .sd-sub { margin: 6px 0 20px; color: var(--color-text-soft); font-size: 14px; text-align: center; }
+@container dlg (min-width: 560px) {
+  .sd--f { margin-top: 80px; }
+  .sd--f .sd-art { height: 190px; }
+  .sd--f .sd-agents { top: -80px; height: 270px; }
+  .sd--f .sd-body { padding: 6px 32px 28px; }
+  .sd--f .sd-h { font-size: 32px; }
+  .sd--f .sd-sub { font-size: 15px; margin-bottom: 24px; }
+}

@@ -211,3 +211,12 @@
   .dc.is-guest .dc-boxes { display: flex; width: auto; }
   .dc.is-guest .dc-box, .dc.is-guest .dc-row .v4-btn { flex: 0 0 auto; }
 }
+/* founder of 2 Nov 2026 at a panel about 790px wide, "и с этим я бы тоже что то сделал": a guest's head left the right half empty, and the
+   tier names ran past their cards ("GUARDIAN" wider than its card). Between 761 and 899px the title and its line stand on the left and the
+   reset box over the button on the right, one column as wide as the button; the names take 2.5% of the panel's width, 24px at most */
+@container dc (min-width: 761px) and (max-width: 899px) {
+  .dc.is-guest .dc-head.has-title { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 24px; }
+  .dc.is-guest .dc-head.has-title .dc-row { grid-column: 2; grid-row: 1; display: grid; gap: 10px; width: auto; flex: none; }
+  .dc.is-guest .dc-head.has-title .dc-boxes, .dc.is-guest .dc-head.has-title .dc-box { display: flex; width: 100%; }
+}
+@container dc (min-width: 761px) { .dc-name { font-size: min(24px, 2.5cqw); } }

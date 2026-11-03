@@ -102,3 +102,13 @@
   :root body .wf-rail .wf-rail-item:not(.is-later):not(.is-current):is(:hover, :focus-visible)::before { opacity: 1; }
   :root body .wf-rail .wf-rail-item:not(.is-later):not(.is-current):is(:hover, :focus-visible)::after { opacity: 1; transform: translateY(-3px) rotate(-3deg) scale(1.06); }
 }
+
+/* founder of 2 Nov 2026, "этот кейс мне кажется огромным по сравнению с другими": the Coldfront case filled the same 56px box as the other
+   rows' objects, but a case is wide where a helmet or an arrow is tall, so it read twice their weight. Its box is 52px, its foot further in; 46px, tried first, read too small, "то сильно большой то сильно маленький", and at 52px it sat inside its card where the helmet and the arrow rise out of
+   theirs, "он не вылазит за рамку как другие пункты". A case is a low picture, so it stands 12px higher: 60px wide, 40px of case, its lid over
+   the card's top edge as the others' tops are */
+@media (min-width: 900px) {
+  :root body .wf-rail .wf-rail-item:has([data-icon="box"])::after { width: 72px; height: 72px; right: 12px; bottom: 4px; }
+  /* founder of 3 Nov 2026: bigger, but its top stays where it is, "его выше делать не надо, его надо увеличить как бы вниз": 72px wide, 48px
+     of case from 4px to 52px above the row's foot, the same top as at 60px */
+}
