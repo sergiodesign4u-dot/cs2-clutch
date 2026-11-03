@@ -103,7 +103,7 @@
   function leaves(s) {
     if (!s.children) return s.page ? [s] : [];
     var out = [];
-    s.children.forEach(function (c) { c.items ? c.items.forEach(function (i) { out.push(i); }) : out.push(c); });
+    s.children.forEach(function (c) { (c.items || [c]).forEach(function (i) { out.push(i); (i.parts || []).forEach(function (p) { out.push(p); }); }); });
     return out;
   }
   var nextIdx = -1;

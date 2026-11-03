@@ -77,6 +77,10 @@ a.nav-subitem:hover { color: var(--nav-fg); background: rgba(255, 255, 255, 0.05
 a.nav-subitem { color: var(--nav-fg); opacity: 0.72; }
 a.nav-subitem.is-current { color: var(--nav-active); opacity: 1; font-weight: 600; background: rgba(233, 77, 139, 0.08); }
 .nav-subitem.is-soon { opacity: 1; cursor: default; }
+/* A page's parts, folded under it: a chevron on the page row, and the parts indented under a rule while it is open */
+.nav-subitem.has-parts::after { content: ''; flex: 0 0 auto; margin-left: auto; width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(-45deg); opacity: .55; transition: transform .2s; }
+.nav-subitem.has-parts.is-open::after { transform: rotate(45deg); }
+.nav-parts { display: flex; flex-direction: column; margin: 1px 0 4px 10px; padding-left: 8px; border-left: 1px solid var(--nav-rule); font-size: .95em; }
 
 /* Sections of the page you are standing on */
 .nav-sections { flex: 1 1 100%; display: flex; flex-direction: column; margin: 1px 0 6px; padding-left: 12px; }

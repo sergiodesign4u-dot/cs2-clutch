@@ -62,23 +62,27 @@ window.NAV = [
   { label: 'Concept', wip: true, children: [
       { label: 'Directions', page: 'design/concept/directions.html', done: true },
       { label: 'Concept',    page: 'design/concept/concept.html',    done: true },
+      // A page's parts sit under it, founder of 4 Nov 2026: "то что ми делали варианти блоки части хоум єто должно стать подпунтами Home, ее
+      // часть, типа откріваем нажимаем на хоум и у нас появлется пункти". A leaf may carry parts: [...]; they show while the page or one of
+      // its parts is open, and stay folded otherwise.
       { subhead: 'Concept v4', items: [
-          { label: 'Home',        pageLabel: 'Home v4',            page: 'design/v4/index.html',      live: true },
-          { label: 'Rare drops',  pageLabel: 'Rare drops v4',      page: 'design/v4/rare-drops.html', live: true },
-          { label: 'Case art',    pageLabel: 'Case art v4',        page: 'design/v4/cases-lab.html',  live: true },
-          { label: 'Mode cards',  pageLabel: 'Mode cards v4',      page: 'design/v4/modes-lab.html',  live: true },
-          { label: 'Side menu',   pageLabel: 'Side menu v4',       page: 'design/v4/rail-lab.html',   live: true },
-          { label: 'Daily cases', pageLabel: 'Daily cases v4',     page: 'design/v4/daily-lab.html',  live: true },
-          { label: 'Before you spend', pageLabel: 'Before you spend v4', page: 'design/v4/proof-lab.html', live: true },
-          { label: 'What opening involves', pageLabel: 'What opening involves v4', page: 'design/v4/seo-lab.html', live: true },
-          { label: 'Logo and coin', pageLabel: 'Logo and coin v4',  page: 'design/v4/brand-lab.html',  live: true },
-          { label: 'Buttons',     pageLabel: 'Buttons v4',         page: 'design/v4/buttons-lab.html', live: true },
-          { label: 'Case tile hover', pageLabel: 'Case tile hover v4', page: 'design/v4/tile-hover-lab.html', live: true },
-          { label: 'Section headings', pageLabel: 'Section headings v4', page: 'design/v4/heading-lab.html', live: true },
-          { label: 'Footer', pageLabel: 'Footer v4', page: 'design/v4/footer-lab.html', live: true },
-          { label: 'Sign in', pageLabel: 'Sign in v4', page: 'design/v4/signin-lab.html', live: true },
-          { label: 'Account', pageLabel: 'Account v4', page: 'design/v4/account-lab.html', live: true },
-          { label: 'Case screen', pageLabel: 'Case screen v4',     page: 'design/v4/case.html',       done: false }
+          { label: 'Home', pageLabel: 'Home v4', page: 'design/v4/index.html', live: true, parts: [
+              { label: 'Rare drops',  pageLabel: 'Rare drops v4',      page: 'design/v4/rare-drops.html', live: true },
+              { label: 'Case art',    pageLabel: 'Case art v4',        page: 'design/v4/cases-lab.html',  live: true },
+              { label: 'Mode cards',  pageLabel: 'Mode cards v4',      page: 'design/v4/modes-lab.html',  live: true },
+              { label: 'Side menu',   pageLabel: 'Side menu v4',       page: 'design/v4/rail-lab.html',   live: true },
+              { label: 'Daily cases', pageLabel: 'Daily cases v4',     page: 'design/v4/daily-lab.html',  live: true },
+              { label: 'Before you spend', pageLabel: 'Before you spend v4', page: 'design/v4/proof-lab.html', live: true },
+              { label: 'What opening involves', pageLabel: 'What opening involves v4', page: 'design/v4/seo-lab.html', live: true },
+              { label: 'Logo and coin', pageLabel: 'Logo and coin v4',  page: 'design/v4/brand-lab.html',  live: true },
+              { label: 'Buttons',     pageLabel: 'Buttons v4',         page: 'design/v4/buttons-lab.html', live: true },
+              { label: 'Case tile hover', pageLabel: 'Case tile hover v4', page: 'design/v4/tile-hover-lab.html', live: true },
+              { label: 'Section headings', pageLabel: 'Section headings v4', page: 'design/v4/heading-lab.html', live: true },
+              { label: 'Footer', pageLabel: 'Footer v4', page: 'design/v4/footer-lab.html', live: true },
+              { label: 'Sign in', pageLabel: 'Sign in v4', page: 'design/v4/signin-lab.html', live: true },
+              { label: 'Account', pageLabel: 'Account v4', page: 'design/v4/account-lab.html', live: true }
+          ]},
+          { label: 'Case screen', pageLabel: 'Case screen v4', page: 'design/v4/case.html', done: false, parts: [] }
       ]},
       { subhead: 'Concept v3', items: [
           { label: 'Home',        pageLabel: 'Home v3',            page: 'design/v3/index.html',      live: true }
@@ -175,8 +179,7 @@ window.NAV = [
     if (stage.children) {
       var out = [];
       stage.children.forEach(function (c) {
-        if (c.items) { c.items.forEach(function (i) { out.push(i); }); }
-        else { out.push(c); }
+        (c.items || [c]).forEach(function (i) { out.push(i); (i.parts || []).forEach(function (p) { out.push(p); }); });
       });
       return out;
     }
@@ -500,6 +503,18 @@ window.NAV = [
         if (isSatellite) frag.appendChild(satelliteItem());
         var sb3 = sectionsBlock();
         if (sb3) frag.appendChild(sb3);
+      }
+      // a page's parts unfold under it while the page or one of them is open
+      var parts = leaf.parts || [];
+      if (parts.length) {
+        var open = current || parts.some(function (p) { return p.page === active; });
+        row.classList.add('has-parts');
+        if (open) row.classList.add('is-open');
+        if (open) {
+          var box = el('div', 'nav-parts');
+          parts.forEach(function (p) { box.appendChild(leafRow(p)); });
+          frag.appendChild(box);
+        }
       }
       return frag;
     }
