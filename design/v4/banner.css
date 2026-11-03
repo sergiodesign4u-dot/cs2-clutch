@@ -76,11 +76,13 @@
 
 /* the act: a light sweeps across it every few seconds, and at once under the pointer */
 .wf-event-go { position: absolute; overflow: hidden; isolation: isolate; }
+/* the band moves by transform, not background-position, so the compositor carries it and nothing repaints each frame; performance pass of 4 Nov 2026,
+   when the founder's Home lagged open in several browsers at once. The same band, 0.6 of the button wide, crossing from off its left to off its right */
 .wf-event-go::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%) -150% 0 / 200% 100% no-repeat;
+  background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, .45) 50%, transparent 80%); transform: translateX(-110%);
   animation: v4-sweep 4.5s ease-in-out infinite; }
 .wf-event-go:is(:hover, :focus-visible)::after { animation: v4-sweep .8s ease-out 1; }
-@keyframes v4-sweep { 0%, 70% { background-position: -150% 0; } 100% { background-position: 250% 0; } }
+@keyframes v4-sweep { 0%, 70% { transform: translateX(-110%); } 100% { transform: translateX(110%); } }
 
 /* a phone: the title, then the soldier and the case clear of everything, then the countdown, then the act */
 @media (max-width: 899px) {

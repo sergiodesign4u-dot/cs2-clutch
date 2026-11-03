@@ -38,7 +38,8 @@
      twelve silhouettes drawn by Codex, laid out in two tiles in our pink, a near one larger and a far one smaller and fainter, each falling one tile per loop */
   .wf-header::after { background: url(art/fall-near.webp) 0 0 / 760px 230px, url(art/fall-far.webp) 120px 40px / 600px 180px; filter: drop-shadow(0 0 4px rgba(251, 63, 138, .6));
     -webkit-mask: radial-gradient(42% 160% at 50% 0%, #000 20%, transparent 100%); mask: radial-gradient(42% 160% at 50% 0%, #000 20%, transparent 100%);
-    animation: v4-fall 9s linear infinite; }
+    animation: v4-fall 9s steps(135) infinite; } /* 15 steps a second, not 60: the weapons fall 25px a second, so a step is under 2px and reads as smooth,
+     while the layer, with its drop shadow and mask, repaints a quarter as often; performance pass of 4 Nov 2026 */
   /* the logo stays the rail's link home and is shown in the middle of the strip; the rail starts at the header's top, so the two move together */
   .wf-rail .wf-rail-logo, .is-rail-collapsed .wf-rail .wf-rail-logo { position: absolute; z-index: 2; top: 36px; left: calc((100vw / var(--z, 1) - var(--wf-body-x, 0px)) / 2 - 12px);
     transform: translate(-50%, -50%); margin: 0; padding: 0; background: none; }
@@ -153,11 +154,14 @@
 /* A NEW DROP ARRIVES FROM THE SIDE, TURNING IN, founder of 1 Nov 2026: "появление не сверху а сбоку, может даже как-то 3д, типа появление под углом
    карточки": the row opens its place while the card swings in on its left edge from 75 degrees, overshoots a little and settles flat */
 .wf-feed-i.is-new { animation-duration: .9s; animation-timing-function: cubic-bezier(.22, .8, .3, 1); transform-origin: 0 50%; }
+/* the card keeps its full width from the first frame and only turns and fades in, both on the compositor; the place it needs is opened by idle.js,
+   which slides the whole row in by transform from one card to the left, so the row is no longer laid out and repainted every frame; performance pass
+   of 4 Nov 2026. The same swing and the same opening, 0.405s of the 0.9s, on the same curve */
 @keyframes wf-feed-arrive {
-  0% { flex-basis: 0; margin-right: -6px; opacity: 0; transform: perspective(700px) translateX(-24px) rotateY(75deg); }
-  45% { flex-basis: var(--v4-drop); margin-right: 0; opacity: .7; transform: perspective(700px) translateX(0) rotateY(28deg); }
+  0% { opacity: 0; transform: perspective(700px) translateX(-24px) rotateY(75deg); }
+  45% { opacity: .7; transform: perspective(700px) translateX(0) rotateY(28deg); }
   78% { opacity: 1; transform: perspective(700px) rotateY(-6deg); }
-  100% { flex-basis: var(--v4-drop); margin-right: 0; opacity: 1; transform: none; } }
+  100% { opacity: 1; transform: none; } }
 .wf-feed-head { top: 16px; right: 16px; min-height: 28px; border: 0; border-radius: var(--radius-pill); background: rgba(6, 10, 30, .82); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, .4); } /* a chip with no edge, inset off the cards' corner; founder, "лайф давай сделаем чипом без обводки и поставим его чуть ниже" */
 /* the mode mark sits inside the card's corner, not on it; founder, "иконка сильно в углу" */
@@ -258,7 +262,7 @@
 .wf-sec-head:has(+ .wf-grid .wf-tile) h2 { font-size: 26px; font-weight: 900; }
 
 @media (prefers-reduced-motion: reduce) {
-  .wf-header::after { animation: none; }
+  .wf-header::after, .v4-fall i { animation: none; }
   .wf-mode .wf-mode-art, .wf-tile-art[data-art], .wf-tile-art[data-art]::after { transition: none; }
   .wf-tile:hover .wf-tile-art[data-art], .wf-tile:hover .wf-tile-art[data-art]::after { transform: none; }
   .wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(-10deg); }
@@ -281,3 +285,37 @@
 
 /* the rail's marks stand close to its edge, founder of 2 Nov 2026 */
 @media (min-width: 900px) { html body .wf-rail .wf-rail-item { padding-left: 12px; gap: 2px 12px; } }
+
+/* IDLE OFF SCREEN, performance pass of 4 Nov 2026, the founder: "если откріть в нескольких браузерах одноверменно на разних єкранах то начинает
+   подлагивать". idle.js marks a block that has no part on screen, and its looping animations wait until it comes back; nothing changes on screen */
+.v4-idle, .v4-idle *, .v4-idle::before, .v4-idle::after, .v4-idle *::before, .v4-idle *::after { animation-play-state: paused !important; }
+
+/* THE FALLING WEAPONS ON THE COMPOSITOR, same pass. The header's ::after moved its two tiles by background-position, so its drop shadow and mask were
+   painted again every step, the largest cost left on Home. idle.js builds .v4-fall in the header instead: a still frame that holds the mask and the
+   rounded clip, and in it the near and the far tile, each one tile taller than the strip and moved by transform from one tile up to its place, so the
+   picture is painted once and only slid; the old ::after stands aside. The same tiles, the same speeds, one tile a loop */
+@media (min-width: 900px) {
+  .wf-header.has-fall::after { content: none; }
+  .v4-fall { position: absolute; inset: 8px 12px 0; z-index: -1; overflow: hidden; border-radius: 16px; pointer-events: none;
+    -webkit-mask: radial-gradient(42% 160% at 50% 0%, #000 20%, transparent 100%); mask: radial-gradient(42% 160% at 50% 0%, #000 20%, transparent 100%); }
+  .v4-fall i { position: absolute; left: 0; right: 0; top: 0; filter: drop-shadow(0 0 4px rgba(251, 63, 138, .6)); will-change: transform; }
+  .v4-fall .n { height: calc(100% + 230px); background: url(art/fall-near.webp) 0 0 / 760px 230px; animation: v4-fall-n 9s linear infinite; }
+  .v4-fall .f { height: calc(100% + 180px); background: url(art/fall-far.webp) 120px 40px / 600px 180px; animation: v4-fall-f 9s linear infinite; }
+}
+@media (max-width: 899px) { .v4-fall { display: none; } }
+@media (prefers-reduced-motion: reduce) { .v4-fall .n, .v4-fall .f { animation: none; } }
+@keyframes v4-fall-n { from { transform: translateY(-230px); } to { transform: translateY(0); } }
+@keyframes v4-fall-f { from { transform: translateY(-180px); } to { transform: translateY(0); } }
+
+/* THE LIVE DOT'S PULSE ON THE COMPOSITOR, same pass. The shared sheet pulses the Live drops dot by animating its box-shadow, which repainted the label
+   and the blurred plate under it every frame, measured as the largest cost of the strip. Here the dot stands still and its halo is a disc behind it that
+   grows from the dot's size to twice it while fading, by transform and opacity: the same halo, 4px past the dot at its widest, nothing repainted */
+.wf-feed-lbl { position: relative; isolation: isolate; }
+.wf-feed-lbl::before { animation: none; box-shadow: none; }
+.wf-feed-lbl::after { content: ''; position: absolute; z-index: -1; left: 2px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; pointer-events: none;
+  background: color-mix(in srgb, var(--color-pink) 70%, transparent); animation: v4-live-ring 1.6s ease-out infinite; }
+@keyframes v4-live-ring { from { transform: scale(1); opacity: 1; } to { transform: scale(2); opacity: 0; } }
+.wf-feed:is(:hover, :focus-within, .is-held) .wf-feed-lbl::after { display: none; }
+@media (hover: none) { .wf-feed-lbl::after { display: none; } }
+@media (prefers-reduced-motion: reduce) { .wf-feed-lbl::after { animation: none; opacity: 0; } }
+

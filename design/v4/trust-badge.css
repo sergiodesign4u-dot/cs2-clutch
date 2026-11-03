@@ -10,8 +10,9 @@
 /* the lit edge */
 .wf-hero--short .wf-hero-line a.v4-trust::before { content: ''; position: absolute; z-index: -1; inset: 0; display: block; width: auto; height: auto; margin: 0; padding: 1px; border-radius: inherit; background: linear-gradient(120deg, #00B67A, rgba(101, 163, 255, .5) 45%, #FB3F8A); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
 /* the passing light */
-.v4-trust::after { content: ''; position: absolute; z-index: 1; inset: 0; background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, .22) 50%, transparent 62%) -160% 0 / 220% 100% no-repeat; pointer-events: none; animation: v4-trust-sweep 7s ease-in-out infinite; }
-@keyframes v4-trust-sweep { 0%, 76% { background-position: -160% 0; } 100% { background-position: 260% 0; } }
+/* moved by transform, not background-position, so it costs no repaint per frame; performance pass of 4 Nov 2026 */
+.v4-trust::after { content: ''; position: absolute; z-index: 1; inset: 0; background: linear-gradient(105deg, transparent 23%, rgba(255, 255, 255, .22) 50%, transparent 77%); transform: translateX(-110%); pointer-events: none; animation: v4-trust-sweep 7s ease-in-out infinite; }
+@keyframes v4-trust-sweep { 0%, 76% { transform: translateX(-110%); } 100% { transform: translateX(110%); } }
 
 .v4-trust-tiles { display: inline-flex; gap: 3px; }
 .v4-trust-tiles i { position: relative; display: block; width: 24px; height: 24px; border-radius: 5px; background: linear-gradient(90deg, #00B67A var(--fill), rgba(150, 160, 215, .24) var(--fill)); transition: translate .3s cubic-bezier(.22, 1, .36, 1) calc(var(--n) * 45ms); }
