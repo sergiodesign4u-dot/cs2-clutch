@@ -14,6 +14,8 @@
   --v4-mode-battles: linear-gradient(120deg, #3955E8, #1B2A8F); /* blue; comp A, founder pick; from --color-rarity-5 */
   --v4-mode-showdowns: linear-gradient(120deg, #D1273E, #7A0F22); /* red; comp A, founder pick; from --color-rarity-2 */
   --v4-mode-upgrade: linear-gradient(120deg, #B57A06, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it */
+  --v4-panel-ground: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); /* the footer's own panel, footer I of 3 Nov 2026; the rail's panel took it too as a trial and kept it on 4 Nov 2026,
+     founder: "более темний мне больше нравится как в футере давай поставим на главной в боковом меню", D-209; the rail was linear-gradient(180deg, #16133C, #0D0C28), the header strip's navy */
 }
 
 /* --- the header: its own strip, the logo in its middle in a pink glow, particles falling ------- */
@@ -66,7 +68,7 @@
      its panel is drawn from under the strip down, and the strip shows through the rail's top */
   .wf-rail { grid-row: 1 / -1; grid-column: 1; top: 0; height: 100vh; margin: 0 0 0 12px; padding-top: 84px; border: 0; border-image: none; border-radius: 0; background: none; box-shadow: none; }
   .wf-rail::before { content: ''; position: absolute; inset: 72px 0 8px; z-index: -1; border-radius: 16px; pointer-events: none;
-    background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
+    background: var(--v4-panel-ground); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
   .is-rail-overlay .wf-rail { top: 0; left: var(--wf-body-x, 0px); height: 100vh; background: none; box-shadow: none; } /* its 12px margin already sets it off the edge, so opening it moves nothing; founder, "идет смещение при открытии" */
   .wf-header { grid-column: 1 / -1; grid-row: 1; }
   /* founder, 31 Oct 2026: "они какие-то растянутые как прямоугольники ... может сделать внутри просто темный фон близкий к бэкграунду, а не градиент

@@ -213,7 +213,7 @@
 @container ft (max-width: 560px) { .fe-stat { flex-direction: column; align-items: flex-start; gap: 8px; } .fe-stat b { font-size: 21px; } }
 
 /* ================================================================ F and G: E round 3, founder of 3 Nov 2026 */
-.ft-f { background: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); }
+.ft-f { background: var(--v4-panel-ground); } /* declared in theme.css, the rail's panel reads it too */
 /* the bands: square, a dark ground fading to both sides, lines brightest in the middle; blue on top of the counters, pink under them */
 .ff-band, .ff-foot { position: relative; isolation: isolate; }
 .ff-band::before, .ff-foot::before { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, transparent, rgba(5, 6, 20, .85) 22%, rgba(5, 6, 20, .85) 78%, transparent); }
