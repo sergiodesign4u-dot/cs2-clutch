@@ -16,6 +16,12 @@
   --v4-mode-upgrade: linear-gradient(120deg, #B57A06, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it */
   --v4-panel-ground: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); /* the footer's own panel, footer I of 3 Nov 2026; the rail's panel took it too as a trial and kept it on 4 Nov 2026,
      founder: "более темний мне больше нравится как в футере давай поставим на главной в боковом меню", D-209; the rail was linear-gradient(180deg, #16133C, #0D0C28), the header strip's navy */
+  /* ONE SMALL TILE: the side menu's sound and language tiles are the standard, founder of 4 Nov 2026: "єто разние кнопки ... надо привести их к одному стандарту",
+     the rail's marked OK; the footer's social squares, payment cards and language control read the same four values */
+  --v4-tile-bg: #0B0A22; /* the rail's tile fill, 31 Oct 2026, a dark near the page ground */
+  --v4-tile-edge: inset 0 0 0 1px rgba(255, 255, 255, .05);
+  --v4-tile-radius: 12px; /* = --v4-radius */
+  --v4-tile-h: 42px; /* the rail tile's height */
 }
 
 /* --- the header: its own strip, the logo in its middle in a pink glow, particles falling ------- */
@@ -86,7 +92,7 @@
   .is-rail-collapsed .wf-rail .wf-rail-snd::before { width: 22px; height: 22px; }
   .is-rail-collapsed .wf-rail .wf-rail-amb { justify-items: center; }
   .wf-rail .wf-rail-amb, .is-rail-collapsed .wf-rail .wf-rail-amb { gap: 8px; margin: 0 8px 8px; border: 0; }
-  .wf-rail .wf-rail-snd, .wf-rail .wf-rail-lang, .is-rail-collapsed .wf-rail .wf-rail-snd, .is-rail-collapsed .wf-rail .wf-rail-lang { min-height: 42px; border: 0; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+  .wf-rail .wf-rail-snd, .wf-rail .wf-rail-lang, .is-rail-collapsed .wf-rail .wf-rail-snd, .is-rail-collapsed .wf-rail .wf-rail-lang { min-height: var(--v4-tile-h); border: 0; border-radius: var(--v4-tile-radius); background: var(--v4-tile-bg); box-shadow: var(--v4-tile-edge); }
 }
 
 /* --- live drops: comp B's card, founder pick of 31 Oct 2026, its hexagon turned so the points face the sides ---- */

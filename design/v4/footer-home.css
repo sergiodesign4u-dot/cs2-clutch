@@ -32,9 +32,13 @@
 .fl-help { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 .fl-help > span { font-size: 15px; font-weight: 900; text-transform: uppercase; }
 .fl-soc { display: flex; flex-wrap: wrap; gap: 8px; }
-.fl-sq { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); color: var(--color-text-soft); transition: background .2s, color .2s; }
+/* the social squares on the side menu's tile, theme.css ONE SMALL TILE; were 38px, radius 10px, rgba(255, 255, 255, .05) with a .08 edge */
+.fl-sq { display: grid; place-items: center; width: var(--v4-tile-h); height: var(--v4-tile-h); border-radius: var(--v4-tile-radius); background: var(--v4-tile-bg); box-shadow: var(--v4-tile-edge); color: var(--color-text-soft); transition: background .2s, color .2s; }
+.ft a.fl-sq { color: var(--color-text-soft); } /* .ft a's inherit had made the mark white, the rail tile's words are --color-text-soft */
 .fl-sq .fl-ic { width: 18px; height: 18px; }
-@media (hover: hover) { .fl-sq:hover { background: var(--btn-stripes), var(--color-pink); color: #fff; } }
+/* on a phone the seven 42px squares and their gaps are wider than the column and Facebook fell alone onto a second row: one row, each square sharing the width, 42px high */
+@container ft (max-width: 560px) { .fl-soc { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; } .fl-sq { width: auto; } }
+@media (hover: hover) { .ft a.fl-sq:hover { background: var(--btn-stripes), var(--color-pink); color: #fff; } }
 
 .fl-age { display: flex; align-items: center; gap: 14px; min-width: 0; }
 .fl-age-m { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; box-shadow: inset 0 0 0 2px var(--color-pink); font-size: 15px; font-weight: 900; }
@@ -295,7 +299,9 @@
 /* ================================================================ I: H with the payment cards in the strip, two rows of three */
 .fi-strip { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; }
 .ft-i .fe-pay { display: grid; grid-template-columns: repeat(3, 66px); gap: 6px; }
-.ft-i .fe-pay li { width: 66px; height: 31px; border-radius: 8px; }
+/* the payment cards on the side menu's tile, theme.css ONE SMALL TILE; two rows of 42 would stand above the 72px plates beside them, so a card is 33px,
+   two rows and the gap exactly the plates' height; were 31px, radius 8px, rgba(255, 255, 255, .04) with a .08 edge */
+.ft-i .fe-pay li { width: 66px; height: 33px; border-radius: var(--v4-tile-radius); background: var(--v4-tile-bg); box-shadow: var(--v4-tile-edge); }
 .ft-i .fe-pay svg { height: 17px; }
 /* the age and market lines take the row's whole width, each on one line where it fits, founder of 3 Nov 2026: "можно писать в одну строчку
    ... не обязательно его делать удобно читаемым" */
@@ -340,10 +346,12 @@
 /* ================================================================ on Home: #wf-footer holds I, set off the side menu as a block */
 #wf-footer.v4-foot { container: ft / inline-size; border-top: 0; background: none; padding: 0 var(--space-5, 24px) 24px; }
 #wf-footer.v4-foot .ft-h { margin: 0; }
-/* the language control is _nav.js's own, moved in whole; here it wears the footer's dark pill */
+/* the language control is _nav.js's own, moved in whole; here it wears the side menu's language tile, theme.css ONE SMALL TILE, its caret included;
+   was 44px, radius 10px, rgba(255, 255, 255, .05) with a .1 edge, white words, no caret */
 .v4-foot .fh-lang { flex: 0 0 auto; }
-.v4-foot .fh-lang .wf-rail-lang { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 0; border-radius: var(--btn-radius, 10px);
-  background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); color: var(--color-text-hi); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.v4-foot .fh-lang .wf-rail-lang { display: inline-flex; align-items: center; gap: 8px; min-height: var(--v4-tile-h); padding: 0 16px; border: 0; border-radius: var(--v4-tile-radius);
+  background: var(--v4-tile-bg); box-shadow: var(--v4-tile-edge); color: var(--color-text-soft); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.v4-foot .fh-lang .wf-rail-lang::after { content: ''; display: inline-block; margin-left: 6px; border-style: solid; border-width: 5px 4px 0; border-color: var(--color-text-muted) transparent transparent; }
 
 /* the payment marks open deposit: under the pointer and on focus a card lifts, its mark turns white and its edge pink */
 .fe-pay li { padding: 0; }
