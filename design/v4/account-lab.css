@@ -1,0 +1,331 @@
+/* design/v4/account-lab.css, a satellite of v4: three directions for the signed-in header cluster and the account menu. Founder of 3 Nov 2026:
+ * "let's make the signed-in state look better visually and more correct, given how the platform already looks". Built only from what v4
+ * already draws: the rail's tiles, striped hover and chest story (rail-b1.css, rail-icons.js), the button family (buttons.css), the mode
+ * gradients, the footer strip's dark plate (footer-home.css .fe-strip), the sign in note plate (signin-home.css .sd-note), coin 6 and its gold.
+ * Money: two figures in the coin, never summed, the items figure with D-204's pistol. No glow, no dot grid, no numbering, no overlay fill.
+ * Each header lays itself out by its own width (container ax), so one markup is the 1558 header and the 360 one. */
+
+body.ax-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
+.ax-main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 80px; }
+@media (min-width: 900px) { .ax-main { margin-left: calc(var(--nav-w, 248px) + 24px); margin-right: 24px; max-width: none; } }
+@media (max-width: 899px) { .ax-main { padding-top: 62px; } }
+.ax-main > h1 { margin: 0 0 8px; font-size: 28px; font-weight: 900; }
+.ax-lead { margin: 0; max-width: 92ch; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; }
+.ax-rec { margin-top: 16px; padding: 18px 20px; border-radius: 12px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 2px var(--color-pink); }
+.ax-rec h2 { margin: 0 0 6px; font-size: 18px; font-weight: 900; }
+.ax-rec p { margin: 0; max-width: 92ch; color: var(--color-text-soft); font-size: 14px; line-height: 1.5; }
+.ax { display: grid; gap: 14px; margin-top: 28px; padding: 24px; border: 1px solid var(--color-line-soft); border-radius: 16px; }
+.ax.is-rec { border-color: var(--color-pink); }
+.ax-meta h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 0 0 6px; font-size: 20px; font-weight: 900; }
+.ax-tag { padding: 4px 10px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 2px var(--color-pink); font-size: 12px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.ax-meta p { margin: 0; max-width: 92ch; color: var(--color-text-soft); font-size: 14px; line-height: 1.5; }
+.ax-meta .ax-cost { margin-top: 4px; color: var(--color-text-muted); }
+.ax-cap { margin: 8px 0 0; color: var(--color-text-muted); font-size: 13px; }
+.ax-cap-s { display: none; }
+
+/* the stage is Home's top: the header, and under it the event banner the menu drops over */
+.ax-stage, .ax-phone { container: ax / inline-size; position: relative; isolation: isolate; box-sizing: border-box; padding: 8px 12px 12px; border-radius: 16px; background: var(--color-ground); box-shadow: inset 0 0 0 1px var(--color-line-soft); }
+.ax-phones { display: flex; flex-wrap: wrap; gap: 20px; }
+.ax-phone { width: 360px; max-width: 100%; min-height: 640px; padding: 8px 8px 12px; }
+.ax-banner { height: 470px; margin-top: 8px; border-radius: 16px; background: url(art/banner-scene.webp) 60% 40% / cover; }
+.ax-phone .ax-banner { height: 560px; background-position: 48% 40%; }
+@media (max-width: 899px) {
+  .ax { padding: 14px; }
+  .ax-narrow { display: none; }
+  .ax-cap-w { display: none; } .ax-cap-s { display: inline; }
+  .ax-stage { width: 100vw; margin-left: calc(50% - 50vw); padding: 8px 8px 12px; border-radius: 0; box-shadow: none; } /* on a phone the header is as wide as the screen, so the stage bleeds out of the card to the screen's edges */
+  .ax-stage .ax-banner { height: 560px; }
+}
+
+.ax-head { position: relative; z-index: 3; display: flex; align-items: center; gap: 12px; height: 64px; padding: 0 12px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.ax-head::before { content: ''; position: absolute; top: 0; left: 30%; right: 30%; height: 2px; background: linear-gradient(90deg, transparent, #FF6FA8 50%, transparent); pointer-events: none; } /* Home's pink line at the header's top, without its shadow */
+.ax-burger { display: grid; align-content: center; gap: 4px; width: 42px; height: 42px; box-sizing: border-box; padding: 0 12px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.ax-burger i { display: block; height: 2px; border-radius: 1px; background: var(--color-text-hi); }
+.ax-logo { position: absolute; left: 50%; top: 50%; height: 38px; translate: -50% -50%; }
+
+/* ------------------------------------------------------------------ shared parts of the cluster */
+.ac { position: relative; display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.ac-money { display: flex; align-items: center; }
+.ac-fig { display: inline-flex; align-items: center; gap: 7px; color: inherit; font-weight: 900; line-height: 1; text-decoration: none; white-space: nowrap; }
+.ac-fig:focus-visible, .ac-dep:focus-visible, .ac-btn:focus-visible, .am-row:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+.ac-coin { display: block; width: 18px; height: 18px; }
+.ac-pistol { display: block; flex: none; width: 18px; height: 18px; background: var(--color-text-muted); -webkit-mask: var(--icon-pistol) center / contain no-repeat; mask: var(--icon-pistol) center / contain no-repeat; }
+.is-bal .ac-v { color: #FFC44D; font-size: 17px; }  /* coin 6's gold, the gold the coin is drawn in */
+.is-held .ac-v { color: var(--color-text-soft); font-size: 15px; font-weight: 700; }
+.ac-dep { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-sizing: border-box; height: 42px; min-width: 42px; border-radius: var(--btn-radius); background: var(--btn-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); color: #fff; text-decoration: none; transition: filter .2s, translate .2s; }
+@media (hover: hover) { .ac-dep:hover { filter: brightness(1.1); translate: 0 -1px; } }
+.ac-plus { display: block; width: 14px; height: 14px; background: linear-gradient(#fff, #fff) center / 100% 3px no-repeat, linear-gradient(#fff, #fff) center / 3px 100% no-repeat; border-radius: 1px; }
+.ac-dep-t { font-size: 12px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.ac-badge { position: absolute; top: -8px; right: -10px; display: grid; place-items: center; height: 18px; padding: 0 6px; border-radius: 9px; font-size: 11px; font-weight: 900; line-height: 1; }
+.ac-acct { position: relative; }
+.ac-btn { display: inline-flex; align-items: center; gap: 10px; padding: 0; border: 0; background: none; color: var(--color-text-hi); font: inherit; cursor: pointer; }
+.ac-ava, .am-ava { position: relative; display: block; flex: none; width: 42px; height: 42px; border-radius: 50%; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); }
+.ac-ava::after, .am-ava::after { content: ''; position: absolute; inset: 10px; background: var(--color-text-hi); -webkit-mask: var(--icon-user) center / contain no-repeat; mask: var(--icon-user) center / contain no-repeat; }
+
+/* the menu */
+.am { position: absolute; z-index: 10; top: calc(100% + 12px); right: 0; width: 264px; box-sizing: border-box; padding: 8px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07), 0 24px 48px rgba(0, 0, 0, .5); }
+.am[hidden] { display: none; }
+.am-who { display: flex; align-items: center; gap: 10px; padding: 6px 8px 12px; margin-bottom: 8px; border-bottom: 1px solid var(--color-line-soft); font-size: 15px; }
+.am-who .am-ava { width: 32px; height: 32px; }
+.am-who .am-ava::after { inset: 8px; }
+.am-nav { display: grid; gap: 6px; }
+.am-row { display: flex; align-items: center; gap: 12px; min-height: 42px; box-sizing: border-box; padding: 0 12px; border-radius: 12px; color: var(--color-text-hi); font-size: 14px; font-weight: 700; text-decoration: none; transition: background-color .2s, box-shadow .2s; }
+.am-ic { display: block; flex: none; width: 20px; height: 20px; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.am-ic--story { background: none; -webkit-mask: none; mask: none; width: 22px; height: 22px; }
+.am-ic--story svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.am-out { margin-top: 8px; color: var(--color-text-muted); }
+
+/* ------------------------------------------------------------------ a, Rail tiles */
+.ac--a .ac-money { gap: 8px; }
+.ac--a .ac-fig { height: 42px; box-sizing: border-box; padding: 0 14px 0 12px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); transition: background-color .2s; }
+@media (hover: hover) { .ac--a .ac-fig:hover { background: #15133A; } }
+.ac--a .ac-badge { background: #fff; color: var(--color-pink); box-shadow: 0 2px 6px rgba(6, 10, 30, .4); }
+.ac--a .ac-btn .ac-ava { transition: box-shadow .2s; }
+.ac--a.is-open .ac-btn .ac-ava { box-shadow: inset 0 0 0 2px var(--color-pink); }
+.am--a .am-row { --g: var(--v4-mode-cases); background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); text-transform: uppercase; font-size: 13px; font-weight: 900; letter-spacing: .03em; }
+.am--a .am-row.is-rp { --g: var(--v4-mode-battles); }
+.am--a .am-row:hover, .am--a .am-row:focus-visible { background: var(--btn-stripes), var(--g); box-shadow: none; }
+.am--a .am-out { background: transparent; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); }
+.am--a .am-out:hover { --g: linear-gradient(120deg, #2A2752, #1A1840); }
+
+/* ------------------------------------------------------------------ b, Wallet plate */
+.ac--b { gap: 12px; }
+.ac--b .ac-money { gap: 14px; height: 50px; box-sizing: border-box; padding: 0 154px 0 16px; margin-right: -146px; border-radius: 14px; background: rgba(6, 8, 24, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); }
+.ac--b .is-held { padding-left: 14px; box-shadow: inset 1px 0 0 rgba(255, 255, 255, .12); }
+.ac--b .ac-dep { height: 38px; padding: 0 16px; margin-right: 6px; }
+.ac--b .ac-badge { top: -9px; right: -8px; background: #FFC44D; color: #3A2600; }
+.ac--b .ac-btn { height: 50px; box-sizing: border-box; padding: 0 14px 0 4px; border-radius: 25px; background: rgba(6, 8, 24, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); transition: box-shadow .2s; }
+.ac--b.is-open .ac-btn { box-shadow: inset 0 0 0 2px var(--color-pink); }
+.ac--b .ac-btn .ac-ava { width: 40px; height: 40px; background: var(--btn-stripes), var(--v4-mode-cases); box-shadow: none; }
+.ac-name { font-size: 14px; font-weight: 700; }
+.ac-chev { width: 8px; height: 8px; margin: -4px 2px 0 0; border: solid var(--color-text-soft); border-width: 0 2px 2px 0; rotate: 45deg; transition: rotate .2s, margin .2s; }
+.ac--b.is-open .ac-chev { rotate: 225deg; margin-top: 4px; }
+.am--b { width: 280px; padding: 10px; }
+.am--b .am-who .am-ava { background: var(--btn-stripes), var(--v4-mode-cases); box-shadow: none; }
+.am--b .am-nav { gap: 2px; }
+.am--b .am-row { min-height: 46px; padding: 0 8px; border-radius: 10px; color: var(--color-text-soft); }
+.am--b .am-row .am-ic, .am--b .am-row .am-ic--story { position: relative; width: 32px; height: 32px; border-radius: 9px; background: rgba(255, 255, 255, .06); -webkit-mask: none; mask: none; transition: background .2s; }
+.am--b .am-row .am-ic:not(.am-ic--story)::after { content: ''; position: absolute; inset: 7px; background: var(--color-text-soft); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.am--b .am-row .am-ic--story svg { position: absolute; inset: 5px; width: 22px; height: 22px; color: var(--color-text-soft); }
+.am--b .am-row:hover, .am--b .am-row:focus-visible { background: rgba(255, 255, 255, .05); color: var(--color-text-hi); }
+.am--b .am-row:hover .am-ic, .am--b .am-row:hover .am-ic--story { background: var(--btn-stripes), var(--v4-mode-cases); }
+.am--b .am-row:hover .am-ic:not(.am-ic--story)::after { background: #fff; }
+.am--b .am-row:hover .am-ic--story svg { color: #fff; }
+.am--b .am-row.is-rp .am-ic { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 6px, transparent 6px 12px), var(--v4-mode-battles); }
+.am--b .am-row.is-rp .am-ic::after { background: #fff; }
+.am--b .am-out { margin-top: 8px; border-top: 1px solid var(--color-line-soft); border-radius: 0 0 10px 10px; padding-top: 2px; }
+
+/* ------------------------------------------------------------------ c, Hex and sheet */
+.ac--c { gap: 14px; }
+.ac--c .ac-money { flex-direction: column; align-items: flex-start; gap: 5px; }
+.ac--c .ac-coin { width: 16px; height: 16px; }
+.ac--c .is-bal .ac-v { font-size: 18px; }
+.ac--c .ac-pistol { width: 16px; height: 16px; }
+.ac--c .is-held .ac-v { font-size: 13px; }
+.ac--c .ac-dep { width: 44px; height: 44px; border-radius: 50%; }
+.ac--c .ac-badge { top: -6px; right: -12px; background: #fff; color: var(--color-pink); box-shadow: 0 2px 6px rgba(6, 10, 30, .4); }
+.ac--c .ac-btn .ac-ava { width: 48px; height: 42px; border-radius: 0; background: var(--v4-mode-cases); box-shadow: none; clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+.ac--c .ac-btn .ac-ava::before { content: ''; position: absolute; inset: 2px; background: #0B0A22; clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+.ac--c .ac-btn .ac-ava::after { inset: 11px 14px; z-index: 1; }
+.am--c { width: 320px; padding: 10px; }
+.am--c .am-who { border-bottom: 0; margin-bottom: 4px; padding-bottom: 8px; }
+.am--c .am-nav { grid-template-columns: 1fr 1fr; gap: 8px; }
+.am--c .am-row { flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 10px; min-height: 76px; padding: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.am--c .am-row:hover, .am--c .am-row:focus-visible { background: var(--btn-stripes), var(--v4-mode-cases); box-shadow: none; }
+.am--c .am-row.is-items { grid-column: 1 / -1; position: relative; overflow: hidden; min-height: 88px; justify-content: flex-end; background: var(--btn-stripes), var(--v4-mode-cases); box-shadow: none; text-transform: uppercase; font-size: 15px; font-weight: 900; }
+.am--c .am-row.is-items::after { content: ''; position: absolute; right: -24px; top: -8px; width: 170px; height: 112px; background: url(art/cases-v2/coldfront-c.webp) center / contain no-repeat; pointer-events: none; }
+.am--c .am-row.is-items > * { position: relative; z-index: 1; }
+.am--c .am-row.is-items .am-ic--story { width: 26px; height: 26px; }
+.am--c .am-row.is-rp { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; min-height: 48px; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-battles); box-shadow: none; }
+.am--c .am-out { flex-direction: row; align-items: center; justify-content: center; gap: 10px; min-height: 40px; margin-top: 8px; padding: 0 12px; background: none; box-shadow: none; }
+.am--c .am-out:hover { background: none; }
+.am--c .am-out:hover { color: var(--color-text-hi); }
+
+/* ------------------------------------------------------------------ the phone: one row, and the menu as wide as the screen */
+@container ax (max-width: 600px) {
+  .ax-head { gap: 8px; height: 60px; padding: 0 8px; }
+  .ax-logo { display: none; }
+  .ac { gap: 8px; }
+  .ac, .ac-acct { position: static; }
+  .am { left: 0; right: 0; width: auto; top: calc(100% + 8px); }
+  .ac--a .ac-money { flex-direction: column; align-items: flex-start; justify-content: center; gap: 3px; height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+  .ac--a .ac-fig { height: auto; padding: 0; background: none; box-shadow: none; }
+  .ac--a .ac-coin, .ac--a .ac-pistol { width: 14px; height: 14px; }
+  .ac--a .is-bal .ac-v { font-size: 15px; }
+  .ac--a .is-held .ac-v { font-size: 12px; }
+  .ac--b .ac-money { gap: 10px; height: 46px; padding: 0 52px 0 10px; margin-right: -46px; }
+  .ac--b .is-held { padding-left: 10px; }
+  .ac--b .ac-coin, .ac--b .ac-pistol { width: 15px; height: 15px; }
+  .ac--b .is-bal .ac-v { font-size: 15px; }
+  .ac--b .is-held .ac-v { font-size: 13px; }
+  .ac--b .ac-dep { width: 36px; height: 36px; min-width: 36px; padding: 0; margin-right: 5px; }
+  .ac--b .ac-dep-t, .ac--b .ac-name, .ac--b .ac-chev { display: none; }
+  .ac--b .ac-btn { height: 46px; padding: 0 3px; }
+  .ac--c .ac-dep { width: 40px; height: 40px; }
+  /* c on a phone: the menu rises from the bottom as a sheet over a dimmed screen */
+  .ac--c .ac-acct, .ac--c, .ax-head:has(.ac--c) { position: static; }
+  .am--c { top: auto; bottom: 0; left: 0; right: 0; z-index: 20; padding: 8px 12px 16px; border-radius: 20px 20px 0 0; animation: am-rise .28s cubic-bezier(.2, .7, .2, 1); }
+  .am--c::before { content: ''; display: block; width: 40px; height: 4px; margin: 0 auto 10px; border-radius: 2px; background: rgba(255, 255, 255, .25); }
+  :is(.ax-stage, .ax-phone):has(.ac--c.is-open)::after { content: ''; position: absolute; inset: 0; z-index: 15; border-radius: inherit; background: rgba(3, 5, 16, .6); }
+}
+@keyframes am-rise { from { translate: 0 24px; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .ac-dep, .am-row, .ac-chev, .ac-ava, .ac--a .ac-fig { transition: none; }
+  .ac-dep:hover { translate: none; }
+  .am--c { animation: none; }
+}
+
+/* ================================================================== round 2, founder of 3 Nov 2026 on round 1: B's header, C's two line
+ * money, A's menu, and default avatars as pictures rather than an icon. Competitors were read for what to learn (a framed portrait, a
+ * picture at a row's end, a clear act with its percentage) and for what not to take (XP, levels, ranks, badges on the avatar, bells). */
+.ax-round { margin: 36px 0 6px; font-size: 22px; font-weight: 900; }
+.ax-r1 { margin-top: 44px; }
+.ax-r1 > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; cursor: pointer; list-style: none; }
+.ax-r1 > summary::-webkit-details-marker { display: none; }
+.ax-r1 > summary::before { content: '+'; align-self: center; width: 24px; height: 24px; border-radius: 8px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); font-size: 18px; line-height: 24px; text-align: center; }
+.ax-r1[open] > summary::before { content: '\2212'; }
+.ax-r1 > summary .ax-round { margin: 0; }
+.ax-r1 > summary span { color: var(--color-text-soft); font-size: 15px; }
+
+/* the cluster: one plate with the money stacked in two lines and Add funds at its end, then the avatar pill */
+.ac2 { position: relative; display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.ac2-plate { display: flex; align-items: center; gap: 16px; height: 50px; box-sizing: border-box; padding: 0 6px 0 16px; border-radius: 14px; background: rgba(6, 8, 24, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); }
+.ac2-money { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.ac2 .ac-coin { width: 16px; height: 16px; }
+.ac2 .ac-pistol { width: 15px; height: 15px; }
+.ac2 .is-bal .ac-v { font-size: 17px; }
+.ac2 .is-held .ac-v { font-size: 13px; color: var(--color-text-soft); }
+.ac2-dep { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 38px; min-width: 38px; box-sizing: border-box; padding: 0 16px; border-radius: var(--btn-radius); background: var(--btn-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); color: #fff; text-decoration: none; transition: filter .2s, translate .2s; }
+@media (hover: hover) { .ac2-dep:hover { filter: brightness(1.1); translate: 0 -1px; } }
+.ac2-dep-t { font-size: 12px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.ac2-badge { position: absolute; top: -9px; right: -8px; display: grid; place-items: center; height: 18px; padding: 0 6px; border-radius: 9px; background: #FFC44D; color: #3A2600; font-size: 11px; font-weight: 900; line-height: 1; }
+.ac2-acct { position: relative; }
+.ac2-btn { display: inline-flex; align-items: center; gap: 10px; height: 50px; box-sizing: border-box; padding: 0 14px 0 5px; border: 0; border-radius: 14px; background: rgba(6, 8, 24, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); color: var(--color-text-hi); font: inherit; cursor: pointer; transition: box-shadow .2s; }
+.ac2-btn:focus-visible, .ac2-dep:focus-visible, .am2-row:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+.ac2.is-open .ac2-btn { box-shadow: inset 0 0 0 2px var(--color-pink); }
+.ac2-ava { display: block; flex: none; width: 40px; height: 40px; border-radius: 10px; object-fit: cover; box-shadow: 0 0 0 1px rgba(255, 255, 255, .12); }
+.ac2-name { font-size: 14px; font-weight: 700; }
+.ac2.is-open .ac-chev { rotate: 225deg; margin-top: 4px; }
+
+/* the menu: a card with the big portrait on Battles blue, then the rail's tiles, three with a picture at their right end */
+.am2 { position: absolute; z-index: 10; top: calc(100% + 12px); right: 0; width: 300px; box-sizing: border-box; padding: 8px; border-radius: 18px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07), 0 24px 48px rgba(0, 0, 0, .5); }
+.am2[hidden] { display: none; }
+.am2-card { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; padding: 12px; border-radius: 14px; background: var(--btn-stripes), var(--v4-mode-battles); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2); font-size: 17px; }
+.am2-ava { display: block; flex: none; width: 64px; height: 64px; border-radius: 14px; object-fit: cover; box-shadow: 0 0 0 2px rgba(255, 255, 255, .85), 0 6px 14px rgba(6, 10, 30, .45); }
+.am2-nav { display: grid; gap: 6px; }
+.am2-row { --g: var(--v4-mode-cases); position: relative; overflow: hidden; isolation: isolate; display: flex; align-items: center; gap: 12px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); color: var(--color-text-hi); font-size: 13px; font-weight: 900; letter-spacing: .03em; text-decoration: none; text-transform: uppercase; }
+.am2-row.is-rp { --g: var(--v4-mode-battles); }
+.am2-row:hover, .am2-row:focus-visible { background: var(--btn-stripes), var(--g); box-shadow: none; }
+.am2-row.has-art { min-height: 52px; padding-right: 92px; }
+.am2-art { position: absolute; z-index: -1; right: -6px; top: 50%; height: 140%; width: 104px; translate: 0 -50%; object-fit: contain; object-position: right center; pointer-events: none; transition: translate .25s cubic-bezier(.2, .7, .2, 1), scale .25s cubic-bezier(.2, .7, .2, 1); }
+.am2-art.is-ava { right: 10px; width: 38px; height: 38px; border-radius: 10px; object-fit: cover; box-shadow: 0 0 0 1px rgba(255, 255, 255, .15); }
+@media (hover: hover) { .am2-row:hover .am2-art:not(.is-ava) { translate: -4px -52%; scale: 1.06; } }
+.am2-out { margin-top: 8px; background: transparent; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); color: var(--color-text-muted); }
+.am2-out:hover { --g: linear-gradient(120deg, #2A2752, #1A1840); color: var(--color-text-hi); }
+/* the variation: the rows with a picture become tall picture tiles */
+.am2--v { width: 320px; }
+.am2--v .am2-row.is-tall { min-height: 72px; padding-right: 130px; font-size: 15px; }
+.am2--v .am2-row.is-tall .am2-art { width: 150px; height: 150%; right: -14px; }
+.am2--v .am2-row.is-tall .am2-art.is-ava { width: 52px; height: 52px; right: 12px; }
+
+/* the avatar set */
+.av-set { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+.av-one { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px; margin: 0; padding: 14px; border-radius: 14px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.av-one img { display: block; object-fit: cover; }
+.av-c { width: 96px; height: 96px; border-radius: 50%; flex-basis: 100%; max-width: 96px; }
+.av-s { width: 64px; height: 64px; border-radius: 14px; }
+.av-xs { width: 40px; height: 40px; border-radius: 10px; }
+
+@container ax (max-width: 600px) {
+  .ac2 { position: static; gap: 8px; }
+  .ac2-acct { position: static; }
+  .ac2-plate { gap: 10px; height: 46px; padding: 0 5px 0 10px; }
+  .ac2 .is-bal .ac-v { font-size: 15px; }
+  .ac2 .is-held .ac-v { font-size: 12px; }
+  .ac2 .ac-coin, .ac2 .ac-pistol { width: 14px; height: 14px; }
+  .ac2-dep { width: 36px; height: 36px; min-width: 36px; padding: 0; }
+  .ac2-dep-t, .ac2-name, .ac2 .ac-chev { display: none; }
+  .ac2-btn { height: 46px; padding: 0 3px; }
+  .am2, .am2--v { left: 0; right: 0; width: auto; top: calc(100% + 8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ac2-dep, .ac2-btn, .am2-art { transition: none; }
+  .ac2-dep:hover { translate: none; }
+  .am2-row:hover .am2-art:not(.is-ava) { translate: 0 -50%; scale: 1; }
+}
+.ax-stage:has(.am2--v) .ax-banner { height: 620px; } /* the taller menu stays on the stage */
+.ac2-btn, .ac-btn, .am2-row, .am-row, .ac2-dep, .ac-dep { -webkit-tap-highlight-color: transparent; } /* a phone's tap flash would sit over the portrait */
+
+/* ================================================================== round 3, founder of 3 Nov 2026: "we do not increase the header's height
+ * when signed in". Measured on design/v4/index.html, guest and ?account, at 1558 with the sidebar hidden and at 360: .wf-header is 64px,
+ * its visible bar (::before, inset 8px 12px 0) 56px at 1558, the guest Sign in 40px. So the header here is 64px, the bar 56px, and
+ * nothing in the cluster is taller than 40px. */
+.ax-head3 { position: relative; z-index: 3; display: flex; align-items: center; gap: 12px; height: 64px; box-sizing: border-box; padding: 8px 12px 0; }
+.ax-head3::after { content: ''; position: absolute; z-index: -1; inset: 8px 0 0; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.ax-head3::before { content: ''; position: absolute; top: 8px; left: 30%; right: 30%; height: 2px; background: linear-gradient(90deg, transparent, #FF6FA8 50%, transparent); pointer-events: none; }
+.ax-head3 .ax-logo { top: calc(50% + 4px); }
+.ax-head3 .ax-burger { width: 40px; height: 40px; padding: 0 11px; } /* the guest Sign in's 40px is the tallest thing the header holds */
+.ax-stage--r3 { padding-top: 0; }
+.ax-phone--r3 { padding-top: 0; }
+.ac3 { gap: 10px; }
+.ac3 .ac2-plate { gap: 12px; height: 40px; padding: 0 4px 0 12px; border-radius: 12px; }
+.ac3 .ac2-money { gap: 2px; }
+.ac3 .ac-coin { width: 14px; height: 14px; }
+.ac3 .ac-pistol { width: 14px; height: 14px; }
+.ac3 .is-bal .ac-v { font-size: 15px; }
+.ac3 .is-held .ac-v { font-size: 12px; }
+.ac3 .ac2-dep { height: 32px; min-width: 32px; padding: 0 12px; gap: 6px; border-radius: 9px; }
+.ac3 .ac2-dep-t { font-size: 11px; }
+.ac3 .ac-plus { width: 12px; height: 12px; }
+.ac3 .ac2-badge { top: -8px; right: -8px; height: 16px; padding: 0 5px; font-size: 10px; border-radius: 8px; }
+.ac3 .ac2-btn { height: 40px; padding: 0 12px 0 4px; gap: 9px; border-radius: 12px; }
+.ac3 .ac2-ava { width: 32px; height: 32px; border-radius: 9px; }
+
+/* the menu, round 1's C developed */
+.am3 { position: absolute; z-index: 10; top: calc(100% + 10px); right: 0; width: 340px; box-sizing: border-box; padding: 12px; border-radius: 18px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07), 0 24px 48px rgba(0, 0, 0, .5); }
+.am3[hidden] { display: none; }
+.am3-head { display: flex; align-items: center; gap: 14px; padding: 4px 4px 14px; }
+.am3-ava { display: block; flex: none; width: 64px; height: 64px; border-radius: 16px; object-fit: cover; box-shadow: 0 0 0 2px rgba(255, 255, 255, .85), 0 6px 14px rgba(6, 10, 30, .45); }
+.am3-who { display: grid; gap: 7px; min-width: 0; }
+.am3-who b { font-size: 17px; font-weight: 900; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.am3-id { display: flex; align-items: center; gap: 8px; height: 30px; box-sizing: border-box; padding: 0 3px 0 10px; border-radius: 8px; background: rgba(6, 8, 24, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); }
+.am3-id-v { color: var(--color-text-soft); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .02em; white-space: nowrap; }
+.am3-copy { display: inline-flex; align-items: center; gap: 5px; height: 24px; margin-left: auto; padding: 0 8px; border: 0; border-radius: 6px; background: rgba(255, 255, 255, .07); color: var(--color-text-hi); font: inherit; font-size: 11px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: background-color .2s, color .2s; -webkit-tap-highlight-color: transparent; }
+.am3-copy:hover { background: var(--btn-stripes), var(--color-pink); }
+.am3-copy:focus-visible, .am3-t:focus-visible, .am3-out:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+.am3-copy-i { position: relative; width: 11px; height: 11px; }
+.am3-copy-i::before, .am3-copy-i::after { content: ''; position: absolute; width: 7px; height: 7px; border: 1.6px solid currentColor; border-radius: 2px; }
+.am3-copy-i::before { left: 0; top: 0; opacity: .6; }
+.am3-copy-i::after { right: 0; bottom: 0; }
+.am3-copy.is-done { background: rgba(51, 204, 102, .18); color: #7BE8A0; }
+.am3-copy.is-done .am3-copy-i::before { opacity: 0; }
+.am3-copy.is-done .am3-copy-i::after { width: 4px; height: 8px; right: 2px; bottom: 2px; border-width: 0 2px 2px 0; border-radius: 0; rotate: 45deg; }
+.am3-copy.is-fail { background: rgba(209, 39, 62, .2); color: #FF8FA3; white-space: normal; height: auto; padding: 4px 8px; text-transform: none; letter-spacing: 0; }
+.am3-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.am3-t { position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 10px; min-height: 76px; box-sizing: border-box; padding: 12px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); color: var(--color-text-hi); font-size: 14px; font-weight: 700; text-decoration: none; transition: background-color .2s; -webkit-tap-highlight-color: transparent; }
+.am3-t:hover, .am3-t:focus-visible { background: var(--btn-stripes), var(--v4-mode-cases); box-shadow: none; }
+.am3-t.is-items { grid-column: 1 / -1; min-height: 92px; justify-content: flex-end; background: var(--btn-stripes), var(--v4-mode-cases); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2); font-size: 15px; font-weight: 900; text-transform: uppercase; letter-spacing: .03em; }
+.am3-t.is-items:hover { filter: brightness(1.08); }
+.am3-case { position: absolute; z-index: -1; right: -22px; top: -10px; width: 184px; height: 120px; object-fit: contain; pointer-events: none; transition: translate .25s cubic-bezier(.2, .7, .2, 1); }
+@media (hover: hover) { .am3-t.is-items:hover .am3-case { translate: -4px -2px; } }
+.am3-t.is-items .am-ic--story { width: 26px; height: 26px; }
+.am3-t.is-rp { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; min-height: 48px; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-battles); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2); }
+.am3-t.is-rp:hover { filter: brightness(1.08); }
+.am3-out { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 40px; margin-top: 8px; border-radius: 10px; color: var(--color-text-muted); font-size: 14px; font-weight: 700; text-decoration: none; transition: color .2s, background-color .2s; -webkit-tap-highlight-color: transparent; }
+.am3-out:hover, .am3-out:focus-visible { color: #FF4D6A; background: rgba(255, 77, 106, .08); } /* the sign in dialog's error red */
+
+@container ax (max-width: 600px) {
+  .ax-head3 { gap: 8px; padding: 0 8px; }
+  .ax-head3 { border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+  .ax-head3::after { display: none; } /* the header is static here so the sheet can anchor to the screen, so it paints its own bar */
+  .ax-head3::before { display: none; }
+  .ac3 { position: static; gap: 8px; }
+  .ac3 .ac2-acct, .ax-head3:has(.ac3) { position: static; }
+  .ac3 .ac2-plate { gap: 8px; padding: 0 4px 0 10px; }
+  .ac3 .ac2-dep { width: 32px; padding: 0; }
+  .ac3 .ac2-btn { padding: 0 4px; }
+  .am3 { top: auto; bottom: 0; left: 0; right: 0; width: auto; z-index: 20; padding: 8px 12px 16px; border-radius: 20px 20px 0 0; animation: am-rise .28s cubic-bezier(.2, .7, .2, 1); }
+  .am3::before { content: ''; display: block; width: 40px; height: 4px; margin: 0 auto 10px; border-radius: 2px; background: rgba(255, 255, 255, .25); }
+  :is(.ax-stage, .ax-phone):has(.ac3.is-open)::after { content: ''; position: absolute; inset: 0; z-index: 15; border-radius: inherit; background: rgba(3, 5, 16, .6); }
+}
+@media (prefers-reduced-motion: reduce) { .am3 { animation: none; } .am3-copy, .am3-t, .am3-out, .am3-case { transition: none; } }

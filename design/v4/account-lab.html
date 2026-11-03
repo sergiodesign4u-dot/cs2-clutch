@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account v4</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="rail-icons.css">
+  <link rel="stylesheet" href="account-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body class="ax-page">
+<aside id="sidebar"></aside>
+<!-- A satellite of v4, founder of 3 Nov 2026: "let's make the signed-in state look better visually and more correct, given how the platform
+     already looks". Three directions for the header's signed-in cluster (money, deposit, avatar) and the account menu, on the current markup's
+     own words. Money stays two figures in the coin, never summed (root CLAUDE.md), the items figure keeps D-204's pistol, My items stays the
+     first row, Responsible play gets no status. The 5% is D-94's standing deposit bonus, read from WF_BONUS in wireframes/_nav.js with its cap
+     in the accessible name. Nothing on Home changes until one is chosen. -->
+<main class="ax-main">
+  <h1>Account</h1>
+  <p class="ax-lead">What the header holds once someone is signed in: the two money figures, the deposit and the avatar, and the account menu behind the avatar. Round 2 is on top; round 1 is folded at the foot for comparison. The 5% on the deposit is the standing deposit bonus of decision D-94; it stays, restyled, with its cap in the button's accessible name.</p>
+
+  <h2 class="ax-round">Round 3</h2>
+  <p class="ax-lead">The founder on round 2: "Overall this is good. The height bothers me, I think on the site the header is lower; we do not increase the header's height when signed in." The picture rows menu is dropped; round 1's C menu is developed instead, with the account's portrait, its ID and a copy, and a Sign out that turns red. "We take all the avatars, we will use them across the site."</p>
+
+  <section class="ax is-rec" id="r3" aria-labelledby="r3h">
+    <header class="ax-meta">
+      <h2 id="r3h">Plate and tiles<span class="ax-tag">Recommended</span></h2>
+      <p>Round 2's header kept, brought down to the site's own height: the header is 64px with or without an account, and the plate, Add funds and the avatar pill all sit inside the 40px Sign in takes for a guest. The menu is round 1's C: the account's portrait and name with its ID on a dark plate and a Copy button that copies, My items as the wide pink striped tile with Coldfront, History, Withdrawals, Profile and Settings as a two by two grid, Responsible play as the blue striped plate, and Sign out as quiet text that turns red under the pointer.</p>
+      <p class="ax-cost">Measured on Home, guest and signed in alike: the header is 64px at 1558 and at 360, its visible bar 56px at 1558, and the tallest control 40px. On a phone the menu rises from the bottom as a sheet, as round 1's C did.</p>
+    </header>
+    <p class="ax-cap"><span class="ax-cap-w">Full width, as on Home at 1558 with the menu open. The avatar pill opens and closes it; Add funds opens today's deposit, nothing new is drawn for it; Copy copies the ID.</span><span class="ax-cap-s">As on a phone, this screen. The avatar opens the menu.</span></p>
+    <div class="ax-stage ax-stage--r3">
+      <header class="ax-head3">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img class="ax-logo" src="art/brand/logo2-10.svg" alt="Clutch">
+      <div class="ac2 ac3 js-ac is-open">
+        <div class="ac2-plate">
+          <div class="ac2-money">
+            <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+            <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+          </div>
+          <a class="ac2-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac2-dep-t">Add funds</span><span class="ac2-badge" aria-hidden="true">5%</span></a>
+        </div>
+        <div class="ac2-acct">
+          <button class="ac2-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="r3w-menu" aria-label="Account, nightjar_cs"><img class="ac2-ava" src="art/avatars/a5.webp" alt=""><span class="ac2-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am3 js-menu" id="r3w-menu" hidden>
+            <div class="am3-head">
+              <img class="am3-ava" src="art/avatars/a5.webp" alt="">
+              <div class="am3-who">
+                <b>nightjar_cs</b>
+                <div class="am3-id"><span class="am3-id-v">ID acc-7f3a91c4</span><button class="am3-copy" type="button" data-copy="acc-7f3a91c4"><span class="am3-copy-i" aria-hidden="true"></span><span class="am3-copy-t" aria-live="polite">Copy</span></button></div>
+              </div>
+            </div>
+            <nav class="am3-grid" aria-label="Account"><a class="am3-t is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span><img class="am3-case" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a><a class="am3-t" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am3-t" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am3-t" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am3-t" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am3-t is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am3-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+      <div class="ax-banner" aria-hidden="true"></div>
+    </div>
+    <div class="ax-narrow">
+      <p class="ax-cap">At 360: the header, then the menu open</p>
+      <div class="ax-phones">
+        <div class="ax-phone ax-phone--r3"><header class="ax-head3">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac2 ac3 js-ac">
+        <div class="ac2-plate">
+          <div class="ac2-money">
+            <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+            <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+          </div>
+          <a class="ac2-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac2-dep-t">Add funds</span><span class="ac2-badge" aria-hidden="true">5%</span></a>
+        </div>
+        <div class="ac2-acct">
+          <button class="ac2-btn js-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r3p1-menu" aria-label="Account, nightjar_cs"><img class="ac2-ava" src="art/avatars/a5.webp" alt=""><span class="ac2-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am3 js-menu" id="r3p1-menu" hidden>
+            <div class="am3-head">
+              <img class="am3-ava" src="art/avatars/a5.webp" alt="">
+              <div class="am3-who">
+                <b>nightjar_cs</b>
+                <div class="am3-id"><span class="am3-id-v">ID acc-7f3a91c4</span><button class="am3-copy" type="button" data-copy="acc-7f3a91c4"><span class="am3-copy-i" aria-hidden="true"></span><span class="am3-copy-t" aria-live="polite">Copy</span></button></div>
+              </div>
+            </div>
+            <nav class="am3-grid" aria-label="Account"><a class="am3-t is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span><img class="am3-case" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a><a class="am3-t" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am3-t" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am3-t" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am3-t" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am3-t is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am3-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+        <div class="ax-phone ax-phone--r3"><header class="ax-head3">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac2 ac3 js-ac is-open">
+        <div class="ac2-plate">
+          <div class="ac2-money">
+            <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+            <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+          </div>
+          <a class="ac2-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac2-dep-t">Add funds</span><span class="ac2-badge" aria-hidden="true">5%</span></a>
+        </div>
+        <div class="ac2-acct">
+          <button class="ac2-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="r3p2-menu" aria-label="Account, nightjar_cs"><img class="ac2-ava" src="art/avatars/a5.webp" alt=""><span class="ac2-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am3 js-menu" id="r3p2-menu" hidden>
+            <div class="am3-head">
+              <img class="am3-ava" src="art/avatars/a5.webp" alt="">
+              <div class="am3-who">
+                <b>nightjar_cs</b>
+                <div class="am3-id"><span class="am3-id-v">ID acc-7f3a91c4</span><button class="am3-copy" type="button" data-copy="acc-7f3a91c4"><span class="am3-copy-i" aria-hidden="true"></span><span class="am3-copy-t" aria-live="polite">Copy</span></button></div>
+              </div>
+            </div>
+            <nav class="am3-grid" aria-label="Account"><a class="am3-t is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span><img class="am3-case" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a><a class="am3-t" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am3-t" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am3-t" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am3-t" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am3-t is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am3-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ax av" aria-labelledby="av-h">
+    <header class="ax-meta">
+      <h2 id="av-h">The site's avatar set: one is given at sign up</h2>
+      <p>Six Clutch characters in the operators' and Coldfront's world, drawn for this set. Each is shown in a circle at 96px, in a rounded square at 64px and at the pill's 40px. The founder's call: all six are kept and serve wherever a player is shown on the site, the live feed among them; nothing outside this lab changes yet. The header and the menu above use the fifth, which reads best at 40px.</p>
+    </header>
+    <div class="av-set"><figure class="av-one"><img class="av-c" src="art/avatars/a1.webp" alt="Default avatar 1"><img class="av-s" src="art/avatars/a1.webp" alt=""><img class="av-xs" src="art/avatars/a1.webp" alt=""></figure><figure class="av-one"><img class="av-c" src="art/avatars/a2.webp" alt="Default avatar 2"><img class="av-s" src="art/avatars/a2.webp" alt=""><img class="av-xs" src="art/avatars/a2.webp" alt=""></figure><figure class="av-one"><img class="av-c" src="art/avatars/a3.webp" alt="Default avatar 3"><img class="av-s" src="art/avatars/a3.webp" alt=""><img class="av-xs" src="art/avatars/a3.webp" alt=""></figure><figure class="av-one"><img class="av-c" src="art/avatars/a4.webp" alt="Default avatar 4"><img class="av-s" src="art/avatars/a4.webp" alt=""><img class="av-xs" src="art/avatars/a4.webp" alt=""></figure><figure class="av-one"><img class="av-c" src="art/avatars/a5.webp" alt="Default avatar 5"><img class="av-s" src="art/avatars/a5.webp" alt=""><img class="av-xs" src="art/avatars/a5.webp" alt=""></figure><figure class="av-one"><img class="av-c" src="art/avatars/a6.webp" alt="Default avatar 6"><img class="av-s" src="art/avatars/a6.webp" alt=""><img class="av-xs" src="art/avatars/a6.webp" alt=""></figure></div>
+  </section>
+
+  <details class="ax-r1 ax-r2">
+    <summary><h2 class="ax-round">Round 2</h2><span>Plate and rail, and Picture rows, folded. Open to compare.</span></summary>
+  <p class="ax-lead">The founder's picks put together: "I like this [B's header], but the text looks better like this [C's two line money], and the dropdown looks better like this [A's menu]. And here I would make avatars, some default Clutch avatars: not an icon but a picture, something interesting." One combined direction and one variation, with a set of six default avatars. Every word is still the current markup's; the 5% keeps its cap in the button's accessible name, D-94.</p>
+
+  <section class="ax is-rec" id="r2-m" aria-labelledby="r2h-m">
+    <header class="ax-meta">
+      <h2 id="r2h-m">Plate and rail<span class="ax-tag">Recommended</span></h2>
+      <p>B's header with C's money: one dark plate holds the balance over the items value and ends in the pink striped Add funds with its 5% chip; the avatar pill carries a Clutch portrait, the name and a chevron. The menu is A's rail tiles, opened by a card with the big portrait on Battles blue, and three rows carry a picture at their right end: Coldfront for My items, an open case for History, the portrait for Profile.</p>
+      <p class="ax-cost">Recommended. It is your three picks put together and nothing else, so it can go onto Home as one piece; the pictures sit only on the rows they belong to, and Responsible play is a row like Settings, no picture, no badge.</p>
+    </header>
+    <p class="ax-cap"><span class="ax-cap-w">Full width, as on Home at 1558 with the menu open. The avatar pill opens and closes it; Add funds opens today's deposit, nothing new is drawn for it.</span><span class="ax-cap-s">As on a phone, this screen. The avatar opens the menu.</span></p>
+    <div class="ax-stage">
+      <header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img class="ax-logo" src="art/brand/logo2-10.svg" alt="Clutch">
+      <div class="ac2 js-ac is-open">
+        <div class="ac2-plate">
+          <div class="ac2-money">
+            <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+            <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+          </div>
+          <a class="ac2-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac2-dep-t">Add funds</span><span class="ac2-badge" aria-hidden="true">5%</span></a>
+        </div>
+        <div class="ac2-acct">
+          <button class="ac2-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="r2mw-menu" aria-label="Account, nightjar_cs"><img class="ac2-ava" src="art/avatars/a1.webp" alt=""><span class="ac2-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am2 am2--m js-menu" id="r2mw-menu" hidden>
+            <div class="am2-card"><img class="am2-ava" src="art/avatars/a1.webp" alt=""><b>nightjar_cs</b></div>
+            <nav class="am2-nav" aria-label="Account"><a class="am2-row is-items v4-ri-host has-art" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span><img class="am2-art" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a><a class="am2-row has-art" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span><img class="am2-art" src="art/mode-cases-obj.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am2-row has-art" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span><img class="am2-art is-ava" src="art/avatars/a1.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am2-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am2-row am2-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+      <div class="ax-banner" aria-hidden="true"></div>
+    </div>
+    <div class="ax-narrow">
+      <p class="ax-cap">At 360: the header, then the menu open</p>
+      <div class="ax-phones">
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac2 js-ac">
+        <div class="ac2-plate">
+          <div class="ac2-money">
+            <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+            <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+          </div>
+          <a class="ac2-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac2-dep-t">Add funds</span><span class="ac2-badge" aria-hidden="true">5%</span></a>
+        </div>
+        <div class="ac2-acct">
+          <button class="ac2-btn js-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r2mp1-menu" aria-label="Account, nightjar_cs"><img class="ac2-ava" src="art/avatars/a1.webp" alt=""><span class="ac2-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am2 am2--m js-menu" id="r2mp1-menu" hidden>
+            <div class="am2-card"><img class="am2-ava" src="art/avatars/a1.webp" alt=""><b>nightjar_cs</b></div>
+            <nav class="am2-nav" aria-label="Account"><a class="am2-row is-items v4-ri-host has-art" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span><img class="am2-art" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a><a class="am2-row has-art" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span><img class="am2-art" src="art/mode-cases-obj.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am2-row has-art" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span><img class="am2-art is-ava" src="art/avatars/a1.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am2-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am2-row am2-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac2 js-ac is-open">
+        <div class="ac2-plate">
+          <div class="ac2-money">
+            <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+            <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+          </div>
+          <a class="ac2-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac2-dep-t">Add funds</span><span class="ac2-badge" aria-hidden="true">5%</span></a>
+        </div>
+        <div class="ac2-acct">
+          <button class="ac2-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="r2mp2-menu" aria-label="Account, nightjar_cs"><img class="ac2-ava" src="art/avatars/a1.webp" alt=""><span class="ac2-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am2 am2--m js-menu" id="r2mp2-menu" hidden>
+            <div class="am2-card"><img class="am2-ava" src="art/avatars/a1.webp" alt=""><b>nightjar_cs</b></div>
+            <nav class="am2-nav" aria-label="Account"><a class="am2-row is-items v4-ri-host has-art" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span><img class="am2-art" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a><a class="am2-row has-art" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span><img class="am2-art" src="art/mode-cases-obj.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am2-row has-art" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span><img class="am2-art is-ava" src="art/avatars/a1.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am2-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am2-row am2-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="ax" id="r2-v" aria-labelledby="r2h-v">
+    <header class="ax-meta">
+      <h2 id="r2h-v">Picture rows</h2>
+      <p>The same header and card; in the menu the three rows with a picture grow into tall picture tiles, the way the reference puts a wallet or a pistol beside a row, and the other four stay compact rail tiles under them.</p>
+      <p class="ax-cost">More attractive at 1558 and longer on a phone. It ranks My items, History and Profile above Withdrawals and Settings by picture alone, which is a hierarchy nobody has decided yet.</p>
+    </header>
+    <p class="ax-cap"><span class="ax-cap-w">Full width, as on Home at 1558 with the menu open. The avatar pill opens and closes it; Add funds opens today's deposit, nothing new is drawn for it.</span><span class="ax-cap-s">As on a phone, this screen. The avatar opens the menu.</span></p>
+    <div class="ax-stage">
+      <header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img class="ax-logo" src="art/brand/logo2-10.svg" alt="Clutch">
+      <div class="ac2 js-ac is-open">
+        <div class="ac2-plate">
+          <div class="ac2-money">
+            <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+            <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+          </div>
+          <a class="ac2-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac2-dep-t">Add funds</span><span class="ac2-badge" aria-hidden="true">5%</span></a>
+        </div>
+        <div class="ac2-acct">
+          <button class="ac2-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="r2vw-menu" aria-label="Account, nightjar_cs"><img class="ac2-ava" src="art/avatars/a1.webp" alt=""><span class="ac2-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am2 am2--v js-menu" id="r2vw-menu" hidden>
+            <div class="am2-card"><img class="am2-ava" src="art/avatars/a1.webp" alt=""><b>nightjar_cs</b></div>
+            <nav class="am2-nav" aria-label="Account"><a class="am2-row is-items v4-ri-host has-art is-tall" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span><img class="am2-art" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a><a class="am2-row has-art is-tall" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span><img class="am2-art" src="art/mode-cases-obj.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am2-row has-art is-tall" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span><img class="am2-art is-ava" src="art/avatars/a1.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am2-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am2-row am2-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+      <div class="ax-banner" aria-hidden="true"></div>
+    </div>
+    <div class="ax-narrow">
+      <p class="ax-cap">At 360: the header, then the menu open</p>
+      <div class="ax-phones">
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac2 js-ac">
+        <div class="ac2-plate">
+          <div class="ac2-money">
+            <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+            <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+          </div>
+          <a class="ac2-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac2-dep-t">Add funds</span><span class="ac2-badge" aria-hidden="true">5%</span></a>
+        </div>
+        <div class="ac2-acct">
+          <button class="ac2-btn js-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r2vp1-menu" aria-label="Account, nightjar_cs"><img class="ac2-ava" src="art/avatars/a1.webp" alt=""><span class="ac2-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am2 am2--v js-menu" id="r2vp1-menu" hidden>
+            <div class="am2-card"><img class="am2-ava" src="art/avatars/a1.webp" alt=""><b>nightjar_cs</b></div>
+            <nav class="am2-nav" aria-label="Account"><a class="am2-row is-items v4-ri-host has-art is-tall" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span><img class="am2-art" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a><a class="am2-row has-art is-tall" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span><img class="am2-art" src="art/mode-cases-obj.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am2-row has-art is-tall" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span><img class="am2-art is-ava" src="art/avatars/a1.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am2-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am2-row am2-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac2 js-ac is-open">
+        <div class="ac2-plate">
+          <div class="ac2-money">
+            <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+            <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+          </div>
+          <a class="ac2-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac2-dep-t">Add funds</span><span class="ac2-badge" aria-hidden="true">5%</span></a>
+        </div>
+        <div class="ac2-acct">
+          <button class="ac2-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="r2vp2-menu" aria-label="Account, nightjar_cs"><img class="ac2-ava" src="art/avatars/a1.webp" alt=""><span class="ac2-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am2 am2--v js-menu" id="r2vp2-menu" hidden>
+            <div class="am2-card"><img class="am2-ava" src="art/avatars/a1.webp" alt=""><b>nightjar_cs</b></div>
+            <nav class="am2-nav" aria-label="Account"><a class="am2-row is-items v4-ri-host has-art is-tall" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span><img class="am2-art" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a><a class="am2-row has-art is-tall" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span><img class="am2-art" src="art/mode-cases-obj.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am2-row has-art is-tall" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span><img class="am2-art is-ava" src="art/avatars/a1.webp" alt="" loading="lazy"></a><a class="am2-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am2-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am2-row am2-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+      </div>
+    </div>
+  </section>
+  </details>
+
+  <details class="ax-r1">
+    <summary><h2 class="ax-round">Round 1</h2><span>Three directions, folded. Open to compare.</span></summary>
+  <aside class="ax-rec" aria-label="Round 1 recommendation">
+    <h2>Round 1 recommendation: Rail tiles</h2>
+    <p>It is the platform already on screen, not a new idea next to it: the side menu's tiles, its striped hover and its chest story now run the header and the menu too, so signing in changes nothing about how the site looks, only what it holds. The money stays two figures, each in its own tile and never added up, the pink tile is the one act in the header, and the 5% keeps its cap in the deposit's accessible name. Responsible play is one row among the others, in the same tile, with no badge and no state. The one thing to watch is the 360 row, where both figures share a tile.</p>
+  </aside>
+
+  <section class="ax is-rec" id="dir-a" aria-labelledby="ax-a">
+    <header class="ax-meta">
+      <h2 id="ax-a">Rail tiles<span class="ax-tag">Recommended</span></h2>
+      <p>The header speaks the side menu's language: each figure on its own dark tile, the deposit a pink striped tile, the avatar a round tile. The menu is the rail again, rows as tiles that fill with a striped mode gradient under the pointer, My items playing the rail's chest story.</p>
+      <p class="ax-cost">Closest kin to what is already on the page. At 360 the two figures share one tile so the row fits beside the deposit and the avatar.</p>
+    </header>
+    <p class="ax-cap"><span class="ax-cap-w">Full width, as on Home at 1558 with the menu open. The avatar opens and closes it; the + opens today's deposit, nothing new is drawn for it.</span><span class="ax-cap-s">As on a phone, this screen. The avatar opens the menu.</span></p>
+    <div class="ax-stage">
+      <header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img class="ax-logo" src="art/brand/logo2-10.svg" alt="Clutch">
+      <div class="ac js-ac ac--a is-open">
+        <div class="ac-money">
+          <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+          <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+        </div>
+        <a class="ac-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac-badge" aria-hidden="true">5%</span></a>
+        <div class="ac-acct">
+          <button class="ac-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="aw-menu" aria-label="Account, nightjar_cs"><span class="ac-ava" aria-hidden="true"></span></button>
+          <div class="am am--a js-menu" id="aw-menu" hidden>
+            <div class="am-who"><span class="am-ava" aria-hidden="true"></span><b>nightjar_cs</b></div>
+            <nav class="am-nav" aria-label="Account"><a class="am-row is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span></a><a class="am-row" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am-row" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am-row am-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+      <div class="ax-banner" aria-hidden="true"></div>
+    </div>
+    <div class="ax-narrow">
+      <p class="ax-cap">At 360: the header, then the menu open</p>
+      <div class="ax-phones">
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac js-ac ac--a">
+        <div class="ac-money">
+          <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+          <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+        </div>
+        <a class="ac-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac-badge" aria-hidden="true">5%</span></a>
+        <div class="ac-acct">
+          <button class="ac-btn js-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="ap1-menu" aria-label="Account, nightjar_cs"><span class="ac-ava" aria-hidden="true"></span></button>
+          <div class="am am--a js-menu" id="ap1-menu" hidden>
+            <div class="am-who"><span class="am-ava" aria-hidden="true"></span><b>nightjar_cs</b></div>
+            <nav class="am-nav" aria-label="Account"><a class="am-row is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span></a><a class="am-row" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am-row" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am-row am-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac js-ac ac--a is-open">
+        <div class="ac-money">
+          <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+          <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+        </div>
+        <a class="ac-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac-badge" aria-hidden="true">5%</span></a>
+        <div class="ac-acct">
+          <button class="ac-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="ap2-menu" aria-label="Account, nightjar_cs"><span class="ac-ava" aria-hidden="true"></span></button>
+          <div class="am am--a js-menu" id="ap2-menu" hidden>
+            <div class="am-who"><span class="am-ava" aria-hidden="true"></span><b>nightjar_cs</b></div>
+            <nav class="am-nav" aria-label="Account"><a class="am-row is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span></a><a class="am-row" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am-row" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am-row am-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="ax" id="dir-b" aria-labelledby="ax-b">
+    <header class="ax-meta">
+      <h2 id="ax-b">Wallet plate</h2>
+      <p>Both figures sit on one dark plate, the footer strip's, with Add funds as a pink striped button at its end and the 5% on a gold chip. The avatar becomes a pill with the account name. The menu is the sign in dialog's note plate: square icon tiles, Responsible play on the blue striped tile.</p>
+      <p class="ax-cost">The clearest act: the one pink thing in the header says what it does. It is the widest of the three, so at 360 the button drops its words and the pill drops the name.</p>
+    </header>
+    <p class="ax-cap"><span class="ax-cap-w">Full width, as on Home at 1558 with the menu open. The avatar opens and closes it; the + opens today's deposit, nothing new is drawn for it.</span><span class="ax-cap-s">As on a phone, this screen. The avatar opens the menu.</span></p>
+    <div class="ax-stage">
+      <header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img class="ax-logo" src="art/brand/logo2-10.svg" alt="Clutch">
+      <div class="ac js-ac ac--b is-open">
+        <div class="ac-money">
+          <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+          <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+        </div>
+        <a class="ac-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac-dep-t">Add funds</span><span class="ac-badge" aria-hidden="true">5%</span></a>
+        <div class="ac-acct">
+          <button class="ac-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="bw-menu" aria-label="Account, nightjar_cs"><span class="ac-ava" aria-hidden="true"></span><span class="ac-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am am--b js-menu" id="bw-menu" hidden>
+            <div class="am-who"><span class="am-ava" aria-hidden="true"></span><b>nightjar_cs</b></div>
+            <nav class="am-nav" aria-label="Account"><a class="am-row is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span></a><a class="am-row" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am-row" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am-row am-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+      <div class="ax-banner" aria-hidden="true"></div>
+    </div>
+    <div class="ax-narrow">
+      <p class="ax-cap">At 360: the header, then the menu open</p>
+      <div class="ax-phones">
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac js-ac ac--b">
+        <div class="ac-money">
+          <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+          <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+        </div>
+        <a class="ac-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac-dep-t">Add funds</span><span class="ac-badge" aria-hidden="true">5%</span></a>
+        <div class="ac-acct">
+          <button class="ac-btn js-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="bp1-menu" aria-label="Account, nightjar_cs"><span class="ac-ava" aria-hidden="true"></span><span class="ac-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am am--b js-menu" id="bp1-menu" hidden>
+            <div class="am-who"><span class="am-ava" aria-hidden="true"></span><b>nightjar_cs</b></div>
+            <nav class="am-nav" aria-label="Account"><a class="am-row is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span></a><a class="am-row" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am-row" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am-row am-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac js-ac ac--b is-open">
+        <div class="ac-money">
+          <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+          <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+        </div>
+        <a class="ac-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac-dep-t">Add funds</span><span class="ac-badge" aria-hidden="true">5%</span></a>
+        <div class="ac-acct">
+          <button class="ac-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="bp2-menu" aria-label="Account, nightjar_cs"><span class="ac-ava" aria-hidden="true"></span><span class="ac-name">nightjar_cs</span><span class="ac-chev" aria-hidden="true"></span></button>
+          <div class="am am--b js-menu" id="bp2-menu" hidden>
+            <div class="am-who"><span class="am-ava" aria-hidden="true"></span><b>nightjar_cs</b></div>
+            <nav class="am-nav" aria-label="Account"><a class="am-row is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span></a><a class="am-row" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am-row" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am-row am-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="ax" id="dir-c" aria-labelledby="ax-c">
+    <header class="ax-meta">
+      <h2 id="ax-c">Hex and sheet</h2>
+      <p>The figures stand free, stacked as today but cleaned; the deposit is a round pink striped button and the avatar sits in the drop tiles' hexagon. The menu is a grid of tiles with My items as the wide one carrying Coldfront, and on a phone it rises from the bottom as a sheet.</p>
+      <p class="ax-cost">The most game-like menu and the one built for a thumb. The hexagon avatar and the art tile are new surfaces to keep, and a sheet needs a scrim.</p>
+    </header>
+    <p class="ax-cap"><span class="ax-cap-w">Full width, as on Home at 1558 with the menu open. The avatar opens and closes it; the + opens today's deposit, nothing new is drawn for it.</span><span class="ax-cap-s">As on a phone, this screen. The avatar opens the menu.</span></p>
+    <div class="ax-stage">
+      <header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img class="ax-logo" src="art/brand/logo2-10.svg" alt="Clutch">
+      <div class="ac js-ac ac--c is-open">
+        <div class="ac-money">
+          <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+          <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+        </div>
+        <a class="ac-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac-badge" aria-hidden="true">5%</span></a>
+        <div class="ac-acct">
+          <button class="ac-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="cw-menu" aria-label="Account, nightjar_cs"><span class="ac-ava" aria-hidden="true"></span></button>
+          <div class="am am--c js-menu" id="cw-menu" hidden>
+            <div class="am-who"><span class="am-ava" aria-hidden="true"></span><b>nightjar_cs</b></div>
+            <nav class="am-nav" aria-label="Account"><a class="am-row is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span></a><a class="am-row" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am-row" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am-row am-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+      <div class="ax-banner" aria-hidden="true"></div>
+    </div>
+    <div class="ax-narrow">
+      <p class="ax-cap">At 360: the header, then the menu open</p>
+      <div class="ax-phones">
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac js-ac ac--c">
+        <div class="ac-money">
+          <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+          <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+        </div>
+        <a class="ac-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac-badge" aria-hidden="true">5%</span></a>
+        <div class="ac-acct">
+          <button class="ac-btn js-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="cp1-menu" aria-label="Account, nightjar_cs"><span class="ac-ava" aria-hidden="true"></span></button>
+          <div class="am am--c js-menu" id="cp1-menu" hidden>
+            <div class="am-who"><span class="am-ava" aria-hidden="true"></span><b>nightjar_cs</b></div>
+            <nav class="am-nav" aria-label="Account"><a class="am-row is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span></a><a class="am-row" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am-row" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am-row am-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+        <div class="ax-phone"><header class="ax-head">
+      <span class="ax-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      
+      <div class="ac js-ac ac--c is-open">
+        <div class="ac-money">
+          <a class="ac-fig is-bal" href="../../wireframes/deposit.html" aria-label="Balance, 74.20 coins"><img class="ac-coin" src="art/brand/coin-6-small.svg" alt=""><span class="ac-v">74.20</span></a>
+          <a class="ac-fig is-held" href="../../wireframes/account.html" aria-label="Value of items held, 140.95 coins"><span class="ac-pistol" aria-hidden="true"></span><span class="ac-v">140.95</span></a>
+        </div>
+        <a class="ac-dep" href="../../wireframes/deposit.html" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="ac-plus" aria-hidden="true"></span><span class="ac-badge" aria-hidden="true">5%</span></a>
+        <div class="ac-acct">
+          <button class="ac-btn js-btn" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="cp2-menu" aria-label="Account, nightjar_cs"><span class="ac-ava" aria-hidden="true"></span></button>
+          <div class="am am--c js-menu" id="cp2-menu" hidden>
+            <div class="am-who"><span class="am-ava" aria-hidden="true"></span><b>nightjar_cs</b></div>
+            <nav class="am-nav" aria-label="Account"><a class="am-row is-items v4-ri-host" href="../../wireframes/account.html"><span class="am-ic am-ic--story" data-story="box" aria-hidden="true"></span><span class="am-t">My items</span></a><a class="am-row" href="../../wireframes/history.html"><span class="am-ic" style="--ic: var(--icon-history)" aria-hidden="true"></span><span class="am-t">History</span></a><a class="am-row" href="../../wireframes/history-withdrawals.html"><span class="am-ic" style="--ic: var(--icon-send)" aria-hidden="true"></span><span class="am-t">Withdrawals</span></a><a class="am-row" href="../../wireframes/profile.html"><span class="am-ic" style="--ic: var(--icon-user)" aria-hidden="true"></span><span class="am-t">Profile</span></a><a class="am-row" href="../../wireframes/settings.html"><span class="am-ic" style="--ic: var(--icon-settings)" aria-hidden="true"></span><span class="am-t">Settings</span></a><a class="am-row is-rp" href="../../wireframes/responsible.html"><span class="am-ic" style="--ic: var(--icon-shield)" aria-hidden="true"></span><span class="am-t">Responsible play</span></a></nav>
+            <a class="am-row am-out" href="../../wireframes/index.html"><span class="am-ic" style="--ic: var(--icon-out)" aria-hidden="true"></span><span class="am-t">Sign out</span></a>
+          </div>
+        </div>
+      </div>
+    </header><div class="ax-banner" aria-hidden="true"></div></div>
+      </div>
+    </div>
+  </section>
+  </details>
+</main>
+<script src="rail-icons.js"></script>
+<script>
+window.NAV_BASE = '../../';
+(() => {
+  // My items plays the rail's chest, the same drawing and story as the rail's Cases tile
+  const box = window.V4RailIcons ? window.V4RailIcons.svg('box') : '';
+  document.querySelectorAll('[data-story="box"]').forEach(s => { s.innerHTML = box; });
+  // the menu: the avatar opens and closes it, Escape and a press outside close it, as wireframes/_nav.js's account control does
+  const all = [...document.querySelectorAll('.js-ac')];
+  const set = (ac, on) => {
+    ac.classList.toggle('is-open', on);
+    ac.querySelector('.js-btn').setAttribute('aria-expanded', on ? 'true' : 'false');
+    ac.querySelector('.js-menu').hidden = !on;
+  };
+  all.forEach(ac => {
+    set(ac, ac.classList.contains('is-open'));
+    ac.querySelector('.js-btn').addEventListener('click', e => {
+      e.stopPropagation();
+      const on = !ac.classList.contains('is-open');
+      set(ac, on);
+      if (on && e.detail === 0) ac.querySelector('.js-menu a').focus();
+    });
+  });
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', e => {
+    e.stopPropagation();
+    const t = b.querySelector('.am3-copy-t');
+    const said = (w, ok) => { t.textContent = w; b.classList.toggle('is-done', ok); b.classList.toggle('is-fail', !ok); clearTimeout(b._t); b._t = setTimeout(() => { t.textContent = 'Copy'; b.classList.remove('is-done', 'is-fail'); }, 2400); };
+    try { navigator.clipboard.writeText(b.dataset.copy).then(() => said('Copied', true), () => said('Not copied, select it by hand', false)); }
+    catch (err) { said('Not copied, select it by hand', false); }
+  }));
+  document.addEventListener('click', e => all.forEach(ac => { if (ac.classList.contains('is-open') && !ac.contains(e.target)) set(ac, false); }));
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    all.forEach(ac => { if (ac.classList.contains('is-open') && ac.contains(document.activeElement)) { set(ac, false); ac.querySelector('.js-btn').focus(); } });
+  });
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>
