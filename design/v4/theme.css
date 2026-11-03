@@ -181,7 +181,7 @@
 .wf-event-cell b { color: var(--color-text-hi); font-size: 26px; font-weight: 900; line-height: 1; }
 .wf-event-cell span { margin-top: 4px; color: var(--color-text-soft); font-size: var(--size-micro); letter-spacing: .08em; }
 .wf-event-go { left: max(var(--space-5), (100% - var(--size-content)) / 2); top: 346px; bottom: auto; transform: none; min-width: 240px; min-height: 52px; border-radius: 8px; font-size: var(--size-text); font-weight: 900; letter-spacing: 1px;
-  background: var(--v4-stripes), var(--color-pink); box-shadow: 0 8px 24px rgba(251, 63, 138, .4); }
+  background: var(--v4-stripes), var(--btn-fill, #DF055C); box-shadow: 0 8px 24px rgba(223, 5, 92, .4); }
 @media (max-width: 899px) {
   .wf-event .wf-banner-art { aspect-ratio: auto; height: 460px; }
   .wf-event::before { background-position: 72% center; }
@@ -222,7 +222,7 @@
 .wf-grid .wf-mode h3, .wf-grid .wf-mode.is-later h3 { font-size: 24px; line-height: 1.1; letter-spacing: .01em; text-transform: uppercase; color: var(--color-text-hi); text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
 .wf-mode h3::before { content: none; }
 .wf-mode p { max-width: 200px; margin: 6px 0 14px; color: var(--color-text-hi); text-shadow: 0 1px 2px rgba(6, 10, 30, .55); }
-.wf-mode .wf-btn { min-height: 40px; border-radius: 8px; padding: 0 var(--space-4); font-weight: 900; background: var(--v4-stripes), var(--color-pink); box-shadow: 0 6px 16px rgba(6, 10, 30, .35); border-color: rgba(255, 255, 255, .35); }
+.wf-mode .wf-btn { min-height: 40px; border-radius: 8px; padding: 0 var(--space-4); font-weight: 900; background: var(--v4-stripes), var(--btn-fill, #DF055C); box-shadow: 0 6px 16px rgba(6, 10, 30, .35); border-color: rgba(255, 255, 255, .35); }
 .wf-mode > .wf-fig-missing, .wf-mode > .wf-btn { max-width: none; white-space: nowrap; }
 .wf-mode .wf-fig-missing { display: inline-flex; align-items: center; min-height: 38px; padding: 0 var(--space-4); border-radius: 8px; background: rgba(6, 10, 30, .38); color: var(--color-text-hi); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
 

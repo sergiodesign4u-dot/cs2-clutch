@@ -2,29 +2,95 @@
  * средняя и маленькая которые мы сможем переиспользовать дальше по сайту". One radius, three sizes, two kinds. .v4-btn with --l, --m or
  * --s and --ghost is the class to reuse; the block under it binds the buttons Home already has to the same values. */
 
-:root { --btn-radius: 10px; --btn-l: 52px; --btn-m: 40px; --btn-s: 32px; --btn-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .1) 0 14px, transparent 14px 28px); }
+:root { --btn-radius: 10px; --btn-l: 52px; --btn-m: 40px; --btn-s: 32px; --btn-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .1) 0 14px, transparent 14px 28px);
+  --btn-fill: #DF055C; /* a filled button's pink, founder pick A of 4 Nov 2026, buttons-lab.html Contrast: the brand pink #FB3F8A carried a 13px white label at 3.1:1 on its light stripe, this deeper pink of the same hue at 4.5:1, WCAG AA; the brand pink itself is unchanged everywhere else */ }
 
-.v4-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; border: 0; border-radius: var(--btn-radius); color: var(--color-text-hi); font-family: inherit; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; cursor: pointer; background: var(--btn-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); transition: filter .2s, translate .2s, box-shadow .2s; }
+.v4-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; border: 0; border-radius: var(--btn-radius); color: var(--color-text-hi); font-family: inherit; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; cursor: pointer; background: var(--btn-stripes), var(--btn-fill); box-shadow: 0 6px 18px rgba(223, 5, 92, .3); transition: filter .2s, translate .2s, box-shadow .2s; }
 .v4-btn--l { min-height: var(--btn-l); padding: 0 28px; font-size: 16px; }
 .v4-btn--m { min-height: var(--btn-m); padding: 0 20px; font-size: 13px; }
 .v4-btn--s { min-height: var(--btn-s); padding: 0 14px; font-size: 12px; }
 /* the ghost, founder of 2 Nov 2026: "Ghost кнопки ну такое себе, может розовий бордер?". The pink edge of --size-edge, the baseline's own rose border */
-.v4-btn--ghost { background: rgba(11, 10, 34, .55); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); transition: filter .2s, translate .2s, box-shadow .2s, background-color .2s; }
+.v4-btn--ghost { background: rgba(11, 10, 34, .55); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--btn-fill); transition: filter .2s, translate .2s, box-shadow .2s, background-color .2s; }
 @media (hover: hover) {
-  .v4-btn--ghost:not([aria-disabled="true"]):not(:disabled):hover { filter: none; background: rgba(251, 63, 138, .16); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink), 0 6px 18px rgba(251, 63, 138, .22); }
+  .v4-btn--ghost:not([aria-disabled="true"]):not(:disabled):hover { filter: none; background: rgba(223, 5, 92, .2); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--btn-fill), 0 4px 14px rgba(223, 5, 92, .2); }
 }
 .v4-btn[aria-disabled="true"], .v4-btn:disabled { color: var(--color-text-soft); background: rgba(150, 160, 215, .14); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); cursor: not-allowed; }
 .v4-btn:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
 @media (hover: hover) {
-  .v4-btn:not([aria-disabled="true"]):not(:disabled):hover { filter: brightness(1.1); translate: 0 -1px; }
+  /* the old hover, 10% brighter and 1px up, gave way to ONE HOVER FOR THE WHOLE FAMILY below */
 }
 @media (prefers-reduced-motion: reduce) {
   .v4-btn { transition: none; }
   .v4-btn:hover { translate: none; }
 }
 
+
 /* Home's buttons, bound to the same values; the rail's sound and language controls are not buttons of this family */
-html body a.wf-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: var(--btn-m); padding: 0 20px; border: 0; border-radius: var(--btn-radius); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; background: var(--btn-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); }
+html body a.wf-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: var(--btn-m); padding: 0 20px; border: 0; border-radius: var(--btn-radius); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; background: var(--btn-stripes), var(--btn-fill); box-shadow: 0 6px 18px rgba(223, 5, 92, .3); }
+/* the shared sheet ../_theme.css paints the header's Sign in and a section's foot button pink by a stronger selector; on v4 they take --btn-fill too,
+   and v1, which does not load this file, keeps the brand pink */
+html body .wf-header .wf-row > a.wf-btn:not(.wf-dep), html body .wf-sec-foot a.wf-btn, html body .wf-panel-foot a.wf-btn { background: var(--btn-stripes), var(--btn-fill); }
 html body a.wf-btn.wf-event-go { min-height: var(--btn-l); padding: 0 28px; font-size: 16px; }
 html body .wf-grid .wf-mode > a.wf-btn, html body .wf-grid .wf-mode > .wf-fig-missing { min-height: var(--btn-m); border-radius: var(--btn-radius); padding: 0; font-size: min(13px, 4.6cqw); letter-spacing: .06em; }
 html body .wf-screen-body a.wf-btn:not(.wf-event-go) { min-height: var(--btn-m); font-size: 13px; }
+
+/* ONE HOVER FOR THE WHOLE FAMILY, H2 of buttons-lab.html, founder of 4 Nov 2026: "давай такие вариант але спробуемо без саява у дефолти та при ховери
+   додавати сяево". At rest no glow. Under the pointer and on keyboard focus a band of light sweeps across behind the label, once, and its pink glow
+   appears; pressed, the glow tightens. Nothing moves: "ховер двигает кнопку вверх ... тут виглядит не очень ... может без свдига", founder of 4 Nov 2026, on Add funds in its plate. The fill never changes, so the label keeps its 4.5:1. The band is a third background layer moved by
+   background-position, not a pseudo element, so it needs no overflow clip and leaves the Add funds chip and every ::before and ::after alone.
+   The rules name Home's own buttons with selectors stronger than the shared sheet's, whose hover swapped the fill back to the brand pink and dropped the stripes */
+:root { --btn-sheen: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .26) 50%, transparent 58%); --btn-glow: 0 4px 14px rgba(223, 5, 92, .32);
+  --btn-fill-hover: #E8156A; /* the fill a little lighter under the pointer, founder of 4 Nov 2026: "на кнопках при ховери фон робити трохи світлишим"; the label holds 4.4:1 on it and 4.1:1 on its light stripe while hovered, under AA's 4.5, accepted as the cost */ } /* was 0 12px 28px at .55, founder of 4 Nov 2026: "тень надо сделать чуть меньше и мягче" */
+.v4-btn:not(.v4-btn--ghost):not([aria-disabled="true"]):not(:disabled), html body a.wf-btn, html body .wf-header .wf-row > a.wf-btn:not(.wf-dep),
+html body .wf-sec-foot a.wf-btn, html body .wf-panel-foot a.wf-btn, html body .wf-grid .wf-mode > a.wf-btn, html body .v4-ac .ac2-dep {
+  background-color: var(--btn-fill); background-image: var(--btn-sheen), var(--btn-stripes); background-size: 300% 100%, auto; background-position: 100% 0, 0 0; background-repeat: no-repeat, repeat;
+  box-shadow: none; filter: none; transition: background-color .2s, box-shadow .2s; }
+html body .v4-btn--ghost:not([aria-disabled="true"]):not(:disabled) {
+  background-color: rgba(11, 10, 34, .55); background-image: var(--btn-sheen); background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--btn-fill); filter: none; transition: translate .2s cubic-bezier(.2, .7, .2, 1), box-shadow .2s, background-color .2s; }
+@media (hover: hover) {
+  html body .v4-btn:not(.v4-btn--ghost):not([aria-disabled="true"]):not(:disabled):hover, html body a.wf-btn:hover, html body .wf-header .wf-row > a.wf-btn:not(.wf-dep):hover,
+  html body .wf-sec-foot a.wf-btn:hover, html body .wf-panel-foot a.wf-btn:hover, html body .wf-grid .wf-mode > a.wf-btn:hover, html body .v4-ac .ac2-dep:hover {
+    background-color: var(--btn-fill-hover); background-image: var(--btn-sheen), var(--btn-stripes); background-size: 300% 100%, auto; background-position: 0% 0, 0 0; background-repeat: no-repeat, repeat;
+    box-shadow: var(--btn-glow); filter: none;
+    transition: background-position .6s cubic-bezier(.3, .6, .2, 1), background-color .2s, box-shadow .2s; }
+  html body .v4-btn--ghost:not([aria-disabled="true"]):not(:disabled):hover {
+    background-color: rgba(223, 5, 92, .2); background-position: 0% 0; filter: none;
+    box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--btn-fill), 0 4px 14px rgba(223, 5, 92, .2);
+    transition: background-position .6s cubic-bezier(.3, .6, .2, 1), box-shadow .2s, background-color .2s; }
+}
+html body .v4-btn:not(.v4-btn--ghost):not([aria-disabled="true"]):not(:disabled):focus-visible, html body a.wf-btn:focus-visible, html body .v4-ac .ac2-dep:focus-visible {
+  background-color: var(--btn-fill-hover); background-position: 0% 0, 0 0; box-shadow: var(--btn-glow); transition: background-position .6s cubic-bezier(.3, .6, .2, 1), box-shadow .2s; }
+html body .v4-btn--ghost:not([aria-disabled="true"]):not(:disabled):focus-visible { background-color: rgba(223, 5, 92, .2); background-position: 0% 0;
+  box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--btn-fill), 0 4px 14px rgba(223, 5, 92, .2); }
+html body .v4-btn:not([aria-disabled="true"]):not(:disabled):active, html body a.wf-btn:active, html body .v4-ac .ac2-dep:active { box-shadow: 0 2px 8px rgba(223, 5, 92, .3); transition-duration: .08s; }
+@media (prefers-reduced-motion: reduce) {
+  html body .v4-btn, html body a.wf-btn, html body .v4-ac .ac2-dep { transition: none !important; translate: none !important; }
+  html body .v4-btn:hover, html body .v4-btn:focus-visible, html body a.wf-btn:hover, html body a.wf-btn:focus-visible, html body .v4-ac .ac2-dep:hover { background-position: 100% 0, 0 0 !important; }
+  html body .v4-btn--ghost:hover, html body .v4-btn--ghost:focus-visible { background-position: 100% 0 !important; }
+}
+
+/* ICON BUTTONS, founder of 4 Nov 2026: "ще треба додати ось такі кнопки у список". Two kinds, named here once and drawn by Home through its own markup.
+   The icon button: the side menu's tile at rest, theme.css ONE SMALL TILE, the button pink --btn-fill with its stripes under the pointer; the footer's social squares.
+   The ghost's edge and the icon button's hover were the brand pink, lighter than the filled button beside them, until the founder, 4 Nov 2026: "для кнопки где icon ховер светлее
+   чем у primary button и у gost кнопки бордер тоже более светлее"; every pink of this family is --btn-fill now.
+   The close: a white cross on a dark see-through tile, turning the error red under the pointer as it rotates a quarter, founder of 3 Nov 2026,
+   "у крестика сделаем темную прозрачную подложку плюс по ховеру крестик становится красным"; the sign in dialog's close */
+.v4-ibtn, html body .ft a.fl-sq { display: inline-grid; place-items: center; box-sizing: border-box; width: var(--v4-tile-h, 42px); height: var(--v4-tile-h, 42px); padding: 0; border: 0;
+  border-radius: var(--v4-tile-radius, 12px); background: var(--v4-tile-bg, #0B0A22); box-shadow: var(--v4-tile-edge, inset 0 0 0 1px rgba(255, 255, 255, .05)); color: var(--color-text-soft);
+  cursor: pointer; transition: background .2s, color .2s; }
+@media (hover: hover) { .v4-ibtn:hover, html body .ft a.fl-sq:hover { background: var(--btn-stripes), var(--btn-fill-hover); color: #fff; } }
+.v4-ibtn:focus-visible, html body .ft a.fl-sq:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+.v4-ibtn--close { position: relative; } /* the dialog's close keeps the absolute place .sd-close gives it */
+.v4-ibtn--close, html body .sd .sd-x { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 10px;
+  background: rgba(6, 8, 24, .45); box-shadow: none; color: #fff; cursor: pointer; transition: color .15s, background-color .15s; }
+.v4-ibtn--close::before, .v4-ibtn--close::after, html body .sd .sd-x::before, html body .sd .sd-x::after { content: ''; position: absolute; left: 50%; top: 50%; width: 18px; height: 2.5px;
+  margin: -1.25px 0 0 -9px; border-radius: 2px; background: currentColor; rotate: 45deg; transition: rotate .2s; }
+.v4-ibtn--close::after, html body .sd .sd-x::after { rotate: -45deg; }
+@media (hover: hover) {
+  .v4-ibtn--close:hover, html body .sd .sd-x:hover { background: rgba(6, 8, 24, .6); color: #FF4D6A; }
+  .v4-ibtn--close:hover::before, html body .sd .sd-x:hover::before { rotate: 135deg; }
+  .v4-ibtn--close:hover::after, html body .sd .sd-x:hover::after { rotate: 45deg; }
+}
+.v4-ibtn--close:focus-visible, html body .sd .sd-x:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .v4-ibtn--close::before, .v4-ibtn--close::after, html body .sd .sd-x::before, html body .sd .sd-x::after { transition: none; } }

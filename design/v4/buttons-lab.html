@@ -20,6 +20,66 @@
     .bl { display: grid; grid-template-columns: 110px repeat(3, auto); gap: 20px 24px; align-items: center; justify-content: start; }
     .bl b { color: var(--color-text-soft); font-size: 13px; font-weight: 700; }
     @media (max-width: 640px) { .bl { grid-template-columns: 1fr; justify-items: start; } }
+    /* contrast, before and after, founder of 4 Nov 2026: "тут надо посмотреть типа було - стало"; the variants live only on this page */
+    h2 { margin: 56px 0 8px; font-size: 22px; font-weight: 900; }
+    h2 + p { margin: 0 0 24px; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; }
+    .cx { display: grid; gap: 14px; }
+    .cx-row { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 20px; align-items: center; padding: 18px 20px; border-radius: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+    .cx-row.is-now { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18); }
+    .cx-k { display: grid; gap: 6px; }
+    .cx-k b { font-size: 15px; font-weight: 900; }
+    .cx-k span { color: var(--color-text-soft); font-size: 13px; line-height: 1.4; }
+    .cx-k output { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .cx-k output.is-pass { color: var(--color-green, #39D98A); }
+    .cx-k output.is-fail { color: #FF6B7A; }
+    .cx-b { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    html body .cx .cx-row.is-now .v4-btn:not(.v4-btn--ghost) { background: var(--btn-stripes), #FB3F8A; box-shadow: 0 6px 18px rgba(251, 63, 138, .3); } /* the old fill, kept here only as the record */
+    html body .cx .cx-a .v4-btn:not(.v4-btn--ghost) { background: var(--btn-stripes), #DF055C; box-shadow: 0 6px 18px rgba(223, 5, 92, .3); }
+    html body .cx .cx-n .v4-btn:not(.v4-btn--ghost) { color: #0B0A22; }
+    html body .cx .cx-c .v4-btn:not(.v4-btn--ghost) { background: repeating-linear-gradient(135deg, rgba(0, 0, 0, .12) 0 14px, transparent 14px 28px), #E90560; box-shadow: 0 6px 18px rgba(233, 5, 96, .3); }
+    @media (max-width: 640px) { .cx-row { grid-template-columns: 1fr; } }
+
+    /* HOVER, four ways, founder of 4 Nov 2026: "давай везде нормальние ховери сделаем, интересние привлекательние игровие". Every one keeps the fill
+       at --btn-fill under the pointer, so the label holds 4.5:1, and shows the same on keyboard focus; with reduced motion only the light changes */
+    html body .cx .hv .v4-btn { position: relative; isolation: isolate; overflow: hidden; }
+    html body .cx .hv .v4-btn:not([aria-disabled="true"]):hover, html body .cx .hv .v4-btn:focus-visible { filter: none; }
+    html body .cx .hv .v4-btn--ghost:not([aria-disabled="true"]):hover { filter: none; }
+    /* H1, stripes that run: the diagonal stripes start to move, the button rises 2px, its glow deepens and a fine light edge appears */
+    @keyframes hv-run { to { background-position: 39.6px 0, 0 0; } }
+    html body .cx .hv1 .v4-btn { transition: translate .18s cubic-bezier(.2, .7, .2, 1), box-shadow .18s, background-color .18s; }
+    html body .cx .hv1 .v4-btn:not(.v4-btn--ghost):hover, html body .cx .hv1 .v4-btn:not(.v4-btn--ghost):focus-visible { translate: 0 -2px; animation: hv-run .7s linear infinite; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35), 0 10px 26px rgba(223, 5, 92, .55); }
+    html body .cx .hv1 .v4-btn--ghost:hover, html body .cx .hv1 .v4-btn--ghost:focus-visible { translate: 0 -2px; background: var(--btn-stripes), rgba(223, 5, 92, .22); animation: hv-run .7s linear infinite; box-shadow: inset 0 0 0 2px var(--color-pink), 0 10px 26px rgba(223, 5, 92, .35); }
+    /* H2, a shine that sweeps: one band of light crosses the button behind the label as the pointer arrives, the button rises and glows */
+    html body .cx .hv2 .v4-btn { transition: translate .2s cubic-bezier(.2, .7, .2, 1), box-shadow .2s, background-color .2s; }
+    html body .cx .hv2 .v4-btn::after { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .26) 48%, rgba(255, 255, 255, .26) 52%, transparent 70%); translate: -110% 0; pointer-events: none; }
+    html body .cx .hv2 .v4-btn:hover::after, html body .cx .hv2 .v4-btn:focus-visible::after { translate: 110% 0; transition: translate .6s cubic-bezier(.3, .6, .2, 1); }
+    html body .cx .hv2 .v4-btn:not(.v4-btn--ghost):hover, html body .cx .hv2 .v4-btn:not(.v4-btn--ghost):focus-visible { translate: 0 -2px; box-shadow: 0 12px 28px rgba(223, 5, 92, .55); }
+    html body .cx .hv2 .v4-btn--ghost:hover, html body .cx .hv2 .v4-btn--ghost:focus-visible { translate: 0 -2px; background: rgba(223, 5, 92, .2); box-shadow: inset 0 0 0 2px var(--color-pink), 0 12px 28px rgba(223, 5, 92, .35); }
+    /* H3, a charged edge: a spark runs round the button's edge while the pointer stays, as a weapon charging, and the glow breathes */
+    @property --hv-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+    @keyframes hv-spin { to { --hv-a: 360deg; } }
+    @keyframes hv-breathe { 50% { box-shadow: 0 8px 30px rgba(223, 5, 92, .7); } }
+    html body .cx .hv3 .v4-btn { overflow: visible; transition: box-shadow .2s, background-color .2s; }
+    html body .cx .hv3 .v4-btn::before { content: ''; position: absolute; inset: -2px; border-radius: calc(var(--btn-radius) + 2px); padding: 2px; background: conic-gradient(from var(--hv-a), transparent 0 62%, rgba(255, 209, 228, .9) 80%, #fff 86%, transparent 92%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); opacity: 0; transition: opacity .2s; pointer-events: none; }
+    html body .cx .hv3 .v4-btn:hover::before, html body .cx .hv3 .v4-btn:focus-visible::before { opacity: 1; animation: hv-spin 1.1s linear infinite; }
+    html body .cx .hv3 .v4-btn:not(.v4-btn--ghost):hover, html body .cx .hv3 .v4-btn:not(.v4-btn--ghost):focus-visible { animation: hv-breathe 1.1s ease-in-out infinite; }
+    html body .cx .hv3 .v4-btn--ghost:hover, html body .cx .hv3 .v4-btn--ghost:focus-visible { background: rgba(223, 5, 92, .2); }
+    /* H4, a pressable key: a darker lip under the button at rest, as a key on an arcade panel; it rises on the lip under the pointer and sinks onto it when pressed */
+    html body .cx .hv4 .v4-btn { overflow: hidden; transition: translate .12s cubic-bezier(.2, .7, .2, 1), box-shadow .12s, background-color .12s; }
+    html body .cx .hv4 .v4-btn:not(.v4-btn--ghost) { box-shadow: 0 4px 0 #8C0038, 0 8px 18px rgba(223, 5, 92, .3); }
+    html body .cx .hv4 .v4-btn--ghost { box-shadow: inset 0 0 0 2px var(--color-pink), 0 4px 0 #6B0A33; }
+    html body .cx .hv4 .v4-btn:not(.v4-btn--ghost):hover, html body .cx .hv4 .v4-btn:not(.v4-btn--ghost):focus-visible { translate: 0 -2px; box-shadow: 0 6px 0 #8C0038, 0 14px 26px rgba(223, 5, 92, .5); animation: hv-run 1.4s linear infinite; }
+    html body .cx .hv4 .v4-btn--ghost:hover, html body .cx .hv4 .v4-btn--ghost:focus-visible { translate: 0 -2px; background: rgba(223, 5, 92, .2); box-shadow: inset 0 0 0 2px var(--color-pink), 0 6px 0 #6B0A33, 0 14px 26px rgba(223, 5, 92, .3); }
+    html body .cx .hv4 .v4-btn:not(.v4-btn--ghost):active { translate: 0 3px; box-shadow: 0 1px 0 #8C0038, 0 4px 10px rgba(223, 5, 92, .3); animation: none; }
+    html body .cx .hv4 .v4-btn--ghost:active { translate: 0 3px; box-shadow: inset 0 0 0 2px var(--color-pink), 0 1px 0 #6B0A33; }
+    /* every way: pressed sinks 1px, and reduced motion keeps only the light */
+    html body .cx .hv1 .v4-btn:active, html body .cx .hv2 .v4-btn:active, html body .cx .hv3 .v4-btn:active { translate: 0 1px; }
+    @media (prefers-reduced-motion: reduce) {
+      html body .cx .hv .v4-btn, html body .cx .hv .v4-btn::before, html body .cx .hv .v4-btn::after { animation: none !important; transition: none !important; translate: none !important; }
+      html body .cx .hv2 .v4-btn::after { display: none; }
+    }
+    .hv-hint { margin: 10px 0 0; color: var(--color-text-soft); font-size: 13px; }
   </style>
 </head>
 <body>
@@ -27,16 +87,75 @@
 <!-- A satellite of v4: the one button of v4, founder of 2 Nov 2026. One radius, three sizes, two kinds, and the disabled state. -->
 <main>
   <h1>Buttons</h1>
-  <p>One radius of 10px. Large 52px, medium 40px, small 32px. Use <code>.v4-btn</code> with <code>--l</code>, <code>--m</code> or <code>--s</code>, and <code>--ghost</code> for the quiet kind: a dark fill with the 2px pink edge, which fills with pink under the pointer.</p>
+  <p>One radius of 10px. Large 52px, medium 40px, small 32px. Use <code>.v4-btn</code> with <code>--l</code>, <code>--m</code> or <code>--s</code>, and <code>--ghost</code> for the quiet kind: a dark fill with the 2px pink edge, which fills with pink under the pointer. <code>.v4-ibtn</code> is the icon button, the side menu's 42px tile that turns pink under the pointer, as the footer's social squares; <code>.v4-ibtn--close</code> is the close, a white cross on a dark see-through tile that turns red and rotates under the pointer, as the sign in dialog's. Under the pointer nothing moves: a band of light crosses a filled button once and its glow appears.</p>
   <div class="bl">
     <b></b><b>Large</b><b>Medium</b><b>Small</b>
     <b>Primary</b><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a>
     <b>Ghost</b><a class="v4-btn v4-btn--l v4-btn--ghost" href="#b">All cases</a><a class="v4-btn v4-btn--m v4-btn--ghost" href="#b">Support</a><a class="v4-btn v4-btn--s v4-btn--ghost" href="#b">Details</a>
     <b>Disabled</b><span class="v4-btn v4-btn--l" aria-disabled="true">Not launched yet</span><span class="v4-btn v4-btn--m" aria-disabled="true">Not launched yet</span><span class="v4-btn v4-btn--s" aria-disabled="true">Not launched yet</span>
+    <b>Icon</b><a class="v4-ibtn" href="#b" aria-label="X"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></svg></a><a class="v4-ibtn" href="#b" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg></a><a class="v4-ibtn" href="#b" aria-label="Telegram"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21.4 3.6 2.9 10.8c-1 .4-1 1.6 0 1.9l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.4 4.7 3.5c.6.4 1.4.1 1.6-.6l3-15.6c.2-.9-.7-1.7-1.4-1.5ZM9.7 14l8-6.8-6.3 7.8-.3 3-1.4-4Z"/></svg></a>
+    <b>Close</b><button class="v4-ibtn--close" type="button" aria-label="Close"></button><span></span><span></span>
   </div>
+
+  <h2>Contrast, before and after</h2>
+  <p>White on our pink is 3.4:1, and 3.1:1 on the lighter stripe. A 13px label needs 4.5:1 for WCAG AA, and only a label of 18.7px bold or larger may stop at 3:1, so every pink button on Home falls short. Each row computes its own figures from the colours it draws: the worse of the two stripe bands decides. <strong>The founder picked A on 4 November 2026</strong>, and every filled button on Home now draws it, from <code>--btn-fill</code> in <code>buttons.css</code>; the other rows stay as the record.</p>
+  <div class="cx">
+    <div class="cx-row is-now" data-fill="#FB3F8A" data-text="#FFFFFF" data-stripe="255,255,255,.1">
+      <div class="cx-k"><b>Before</b><span>Brand pink #FB3F8A, white label, light stripes</span><output></output></div>
+      <div class="cx-b"><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a></div>
+    </div>
+    <div class="cx-row cx-a" data-fill="#DF055C" data-text="#FFFFFF" data-stripe="255,255,255,.1">
+      <div class="cx-k"><b>A. A deeper pink, picked</b><span>The same hue, darker, #DF055C, until the light stripe passes; white label, light stripes kept</span><output></output></div>
+      <div class="cx-b"><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a></div>
+    </div>
+    <div class="cx-row cx-n" data-fill="#FB3F8A" data-text="#0B0A22" data-stripe="255,255,255,.1">
+      <div class="cx-k"><b>B. A dark label</b><span>The brand pink kept as it is, the label in the rail tile's navy #0B0A22</span><output></output></div>
+      <div class="cx-b"><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a></div>
+    </div>
+    <div class="cx-row cx-c" data-fill="#E90560" data-text="#FFFFFF" data-stripe="0,0,0,.12">
+      <div class="cx-k"><b>C. Dark stripes</b><span>The stripes darken instead of lighten, so the fill can stay brighter, #E90560; white label</span><output></output></div>
+      <div class="cx-b"><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a></div>
+    </div>
+  </div>
+
+  <h2>Hover, four ways</h2>
+  <p>Today a pink button under the pointer brightens by 10%, and on See Coldfront, the header's Sign in, Open a case and All cases a rule of the shared sheet also swaps the fill back to the brand pink and drops the stripes: the button goes flat and its label falls to 3.2:1. Each way below keeps the fill at <code>#DF055C</code> under the pointer, so the label stays at 4.5:1, shows the same on keyboard focus, and keeps only its light with reduced motion. Hover, press and hold.</p>
+  <div class="cx">
+    <div class="cx-row hv hv1">
+      <div class="cx-k"><b>H1. Stripes that run</b><span>The stripes start to move, the button rises 2px, its glow deepens, a fine light edge appears</span></div>
+      <div class="cx-b"><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a><a class="v4-btn v4-btn--m v4-btn--ghost" href="#b">All cases</a></div>
+    </div>
+    <div class="cx-row hv hv2">
+      <div class="cx-k"><b>H2. A shine that sweeps, picked</b><span>One band of light crosses the button behind the label as the pointer arrives; it rises and glows</span></div>
+      <div class="cx-b"><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a><a class="v4-btn v4-btn--m v4-btn--ghost" href="#b">All cases</a></div>
+    </div>
+    <div class="cx-row hv hv3">
+      <div class="cx-k"><b>H3. A charged edge</b><span>A spark runs round the edge while the pointer stays, like a weapon charging, and the glow breathes</span></div>
+      <div class="cx-b"><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a><a class="v4-btn v4-btn--m v4-btn--ghost" href="#b">All cases</a></div>
+    </div>
+    <div class="cx-row hv hv4">
+      <div class="cx-k"><b>H4. A pressable key</b><span>A darker lip under the button at rest, as on an arcade panel; it rises on the lip under the pointer, its stripes run slowly, and it sinks onto the lip when pressed</span></div>
+      <div class="cx-b"><a class="v4-btn v4-btn--l" href="#b">See Coldfront</a><a class="v4-btn v4-btn--m" href="#b">Open a case</a><a class="v4-btn v4-btn--s" href="#b">Sign in</a><a class="v4-btn v4-btn--m v4-btn--ghost" href="#b">All cases</a></div>
+    </div>
+  </div>
+  <p class="hv-hint"><strong>The founder picked H2 on 4 November 2026, with no glow at rest and the glow only under the pointer.</strong> It is now every button of the family, primary and ghost, on Home and in the dialogs, from <code>buttons.css</code>, and later the same day without the 2px rise, "ховер двигает кнопку вверх ... может без свдига"; the Primary and Ghost rows at the top of this page show it, and the four rows above stay as the record.</p>
 </main>
 <script>
 window.NAV_BASE = '../../';
+/* each row's figures from its own colours: WCAG relative luminance, the fill and the fill under its stripe, the worse one decides */
+(function () {
+  function hex(h) { return [1, 3, 5].map(function (i) { return parseInt(h.slice(i, i + 2), 16); }); }
+  function lin(c) { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+  function lum(c) { return 0.2126 * lin(c[0]) + 0.7152 * lin(c[1]) + 0.0722 * lin(c[2]); }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  Array.prototype.forEach.call(document.querySelectorAll('.cx-row[data-fill]'), function (row) {
+    var f = hex(row.dataset.fill), t = hex(row.dataset.text), s = row.dataset.stripe.split(',').map(Number);
+    var band = f.map(function (v, i) { return v * (1 - s[3]) + s[i] * s[3]; });
+    var a = ratio(t, f), b = ratio(t, band), worst = Math.min(a, b), out = row.querySelector('output');
+    out.textContent = worst.toFixed(1) + ':1 at worst (' + a.toFixed(1) + ' on the fill, ' + b.toFixed(1) + ' on the stripe), ' + (worst >= 4.5 ? 'passes AA' : 'fails AA');
+    out.className = worst >= 4.5 ? 'is-pass' : 'is-fail';
+  });
+})();
 </script>
 <script src="../../_nav.js"></script>
 </body>

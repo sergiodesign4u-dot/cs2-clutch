@@ -26,19 +26,19 @@
 .fl-col a, .fl-linklike { width: fit-content; color: var(--color-text-hi); font-size: 15px; line-height: 1.3; }
 .fl-linklike { padding: 0; border: 0; background: none; font: inherit; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 @media (hover: hover) { .fl-col a:hover { color: var(--color-pink); } }
-.fl-brand { display: grid; align-content: start; gap: 16px; }
+.fl-brand { display: grid; align-content: start; gap: 16px; container: flbrand / inline-size; }
 .fl-logo { display: block; width: 168px; height: 46px; background: url(art/brand/logo2-10.svg) left center / contain no-repeat; }
 .fl-ident { margin: 0; color: var(--color-text-muted); font-size: 13px; line-height: 1.45; }
 .fl-help { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 .fl-help > span { font-size: 15px; font-weight: 900; text-transform: uppercase; }
-.fl-soc { display: flex; flex-wrap: wrap; gap: 8px; }
-/* the social squares on the side menu's tile, theme.css ONE SMALL TILE; were 38px, radius 10px, rgba(255, 255, 255, .05) with a .08 edge */
-.fl-sq { display: grid; place-items: center; width: var(--v4-tile-h); height: var(--v4-tile-h); border-radius: var(--v4-tile-radius); background: var(--v4-tile-bg); box-shadow: var(--v4-tile-edge); color: var(--color-text-soft); transition: background .2s, color .2s; }
-.ft a.fl-sq { color: var(--color-text-soft); } /* .ft a's inherit had made the mark white, the rail tile's words are --color-text-soft */
+.fl-soc { display: grid; grid-template-columns: repeat(7, max-content); justify-content: start; gap: 8px; }
+/* when seven 42px squares and their gaps, 342px, no longer fit the brand column they do not break five and two: they fall into a grid of four over three,
+   founder of 4 Nov 2026: "когда начинает падать одна иконка то они такие оп и сформировались в два ряда сверху 4 ионки снизу 3 иконки" */
+@container flbrand (max-width: 341px) { .fl-soc { grid-template-columns: repeat(4, max-content); } }
+/* the social squares are the icon button of buttons.css, ICON BUTTONS, which names them; the side menu's tile at rest, pink stripes under the pointer */
 .fl-sq .fl-ic { width: 18px; height: 18px; }
 /* on a phone the seven 42px squares and their gaps are wider than the column and Facebook fell alone onto a second row: one row, each square sharing the width, 42px high */
-@container ft (max-width: 560px) { .fl-soc { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; } .fl-sq { width: auto; } }
-@media (hover: hover) { .ft a.fl-sq:hover { background: var(--btn-stripes), var(--color-pink); color: #fff; } }
+@container ft (max-width: 560px) { .fl-soc { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 42px); gap: 6px; } /* at most 42px, so a wider phone column keeps squares, not 68px bars */ html body .ft .fl-soc a.fl-sq { width: auto; } }
 
 .fl-age { display: flex; align-items: center; gap: 14px; min-width: 0; }
 .fl-age-m { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; box-shadow: inset 0 0 0 2px var(--color-pink); font-size: 15px; font-weight: 900; }

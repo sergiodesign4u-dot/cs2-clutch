@@ -73,12 +73,7 @@
    может это как-то внизу диалога", "выделить подложкой темной как на футере, и иконку добавить", "фоны попробовать попереключать" */
 .sd-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-/* the close: a cross and nothing around it until the pointer is on it */
-.sd .sd-x { width: 36px; height: 36px; border-radius: 10px; background: none; box-shadow: none; color: rgba(255, 255, 255, .75); transition: color .15s, background-color .15s; }
-.sd .sd-x::before, .sd .sd-x::after { content: ''; position: absolute; left: 50%; top: 50%; width: 18px; height: 2.5px; margin: -1.25px 0 0 -9px; border-radius: 2px; background: currentColor; rotate: 45deg; transition: rotate .2s; }
-.sd .sd-x::after { rotate: -45deg; }
-.sd .sd-x:hover { color: #fff; background: rgba(255, 255, 255, .1); }
-.sd .sd-x:hover::before { rotate: 135deg; } .sd .sd-x:hover::after { rotate: 45deg; }
+/* the close: the close button of buttons.css, ICON BUTTONS, which names it; a cross and nothing around it until the pointer is on it */
 
 /* the form breathes: no standing "both declarations made" row, the refusal only when there is one */
 .sd--e .sd-why, .sd--f .sd-why { margin: 0; }
@@ -111,8 +106,7 @@
 .sd--e .sd-provs [data-icon="x"], .sd--f .sd-provs [data-icon="x"] { width: 15px; height: 15px; }
 /* the close, founder of 3 Nov 2026: "у крестика сделаем темную прозрачную подложку плюс по ховеру крестик становится красным": a dark
    see-through tile always under the cross, and the cross turns the error red under the pointer */
-.sd .sd-x, .sd--e .sd-close, .sd--f .sd-close { background: rgba(6, 8, 24, .45); color: #fff; }
-.sd .sd-x:hover { background: rgba(6, 8, 24, .6); color: #FF4D6A; }
+.sd--e .sd-close, .sd--f .sd-close { background: rgba(6, 8, 24, .45); color: #fff; } /* .sd .sd-x itself is drawn by buttons.css, ICON BUTTONS */
 @container dlg (min-width: 760px) { .sd--e .sd-close { color: #fff; } }
 /* the refusal: no tinted box and no coloured side stripe; one line in the error red under the rows it names, led by a small round mark */
 .sd--e.is-asked .sd-why, .sd--f.is-asked .sd-why { position: relative; margin-top: 12px; padding: 0 0 0 26px; border-radius: 0; background: none; box-shadow: none; color: #FF8297; font-size: 14px; line-height: 20px; }

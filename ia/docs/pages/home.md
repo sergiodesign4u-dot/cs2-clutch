@@ -28,6 +28,34 @@
 **Two obligations this node was handed, and both are honoured.** `sitemap.md`, "Free entry gets an obligation rather than a surface", makes `S-A1` carry the starter credit offer as a pre-login element: block B10. **Suspended by `D-126`: B10 left the page until its amount exists, so this obligation is carried as open, section 9.** `sitemap.md`, "Detailed node map", row 1.0, makes it carry the featured case grid directly on the page rather than behind a mode hub: block B5.
 
 
+## Amended 4 November 2026 by `D-209`. Two blocks after B11: Questions and answers, and About Clutch
+
+**Why.** The founder, on v4's Home, 2 November 2026: "После What opening a case here involves добавим секцию FAQ с коллапс пунктами 6-8 ... один пункт открыт, остальные закрыты", then "после FAQ нужна секция СЕО о нас Clutch c H2 и H3". Both were drawn on `design/v4/index.html` that day and this node did not list them, so the H2 list in section 8.B no longer matched the render and stage 04's mechanical check, "read the block order, read the H2 list", would have failed. **This amendment writes down what the screen already does. The screen does not change.**
+
+**Baseline row for this amendment**, against `walk8_home_1440_4nov.png`, the baseline's Home opened on 4 November 2026: its headings run H1, the four mode cards, Giveaways, Featured cases, Case battles top, Gunfight top, then the statistics band and the footer, about 635 words.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| No questions on Home. FAQ is a footer link to its own page, `/en/faq`, `baseline.md` section 2 | **The FAQ page stays where it is**, node `0.10` | **B12, Questions and answers, on Home after B11.** Seven questions, one open at a time. Five of them are `0.10`'s own, word for word, and two are Home's: where the chance of each item is shown, and what happens to an item from a case |
+| No about text and no SEO text block on Home | | **B13, About Clutch, on Home after B12.** One H2, a lead paragraph and four H3s, each claim one a linked page already shows |
+
+**The two blocks, added to the table in section 1.**
+
+| # | Block | What it carries | Parent | Class | Source |
+|---|---|---|---|---|---|
+| **B12** | **Questions and answers** | Seven items, each an H3 holding a button with `aria-expanded` and `aria-controls`; the first open on arrival, one open at a time; every answer in the DOM at every width, and every answer ending in a link to the surface that owns its rule. **`0.10`'s four rules hold**, `support.md` section 4: no number of its own, every answer routed, the button semantics, every answer in the DOM | **None in the three legal classes.** In by founder decision of 2 November 2026, `D-209`. Its five reused answers have `0.10` as their home; their presence on Home does not | **none, printed** | Founder; `0.10` for the five reused items |
+| **B13** | **About Clutch** | One H2, a lead paragraph, four H3s with one paragraph each: published odds, provably fair rounds, sending skins to Steam, limits. **No figure**, and no claim a linked page does not already show | **None in the three legal classes.** In by founder decision, `D-209`. `0.13` is B11's parent and requires one SEO block on Home, which B11 already is, so it does not reach a second | **none, printed** | Founder, by the founder's seo-audit skill |
+
+**Not in the frozen wireframe.** `wireframes/` stopped taking edits at stage 06, so B12 and B13 are drawn only by `design/v4/index.html`, in both states, through `design/v4/faq-home.js`. The grey Home still ends at B11, and that gap is named here rather than closed.
+
+**Structured data unchanged.** Section 8.D holds: `Organization` and `WebSite` only. **No `FAQPage` markup on B12**, because `0.13` assigns Home those two types and nothing else, and the questions' owning page is `0.10`.
+
+**Where the words live.** Every string of B12 and B13 is a row in `voice/docs/microcopy.md`, `1.0-32` to `1.0-46`, written by `voice.md` in `D-209`'s round 8 strings. **B13 is SEO text by purpose, and `CLAUDE.md` puts SEO lines in this node's block C, never in both.** The words are kept in one place, `microcopy.md`, and section 8.C points at them rather than copying them. Whether they move into block C as B11's paragraph did is an open item, section 9.
+
+**Costs, printed.** Home grows by 373 words, measured on the render on 4 November 2026, 184 in B12 and 189 in B13, against `D-126`'s reason for cutting it, 1714 words against the baseline's 708. Two blocks with no parent stand on the page that decides whether this place is real, which is exactly where `CLAUDE.md` says untraceable work ends up defended on taste alone.
+
+---
+
 ## Amended 17 October 2026 by `D-169`. The first screen opens on an event, and the daily status leaves it
 
 **Why.** The founder read Home on screen at stage 05 and asked for the daily cases to leave the first screen and for the banner to carry the site's events.
@@ -142,6 +170,8 @@
 | **B9** | **The exit, priced before the entrance** | **Folded into the row of four figures by `D-126`: the median withdrawal and our commission.** `A4` rolling median and p90 from our own logs, `G6` commission-free withdrawal to Steam with the Steam Market fee as its comparison, the payment method marks pre-login, and `C4`'s withdrawal threshold stated here | `B8-2` pattern of 6, `B4-3`, `B4-1`, Related Job 1, Related Job 5 | barrier and job | Bank T1, Clash.gg payment strip **TAKE** |
 | **B10** | **The starter credit offer** | **Left the page by `D-126` until its amount exists.** `I1`, bounded, with the withdrawal threshold `C4` in the same breath, and the route into `2.4` | Related Job 2, `jtbd.md` Section 2. Bound to `C4`, `D1` and `A1` by `cjm-to-be.md`, answer 1 | job | `sitemap.md` obligation on this node |
 | **B11** | **The SEO text block** | One H2 with a real heading tree under it, placed by `0.13` | `0.13`, the structural SEO layer, which `CLAUDE.md` puts inside IA | named requirement, per `0.13`'s own parent rule | Bank T1, all four competitors **TAKE** |
+| **B12** | **Questions and answers** | **Added by `D-209`, 4 Nov 2026.** Seven questions, one open at a time, every answer routed to the surface that owns its rule, `0.10`'s four rules | **None in the three legal classes**, founder decision `D-209` | **none, printed** | Founder; `0.10` for five items |
+| **B13** | **About Clutch** | **Added by `D-209`, 4 Nov 2026.** One H2, a lead and four H3s, no figure, no claim a linked page does not show | **None in the three legal classes**, founder decision `D-209` | **none, printed** | Founder |
 
 **The shell is not a block of this node.** The header, the rail and the mobile bar are `0.1`. The footer is `0.2`. The cookie dialog is `0.4` and section 4 records what it costs this page.
 
@@ -587,6 +617,8 @@ Not sign in, not deposit, not claim the credit. The route is the main job's tap 
 | ~~9~~ | ~~`Getting your skin out`~~ | ~~B9~~ **Folded into the row above by `D-126`** |
 | ~~10~~ | ~~`Your first open, without a deposit`~~ | ~~B10~~ **B10 left the page by `D-126` until its amount exists** |
 | 8 | `What opening a case here involves` | B11, ~~with H3s inside it, listed in block C~~ **one paragraph and no H3, `D-126`** |
+| 9 | `Questions and answers` | **B12, `D-209`.** Its seven questions are H3s, each holding the button that opens its answer |
+| 10 | `About Clutch` | **B13, `D-209`.** Four H3s: `CS2 cases with published odds`, `Provably fair rounds`, `Skins you can send to Steam`, `Play with limits` |
 
 **Three blocks carry no H2 and the reason is written here so the stage 04 check stays mechanical.** `0.13` section 5 makes the H2 list the block order and the check "read the block order, read the H2 list, they match or the node is wrong". The rule with its two exceptions: **every content block carries an H2 in order; the hero does not, because its heading is the H1; the ticker and the banner do not, because both are labelled regions rather than sections.** The banner's exemption is the one that has to be enforced rather than assumed: a promotion is the block most likely to arrive from a marketing hand with a heading already on it.
 
@@ -604,6 +636,8 @@ Rendered in block B11, under the H2 `What opening a case here involves`.
 
 1. **"its tested return" assumes a test exists.** `0.11` section 10 carries "who tests our RTP" as an open item: tested by whom, over how many opens, republished when. If it is never answered, the phrase changes and `D4` changes with it.
 2. ~~**The last sentence is conditional on `D-B`.** The observed rate counter `D3` assumes earlier roll history exists in a publishable form. If `D-B` comes back negative the row is withdrawn, and **this sentence is deleted with it rather than left standing as a claim the product does not make**.~~ **Gone with the H3 that carried it, `D-126`.** The rendered paragraph claims checkable rounds and not an observed rate, so it does not depend on `D-B`.
+
+**B13, About Clutch, `D-209`.** SEO text by purpose, rendered under the H2 `About Clutch` after B12. **Its words are not copied here**: they are `voice/docs/microcopy.md` rows `1.0-37` to `1.0-46`, the one place they live, and whether they move into this block is open, section 9. Its claims carry the same dependency as B11's paragraph: "its tested return" assumes a test exists, item 1 below.
 
 **Interface strings do not live here.** Buttons, field labels and state texts move to `voice/docs/microcopy.md` after stage 05. What this node keeps is the requirement about which information belongs in each place.
 
@@ -646,6 +680,7 @@ Rendered in block B11, under the H2 `What opening a case here involves`.
 |---|---|---|
 | `index.html` | Guest | `1.0` |
 | `index-account.html` | Account exists | `1.1` |
+| `design/v4/index.html` | **Guest and account, in colour, `D-209`.** The only page that draws B12 and B13 | `1.0`, `1.1` |
 
 ---
 
@@ -669,5 +704,6 @@ Rendered in block B11, under the H2 `What opening a case here involves`.
 | ~~**What the banner promotes in round 1**~~ | ~~Nothing exists to put in it. The block ships with an absent state that renders nothing, section 2.2 rule 5, **so the page is complete without an answer and incomplete with a placeholder**~~ **Closed by `D-126`: it carries the daily ladder, with no clock** | ~~Founder, whenever there is a promotion~~ **Closed** |
 | **The reset moment of the daily case, and the wager figure that unlocks each tier** | Entity 13 marks availability and reset `[?]`, and no tier boundary is written anywhere. **The ladder draws a sample reset moment since `D-124`** and cannot state a real target until both are set, section 2.5 rule 4 | Founder, with the treasury |
 | **Whether the ladder survives its own review** | `D-25` reversed `0.7` rule 5.3 to allow it and printed the cost: the ladder removes the impression that opening is free by making spending the route to a free case. **Nobody has yet reviewed that trade against the responsible play surface it deliberately never touches** | Founder, before stage 04 draws it |
+| **Where B13's words live**, `D-209` | B13 is SEO text by purpose and `CLAUDE.md` puts SEO lines in block C; its words were written into `microcopy.md` with the rest of Home. One place holds them, never both, and which one is not decided | Founder, then stage 07 when Home is assembled from the kit |
 
 **And what belongs elsewhere.** The words in any string on this page: stage 05, which syncs the voice-aligned version back into block C. How the grid, the figures and the hero look: stages 06 and 07. Whether `D-C` returns yes at all, which decides whether half of B7 and part of B9 are drawn: not a design question, `0.11` section 1.

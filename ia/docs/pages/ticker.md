@@ -22,6 +22,41 @@
 
 ---
 
+## Amended 4 November 2026 by `D-209`. A rare drop, drawn on v4's Home
+
+**Why.** The founder, 1 November 2026: "хочу сделать, чтобы иногда падала типа дорогой дроп, что-то очень крутое с крутой анимацией", then the tiers by the chance the skin dropped with, "для дропов скинов которые падают с вероятностью 1-5% показывать с молнией, а очень редкие ... ниже чем 0.1 процент ... плазму", then "да отлично давай их на хоум пейдж". The rare drop has been live on `design/v4/index.html` since that day, explored on `design/v4/rare-drops.html`, and this node did not describe it. **This amendment writes down what the strip already does on v4. The screen does not change.**
+
+**Baseline row for this amendment**, against `walk8_home_1440_4nov.png`.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Every tile on the strip has the same plate in the capture of 4 November 2026. Whether a rare drop is drawn differently when it arrives is in no dated capture, `[?]` | **The tile, its size, its arrival at the front and its one destination, `7.1`** | **A drop from a low chance arrives with an effect, by tier**, below. It keeps its neighbours' height and every rule of section 5 |
+
+**What a rare drop is.** The tier is read from **the item's published chance in the case it came from**, the figure the case screen already prints, `0.11`. Above 5 % a drop is ordinary.
+
+| Tier | Chance | What the tile does |
+|---|---|---|
+| **Lightning** | 1 % to 5 % | Discharges crawl along the frame and fork, about one in five a strong strike that throws light into the card |
+| **Golden orbit** | 0.1 % to 1 % | A gold comet with a fading tail rides the card's own frame line, a fainter one opposite, rays turning behind the skin. **The founder's pick for this tier on Home; the ice rift stays on the exploration page only** |
+| **Plasma** | under 0.1 % | Plasma burns inside the card, sparks rise and fade, the frame lights from the foot like an equalizer, and a crown sits cut by the lower right corner |
+
+**How it arrives.** As every drop does, at the front, `D-178`. When the arrival ends it lands with a hit, a flash and a wave, the two tiles after it are shoved aside for 650 ms, and it stays lit while the strip carries it. **One rare tile burns at a time**: when the next lands, the one before calms to its lit frame and its effects are removed. **The chance is printed on the card**, large in its upper left corner behind the hexagon. **No effect reaches more than 8 px off its card.** While the page is at its top a live rare card stands over the sticky header, and goes back under it once the page scrolls.
+
+**Parent.** The node's own, Social Job 2 by row `A3`, plus **design principle 2**, `CLAUDE.md`, "Animation amplifies the reveal, signals outcomes, keeps the platform alive": the effect signals how rare the outcome was. **Class:** job, plus a design principle.
+
+**Four rules of this node the rare drop has to keep, printed so the next stage cannot read the demonstration as the product.**
+
+1. **The pace on v4 is a demonstration, not the product.** `design/v4/rare.js` runs ordinary drops in runs, holds a breath of 2.6 to 3.5 s, then lets a rare one keep the strip for 4.2 to 5.4 s, and the same three rare ones take turns, all samples, `D-124`. **In the product a drop arrives when its round settles. Nothing is held back, delayed, spaced or repeated to make a rare one land harder**: that would be a manufactured moment, the thing section 2 refuses for a backlog and rule 5.2 refuses for a loop.
+2. **The chance is not a value, rule 5.3.** It is the item's published chance, read from the same declaration as the case's drop table, so one figure is never printed twice in two wordings. **No price, no multiplier, no crowd figure joins it on the tile.**
+3. **The pause and reduced motion, section 2.** Held, hovered or focused, nothing arrives, rare or not. With `prefers-reduced-motion` the strip starts held, `rare.css` stops every animation on a rare tile and `rare-fx.js` draws its effects still. **Measured on v4's Home on 4 November 2026 with reduced motion set: the strip starts held, `is-held`, and in 12 s no tile arrived, rare or not, 12 tiles before and after.** That a rare tile already on screen stays still was read from the code, not measured.
+4. **Rarity in words, rule 5.5, and a checkable object, rule 5.4. Both broken on v4's rare tiles, measured on 4 November 2026.** The chance and the crown are `aria-hidden`, and the rare tile's accessible name reads "Warsteel, AK-47 Gold Arabesque, won by a player": **no tier word, no winner**, where an ordinary tile beside it reads "Coldfront, USP-S Kill Confirmed, Restricted, won by mira_cs". The three rare rows in `rare.js` carry no round, so `wireframes/_nav.js` finds no tier and no winner for them, and the tile links to `result.html` with no round at all. **A finding, not fixed here**: the rows need rounds of their own, and the wireframe's `ROUNDS` is frozen. Whether a rare drop also says it was rare in words is open, section 7.
+
+**Not in the frozen wireframe.** `wireframes/_nav.js` gained two optional hooks on the strip and nothing else: `WF_FEED_PACE` says what arrives next and when, `WF_FEED_ARRIVED` is told of each tile placed. A grey page declares neither and keeps a sample arrival every 3 s.
+
+**Costs, printed.** **Rule 5.1 calls a top drops tab survivorship by construction**, and a rare drop made louder than the common ones leans the same way: the strip still shows every drop, but it shouts only the lucky ones. Measured on 1 November 2026 in headless Chrome after three rare drops, 245 ms of main thread work a second against 198 with them off, `D-209`; a real browser's figures are not measured. The thresholds, 5 %, 1 % and 0.1 %, are the founder's and have no source in research.
+
+---
+
 ## Amended 19 October 2026 by `D-178`. A new drop arrives at the front
 
 **Why.** The founder, on the strip: it does not scroll, it grows; a new drop comes in from above at the front and moves everything along by one, so the motion carries over to the visual stage as it is meant.
@@ -389,6 +424,7 @@ The baseline runs 26 tiles of 92px at 1440px, `baseline.md` section 3. At 360px 
 | **Volume and rate** | How many events per minute a real feed produces at launch, which decides whether the empty state or the running state is the common one on day one | Founder, open question of fact |
 | **Pause persistence beyond the session** | Section 2. A remembered preference is a setting. **This row used to read "this product has one settings surface, `6.1`" and that stopped being true on 20 August 2026**, when `D-36` put `5.11` Settings on the map: `6.1` is a boundary surface and never was the settings one. `5.11`'s round 1 contents are `[?]` by that decision's own words, **and this is one of the few concrete candidates for them** | Founder, with `5.11`. Then production |
 | **The rarity treatment** | Seven tiers exist, one is conditional on the case, and whether the ladder is the game's own palette is `[?]`, `0.6` section 2 | Stage 06 |
+| **Whether a rare drop says so in words**, `D-209` | The effect and the printed chance are visual only and `aria-hidden`; the accessible name carries the tier word, rule 5.5, but not that this drop was rare or its chance | Stage 07, with `0.11` for the chance |
 
 ### Answered by stage 04, 18 August 2026
 
