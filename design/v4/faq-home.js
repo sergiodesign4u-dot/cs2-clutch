@@ -14,7 +14,7 @@
   var FAQ = [
     ['Where can I see the chance of each item?', 'On the case itself, before you open it: every item with its chance and its value, and the case\'s tested return.', 'case.html#h2-pays', 'What this case pays'],
     ['How do I know a round was fair?', 'Every round has a proof you can recompute without an account.', 'fair.html', 'Provably fair'],
-    ['What happens to the skin I win?', 'It goes to My items. From there you keep it, sell it for coins or send it to your Steam inventory.', 'account.html', 'My items'],
+    ['What happens to an item from a case?','It goes to My items. From there you keep it, sell it for coins or send it to your Steam inventory.', 'account.html', 'My items'],
     ['What if an item cannot be sent to Steam?', 'It stays in My items. You can send it later, or sell it for coins.', 'account.html', 'My items'],
     ['Can a limit stop me taking my items out?', 'No. No limit ever stops you sending items to Steam.', 'responsible.html', 'Responsible play'],
     ['Do you ever ask for my Steam password?', 'Never. You sign in on Steam\'s own page.', 'legal-unpublished.html?doc=privacy', 'Privacy policy'],
@@ -24,8 +24,8 @@
   var ABOUT = [
     ['CS2 cases with published odds', 'Each case is a fixed set of CS2 skins. Its page lists every item with its chance and its current value, so you see what a case pays before you open it, not after.', 'box'],
     ['Provably fair rounds', 'Every round leaves a proof. You can recompute it yourself, without an account, on the Provably fair page, and a round that does not match is something you can show us.', 'shield'],
-    ['Skins you can take out', 'What you win waits in My items until you choose: keep it, sell it for coins or send it to your Steam inventory. You sign in on Steam\'s own page, and we never ask for your password.', 'send'],
-    ['Play with limits', 'Clutch is for adults, 18 and over. Deposit limits, session limits, a cool down and self exclusion are on the Responsible play page, and no limit ever stops you sending items to Steam.', 'settings']
+    ['Skins you can send to Steam', 'An item from a case waits in My items until you choose: keep it, sell it for coins or send it to your Steam inventory. You sign in on Steam\'s own page, and we never ask for your password.', 'send'],
+    ['Play with limits', 'Clutch is for people 18 or over. Deposit limits, session limits, a cool down and self exclusion are on the Responsible play page, and no limit ever stops you sending items to Steam.', 'settings']
   ];
 
   function head(id, text, tone, icon) {

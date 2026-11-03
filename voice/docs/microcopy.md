@@ -2,6 +2,8 @@
 
 **Stage 05, step 1, written 5 October 2026.** Every string the grey product shows, inventoried once per unique string rather than once per occurrence, with where it lives so step 7 knows which file to open. **Nothing here is rewritten yet.** The columns "was" and "now" arrive at step 6 for the etalon and at step 7 for the rest; until then the string column is the "was". **Step 6, 17 October 2026:** sections 1 to 3 carry a Now column. It is filled for every row the etalon, `1.0` Home in both account states, shows: the new string, or `kept` where the string passed `voice.md` as it stands. An empty cell is a row step 7 has not reached yet. **Step 7, first move, 19 October 2026:** every row of section 1, Global, carries its Now, rewritten by the parent in the file the row names before any fanout, with the rule each change follows; `kept` means the string passes `voice.md` as it stands. **Step 7, second move, 19 October 2026:** every row the parent owns, a row living in `_nav.js` or in a `WF_STR` value, carries its Now; the rows living only in a page are the fanout's. **Step 7, third move, 19 October 2026:** the rows living only in a page were rewritten by seventeen agents, one per screen, and every row of section 2 now carries its Now. The same move found strings the step 1 scan did not list, all rewritten by the parent: the System messages of `5.10` (`WF_MSGS`, read only after a tab press), the refusals in `data-rp-refuse` on `6.1`, the `Sold back` labels of `_nav.js`, and the settlement, count and sign literals `_nav.js` writes over a page at load. Four Lives in cells are wrong and are read as corrected: `3.1-37`, `3.1-44`, `3.1-45` and `3.1-47` live in `_nav.js filterDrawerHTML`, `6.1-41` in `_nav.js excludeHTML`, and `5.9-84` and `5.9-110` in `_nav.js` from `WF_HIST`.
 
+**Stage 06, 3 November 2026, `D-209`.** The coloured copy `design/v4/index.html` draws blocks the grey Home does not, and their strings were written in `design/v4/*.js` without a row here. They are listed now: G170 to G175, `1.0-11` to `1.0-46` and R155 to R159, found by reading every text node, accessible name and alt of v4's Home in both states with the account menu and the sign in dialog open, against this file, and by reading the scripts for the lines written on a press. Five of them were rewritten by `voice.md` in the same step, each with its rule in the Now cell, and the scripts now print the Now. The sign in dialog's words were already here, under `2.4`. Not listed: figures and data names, by the rules above, and the project's own navigation.
+
 **Its visible place** is the Inventory section of `voice/voice.html`, next to the Microcopy rules, built at step 5 with the rest of the Voice page and read from this file at load, so both parts, Global and By screen, show whatever this file holds.
 
 **Placeholders in the String column:** `{n}` a figure, `{d}` a data name (case, item, wear, rarity, payment method, account name), `{date}`, `{time}`, `{hash}`, `{id}` a reference. They stand where the product prints a sample, so the row shows the frame Voice owns and not the figure it never rewrites.
@@ -21,11 +23,11 @@
 | What | Count |
 |---|---|
 | Product pages read, each at 1440 and 360 | 133 |
-| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8 |
+| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8; 1305 since `D-209` added six global and thirty five Home strings and listed one missed, 3 Nov 2026 |
 | of them Global | 164 |
 | of them By screen | 1093 at step 1; 1099 since `D-169` to `D-174` |
 | of them SEO / IA ownership | 86 |
-| Strings written only on a press, in `_nav.js` (section 3) | 154 |
+| Strings written only on a press, in `_nav.js` (section 3) | 154; 159 since 3 Nov 2026, two missed and three from `design/v4` |
 | Data occurrences skipped as not copy | 20 036 |
 | Strings that were only a unit word around data (`{n} coins`, `{d} bot`), counted as data | 22 |
 
@@ -207,7 +209,7 @@ The Marks column flags where screens say the same thing in different words, or w
 | G135 | main | {d} High risk {n} coins | link | page, `_nav.js FAQ/HIST_COLS` | 15 pages, 3 screens | S2 | {d} High-risk case {n} coins |
 | G136 | main | {d}, {n} coins, High risk | accessible name | _nav.js, assembled | 15 pages, 3 screens | S2 | {d}, {n} coins, High-risk case |
 | G137 | main | Silver | text | `_nav.js LADDER` | 15 pages, 3 screens |  | kept |
-| G138 | main | Copy | button | `WF_STR.copy`, page | 14 pages, 5 screens |  | kept |
+| G138 | main | Copy | button | `WF_STR.copy`, page | 14 pages, 5 screens |  | kept; since D-209 round 8 also beside the account's ID in the coloured account menu, `design/v4/account-home.js` |
 | G139 | main | Nine items, one roll. | text | `WF_STR.nineItems` | 14 pages, 4 screens | C9 | Nine items, one open. (C9 retires "roll"; principle 4's example is corrected with it) |
 | G140 | main | Before opening. Your Steam inventory has to be public and your trade URL set, or a win cannot be sent to you. Check your settings | note | `_nav.js caseBody` | 13 pages, 4 screens | C10 | Before opening. Your Steam inventory has to be public and your trade URL set, or an item cannot be sent to you. Check your settings (C10) |
 | G141 | main | How a withdrawal settles | link | `_nav.js caseBody` | 13 pages, 4 screens | C1 | kept |
@@ -239,6 +241,12 @@ The Marks column flags where screens say the same thing in different words, or w
 | G167 | rail | Rewards hub | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
 | G168 | rail | Top wins | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label |
 | G169 | rail | Affiliate program | text | `_nav.js railItems` | 133 pages, 19 screens |  | added by `D-197`, the baseline's label; Case battles, Showdowns, Upgrade and Exchange, already inventoried, are now read in the rail too, recounted at step 8 |
+| G170 | footer | Play and platform | accessible name | `design/v4/footer-home.js` | `design/v4/index.html`, both states |  | new, D-209 round 8: the coloured footer's first column holds Play and Platform together |
+| G171 | footer | 18+ | mark | `design/v4/footer-home.js` | `design/v4/index.html`, both states |  | new, D-209 round 8: the mark on the Play responsibly plate, hidden from assistive technology; the plate's words carry it |
+| G172 | footer | For people 18 or over | text | `design/v4/footer-home.js` | `design/v4/index.html`, both states |  | new, D-209 round 8: the Play responsibly plate's second line, G65's own words without the full stop |
+| G173 | footer | Add funds, {d} | accessible name | `design/v4/footer-home.js` | `design/v4/index.html`, both states | C4 | new, D-209 round 8: a payment mark opens deposit, for a guest sign in first; {d} is a payment method, data; the marks are drawn (VISA, G Pay) and are not copy |
+| G174 | footer | Discord · Telegram · X · YouTube · TikTok · Instagram · Facebook | accessible name | `design/v4/footer-home.js` | `design/v4/index.html`, both states |  | new, D-209 round 8: one name per social link, brand names, never rewritten |
+| G175 | header | ID {id} | text | `design/v4/account-home.js` | `design/v4/index.html?account` |  | new, D-209 round 8: the account menu's head, under the name, read from `WF_WHO.id`, beside Copy (G138) |
 
 ## 2. By screen
 
@@ -553,6 +561,42 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 1.0-8 | main | Days · Hours · Minutes · Seconds | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-172`, the baseline's four units |
 | 1.0-9 | main | Ends {date}, {time} UTC | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-172`; `voice.md` "Forbidden": a stated end, never a bare clock |
 | 1.0-10 | main | Time left in {d} | accessible name | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-172` |
+| 1.0-11 | main | See Coldfront | button (link) | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept; the event banner's act since `D-172`, missed by the step 1 scan and listed on 3 Nov 2026 |
+| 1.0-12 | main | Wager to climb. Each tier you reach opens its own case, once a day. | text | `design/v4/daily-home.js` | `design/v4/index.html`, both states | N1 N2 | new, D-209: the Daily cases panel's line |
+| 1.0-13 | main | At {n} coins wagered | text | `design/v4/daily-home.js` | `design/v4/index.html`, both states | N2 | new, D-209: a tier's threshold; on screen the figure stands by coin 6 and "coins" is read to a screen reader, D-204 |
+| 1.0-14 | main | Needs {n} coins more | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: the next tier |
+| 1.0-15 | main | Open now | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | C9 | new, D-209: a reached tier not yet opened today |
+| 1.0-16 | main | Opened today | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | C9 | new, D-209 |
+| 1.0-17 | main | Open {d} case | button | `design/v4/daily-home.js` | `design/v4/index.html?account` | N1 | new, D-209: the first reached tier's act; a daily case costs nothing, so the label carries no figure |
+| 1.0-18 | main | Sign in to see your wager | link | `design/v4/daily-home.js` | `design/v4/index.html` | N2 | new, D-209: the guest's marker at the track's start, no figure shown |
+| 1.0-19 | main | The wager that opens each tier, in coins | accessible name | `design/v4/daily-home.js` | `design/v4/index.html` | N2 | new, D-209: the track, for a guest |
+| 1.0-20 | main | {n} coins wagered of {n} for {d} | accessible name | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: the track, signed in |
+| 1.0-21 | main | Coins Wagered since {time} UTC. Each mark is the wager that opens that tier's case. | text | `design/v4/daily-home.js` | `design/v4/index.html`, both states | N2 | new, D-209: under the track; "Coins" is read to a screen reader only |
+| 1.0-22 | main | Wagered since {time} UTC | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: a box over its figure |
+| 1.0-23 | main | Wager remaining to {d} | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: glossary N2's own "Wager remaining" |
+| 1.0-24 | main | Nothing to open now. Opens reset at {time} UTC. | text | `design/v4/daily-home.js` | `design/v4/index.html?account`, when every reached tier is opened |  | new, D-209: an empty state, why and when |
+| 1.0-25 | main | Tested RTP, {d} | text | `design/v4/proof-home.js` | `design/v4/index.html`, both states |  | new, D-209: Before you spend; "tested" beside RTP, as the scene's words ask |
+| 1.0-26 | main | Expected value {n} coins at this cost. | text | `design/v4/proof-home.js` | `design/v4/index.html`, both states | S4 | Expected value {n} coins at this price. (S4: the price of an open is "price", never "cost") |
+| 1.0-27 | main | won from {d}, {date} {time} | text | `design/v4/proof-home.js` | `design/v4/index.html`, both states | C2 | new, D-209: a checked round's card |
+| 1.0-28 | main | Ticket {n}, in the range {n} to {n} | accessible name | `design/v4/proof-home.js` | `design/v4/index.html`, both states |  | new, D-209: the card's ruler |
+| 1.0-29 | main | A published chance on each one | text | `design/v4/seo-home.js` | `design/v4/index.html`, both states |  | new, D-209: one of three pins on the What opening a case here involves plate; the three repeat the paragraph and are hidden from assistive technology |
+| 1.0-30 | main | One round decides the item | text | `design/v4/seo-home.js` | `design/v4/index.html`, both states | C9 C10 | new, D-209: the second pin |
+| 1.0-31 | main | Checked afterwards | text | `design/v4/seo-home.js` | `design/v4/index.html`, both states |  | new, D-209: the third pin |
+| 1.0-32 | main | Answers to the questions people ask most. Every rule here also lives on the screen where you meet it, and that screen is the one that governs. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states |  | new, D-209 round 8: under Questions and answers (0.10-11); five of its seven items are the support page's own, word for word, and stay inventoried under `0.10` |
+| 1.0-33 | main | Where can I see the chance of each item? | button | `design/v4/faq-home.js` | `design/v4/index.html`, both states |  | new, D-209 round 8: a question of Home's own |
+| 1.0-34 | main | On the case itself, before you open it: every item with its chance and its value, and the case's tested return. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states |  | new, D-209 round 8: its answer, which links to What this case pays |
+| 1.0-35 | main | What happens to the skin I win? | button | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C10 | What happens to an item from a case? (C10: "win" never names an item) |
+| 1.0-36 | main | It goes to My items. From there you keep it, sell it for coins or send it to your Steam inventory. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C10 S1 | new, D-209 round 8: its answer, which links to My items |
+| 1.0-37 | main | About Clutch | heading | `design/v4/faq-home.js` | `design/v4/index.html`, both states |  | new, D-209 round 8: an H2 outside node 1.0's list, which owes the row |
+| 1.0-38 | main | Clutch is a CS2 case opening site built so that its own numbers can be checked. Every case shows the chance of each skin, its value and its tested return before you spend, and every round leaves a proof you can recompute. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C2 | new, D-209 round 8; it claims nothing a linked page does not show, and prints no figure |
+| 1.0-39 | main | CS2 cases with published odds | heading | `design/v4/faq-home.js` | `design/v4/index.html`, both states |  | new, D-209 round 8: H3 |
+| 1.0-40 | main | Each case is a fixed set of CS2 skins. Its page lists every item with its chance and its current value, so you see what a case pays before you open it, not after. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C2 | new, D-209 round 8 |
+| 1.0-41 | main | Provably fair rounds | heading | `design/v4/faq-home.js` | `design/v4/index.html`, both states | S5 | new, D-209 round 8: H3 |
+| 1.0-42 | main | Every round leaves a proof. You can recompute it yourself, without an account, on the Provably fair page, and a round that does not match is something you can show us. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states | S5 | new, D-209 round 8 |
+| 1.0-43 | main | Skins you can take out | heading | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C1 | Skins you can send to Steam (C1: sending to Steam has one name; H3) |
+| 1.0-44 | main | What you win waits in My items until you choose: keep it, sell it for coins or send it to your Steam inventory. You sign in on Steam's own page, and we never ask for your password. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C10 | An item from a case waits in My items until you choose: keep it, sell it for coins or send it to your Steam inventory. You sign in on Steam's own page, and we never ask for your password. (C10) |
+| 1.0-45 | main | Play with limits | heading | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C5 | new, D-209 round 8: H3 |
+| 1.0-46 | main | Clutch is for adults, 18 and over. Deposit limits, session limits, a cool down and self exclusion are on the Responsible play page, and no limit ever stops you sending items to Steam. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C5 C7 | Clutch is for people 18 or over. Deposit limits, session limits, a cool down and self exclusion are on the Responsible play page, and no limit ever stops you sending items to Steam. (the age in the consent's and the footer's words, "18 or over", G65) |
 
 ### `1.2` Provably fair
 
@@ -905,7 +949,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
 | 5.1-1 | head | Cash out layer over My items. CS{n} Clutch | SEO title, SEO / IA ownership | page | cashout-dialog | N6 | Cash out from My items. CS{n} Clutch (N6; Screen heading/title: what this place is in glossary words, "layer" is IA vocabulary) |
-| 5.1-2 | main | Add funds | button (link) | `WF_STR.addFunds` | 45 pages, 8 screens | C4 | kept |
+| 5.1-2 | main | Add funds | button (link) | `WF_STR.addFunds` | 45 pages, 8 screens | C4 | kept; since D-209 round 8 also the visible label of the coloured header's deposit button, `design/v4/account-home.js`, its accessible name still G33 |
 | 5.1-3 | main | Inventory | heading | page | all 4 of `5.1` |  | kept |
 | 5.1-4 | main | Steam connected · Settings | text | page | account-degraded, account-empty, account |  | kept |
 | 5.1-5 | main | Click an item to select it | note | page | account-degraded, account |  | Select an item for its options (mobile first: no desktop verb, `D-180`) |
@@ -1598,6 +1642,11 @@ Lines `_nav.js` writes after an act: refusals, confirmations, the answers of a f
 | R152 | `mountHomeLinks` | 8056 | , the median and | kept |
 | R153 | `mountSettings` | 8102 | Nothing to save yet. Until this is filled in, a withdrawal cannot be sent. | Nothing to save yet. Until this is filled in, nothing can be sent to Steam. |
 | R154 | `mountSettings` | 8119 | Saved just now. Withdrawals will go to this address. | Saved. Withdrawals go to this address. |
+| R155 | `mountOutcomeActs` | 3713 | Copied | kept; missed by the step 1 scan, listed on 3 Nov 2026 |
+| R156 | `mountSystem` | 7793 | Copied | kept; missed by the step 1 scan, listed on 3 Nov 2026 |
+| R157 | `design/v4/account-home.js wire` | 77 | Copied | new, D-209 round 8: the account menu's Copy, for 2.4 seconds |
+| R158 | `design/v4/account-home.js wire` | 77 | Not copied, select it by hand | kept: R34's words |
+| R159 | `design/v4/daily-home.js mount` | 127 | {d} case opened. The reveal runs on the case screen. | new, D-209: after Open {d} case on Home's Daily cases |
 
 ## 4. Concepts named more than one way
 

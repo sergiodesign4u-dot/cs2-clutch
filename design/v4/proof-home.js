@@ -43,7 +43,7 @@
     opts = opts || {};
     var base = opts.base || '../../wireframes/', g = !!opts.guest;
     var caseArt = '<span class="x6-case" aria-hidden="true"><span class="b"></span><img class="sk" src="' + SKINS + 'ak-47-redline.png" alt="" width="512" height="384"><span class="f"></span></span>';
-    var ev = 'Expected value <span class="x6-money"><img class="x6-coin" src="art/brand/coin-6-small.svg" alt="" width="16" height="16">11.68<span class="x6-vh"> coins</span></span> at this cost.';
+    var ev = 'Expected value <span class="x6-money"><img class="x6-coin" src="art/brand/coin-6-small.svg" alt="" width="16" height="16">11.68<span class="x6-vh"> coins</span></span> at this price.';
     return '<div class="x6-frame"><div class="x6"><div class="x6-strip">' +
       '<div class="x6-stub">' + ICON.shield + '<h2>Before you spend</h2></div>' +
       panel(' x6-rtp', base + 'case.html#h2-pays', false, 'Tested RTP, Ironbound', '94.2<small> %</small>', ev, 'What this case pays', caseArt) +
