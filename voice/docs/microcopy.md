@@ -4,6 +4,8 @@
 
 **Stage 06, 3 November 2026, `D-209`.** The coloured copy `design/v4/index.html` draws blocks the grey Home does not, and their strings were written in `design/v4/*.js` without a row here. They are listed now: G170 to G175, `1.0-11` to `1.0-46` and R155 to R159, found by reading every text node, accessible name and alt of v4's Home in both states with the account menu and the sign in dialog open, against this file, and by reading the scripts for the lines written on a press. Five of them were rewritten by `voice.md` in the same step, each with its rule in the Now cell, and the scripts now print the Now. The sign in dialog's words were already here, under `2.4`. Not listed: figures and data names, by the rules above, and the project's own navigation.
 
+**Stage 06, 4 November 2026, `D-209`.** The case screen v4, `design/v4/case.html`, speaks `3.3`'s words wherever the grey screens have them, and its eight new lines are listed as 3.3-48 to 3.3-55, three of them on lab rows only. Its button reads 3.3-5, "Open for {n} coins", rather than a separate price and an "Open case" label, because the row exists.
+
 **Its visible place** is the Inventory section of `voice/voice.html`, next to the Microcopy rules, built at step 5 with the rest of the Voice page and read from this file at load, so both parts, Global and By screen, show whatever this file holds.
 
 **Placeholders in the String column:** `{n}` a figure, `{d}` a data name (case, item, wear, rarity, payment method, account name), `{date}`, `{time}`, `{hash}`, `{id}` a reference. They stand where the product prints a sample, so the row shows the frame Voice owns and not the figure it never rewrites.
@@ -23,7 +25,7 @@
 | What | Count |
 |---|---|
 | Product pages read, each at 1440 and 360 | 133 |
-| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8; 1305 since `D-209` added six global and thirty five Home strings and listed one missed, 3 Nov 2026 |
+| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8; 1305 since `D-209` added six global and thirty five Home strings and listed one missed, 3 Nov 2026; 1313 since the case screen v4 added eight rows to `3.3`, 3.3-48 to 3.3-55, 4 Nov 2026 |
 | of them Global | 164 |
 | of them By screen | 1093 at step 1; 1099 since `D-169` to `D-174` |
 | of them SEO / IA ownership | 86 |
@@ -832,6 +834,14 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 3.3-45 | main | Sending to Steam: {d} {n}, {d} {n}, {d} {n}, {d} {n} on your balance. | text | page | case-outcome-5 | C1 C11 | Sending to Steam: {d} {n} coins, {d} {n} coins, {d} {n} coins, {d} {n} coins on your balance. (As 3.3-34) |
 | 3.3-46 | main | {d} {d} has no copy on sale, so it cannot be sent yet. | text | page | case-outcome-5 |  | kept |
 | 3.3-47 | main | Add funds to open {n} again for {n} coins | button (link) | page | case-outcome-5 | C4 S4 | kept |
+| 3.3-48 | main | Nine items, three opens. · Nine items, four opens. | text | `design/v4/case-page.js setCount` | `design/v4/case.html` | C9 | new, D-209 case screen v4: the count's line for three and four, the pattern of 3.3-3 and 3.3-8 |
+| 3.3-49 | main | Open {n} again for {n} coins | button | `design/v4/case-page.js outcome` | `design/v4/case.html`, two to five opens | S4 | new, D-209 case screen v4: 3.3-17 for a batch, the count named as in 3.3-47 |
+| 3.3-50 | main | ×{n} of the price | text | `design/v4/case-win.js` | `design/v4/case.html`, `win-lab.html` | C11 | new, D-209 case screen v4: every result's value against one open's price, up or down |
+| 3.3-51 | main | Sell | button, visible part | `design/v4/case-win.js` | `design/v4/case.html`, three to five opens | S1 | new, D-209 case screen v4: on a narrow card 3.3-32's "Sell for {n} coins" shows Sell, the rest stays in its accessible name |
+| 3.3-52 | main | Server seed hashes | text | `design/v4/case-page.js drawCommit` | `design/v4/case.html`, two to five opens | | new, D-209 case screen v4: G159 for a batch, shown before the act |
+| 3.3-53 | main | Returns {n} coins on average · {n} % of opens beat the price | text | `design/v4/case-page.js drawCommit` | `design/v4/case.html?commit=b`, `stage-lab.html` | C11 | new, D-209, a lab row only, not on the page until the founder picks it |
+| 3.3-54 | main | 100 000 tickets · each item as wide as its chance · {n} % of tickets are worth at least the price, {n} coins | text | `design/v4/case-body.js dist` | `design/v4/case.html?table=b`, `table-lab.html` | | new, D-209, a lab row only |
+| 3.3-55 | main | Sort · Tier · Chance · Value | buttons | `design/v4/case-body.js dist` | `design/v4/case.html?table=c`, `table-lab.html` | | new, D-209, a lab row only |
 
 ### `4.1` Deposit
 
