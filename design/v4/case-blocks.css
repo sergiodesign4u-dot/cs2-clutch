@@ -1,0 +1,158 @@
+/* design/v4/case-blocks.css, the case screen's blocks in v4, D-209, markup from case-blocks.js. Founder of 4 Nov 2026: what Home settled
+   is reused, not drawn again. So every section heading wears Home's Menu tile (heading-home.css, "о вот это прикольно смотрится - берем",
+   2 Nov), and the variants dress the case page's figures in Home's own pieces: the round card and the money strip of proof-home.css.
+   Row A of each block is what the page carries until the founder picks; the other rows show on the page by their address and on the
+   block's lab. */
+
+/* ---- section headings: Home's Menu tile, a mode colour and a mark per section, the 2px line in it fading out ---- */
+.wf-main:has(.v4c-top) .wf-sec-head { --hx-g: var(--v4-mode-cases); --hx-c: #FB3F8A; --hx-ic: var(--icon-box); }
+.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-recent) { --hx-g: var(--v4-mode-upgrade); --hx-c: #F0A21B; --hx-ic: var(--icon-cup); }
+.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-pays) { --hx-g: var(--v4-mode-battles); --hx-c: #4A6BFF; --hx-ic: var(--icon-dollar); }
+.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-observed) { --hx-g: var(--v4-mode-showdowns); --hx-c: #E5394F; --hx-ic: var(--icon-pulse); }
+.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-how) { --hx-g: var(--v4-mode-cases); --hx-c: #FB3F8A; --hx-ic: var(--icon-shield); }
+.wf-main:has(.v4c-top) .wf-sec-head h2 { position: relative; gap: 14px; }
+.wf-main:has(.v4c-top) .wf-sec .wf-sec-head h2::before { flex: 0 0 42px; height: 42px; border-radius: 12px; filter: none; -webkit-mask: none; mask: none;
+  background: var(--hx-stripes), var(--hx-g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.wf-main:has(.v4c-top) .wf-sec .wf-sec-head h2::after { content: ''; position: absolute; left: 10px; top: 50%; width: 22px; height: 22px; margin-top: -11px; background: #fff;
+  -webkit-mask: var(--hx-ic) center / contain no-repeat; mask: var(--hx-ic) center / contain no-repeat; }
+.wf-main:has(.v4c-top) .wf-sec .wf-sec-head::after { height: 2px; background: linear-gradient(90deg, var(--hx-c), rgba(0, 0, 0, 0)); }
+@media (max-width: 599px) {
+  .wf-main:has(.v4c-top) .wf-sec .wf-sec-head h2::before { flex-basis: 34px; height: 34px; border-radius: 10px; }
+  .wf-main:has(.v4c-top) .wf-sec .wf-sec-head h2::after { left: 8px; width: 18px; height: 18px; margin-top: -9px; }
+}
+
+/* ---- Before you open. B: two plates, each with Home's tile; C: two lines under the act ---- */
+.wf-main:has(.v4c-top) .wf-case-info[data-v="b"] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: none; margin-inline: max(var(--v4-gutter, 12px), (100% - 1560px) / 2); padding: 0; background: none; box-shadow: none; }
+.wf-main:has(.v4c-top) .wf-case-info[data-v="b"] > p { position: relative; padding: 18px 20px 18px 84px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #100E2E); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); font-size: 14px; }
+.wf-main:has(.v4c-top) .wf-case-info[data-v="b"] > p strong { display: block; margin-bottom: 4px; font-size: 16px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; }
+.wf-main:has(.v4c-top) .wf-case-info[data-v="b"] > p::before { content: ''; position: absolute; left: 20px; top: 18px; width: 46px; height: 46px; border-radius: 12px; background: var(--hx-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.wf-main:has(.v4c-top) .wf-case-info[data-v="b"] > p::after { content: ''; position: absolute; left: 31px; top: 29px; width: 24px; height: 24px; background: #fff; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.wf-case-info .v4i-cost { --g: var(--v4-mode-upgrade); --ic: var(--icon-dollar); }
+.wf-case-info .v4i-steam { --g: var(--v4-mode-battles); --ic: var(--icon-steam); }
+.wf-main:has(.v4c-top) .v4c-commit .wf-case-info[data-v="c"] { flex-basis: 100%; width: 100%; max-width: 660px; margin: 6px auto 0; padding: 12px 0 0; border-top: 1px solid rgba(255, 255, 255, .08); border-radius: 0; background: none; box-shadow: none; gap: 6px; text-align: left; }
+.wf-main:has(.v4c-top) .wf-case-info[data-v="c"] > p { position: relative; padding-left: 26px; font-size: 12px; }
+.wf-main:has(.v4c-top) .wf-case-info[data-v="c"] > p::before { content: ''; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; background: var(--color-text-soft); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+@media (max-width: 759px) { .wf-main:has(.v4c-top) .wf-case-info[data-v="b"] { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---- Best drops. B: Home's round card for every drop; C: the best drop large, the others ranked beside it ---- */
+.wf-recent[data-v="b"], .wf-recent[data-v="c"] { display: none !important; }
+.wf-sec:has(> .v4d) { container: x6 / inline-size; }
+.v4d .x6 { margin-top: 0; }
+.v4d .x6-t .v4d-val { color: #FFC44D; }
+.v4d .x6-card { text-decoration: none; }
+.v4d .x6-skin { width: 46%; }
+.v4d-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 58px 12px; padding-top: 44px; }
+@container x6 (max-width: 879px) { .v4d-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container x6 (max-width: 519px) {
+  .v4d-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 80%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; scrollbar-width: none; }
+  .v4d-grid > * { scroll-snap-align: start; }
+}
+.v4d--c { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 16px; align-items: stretch; }
+.v4d-lead { display: flex; padding-top: 60px; }
+.v4d-lead .x6-card { flex: 1; min-height: 300px; }
+.v4d-lead .is-big .x6-s { font-size: clamp(24px, 3cqw, 32px); }
+.v4d-lead .is-big .x6-skin { top: -66px; width: 64%; }
+.v4d-list { display: grid; gap: 8px; align-content: end; margin: 0; padding: 0; list-style: none; }
+.v4d-list a { display: grid; grid-template-columns: 84px minmax(0, 1fr) minmax(0, 1.1fr) auto; grid-template-areas: 'img n v m' 'img n v t'; align-items: center; gap: 0 14px; padding: 6px 16px 6px 8px; border-radius: 12px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--r-lit) 24%, #0F0E2B), #0F0E2B 45%); box-shadow: inset 3px 0 0 var(--r-lit); color: var(--color-text-hi); text-decoration: none; transition: box-shadow .2s; }
+@media (hover: hover) { .v4d-list a:hover { box-shadow: inset 3px 0 0 var(--r-lit), 0 0 0 1px color-mix(in srgb, var(--r-lit) 55%, transparent); } }
+.v4d-list img { grid-area: img; width: 84px; height: 52px; object-fit: contain; filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .6)); }
+.v4d-n { grid-area: n; display: flex; flex-direction: column; min-width: 0; }
+.v4d-n span { color: var(--color-text-soft); font-size: 12px; }
+.v4d-n b { overflow: hidden; font-size: 15px; font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
+.v4d-v { grid-area: v; display: flex; flex-direction: column; gap: 5px; }
+.v4d-v b { color: #FFC44D; font-size: 14px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.v4d-bar { display: block; width: calc(var(--w) * 1%); min-width: 4px; height: 4px; border-radius: 2px; background: var(--r-lit); }
+.v4d-m { grid-area: m; color: var(--color-text-hi); font-size: 12px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.v4d-t { grid-area: t; color: var(--color-text-soft); font-size: 11px; text-align: right; white-space: nowrap; }
+@container x6 (max-width: 879px) {
+  .v4d--c { grid-template-columns: minmax(0, 1fr); }
+  .v4d-lead .x6-card { min-height: 240px; }
+}
+@container x6 (max-width: 479px) {
+  .v4d-list a { grid-template-columns: 64px minmax(0, 1fr) auto; grid-template-areas: 'img n m' 'img v t'; gap: 4px 10px; }
+  .v4d-list img { width: 64px; height: 40px; }
+}
+
+/* ---- What this case pays. B: Home's money strip, the stub carrying the title as Home's does; C: the price against what comes back ---- */
+.wf-figs[data-v="b"], .wf-figs[data-v="c"] { display: none !important; }
+.wf-sec[data-pays="b"] > .wf-sec-head { display: none; }
+.v4p-b .x6 { margin-top: 0; }
+.x6-strip.v4p-strip { grid-template-columns: var(--stub) minmax(0, 1.45fr) repeat(3, minmax(0, 1fr)); }
+.v4p-strip .x6-stub { gap: 12px; }
+.v4p-ic { display: block; width: 32px; height: 32px; background: #fff; -webkit-mask: var(--icon-dollar) center / contain no-repeat; mask: var(--icon-dollar) center / contain no-repeat; }
+.v4p-h { font-size: clamp(18px, 2cqw, 24px); font-weight: 900; line-height: 1.05; text-transform: uppercase; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
+.v4p-strip .x6-money { font-weight: 900; }
+.v4p-strip a.x6-go { text-decoration: none; }
+@container x6 (max-width: 979px) {
+  .x6-strip.v4p-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .v4p-strip .x6-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; padding: 12px var(--pad); border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .v4p-strip .v4p-ic { width: 24px; height: 24px; }
+  .v4p-strip .x6-p { min-height: 150px; }
+  .v4p-strip .x6-rtp { grid-column: auto; border-radius: 0; }
+  .v4p-strip .x6-p:nth-child(4)::before { display: none; }
+  .v4p-strip .x6-p:nth-child(n+4) { border-top: 1px solid rgba(255, 255, 255, .18); }
+  .v4p-strip .x6-p:nth-child(4) { border-radius: 0 0 0 var(--v4-radius); }
+  .v4p-strip .x6-p:last-child { border-radius: 0 0 var(--v4-radius) 0; }
+}
+@container x6 (max-width: 479px) {
+  .x6-strip.v4p-strip { grid-template-columns: minmax(0, 1fr); }
+  .v4p-strip .x6-p + .x6-p::before { display: none; }
+  .v4p-strip .x6-p + .x6-p { border-top: 1px solid rgba(255, 255, 255, .18); }
+  .v4p-strip .x6-p { min-height: 0; border-radius: 0; }
+  .v4p-strip .x6-p:last-child { border-radius: 0 0 var(--v4-radius) var(--v4-radius); }
+}
+.v4p-c { display: grid; gap: 14px; max-width: 960px; padding: 22px 24px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #100E2E); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); }
+.v4p-row { display: grid; grid-template-columns: 210px minmax(0, 1fr) 120px; align-items: center; gap: 14px; }
+.v4p-k { color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.v4p-bar { height: 14px; border-radius: 7px; background: rgba(255, 255, 255, .06); overflow: hidden; }
+.v4p-bar i { display: block; width: calc(var(--w) * 1%); height: 100%; border-radius: 7px; background: linear-gradient(90deg, #FF5C9C, var(--color-pink)); }
+.v4p-row.is-ev .v4p-bar i { background: linear-gradient(90deg, #F0A21B, #FFC44D); }
+.v4p-row b { font-size: 18px; font-weight: 900; text-align: right; font-variant-numeric: tabular-nums; }
+.v4p-row.is-ev b { color: #FFC44D; }
+.v4p-say { margin: 0; color: var(--color-text-soft); font-size: 13px; line-height: 1.5; }
+.v4p-say b { color: var(--color-text-hi); }
+.v4p-say a { color: var(--color-text-hi); }
+.v4p-split { display: flex; gap: 2px; height: 40px; border-radius: 10px; overflow: hidden; }
+.v4p-split span { display: flex; align-items: center; gap: 6px; min-width: 0; padding: 0 12px; overflow: hidden; background: rgba(150, 160, 215, .14); color: var(--color-text-soft); font-size: 13px; white-space: nowrap; }
+.v4p-split span b { color: var(--color-text-hi); }
+.v4p-split .is-up { background: linear-gradient(90deg, #1E9E62, #35E08A); color: #04150C; }
+.v4p-split .is-up b { color: #04150C; }
+@media (max-width: 599px) {
+  .v4p-c { padding: 16px; }
+  .v4p-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+  .v4p-bar { grid-column: 1 / -1; grid-row: 2; }
+  .v4p-split { height: auto; flex-direction: column; }
+  .v4p-split span { flex: none !important; min-height: 34px; }
+}
+
+/* ---- Published against observed. B: each tier as its published and observed bar and the gap; C: each tier on Home's round card ---- */
+.wf-sec[data-obs="b"] .wf-tablewrap, .wf-sec[data-obs="c"] .wf-tablewrap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.v4o-obs--b { display: grid; gap: 8px; max-width: 900px; }
+.v4o-r { display: grid; grid-template-columns: 130px minmax(0, 1fr) 64px; align-items: center; gap: 14px; padding: 10px 16px; border-radius: 12px; background: rgba(15, 14, 43, .8); box-shadow: inset 3px 0 0 var(--r-lit); }
+.v4o-n { font-weight: 900; }
+.v4o-bars { display: grid; gap: 4px; }
+.v4o-pub, .v4o-ob { position: relative; display: block; width: calc(var(--w) * 1%); height: 20px; border-radius: 4px; }
+.v4o-pub { background: rgba(150, 160, 215, .18); }
+.v4o-ob { background: linear-gradient(90deg, color-mix(in srgb, var(--r-lit) 70%, #000), var(--r-lit)); }
+.v4o-pub em, .v4o-ob em { position: absolute; left: 8px; top: 50%; transform: translateY(-50%); color: #fff; font-size: 11px; font-style: normal; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.v4o-d { font-weight: 900; text-align: right; font-variant-numeric: tabular-nums; }
+.v4o-k { margin: 4px 0 0; color: var(--color-text-soft); font-size: 12px; }
+.wf-sec:has(.v4o-obs--c) { container: x6 / inline-size; }
+.v4o-obs--c { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 4px; }
+.v4o-card { min-height: 0; text-align: left; }
+.v4o-big { margin-top: 2px; font-size: clamp(32px, 4cqw, 44px); font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; }
+.v4o-big small { font-size: .5em; }
+@container x6 (max-width: 719px) { .v4o-obs--c { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) {
+  .v4o-r { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+  .v4o-bars { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* ---- ?embed&focus=: one block alone, drawn for its lab ---- */
+html.v4-focus .wf-shell, html.v4-focus .wf-feed, html.v4-focus #wf-footer, html.v4-focus .wf-bar, html.v4-focus .wf-rail-scrim { display: none !important; }
+html.v4-focus .wf-main > :not(.v4-focus-on) { display: none !important; }
+html.v4-focus .wf-screen-body { display: block !important; min-height: 0 !important; padding: 0 !important; }
+html.v4-focus .wf-main { margin: 0 !important; padding: 6px 16px 0 !important; max-width: none !important; }
+html.v4-focus .wf-main > .v4-focus-on { margin-top: 0 !important; }
+html.v4-focus body { min-height: 0 !important; overflow: hidden; }

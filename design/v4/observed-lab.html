@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Published against observed</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="case-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A block of v4's case screen, D-209, founder of 4 Nov 2026: the case page's parts are its blocks, each with its variants, as Home's are.
+     Node 3.3, what is published for each tier against what came out, D3, conditional on D-B. Every row is the real page, case.html, with only this block shown (?embed&focus=) and only its variant changed. -->
+<main class="cl">
+  <h1>Published against observed</h1>
+  <p>Published against observed, node 3.3: for each tier, the chance we publish and the rate that actually came out, counted since the case launched and never reset. The figures are the grey screen&#39;s samples, D-124, and the block stays conditional on decision D-B.</p>
+  <div id="rows"></div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+window.CBL = {"focus": "observed", "param": "observed", "anchor": "h2-observed", "rows": [["a", "A. The table", "Tier, published, observed and rounds, a row a tier with its colour on the edge.", true], ["b", "B. Two bars a tier", "Each tier&#39;s published and observed rate as two bars, the published one at a fixed length so the gap shows at any tier&#39;s size, the gap in points beside them. The table stays underneath for a screen reader.", false], ["c", "C. Home&#39;s round card a tier", "Each tier on Home&#39;s round card in its colours: the observed rate large, the published rate and the gap under it, the rounds counted.", false]]};
+</script>
+<script src="case-block-lab.js"></script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

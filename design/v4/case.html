@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="case-page.css">
   <link rel="stylesheet" href="case-body.css">
   <link rel="stylesheet" href="case-win.css">
+  <link rel="stylesheet" href="proof-home.css">
+  <link rel="stylesheet" href="case-blocks.css">
   <link rel="stylesheet" href="../../_nav.css">
 </head>
 <body>
@@ -314,7 +316,7 @@
 <script>
 window.WF_BASE = '../../wireframes/';
 window.WF_IA_BASE = '../../ia/';
-window.WF_SHELL = { account: !/[?&]guest\b/.test(location.search), active: 'case-account.html' }; /* case.html?guest is the signed-out screen */
+window.WF_SHELL = { account: !/[?&]guest\b/.test(location.search), active: 'case-account.html', v4: true }; /* case.html?guest is the signed-out screen */
 </script>
 <script>
 window.NAV_BASE = '../../';
@@ -334,6 +336,7 @@ window.NAV_BASE = '../../';
 <script src="case-win.js"></script>
 <script src="case-page.js"></script>
 <script src="case-body.js"></script>
+<script src="case-blocks.js"></script>
 <script src="../../_nav.js"></script>
 </body>
 </html>

@@ -27,7 +27,11 @@
   // the shell may render after this file runs, so the figure is looked up when it is written
   function balEl() { return document.querySelector('.wf-shell .wf-fig-line .wf-fig-v'); }
   var balance = balEl() ? parseFloat(balEl().textContent) : 74.20;
-  function setBalance(v) { balance = Math.round(v * 100) / 100; var b = balEl(); if (b) b.textContent = balance.toFixed(2) + ' coins'; }
+  // and on Home's account plate in the header (account-home.js), which shows the same figure without the word
+  function setBalance(v) { balance = Math.round(v * 100) / 100; var b = balEl(); if (b) b.textContent = balance.toFixed(2) + ' coins';
+    // the plate repaints from _nav.js's moneyNow() whenever the hidden figure changes, so the figure it reads is set first
+    if (window.WF_SHELL && window.moneyNow) window.WF_SHELL.money = { balance: balance.toFixed(2) + ' coins', held: window.moneyNow().held.toFixed(2) + ' coins' };
+    var p = document.querySelector('.v4-ac [data-v4-money="balance"]'); if (p) p.textContent = balance.toFixed(2); }
 
   /* ---- the markup: the grey page's own nodes, moved, not retyped ---- */
   var risk = top.querySelector('.wf-risk'), say = top.querySelector('.wf-case-say'), fav = top.querySelector('.wf-fav-case');
@@ -73,7 +77,8 @@
     counter.appendChild(b);
   });
   var act = el(guest ? 'a' : 'button', 'v4c-go v4-btn v4-btn--l');
-  if (guest) { act.href = '../../wireframes/signin.html'; act.innerHTML = '<span>Sign in</span>'; } else act.type = 'button';
+  // a guest's Sign in opens Home's sign in dialog in place (signin-home.js), as Home's own Sign in does; the grey page is the fallback
+  if (guest) { act.href = '../../wireframes/signin.html'; act.setAttribute('data-auth-open', 'default'); act.innerHTML = '<span>Sign in</span>'; } else act.type = 'button';
   var cost = el('div', 'v4c-cost'), line = el('p', 'v4c-line'), hashRow = el('div', 'v4c-hash');
   if (!guest) commit.appendChild(counter);
   var actRow = el('div', 'v4c-act'); actRow.appendChild(cost); actRow.appendChild(act); commit.appendChild(actRow);

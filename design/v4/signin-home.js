@@ -98,7 +98,7 @@
   }
   function start() {
     var shell = window.WF_SHELL;
-    if (!shell || shell.active !== 'index.html' || !window.MutationObserver) return;
+    if (!shell || (shell.active !== 'index.html' && !shell.v4) || !window.MutationObserver) return;
     new MutationObserver(function (list) {
       list.forEach(function (m) { [].forEach.call(m.addedNodes, function (h) { if (h.nodeType === 1 && h.classList.contains('wf-auth-host')) take(h); }); });
     }).observe(document.body, { childList: true });

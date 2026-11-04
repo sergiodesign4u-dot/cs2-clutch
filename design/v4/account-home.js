@@ -95,7 +95,7 @@
 
   function mount() {
     var shell = window.WF_SHELL;
-    if (!shell || shell.active !== 'index.html' || !shell.account) return;
+    if (!shell || (shell.active !== 'index.html' && !shell.v4) || !shell.account) return;
     var row = document.querySelector('.wf-header .wf-row');
     if (!row || row.querySelector('.v4-ac')) return;
     var money = row.querySelector('.wf-money'), dep = row.querySelector('.wf-dep'), acct = row.querySelector('.wf-acct-wrap');

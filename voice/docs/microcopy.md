@@ -25,7 +25,7 @@
 | What | Count |
 |---|---|
 | Product pages read, each at 1440 and 360 | 133 |
-| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8; 1305 since `D-209` added six global and thirty five Home strings and listed one missed, 3 Nov 2026; 1313 since the case screen v4 added eight rows to `3.3`, 3.3-48 to 3.3-55, 4 Nov 2026 |
+| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8; 1305 since `D-209` added six global and thirty five Home strings and listed one missed, 3 Nov 2026; 1313 since the case screen v4 added eight rows to `3.3`, 3.3-48 to 3.3-55, 4 Nov 2026; 1317 since the case screen's block labs added four, 3.3-56 to 3.3-59, all on lab rows only, 4 Nov 2026 |
 | of them Global | 164 |
 | of them By screen | 1093 at step 1; 1099 since `D-169` to `D-174` |
 | of them SEO / IA ownership | 86 |
@@ -840,8 +840,12 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 3.3-51 | main | Sell | button, visible part | `design/v4/case-win.js` | `design/v4/case.html`, three to five opens | S1 | new, D-209 case screen v4: on a narrow card 3.3-32's "Sell for {n} coins" shows Sell, the rest stays in its accessible name |
 | 3.3-52 | main | Server seed hashes | text | `design/v4/case-page.js drawCommit` | `design/v4/case.html`, two to five opens | | new, D-209 case screen v4: G159 for a batch, shown before the act |
 | 3.3-53 | main | Returns {n} coins on average · {n} % of opens beat the price | text | `design/v4/case-page.js drawCommit` | `design/v4/case.html?commit=b`, `stage-lab.html` | C11 | new, D-209, a lab row only, not on the page until the founder picks it |
-| 3.3-54 | main | 100 000 tickets · each item as wide as its chance · {n} % of tickets are worth at least the price, {n} coins | text | `design/v4/case-body.js dist` | `design/v4/case.html?table=b`, `table-lab.html` | | new, D-209, a lab row only |
-| 3.3-55 | main | Sort · Tier · Chance · Value | buttons | `design/v4/case-body.js dist` | `design/v4/case.html?table=c`, `table-lab.html` | | new, D-209, a lab row only |
+| 3.3-54 | main | 100 000 tickets · each item as wide as its chance · {n} % of tickets are worth at least the price, {n} coins | text | `design/v4/case-body.js dist` | `design/v4/case.html?table=d`, `table-lab.html` | | new, D-209, a lab row only |
+| 3.3-55 | main | Sort · Tier · Chance · Value | buttons | `design/v4/case-body.js dist` | `design/v4/case.html?table=e`, `table-lab.html` | | new, D-209, a lab row only |
+| 3.3-56 | main | {n} coins · {n} % · ×{n} of the price | text | `design/v4/case-blocks.js card` | `design/v4/case.html?drops=b`, `?drops=c`, `drops-lab.html` | C11 | new, D-209 case blocks of 4 Nov 2026, a lab row only: a best drop's value, its chance from the table and 3.3-50's multiple, on Home's round card beside Home's "won from Ironbound, {time}" and "Check this round", which are reused, not new |
+| 3.3-57 | main | In coins at our values. · Expected value per open · Every chance above times its value. · Chance to get back its price · At least {n} coins back. · Against a real copy · Our values, case average. | text | `design/v4/case-blocks.js pays` | `design/v4/case.html?pays=b`, `pays-lab.html` | | new, D-209 case blocks, a lab row only: the four captions of What this case pays cut to a label and a line, so they fit Home's money strip; the figures are unchanged |
+| 3.3-58 | main | Price, one open · Tested RTP {n} %: on average an open returns {n} of its {n} coins. · {n} % get back at least its price · {n} % less | text | `design/v4/case-blocks.js pays` | `design/v4/case.html?pays=c`, `pays-lab.html` | C11 | new, D-209 case blocks, a lab row only: the price against what comes back; "Price, one open" is the commit block's own label |
+| 3.3-59 | main | Published {n} % · Observed {n} % · {n} rounds counted in every tier · {n} rounds | text | `design/v4/case-blocks.js observed` | `design/v4/case.html?observed=b`, `?observed=c`, `observed-lab.html` | | new, D-209 case blocks, a lab row only: the table's own column words beside each bar or card; the table stays for a screen reader |
 
 ### `4.1` Deposit
 

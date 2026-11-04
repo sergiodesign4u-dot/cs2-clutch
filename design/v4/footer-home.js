@@ -63,7 +63,7 @@
   /* ---- Home: replace what _nav.js drew inside #wf-footer, keep its language control ---- */
   function mount() {
     var shell = window.WF_SHELL, foot = document.getElementById('wf-footer');
-    if (!shell || shell.active !== 'index.html' || !foot || foot.classList.contains('v4-foot') || !foot.children.length) return;
+    if (!shell || (shell.active !== 'index.html' && !shell.v4) || !foot || foot.classList.contains('v4-foot') || !foot.children.length) return;
     var lang = foot.querySelector('.wf-lang-wrap');
     foot.classList.add('v4-foot');
     foot.innerHTML = render({ base: window.WF_BASE || '../../wireframes/', home: 'index.html' + (shell.account ? '?account' : ''), guest: !shell.account, langSlot: true });

@@ -82,13 +82,20 @@ window.NAV = [
               { label: 'Sign in', pageLabel: 'Sign in v4', page: 'design/v4/signin-lab.html', live: true },
               { label: 'Account', pageLabel: 'Account v4', page: 'design/v4/account-lab.html', live: true }
           ]},
+          // The case page's parts are its blocks, as Home's are, founder of 4 Nov 2026: "я хотел что би ти сделал мне страници для например
+          // первий єкран и варианти, потом страница с блоком Best drops и варианти". The open and the outcome are states of the page, not
+          // blocks, and stand beside it ("я би делал би их верхним уровнем а не подуровнем кейса").
           { label: 'Case screen', pageLabel: 'Case screen v4', page: 'design/v4/case.html', live: true, parts: [
               { label: 'Competitors', pageLabel: 'Case pages, 8 competitors', page: 'design/v4/case-research.html', live: true },
-              { label: 'The case on its stage', pageLabel: 'The case on its stage v4', page: 'design/v4/stage-lab.html', live: true },
-              { label: 'The open', pageLabel: 'The open v4', page: 'design/v4/open-lab.html', live: true },
-              { label: 'What came out', pageLabel: 'What came out v4', page: 'design/v4/win-lab.html', live: true },
-              { label: 'What is in the case', pageLabel: 'What is in the case v4', page: 'design/v4/table-lab.html', live: true }
-          ]}
+              { label: 'First screen', pageLabel: 'First screen v4', page: 'design/v4/stage-lab.html', live: true },
+              { label: 'Before you open', pageLabel: 'Before you open v4', page: 'design/v4/info-lab.html', live: true },
+              { label: 'Best drops', pageLabel: 'Best drops v4', page: 'design/v4/drops-lab.html', live: true },
+              { label: 'What is in this case', pageLabel: 'What is in this case v4', page: 'design/v4/table-lab.html', live: true },
+              { label: 'What this case pays', pageLabel: 'What this case pays v4', page: 'design/v4/pays-lab.html', live: true },
+              { label: 'Published against observed', pageLabel: 'Published against observed v4', page: 'design/v4/observed-lab.html', live: true }
+          ]},
+          { label: 'Case opening', pageLabel: 'Case opening v4', page: 'design/v4/open-lab.html', live: true },
+          { label: 'Case outcome', pageLabel: 'Case outcome v4', page: 'design/v4/win-lab.html', live: true }
       ]},
       { subhead: 'Concept v3', items: [
           { label: 'Home',        pageLabel: 'Home v3',            page: 'design/v3/index.html',      live: true }

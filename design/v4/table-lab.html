@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What is in the case</title>
+  <title>What is in this case</title>
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,33 +12,21 @@
   <link rel="stylesheet" href="buttons.css">
   <link rel="stylesheet" href="case-lab.css">
   <link rel="stylesheet" href="../../_nav.css">
-  <style>
-    .cl-frame { display: block; width: 100%; height: 1180px; border: 0; border-radius: 18px; background: #060A1E; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
-    .cl-open { color: var(--color-text-hi); font-size: 13px; }
-  </style>
 </head>
 <body>
 <aside id="sidebar"></aside>
-<!-- A part of v4's case screen, D-209: the drop table, node 3.3 block 5, three ways. Each row is the real page scrolled to the table. -->
+<!-- A block of v4's case screen, D-209, founder of 4 Nov 2026: the case page's parts are its blocks, each with its variants, as Home's are.
+     Node 3.3 block 5, the drop table: what the cards look like and how they are laid out. Every row is the real page, case.html, with only this block shown (?embed&focus=) and only its variant changed. -->
 <main class="cl">
-  <h1>What is in the case</h1>
-  <p>The drop table, node 3.3 block 5: every item with its chance, its value and its ticket range, the figures the baseline already prints before sign in and most of the eight competitors hide behind a hover or leave out. Every row keeps all three on every item without a hover; they differ in what the table helps you see at a glance. Each row is the real page, scrolled to the table. Row A is on <a href="case.html#h2-contents">the case screen</a>.</p>
+  <h1>What is in this case</h1>
+  <p>The drop table, node 3.3 block 5: every item with its chance, its value and its ticket range, the figures the baseline already prints before sign in and most of the eight competitors hide behind a hover or leave out. Every row keeps all three on every item without a hover; they differ in how a card looks and how the nine are laid out. Rows B and C reuse Home&#39;s pieces: the round card of Before you spend, and the live drops&#39; card of the header.</p>
   <div id="rows"></div>
 </main>
 <script>
 window.NAV_BASE = '../../';
-(function () {
-  var ROWS = [
-    ['a', 'A. Cards by tier', 'An item card for each row of the table, grouped under a chip per tier with its total chance; picture, name, wear, then chance and value side by side and the ticket range under them. The baseline\'s own card, grown and lit.', true],
-    ['b', 'B. One picture of the odds', 'Row A with a bar of all 100 000 tickets above it, each item as wide as its chance in its tier\'s colour, and how much of it is worth at least the price marked underneath. Every card gets a chance bar and its value against the price. The research\'s second gap: every site prints odds card by card, none shows them as one picture.'],
-    ['c', 'C. The comparison table', 'One line an item, so all nine fit in one look: picture, name, chance with its bar, value with its multiple of the price, tickets. Sortable by chance or by value; sorted, the tiers fold away. The densest, closest to how a careful buyer compares.']
-  ];
-  document.getElementById('rows').innerHTML = ROWS.map(function (r) {
-    return '<section class="cl-row"><div class="cl-row-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="cl-tag">On the case screen</span>' : '') + '<p>' + r[2] + ' <a class="cl-open" href="case.html?table=' + r[0] + '#h2-contents">Open full size</a></p></div>' +
-      '<iframe class="cl-frame" loading="lazy" title="' + r[1] + '" src="case.html?embed&table=' + r[0] + '#h2-contents"></iframe></section>';
-  }).join('');
-})();
+window.CBL = {"focus": "table", "param": "table", "anchor": "h2-contents", "rows": [["a", "A. Cards by tier", "An item card for each row of the table, grouped under a chip per tier with its total chance; picture, name, wear, then chance and value side by side and the ticket range under them.", true], ["b", "B. The tier&#39;s plate", "Every item on Home&#39;s round card in its tier&#39;s colours, the skin breaking out of the corner, chance and value large, its ticket range drawn on the 100 000 as Home&#39;s ruler draws a checked round. No tier headings: the plate&#39;s colour is the tier.", false], ["c", "C. All nine in one row", "The live drops&#39; card from the header, one an item, all nine across one row on a desktop and three a row on a phone: picture, name, chance, value, tickets. The whole case in one look.", false], ["d", "D. One picture of the odds", "Row A with a bar of all 100 000 tickets above it, each item as wide as its chance in its tier&#39;s colour, and how much of it is worth at least the price marked under it; every card gets a chance bar and its value against the price. The research&#39;s second gap: every site prints odds card by card, none shows them as one picture.", false], ["e", "E. The comparison table", "One line an item, so all nine fit in one look: picture, name, chance with its bar, value with its multiple of the price, tickets. Sortable by chance or by value; sorted, the tiers fold away.", false]]};
 </script>
+<script src="case-block-lab.js"></script>
 <script src="../../_nav.js"></script>
 </body>
 </html>
