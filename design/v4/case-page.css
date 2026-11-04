@@ -2,7 +2,7 @@
    the grey body under them in v4's language. The rows of each block that were not taken live on its lab page; data-v on a block names its row. */
 
 /* ===== the top: a stage that holds the case, then the reel, then what came out ===== */
-.v4c-top { --case-c1: #3955E8; --case-c2: #1B2A8F; --case-hue: #65A3FF; position: relative; max-width: 1180px; margin: 8px auto 0; }
+.v4c-top { --case-c1: #3955E8; --case-c2: #1B2A8F; --case-hue: #65A3FF; position: relative; margin: 8px 0 0; }
 .v4c-stage { position: relative; overflow: hidden; isolation: isolate; border-radius: 20px;
   background: radial-gradient(60% 70% at 50% 62%, color-mix(in srgb, var(--case-c1) 34%, transparent), transparent 70%),
     radial-gradient(40% 50% at 12% 8%, rgba(251, 63, 138, .14), transparent 70%),
@@ -175,12 +175,22 @@ html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow
 @media (max-width: 599px) {
   .v4c-top { margin-top: 0; }
   .v4c-stage { border-radius: 14px; }
-  .v4c-frame { height: 240px; }
+  .v4c-frame { height: 200px; }
+  .v4c-box { width: 250px; }
+  .v4c-head { gap: 8px; } .v4c-title .wf-case-line { margin-top: 4px; }
+  .v4c-show { padding-bottom: 32px; } .v4c-show-i { width: 84px; } .v4c-show-i img { width: 64px; height: 36px; }
+  .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-name b { font-size: 12px; }
+  .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-w { font-size: 11px; }
+  .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-ax { display: none; }
+  .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-v { font-size: 12px; padding: 3px 6px; }
   .v4c-frame:not([data-count="1"]) { height: 360px; } .v4c-frame .v4o-y { height: 340px; }
   .v4c-count-l { display: none; }
   .v4c-count-b { width: 44px; height: 44px; }
-  html body .v4c-go { width: 100%; min-width: 0; }
-  .v4c-act { width: 100%; }
+  html body .v4c-go { flex: 1 1 auto; min-width: 0; min-height: 52px; font-size: 16px; }
+  .v4c-act { flex-direction: row; width: 100%; gap: 12px; }
+  .v4c-cost { align-items: flex-start; text-align: left; } .v4c-cost b { font-size: 18px; }
+  .v4c-commit { gap: 10px; }
+  .v4c-show { padding-bottom: 28px; }
   .v4c-win[data-count="2"] .v4c-won-art { width: 150px; height: 110px; }
   .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-row { flex-wrap: wrap; gap: 6px; }
   .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won { flex: 0 0 calc(33% - 6px); }

@@ -117,6 +117,9 @@
     line.innerHTML = (count > 1 ? 'All ' + count + ' results were' : 'The result was') + ' fixed before the animation started.';
     live.textContent = 'Opening ' + (count > 1 ? count + ' cases' : 'the case') + '.';
     frame.setAttribute('data-phase', 'open');
+    // a tap at the foot of a narrow screen would leave the reel above the fold: the stage comes to the middle first
+    var fr = frame.getBoundingClientRect();
+    if (fr.top < 0 || fr.bottom > window.innerHeight) frame.scrollIntoView({ block: 'center', behavior: O.still ? 'auto' : 'smooth' });
     // the case gives way to the reel: a beat for the box to light and lift, then the reel runs; inside the 4 to 6 seconds of 7.2
     setTimeout(function () {
       O.open(reel, { count: count, results: results, bend: V.reel === 'b', duration: 4600 }).then(function () {
@@ -140,7 +143,7 @@
         '<span class="v4c-won-art"><span class="v4c-won-hex"></span><img src="' + x.art + '" alt=""></span>' +
         '<span class="v4c-won-name"><span class="v4c-won-w">' + esc(x.w) + '</span><b>' + esc(x.s) + '</b><span class="v4c-won-ax">' + esc(x.wear.split(' · ')[0]) + ' · ' + x.tier + '</span></span>' +
         '<span class="v4c-won-v">' + coins(x.v) + '</span>' +
-        (rs.length > 1 ? '<button type="button" class="v4c-sell1 v4-btn v4-btn--s v4-btn--ghost">Sell for ' + coins(x.v) + '</button>' : '');
+        (rs.length > 1 ? '<button type="button" class="v4c-sell1 v4-btn v4-btn--s v4-btn--ghost" aria-label="Sell ' + esc(x.w + ' ' + x.s) + ' for ' + x.v.toFixed(2) + ' coins">Sell</button>' : '');
       row.appendChild(c);
     });
     win.appendChild(row);
