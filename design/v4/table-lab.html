@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is in the case</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="case-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+  <style>
+    .cl-frame { display: block; width: 100%; height: 1180px; border: 0; border-radius: 18px; background: #060A1E; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+    .cl-open { color: var(--color-text-hi); font-size: 13px; }
+  </style>
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A part of v4's case screen, D-209: the drop table, node 3.3 block 5, three ways. Each row is the real page scrolled to the table. -->
+<main class="cl">
+  <h1>What is in the case</h1>
+  <p>The drop table, node 3.3 block 5: every item with its chance, its value and its ticket range, the figures the baseline already prints before sign in and most of the eight competitors hide behind a hover or leave out. Every row keeps all three on every item without a hover; they differ in what the table helps you see at a glance. Each row is the real page, scrolled to the table. Row A is on <a href="case.html#h2-contents">the case screen</a>.</p>
+  <div id="rows"></div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+(function () {
+  var ROWS = [
+    ['a', 'A. Cards by tier', 'An item card for each row of the table, grouped under a chip per tier with its total chance; picture, name, wear, then chance and value side by side and the ticket range under them. The baseline\'s own card, grown and lit.', true],
+    ['b', 'B. One picture of the odds', 'Row A with a bar of all 100 000 tickets above it, each item as wide as its chance in its tier\'s colour, and how much of it is worth at least the price marked underneath. Every card gets a chance bar and its value against the price. The research\'s second gap: every site prints odds card by card, none shows them as one picture.'],
+    ['c', 'C. The comparison table', 'One line an item, so all nine fit in one look: picture, name, chance with its bar, value with its multiple of the price, tickets. Sortable by chance or by value; sorted, the tiers fold away. The densest, closest to how a careful buyer compares.']
+  ];
+  document.getElementById('rows').innerHTML = ROWS.map(function (r) {
+    return '<section class="cl-row"><div class="cl-row-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="cl-tag">On the case screen</span>' : '') + '<p>' + r[2] + ' <a class="cl-open" href="case.html?table=' + r[0] + '#h2-contents">Open full size</a></p></div>' +
+      '<iframe class="cl-frame" loading="lazy" title="' + r[1] + '" src="case.html?embed&table=' + r[0] + '#h2-contents"></iframe></section>';
+  }).join('');
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

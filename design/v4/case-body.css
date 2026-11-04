@@ -80,3 +80,47 @@
   .wf-drops[data-v4] td[data-l="Chance"], .wf-drops[data-v4] td[data-l="Value"] { font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) { .wf-drops[data-v4] .v4b-row, .wf-drops[data-v4] .v4b-img, .wf-recent > li > a { transition: none; } }
+
+/* the parts rows B and C add, case-body.js: hidden on row A */
+.v4b-dist, .v4b-sort, .v4b-bar, .v4b-x { display: none; }
+.v4b-x { font-size: 11px; font-weight: 700; color: var(--color-text-soft); } .v4b-x.is-up { color: #35E08A; }
+
+/* row B: the 100 000 tickets as one bar above the cards, a chance bar on every card */
+.wf-drops[data-v="b"] ~ .v4b-dist, .v4b-dist:has(+ .v4b-sort + .wf-drops[data-v="b"]) { display: block; }
+.v4b-dist { margin: 0 0 22px; padding: 16px 18px 14px; border-radius: 14px; background: rgba(15, 14, 43, .8); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+.v4b-dist-h { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.v4b-dist-h b { font-size: 14px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.v4b-dist-h span { color: var(--color-text-soft); font-size: 12px; }
+.v4b-dist-bar { display: flex; gap: 2px; height: 22px; border-radius: 6px; overflow: hidden; }
+.v4b-dist-bar > span { min-width: 3px; background: linear-gradient(180deg, color-mix(in srgb, var(--r-lit) 80%, #fff), var(--r-lit)); }
+.v4b-dist-up { position: relative; margin-top: 10px; padding-top: 8px; color: var(--color-text-soft); font-size: 12px; }
+.v4b-dist-up > span { position: absolute; left: 0; top: -16px; width: calc(var(--up) * 1%); height: 4px; border-radius: 2px; background: #35E08A; box-shadow: 0 0 8px rgba(53, 224, 138, .6); }
+.v4b-dist-up b { color: #35E08A; }
+.wf-drops[data-v="b"] .v4b-bar, .wf-drops[data-v="c"] .v4b-bar { display: block; height: 4px; margin-top: 4px; border-radius: 2px; background: rgba(255, 255, 255, .08); overflow: hidden; }
+.wf-drops[data-v="b"] .v4b-bar::after, .wf-drops[data-v="c"] .v4b-bar::after { content: ''; display: block; height: 100%; width: calc(var(--ch) * 4%); min-width: 3px; max-width: 100%; border-radius: 2px; background: var(--r-lit); }
+.wf-drops[data-v="b"] .v4b-x { display: inline; }
+
+/* row C: the comparison table, one line an item, sortable by chance or value; tiers as their own headers until it is sorted */
+.v4b-sort:has(+ .wf-drops[data-v="c"]) { display: flex; align-items: center; gap: 6px; margin: 0 0 12px; color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.v4b-sort button { min-height: 32px; padding: 0 12px; border: 0; border-radius: 8px; background: rgba(150, 160, 215, .1); color: var(--color-text-soft); font: 700 12px var(--font-family); cursor: pointer; }
+.v4b-sort button[aria-pressed="true"] { background: var(--btn-fill); color: #fff; }
+.wf-drops[data-v="c"] { display: flex; flex-direction: column; gap: 6px; }
+.wf-drops[data-v="c"] tbody { display: contents; }
+.wf-drops[data-v="c"] .wf-tier-h { margin-top: 12px; }
+.wf-drops[data-v="c"].is-flat .wf-tier-h { display: none; }
+.wf-drops[data-v="c"] .v4b-row { grid-template-columns: 96px minmax(180px, 1.6fr) 1fr 1fr 1.2fr; grid-template-areas: 'art name ch v t'; align-items: center; gap: 0 16px; padding: 6px 16px 6px 8px; border-radius: 12px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--r-lit) 20%, #0F0E2B), #0F0E2B 40%); box-shadow: inset 3px 0 0 var(--r-lit); }
+@media (hover: hover) { .wf-drops[data-v="c"] .v4b-row:hover { transform: none; box-shadow: inset 3px 0 0 var(--r-lit), 0 0 0 1px color-mix(in srgb, var(--r-lit) 50%, transparent); } }
+.wf-drops[data-v="c"] .wf-art-c { height: 56px; }
+.wf-drops[data-v="c"] .wf-art-c::before { width: 60px; height: 52px; margin-left: -30px; top: 2px; }
+.wf-drops[data-v="c"] .v4b-img { width: 88px; height: 54px; }
+.wf-drops[data-v="c"] th { margin: 0; }
+.wf-drops[data-v="c"] td[data-l="Tickets"] { margin: 0; padding: 0; border: 0; flex-direction: column; align-items: flex-start; }
+.wf-drops[data-v="c"] .v4b-x { display: inline; }
+.wf-drops[data-v="c"] .wf-d-mkt { display: none; }
+@media (max-width: 599px) {
+  .wf-drops[data-v="c"] .v4b-row { grid-template-columns: 64px 1fr 1fr; grid-template-areas: 'art name name' 'art ch v'; gap: 4px 10px; padding: 8px 10px 8px 6px; }
+  .wf-drops[data-v="c"] td[data-l="Tickets"] { display: none; }
+  .wf-drops[data-v="c"] .v4b-img { width: 62px; height: 40px; } .wf-drops[data-v="c"] .wf-art-c { height: 44px; }
+}
+.wf-drops[data-v="c"] + .wf-stamp, .wf-main:has(.v4c-top) .wf-drops[data-v="c"] ~ .wf-stamp { margin-top: 10px; }

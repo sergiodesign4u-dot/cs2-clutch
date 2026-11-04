@@ -83,8 +83,11 @@ window.NAV = [
               { label: 'Account', pageLabel: 'Account v4', page: 'design/v4/account-lab.html', live: true }
           ]},
           { label: 'Case screen', pageLabel: 'Case screen v4', page: 'design/v4/case.html', live: true, parts: [
+              { label: 'Competitors', pageLabel: 'Case pages, 8 competitors', page: 'design/v4/case-research.html', live: true },
+              { label: 'The case on its stage', pageLabel: 'The case on its stage v4', page: 'design/v4/stage-lab.html', live: true },
               { label: 'The open', pageLabel: 'The open v4', page: 'design/v4/open-lab.html', live: true },
-              { label: 'What came out', pageLabel: 'What came out v4', page: 'design/v4/win-lab.html', live: true }
+              { label: 'What came out', pageLabel: 'What came out v4', page: 'design/v4/win-lab.html', live: true },
+              { label: 'What is in the case', pageLabel: 'What is in the case v4', page: 'design/v4/table-lab.html', live: true }
           ]}
       ]},
       { subhead: 'Concept v3', items: [

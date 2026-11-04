@@ -6,9 +6,11 @@
    Figures are the grey screen's samples, D-124. */
 (function () {
   var Q = new URLSearchParams(location.search);
-  var V = { stage: Q.get('stage') || 'a', reel: Q.get('reel') || 'a', win: Q.get('win') || 'a' };
+  var V = { stage: Q.get('stage') || 'a', reel: Q.get('reel') || 'a', win: Q.get('win') || 'a', commit: Q.get('commit') || 'a' };
   var guest = Q.has('guest');
   var PRICE = 12.40, RTP = '94.2 %', EV = '11.68';
+  // ?embed: the page drawn inside a lab, without the project's sidebar
+  if (Q.has('embed')) { var st = document.createElement('style'); st.textContent = '#sidebar,.nav-grip,.nav-toggle,.nav-scrim{display:none!important}:root{--nav-w:0px!important}'; document.head.appendChild(st); }
   var top = document.querySelector('.wf-top');
   if (!top || !window.V4Open) return;
   var O = window.V4Open;
@@ -42,7 +44,11 @@
   reel.setAttribute('data-v', V.reel); win.setAttribute('data-v', V.win);
   reel.setAttribute('aria-hidden', 'true');
   var live = el('p', 'v4c-sr'); live.setAttribute('aria-live', 'polite');
-  frame.appendChild(scene); frame.appendChild(rest); frame.appendChild(reel); frame.appendChild(win); frame.appendChild(live);
+  // row C of stage-lab: the case's nine items circling it, what is inside before anything is opened; hidden on the other rows
+  var halo = el('div', 'v4c-halo'); halo.setAttribute('aria-hidden', 'true');
+  O.items.forEach(function (x, i) { var h = el('span', 'v4c-halo-i ' + x.r, '<img src="' + x.art + '" alt="">'); h.style.setProperty('--n', i); halo.appendChild(h); });
+  halo.style.setProperty('--count', O.items.length);
+  frame.appendChild(scene); frame.appendChild(halo); frame.appendChild(rest); frame.appendChild(reel); frame.appendChild(win); frame.appendChild(live);
   stage.appendChild(frame);
 
   // the contents, drifting under the case: what the case holds, not its odds; the same nine whatever the count, D-47
@@ -72,7 +78,7 @@
 
   var after = el('section', 'v4c-after'); after.setAttribute('aria-label', 'What you got'); after.hidden = true;
 
-  var host = el('div', 'v4c-top');
+  var host = el('div', 'v4c-top'); host.setAttribute('data-v', V.stage);
   host.appendChild(stage); host.appendChild(commit); host.appendChild(after);
   top.parentNode.replaceChild(host, top);
 
@@ -80,11 +86,25 @@
   function hash() { return Math.random().toString(16).slice(2, 8) + '…' + Math.random().toString(16).slice(2, 8); }
   function drawRest() {
     rest.innerHTML = '';
+    // row D, the machine at rest: one open stands as the reel itself, the case in the marker's slot and the contents either side of it,
+    // the idle reel key-drop shows, pushed: on the tap the case lights and the strip runs out of that slot. Two and more keep the boxes
+    if (V.stage === 'd' && count === 1) {
+      var idle = el('div', 'v4c-idle'), tr = el('div', 'v4c-idle-run');
+      var seq = [6, 4, 2, 0, 8, -1, 7, 1, 3, 5, 6];
+      seq.forEach(function (k) {
+        if (k < 0) { tr.appendChild(el('span', 'v4c-idle-slot', '<img src="art/cases-v2/ironbound-c.webp" alt="">')); return; }
+        var x = O.items[k]; tr.appendChild(el('span', 'v4o-card ' + x.r, '<span class="v4o-plate"></span><img class="v4o-img" src="' + x.art + '" alt=""><span class="v4o-name"><b>' + x.w + '</b><span>' + x.s + '</span></span>'));
+      });
+      idle.appendChild(tr); idle.appendChild(el('span', 'v4c-idle-mark'));
+      rest.appendChild(idle); return;
+    }
     for (var i = 0; i < count; i++) rest.appendChild(el('span', 'v4c-box', '<img src="art/cases-v2/ironbound-c.webp" alt="">'));
   }
   function drawCommit() {
     var total = PRICE * count, short = !guest && total > balance;
-    cost.innerHTML = '<b>' + coins(total) + '</b><span>' + (count > 1 ? 'Price, ' + count + ' opens' : 'Price, one open') + '</span>';
+    cost.innerHTML = '<b>' + coins(total) + '</b><span>' + (count > 1 ? 'Price, ' + count + ' opens' : 'Price, one open') + '</span>' +
+      // ?commit=b: what it returns on average, beside what it costs, design principle 3; datdrop prints these in a table below the fold
+      (V.commit === 'b' ? '<span class="v4c-ret">Returns <b>' + coins(parseFloat(EV) * count) + '</b> on average · 37 % of opens beat the price</span>' : '');
     if (!guest) act.innerHTML = '<span>' + (short ? 'Add funds to open' : (count > 1 ? 'Open ' + count : 'Open case')) + '</span>';
     act.classList.toggle('is-short', short);
     line.innerHTML = (guest ? 'Signing in takes one step with Steam. ' : short ? 'Not enough on your balance for ' + count + '. '
@@ -132,7 +152,7 @@
   function outcome(rs) {
     busy = false; host.classList.remove('is-opening'); host.classList.add('is-done');
     frame.setAttribute('data-phase', 'won');
-    window.V4Win.render(win, rs, { sell: true });
+    window.V4Win.render(win, rs, { sell: true, price: PRICE });
     live.textContent = rs.map(function (x) { return x.w + ' ' + x.s + ', ' + x.v.toFixed(2) + ' coins'; }).join('; ') + '.';
 
     var sum = rs.reduce(function (a, x) { return a + x.v; }, 0), n = rs.length;

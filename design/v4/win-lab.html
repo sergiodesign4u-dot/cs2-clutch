@@ -68,7 +68,7 @@ window.NAV_BASE = '../../';
     var rs = results();
     Array.prototype.forEach.call(document.querySelectorAll('.v4c-win'), function (w) {
       var f = w.closest('.v4c-frame'); f.setAttribute('data-count', rs.length);
-      window.V4Win.render(w, rs, {});
+      window.V4Win.render(w, rs, { price: 12.40 });
     });
   }
   pick.onchange = play;

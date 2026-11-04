@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case pages, 8 competitors</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="case-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+  <style>
+    .md { max-width: 980px; color: var(--color-text-soft); font-size: 15px; line-height: 1.55; }
+    .md h1 { color: var(--color-text-hi); }
+    .md h2 { margin: 40px 0 10px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, .08); color: var(--color-text-hi); font-size: 22px; font-weight: 900; }
+    .md h3 { margin: 22px 0 8px; color: var(--color-text-hi); font-size: 16px; }
+    .md strong { color: var(--color-text-hi); }
+    .md code { padding: 1px 5px; border-radius: 4px; background: #1B1A48; color: var(--color-text-hi); font-size: 13px; }
+    .md a { color: var(--color-text-hi); }
+    .md table { width: 100%; margin: 12px 0 20px; border-collapse: collapse; font-size: 13px; display: block; overflow-x: auto; }
+    .md th, .md td { padding: 8px 10px; border-bottom: 1px solid rgba(255, 255, 255, .07); text-align: left; vertical-align: top; }
+    .md th { color: var(--color-text-hi); background: rgba(15, 14, 43, .9); }
+    .md hr { border: 0; height: 1px; background: rgba(255, 255, 255, .08); margin: 28px 0; }
+    .md li { margin: 3px 0; }
+    .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 10px 0 30px; }
+    .shots a { display: block; border-radius: 10px; overflow: hidden; background: #0F0E2B; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); color: var(--color-text-soft); font-size: 11px; text-decoration: none; }
+    .shots img { display: block; width: 100%; height: 150px; object-fit: cover; object-position: top; }
+    .shots span { display: block; padding: 6px 8px; }
+  </style>
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- The visible place of design/v4/docs/case-competitors.md, D-209: the walk of eight competitors' case pages on 4 Nov 2026, rendered from the
+     markdown itself so the two cannot drift, with every screenshot it names. -->
+<main class="cl">
+  <p><a href="case.html">Case screen v4</a> · <a href="stage-lab.html">The case on its stage</a> · <a href="open-lab.html">The open</a> · <a href="win-lab.html">What came out</a> · <a href="table-lab.html">What is in the case</a></p>
+  <div class="md" id="md">Loading the walk…</div>
+  <h2 class="cl-h2" id="shots-h">Screenshots</h2>
+  <p>Every picture the walk saved, logged out, 4 November 2026. Open one full size.</p>
+  <div class="shots" id="shots"></div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+window.NAV_SECTIONS = [{ id: 'md', label: 'The walk' }, { id: 'shots-h', label: 'Screenshots' }];
+(function () {
+  var SHOTS = ["daddyskins_case_1440_4nov.jpg", "daddyskins_case_390_4nov.jpg", "daddyskins_case_390b_4nov.jpg", "daddyskins_guest_open_4nov.jpg",
+    "hellcase_case_1440_4nov.jpg", "hellcase_case_390_4nov.jpg", "hellcase_case_390b_4nov.jpg", "hellcase_guest_open_4nov.jpg", "hellcase_knifecase_1440_4nov.jpg",
+    "keydrop_case_1440_4nov.jpg", "keydrop_case_390_4nov.jpg", "keydrop_case_390b_4nov.jpg", "keydrop_knifecase_1440_4nov.jpg",
+    "skinclub_case_1440_4nov.jpg", "skinclub_case_390_4nov.jpg", "skinclub_case_390b_4nov.jpg", "skinclub_drop_hover_odds_4nov.jpg",
+    "clash_case_1440_4nov.jpg", "clash_case_390_4nov.jpg", "clash_case_390b_4nov.jpg", "clash_open_f1_4nov.jpg", "clash_open_f2_4nov.jpg", "clash_open_f3_4nov.jpg",
+    "clash_open_f4_4nov.jpg", "clash_open_f5_4nov.jpg", "clash_open_f6_4nov.jpg", "clash_open_quick_f1_4nov.jpg", "clash_open_x4_f1_4nov.jpg", "clash_open_x4_f2_4nov.jpg",
+    "clash_open_x4_f3_4nov.jpg", "clash_open_390_f1_4nov.jpg", "clash_open_390_f2_4nov.jpg", "clash_provably_fair_4nov.jpg",
+    "datdrop_case_1440_4nov.jpg", "datdrop_case_390_4nov.jpg", "datdrop_case_390b_4nov.jpg", "datdrop_drop_table_4nov.jpg", "datdrop_odds_modal_4nov.jpg", "datdrop_risk_tooltip_4nov.jpg",
+    "farmskins_case_1440_4nov.jpg", "farmskins_case_390_4nov.jpg", "farmskins_case_390b_4nov.jpg", "farmskins_drop_hover_4nov.jpg",
+    "casesgg_case_1440_4nov.jpg", "casesgg_open_f1_4nov.jpg", "casesgg_open_f2_4nov.jpg", "casesgg_open_f3_4nov.jpg", "casesgg_open_f4_4nov.jpg", "casesgg_open_f5_4nov.jpg", "casesgg_open_f6_4nov.jpg",
+    "csgoroll_blocked_1440_4nov.jpg"];
+  document.getElementById('shots').innerHTML = SHOTS.map(function (f) {
+    var n = f.replace(/_4nov\.jpg$/, '').replace(/_/g, ' ');
+    return '<a href="screens/case/' + f + '" target="_blank" rel="noopener"><img loading="lazy" src="screens/case/' + f + '" alt="' + n + '"><span>' + n + '</span></a>';
+  }).join('');
+
+  // a small markdown reader: headings, paragraphs, lists, tables, rules, bold, code, links
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function inline(s) {
+    return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  }
+  function render(md) {
+    var lines = md.split('\n'), out = [], i = 0, para = [];
+    function flush() { if (para.length) { out.push('<p>' + inline(para.join(' ')) + '</p>'); para = []; } }
+    while (i < lines.length) {
+      var l = lines[i];
+      if (/^#{1,3} /.test(l)) { flush(); var n = l.match(/^#+/)[0].length; out.push('<h' + n + '>' + inline(l.replace(/^#+ /, '')) + '</h' + n + '>'); i++; continue; }
+      if (/^---\s*$/.test(l)) { flush(); out.push('<hr>'); i++; continue; }
+      if (/^\|/.test(l)) { flush(); var rows = []; while (i < lines.length && /^\|/.test(lines[i])) { rows.push(lines[i]); i++; }
+        var cells = function (r) { return r.replace(/^\||\|\s*$/g, '').split('|').map(function (c) { return c.trim(); }); };
+        var h = '<table><thead><tr>' + cells(rows[0]).map(function (c) { return '<th>' + inline(c) + '</th>'; }).join('') + '</tr></thead><tbody>';
+        rows.slice(2).forEach(function (r) { h += '<tr>' + cells(r).map(function (c) { return '<td>' + inline(c) + '</td>'; }).join('') + '</tr>'; });
+        out.push(h + '</tbody></table>'); continue; }
+      if (/^\s*([-*]|\d+\.) /.test(l)) { flush(); var ord = /^\s*\d+\./.test(l), items = [];
+        while (i < lines.length && /^\s*([-*]|\d+\.) /.test(lines[i])) { items.push('<li>' + inline(lines[i].replace(/^\s*([-*]|\d+\.) /, '')) + '</li>'); i++; }
+        out.push((ord ? '<ol>' : '<ul>') + items.join('') + (ord ? '</ol>' : '</ul>')); continue; }
+      if (!l.trim()) { flush(); i++; continue; }
+      para.push(l.trim()); i++;
+    }
+    flush(); return out.join('\n');
+  }
+  fetch('docs/case-competitors.md').then(function (r) { return r.text(); }).then(function (t) { document.getElementById('md').innerHTML = render(t); })
+    .catch(function () { document.getElementById('md').innerHTML = '<p>The walk could not be loaded. It lives in <code>design/v4/docs/case-competitors.md</code>.</p>'; });
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

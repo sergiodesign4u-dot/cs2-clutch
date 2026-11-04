@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The case on its stage</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="case-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+  <style>
+    .cl-frame { display: block; width: 100%; height: 860px; border: 0; border-radius: 18px; background: #060A1E; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+    .cl-open { color: var(--color-text-hi); font-size: 13px; }
+  </style>
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A part of v4's case screen, D-209: the case at rest and the act under it, node 3.3 blocks 1 to 3. Each row is the real page, case.html,
+     drawn inside the lab with ?embed and its row's ?stage=, so the open, the outcome and the money all work in every row. -->
+<main class="cl">
+  <h1>The case on its stage</h1>
+  <p>The first screen of the case page: the name, the case, what is inside it, the count and the act, node 3.3 blocks 1 to 3. Every row below is the real page with only the stage changed, so each one opens, lands and pays out exactly as the page does; press Open case in any of them. Whatever the row, the region that holds the case is the region the reel runs in and the item lands in, case.md section 0: nothing changes places at the tap. Row A is on <a href="case.html">the case screen</a>.</p>
+  <div id="rows"></div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+(function () {
+  var ROWS = [
+    ['stage=a', 'A. The showroom', 'The case floats over a lit floor in the middle of the stage, turning light behind it, the nine items drifting along its foot, the count and the act straddling its lower edge. Hellcase gives every case its own rendered room; this is one shared stage lit in each case\'s colour.', true],
+    ['stage=b', 'B. The product page', 'The case large on the left, the name, the count, the price and the act on the right, as a shop shows one product. The reel runs where the case stood, three and a half cards wide. On a phone it falls back to A\'s column.'],
+    ['stage=c', 'C. What is inside, circling', 'The nine items ride an ellipse round the case, bigger in front, smaller behind it, so the page says what the case holds before a word is read. On the tap they fall into the case and the reel takes their place. No competitor of the eight shows contents on the stage itself.'],
+    ['stage=d', 'D. The machine at rest', 'The reel is already standing, the case sitting in the marker\'s slot with the contents either side of it. On the tap the case lights and the strip runs out of that slot. Key-drop draws an idle reel with the case in the slot; this pushes it, and it is also what case.md section 0 asks for literally: the stage at rest is the reel standing still. Two and more opens keep the boxes.'],
+    ['stage=a&commit=b', 'A, with what it returns beside the price', 'Row A with one line added under the price: what an open returns on average and how many opens beat the price. Of the eight sites only DatDrop prints these, in a table below the fold; design principle 3 asks for them at the moment of spending.']
+  ];
+  document.getElementById('rows').innerHTML = ROWS.map(function (r) {
+    return '<section class="cl-row"><div class="cl-row-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="cl-tag">On the case screen</span>' : '') + '<p>' + r[2] + ' <a class="cl-open" href="case.html?' + r[0] + '">Open full size</a></p></div>' +
+      '<iframe class="cl-frame" loading="lazy" title="' + r[1] + '" src="case.html?embed&' + r[0] + '"></iframe></section>';
+  }).join('');
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>
