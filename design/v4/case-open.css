@@ -67,3 +67,36 @@
   .v4o-y .v4o-name b { font-size: 10px; } .v4o-y .v4o-name span { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .v4o-card, .v4o-lane[data-phase="land"] .v4o-card.is-won { transition: none; } }
+
+/* ===== row B, the arc: the strip bends round the marker like a drum, the card under it full size and the rest turning away.
+   case-open.js sets --v4o-k on the cards near the marker, their distance from it in cards, when the open is asked to bend ===== */
+.v4o-open[data-v="b"] .v4o-x { perspective: 900px; height: calc(var(--v4o-card-h) + 60px); }
+.v4o-open[data-v="b"] .v4o-x .v4o-track { top: 30px; transform-style: preserve-3d; }
+.v4o-open[data-v="b"] .v4o-x .v4o-card { --a: max(var(--v4o-k, 6), calc(-1 * var(--v4o-k, 6)));
+  transform: rotateY(calc(var(--v4o-k, 0) * -16deg)) scale(calc(1.08 - min(.4, var(--a) * .09))); opacity: calc(1.15 - var(--a) * .2); transition: none; }
+.v4o-open[data-v="b"] .v4o-y .v4o-track { transform-style: preserve-3d; }
+.v4o-open[data-v="b"] .v4o-y { perspective: 700px; }
+.v4o-open[data-v="b"] .v4o-y .v4o-card { --a: max(var(--v4o-k, 6), calc(-1 * var(--v4o-k, 6)));
+  transform: rotateX(calc(var(--v4o-k, 0) * 18deg)) scale(calc(1.04 - min(.3, var(--a) * .08))); opacity: calc(1.15 - var(--a) * .22); transition: none; }
+.v4o-open[data-v="b"] .v4o-lane[data-phase="land"] .v4o-card.is-won { transform: scale(1.14); }
+.v4o-open[data-v="b"] .v4o-fade { background: none; }
+.v4o-open[data-v="b"] .v4o-lane { background: radial-gradient(50% 80% at 50% 50%, color-mix(in srgb, var(--hot) calc(10% + var(--v4o-charge) * 30%), transparent), transparent 70%), linear-gradient(180deg, #12113A, #0A0926); }
+
+/* ===== row C, the spotlight: the strip runs in the dark, a beam falls on the marker, only the card in it is lit, in its own colour;
+   as the reel slows the beam takes the colour of what is landing ===== */
+.v4o-open[data-v="c"] .v4o-lane { background: #07061C; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.v4o-open[data-v="c"] .v4o-card { filter: brightness(.35) saturate(.4); background: linear-gradient(to bottom, #15143A, #0C0B26); box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--r) 40%, transparent); transition: filter .18s; }
+.v4o-open[data-v="c"] .v4o-card.is-at { filter: none; }
+.v4o-open[data-v="c"] .v4o-lane[data-phase="land"] .v4o-card { opacity: 1; filter: brightness(.25) saturate(.3); }
+.v4o-open[data-v="c"] .v4o-lane[data-phase="land"] .v4o-card.is-won { filter: none; }
+.v4o-open[data-v="c"] .v4o-mark { background: none; box-shadow: none; }
+.v4o-open[data-v="c"] .v4o-mark::before, .v4o-open[data-v="c"] .v4o-mark::after { display: none; }
+.v4o-open[data-v="c"] .v4o-x .v4o-mark { left: 50%; top: 0; bottom: 0; width: calc(var(--v4o-card-w) + 40px); margin-left: calc(var(--v4o-card-w) / -2 - 20px); z-index: 1; mix-blend-mode: screen;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--hot) 70%, transparent), color-mix(in srgb, var(--hot) 14%, transparent) 70%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent); mask: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent); opacity: .55; }
+.v4o-open[data-v="c"] .v4o-y .v4o-mark { left: 0; right: 0; top: 50%; height: 150px; margin-top: -75px; z-index: 1; mix-blend-mode: screen;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--hot) 50%, transparent), color-mix(in srgb, var(--hot) 12%, transparent));
+  -webkit-mask: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent); mask: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent); opacity: .55; }
+.v4o-open[data-v="c"] .v4o-lane[data-phase="land"] .v4o-mark { opacity: .9; }
+.v4o-open[data-v="c"] .v4o-lane::after { content: ''; position: absolute; left: 50%; top: -6px; width: 60px; height: 12px; margin-left: -30px; border-radius: 50%; z-index: 4; background: var(--hot); filter: blur(4px); }
+.v4o-open[data-v="c"] .v4o-y::after { display: none; }

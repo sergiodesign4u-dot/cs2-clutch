@@ -3,8 +3,8 @@
    еще более вау смотреться на странице кейса".
    The rules it keeps are case.md section 7, and they are built in, not styled on:
    - the roll is settled before anything moves (7.1, E1): V4Open.roll() picks, and the reel only renders what was picked;
-   - no near-miss (7.1, E2): the cards that pass the marker while the reel slows, and the card just after the one it stops on, are never
-     worth more than the result; it stops inside the result's card, never on its edge;
+   - no near-miss (7.1, E2): the cards that pass the marker while the reel slows, and the cards still in view after the one it stops on,
+     are never worth more than the result; it stops inside the result's card, never on its edge;
    - one roll runs horizontally, two to five run vertically side by side and lock one after another (7.2, 7.2b), 5s for one, +0.6s a lane;
    - a reader who asked for less motion sees the same result in the same order, stilled (7.3); there is no fast mode.
    What it adds is an honest buildup: in the last stretch the frame takes the colour of what is actually landing (E3, rarity scales the
@@ -50,7 +50,7 @@
     var cards = [], floor = items.filter(function (x) { return value(x) <= value(result); });
     for (var i = 0; i < LEN; i++) {
       if (i === AT) { cards.push(result); continue; }
-      var pool = (i >= AT - SLOW && i <= AT + 1) ? floor : items;
+      var pool = (i >= AT - SLOW && i <= AT + 5) ? floor : items; // and nothing better still in view beside it once it stops
       var p = pool[Math.floor(Math.random() * pool.length)];
       // no two alike side by side, and none alike either side of the result, so the result reads as one card and not a run
       for (var g = 0; g < pool.length && pool.length > 1 && (same(p, cards[i - 1]) || (i === AT - 1 && same(p, result))); g++) p = pool[(pool.indexOf(p) + 1) % pool.length];

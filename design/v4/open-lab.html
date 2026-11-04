@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The open</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="case-open.css">
+  <link rel="stylesheet" href="case-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A part of v4's case screen, D-209: the reel, node 3.5. Founder of 4 Nov 2026: "кейс опенинг страница должні еще более вау смотреться".
+     Every row runs the same engine, case-open.js, so every row keeps the same rules: settled first, no near-miss, 4 to 6 seconds, lanes
+     side by side from two opens. Only the look differs. Row A is on case.html until the founder picks. -->
+<main class="cl">
+  <h1>The open</h1>
+  <p>The moment the case gives up its item, node 3.5. Every row below runs the same engine, so every row keeps the same three rules: the result is fixed before anything moves, the reel never slows past something better than what you got, and it stops inside the card, never on its edge. What differs is how it looks while it runs. In the last second and a half each frame takes the colour of what is actually landing, an honest build up rather than a fake one. Pick the item to land on, or leave it to the odds, and open a row or all of them. Row A is on <a href="case.html">the case screen</a> now; <a href="case.html?reel=b">B</a> and <a href="case.html?reel=c">C</a> open there too.</p>
+  <div class="cl-ctl">
+    <label>Land on <select id="pick"></select></label>
+    <label>Cases to open <span class="cl-seg" id="count"></span></label>
+    <label><input type="checkbox" id="snd"> Sound</label>
+    <button type="button" class="v4-btn v4-btn--m" id="all">Open every row</button>
+  </div>
+  <div id="rows"></div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+</script>
+<script src="case-open.js"></script>
+<script>
+(function () {
+  var O = window.V4Open;
+  var ROWS = [
+    ['a', 'A. The strip', 'The live drops\' card grown to the stage, running under a pink marker with a notch at each end. The card under the marker lifts as it slows; the winner lifts higher and lights, the rest step back. The quietest of the three, and the most familiar to anyone who has opened a case anywhere.', true],
+    ['b', 'B. The drum', 'The same strip bent round the marker like a drum seen from the front: the card under it full size, the others turning away and fading with distance. Depth without a 3D scene, and the reel reads as a machine you are watching rather than a list scrolling past.'],
+    ['c', 'C. The spotlight', 'The strip runs in the dark; a beam falls on the marker and only the card in it is lit, in its own colour. As it slows the beam takes the colour of what is landing. The most theatrical: the eye has one place to look.']
+  ];
+  var all = O.items.concat([O.knife]);
+  var pick = document.getElementById('pick');
+  pick.innerHTML = '<option value="">By the odds</option>' + all.map(function (x, i) { return '<option value="' + i + '">' + x.w + ' ' + x.s + ' · ' + x.tier + (x === O.knife ? ' (demo, not in Ironbound)' : '') + '</option>'; }).join('');
+  var count = 1, seg = document.getElementById('count');
+  [1, 2, 3, 4, 5].forEach(function (n) { var b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.setAttribute('aria-pressed', String(n === 1));
+    b.onclick = function () { count = n; Array.prototype.forEach.call(seg.children, function (c, i) { c.setAttribute('aria-pressed', String(i + 1 === n)); }); };
+    seg.appendChild(b); });
+  document.getElementById('snd').onchange = function (e) { O.sound = e.target.checked; };
+  document.getElementById('rows').innerHTML = ROWS.map(function (r) {
+    return '<section class="cl-row" data-row="' + r[0] + '"><div class="cl-row-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="cl-tag">On the case screen</span>' : '') + '<p>' + r[2] + '</p></div>' +
+      '<div class="cl-box"><div class="v4o-reelhost" data-v="' + r[0] + '"></div><div class="cl-under"><button type="button" class="v4-btn v4-btn--m" data-go>Open</button><span data-out>Not opened yet.</span></div></div></section>';
+  }).join('');
+  function results() {
+    var v = pick.value, out = [];
+    for (var i = 0; i < count; i++) out.push(v === '' ? O.roll(O.items, 1)[0] : O.dress(all[+v]));
+    return out;
+  }
+  function run(sec) {
+    var host = sec.querySelector('.v4o-reelhost'), btn = sec.querySelector('[data-go]'), out = sec.querySelector('[data-out]');
+    if (btn.disabled) return;
+    btn.disabled = true; out.textContent = 'Opening, the result was fixed before it started.';
+    var rs = results(), items = rs.some(function (x) { return x.r === 'r1'; }) ? all : O.items;
+    O.open(host, { count: count, results: rs, items: items, bend: host.getAttribute('data-v') === 'b' }).then(function (got) {
+      btn.disabled = false; btn.textContent = 'Open again';
+      out.innerHTML = got.map(function (x) { return '<b>' + x.w + ' ' + x.s + '</b> ' + x.ch + ' %'; }).join(' · ');
+    });
+  }
+  document.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) run(b.closest('.cl-row')); });
+  document.getElementById('all').onclick = function () { Array.prototype.forEach.call(document.querySelectorAll('.cl-row'), run); };
+  // a still reel to look at before anything is opened
+  Array.prototype.forEach.call(document.querySelectorAll('.v4o-reelhost'), function (h) {
+    var l = document.createElement('div'); h.classList.add('v4o-open'); h.appendChild(l);
+    O.lane(l, { result: O.dress(O.items[2]), axis: 'x', bend: h.getAttribute('data-v') === 'b', duration: 1, items: O.items }).then(function () {
+      l.removeAttribute('data-phase'); l.style.setProperty('--v4o-charge', 0); l.querySelector('.is-won').classList.remove('is-won'); });
+  });
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

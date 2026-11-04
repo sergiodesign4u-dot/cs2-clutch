@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What came out</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="rare.css">
+  <link rel="stylesheet" href="case-page.css">
+  <link rel="stylesheet" href="case-win.css">
+  <link rel="stylesheet" href="case-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A part of v4's case screen, D-209: the outcome, node 3.6, three ways, on case-win.js, the renderer case.html uses. Row A is on the page. -->
+<main class="cl">
+  <h1>What came out</h1>
+  <p>The second after the reel stops, node 3.6. Every row shows the same things the grey outcome does, in the same order: the item's own published chance above it, the item, its wear and tier, its value. They differ in how the item arrives and how much of the stage it takes, and every row lets the tier decide that: a Mil-Spec arrives quietly, a Covert takes the stage, a knife takes the screen. Pick an item, or a tier at random, and replay. Row A is on <a href="case.html">the case screen</a>; <a href="case.html?win=b">B</a> and <a href="case.html?win=c">C</a> open there too.</p>
+  <div class="cl-ctl">
+    <label>Item <select id="pick"></select></label>
+    <label>Items <span class="cl-seg" id="count"></span></label>
+    <button type="button" class="v4-btn v4-btn--m" id="again">Replay</button>
+  </div>
+  <div id="rows"></div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+</script>
+<script src="rare-fx.js"></script>
+<script src="case-open.js"></script>
+<script src="case-win.js"></script>
+<script>
+(function () {
+  var O = window.V4Open;
+  var ROWS = [
+    ['a', 'A. On the stage', 'The item rises onto the stage where the case stood, on a hexagon in its tier\'s colour, with turning rays behind it and one ring of light going out. The same weight for every tier except the colour.', true],
+    ['b', 'B. The card that turns', 'The item arrives face down as a card in the case\'s colours and turns over; several turn one after another, left to right. From Classified up a band of light runs across its face, the foil of a rare card. Familiar from card games, and it gives a second of suspense that is honest: the result is already on the other side.'],
+    ['c', 'C. The takeover', 'The stage floods with the tier\'s colour from the middle, the chance it had written huge behind it, and the item arrives from deep in the frame. The flood reaches further the higher the tier; Covert and above add the live drops\' own effect behind the item and shake the stage once. The loudest, and the one that most makes a knife feel like a knife.']
+  ];
+  var all = O.items.concat([O.knife]);
+  var pick = document.getElementById('pick');
+  pick.innerHTML = '<option value="k">★ Karambit Tiger Tooth · Extraordinary (demo)</option>' + all.slice(0, -1).map(function (x, i) { return '<option value="' + i + '">' + x.w + ' ' + x.s + ' · ' + x.tier + '</option>'; }).join('') + '<option value="">By the odds</option>';
+  var count = 1, seg = document.getElementById('count');
+  [1, 2, 3, 5].forEach(function (n) { var b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.setAttribute('aria-pressed', String(n === 1));
+    b.onclick = function () { count = n; Array.prototype.forEach.call(seg.children, function (c) { c.setAttribute('aria-pressed', String(+c.textContent === n)); }); play(); };
+    seg.appendChild(b); });
+  document.getElementById('rows').innerHTML = ROWS.map(function (r) {
+    return '<section class="cl-row"><div class="cl-row-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="cl-tag">On the case screen</span>' : '') + '<p>' + r[2] + '</p></div>' +
+      '<div class="v4c-top"><section class="v4c-stage"><div class="v4c-frame" data-phase="won" data-count="1" style="height:420px"><div class="v4c-scene"><span class="v4c-rays"></span><span class="v4c-floor"></span><span class="v4c-dust"></span></div>' +
+      '<div class="v4c-win" data-v="' + r[0] + '"></div></div></section></div></section>';
+  }).join('');
+  function results() {
+    var out = [];
+    for (var i = 0; i < count; i++) {
+      var v = pick.value;
+      out.push(v === '' ? O.roll(O.items, 1)[0] : v === 'k' ? (i === 0 ? O.dress(O.knife) : O.roll(O.items, 1)[0]) : (i === 0 ? O.dress(all[+v]) : O.roll(O.items, 1)[0]));
+    }
+    return out;
+  }
+  function play() {
+    var rs = results();
+    Array.prototype.forEach.call(document.querySelectorAll('.v4c-win'), function (w) {
+      var f = w.closest('.v4c-frame'); f.setAttribute('data-count', rs.length);
+      window.V4Win.render(w, rs, {});
+    });
+  }
+  pick.onchange = play;
+  document.getElementById('again').onclick = play;
+  play();
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

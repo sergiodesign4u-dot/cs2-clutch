@@ -132,23 +132,8 @@
   function outcome(rs) {
     busy = false; host.classList.remove('is-opening'); host.classList.add('is-done');
     frame.setAttribute('data-phase', 'won');
-    var best = rs.slice().sort(function (a, b) { return O.rank[b.r] - O.rank[a.r] || b.v - a.v; })[0];
-    win.setAttribute('data-tier', best.r); win.setAttribute('data-count', rs.length);
-    win.innerHTML = '<div class="v4c-win-fx"><span class="v4c-burst"></span><span class="v4c-ring"></span></div>';
-    var row = el('div', 'v4c-won-row');
-    rs.forEach(function (x, i) {
-      var c = el('div', 'v4c-won ' + x.r);
-      c.style.setProperty('--i', i);
-      c.innerHTML = '<span class="v4c-won-odds"><b>' + x.ch.toFixed(3) + ' %</b> chance on this case</span>' +
-        '<span class="v4c-won-art"><span class="v4c-won-hex"></span><img src="' + x.art + '" alt=""></span>' +
-        '<span class="v4c-won-name"><span class="v4c-won-w">' + esc(x.w) + '</span><b>' + esc(x.s) + '</b><span class="v4c-won-ax">' + esc(x.wear.split(' · ')[0]) + ' · ' + x.tier + '</span></span>' +
-        '<span class="v4c-won-v">' + coins(x.v) + '</span>' +
-        (rs.length > 1 ? '<button type="button" class="v4c-sell1 v4-btn v4-btn--s v4-btn--ghost" aria-label="Sell ' + esc(x.w + ' ' + x.s) + ' for ' + x.v.toFixed(2) + ' coins">Sell</button>' : '');
-      row.appendChild(c);
-    });
-    win.appendChild(row);
+    window.V4Win.render(win, rs, { sell: true });
     live.textContent = rs.map(function (x) { return x.w + ' ' + x.s + ', ' + x.v.toFixed(2) + ' coins'; }).join('; ') + '.';
-    requestAnimationFrame(function () { requestAnimationFrame(function () { win.classList.add('is-on'); }); });
 
     var sum = rs.reduce(function (a, x) { return a + x.v; }, 0), n = rs.length;
     var acts = '<div class="v4c-acts">' +
