@@ -138,6 +138,9 @@
       var l = el('div'); host.appendChild(l);
       lanes.push(lane(l, { items: opts.items, result: results[i], axis: n > 1 ? 'y' : 'x', duration: (opts.duration || 5000) + i * 600, bend: opts.bend, onFrame: i === 0 ? opts.onFrame : null }));
     }
+    // two to five lanes share one pointer line across all of them, case.md 7.2b: "one pointer line across all of the reels instead of five markers"
+    if (n > 1) { var ma = el('span', 'v4o-mark-all'), f = host.firstChild, z = host.children[n - 1];
+      ma.style.left = (f.offsetLeft - 8) + 'px'; ma.style.right = (host.clientWidth - z.offsetLeft - z.offsetWidth - 8) + 'px'; host.appendChild(ma); }
     return Promise.all(lanes);
   }
 

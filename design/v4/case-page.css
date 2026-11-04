@@ -289,3 +289,11 @@ html body .v4c-go[hidden] { display: none; }
   .v4c-after { margin-top: 2px; }
   html body .v4c-acts .v4-btn { white-space: normal; line-height: 1.2; padding-block: 8px; text-align: center; }
 }
+
+/* a batch's round details, 3.3-37 to 3.3-40, and a sale's question */
+.v4c-rounds { max-width: 760px; color: var(--color-text-soft); font-size: 13px; text-align: left; }
+.v4c-rounds summary { cursor: pointer; color: var(--color-text-hi); font-weight: 700; text-align: center; }
+.v4c-rounds p { margin: 8px 0 4px; } .v4c-rounds ol { margin: 0; padding-left: 20px; } .v4c-rounds li { margin: 3px 0; }
+.v4c-rounds b { color: var(--color-text-hi); } .v4c-rounds a { color: var(--color-text-hi); }
+html body .v4-btn.is-ask { background: var(--btn-stripes), #8A1240; box-shadow: inset 0 0 0 2px #FF6FA8; }
+.v4c-sell1 { white-space: normal; line-height: 1.15; text-align: center; }

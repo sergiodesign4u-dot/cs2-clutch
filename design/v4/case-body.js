@@ -68,7 +68,7 @@
       order.forEach(function (r, i) { r.tr.style.order = k === 'tier' ? '' : i; });
     });
   }
-  var PRICE = 12.40;
+  var PRICE = (window.V4Case || {}).price; // declared once, in case-page.js
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', dress); else dress();
   window.addEventListener('load', dress);
 })();

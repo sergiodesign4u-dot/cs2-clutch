@@ -8,7 +8,9 @@
   var Q = new URLSearchParams(location.search);
   var V = { stage: Q.get('stage') || 'a', reel: Q.get('reel') || 'a', win: Q.get('win') || 'a', commit: Q.get('commit') || 'a' };
   var guest = Q.has('guest');
+  // the entry cost, declared once here and read by case-body.js through window.V4Case.price
   var PRICE = 12.40, RTP = '94.2 %', EV = '11.68';
+  window.V4Case = { price: PRICE };
   // ?embed: the page drawn inside a lab, without the project's sidebar
   if (Q.has('embed')) { var st = document.createElement('style'); st.textContent = '#sidebar,.nav-grip,.nav-toggle,.nav-scrim{display:none!important}:root{--nav-w:0px!important}'; document.head.appendChild(st); }
   var top = document.querySelector('.wf-top');
@@ -156,16 +158,26 @@
     window.V4Win.render(win, rs, { sell: true, price: PRICE });
     live.textContent = rs.map(function (x) { return x.w + ' ' + x.s + ', ' + x.v.toFixed(2) + ' coins'; }).join('; ') + '.';
 
-    var sum = rs.reduce(function (a, x) { return a + x.v; }, 0), n = rs.length;
-    // a copy on sale is a sample at 8 % over our value, the rule wireframes/_nav.js steamTop() uses, D-124; the gap is what sending costs
-    var steamGap = Math.round(sum * 0.08 * 100) / 100;
+    var n = rs.length, sold = [];
+    // a copy on sale is a sample, D-124, drawn between 10 % under and 15 % over our value so both directions of the settlement show,
+    // case.md section 8.1b: "the direction goes both ways and this surface must print both"
+    rs.forEach(function (x) { if (x.copy == null) x.copy = Math.round(x.v * (0.9 + Math.random() * 0.25) * 100) / 100; });
+    function signed(v) { return (v >= 0 ? '+' : '−') + coins(Math.abs(v)); }
+    function left() { return rs.filter(function (x, i) { return !sold[i]; }); }
+    function gap(list) { return Math.round(list.reduce(function (a, x) { return a + x.v - x.copy; }, 0) * 100) / 100; }
+    function worth(list) { return list.reduce(function (a, x) { return a + x.v; }, 0); }
     var acts = '<div class="v4c-acts">' +
       (balance >= PRICE * n ? '<button type="button" class="v4c-again v4-btn v4-btn--l">' + (n > 1 ? 'Open ' + n + ' again for ' : 'Open again for ') + coins(PRICE * n) + '</button>'
         : '<a class="v4c-again v4-btn v4-btn--l" href="../../wireframes/deposit.html">Add funds to open ' + (n > 1 ? n + ' ' : '') + 'again for ' + coins(PRICE * n) + '</a>') +
-      '<button type="button" class="v4c-sell v4-btn v4-btn--l">' + (n > 1 ? 'Sell all ' + n + ' for ' : 'Sell for ') + coins(sum) + '</button>' +
-      '<a class="v4c-steam v4-btn v4-btn--l v4-btn--ghost" href="../../wireframes/withdraw.html">' + (n > 1 ? 'Send ' + n + ' to Steam, ' : 'Send to Steam, ') + '−' + coins(steamGap) + '</a></div>';
+      '<button type="button" class="v4c-sell v4-btn v4-btn--l"></button>' +
+      '<a class="v4c-steam v4-btn v4-btn--l v4-btn--ghost" href="../../wireframes/withdraw.html"></a></div>';
     var inst = n === 1 ? '<p class="v4c-inst">As of ' + now() + ' · Float <b>' + rs[0].float + '</b> · Pattern <b>' + rs[0].pattern + '</b> · <a href="steam://rungame/730">Inspect in game</a></p>' +
-      '<p class="v4c-inst">Value <b>' + rs[0].v.toFixed(2) + '</b> coins · a copy on sale <b>' + (rs[0].v * 1.08).toFixed(2) + '</b> coins, read ' + now() + '</p>' : '';
+      '<p class="v4c-inst">Value <b>' + rs[0].v.toFixed(2) + '</b> coins · a copy on sale <b>' + rs[0].copy.toFixed(2) + '</b> coins, read ' + now() + '</p>'
+      // a batch: what sending each one settles, 3.3-45, and every round's own receipt and proof route, case.md 8 block 7, 3.3-37 to 3.3-40
+      : '<p class="v4c-inst">Sending to Steam: ' + rs.map(function (x) { return x.w + ' ' + signed(x.v - x.copy); }).join(', ') + ' on your balance.</p>' +
+        '<details class="v4c-rounds"><summary>Round details, ' + n + ' rounds</summary><p>Every round, in the order of the row above, which is the order of the reels.</p><ol>' +
+        rs.map(function (x) { return '<li>' + esc(x.w + ' ' + x.s) + ' · Float <b>' + x.float + '</b> · Pattern <b>' + x.pattern + '</b> · <a href="../../wireframes/fair-prefilled.html">Check this round</a> · <a href="steam://rungame/730">Inspect in game</a></li>'; }).join('') +
+        '</ol></details>';
     after.innerHTML = inst + acts +
       '<p class="v4c-saved">' + (n > 1 ? 'All ' + n + ' saved' : 'Saved') + ' to <a href="../../wireframes/account.html">My items</a>. <strong>Selling cannot be undone.</strong></p>' +
       '<p class="v4c-links"><a href="../../wireframes/fair-prefilled.html">' + (n > 1 ? 'Check each of the ' + n + ' rounds' : 'Check this round') + '</a>' +
@@ -173,16 +185,35 @@
     after.hidden = false; commit.hidden = true;
     var again = after.querySelector('button.v4c-again');
     if (again) again.addEventListener('click', function () { reset(); act.click(); });
-    var sell = after.querySelector('.v4c-sell'), ones = win.querySelectorAll('.v4c-sell1'), sold = [];
+    var sell = after.querySelector('.v4c-sell'), steam = after.querySelector('.v4c-steam'), ones = win.querySelectorAll('.v4c-sell1');
+    // the batch controls follow what is left, case.md section 12, "on a batch the batch control follows what is left"
+    function drawBatch() {
+      var l = left();
+      if (!l.length) { sell.disabled = true; steam.classList.add('is-gone'); return; }
+      if (!sell.classList.contains('is-ask')) sell.innerHTML = (n > 1 ? 'Sell all ' + l.length + ' for ' : 'Sell for ') + coins(worth(l));
+      steam.innerHTML = (n > 1 ? 'Send ' + l.length + ' to Steam, ' : 'Send to Steam, ') + signed(gap(l));
+    }
+    function sellOne(i, b) {
+      sold[i] = true; setBalance(balance + rs[i].v);
+      if (b) { b.disabled = true; b.classList.remove('is-ask'); b.innerHTML = 'Sold<span class="v4c-sell1-v">, +' + coins(rs[i].v) + '</span>'; }
+    }
+    // every sale asks first: the first press turns the control into its question and it lapses back after five seconds, case.md section 12
+    function ask(b, label, go) {
+      if (b.classList.contains('is-ask')) { clearTimeout(b._t); b.classList.remove('is-ask'); go(); return; }
+      b.classList.add('is-ask'); b.innerHTML = label;
+      b._t = setTimeout(function () { b.classList.remove('is-ask'); drawBatch(); Array.prototype.forEach.call(ones, function (o, i) { if (!sold[i] && !o.classList.contains('is-ask')) o.innerHTML = 'Sell<span class="v4c-sell1-v"> for ' + coins(rs[i].v) + '</span>'; }); }, 5000);
+    }
     sell.addEventListener('click', function () {
-      var back = 0; rs.forEach(function (x, i) { if (!sold[i]) { back += x.v; sold[i] = true; } });
-      setBalance(balance + back); sell.disabled = true; sell.innerHTML = 'Sold, +' + coins(sum); // R35's words, wireframes/_nav.js
-      after.querySelector('.v4c-steam').classList.add('is-gone');
-      Array.prototype.forEach.call(ones, function (b, i) { b.disabled = true; b.innerHTML = 'Sold<span class="v4c-sell1-v">, +' + coins(rs[i].v) + '</span>'; });
+      var l = left(); if (!l.length) return;
+      ask(sell, 'Press again to sell for ' + coins(worth(l)), function () {
+        var back = worth(l); rs.forEach(function (x, i) { if (!sold[i]) sellOne(i, ones[i]); });
+        sell.disabled = true; sell.innerHTML = 'Sold, +' + coins(back); steam.classList.add('is-gone');
+      });
     });
     Array.prototype.forEach.call(ones, function (b, i) {
-      b.addEventListener('click', function () { if (sold[i]) return; sold[i] = true; setBalance(balance + rs[i].v); b.disabled = true; b.innerHTML = 'Sold<span class="v4c-sell1-v">, +' + coins(rs[i].v) + '</span>'; });
+      b.addEventListener('click', function () { if (sold[i]) return; ask(b, 'Press again to sell<span class="v4c-sell1-v"> for ' + coins(rs[i].v) + '</span>', function () { sellOne(i, b); drawBatch(); }); });
     });
+    drawBatch();
   }
   function reset() {
     commit.hidden = false; after.hidden = true; win.classList.remove('is-on'); win.innerHTML = '';
@@ -192,5 +223,5 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && host.classList.contains('is-done')) reset(); });
 
   setCount(1);
-  window.V4Case = { reset: reset, set: setCount, variant: V };
+  window.V4Case = { reset: reset, set: setCount, variant: V, price: PRICE };
 })();
