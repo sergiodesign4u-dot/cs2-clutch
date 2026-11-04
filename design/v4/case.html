@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ironbound: drop chances, values and tested RTP</title>
+  <meta name="description" content="Every item in Ironbound with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this price.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="rare.css">
+  <link rel="stylesheet" href="rail-icons.css">
+  <link rel="stylesheet" href="trust-badge.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="rail-b1.css">
+  <link rel="stylesheet" href="heading-home.css">
+  <link rel="stylesheet" href="footer-home.css">
+  <link rel="stylesheet" href="signin-home.css">
+  <link rel="stylesheet" href="account-home.css">
+  <link rel="stylesheet" href="case-open.css">
+  <link rel="stylesheet" href="case-page.css">
+  <link rel="stylesheet" href="../../_nav.css">
+</head>
+<body>
+
+<!-- design/v4/case.html, the case screen in v4, node 3.3 with its three phases on one page: choosing, the open, the outcome.
+     Founder of 4 Nov 2026: "сделал такой как хоум только кейс детайлс с открітием кейсов /wireframes/case.html и по такому же прициу
+     сделал подпункти с различніми частями єтой страници типа блоками". Structure, text and states are the grey screens' (case-account.html,
+     case-open.html, case-outcome.html); this page owns the visual layer and plays the open in place rather than routing to another page,
+     as section 0 of case.md asks: the phases are states of one page. -->
+<aside id="sidebar"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- BLOCK 1. Breadcrumb and H1. 3.3 section 1: the H1 IS THE CASE NAME and nothing
+         else, 0.13 section 5, because that is what the person came for and what the
+         query matches. Bank T2 LEAVE on Hellcase's buried H1. The breadcrumb is real
+         markup rather than a decorative string: 0.13 section 6 marks it up. -->
+    <nav class="wf-crumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../../wireframes/index.html"><span data-str="home">Home</span></a></li>
+        <li><a href="../../wireframes/catalogue.html"><span data-str="cases">Cases</span></a></li>
+        <li><span aria-current="page">Ironbound</span></li>
+      </ol>
+    </nav>
+    <p class="wf-case-how"><a href="#h2-how"><span data-str="howItWorks">How it works</span></a></p>
+
+    <!-- BLOCKS 2 AND 3, drawn as one centred stage after the founder put two live case
+         screens beside this one on 19 August 2026.
+         THE STAGE IN PHASE 1 IS THE REVEAL'S STAGE IN PHASE 2, and that is structural
+         rather than visual. Section 0: the phases are states of one page and the person
+         never navigates during the main job. A frame that holds the artwork while the
+         choice is made, and the reveal once it is made, is what makes that true in the
+         layout rather than only in the routing: nothing is unmounted, one region changes
+         what it holds. Artwork in one column with the trigger in another would make
+         phase 2 build a stage phase 1 never showed, so the page would rearrange itself
+         at the exact moment the person has just spent.
+         Section 14 allows either placement, "the commit block MAY sit beside the case
+         artwork rather than under it". Centred is taken: the trigger belongs directly
+         under the thing it acts on, and the reveal replaces the thing, not the trigger.
+         WHAT THE TWO CAPTURES CARRY THAT THIS DOES NOT, each refused in section 16 with
+         its reason: the multi-open selector, 1 to 5 on one and x1 to x30 on the other,
+         AUTO, FAST OPEN, ADD TO BATTLE, the like count, and the risk band drawn as
+         skulls or bars. The flanks they occupy are inherited and filled with live items:
+         the risk band as a word on one, the favourite on the other. -->
+    <div class="wf-top">
+
+    <section class="wf-case" aria-labelledby="h1">
+      <div class="wf-case-head">
+        <!-- Left flank. D-24 made the band computable from this screen's own drop table
+             and 0.11 owns the method. Neither the thresholds nor the method is set, so
+             the band draws a sample word, D-125, as every tile does. The
+             figure it is derived from is printed below, beside D4, which is where the
+             node puts it. NEVER SKULLS AND NEVER BARS: 0.11 rule 8, a figure in an icon
+             is not text, and 0.7 rule 5.5, the tier has a name and the name is in the
+             markup. -->
+        <div class="wf-flank wf-risk">
+          <span class="wf-risk-l" data-str="riskBand">Risk</span>
+          <span>Medium</span>
+        </div>
+        <div class="wf-case-say">
+          <h1 id="h1">Ironbound</h1>
+          <!-- Block 2 asks for the item count and "the one line that says what kind of
+               case this is", and that is all this line is. It ran three lines at 360 and
+               pushed the entry cost off the first screen, which section 14 forbids; what
+               it was saying beyond the count is already the drop table's own section
+               head, two blocks down, where it is read beside the numbers it describes. -->
+          <p class="wf-case-line"><span data-str="nineItems">Nine items, one open.</span></p>
+        </div>
+        <!-- Right flank. The favourite, 0.7 field 7, in MVP by founder decision D-24
+             with NO PARENT IN THE THREE LEGAL CLASSES, carried with that cell printed.
+             It is not the like count section 16 refuses: a favourite is the person's own
+             press on their own shelf and claims nothing beyond itself, while a like
+             count is a popularity figure printed beside a spend trigger. -->
+        <button class="wf-flank wf-fav-case" type="button" aria-pressed="false" aria-label="Favorite this case">
+          <span class="wf-fav-i" aria-hidden="true"></span><span data-str="favourite">Favorite</span>
+        </button>
+      </div>
+
+      <!-- THE STAGE. It is the reveal lane at rest, with the case artwork large on it.
+           In phase 2 the lane is the thing that MOVES, so phase 1 and phase 2 are one
+           region holding one object in two states rather than two layouts trading places.
+           THE LANE PRINTS NO FIGURES AT ALL, and that is the correction of D-31 rather
+           than the first draft. It was first drawn as nine tiles carrying a value and a
+           chance each, on the reasoning that a strip of values alone is the shop window.
+           The founder read it as too much information on the stage and the reading is
+           right: the rule against a value with no chance beside it binds any surface that
+           PRINTS a value, and the honest way to satisfy it here is to print no value, not
+           to print two. Every figure about this case is one block down, beside the ticket
+           range and the market link that make it checkable.
+           NO POINTER. All three competitor captures draw a marker over the centre of the
+           lane. Before a roll exists, a marker over a slot points at a result that has not
+           been decided, which is E2's objection arriving one phase early. -->
+      <div class="wf-stage-frame">
+        <!-- TWO OBJECTS, AND UNTIL D-47 THEY WERE ONE.
+             THE BOXES ARE THE REVEAL, one per chosen roll, and they multiply with the
+             count. Each is where one roll's artwork lands. They print nothing, because a
+             track is not a listing, and there is NO POINTER on any of them: a marker
+             before a roll exists points at a result nobody has decided, which is E2's
+             objection arriving one phase early.
+             THE SHOWCASE IS ONE HORIZONTAL STRIP AND IT NEVER MULTIPLIES. It is what is
+             in this case, and what is in the case does not change because a person asked
+             for two of them. D-46 had made it multiply too, on the reasoning that the
+             stage is the reveal lane standing still; the founder split the two and the
+             split dissolves the conflict the 19 August cut was about.
+             BECAUSE IT IS A LISTING IT PRINTS THE CHANCE BESIDE THE VALUE, D2. That is
+             the exact rule the cut was enforcing: "the rule against a value with no
+             chance beside it binds any surface that PRINTS a value". It removed the
+             figures because the strip was then the reveal's track. It is not any more.
+             ARTWORK, NAME, VALUE, CHANCE AND NOTHING ELSE. The ticket range, the free
+             unit count, the wear axes and the market link stay in block 5, which is the
+             surface that makes those figures checkable, and this strip routes to it. -->
+        <div class="wf-boxes wf-boxes--1">
+          <div class="wf-case-art" aria-hidden="true"></div>
+        </div>
+        <div class="wf-show">
+          <ul class="wf-show-run" aria-hidden="true">
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">AK-47 Redline</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">AWP Asiimov</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">M4A1-S Hyper Beast</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Desert Eagle Blaze</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">USP-S Kill Confirmed</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Glock-18 Water Elemental</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">MP9 Rose Iron</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">P250 Asiimov</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Nova Koi</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">AK-47 Redline</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">AWP Asiimov</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">M4A1-S Hyper Beast</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Desert Eagle Blaze</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">USP-S Kill Confirmed</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Glock-18 Water Elemental</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">MP9 Rose Iron</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">P250 Asiimov</span>
+              
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Nova Koi</span>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE COMMIT BLOCK, and D-31 cut it to the act and the cost of the act.
+         D-30 had moved the tested RTP and the expected value onto it a few hours
+         earlier, reasoning that design principle 3 asks for odds, cost and expected value
+         WHERE MONEY IS ABOUT TO BE SPENT. The founder read the result and the reading is
+         the correction: three figures, two explanatory paragraphs and a trigger in one box
+         is not a place where money is about to be spent, it is a page arguing. The two
+         figures went back to the block that carries their derivation, their as-of, their
+         route and the named hole beside them, and this block keeps a route to it.
+         WHAT STAYS, AND NONE OF IT IS NEGOTIABLE. The switch, because it is now part of
+         the act. THE TOTAL COST ON THE TRIGGER, the one figure design principle 3 actually
+         protects and the one thing that may never be dropped for height. The peg, 0.11
+         rule 10, wherever money is spent. The state, because a person who is not signed in
+         learns it here rather than after tapping.
+         THE COUNT SWITCH IS FOUNDER DECISION D-31 AND IT REVERSES A REFUSAL THIS NODE
+         MADE TWICE. Section 16 had said "if multi-open ever ships it ships behind C2", and
+         C2, the spend ceiling chosen at deposit, does not exist yet: that condition is now
+         a printed cost rather than a satisfied one. What the design owes in exchange:
+         THE TRIGGER CARRIES THE TOTAL AND NEVER THE UNIT, so the multiplier cannot hide
+         the amount; the switch defaults to one on every visit and remembers nothing,
+         because a remembered five is a multiplier that spends without being chosen again;
+         and there is one deliberate act per open request. x10, x20 and x30 stay refused,
+         and AUTO stays refused for the sharper reason: it removes the act entirely. -->
+    <!-- THE COMMIT BLOCK ON THE SIGNED-IN STATE. Three things differ from the guest
+         page and every one of them is D-32: the lane above renders, the trigger names the
+         act that is now available, and the balance relationship is stated rather than
+         implied, which section 1 block 3 has asked for since the node was written.
+         THE TRIGGER CARRIES THE TOTAL AND NEVER THE UNIT. At five it reads the five-case
+         price, so the multiplier cannot hide the amount. -->
+    <section class="wf-commit wf-commit--bare" aria-label="Open this case">
+      <!-- NO COST FIGURE ABOVE THE TRIGGER ON THIS STATE, D-33. The trigger carries the
+           total, so at the default count the figure printed the same number twice, and a
+           number printed twice is not twice as clear. THE COUNT SWITCH TAKES ITS PLACE IN
+           THE ROW, which is also where it belongs: it is the thing that changes the number
+           on the button, and the two now sit within one glance of each other. -->
+      <div class="wf-commit-act">
+        <!-- ONE, TWO AND FIVE ARE WALKABLE, THREE AND FOUR ARE NOT, and that is a
+             prototype fact rather than a product one. Two is the shape and five is the
+             load, the same pair D-35 drew for the reveal and the outcome, so drawing
+             three and four would be two more pages saying what these two already say. -->
+        <div class="wf-count" role="group" aria-label="Cases to open">
+          <span class="wf-count-l">Cases to open</span>
+          <a class="wf-count-b" href="../../wireframes/case-account.html" aria-current="true">1</a>
+          <a class="wf-count-b" href="../../wireframes/case-account-2.html">2</a>
+          <a class="wf-count-b" href="../../wireframes/case-account-5.html?n=3">3</a>
+          <a class="wf-count-b" href="../../wireframes/case-account-5.html?n=4">4</a>
+          <a class="wf-count-b" href="../../wireframes/case-account-5.html">5</a>
+        </div>
+        <a class="wf-btn wf-btn--primary" href="../../wireframes/case-open.html">Open for 12.40 coins</a>
+      </div>
+      <!-- THE UNIT PRICE MOVES INTO THE CAPTION and prints at every count rather than only
+           above one. With the figure gone the trigger is the only place the money is and
+           the trigger carries the total; a total with no unit beside it is a cost a person
+           cannot check against the drop table. D-31 still holds: the trigger never carries
+           the unit, so the unit had to land somewhere that survives the switch. -->
+      <p class="wf-fig-c">After this open, 61.80 coins &#183; <span data-str="peg">1 coin = $1.00</span> · <a href="#h2-pays"><span data-str="rtpEv">RTP 94.2 %, expected value 11.68 coins</span></a></p>
+    </section>
+
+    </div>
+
+    <!-- BLOCKS 4 TO 10, D-125: rendered once by caseBody() in _nav.js on every
+         case page. The order, the states and the reasons are in that function and
+         in ia/docs/pages/case.md. -->
+    <div data-case-body=""></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '../../wireframes/';
+window.WF_IA_BASE = '../../ia/';
+window.WF_SHELL = { account: !/[?&]guest\b/.test(location.search), active: 'case-account.html' }; /* case.html?guest is the signed-out screen */
+</script>
+<script>
+window.NAV_BASE = '../../';
+</script>
+<script src="rare-fx.js"></script>
+<script src="rare.js"></script>
+<script src="rail-icons.js"></script>
+<script src="trust-badge.js"></script>
+<script src="rail-b1.js"></script>
+<script src="footer-home.js"></script>
+<script src="signin-home.js"></script>
+<script src="account-home.js"></script>
+<script src="idle.js"></script>
+<script src="../../wireframes/_nav.js"></script>
+<script src="../_design.js"></script>
+<script src="case-open.js"></script>
+<script src="case-page.js"></script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

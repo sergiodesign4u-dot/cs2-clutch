@@ -1,0 +1,69 @@
+/* design/v4/case-open.css, the look of the open, case-open.js, D-209. The base is the strip: the live drops' card grown to the stage, a
+   marker in the brand pink that takes the colour of what is landing as the reel slows. Skins for the lab's other rows are at the end. */
+
+.v4o-lane[data-tier="r1"], .v4o-card.r1 { --r: var(--color-rarity-1); }
+.v4o-lane[data-tier="r2"], .v4o-card.r2 { --r: var(--color-rarity-2); }
+.v4o-lane[data-tier="r3"], .v4o-card.r3 { --r: var(--color-rarity-3); }
+.v4o-lane[data-tier="r4"], .v4o-card.r4 { --r: #8F63E6; } /* rarity step 4 lifted a step: #6B42B9 reads as navy on the reel's ground */
+.v4o-lane[data-tier="r5"], .v4o-card.r5 { --r: #4F6BFF; } /* rarity step 5 lifted a step, the same reason */
+.v4o-lane[data-tier="r6"], .v4o-card.r6 { --r: var(--color-rarity-6); }
+.v4o-lane[data-tier="r7"], .v4o-card.r7 { --r: var(--color-rarity-7); }
+
+.v4o-open { --v4o-card-w: 156px; --v4o-card-h: 168px; --v4o-gap: 8px; display: flex; gap: 10px; justify-content: center; width: 100%; }
+.v4o-lane { --v4o-charge: 0; --v4o-speed: 0; --hot: color-mix(in srgb, var(--r) calc(var(--v4o-charge) * 100%), #FB3F8A);
+  position: relative; overflow: hidden; flex: 1 1 0; min-width: 0; border-radius: 16px; isolation: isolate;
+  background: radial-gradient(60% 90% at 50% 50%, color-mix(in srgb, var(--r) calc(var(--v4o-charge) * 30%), transparent), transparent 70%),
+    linear-gradient(180deg, #12113A, #0A0926);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hot) calc(20% + var(--v4o-charge) * 50%), transparent), 0 0 calc(var(--v4o-charge) * 40px) color-mix(in srgb, var(--r) 55%, transparent); }
+.v4o-x { height: calc(var(--v4o-card-h) + 36px); }
+.v4o-y { height: 440px; max-width: 200px; }
+.v4o-track { position: absolute; display: flex; gap: var(--v4o-gap); will-change: transform; }
+.v4o-x .v4o-track { top: 18px; left: 0; flex-direction: row; }
+.v4o-y .v4o-track { left: 12px; right: 12px; top: 0; flex-direction: column; }
+
+/* the card: the drop strip's plate, grown */
+.v4o-card { position: relative; flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; border-radius: 12px; overflow: hidden;
+  width: var(--v4o-card-w); height: var(--v4o-card-h); padding: 0 8px 12px; box-sizing: border-box; text-align: center;
+  background: radial-gradient(70% 46% at 50% 100%, color-mix(in srgb, var(--r) 40%, transparent), transparent), linear-gradient(to bottom, #1B1A48, #100F2E);
+  box-shadow: inset 0 -2px 0 var(--r), inset 0 0 0 1px rgba(255, 255, 255, .06); }
+.v4o-y .v4o-card { width: auto; height: 132px; }
+.v4o-plate { position: absolute; left: 50%; top: 12px; width: 104px; height: 90px; margin-left: -52px; opacity: .55;
+  background: linear-gradient(135deg, transparent 20%, color-mix(in srgb, var(--r) 80%, transparent)); -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; }
+.v4o-y .v4o-plate { top: 8px; width: 84px; height: 72px; margin-left: -42px; }
+.v4o-img { position: absolute; left: 50%; top: 14px; width: 132px; height: 92px; margin-left: -66px; object-fit: contain; filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .6)); }
+.v4o-y .v4o-img { top: 8px; width: 112px; height: 76px; margin-left: -56px; }
+.v4o-name { position: relative; display: flex; flex-direction: column; gap: 1px; line-height: 1.15; }
+.v4o-name b { font-size: 13px; font-weight: 700; color: var(--color-text-hi); }
+.v4o-name span { font-size: 12px; color: var(--color-text-soft); }
+.v4o-y .v4o-name b { font-size: 12px; } .v4o-y .v4o-name span { font-size: 11px; }
+
+/* the marker: a line through the middle with a notch at each end, pink while it runs, the landing colour as it settles */
+.v4o-mark { position: absolute; z-index: 3; pointer-events: none; background: var(--hot); box-shadow: 0 0 10px var(--hot), 0 0 2px #fff; }
+.v4o-x .v4o-mark { top: 6px; bottom: 6px; left: 50%; width: 2px; margin-left: -1px; }
+.v4o-y .v4o-mark { left: 6px; right: 6px; top: 50%; height: 2px; margin-top: -1px; }
+.v4o-mark::before, .v4o-mark::after { content: ''; position: absolute; width: 0; height: 0; border: 8px solid transparent; }
+.v4o-x .v4o-mark::before { top: -6px; left: -7px; border-top-color: var(--hot); }
+.v4o-x .v4o-mark::after { bottom: -6px; left: -7px; border-bottom-color: var(--hot); }
+.v4o-y .v4o-mark::before { left: -6px; top: -7px; border-left-color: var(--hot); }
+.v4o-y .v4o-mark::after { right: -6px; top: -7px; border-right-color: var(--hot); }
+/* the ends fade into the frame */
+.v4o-fade { position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: inherit; }
+.v4o-x .v4o-fade { background: linear-gradient(90deg, #0B0A28, transparent 18%, transparent 82%, #0B0A28); }
+.v4o-y .v4o-fade { background: linear-gradient(180deg, #0B0A28, transparent 22%, transparent 78%, #0B0A28); }
+
+/* the card under the marker lifts a little; the one that won lifts and lights, the rest step back */
+.v4o-card { transition: transform .25s, opacity .4s, filter .4s; }
+.v4o-lane[data-phase="slow"] .v4o-card.is-at { transform: scale(1.04); }
+.v4o-lane[data-phase="land"] .v4o-card { opacity: .35; filter: saturate(.5); }
+.v4o-lane[data-phase="land"] .v4o-card.is-won { opacity: 1; filter: none; transform: scale(1.1); z-index: 1;
+  box-shadow: inset 0 -3px 0 var(--r), inset 0 0 0 1.5px var(--r), 0 0 30px color-mix(in srgb, var(--r) 60%, transparent); transition: transform .45s cubic-bezier(.3, 1.6, .5, 1), opacity .4s, box-shadow .3s; }
+
+@media (max-width: 599px) {
+  .v4o-open { --v4o-card-w: 120px; --v4o-card-h: 138px; gap: 6px; }
+  .v4o-img { width: 104px; height: 74px; margin-left: -52px; } .v4o-plate { width: 86px; height: 74px; margin-left: -43px; }
+  .v4o-y { height: 360px; } .v4o-y .v4o-track { left: 4px; right: 4px; }
+  .v4o-y .v4o-card { height: 104px; padding: 0 4px 8px; } .v4o-y .v4o-img { width: 80px; height: 56px; margin-left: -40px; }
+  .v4o-y .v4o-plate { width: 64px; height: 56px; margin-left: -32px; }
+  .v4o-y .v4o-name b { font-size: 10px; } .v4o-y .v4o-name span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .v4o-card, .v4o-lane[data-phase="land"] .v4o-card.is-won { transition: none; } }
