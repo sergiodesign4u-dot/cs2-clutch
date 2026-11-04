@@ -1087,7 +1087,7 @@ button.wf-foot-h { background: none; border-color: var(--color-blue); color: var
 
 /* --- the roadmap sidebar of the copy, until stage 07 ---------------------------------- */
 @media (min-width: 900px) { body:where(:has(> #sidebar)) .wf-screen-body { margin-left: var(--nav-w); } }
-@media (max-width: 899px) { body:where(:has(> #sidebar)) .wf-screen-body { padding-top: 62px; } }
+@media (max-width: 899px) { body:where(:has(> #sidebar)) .wf-screen-body { padding-top: 32px; } } /* the roadmap's strip, _nav.css, 4 Nov 2026 */
 
 /* ONE COLUMN OF MODES ON A PHONE, as the baseline lays them, D-192. A layout change carried
    by the copy and named: it reaches the grey screen only if the founder keeps it. */

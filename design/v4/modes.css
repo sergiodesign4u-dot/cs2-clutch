@@ -19,19 +19,25 @@
 @media (min-width: 900px) { .wf-grid.wf-modes { padding-top: 12px; } }
 .wf-grid.wf-modes { row-gap: 40px; } /* 40px from the heading to the cards, room for what breaks their top edge, about 20px */
 /* the card: comp A's about 1.75 to 1 */
-.wf-grid .wf-mode { overflow: visible; isolation: isolate; container-type: inline-size; justify-content: flex-start; gap: 0; min-height: 0; height: auto; aspect-ratio: 7 / 4; padding: 16px 16px 14px; background: linear-gradient(to top, rgba(8, 6, 30, .6), transparent 48%), var(--mode-fill); clip-path: inset(-80px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); transition: filter .35s; } /* comp A's cards darken towards the foot, the fill token stays; the clip keeps the art inside the card at its sides and foot and lets it break the top edge only */
+/* --k scales the whole art (object, burst, rim, knives) about the card's top right corner and --dx, --dy shift it, all in cqw; at 1, 0, 0
+   every value is the one measured against comp A, so the side layout is unchanged. min-height: auto lets a card that is 7 to 4 grow to its
+   own words instead of cutting its button off at the foot (founder, 4 Nov 2026: the button clipped on Showdowns at mid desktop); align-self
+   stretch keeps the cards of a row one height when one of them grows, and justify-self stretch keeps a grown card from widening
+   past its column through its ratio */
+.wf-grid .wf-mode { --k: 1; --dx: 0; --dy: 0; align-self: stretch; justify-self: stretch; overflow: visible; isolation: isolate; container-type: inline-size; justify-content: flex-start; gap: 0; min-height: auto; height: auto; aspect-ratio: 7 / 4; padding: 16px 16px 14px; background: linear-gradient(to top, rgba(8, 6, 30, .6), transparent 48%), var(--mode-fill); clip-path: inset(-80px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); transition: filter .35s; } /* comp A's cards darken towards the foot, the fill token stays; the clip keeps the art inside the card at its sides and foot and lets it break the top edge only */
 
 /* layer 1, the burst on the card's own colour, ending at the card's edge */
 .wf-grid .wf-mode::before, .wf-grid .wf-mode::after { content: ''; position: absolute; inset: 0; width: auto; height: auto; border-radius: inherit; pointer-events: none; filter: none;
-  --burst: var(--mode-burst) calc((var(--ol) - var(--ow) * (var(--bz) - 1) / 2) * 1cqw) calc((var(--ot) + var(--bdy, 0) - var(--ow) * (var(--bz) - 1) / 2) * 1cqw) / calc(var(--ow) * var(--bz) * 1cqw) auto no-repeat; background: var(--burst); }
+  --burst: var(--mode-burst) calc((100 - (100 - var(--ol)) * var(--k) + var(--dx) - var(--ow) * var(--k) * (var(--bz) - 1) / 2) * 1cqw) calc((var(--ot) * var(--k) + var(--dy) + var(--bdy, 0) - var(--ow) * var(--k) * (var(--bz) - 1) / 2) * 1cqw) / calc(var(--ow) * var(--k) * var(--bz) * 1cqw) auto no-repeat; background: var(--burst); }
 .wf-grid .wf-mode::before { z-index: 0; -webkit-mask: linear-gradient(90deg, transparent 36%, #000 58%); mask: linear-gradient(90deg, transparent 36%, #000 58%); transition: filter .35s; } /* it fades out before the words, so nothing bright stands behind them */
 /* layer 3, a thinner copy of the burst in front of the object, only at its rim, so shards fly past it; it breathes */
 .wf-grid .wf-mode::after { z-index: 1; opacity: var(--fa, .5); -webkit-mask: radial-gradient(circle at var(--mx) var(--my), transparent 22cqw, #000 30cqw, transparent 38cqw); mask: radial-gradient(circle at var(--mx) var(--my), transparent 22cqw, #000 30cqw, transparent 38cqw);
   animation: v4-burst 5s ease-in-out infinite alternate; }
 
-/* layer 2, the object, floating, free over the top edge only */
-.wf-grid .wf-mode .wf-mode-art { position: absolute; z-index: 1; left: calc(var(--ol) * 1cqw); top: calc(var(--ot) * 1cqw); right: auto; bottom: auto; width: calc(var(--ow) * 1cqw); max-width: none; height: auto; aspect-ratio: 1; margin: 0;
-  background: var(--mode-obj) center / contain no-repeat; clip-path: none; -webkit-mask: none; mask: none; transform: none; pointer-events: none;
+/* layer 2, the object, floating, free over the top edge only; opacity 1 because a grey era rule in _theme.css fades it to .45 in a card
+   under 200px, which is what made the narrow cards look washed out and old (founder, 4 Nov 2026: "что то старое") */
+.wf-grid .wf-mode .wf-mode-art { position: absolute; z-index: 1; left: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx)) * 1cqw); top: calc((var(--ot) * var(--k) + var(--dy)) * 1cqw); right: auto; bottom: auto; width: calc(var(--ow) * var(--k) * 1cqw); max-width: none; height: auto; aspect-ratio: 1; margin: 0;
+  background: var(--mode-obj) center / contain no-repeat; opacity: 1; clip-path: none; -webkit-mask: none; mask: none; transform: none; pointer-events: none;
   filter: drop-shadow(0 8px 10px rgba(6, 10, 30, .5));
   animation: v4-float 4.6s ease-in-out infinite; transition: translate .4s var(--v4-ease-pop), rotate .4s var(--v4-ease-pop), scale .4s var(--v4-ease-pop); }
 .wf-grid .wf-mode .wf-mode-art::before, .wf-grid .wf-mode .wf-mode-art::after { content: none; }
@@ -39,7 +45,7 @@
 .wf-grid .wf-mode:has([data-icon="target"]) .wf-mode-art { -webkit-mask: linear-gradient(#000 84%, transparent 100%); mask: linear-gradient(#000 84%, transparent 100%); } /* the bust ends behind the act, not in a cut line beside it */
 /* Case battles: two separate knives crossing, tips over the top edge, handles cut by the bottom one so they stand in the card; each is its own layer on the art's box, and under the pointer they draw apart and strike */
 .wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art { left: 0; top: 0; width: 100%; height: 100%; aspect-ratio: auto; background: none; filter: none; }
-.wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::before, .wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::after { content: ''; position: absolute; left: 43.8cqw; top: -10.8cqw; width: 75.7cqw; height: 75.7cqw; background: center / contain no-repeat; filter: drop-shadow(0 6px 8px rgba(6, 10, 30, .55)); }
+.wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::before, .wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::after { content: ''; position: absolute; left: calc((100 - 56.2 * var(--k) + var(--dx)) * 1cqw); top: calc((-10.8 * var(--k) + var(--dy)) * 1cqw); width: calc(75.7 * var(--k) * 1cqw); height: calc(75.7 * var(--k) * 1cqw); background: center / contain no-repeat; filter: drop-shadow(0 6px 8px rgba(6, 10, 30, .55)); }
 .wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::before { background-image: url(art/mode-battles-knife-blue.webp); rotate: -30deg; }
 .wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::after { background-image: url(art/mode-battles-knife-red.webp); rotate: 30deg; }
 @keyframes v4-strike-l { 0% { rotate: -30deg; translate: 0 0; } 45% { rotate: -40deg; translate: -3cqw -1cqw; } 75% { rotate: -25deg; translate: 1cqw 0; } 100% { rotate: -33deg; translate: -1cqw -1cqw; } }
@@ -57,9 +63,10 @@
 
 /* the words at the top left over the colour, the act across the whole foot */
 .wf-grid .wf-mode > :not(.wf-mode-art) { position: relative; z-index: 2; }
-.wf-grid .wf-mode h3, .wf-grid .wf-mode.is-later h3 { max-width: none; font-size: min(26px, 9.6cqw); line-height: 1.05; white-space: nowrap; text-shadow: 0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5); } /* one line, as A; measured at 1440 */
+.wf-grid .wf-mode h3, .wf-grid .wf-mode.is-later h3 { max-width: none; font-size: min(24px, 9.6cqw); line-height: 1.05; white-space: nowrap; text-shadow: 0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5); } /* one line, as A; measured at 1440 */
 .wf-grid .wf-mode p { max-width: var(--pw, 42cqw); margin: 6px 0 0; font-size: var(--size-chip); line-height: 1.3; text-shadow: 0 1px 6px rgba(6, 10, 30, .5); }
-.wf-grid .wf-mode > .wf-btn, .wf-grid .wf-mode > .wf-fig-missing { z-index: 3; align-self: flex-start; display: flex; justify-content: center; align-items: center; box-sizing: border-box; width: 56cqw; min-width: 0; max-width: none; min-height: 36px; margin-top: auto; padding: 0; border-radius: 10px; font-size: min(var(--size-label), 4.3cqw); } /* the short act: it stops at the art, founder of 1 Nov 2026 */
+.wf-grid .wf-mode > p:not(.wf-fig-missing) { margin-bottom: 8px; } /* never flush against the act: a card short of room grows instead (min-height: auto) */
+.wf-grid .wf-mode > .wf-btn, .wf-grid .wf-mode > .wf-fig-missing { z-index: 3; align-self: flex-start; display: flex; justify-content: center; align-items: center; box-sizing: border-box; width: max-content; min-width: 56cqw; max-width: 100%; min-height: 36px; margin-top: auto; padding: 0 14px; border-radius: 10px; font-size: min(var(--size-label), 4.3cqw); } /* the short act: it stops at the art, founder of 1 Nov 2026; at least that wide, and wider when its label needs room for 14px sides, founder of 4 Nov 2026: "кнопки сплюшило" (Not launched yet sat 5px from its edges at 1440) */
 .wf-grid .wf-mode > .wf-fig-missing { background: rgba(66, 74, 128, .6); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 6px 16px rgba(6, 10, 30, .3); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); } /* A's chip: a pale glass plate over the art, no stripes; those stay the live act's */
 
 @media (prefers-reduced-motion: reduce) {
@@ -68,8 +75,38 @@
   .wf-grid .wf-mode:has([data-icon="battle"]):hover .wf-mode-art::before, .wf-grid .wf-mode:has([data-icon="battle"]):hover .wf-mode-art::after { animation: none; }
 }
 
-/* founder of 2 Nov 2026 at about 1215px, "у нас просто гигантские карточки режимов": between 900 and 1279px _theme.css put the four cards in two
-   rows of two, each card half the column wide and, at 7 to 4, near 290px tall. Everything in a card is drawn in its own width (cqw), so the
-   row of four holds there as it does above 1280px, only smaller, down to 1100px, where a card is about 230px wide; below it, its words wrap and its button
-   runs past its foot, so two rows of two stay from 900 to 1099px */
-@media (min-width: 1100px) and (max-width: 1279px) { .wf-grid.wf-modes { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* The row's shape follows the width it gets, not the viewport: the section that holds it is the query container, so the rail, the
+   doc sidebar or a signed in column can change around it without breaking it. Two layouts of the same card:
+   side, comp A, words at the left and the art at the right, 7 to 4; it holds its words and its button from a card about 236px wide up
+   (240px at 1440, where the founder measured comp A); stack, the art in the top right breaking the top edge and the words under it
+   across the full width, for a narrower card.
+   Founder, 4 Nov 2026: "что то огромное просто, где то можно поставить два в ряд вместо одного". So a phone takes two cards a row in
+   stack instead of one tall card a row; the mid desktop that squeezed four side cards to 2 or 3 words a line takes four stack cards; four
+   side cards only come back where each is 236px or more. The founder of 2 Nov 2026 at about 1215px called two rows of two side cards
+   "гигантские"; at that width this is one row of four stack cards now. Columns:
+   under 516px, two stack cards; 516 to 623px, two side cards; 624 to 991px, four stack cards, each 144px or more, as narrow as a phone's
+   pair; from 992px, four side cards. */
+.wf-sec:has(> .wf-grid.wf-modes) { container: modes / inline-size; }
+@container modes (max-width: 623px) { .wf-grid.wf-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container modes (min-width: 624px) { .wf-grid.wf-modes { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@container modes (max-width: 515px) { .wf-grid.wf-modes { column-gap: 12px; } }
+@container modes (max-width: 515px) or ((min-width: 624px) and (max-width: 991px)) {
+  /* the card is as tall as its words plus the art band; the art keeps its side size, lifted 6cqw, so it still breaks the top edge;
+     28px over the row holds what breaks it */
+  .wf-grid.wf-modes { row-gap: 32px; padding-top: 28px; }
+  .wf-grid.wf-modes .wf-mode { --k: 1; --dy: -6; aspect-ratio: auto; padding: 12px 12px 12px; }
+  .wf-grid.wf-modes .wf-mode::before { -webkit-mask: linear-gradient(180deg, #000 28%, transparent 62%); mask: linear-gradient(180deg, #000 28%, transparent 62%); } /* the burst fades out above the words, as it fades out beside them in side */
+  .wf-grid.wf-modes .wf-mode::after { --rx: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx) + var(--ow) * var(--k) / 2) * 1cqw); --ry: calc((var(--ot) * var(--k) + var(--dy) + var(--ow) * var(--k) / 2) * 1cqw);
+    -webkit-mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), #000 calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), #000 calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); } /* the rim copy stays centred on the object it rims */
+  .wf-grid.wf-modes .wf-mode h3 { margin-top: 46cqw; font-size: min(20px, 12.5cqw); } /* the words start where the art band ends; the longest title, Case battles, stays on one line down to a 120px column */
+  .wf-grid.wf-modes .wf-mode p:not(.wf-fig-missing) { max-width: none; margin: 4px 0 10px; }
+  .wf-grid.wf-modes .wf-mode > .wf-btn, .wf-grid.wf-modes .wf-mode > .wf-fig-missing { align-self: stretch; width: auto; }
+}
+/* buttons.css sizes the plate's words at 4.6cqw: 9.6px on a 240px side card, 6px on a 132px stack card. They keep 10.5px or more at
+   every width (7.6cqw where the plate spans a stack card), with a little less tracking so the line still fits a 117px plate; the selector
+   outweighs buttons.css on purpose, this file owns the card */
+html body .wf-sec .wf-grid.wf-modes .wf-mode > .wf-fig-missing { font-size: max(10.5px, min(13px, 4.6cqw)); letter-spacing: .03em; }
+@container modes (max-width: 515px) or ((min-width: 624px) and (max-width: 991px)) { html body .wf-sec .wf-grid.wf-modes .wf-mode > .wf-fig-missing { font-size: max(10.5px, min(13px, 7.6cqw)); } }
+/* a stack card under 160px (four across at 624 to 700 or so): the plate spans the card, so its sides come from the tracking, not the width;
+   untracked, Not launched yet keeps 12px or more each side instead of 8, founder, 4 Nov 2026: "кнопки сплюшило" */
+@container (max-width: 159px) { html body .wf-sec .wf-grid.wf-modes .wf-mode > .wf-fig-missing { letter-spacing: 0; padding: 0 8px; } }

@@ -32,3 +32,14 @@
   .dc-t::before { flex-basis: 36px; height: 36px; border-radius: 10px; }
   .dc-t::after { left: 8px; width: 20px; height: 20px; margin-top: -10px; }
 }
+
+/* THE H1 AND THE TRUSTPILOT BADGE, composed at every width; founder, 4 Nov 2026: "что то огромное просто". From 900px the row put the badge
+   beside the H1 at any width, so the H1 was squeezed into what the badge left: five lines at 900, two with "ODDS" alone at 1280, the badge
+   floating top right over an empty field. The row now wraps: the H1 keeps its one line where the column holds it, the badge stands beside
+   it only when both fit (1440) and otherwise sits under it on the left, and where the column is narrower than the H1 its two lines are
+   balanced. Below 900 the pair stays centred, the badge under the H1, and the H1 scales from 24px at 360 to the 28px of theme.css by 444,
+   so a phone's two lines do not fill the screen's width edge to edge */
+.wf-hero--short h1 { font-size: clamp(24px, 4.5vw + 8px, 28px); text-wrap: balance; }
+@media (min-width: 900px) {
+  .wf-hero.wf-hero--short { flex-wrap: wrap; row-gap: 12px; }
+}

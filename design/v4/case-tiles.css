@@ -157,3 +157,14 @@
 .wf-tile .wf-tile-price { border-radius: 10px; transition: background .2s, box-shadow .2s, padding .2s; }
 .wf-tile:is(:hover, :focus-within) .wf-tile-price { padding: 0 14px; background: rgba(11, 10, 34, .82); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
 @media (prefers-reduced-motion: reduce) { .wf-tile .wf-tile-price { transition: none; } }
+
+/* how many to a row, founder of 4 Nov 2026 on Home's mobile and responsive: "что то огромное просто, где то можно поставить два в ряд
+   вместо одного". _theme.css counts by the window: two to a row under 600px, three from 600, five from 1200. With the side menu taking
+   248px from 900 that count fell out of step with the room the tiles really have: at 599px two tiles were 275px wide, from 600 to 899
+   three were up to 278px wide and 390px tall, and from 900 to 1199 up to 262px, all bigger than the 157px a tile is at 1280. The grid now
+   counts by its own width: five to a row from 720px, three from 480px, two under that, so a tile stays between about 130 and 230px at
+   every width and a tablet shows the row of five a wide screen shows */
+.wf-grid:has(> .wf-tile) { container: tiles / inline-size; }
+@container tiles (min-width: 480px) { .wf-grid > .wf-tile { flex-basis: calc((100% - 2 * var(--space-4)) / 3); } }
+@container tiles (min-width: 720px) { .wf-grid > .wf-tile { flex-basis: calc((100% - 4 * var(--space-4)) / 5); } }
+@container tiles (max-width: 479px) { .wf-grid > .wf-tile { flex-basis: calc((100% - var(--space-4)) / 2); } }

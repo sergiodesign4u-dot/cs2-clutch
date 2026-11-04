@@ -415,3 +415,14 @@
   #wf-footer.v4-foot { padding: 0 0 16px; }
   #wf-footer.v4-foot .ft-h { border-radius: 0; box-shadow: none; }
 }
+
+/* presses on a touch screen, from 4 Nov 2026's sweep of Home's mobile and responsive: the link columns' words were 20px presses 32px apart
+   and the payment cards 33px tall, under the product's 40px floor for a finger. With a coarse pointer each link becomes a 40px row and
+   the column's 12px gaps fold into it, so the list grows 8px a row and keeps its rhythm; the payment cards stand 40px tall wherever they
+   leave the plates' side, so the 33px that matched the plates' height on a wide screen stays there. A mouse keeps the tighter list */
+@media (pointer: coarse) {
+  .v4-foot .fl-col { gap: 0; }
+  .v4-foot .fl-col a, .v4-foot .fl-col .fl-linklike { display: flex; align-items: center; min-height: 40px; }
+  .v4-foot .fe-gap { height: 20px; }
+  @container ft (max-width: 1000px) { .v4-foot .ft-i .fe-pay li { height: 40px; } }
+}

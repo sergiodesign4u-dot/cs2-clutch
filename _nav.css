@@ -144,20 +144,25 @@ a.nav-sibling:hover { opacity: 1; background: rgba(255, 255, 255, 0.05); }
 }
 
 /* Off-canvas below 900px */
+/* Below 900px the way in is a thin strip across the top of the page that scrolls away with it. It floated over the product as a fixed
+   button and covered headings and dialogs on every phone screen; founder, 4 Nov 2026: "давай его просто не делать стики и сделаем такую
+   небольшую полоску сверху на которую нажимаешь и появляется боковое меню проекта". Its z-index is low on purpose: a product's own
+   drawers, sheets and dialogs cover it, and the panel (200) with its scrim (199) covers it too, so a tap on the scrim closes the panel. */
 .nav-toggle {
-  position: fixed; z-index: 202; top: 12px; left: 12px;
-  width: 38px; height: 38px; display: none;
-  align-items: center; justify-content: center;
-  font-size: 16px; line-height: 1; cursor: pointer;
+  position: absolute; z-index: 30; top: 0; left: 0; right: 0;
+  height: 32px; min-height: 0; margin: 0; display: none; box-sizing: border-box;
+  align-items: center; justify-content: flex-start; gap: 8px; padding: 0 16px;
+  font: inherit; font-size: 12px; line-height: 1; letter-spacing: .02em; cursor: pointer;
   color: var(--nav-fg); background: var(--nav-bg);
-  border: 1px solid var(--nav-rule); border-radius: 8px;
+  border: 0; border-bottom: 1px solid var(--nav-rule); border-radius: 0;
 }
+.nav-toggle-i { font-size: 14px; }
 .nav-scrim { position: fixed; inset: 0; z-index: 199; display: none; background: rgba(0, 0, 0, 0.6); }
 .nav-scrim.is-open { display: block; }
 
 @media (max-width: 899px) {
-  /* the toggle sits at the top left corner, so the brand plate starts below it */
-  #sidebar { padding-top: 62px; transform: translateX(-100%); transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); }
+  /* the open panel covers the strip, so its brand plate starts at the top */
+  #sidebar { padding-top: 16px; transform: translateX(-100%); transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); }
   #sidebar.is-open { transform: translateX(0); }
   .nav-toggle { display: flex; }
   .nav-grip { display: none; }

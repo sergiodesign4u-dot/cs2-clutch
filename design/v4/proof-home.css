@@ -96,7 +96,9 @@
 /* FOLD 1, block under 820px: measured, the stub column (132px) beside RTP with its case (300px), the median (its link, 160px, and
    its paddings) and the commission stops fitting, so the stub becomes a slim bar across the top and the three panels keep the row */
 @container x6 (max-width: 819px) {
-  .x6 { --money: #FFC44D; --stub: 0px; --rtp: calc(100cqw * 1.25 / 3.1); }
+  /* --fig 38px, not 40: at a block of 576 to 620px "94.2 %" measured 101px against the 98px its slot beside the case leaves, so the
+     figure ran into the case art (founder, 4 Nov 2026: "что то огромное просто") */
+  .x6 { --money: #FFC44D; --stub: 0px; --rtp: calc(100cqw * 1.25 / 3.1); --fig: 38px; }
   .x6-strip { grid-template-columns: minmax(0, 1.25fr) minmax(188px, 1fr) minmax(158px, .85fr); }
   .x6-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; padding: 12px var(--pad); border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
   .x6-stub svg { width: 22px; height: 25px; }
@@ -104,9 +106,14 @@
   .x6-rtp { border-radius: 0 0 0 var(--v4-radius); }
   .x6-p:last-child { border-radius: 0 0 var(--v4-radius) 0; }
 }
-/* the second ticket, block under 600px: the plate (its hash box needs about 200px) and two cards no longer fit three across, so the
-   plate becomes one compact row, its hash box taking the slack, and the two cards sit side by side under it */
-@container x6 (max-width: 599px) {
+/* the second ticket, block under 820px: the plate and two cards no longer fit three across, so the plate becomes one compact row, its
+   hash box taking the slack, and the two cards sit side by side under it. Founder, 4 Nov 2026, on a phone held sideways: "Every round"
+   ran to the plate's edge, the hash split over two lines and "Recomputed: matches" spilled out of its dark box. Measured: three across
+   the plate gets (block - 24px) / 3.7, and its content needs about 185px (the green line 127px, the hash box's 24px of padding, the
+   plate's own), so below a block of 820px it was 158 to 214px and overflowing from 608px up to 680px. The fold used to sit at 600px;
+   it now sits at 820px, the same width FOLD 1 measured for the strip, so a phone sideways (667 to 844) and a tablet get the compact
+   plate and two cards per row, and three across starts where the plate holds 215px */
+@container x6 (max-width: 819px) {
   .x6-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: clamp(46px, 9cqw, 54px); margin-top: 12px; }
   .x6-plate { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
   .x6-fig { max-width: 190px; }
@@ -148,7 +155,9 @@
 /* founder of 2 Nov 2026, after the push: the Glock a little lower, the AK a little larger and whole, no longer cut at the card's right
    edge, and the round cards pulled up toward the strip above. The AK sits inside the card's right edge with a smaller tilt; the gap to
    the strip falls from 46 to 58px down to 30 to 40px, which the lower skins leave room for */
-@container x6 (min-width: 600px) { .x6-row { margin-top: clamp(30px, 3cqw, 40px); } }
+/* pulled up only where the cards sit three across right under the strip; under 820px the compact plate sits there instead, 12px below
+   it (moved from 600px with the fold above, founder, 4 Nov 2026) */
+@container x6 (min-width: 820px) { .x6-row { margin-top: clamp(30px, 3cqw, 40px); } }
 .x6-card .x6-skin[src*="glock"] { top: calc(-1 * clamp(14px, 2cqw, 26px)); }
 .x6-card .x6-skin[src*="ak-47"] { right: 4%; top: calc(-1 * clamp(24px, 3cqw, 36px)); width: 58%; transform: rotate(-8deg); }
 @media (hover: hover) { .x6-card:hover .x6-skin[src*="ak-47"] { transform: translateY(-6px) rotate(-10deg) scale(1.03); } }

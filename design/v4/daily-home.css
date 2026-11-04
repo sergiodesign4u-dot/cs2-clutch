@@ -160,19 +160,41 @@
   .dc-track { order: 1; margin-top: 18px; }
   .dc-unit { order: 2; }
   .dc-tick em { font-size: 12px; }
-  /* the cards become rows, the case on their left, bigger than R9's 85px: a 170px picture, its case body 109px, its content ending
-     at most at 97% of the picture (Elite's coins), 7px before the name's column at 154px */
-  .dc-cards { order: 3; grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 18px; }
-  .dc-card { height: auto; min-height: 100px; justify-content: center; padding: 12px 12px 12px 154px; }
-  .dc-art { left: -18px; right: auto; bottom: auto; top: 50%; width: 170px; translate: 0 -50%; }
-  .dc-name { font-size: 20px; }
+  /* founder, 4 Nov 2026, on Home at a phone and a tablet: "где то можно поставить два в ряд вместо одного". The tiers were one row each,
+     100px tall and as wide as the panel, the case on the left and empty stripes on the right (704px wide at 768). Each tier is now the
+     desktop's upright card, the case above its name and its chip: two per row under 440px of panel, three from 440px. Five divides by
+     neither, so the short last row is centred, 2-2-1 and 3-2, every card one size: it reads as the top of the ladder, not a missing card.
+     A card fills from the top, so a row's names stand on one line when one card's chip or button takes two lines and its neighbour's one */
+  .dc-cards { order: 3; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 10px; margin-top: 22px; }
+  .dc-card { grid-column: span 2; height: auto; justify-content: flex-start; gap: 6px; padding: calc(min(55%, 116px) + 4px) 10px 10px; }
+  .dc-card:last-child { grid-column: 2 / span 2; }
+  /* the picture as wide as its card and never over 210px, centred on it. Its top 14% stands above the card, the empty air over a low tier's
+     case and the skins rising out of a high one, as the desktop row lets them rise into the 16px row gap; the card's top padding stops 4px
+     under the picture's lowest content, 97% of its height (Elite's coins): 83% of a 3:2 picture is 55% of its width, 116px at 210px */
+  .dc-art, .dc-card.is-hero .dc-art { left: 50%; right: auto; top: 0; bottom: auto; width: min(100%, 210px); translate: -50% -14%; }
+  .dc-name { font-size: 18px; }
   .dc-chip { font-size: 12px; }
-  /* the available card across its row, its case above its name; no margin above it: its picture's top half is empty air, so it reaches up
-     over the gap without leaving a hole, and its case starts inside the card */
-  .dc-card.is-hero { translate: none; padding: 100px 14px 14px; align-items: stretch; justify-content: flex-end; }
-  .dc-card.is-hero .dc-art { left: 6%; right: 6%; width: auto; top: -64px; translate: none; }
-  .dc-card.is-hero .dc-name { font-size: 24px; }
+  /* the available card is one of the grid's cards, not a row of its own, so the ladder keeps its order; its button stays inside it, its
+     label allowed a second line at a 143px card */
+  .dc-card.is-hero { translate: none; align-items: stretch; }
+  .dc-card.is-hero .v4-btn { min-height: 36px; padding: 4px 6px; font-size: 12px; letter-spacing: .03em; line-height: 1.15; white-space: normal; text-align: center; }
   .dc-card.is-hero:hover { translate: 0 -6px; }
+}
+@container dc (min-width: 440px) and (max-width: 760px) {
+  .dc-cards { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .dc-card:nth-child(4) { grid-column: 2 / span 2; }
+  .dc-card:last-child { grid-column: 4 / span 2; }
+  .dc-name { font-size: 20px; }
+}
+/* founder, 4 Nov 2026: the reset plate and the full width pink button under it were "огромное" on a phone. Under 460px of panel the plate is
+   one 44px line, the time and its label side by side: at its own width for a guest, across the row under a signed in person's two money
+   boxes. The button keeps the full row, a phone's one call to action, at 44px and 14px instead of 52px and 16px */
+@container dc (max-width: 459px) {
+  .dc-box.is-time { height: 44px; }
+  .dc-box.is-time > div { display: flex; align-items: baseline; gap: 8px; }
+  .dc-box.is-time span { white-space: nowrap; }
+  .dc.is-guest .dc-boxes { display: flex; width: auto; }
+  .dc-row .v4-btn { min-height: 44px; padding: 0 16px; font-size: 14px; }
 }
 
 /* founder of 2 Nov 2026, on Home: "должно быть" as in the lab. The panel carries its own title, with the boxes and the button in its row
@@ -205,11 +227,19 @@
   .dc.is-guest .dc-head.has-title .dc-row { grid-column: 2; grid-row: 1; justify-self: end; justify-content: flex-end; flex: none; }
   .dc.is-guest .dc-head.has-title .dc-l { grid-column: 1 / -1; margin-top: 14px; }
 }
-/* the same below 760px while the panel is still wider than a phone: the reset box and the button side by side at their own width */
-@container dc (min-width: 561px) and (max-width: 760px) {
+/* the same below 760px while the panel is still wider than a phone: the reset box and the button side by side at their own width. From
+   460px of panel, not 561px, founder, 4 Nov 2026, "что то огромное": the pair needs 411px plus the panel's 32px of padding, and at a 518px
+   panel (a 900px window beside the rail) the button had stood alone across the full 486px row */
+@container dc (min-width: 460px) and (max-width: 760px) {
   .dc.is-guest .dc-row { width: auto; flex-wrap: nowrap; }
   .dc.is-guest .dc-boxes { display: flex; width: auto; }
   .dc.is-guest .dc-box, .dc.is-guest .dc-row .v4-btn { flex: 0 0 auto; }
+  /* founder, 4 Nov 2026, "что то огромное": the button kept the phone's width: 100% beside the plate, 411px wide at 600 and 10px past the
+     panel's padding; it takes its label's width */
+  .dc.is-guest .dc-row .v4-btn { width: auto; }
+  /* a signed in person's three boxes in one row, so the reset plate no longer spans an empty full width row of its own */
+  .dc.is-acct .dc-boxes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .dc.is-acct .dc-box.is-time:nth-child(odd) { grid-column: auto; }
 }
 /* founder of 2 Nov 2026 at a panel about 790px wide, "и с этим я бы тоже что то сделал": a guest's head left the right half empty, and the
    tier names ran past their cards ("GUARDIAN" wider than its card). Between 761 and 899px the title and its line stand on the left and the

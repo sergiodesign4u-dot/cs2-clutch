@@ -96,3 +96,8 @@
 .fq-i.is-open .fq-x::before { background: #FB3F8A; }
 @media (hover: hover) { .fq-q:hover .fq-x { background: none; } .fq-q:hover .fq-x::before, .fq-q:hover .fq-x::after { background: #FB3F8A; } }
 @media (prefers-reduced-motion: reduce) { .fq-i::before, .fq-i::after { transition: none; } }
+
+/* an answer's link was a 16px press, under the product's 40px floor, found on 4 Nov 2026's sweep of Home's mobile: the 12px margin above
+   it becomes press, and 12px more below is given back by a negative margin, so the words stay where they were and the answer keeps its
+   height; the open answer's 16px padding keeps the grown press inside its clip */
+.fq-go { padding: 12px 0; margin: 0 0 -12px; }

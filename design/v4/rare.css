@@ -80,3 +80,9 @@
 @keyframes v4-rare-flash { 0% { opacity: .75; } 100% { opacity: 0; } }
 @keyframes v4-rare-shove { 0% { transform: none; } 30% { transform: translateX(7px) rotate(1.2deg); } 100% { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .v4-rare, .v4-rare *, .v4-rare::before, .wf-feed-i.v4-shoved { animation: none !important; transition: none !important; } }
+
+/* the strip's pause, the pink dot in the Live drops label, is an 18px press, under the product's 40px floor, found on 4 Nov 2026's sweep
+   of Home's mobile; an invisible ring of 11px around it makes the press 40px and the dot keeps its size. Where a pointer hides the pause
+   until the strip is hovered, _theme.css's hiding rule still wins */
+.wf-feed-pause { position: relative; }
+.wf-feed-pause::before { content: ''; position: absolute; inset: -11px; }

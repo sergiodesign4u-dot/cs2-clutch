@@ -33,6 +33,7 @@
       '<div class="ac2-acct">' +
         '<button class="ac2-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="v4-acct-menu" aria-label="Account, ' + esc(who.name) + '"><img class="ac2-ava" src="' + o.ava + '" alt=""><span class="ac2-name">' + esc(who.name) + '</span><span class="ac-chev" aria-hidden="true"></span></button>' +
         '<div class="am3" id="v4-acct-menu" hidden>' +
+          '<button class="v4-ibtn--close am3-x" type="button" aria-label="Close"></button>' + // the phone's sheet only (account-home.css): the system's close button, the sign in dialog's label
           '<div class="am3-head"><img class="am3-ava" src="' + o.ava + '" alt="">' +
             '<div class="am3-who"><b>' + esc(who.name) + '</b>' +
               '<div class="am3-id"><span class="am3-id-v">ID ' + esc(who.id) + '</span><button class="am3-copy" type="button" data-copy="' + esc(who.id) + '"><span class="am3-copy-i" aria-hidden="true"></span><span class="am3-copy-t" aria-live="polite">Copy</span></button></div>' +
@@ -67,6 +68,7 @@
       if (on && e.detail === 0) menu.querySelector('.am3-copy').focus(); // from the keyboard the focus goes into the menu
     });
     scrim.addEventListener('click', function () { set(false, true); });
+    menu.querySelector('.am3-x').addEventListener('click', function () { set(false, true); });
     document.addEventListener('click', function (e) { if (ac.classList.contains('is-open') && !ac.contains(e.target) && e.target !== scrim) set(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && ac.classList.contains('is-open')) set(false, true); });
     ac.addEventListener('focusout', function (e) { if (e.relatedTarget && !ac.contains(e.relatedTarget)) set(false); });
@@ -100,7 +102,7 @@
     if (!row || row.querySelector('.v4-ac')) return;
     var money = row.querySelector('.wf-money'), dep = row.querySelector('.wf-dep'), acct = row.querySelector('.wf-acct-wrap');
     // a page whose figures have no source keeps _nav.js's own Not available, 0.3: missing is a state, never a zero
-    if (!money || !acct || money.querySelector('.wf-fig-missing')) return;
+    if (!money || !acct || money.querySelector('.wf-fig-missing')) { document.documentElement.classList.remove('v4-ac-wait'); return; }
     var ac = document.createElement('div');
     ac.className = 'v4-ac ac2 ac3';
     ac.innerHTML = render({ base: window.WF_BASE || W, ava: 'art/avatars/a5.webp', dep: dep });
@@ -121,6 +123,21 @@
     var head = document.querySelector('.wf-header');
     if (head && window.MutationObserver) new MutationObserver(mount).observe(head, { childList: true });
   }
-  if (document.readyState === 'complete') start();
-  else window.addEventListener('load', start);
+  /* Mount in the same frame _nav.js draws the header, not at window load: waiting for load showed _nav.js's own figures and + for as long
+   * as the page's pictures took, founder of 4 Nov 2026, "при перезагрузке подтягиваются какие-то старые стили". _nav.js renders the header
+   * in its DOMContentLoaded listener; this observer's callback runs right after that listener returns, before the first paint. Until then
+   * v4-ac-wait keeps the old three hidden (account-home.css), and a page this script does not mount on drops the class. */
+  var sh = window.WF_SHELL, root = document.documentElement;
+  if (sh && sh.account && (sh.active === 'index.html' || sh.v4)) root.classList.add('v4-ac-wait');
+  if (document.readyState !== 'loading' || !window.MutationObserver) {
+    if (document.readyState === 'complete' || !window.MutationObserver) start(); else window.addEventListener('DOMContentLoaded', start);
+  } else {
+    var mo = new MutationObserver(function () {
+      if (!document.querySelector('.wf-header .wf-row')) return;
+      mo.disconnect();
+      start();
+    });
+    mo.observe(root, { childList: true, subtree: true });
+  }
+  window.addEventListener('load', function () { root.classList.remove('v4-ac-wait'); }); /* never leave the header hidden */
 })();

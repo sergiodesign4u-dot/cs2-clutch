@@ -146,10 +146,24 @@
 .wf-auth-host .wf-dlg-wrap { container: dlg / inline-size; }
 .wf-auth-host .wf-dlg.sd { display: grid; flex-direction: unset; max-width: 900px; margin: auto; padding: 0; border: 0; border-radius: 0; color: var(--color-text-hi);
   background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); align-content: start; }
-/* the theme gives every button a 44px tap floor; the box keeps its 24px square because its whole row is the press, and the cross its
-   36px tile */
+/* the theme gives every button a 44px tap floor; the box keeps its 24px square because its whole row is the press. The cross was a 36px
+   tile; on 4 Nov 2026's sweep of Home's mobile it is 40px, the smallest press the product allows, and the glyph keeps its size */
 .wf-auth-host .wf-dlg.sd .sd-box { min-width: 0; min-height: 0; width: 24px; height: 24px; }
-.wf-auth-host .wf-dlg.sd .sd-x { min-width: 0; min-height: 0; padding: 0; width: 36px; height: 36px; }
+.wf-auth-host .wf-dlg.sd .sd-x { min-width: 0; min-height: 0; padding: 0; width: 40px; height: 40px; }
 @container dlg (min-width: 760px) {
   .wf-auth-host .wf-dlg.sd { align-content: stretch; border-radius: 18px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 30px 60px rgba(0, 0, 0, .45); }
+}
+
+/* the old grey dialog leaking through, found on 4 Nov 2026's sweep of Home's mobile and responsive (founder, 4 Nov 2026: "что то старое").
+   From 600px of window _theme.css lays the wireframe dialog out as a 220px art column beside its form, while this dialog's own two columns
+   only start at 760px of its host's content box, a 808px window, since the host keeps 24px of padding each side. From 600 to 807px both
+   met: the art and the form stacked inside a 220px column of a 720px dialog, with the provider buttons cut. The dialog now holds one
+   column until its own two columns take over, and in that range it stands as a centred card of 520px rather than a 720px stretch, the
+   sheet's layout on the dialog's rounded corners and shadow */
+.wf-auth-host .wf-dlg.sd { grid-template-columns: minmax(0, 1fr); }
+@container dlg (min-width: 760px) { .wf-auth-host .wf-dlg.sd { grid-template-columns: minmax(0, 400px) minmax(0, 1fr); } }
+@media (min-width: 600px) {
+  @container dlg (max-width: 759px) {
+    .wf-auth-host .wf-dlg.sd { max-width: 520px; border-radius: 18px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 30px 60px rgba(0, 0, 0, .45); }
+  }
 }

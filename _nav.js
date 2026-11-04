@@ -562,14 +562,16 @@ window.NAV = [
   grip.addEventListener('click', function () { setHidden(!document.documentElement.classList.contains('nav-is-hidden')); });
 
   // Mobile: the panel is off-canvas below 900px and needs a way in.
-  var toggle = el('button', 'nav-toggle', '☰');
-  toggle.setAttribute('aria-label', 'Toggle navigation');
+  var toggle = el('button', 'nav-toggle');
+  toggle.innerHTML = '<span class="nav-toggle-i" aria-hidden="true">☰</span><span>Project roadmap</span>';
+  toggle.setAttribute('aria-expanded', 'false');
   var scrim = el('div', 'nav-scrim');
   document.body.appendChild(toggle);
   document.body.appendChild(scrim);
   function setOpen(v) {
     host.classList.toggle('is-open', v);
     scrim.classList.toggle('is-open', v);
+    toggle.setAttribute('aria-expanded', v ? 'true' : 'false');
   }
   toggle.addEventListener('click', function () { setOpen(!host.classList.contains('is-open')); });
   scrim.addEventListener('click', function () { setOpen(false); });

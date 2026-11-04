@@ -6,9 +6,16 @@
  * - the eight rows not launched are grey at rest, mark and word alike, and take their own card under the pointer, the four with a mode card
  *   sending its object up; "Not launched yet" is printed once as their heading (rail-b1.js) and stays in each row for a screen reader;
  * - closed, a row's name comes out beside its tile as a chip in its fill, with Not launched yet and the mode's object.
- * The closed chip's selectors repeat .wf-rail-lbl to outrank _theme.css's D-206 tooltip, which they replace. Porting note kept from the lab: theme's ".wf-rail-item.is-later > * { opacity: .45 }" is overridden here, not deleted. */
+ * The closed chip's selectors repeat .wf-rail-lbl to outrank _theme.css's D-206 tooltip, which they replace. Porting note kept from the lab: theme's ".wf-rail-item.is-later > * { opacity: .45 }" is overridden here, not deleted.
+ *
+ * THE OPEN RAIL'S LOOK HOLDS AT EVERY WIDTH, founder of 4 Nov 2026 on Home's phone drawer: "что то старое". Below 900px the rail is the drawer the
+ * header's burger opens (wireframes/_nav.js), and every rule here sat inside min-width: 900px, so the drawer fell through to _theme.css's v1 rows:
+ * flat dark bars, a grey "Not launched yet" under each name, the heading unstyled. The open rail's rows, heading and foot are therefore written
+ * without a width query and read the same in the drawer; only the closed rail (.is-rail-collapsed, which exists from 900px up) and the height
+ * fitting stay in min-width: 900px. Same rules, same order, so the desktop rail does not change. */
 
-@media (min-width: 900px) {
+/* the open rail, desktop and drawer alike */
+@media all {
   :root body .wf-rail { --rb-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); --rb-dim: var(--color-text-muted); }
 
   /* the mode fills, the same as the mode cards and the lab */
@@ -60,7 +67,10 @@
   :root body .wf-rail .wf-rail-soc-h { display: block; margin: 12px 12px 8px 20px; color: var(--rb-dim); font-size: 12px; font-weight: 500; text-align: left; }
   :root body .wf-rail .wf-rail-soc-row { display: flex; justify-content: space-between; gap: 0; box-sizing: border-box; width: auto; max-width: none; margin: 0 18px 0 20px; padding: 0; }
   :root body .wf-rail .wf-rail-soc-row .wf-rail-ico { flex: 0 0 18px; width: 18px; min-width: 0; height: 18px; margin: 0; padding: 0; color: var(--rb-dim); opacity: .8; }
+}
 
+/* the closed rail, desktop only */
+@media (min-width: 900px) {
   :root.is-rail-collapsed body .wf-rail .wf-rail-soc { display: none; } /* closed, the social row stays out, as on the theme and the lab */
   /* CLOSED: the same cards as tiles, the icon in their middle; the name comes out as a chip in the row's fill, beside the tile */
   :root.is-rail-collapsed body .wf-rail .wf-rail-item { justify-content: center; gap: 0; padding: 0; }
@@ -78,7 +88,7 @@
   :root.is-rail-collapsed body .wf-rail .wf-rail-item:is(:hover, :focus-visible) > .wf-rail-lbl.wf-rail-lbl.wf-rail-lbl { opacity: 1; clip-path: inset(-60px -10px -10px 0); }
 }
 
-@media (min-width: 900px) and (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) { /* every width: the drawer's rows move as the desktop's do */
   :root body .wf-rail .wf-rail-item, :root body .wf-rail .wf-rail-item::before, :root body .wf-rail .wf-rail-item::after, :root.is-rail-collapsed body .wf-rail .wf-rail-item > .wf-rail-lbl.wf-rail-lbl.wf-rail-lbl { transition: none; }
 }
 
@@ -95,8 +105,8 @@
 
 /* founder, 2 Nov 2026, on Home: "у нас не активний пункт кейсов". The Cases row wears its lit card and its rising case only where it is
    the current page (.is-current, wireframes/_nav.js). Elsewhere it is a plain live row, white where the rows not launched are grey,
-   and takes its card and its case under the pointer or keyboard focus, as the other rows take theirs */
-@media (min-width: 900px) {
+   and takes its card and its case under the pointer or keyboard focus, as the other rows take theirs. Every width, the drawer included */
+@media all {
   :root body .wf-rail .wf-rail-item:not(.is-later):not(.is-current)::before { opacity: 0; }
   :root body .wf-rail .wf-rail-item:not(.is-later):not(.is-current)::after { opacity: 0; transform: translateY(8px) scale(.8); }
   :root body .wf-rail .wf-rail-item:not(.is-later):not(.is-current):is(:hover, :focus-visible)::before { opacity: 1; }
@@ -106,8 +116,8 @@
 /* founder of 2 Nov 2026, "этот кейс мне кажется огромным по сравнению с другими": the Coldfront case filled the same 56px box as the other
    rows' objects, but a case is wide where a helmet or an arrow is tall, so it read twice their weight. Its box is 52px, its foot further in; 46px, tried first, read too small, "то сильно большой то сильно маленький", and at 52px it sat inside its card where the helmet and the arrow rise out of
    theirs, "он не вылазит за рамку как другие пункты". A case is a low picture, so it stands 12px higher: 60px wide, 40px of case, its lid over
-   the card's top edge as the others' tops are */
-@media (min-width: 900px) {
+   the card's top edge as the others' tops are. Every width, the drawer included */
+@media all {
   :root body .wf-rail .wf-rail-item:has([data-icon="box"])::after { width: 72px; height: 72px; right: 12px; bottom: 4px; }
   /* founder of 3 Nov 2026: bigger, but its top stays where it is, "его выше делать не надо, его надо увеличить как бы вниз": 72px wide, 48px
      of case from 4px to 52px above the row's foot, the same top as at 60px */
@@ -128,4 +138,11 @@
 }
 @media (min-width: 900px) and (prefers-reduced-motion: reduce) {
   :root.is-rail-collapsed body .wf-rail :is(.wf-rail-snd, .wf-rail-lang)[data-lbl]::after { transition: none; }
+}
+
+/* THE DRAWER FITS A PHONE, founder of 4 Nov 2026, "что то огромное": as the desktop rail gives up row height before its foot leaves the window
+   (above), the drawer's rows give up height, 48px down to 44px, the touch target's floor, before it has to scroll. 342px is everything in the
+   drawer that is not a row (logo row, heading, foot with its social row, gaps). A window too short even at 44px scrolls the drawer */
+@media (max-width: 899px) {
+  :root body .wf-rail .wf-rail-item { min-height: clamp(44px, calc((100dvh - 342px) / 9 - 2px), 48px); }
 }

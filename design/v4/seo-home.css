@@ -88,3 +88,20 @@
   .sx-pins { position: static; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 0 14px; }
   .sx-pin { position: static; white-space: normal; }
 }
+
+/* the case on one column, founder of 4 Nov 2026 on Home's mobile and responsive: "что то огромное просто". Once the plate runs the block's
+   whole width the case grew with it: 480px wide at 600px and 482px at 900px, the side menu's first width, bigger than the 370px it is at
+   1280 beside the text. On one column it now stops at 380px, its size beside the text on a wide screen; under 380px of plate, as on a phone,
+   it still takes the plate's width */
+@container sl (max-width: 720px) {
+  .sx-art { width: min(96%, 380px); }
+  .sx-stage { min-height: 300px; }
+}
+@container sl (max-width: 560px) {
+  .sx-art { width: min(100%, 380px); }
+  .sx-stage { min-height: 0; }
+}
+
+/* the link after the button was a 16px press, under the product's 40px floor, found on 4 Nov 2026's sweep of Home's mobile: its press
+   grows 12px above and below and a negative margin of the same gives the room back, so nothing around it moves */
+.sx-acts .sl-go { padding: 12px 0; margin: -12px 0; }

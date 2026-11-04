@@ -84,16 +84,41 @@
 .wf-event-go:is(:hover, :focus-visible)::after { animation: v4-sweep .8s ease-out 1; }
 @keyframes v4-sweep { 0%, 70% { transform: translateX(-110%); } 100% { transform: translateX(110%); } }
 
-/* a phone: the title, then the soldier and the case clear of everything, then the countdown, then the act */
-@media (max-width: 899px) {
-  .wf-event { --scene-size: auto 560px; --scene-pos: right -150px top 20px; } /* the case at the window's centre, the head under the title; measured at 360 */
-  .wf-event .wf-banner-art { height: 700px; }
+/* a phone: the title over the sky, the soldier and the case under it, then the countdown and the act over the snow.
+   The banner was 700px tall here, a whole phone screen, founder, 4 Nov 2026: "что то огромное просто". It is now the art's width plus the
+   act's strip, 450px at 360, so the H1 starts inside a 780px screen's second half instead of a screen below; the art crops, the title,
+   the soldier and the case stay. The countdown packs tighter for the same reason: same four figures and the same end line, less padding */
+@media (max-width: 599px) {
+  /* founder, 4 Nov 2026: "баннер сам чуть меньше, так чтобы кнопка была видна ... основное, что должно помещаться, это текст, таймер и кнопка":
+     the banner is as tall as the window is wide (360 at 360) and never over 400, the title takes most of the width, the countdown is one
+     compact plate and the button a 44px bar, so all three reach the first screen over the bottom bar */
+  .wf-event { --ph-h: clamp(340px, 100vw, 400px);
+    --scene-size: auto 100vw; --scene-pos: right -24vw top 44px; } /* the still soldier and case across the window under the title; measured at 360 */
+  .wf-event .wf-banner-art { height: var(--ph-h); }
   .wf-event::before { inset: 0; background: linear-gradient(to bottom, rgba(6, 10, 30, .45), transparent 26%),
-      linear-gradient(to top, var(--color-ground) 18%, transparent 30%),
+      linear-gradient(to top, var(--color-ground) 16%, transparent 34%),
       url(art/banner-plate.webp) var(--scene-pos) / var(--scene-size) no-repeat; }
-  .wf-event .wf-banner-art::after { inset: 0; -webkit-mask: linear-gradient(to top, transparent 22%, #000 30%); mask: linear-gradient(to top, transparent 22%, #000 30%); }
-  .wf-event .wf-event-name { width: min(330px, 90%); top: 16px; }
-  .wf-event-clock { top: auto; bottom: 84px; }
+  .wf-event .wf-banner-art::after { inset: 0; -webkit-mask: linear-gradient(to top, transparent 22%, #000 36%); mask: linear-gradient(to top, transparent 22%, #000 36%); }
+  .wf-event .wf-event-name { width: min(320px, 88%); top: 10px; } /* was 220px, founder: "текст Coldfront можно сделать больше" */
+  .wf-event-clock { top: auto; bottom: 64px; gap: 4px; padding: 6px; } /* founder: "таймер какой-то более компактный для мобилки" */
+  .wf-event-end { padding-bottom: 4px; font-size: 10px; }
+  .wf-event-cell { padding: 3px 0 3px; }
+  .wf-event-cell b { font-size: 18px; }
+  .wf-event-cell span { margin-top: 2px; font-size: 8.5px; }
+  .wf-event-go { bottom: 12px; }
+  html body .wf-event a.wf-btn.wf-event-go { min-height: 44px; font-size: 15px; } /* the family's large button is 52px (buttons.css, loaded later, so one step stronger); a 44px bar leaves 8px over it */
+}
+
+/* a tablet, 600 to 899px: the banner takes the desktop's form, the title top left, the countdown top right, the act at the foot, on the
+   wide cut. Below 900 it stood 700px tall with the tall layout stretched across 768px, the soldier lost to the side; founder, 4 Nov 2026,
+   "что то огромное просто". The scene's offsets are the desktop's below, so the case keeps its place in the banner's middle */
+@media (min-width: 600px) and (max-width: 899px) {
+  .wf-event { --scene-size: auto 480px; --scene-pos: right calc(45% + 214px) top -50px;
+    --plate: url(art/banner-plate-wide.webp); --plate-size: max(100%, 1315px) auto; --plate-pos: right min(45% + 86px, 0px) top -50px; }
+  .wf-event .wf-banner-art { height: 340px; }
+  .wf-event .wf-event-name { width: min(300px, 100% - 396px); top: 24px; left: var(--space-4); } /* 396 = the countdown 332 and three 16px insets; 204 at 600 */
+  .wf-event-clock { top: 24px; bottom: auto; left: auto; right: var(--space-4); grid-template-columns: repeat(4, 72px); background: rgba(6, 10, 30, .72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  .wf-event-go { top: auto; bottom: 24px; left: var(--space-4); right: auto; min-width: 240px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -121,6 +146,12 @@
   .wf-event-clock { top: 28px; }
   .wf-event-go { bottom: 28px; }
 }
+/* a narrow desktop, 900 to 1099px, where the rail leaves the banner 560 to 760px: the countdown's 72px tiles left the title 142px wide at 900,
+   a stamp; 60px tiles give it 214px there and 338px at 1024, the same four figures; founder, 4 Nov 2026, the Home's responsive pass */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .wf-event-clock { grid-template-columns: repeat(4, 60px); }
+  .wf-event .wf-event-name { width: min(500px, 100% - 348px); }
+}
 /* the plate lit a step, the founder asked for comp B's brightness: "перерисуй фон ярче как в B" */
 .wf-event::before { filter: brightness(1.08) saturate(1.1); }
 
@@ -129,9 +160,11 @@
 .v4-story { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; pointer-events: none; opacity: 0; transition: opacity .6s ease; }
 .wf-event.has-story .v4-story { opacity: 1; }
 .wf-event.has-story::before, .wf-event.has-story::after, .wf-event.has-story .wf-banner-art::before, .wf-event.has-story .wf-banner-art::after { animation-play-state: paused; }
-/* a phone: the tall cut stands under the title and melts into the page above the countdown; the soldier and the case of the still layers leave so they do not show through the melt; measured at 360 */
-@media (max-width: 899px) {
-  .v4-story { inset: 40px 0 auto; height: 560px;
-    -webkit-mask: linear-gradient(to bottom, transparent, #000 44px, #000 76%, transparent); mask: linear-gradient(to bottom, transparent, #000 44px, #000 76%, transparent); }
+/* a phone: the tall cut fills the banner down to the act and melts into the page behind the countdown; its lower half is kept, where the
+   soldier and the case are, and the sky over them takes the title; the soldier and the case of the still layers leave so they do not show
+   through the melt; measured at 360 */
+@media (max-width: 599px) {
+  .v4-story { inset: 0 0 auto; height: calc(var(--ph-h) - 70px); object-position: 50% 62%;
+    -webkit-mask: linear-gradient(to bottom, #000 68%, transparent); mask: linear-gradient(to bottom, #000 68%, transparent); }
   .wf-event.has-story::after, .wf-event.has-story .wf-banner-art::after { opacity: 0; transition: opacity .6s ease; }
 }

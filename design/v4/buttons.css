@@ -31,7 +31,7 @@ html body a.wf-btn { display: inline-flex; align-items: center; justify-content:
    and v1, which does not load this file, keeps the brand pink */
 html body .wf-header .wf-row > a.wf-btn:not(.wf-dep), html body .wf-sec-foot a.wf-btn, html body .wf-panel-foot a.wf-btn { background: var(--btn-stripes), var(--btn-fill); }
 html body a.wf-btn.wf-event-go { min-height: var(--btn-l); padding: 0 28px; font-size: 16px; }
-html body .wf-grid .wf-mode > a.wf-btn, html body .wf-grid .wf-mode > .wf-fig-missing { min-height: var(--btn-m); border-radius: var(--btn-radius); padding: 0; font-size: min(13px, 4.6cqw); letter-spacing: .06em; }
+html body .wf-grid .wf-mode > a.wf-btn, html body .wf-grid .wf-mode > .wf-fig-missing { min-height: var(--btn-m); border-radius: var(--btn-radius); padding: 0 14px; font-size: min(13px, 4.6cqw); letter-spacing: .06em; }
 html body .wf-screen-body a.wf-btn:not(.wf-event-go) { min-height: var(--btn-m); font-size: 13px; }
 
 /* ONE HOVER FOR THE WHOLE FAMILY, H2 of buttons-lab.html, founder of 4 Nov 2026: "давай такие вариант але спробуемо без саява у дефолти та при ховери

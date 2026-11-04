@@ -2,6 +2,12 @@
  * бейджиком trustpilot". The figures are read from the page's own line, never typed a second time, and the link stays the same
  * link: its text remains the accessible name. Without this script the plain line stands. */
 (function () {
+  /* a signed-in person does not get the Trustpilot line: the wireframe drops it for an account (wireframes/_nav.js, account ? '' : A5) and
+   * Home's v4 copy renders the guest body for both, founder, 4 Nov 2026: "при логине убираем". The class is set before the header and the
+   * hero render, so the line never shows and then goes */
+  var sh = window.WF_SHELL;
+  if (sh && sh.account) document.documentElement.classList.add('v4-signed');
+
   function star() {
     return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.7l6.3-.7z"/></svg>';
   }
