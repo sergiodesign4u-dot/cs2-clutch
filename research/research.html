@@ -597,9 +597,8 @@
   </div>
 
   <div class="sep"></div>
-  <h3>Screenshots - Baseline (the baseline)</h3>
-  <p class="updated-note" style="font-size:13px; margin:0 0 14px; padding:12px 14px; line-height:1.6"><strong>Walked properly on 11 August 2026: <a href="baseline.html">Baseline walk</a>.</strong> These six captures are what stage 01 took. They are not a page inventory, and the sentence "the structure is inherited" had no source document behind it until the stage 03 input gate found that out. The walk records the page inventory, the navigation model, the composition of the screens round 1 needs, the compliance surfaces as they exist today, and the colour values, all from public pre-login pages. Ordered by <code>docs/decisions.md</code> D-18. <strong>Behind the account, captured 18 August 2026 from the founder&#39;s own screenshots: <a href="baseline-account.html">Baseline behind the account</a>.</strong> That one carries the withdrawal mechanic, the responsible play tool that exists and cannot be found, and two corrections to the walks above.</p>
-  <div class="gallery-scroll" id="baseline-gallery"></div>
+  <h3>Baseline</h3>
+  <p class="updated-note" style="font-size:13px; margin:0 0 14px; padding:12px 14px; line-height:1.6"><strong>Walked properly on 11 August 2026: <a href="baseline.html">Baseline walk</a>.</strong> Stage 01 took six captures of it, and they stay on file rather than on this page. They are not a page inventory, and the sentence "the structure is inherited" had no source document behind it until the stage 03 input gate found that out. The walk records the page inventory, the navigation model, the composition of the screens round 1 needs, the compliance surfaces as they exist today, and the colour values, all from public pre-login pages. Ordered by <code>docs/decisions.md</code> D-18. <strong>Behind the account, captured 18 August 2026 from the founder&#39;s own screenshots: <a href="baseline-account.html">Baseline behind the account</a>.</strong> That one carries the withdrawal mechanic, the responsible play tool that exists and cannot be found, and two corrections to the walks above.</p>
   <h3 style="margin-top:24px">Screenshots - Competitors</h3>
   <div class="gallery-scroll" id="competitor-gallery"></div>
 </section>
@@ -1436,14 +1435,6 @@
 
 <script>
 (function() {
-  var baseline = [
-    {src:'screens/baseline/baseline_landing.png',caption:'the baseline - Landing'},
-    {src:'screens/baseline/baseline_cases.png',caption:'the baseline - Cases'},
-    {src:'screens/baseline/baseline_battles.png',caption:'the baseline - Battles'},
-    {src:'screens/baseline/baseline_upgrades.png',caption:'the baseline - Upgrades'},
-    {src:'screens/baseline/baseline_fairness.png',caption:'the baseline - Fairness (FAQ)'},
-    {src:'screens/baseline/baseline_withdrawal.png',caption:'the baseline - Exchange/Withdrawal'},
-  ];
   var competitors = [
     {src:'screens/skinclub_landing.png',caption:'skin.club - Landing'},
     {src:'screens/skinclub_cases.png',caption:'skin.club - Cases'},
@@ -1498,7 +1489,6 @@
     {src:'screens/benchmark/genshin_official.png',caption:'Genshin Impact - official site'},
     {src:'screens/benchmark/snkrs_exclusive_access.png',caption:'Nike SNKRS - Inside Exclusive Access'},
   ];
-  buildGallery('baseline-gallery', baseline);
   buildGallery('benchmark-gallery', benchmarks);
   buildGallery('competitor-gallery', competitors);
 })();
