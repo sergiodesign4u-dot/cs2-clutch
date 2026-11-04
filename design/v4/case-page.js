@@ -17,6 +17,7 @@
   O.sound = (function () { try { return localStorage.getItem('v4-sound') === 'on'; } catch (e) { return false; } })();
 
   function el(tag, cls, html) { var n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; }
+  function now() { var d = new Date(); return d.getDate() + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()] + ' ' + d.getFullYear() + ' ' + String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); }
   function coins(v) { return v.toFixed(2) + '&nbsp;coins'; }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
 
@@ -70,7 +71,7 @@
     counter.appendChild(b);
   });
   var act = el(guest ? 'a' : 'button', 'v4c-go v4-btn v4-btn--l');
-  if (guest) { act.href = '../../wireframes/signin.html'; act.innerHTML = '<span>Sign in to open</span>'; } else act.type = 'button';
+  if (guest) { act.href = '../../wireframes/signin.html'; act.innerHTML = '<span>Sign in</span>'; } else act.type = 'button';
   var cost = el('div', 'v4c-cost'), line = el('p', 'v4c-line'), hashRow = el('div', 'v4c-hash');
   if (!guest) commit.appendChild(counter);
   var actRow = el('div', 'v4c-act'); actRow.appendChild(cost); actRow.appendChild(act); commit.appendChild(actRow);
@@ -102,13 +103,13 @@
   }
   function drawCommit() {
     var total = PRICE * count, short = !guest && total > balance;
-    cost.innerHTML = '<b>' + coins(total) + '</b><span>' + (count > 1 ? 'Price, ' + count + ' opens' : 'Price, one open') + '</span>' +
+    // the words are microcopy.md 3.3's: a guest sees the price beside Sign in, an account sees it on the button, 3.3-5
+    cost.innerHTML = (guest ? '<b>' + coins(PRICE) + '</b><span>Price, one open</span>' : '') +
       // ?commit=b: what it returns on average, beside what it costs, design principle 3; datdrop prints these in a table below the fold
       (V.commit === 'b' ? '<span class="v4c-ret">Returns <b>' + coins(parseFloat(EV) * count) + '</b> on average · 37 % of opens beat the price</span>' : '');
-    if (!guest) act.innerHTML = '<span>' + (short ? 'Add funds to open' : (count > 1 ? 'Open ' + count : 'Open case')) + '</span>';
+    if (!guest) act.innerHTML = '<span>' + (short ? 'Add funds' : 'Open for ' + coins(total)) + '</span>';
     act.classList.toggle('is-short', short);
-    line.innerHTML = (guest ? 'Signing in takes one step with Steam. ' : short ? 'Not enough on your balance for ' + count + '. '
-      : 'After this open, ' + coins(balance - total) + ' · ') + '1 coin = $1.00 · <a href="#h2-pays">RTP ' + RTP + ', expected value ' + EV + ' coins</a>';
+    line.innerHTML = (guest || short ? '' : 'After this open, ' + coins(balance - total) + ' · ') + '1 coin = $1.00 · <a href="#h2-pays">RTP ' + RTP + ', expected value ' + EV + ' coins</a>';
     // the hash is on screen before the act, 0.14 V1 at the trigger, in its pre-roll state
     var hs = []; for (var i = 0; i < count; i++) hs.push(hash());
     hashRow.innerHTML = guest ? '' : '<span class="v4c-hash-l">Server seed hash' + (count > 1 ? 'es' : '') + '</span>' + hs.map(function (h) { return '<code>' + h + '</code>'; }).join('');
@@ -133,8 +134,8 @@
     var results = O.roll(O.items, count);
     act.disabled = true; counter.classList.add('is-locked');
     cost.innerHTML = '<b>' + coins(total) + '</b><span>Spent</span>';
-    act.innerHTML = '<span>Opening…</span>';
-    line.innerHTML = (count > 1 ? 'All ' + count + ' results were' : 'The result was') + ' fixed before the animation started.';
+    act.hidden = true;
+    line.innerHTML = count > 1 ? 'Opening ' + count + ' cases. All ' + count + ' results were fixed before the animation started.' : 'Opening. The result was fixed before the animation started.';
     live.textContent = 'Opening ' + (count > 1 ? count + ' cases' : 'the case') + '.';
     frame.setAttribute('data-phase', 'open');
     // a tap at the foot of a narrow screen would leave the reel above the fold: the stage comes to the middle first
@@ -156,33 +157,36 @@
     live.textContent = rs.map(function (x) { return x.w + ' ' + x.s + ', ' + x.v.toFixed(2) + ' coins'; }).join('; ') + '.';
 
     var sum = rs.reduce(function (a, x) { return a + x.v; }, 0), n = rs.length;
+    // a copy on sale is a sample at 8 % over our value, the rule wireframes/_nav.js steamTop() uses, D-124; the gap is what sending costs
+    var steamGap = Math.round(sum * 0.08 * 100) / 100;
     var acts = '<div class="v4c-acts">' +
-      (balance >= PRICE * n ? '<button type="button" class="v4c-again v4-btn v4-btn--l">Open ' + (n > 1 ? n + ' again' : 'again') + ' for ' + coins(PRICE * n) + '</button>'
-        : '<a class="v4c-again v4-btn v4-btn--l" href="../../wireframes/deposit.html">Add funds to open ' + (n > 1 ? n + ' ' : '') + 'again</a>') +
+      (balance >= PRICE * n ? '<button type="button" class="v4c-again v4-btn v4-btn--l">' + (n > 1 ? 'Open ' + n + ' again for ' : 'Open again for ') + coins(PRICE * n) + '</button>'
+        : '<a class="v4c-again v4-btn v4-btn--l" href="../../wireframes/deposit.html">Add funds to open ' + (n > 1 ? n + ' ' : '') + 'again for ' + coins(PRICE * n) + '</a>') +
       '<button type="button" class="v4c-sell v4-btn v4-btn--l">' + (n > 1 ? 'Sell all ' + n + ' for ' : 'Sell for ') + coins(sum) + '</button>' +
-      '<a class="v4c-steam v4-btn v4-btn--l v4-btn--ghost" href="../../wireframes/withdraw.html">' + (n > 1 ? 'Send ' + n + ' to Steam' : 'Send to Steam') + '</a></div>';
-    var inst = n === 1 ? '<p class="v4c-inst">Float <b>' + rs[0].float + '</b> · Pattern <b>' + rs[0].pattern + '</b> · <a href="steam://rungame/730">Inspect in game</a></p>' : '';
+      '<a class="v4c-steam v4-btn v4-btn--l v4-btn--ghost" href="../../wireframes/withdraw.html">' + (n > 1 ? 'Send ' + n + ' to Steam, ' : 'Send to Steam, ') + '−' + coins(steamGap) + '</a></div>';
+    var inst = n === 1 ? '<p class="v4c-inst">As of ' + now() + ' · Float <b>' + rs[0].float + '</b> · Pattern <b>' + rs[0].pattern + '</b> · <a href="steam://rungame/730">Inspect in game</a></p>' +
+      '<p class="v4c-inst">Value <b>' + rs[0].v.toFixed(2) + '</b> coins · a copy on sale <b>' + (rs[0].v * 1.08).toFixed(2) + '</b> coins, read ' + now() + '</p>' : '';
     after.innerHTML = inst + acts +
       '<p class="v4c-saved">' + (n > 1 ? 'All ' + n + ' saved' : 'Saved') + ' to <a href="../../wireframes/account.html">My items</a>. <strong>Selling cannot be undone.</strong></p>' +
       '<p class="v4c-links"><a href="../../wireframes/fair-prefilled.html">' + (n > 1 ? 'Check each of the ' + n + ' rounds' : 'Check this round') + '</a>' +
-      '<a href="../../wireframes/result.html">Share this round</a><a href="https://steamcommunity.com/market/" rel="external nofollow">See it on the Steam Market</a></p>';
+      '<a href="../../wireframes/result.html">' + (n > 1 ? 'Share a round' : 'Share this round') + '</a><a href="https://steamcommunity.com/market/" rel="external nofollow">See it on the Steam Market</a></p>';
     after.hidden = false; commit.hidden = true;
     var again = after.querySelector('button.v4c-again');
     if (again) again.addEventListener('click', function () { reset(); act.click(); });
     var sell = after.querySelector('.v4c-sell'), ones = win.querySelectorAll('.v4c-sell1'), sold = [];
     sell.addEventListener('click', function () {
       var back = 0; rs.forEach(function (x, i) { if (!sold[i]) { back += x.v; sold[i] = true; } });
-      setBalance(balance + back); sell.disabled = true; sell.innerHTML = 'Sold for ' + coins(sum);
+      setBalance(balance + back); sell.disabled = true; sell.innerHTML = 'Sold, +' + coins(sum); // R35's words, wireframes/_nav.js
       after.querySelector('.v4c-steam').classList.add('is-gone');
-      Array.prototype.forEach.call(ones, function (b) { b.disabled = true; b.textContent = 'Sold'; });
+      Array.prototype.forEach.call(ones, function (b, i) { b.disabled = true; b.innerHTML = 'Sold<span class="v4c-sell1-v">, +' + coins(rs[i].v) + '</span>'; });
     });
     Array.prototype.forEach.call(ones, function (b, i) {
-      b.addEventListener('click', function () { if (sold[i]) return; sold[i] = true; setBalance(balance + rs[i].v); b.disabled = true; b.textContent = 'Sold'; });
+      b.addEventListener('click', function () { if (sold[i]) return; sold[i] = true; setBalance(balance + rs[i].v); b.disabled = true; b.innerHTML = 'Sold<span class="v4c-sell1-v">, +' + coins(rs[i].v) + '</span>'; });
     });
   }
   function reset() {
     commit.hidden = false; after.hidden = true; win.classList.remove('is-on'); win.innerHTML = '';
-    frame.removeAttribute('data-phase'); reel.innerHTML = ''; reel.className = 'v4c-reel'; act.disabled = false; counter.classList.remove('is-locked');
+    frame.removeAttribute('data-phase'); reel.innerHTML = ''; reel.className = 'v4c-reel'; act.disabled = false; act.hidden = false; counter.classList.remove('is-locked');
     host.classList.remove('is-done'); drawCommit();
   }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && host.classList.contains('is-done')) reset(); });

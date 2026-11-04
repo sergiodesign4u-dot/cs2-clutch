@@ -25,3 +25,4 @@ body { margin: 0; background: var(--color-ground); color: var(--color-text-hi); 
 .cl-under b { color: var(--color-text-hi); }
 .cl-h2 { margin: 48px 0 6px; font-size: 13px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--color-pink); }
 .cl-h2 + p { margin: 0 0 20px; max-width: 92ch; color: var(--color-text-soft); font-size: 14px; }
+.cl .v4c-frame[data-phase="won"] .v4c-win { height: 100%; } /* a lab has no contents row under the frame */

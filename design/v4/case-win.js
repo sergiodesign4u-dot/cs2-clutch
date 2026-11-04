@@ -25,7 +25,7 @@
         // its value against what one open cost, the multiplier hellcase prints on its top drops, here on every result, up or down
         (opts.price ? '<span class="v4c-won-x' + (x.v >= opts.price ? ' is-up' : '') + '">×' + (x.v / opts.price).toFixed(2) + ' of the price</span>' : '') +
         '</span></span>' +
-        (rs.length > 1 && opts.sell ? '<button type="button" class="v4c-sell1 v4-btn v4-btn--s v4-btn--ghost" aria-label="Sell ' + esc(x.w + ' ' + x.s) + ' for ' + x.v.toFixed(2) + ' coins">Sell</button>' : '') +
+        (rs.length > 1 && opts.sell ? '<button type="button" class="v4c-sell1 v4-btn v4-btn--s v4-btn--ghost">Sell<span class="v4c-sell1-v"> for ' + coins(x.v) + '</span></button>' : '') +
         '</div>';
     });
     host.innerHTML = h + '</div>';

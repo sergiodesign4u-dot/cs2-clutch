@@ -112,6 +112,7 @@
 .v4c-won-x.is-up { color: #35E08A; }
 .v4c-won-v { padding: 5px 12px; border-radius: 8px; background: rgba(11, 10, 34, .8); font-size: 15px; font-weight: 900; color: #FFC44D; font-variant-numeric: tabular-nums; }
 .v4c-sell1 { margin-top: 2px; }
+.v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-sell1-v { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } /* narrow cards say Sell, the value is on the card and in the accessible name */
 .v4c-win[data-count="2"] .v4c-won-art { width: 240px; height: 160px; }
 .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won { flex: 1 1 0; min-width: 0; max-width: 200px; padding: 10px 6px; border-radius: 14px; background: rgba(11, 10, 34, .55); box-shadow: inset 0 -2px 0 var(--r); }
 .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-art { width: 100%; height: 110px; }
@@ -274,3 +275,17 @@ html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow
 /* ?commit=b, the return beside the price */
 .v4c-ret { color: var(--color-text-soft); font-size: 12px; }
 .v4c-ret b { color: var(--color-text-hi); font-size: 12px; }
+html body .v4c-go[hidden] { display: none; }
+
+/* the outcome takes the contents' row too: the drifting items step out and the item stands over their place, so a tall result fits */
+.v4c-frame { z-index: 3; }
+.v4c-top.is-done .v4c-show { visibility: hidden; }
+.v4c-frame[data-phase="won"] .v4c-win { align-self: start; height: calc(100% + 90px); padding-top: 10px; box-sizing: border-box; }
+.v4c-frame[data-phase="won"] .v4c-won-art { height: 180px; }
+@media (max-width: 599px) {
+  .v4c-frame[data-phase="won"] .v4c-win { height: calc(100% + 96px); padding-top: 0; }
+  .v4c-frame[data-phase="won"][data-count="1"] .v4c-won-art { width: 220px; height: 112px; }
+  .v4c-frame[data-phase="won"] .v4c-won { gap: 4px; }
+  .v4c-after { margin-top: 2px; }
+  html body .v4c-acts .v4-btn { white-space: normal; line-height: 1.2; padding-block: 8px; text-align: center; }
+}
