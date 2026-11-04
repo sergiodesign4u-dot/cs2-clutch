@@ -4,7 +4,7 @@
 **Method:** Playwright (Node library, Chrome channel, headless; one headed retry for the blocked site), logged out, public pages only. No account, no registration, nothing personal entered. Viewports 1440x900 and 390x844 (iPhone 13 profile). Demo spins were recorded as video (25 fps) and as timed screenshots; durations come from frame-to-frame motion measured with ffmpeg on the reel area, cross-checked against the timed screenshots. Every fact below comes from a page opened in this session; what could not be seen is `[?]`.
 **Screens:** `design/v4/screens/case/` (file names listed per site).
 
-**Reached (8 + 1 supplementary):** daddyskins.com (the baseline), hellcase.com, key-drop.com, skin.club, clash.gg, datdrop.com, farmskins.com (site 8), cases.gg (supplementary, walked only because it offers a logged-out demo spin; it sells physical-goods mystery boxes, not CS2 skins).
+**Reached (8 + 1 supplementary):** the baseline, hellcase.com, key-drop.com, skin.club, clash.gg, datdrop.com, farmskins.com (site 8), cases.gg (supplementary, walked only because it offers a logged-out demo spin; it sells physical-goods mystery boxes, not CS2 skins).
 **Blocked:** csgoroll.com. Headless and headed Chrome both got a Cloudflare-style page "Access Blocked. Your activity has been flagged as suspicious", HTTP 403, Origin Country UA. Proof: `csgoroll_blocked_1440_4nov.jpg`. Not retried further.
 **Also probed, not walked:** csgo-skins.com (stuck on "Just a moment..." challenge), g4skins.com (case page reached, no demo control; buttons "LOG IN VIA STEAM +18", "CHECK ODDS"), csgocases.com (home only). farmskins.com was kept as site 8 because it is a CS2 skin site with a distinct staged hero; none of the five candidates showed a logged-out demo on its CS2 case page.
 
@@ -14,10 +14,10 @@
 
 ---
 
-## 1. daddyskins.com (the baseline)
+## 1. The baseline
 
-**Opened:** https://daddyskins.com/en/case/destroyer, 4 Nov 2026. Destroyer Case, listed at 10.31 on the cases page, "Medium-risk".
-**Screens:** `daddyskins_case_1440_4nov.jpg` (full page, signup modal closed), `daddyskins_case_390_4nov.jpg`, `daddyskins_case_390b_4nov.jpg`, `daddyskins_guest_open_4nov.jpg` (what SIGN IN opens).
+**Opened:** the baseline's case page, 4 Nov 2026. Destroyer Case, listed at 10.31 on the cases page, "Medium-risk".
+**Screens:** four, captured 4 Nov 2026 and not published: the full page with the signup modal closed, two at 390, and what SIGN IN opens.
 
 **Composition, desktop, top to bottom:** left icon rail; header (race chip with timer, SIGN IN, sound icon); live drop ticker of item tiles; breadcrumb HOME / CASES / DESTROYER CASE at right; "HOW TO VIDEO" link; title "DESTROYER CASE" and subtitle "Destroyer Case Skins Collection"; the stage panel; a yellow-bordered "SKIN PRICES" note explaining fixed skin prices and pointing to the exchange page; "Before Opening Case" note about Steam trade settings; BEST DROPS strip; CASE CONTAINS grid; "Last updated - 2026-10-21 22:17"; a stats band (375 066 728 cases opened, 3 383 999 upgrades, 1 909 919 total users, 947 online); footer. On arrival a "+3 FREE CASES" signup modal and a cookie banner cover the page.
 **At 390:** title, HOW TO VIDEO, hex count selector, likes and risk, the login message and SIGN IN fill the first screen. No case art was visible on the first screen at 390 (it is visible at 1440). The drop grid becomes one full-width card per row.
@@ -160,7 +160,7 @@
 
 ## Synthesis 1: pattern table
 
-Sites: B = baseline (daddyskins), HC = hellcase, KD = key-drop, SC = skin.club, CL = clash.gg, DD = datdrop, FS = farmskins, CG = cases.gg (supplementary). csgoroll blocked, no column.
+Sites: B = the baseline, HC = hellcase, KD = key-drop, SC = skin.club, CL = clash.gg, DD = datdrop, FS = farmskins, CG = cases.gg (supplementary). csgoroll blocked, no column.
 
 | Block | B | HC | KD | SC | CL | DD | FS | CG |
 |---|---|---|---|---|---|---|---|---|

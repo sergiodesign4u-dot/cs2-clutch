@@ -6883,3 +6883,18 @@ Six art files moved from `mode-gunfights` to `mode-showdowns`, the variables wit
 **Rejected.** Duels: the baseline's own card says "Win your duel!", too close to what is being left. 1v1: the players' own word, weak as a name and awkward in "1v1 history". Face-off: a hyphen, a less gaming word. Clutch: the product's working name.
 
 **The cost.** Unverified that no competitor uses Showdown: two searches found none, reading search summaries, not the sites' menus. Trademarks not checked. The title still meets the helmet on the card, as it did: same nine letters.
+
+
+## D-211. The published site shows no capture of the baseline and no path to one
+
+**Date:** 2026-11-04. **Stage:** 06, step 7. **Decided by:** the founder, before the link goes to an employer: "remove the name and address of the previous product, write the baseline everywhere; delete from the current version every screenshot of the previous product; on the pages do not print paths to these files, write captured on a date without the file name; do not rewrite git history" (translated).
+
+**What was decided.**
+
+1. **103 files leave the current version:** `research/screens/baseline/` and `research/screens/baseline-account/` whole, the composition shot on the concept directions page, the baseline's review page capture in `research/screens/cjm/`, and the baseline's four shots in the case screen walk. The competitor galleries stay. Git history is not rewritten, so every file stays reachable through it.
+2. **A page cites a baseline capture by its date, never by its file name or folder.** Twenty pages were rewritten that way, the IA nodes' baseline rows among them. The source class of `CLAUDE.md` is unchanged: a dated founder capture is still a source, cited by date.
+3. **The case screen walk names the baseline only as the baseline,** its address and name gone from `design/v4/docs/case-competitors.md`.
+
+**Rejected.** Renaming the four case screen shots and keeping them: the same instruction deletes the baseline's shots in that folder, and deleting wins.
+
+**The cost.** The markdown records still cite the capture file names they were written against, and those files are now only in git history: a reader of `research/docs/baseline.md` or a node's baseline row in markdown follows a name to a file that is not in the current tree. The operator's legal identification line, recorded in the footer walk, still names the company on three pages and in four markdown files; it was not in this instruction.
