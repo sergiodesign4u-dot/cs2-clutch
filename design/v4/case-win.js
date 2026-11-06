@@ -40,5 +40,20 @@
     requestAnimationFrame(function () { requestAnimationFrame(function () { host.classList.add('is-on'); }); });
     return best;
   }
-  window.V4Win = { render: render };
+  /* after the render, on row M of the case block and its prize lab (win-lab.html): each card takes its gun's name, the stage's ring between
+     its fill and its skin, and its wear in short; on a prize look of win-lab.html (?prize=, data-prize) the chance moves into the card */
+  var WEAR = { 'Factory New': 'FN', 'Minimal Wear': 'MW', 'Field-Tested': 'FT', 'Well-Worn': 'WW', 'Battle-Scarred': 'BS' };
+  function dress(host, rs) {
+    var ring = !!host.closest('[data-card="w7"]') && window.V4Open && window.V4Open.hex, inside = !!host.closest('[data-prize]');
+    Array.prototype.forEach.call(host.querySelectorAll('.v4c-won'), function (w, i) {
+      var c = w.querySelector('.v4c-won-card'), x = rs[i]; if (!c || !x) return;
+      c.setAttribute('data-w', x.w);
+      var art = c.querySelector('.v4c-won-art'), im = art && art.querySelector('img');
+      if (ring && im && !art.querySelector('.v4o-hex')) { var hw = document.createElement('span'); hw.innerHTML = window.V4Open.hex(); art.insertBefore(hw.firstChild, im); }
+      var ab = WEAR[x.wear.split(' · ')[0]];
+      if (ab && !c.querySelector('.v4c-won-wear')) { var wr = document.createElement('span'); wr.className = 'v4c-won-wear'; wr.textContent = ab; c.appendChild(wr); }
+      var od = w.querySelector('.v4c-won-odds'); if (inside && od && od.parentNode !== c) c.appendChild(od);
+    });
+  }
+  window.V4Win = { render: render, dress: dress };
 })();

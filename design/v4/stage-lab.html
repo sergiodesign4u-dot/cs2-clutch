@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First screen</title>
+  <title>The case block</title>
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,15 @@
   <link rel="stylesheet" href="case-lab.css">
   <link rel="stylesheet" href="../../_nav.css">
   <style>
-    .cl-frame { display: block; width: 100%; height: 860px; border: 0; border-radius: 18px; background: #060A1E; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+    .cl-frame { display: block; width: 100%; height: 640px; border: 0; border-radius: 18px; background: #060A1E; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); transition: height .2s; }
+    .hm { display: grid; gap: 10px; margin: 0 0 8px; }
+    .hm-i { display: grid; grid-template-columns: 150px 1fr; gap: 4px 16px; padding: 14px 16px; border-radius: 12px; background: #0E0D2E; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+    .hm-i h3 { grid-column: 2; margin: 0; font-size: 15px; font-weight: 900; }
+    .hm-i p { grid-column: 2; margin: 0; color: var(--color-text-soft); font-size: 14px; line-height: 1.45; }
+    .hm-st { grid-row: 1 / span 3; align-self: start; justify-self: start; padding: 3px 8px; border-radius: 6px; background: #1B1A48; color: var(--color-text-soft); font-size: 12px; font-weight: 900; }
+    .hm-st.is-done { background: rgba(53, 224, 138, .14); color: #6BE9A6; }
+    .hm-st.is-rows { background: rgba(101, 163, 255, .14); color: #8FBCFF; }
+    @media (max-width: 599px) { .hm-i { grid-template-columns: 1fr; } .hm-i h3, .hm-i p { grid-column: 1; } .hm-st { grid-row: auto; } }
     .cl-open { color: var(--color-text-hi); font-size: 13px; }
   </style>
 </head>
@@ -22,24 +30,88 @@
 <!-- A part of v4's case screen, D-209: the case at rest and the act under it, node 3.3 blocks 1 to 3. Each row is the real page, case.html,
      drawn inside the lab with ?embed and its row's ?stage=, so the open, the outcome and the money all work in every row. -->
 <main class="cl">
-  <h1>First screen</h1>
-  <p>The first screen of the case page: the name, the case, what is inside it, the count and the act, node 3.3 blocks 1 to 3. Every row below is the real page with only the stage changed, so each one opens, lands and pays out exactly as the page does; press Open case in any of them. Whatever the row, the region that holds the case is the region the reel runs in and the item lands in, case.md section 0: nothing changes places at the tap. Row A is on <a href="case.html">the case screen</a>.</p>
-  <div id="rows"></div>
+  <h1>The case block</h1>
+  <p>The top of the case page and nothing under it: the name, the case, what is inside, the count and the act, node 3.3 blocks 1 to 3. Every row below is the real page cut to this block, so each one opens, lands and pays. The founder of 5 Nov 2026: "this page only for the first block with the case, without the blocks of the whole page"; "it all looks very AI".</p>
+
+  <h2 class="cl-h2">The rows</h2>
+  <p>M is the newest and the only row running: your row from I with a running band in place of the frame; its skin card is compared on its own page, <a href="card-lab.html">Skin cards</a>, the open on <a href="open-lab.html">Case opening</a> and the prize on <a href="win-lab.html">Case outcome</a>. Every other row loads when you ask for it. I to L are new, 5 Nov 2026: the skin strip is gone from all four and the contents stand behind the case. I is your union of H and D, J is your sketch, K and L are ours. H, E, F and G came before them on 5 Nov; A to D are the compositions drawn first, and A is what the case screen shows today. Every row carries the bolts, the heart, the roman name and the price in the button.</p>
+<div id="rows"></div>
+
+  <h2 class="cl-h2">Decided on 5 Nov 2026</h2>
+  <p>What you said about Hallmark's open points, and what it changed.</p>
+  <div class="hm">
+    <div class="hm-i"><span class="hm-st is-done">Done, every row</span><h3>The name: roman, no halo, "agreed"</h3><p>Uppercase 900 as inherited, solid ink; the italic stays the wordmark's alone.</p></div>
+    <div class="hm-i"><span class="hm-st is-done">Done, every row</span><h3>The money: in the button, not two lines</h3><p>Hallmark's two lines refused, "not agreed at all, it should be something like this": the button says Open 1 case and carries the price in a darker chip at its end, the coin beside it. Its accessible name still says the price. The line under it keeps the balance after the open, the peg and the return.</p></div>
+    <div class="hm-i"><span class="hm-st is-done">Kept</span><h3>The pressed count keeps its stripes</h3><p>"Not agreed": the stripes and the pink stay on the pressed count.</p></div>
+    <div class="hm-i"><span class="hm-st is-done">Kept</span><h3>Uppercase labels stay</h3><p>"Yes, we keep them": the inherited language wins over gate 67.</p></div>
+  </div>
+
+  <h2 class="cl-h2">Your notes of 5 Nov 2026</h2>
+  <p>Three things you named, done on every row, the case screen included.</p>
+  <div class="hm">
+    <div class="hm-i"><span class="hm-st is-done">Done, every row</span><h3>The risk: "boring, we have a ready answer"</h3><p>The chip RISK Medium is now the case tiles' four bolts, two lit for Medium, with the same tooltip naming the band under the pointer. The word stays in the page for a screen reader.</p></div>
+    <div class="hm-i"><span class="hm-st is-done">Done, every row</span><h3>The favourite: "change it to a heart"</h3><p>The thumb and the word are now the tiles' heart on a 40px plate, pink with a pink edge once pressed, with the tiles' small burst on the way on. "Favorite this case" stays its accessible name.</p></div>
+    <div class="hm-i"><span class="hm-st is-done">Done, every row</span><h3>The skin cards: "the card looks AI"</h3><p>The rounded tile with a coloured underline is now the live drop's own card: one flat dark plate, the hexagon in the tier's colour behind the skin, the value in coins over it, the gun and the skin under it, a short bar of the tier at its foot. The value is the drop table's own figure.</p></div>
+  </div>
+
+  <h2 class="cl-h2">What Hallmark reads in this block</h2>
+  <p>The anti AI slop audit of 4 Nov 2026, read only, cut to this block. Each finding with what was done with it.</p>
+  <div class="hm">
+    <div class="hm-i"><span class="hm-st is-rows">Done in E to L</span><h3>Atmosphere on every surface, gates 29 and 47c</h3><p>Turning rays, dust specks, a masked grid with nothing under it, a pink corner bloom, a floor bloom and a coloured glow round the case. How Hallmark would make it: one directional light, a floor line, the case's reflection and contact shadow, nothing else.</p></div>
+    <div class="hm-i"><span class="hm-st is-rows">Done in E to L</span><h3>Motion with no job, design principle 2 and gate 18</h3><p>At rest the rays turn, the case floats and the contents drift with no pause. How: the case stands still, the nine items stand in one row and scroll by hand on a phone; the only motion left is the open itself.</p></div>
+    <div class="hm-i"><span class="hm-st is-rows">Done in E to L</span><h3>The act below the first screen, gate 44b</h3><p>At 1280 by 800 the Open button ended at 834. How: a lower stage, so the act and its cost fit the window.</p></div>
+    <div class="hm-i"><span class="hm-st is-rows">Done in E to L</span><h3>The count hanging on the stage's edge</h3><p>The count switch straddled the stage's lower edge, a tab caught on the border. How: the count stands under the stage.</p></div>
+    <div class="hm-i"><span class="hm-st is-done">Done, every row</span><h3>Risk and favourite as twin chips</h3><p>Risk is information and the favourite a control, so they should not look alike. Done by your bolts and heart above.</p></div>
+    <div class="hm-i"><span class="hm-st is-done">Done, every row</span><h3>The name in italic with a coloured halo, gates 38ii and 29</h3><p>The italic belongs to the wordmark and the section headings are roman, so the page speaks in two display voices. How: the name roman, uppercase 900 as inherited, solid ink, the case's colour carried by the case, not the type.</p></div>
+    <div class="hm-i"><span class="hm-st is-done">Your way</span><h3>The money line as a dot string, gate 63</h3><p>"After this open, 61.80 coins, 1 coin = $1.00, RTP ..." joined by middle dots. How: two quiet lines or a two cell row, the balance after the open and the peg on one, the return on the other, in the same words.</p></div>
+    <div class="hm-i"><span class="hm-st">Refused</span><h3>Stripes and glow on the pressed count</h3><p>The pressed count wears the button's stripes and a pink glow. How: a solid fill or the 2px pink edge; stripes only on buttons, as you already ruled for the sound and language chips.</p></div>
+    <div class="hm-i"><span class="hm-st">Refused</span><h3>Tracked capitals on labels, gate 67, against the inherited uppercase</h3><p>Hallmark reads CASES TO OPEN, SERVER SEED HASH and the crumb as an AI tell; the uppercase labels are the baseline's, so this is a collision, not slop. Its suggestion: keep capitals on short labels at one tracking value and write long captions in sentence case.</p></div>
+  </div>
+
 </main>
 <script>
 window.NAV_BASE = '../../';
 (function () {
   var ROWS = [
-    ['stage=a', 'A. The showroom', 'The case floats over a lit floor in the middle of the stage, turning light behind it, the nine items drifting along its foot, the count and the act straddling its lower edge. Hellcase gives every case its own rendered room; this is one shared stage lit in each case\'s colour.', true],
+    ['stage=m', 'M. The case over a running band, yours', 'From I, 5 Nov 2026: "the triangles do not suit us, sharp edges", so no frame and no markers. A band runs across the whole stage, a thin line along its top and its foot, the nine running through it in a slow loop and fading into nothing at both ends; the case stands large over its middle. On the tap the band gives way to the reel. The count drops its words; the risk\'s bolts, larger, take the hash\'s place on the plate; the hash goes under the plate, with the money line, the balance after the open and the peg, back under the act. Then, 5 Nov 2026: two to five cases part the stage into as many cells, divided by thin lines that draw out from the band\'s middle and slide to their new places. Ours, not the reference\'s drop from above: the cases already there glide to their cells, each new one is dealt out from behind the last case, and the ones no longer wanted slide back under it and go. Then the same day: the stage keeps one height whatever the count, "I do not like that it grows", the vertical reels of two to five fitted to it; and the striped card, "boring", gives way to three to choose from, the band\'s and the reel\'s alike. Since 6 Nov 2026 the row carries a card from the Skin cards page, in the band, the columns, the run and the prize: F was picked and then refused for its cut corners, and since 6 Nov 2026 the row shows W7, picked on that page: the value large on top, a ring of the tier lit from its top left corner round a clear gap and a gradient fill, on a dark card lit from its side. Before them, card A, the poster: the gun\'s name set huge behind the skin as outlined type, cut by the card\'s edges, on a ground of its tier\'s colour. Then the moments, the same day, "I would not change the band itself, I would spin it there": the band is the reel. On the tap the case draws back, lunges to the middle and hits, a flash and a wave along the band, the stage jolts once, the case bursts toward you and the band behind it takes off and runs to the settled result. Two pointers stand over and under the band and close in on it as it starts, taking the colour of what is landing. Two to five cases fold the band shut and open a column behind each case, the pointers turning to the stage\'s sides; each column spins under its own case and they lock one after another. The prize leaves the run from the spot it landed on and lands as the stage\'s card at full size, its chance over it and its value beside it, in the same frame: the stage keeps one height from choosing to the prize. The count\'s unchosen figures are flat dark plates now, not grey, "no 3D", and the unlit bolts the plate\'s navy.', true],
+    ['stage=m&ptr=b', 'M, the pointer with one hole', 'Row M with the pointer of 6 Nov 2026 before it was parted: one triangle in the primary button\'s pink, cut through by a triangular hole.'],
+    ['stage=m&ptr=c', 'M, the pointer with a second hole', 'Row M with the pointer of 6 Nov 2026 and the other half of your note, "and we can try a hole at the top of the triangle too, in the middle": a round hole over the triangular one, in the band of the triangle\'s base. Then, the same day: "the pointer came out well, now let us part it at the top and round the corners": row M carries it parted through the round hole into the triangular one, two arms meeting at the tip, every corner rounded.'],
+    ['stage=m&ptr=a', 'M, with the gem pointers', 'Row M with the pointers shown first on 5 Nov 2026: cut gems, four faces lit from above. Then, the same day, "quite good but too 3D, try a variant without the middle triangle, closer to the primary buttons\' colour": then, 6 Nov 2026, "something between the flat one and the gem, coloured as the primary, without the left and right colour, a triangular hole in the middle": row M now carries one triangle in the primary button\'s pink, lighter at its base and deeper at its tip, cut through by a triangular hole whose rim catches the light, its tip a little inside the band while it runs, and the line between the two fading out at both ends.'],
+    ['stage=i', 'I. The frame and the reel at rest, yours', 'Your union of H and D: the case waits in the marker\'s slot inside H\'s frame, on the hexagon of its hue (no price tag: the price now rides in the button); the contents stand either side of it as the cards the reel will run, dim and fading to the frame\'s ends. On the tap the reel runs out of that slot between the two markers, which are now the reel\'s own pointer: a cut chevron with rails along the frame and a bead under its point. Founder of 5 Nov 2026, "it runs into the edge": the frame now stops 20px short of the stage\'s edge, and the count, the act and the seed hash stand on a plate of their own under the stage, the count at its left, the act at its middle, the hash at its right.'],
+    ['stage=j', 'J. The notch and the fan, yours', 'Your sketch: the stage\'s outline runs round the act, cut up into a notch at its foot where the button sits; the count stands inside the stage at its lower left as plain figures; at its right the three best drops of the case, by value, fan out from behind the edge, cut by it, a light passing over each in turn. The nine stand in a dim arc behind the case. Founder of 5 Nov 2026: every corner of the outline is rounded, the cut corners and the notch\'s four too, and the three cards now stand up out of the stage\'s foot at its right, across from the count: the best upright and tallest in the middle, the next two tilted out either side, lower and behind it, cut by the lower edge. Then, the same day: "far too high", so the cards sit lower, their value moved to the top of the card; the arc of the nine behind the case is gone, "I do not like the curve"; and the plain figures of the count, refused, are the page\'s own count control again.'],
+    ['stage=k', 'K. The honeycomb, ours', 'The nine stand in a zigzag of hexagons across the stage, alternately high and low as the cells of one comb, each in its tier\'s colour; the case stands in front of the middle cells. The spread of rarity in the case reads before a word, and the hexagon is the shape a drop already lives in on Home.'],
+    ['stage=l', 'L. The shelf, ours', 'The case as the middle of a shelf: four of the contents recede either side of it, turned toward it, smaller and darker with distance, the way a store shows the one in front. Nothing moves until the tap. Since 5 Nov 2026 it stands on I\'s plate: the count, the act and the seed hash on one plate under the stage, the act at its middle.'],
+    ['stage=h', 'H. The case in a frame', 'The case flat on a hexagon in its hue, inside a frame stretched across the stage with cut corners like a live drop\'s hexagon, the reel\'s two pink markers already waiting at its middle, and the price in coins on a tag beside the case. Nothing lit, nothing moving at rest; on the tap the reel runs between the markers that were waiting for it. After the two pages you named on 5 Nov 2026, in our own shapes.'],
+    ['stage=a&light=b', 'E. A, under one light', 'Row A with its atmosphere taken away, the turning rays, the dust, the grid, the pink corner light, the glow round the case, the float and the drift, all of it at rest. One cone of light in the case\'s own hue falls on it from above, it stands on a floor line with its shadow and its reflection, and the nine items stand still in one row. The stage is 46px lower, so the act fits a 1280 by 800 window. From the Hallmark audit of 4 Nov 2026 and D-188\'s "the stage is a stage".'],
+    ['stage=a&light=c', 'F. A, on a lit pad', 'The same stillness, lit the way D-188 first asked for it: the case on a pad with two rings, three narrow beams converging on it from above, the floor line and the reflection.'],
+    ['stage=a&light=d', 'G. A, flat', 'The same stillness and no light at all, as flat as the baseline\'s own surfaces: one ground, the floor line, the case\'s shadow on it. The case and its art carry the colour.'],
+    ['stage=a', 'A. The showroom', 'The case floats over a lit floor in the middle of the stage, turning light behind it, the nine items drifting along its foot, the count and the act straddling its lower edge. Hellcase gives every case its own rendered room; this is one shared stage lit in each case\'s colour.'],
     ['stage=b', 'B. The product page', 'The case large on the left, the name, the count, the price and the act on the right, as a shop shows one product. The reel runs where the case stood, three and a half cards wide. On a phone it falls back to A\'s column.'],
     ['stage=c', 'C. What is inside, circling', 'The nine items ride an ellipse round the case, bigger in front, smaller behind it, so the page says what the case holds before a word is read. On the tap they fall into the case and the reel takes their place. No competitor of the eight shows contents on the stage itself.'],
     ['stage=d', 'D. The machine at rest', 'The reel is already standing, the case sitting in the marker\'s slot with the contents either side of it. On the tap the case lights and the strip runs out of that slot. Key-drop draws an idle reel with the case in the slot; this pushes it, and it is also what case.md section 0 asks for literally: the stage at rest is the reel standing still. Two and more opens keep the boxes.'],
     ['stage=a&commit=b', 'A, with what it returns beside the price', 'Row A with one line added under the price: what an open returns on average and how many opens beat the price. Of the eight sites only DatDrop prints these, in a table below the fold; design principle 3 asks for them at the moment of spending.']
   ];
-  document.getElementById('rows').innerHTML = ROWS.map(function (r) {
-    return '<section class="cl-row"><div class="cl-row-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="cl-tag">On the case screen</span>' : '') + '<p>' + r[2] + ' <a class="cl-open" href="case.html?' + r[0] + '">Open full size</a></p></div>' +
-      '<iframe class="cl-frame" loading="lazy" title="' + r[1] + '" src="case.html?embed&' + r[0] + '"></iframe></section>';
+  /* founder, 6 Nov 2026: "у меня эта страница уже подлагивает, давай всё лишнее спрячем". Sixteen live copies of the page ran their
+     bands and their pointers at once. Only row M runs now; every other row keeps its heading and its words and loads its copy of the
+     page when asked, and a loaded row can be closed again */
+  function frame(r) { return '<iframe class="cl-frame" title="' + r[1] + '" src="case.html?embed&solo&' + r[0] + '"></iframe>'; }
+  document.getElementById('rows').innerHTML = ROWS.map(function (r, i) {
+    var live = i === 0;
+    return (i === 1 ? '<h2 class="cl-h2">Earlier rows and the pointers tried</h2><p>Each loads when you ask for it, so the page stays light.</p>' : '') +
+      '<section class="cl-row"><div class="cl-row-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="cl-tag">On the case screen</span>' : '') + '<p>' + r[2] + ' <a class="cl-open" href="case.html?' + r[0] + '">Open full size</a></p></div>' +
+      (live ? frame(r) : '<button type="button" class="v4-btn v4-btn--m v4-btn--ghost" data-load="' + i + '">Show this row</button>') + '</section>';
   }).join('');
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-load]'); if (!b) return;
+    var r = ROWS[+b.getAttribute('data-load')], box = b.parentNode;
+    if (b.getAttribute('data-open')) { var f = box.querySelector('iframe'); if (f) f.remove(); b.removeAttribute('data-open'); b.textContent = 'Show this row'; return; }
+    box.insertAdjacentHTML('beforeend', frame(r)); b.setAttribute('data-open', '1'); b.textContent = 'Hide this row';
+  });
+  // each row is as tall as its block: the page cut to the block says its height (case-page.js, ?solo), on load and as the outcome grows
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.v4cSolo == null) return;
+    document.querySelectorAll('.cl-frame').forEach(function (f) { if (f.contentWindow === e.source) f.style.height = Math.max(320, e.data.h) + 'px'; });
+  });
 })();
 </script>
 <script src="../../_nav.js"></script>

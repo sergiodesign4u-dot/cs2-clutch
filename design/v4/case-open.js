@@ -60,9 +60,34 @@
   }
 
   function el(tag, cls, html) { var n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; }
+  /* the ring round the skin, card-lab.html rows R to V, founder of 6 Nov 2026: "вместо внешней линии и пунктирной ... такое приятное 3д,
+     внутри оставь градиент подложку, не меняй угол шестиугольника, поработать над толщиной, цветом, тенями". One hexagon drawn as layers a
+     look turns on or off: two soft strokes inside it for the light falling inward, a dark stroke under it for depth, the ring, its upper
+     and lower halves for a bevel, a fine line along its middle for a gloss. Hidden unless a look shows it, case-open.css */
+  var HP = 'M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z';
+  // rows W1 to W3: the ring's own gradient, top to foot, one per card so each takes its own tier's colour (a stop reads --r where it stands)
+  var hexN = 0;
+  function hex() {
+    // three directions of the same gradient, top to foot (W1 to W3), the left side to the right (W4, W6), the top left corner down (W5)
+    var id = 'v4oHx' + (++hexN), stops = '<stop offset="0" class="hs1"/><stop offset=".5" class="hs2"/><stop offset="1" class="hs3"/></linearGradient>';
+    return HEX.replace('focusable="false">', 'focusable="false"><defs><linearGradient id="' + id + '" x1="0" y1="0" x2="0" y2="1">' + stops +
+        '<linearGradient id="' + id + 'h" x1="0" y1="0" x2="1" y2="0">' + stops + '<linearGradient id="' + id + 'd" x1="0" y1="0" x2="1" y2="1">' + stops + '</defs>')
+      .replace('class="hx-grad"', 'class="hx-grad" style="stroke:url(#' + id + ')"')
+      .replace('class="hx-grad-h"', 'class="hx-grad-h" style="stroke:url(#' + id + 'h)"')
+      .replace('class="hx-grad-d"', 'class="hx-grad-d" style="stroke:url(#' + id + 'd)"');
+  }
+  var HEX = '<svg class="v4o-hex" viewBox="0 0 136 118" aria-hidden="true" focusable="false">' +
+    '<path class="hx-g2" d="M119 59L93.5 103.17L42.5 103.17L17 59L42.5 14.83L93.5 14.83Z"/><path class="hx-g1" d="M123 59L95.5 106.63L40.5 106.63L13 59L40.5 11.37L95.5 11.37Z"/>' +
+    '<path class="hx-under" d="' + HP + '"/><path class="hx-ring" d="' + HP + '"/>' +
+    '<path class="hx-top" d="M8 59L38 7.04L98 7.04L128 59"/><path class="hx-bot" d="M128 59L98 110.96L38 110.96L8 59"/><path class="hx-hi" d="' + HP + '"/>' +
+    '<path class="hx-in" d="M125 59L96.5 108.36L39.5 108.36L11 59L39.5 9.64L96.5 9.64Z"/><path class="hx-grad" d="' + HP + '"/><path class="hx-grad-h" d="' + HP + '"/><path class="hx-grad-d" d="' + HP + '"/></svg>';
   function card(x) {
     var c = el('div', 'v4o-card ' + x.r);
-    c.innerHTML = '<span class="v4o-plate"></span><img class="v4o-img" src="' + x.art + '" alt="" draggable="false"><span class="v4o-name"><b>' + x.w + '</b><span>' + x.s + '</span></span>';
+    c.setAttribute('data-w', x.w); // the gun's name for a card that sets it as type behind the skin, stage-lab row M
+    c.setAttribute('data-p', x.v.toFixed(2)); // and its value, for card-lab.html's card F, which prints it on the card
+    // the value in coins rides on every card, hidden unless the card's look shows it: founder of 6 Nov 2026, "акцент сильный на стоимость скина"
+    c.innerHTML = '<span class="v4o-plate"></span><img class="v4o-img" src="' + x.art + '" alt="" draggable="false"><span class="v4o-name"><b>' + x.w + '</b><span>' + x.s + '</span></span>' +
+      '<span class="v4o-price"><img src="art/brand/coin-6-small.svg" alt="">' + x.v.toFixed(2) + '</span>' + hex();
     return c;
   }
 
@@ -129,6 +154,52 @@
     });
   }
 
+  /* row M of stage-lab, founder of 5 Nov 2026: "саму ленту со скинами я бы не менял, а там бы крутил". The open runs on the cards already
+     drifting on the stage, not on a reel of its own. box: the window, its middle is the marker; run: the row or the column of cards moving
+     under a css animation. The run stops where it stands, the cards past the window's far edge go, the settled strip is laid on after the
+     ones in view, and the run carries on from there to the result: the same strip, so the same rules as lane() (settled first, no near miss,
+     inside the card and never on its edge). opts: { items, result, axis, duration, delay, paint: more elements to carry the buildup }.
+     On box and paint it sets --v4o-charge 0..1 and data-spin run | slow | land; on the card it lands on, .is-won */
+  var LEAD = 30;
+  // a start from rest: the run gathers speed over its first eighth instead of jumping to full speed, then settles as the reel does
+  function ramp(t) { var s = Math.min(1, t / .12); return ease(t) * s * s * (3 - 2 * s); }
+  function drive(box, run, opts) {
+    var res = opts.result, axis = opts.axis || 'x', dur = opts.duration || 4600, paint = [box].concat(opts.paint || []);
+    var tf = getComputedStyle(run).transform, m = tf && tf !== 'none' ? new DOMMatrixReadOnly(tf) : { m41: 0, m42: 0 };
+    var p0 = Math.max(0, -(axis === 'x' ? m.m41 : m.m42));
+    function place(p) { run.style.transform = axis === 'x' ? 'translate3d(' + (-p) + 'px,0,0)' : 'translate3d(0,' + (-p) + 'px,0)'; }
+    run.style.animation = 'none'; place(p0);
+    var nodes = run.children, size = axis === 'x' ? nodes[1].offsetLeft - nodes[0].offsetLeft : nodes[1].offsetTop - nodes[0].offsetTop;
+    var view = axis === 'x' ? box.clientWidth : box.clientHeight, cardSz = axis === 'x' ? nodes[0].offsetWidth : nodes[0].offsetHeight;
+    var lead = Math.min(nodes.length, Math.ceil((p0 + view) / size) + 1);
+    while (nodes.length > lead) run.removeChild(run.lastChild);
+    strip(opts.items || IRONBOUND, res).slice(AT - LEAD).forEach(function (x) { run.appendChild(card(x)); });
+    var at = lead + LEAD, jitter = (Math.random() - .5) * cardSz * .44, end = at * size + cardSz / 2 - view / 2 + jitter;
+    box.setAttribute('data-tier', res.r);
+    function set(v) { paint.forEach(function (n) { n.style.setProperty('--v4o-charge', v); }); }
+    function phase(v) { paint.forEach(function (n) { n.setAttribute('data-spin', v); }); }
+    function mark(i) { for (var k = Math.max(0, i - 2); k < Math.min(nodes.length, i + 3); k++) nodes[k].classList.toggle('is-at', k === i); }
+    return new Promise(function (done) {
+      function land() { place(end); mark(at); set(1); phase('land'); nodes[at].classList.add('is-won'); chord(res.r); done(res); }
+      if (still) { setTimeout(land, 250 + (opts.delay || 0) / 4); return; }
+      var t0 = null, last = -1;
+      setTimeout(function () {
+        phase('run');
+        requestAnimationFrame(function frame(now) {
+          if (!box.isConnected) return;
+          if (t0 === null) t0 = now;
+          var t = Math.min(1, (now - t0) / dur), p = p0 + (end - p0) * ramp(t);
+          place(p);
+          var i = Math.floor((p + view / 2) / size);
+          if (i !== last) { last = i; mark(i); tick(1 - t); }
+          set(Math.max(0, (t - .7) / .3).toFixed(3));
+          if (t > .55 && box.getAttribute('data-spin') === 'run') phase('slow');
+          if (t < 1) requestAnimationFrame(frame); else land();
+        });
+      }, opts.delay || 0);
+    });
+  }
+
   /* the open: one lane horizontally, two to five vertically side by side, locking one after another; resolves with the results */
   function open(host, opts) {
     var n = opts.count || 1, results = opts.results || roll(opts.items || IRONBOUND, n);
@@ -144,6 +215,6 @@
     return Promise.all(lanes);
   }
 
-  V.items = IRONBOUND; V.knife = KNIFE; V.roll = roll; V.dress = dress; V.lane = lane; V.open = open; V.rank = RANK; V.still = still;
+  V.items = IRONBOUND; V.knife = KNIFE; V.roll = roll; V.dress = dress; V.lane = lane; V.open = open; V.drive = drive; V.card = card; V.hex = hex; V.rank = RANK; V.still = still;
   window.V4Open = V;
 })();

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rare skins in the band</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="rare.css">
+  <link rel="stylesheet" href="case-open.css">
+  <link rel="stylesheet" href="case-stage.css">
+  <link rel="stylesheet" href="case-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+  <style>
+    .rl-fps { display: inline-flex; gap: 14px; align-items: baseline; padding: 6px 12px; border-radius: 8px; background: #0B0A26; font-variant-numeric: tabular-nums; }
+    .rl-fps b { font-size: 22px; font-weight: 900; color: #35E08A; }
+    .rl-fps b.is-mid { color: #FFC44D; } .rl-fps b.is-low { color: #FF5A6E; }
+    .rl-fps span { color: var(--color-text-soft); font-size: 13px; }
+    .rl-out { margin: -10px 0 18px; color: var(--color-text-soft); font-size: 14px; min-height: 20px; }
+    .rl-out b { color: var(--color-text-hi); }
+    .rl-stage { display: grid; gap: 14px; padding: 18px 0; border-radius: 18px; background: linear-gradient(180deg, #121140, #0B0A28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); overflow: hidden; }
+    .rl-band { position: relative; height: 214px; overflow: hidden;
+      -webkit-mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+    .rl-run { position: absolute; left: 0; top: 50%; display: flex; gap: 12px; width: max-content; translate: 0 -50%; animation: rl-run 40s linear infinite; }
+    .rl[data-speed="spin"] .rl-run { animation-duration: 3s; }
+    @keyframes rl-run { to { transform: translateX(calc(-50% - 6px)); } }
+    .rl .v4o-card { flex: none; width: 146px; height: 170px; }
+    .rl .v4o-card.is-rare { overflow: visible; }
+    /* A, the ring's current: a bright arc runs round the card's own ring, a turning gradient seen only through the ring's shape */
+    .fx-ring { position: absolute; left: 50%; top: 21.5%; height: 50%; aspect-ratio: 136 / 118; translate: -50% 0; z-index: 2; pointer-events: none; overflow: hidden;
+      -webkit-mask: var(--rl-ringmask) center / 100% 100% no-repeat; mask: var(--rl-ringmask) center / 100% 100% no-repeat; }
+    .fx-ring i { position: absolute; inset: -40%; background: conic-gradient(from 0deg, transparent 0 62%, color-mix(in srgb, var(--r) 60%, #fff) 82%, #fff 88%, transparent 94%); animation: rl-turn 1.4s linear infinite; }
+    @keyframes rl-turn { to { transform: rotate(360deg); } }
+    /* B and C, a loop drawn once and played back by moving a strip of frames: nothing is painted while it plays */
+    .fx-loop { position: absolute; pointer-events: none; overflow: hidden; }
+    .fx-loop i { position: absolute; left: 0; top: 0; height: 100%; width: calc(100% * var(--n)); background-size: 100% 100%; animation: rl-step var(--d) steps(var(--n)) infinite; }
+    @keyframes rl-step { to { transform: translateX(-100%); } }
+    .fx-loop.is-bolt { inset: -12px; z-index: 4; mix-blend-mode: screen; }
+    .fx-loop.is-bolt i { background-image: var(--rl-bolt); }
+    .fx-loop.is-fire { inset: 0; z-index: 0; border-radius: 14px; mix-blend-mode: screen; opacity: .9; }
+    .fx-loop.is-fire i { background-image: var(--rl-fire); }
+    /* D, Home's lightning drawn live on a canvas round each rare card, the cost to compare against */
+    .fx-live { position: absolute; inset: -12px; z-index: 4; pointer-events: none; }
+    .fx-live canvas { width: 100%; height: 100%; display: block; }
+    .rl-cap { position: fixed; left: 0; top: 0; width: 170px; height: 194px; opacity: .01; pointer-events: none; z-index: -1; }
+    .rl-cap canvas { width: 100%; height: 100%; display: block; }
+    .rl .hm { display: grid; gap: 10px; }
+    .rl .hm-i { padding: 14px 16px; border-radius: 12px; background: #0E0D2E; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+    .rl .hm-i h3 { margin: 0 0 4px; font-size: 15px; font-weight: 900; }
+    .rl .hm-i p { margin: 0; color: var(--color-text-soft); font-size: 14px; line-height: 1.45; }
+    @media (prefers-reduced-motion: reduce) { .rl-run, .fx-ring i, .fx-loop i { animation: none; } }
+  </style>
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A satellite of v4's case block, D-209, founder of 6 Nov 2026: "редкие с особой отметкой, плазма горит или молнии, но чтобы FPS не падал,
+     может как видео сделать? отдельной страницей". The band of row M with W7's cards; the rare ones carry an effect, four ways of drawing it,
+     and a frame counter to see what each costs. -->
+<main class="cl rl" id="rl" data-speed="drift">
+  <h1>Rare skins in the band</h1>
+  <p>Founder of 6 Nov 2026: a rare skin in the band carries a mark of its own, "plasma burning or lightning", without the frame rate falling. Rare here is rare in this case, not a tier: "the rarity in a loot box can depend on the box, somewhere there can be a rare Mil-Spec". So a skin is rare when its chance in this case is at or under a threshold you set. Four ways to draw the mark, from the cheapest up, and a counter of frames per second; switch a way on, let the band drift or spin, and press Measure. The counter is this machine's; a phone will run lower.</p>
+  <div class="cl-ctl">
+    <label>The mark <span class="cl-seg" id="fx"></span></label>
+    <label>Rare at a chance of <span class="cl-seg" id="thr"></span></label>
+    <label>Bands <span class="cl-seg" id="bands"></span></label>
+    <label>The band <span class="cl-seg" id="speed"></span></label>
+    <span class="rl-fps"><b id="fps">60</b><span>frames a second</span></span>
+    <button type="button" class="v4-btn v4-btn--m" id="measure">Measure 10 s</button>
+  </div>
+  <p class="rl-out" id="out">Not measured yet.</p>
+  <div class="rl-stage"><div class="v4c-top" data-v="m" data-card="w7" id="bandsHost"></div></div>
+  <h2 class="cl-h2">The four ways</h2>
+  <div class="hm" id="ways"></div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+</script>
+<script src="rare-fx.js"></script>
+<script src="case-open.js"></script>
+<script>
+(function () {
+  var O = window.V4Open, FX = window.RDFX, root = document.getElementById('rl'), host = document.getElementById('bandsHost');
+  var WAYS = [
+    ['none', 'None', 'The band as row M draws it now.'],
+    ['ring', 'A. The ring\'s current', 'A bright arc runs round the card\'s own ring. One turning layer seen through the ring\'s shape: the browser only turns it, it paints nothing. Light enough for every rare card at once; it reads as a charge rather than as fire.'],
+    ['bolt', 'B. Lightning, drawn once', 'Home\'s live drop lightning recorded once when the page opens, 24 frames, and played back by moving the strip of frames, as a short video plays. Nothing is drawn while it plays. A real video file would do the same; this one needs no file.'],
+    ['fire', 'C. Plasma, drawn once', 'Home\'s plasma flame rendered once into 24 frames that loop without a seam, and played back the same way, behind the skin.'],
+    ['live', 'D. Lightning, live', 'The same lightning drawn every frame on a canvas round each rare card, as Home draws a live drop. The most alive and the most costly: the measure to compare B against.']
+  ];
+  var state = { fx: 'none', thr: 2.5, bands: 1, speed: 'drift' };
+  function seg(id, opts, key, labels) {
+    var el = document.getElementById(id);
+    opts.forEach(function (v, i) { var b = document.createElement('button'); b.type = 'button'; b.textContent = labels ? labels[i] : v; b.setAttribute('aria-pressed', String(v === state[key]));
+      b.onclick = function () { state[key] = v; Array.prototype.forEach.call(el.children, function (c, k) { c.setAttribute('aria-pressed', String(opts[k] === v)); }); build(); };
+      el.appendChild(b); });
+  }
+  seg('fx', ['none', 'ring', 'bolt', 'fire', 'live'], 'fx', ['None', 'A', 'B', 'C', 'D']);
+  seg('thr', [1, 2.5, 5], 'thr', ['1 %', '2.5 %', '5 %']);
+  seg('bands', [1, 3], 'bands');
+  seg('speed', ['drift', 'spin'], 'speed', ['Drift', 'Spin']);
+  document.getElementById('ways').innerHTML = WAYS.slice(1).map(function (w) { return '<div class="hm-i"><h3>' + w[1] + '</h3><p>' + w[2] + '</p></div>'; }).join('');
+
+  // the ring's shape as a mask, the same hexagon case-open.js draws, a stroke a little wider than the ring
+  var ring = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 118"><path d="M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z" fill="none" stroke="#000" stroke-width="7" stroke-linejoin="round"/></svg>');
+  root.style.setProperty('--rl-ringmask', 'url("' + ring + '")');
+
+  // the two loops, drawn once: the fire from the shader in one go, the lightning recorded from Home's own effect over a second
+  var N = 24, SC = 1.5;
+  var fire = FX.fireStrip(Math.round(146 * SC), Math.round(170 * SC), N, 1.2, ['#FFE0F4', '#FB3F8A', '#D22BCE', '#3B1A7A']);
+  if (fire) root.style.setProperty('--rl-fire', 'url(' + fire.toDataURL() + ')');
+  var bolt = null;
+  (function () {
+    var cap = document.createElement('div'); cap.className = 'rl-cap v4-rare v4-rare-volt is-live'; var cv = document.createElement('canvas'); cap.appendChild(cv); document.body.appendChild(cap);
+    FX.volt(cv, 12);
+    var w = Math.round(170 * SC), h = Math.round(194 * SC), strip = document.createElement('canvas'); strip.width = w * N; strip.height = h;
+    var sx = strip.getContext('2d'), i = 0;
+    setTimeout(function grab() {
+      sx.drawImage(cv, i * w, 0, w, h); i++;
+      if (i < N) setTimeout(grab, 42); else { bolt = strip; root.style.setProperty('--rl-bolt', 'url(' + strip.toDataURL() + ')'); cap.remove(); if (state.fx === 'bolt') build(); }
+    }, 700);
+  })();
+
+  function build() {
+    root.setAttribute('data-speed', state.speed);
+    host.innerHTML = '';
+    var all = O.items.concat([O.knife]);
+    for (var k = 0; k < state.bands; k++) {
+      var band = document.createElement('div'); band.className = 'rl-band'; var run = document.createElement('div'); run.className = 'rl-run';
+      run.style.animationDelay = (-k * 7) + 's';
+      all.concat(all).forEach(function (x) {
+        var c = O.card(x); run.appendChild(c);
+        if (x.ch > state.thr || state.fx === 'none') return;
+        c.classList.add('is-rare');
+        if (state.fx === 'ring') { var r = document.createElement('span'); r.className = 'fx-ring'; r.innerHTML = '<i></i>'; c.appendChild(r); }
+        if (state.fx === 'bolt' || state.fx === 'fire') { if (state.fx === 'bolt' && !bolt) return;
+          var l = document.createElement('span'); l.className = 'fx-loop is-' + state.fx; l.style.setProperty('--n', N); l.style.setProperty('--d', state.fx === 'bolt' ? '1s' : '1.2s'); l.innerHTML = '<i></i>'; c.insertBefore(l, c.firstChild); }
+        if (state.fx === 'live') { var v = document.createElement('span'); v.className = 'fx-live v4-rare v4-rare-volt is-live'; var cv = document.createElement('canvas'); v.appendChild(cv); c.appendChild(v); FX.volt(cv, 12); }
+      });
+      band.appendChild(run); host.appendChild(band);
+    }
+  }
+  build();
+
+  // the counter: frames in the last second, and a ten second measure with its slowest frame
+  var stamps = [], fpsEl = document.getElementById('fps'), rec = null;
+  requestAnimationFrame(function tick(now) {
+    if (stamps.length) { var dt = now - stamps[stamps.length - 1]; if (rec) { rec.n++; rec.worst = Math.max(rec.worst, dt); if (dt > 34) rec.slow++; } }
+    stamps.push(now); while (stamps.length && now - stamps[0] > 1000) stamps.shift();
+    if (stamps.length % 10 === 0) { var f = stamps.length; fpsEl.textContent = f; fpsEl.className = f >= 55 ? '' : f >= 40 ? 'is-mid' : 'is-low'; }
+    if (rec && now - rec.t0 >= 10000) { var out = document.getElementById('out');
+      out.innerHTML = 'Mark <b>' + (WAYS.filter(function (w) { return w[0] === rec.fx; })[0][1]) + '</b>, ' + rec.bands + ' band' + (rec.bands > 1 ? 's' : '') + ', ' + rec.speed + ': <b>' + Math.round(rec.n / 10) + '</b> frames a second on average, the slowest frame <b>' + Math.round(rec.worst) + ' ms</b>, <b>' + rec.slow + '</b> frames over 34 ms.';
+      rec = null; document.getElementById('measure').disabled = false; }
+    requestAnimationFrame(tick);
+  });
+  document.getElementById('measure').onclick = function () { this.disabled = true; document.getElementById('out').textContent = 'Measuring for ten seconds…';
+    rec = { t0: performance.now(), n: 0, worst: 0, slow: 0, fx: state.fx, bands: state.bands, speed: state.speed }; };
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

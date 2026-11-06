@@ -87,7 +87,9 @@ window.NAV = [
           // blocks, and stand beside it ("я би делал би их верхним уровнем а не подуровнем кейса").
           { label: 'Case screen', pageLabel: 'Case screen v4', page: 'design/v4/case.html', live: true, parts: [
               { label: 'Competitors', pageLabel: 'Case pages, 8 competitors', page: 'design/v4/case-research.html', live: true },
-              { label: 'First screen', pageLabel: 'First screen v4', page: 'design/v4/stage-lab.html', live: true },
+              { label: 'Case block', pageLabel: 'Case block v4', page: 'design/v4/stage-lab.html', live: true },
+              { label: 'Skin cards', pageLabel: 'Skin cards v4', page: 'design/v4/card-lab.html', live: true },
+              { label: 'Rare skins', pageLabel: 'Rare skins in the band v4', page: 'design/v4/rare-lab.html', live: true },
               { label: 'Before you open', pageLabel: 'Before you open v4', page: 'design/v4/info-lab.html', live: true },
               { label: 'Best drops', pageLabel: 'Best drops v4', page: 'design/v4/drops-lab.html', live: true },
               { label: 'What is in this case', pageLabel: 'What is in this case v4', page: 'design/v4/table-lab.html', live: true },

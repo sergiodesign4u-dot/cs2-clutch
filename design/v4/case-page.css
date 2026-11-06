@@ -122,10 +122,24 @@
 
 /* the contents, drifting along the stage's foot */
 .v4c-show { position: relative; z-index: 2; overflow: hidden; margin-top: 6px; padding: 4px 0 38px; -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.v4c-show-run { display: flex; gap: 10px; width: max-content; animation: v4c-drift 60s linear infinite; }
-.v4c-show-i { display: flex; flex-direction: column; align-items: center; width: 100px; padding: 4px 4px 6px; border-radius: 10px; background: rgba(11, 10, 34, .55); box-shadow: inset 0 -2px 0 var(--r); text-align: center; }
-.v4c-show-i img { width: 76px; height: 44px; object-fit: contain; }
-.v4c-show-i b { font-size: 11px; } .v4c-show-i span { font-size: 10px; color: var(--color-text-soft); }
+.v4c-show-run { display: flex; gap: 8px; width: max-content; animation: v4c-drift 60s linear infinite; }
+/* the card, founder of 5 Nov 2026: "мне не нравится список скинов, карточка выглядит ИИ". It was a rounded tile with a coloured underline;
+   it is now the live drop's own card: one flat dark plate, the hexagon in the tier's colour behind the skin (theme.css, --v4-hex-*), the
+   value in coins over it, the gun and the skin under it, and a short bar of the tier at its foot, no glow */
+.v4c-show-i { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; width: 106px; padding: 7px 6px 9px; border-radius: 8px;
+  background: linear-gradient(to bottom, #191842, #0F0E2B); text-align: center; }
+.v4c-show-i::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 32px; height: 3px; margin-left: -16px; border-radius: 3px 3px 0 0; background: var(--r); }
+.v4c-show-v { display: inline-flex; align-items: center; gap: 4px; color: #FFC44D; font-size: 12px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; }
+.v4c-show-v img { width: 12px; height: 12px; }
+.v4c-show-a { position: relative; display: grid; place-items: center; width: 100%; height: 54px; margin: 2px 0 4px; }
+.v4c-show-a::before, .v4c-show-a::after { content: ''; position: absolute; left: 50%; top: 50%; width: 62px; height: 54px; margin: -27px 0 0 -31px; pointer-events: none; }
+.v4c-show-a::before { background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 80%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; opacity: .55; }
+.v4c-show-a::after { background: color-mix(in srgb, var(--r) 70%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; opacity: .7; }
+.v4c-show-a img { position: relative; z-index: 1; width: 96px; height: 50px; object-fit: contain; filter: drop-shadow(0 5px 4px rgba(0, 0, 0, .6)); }
+.v4c-show-w { color: var(--color-text-soft); font-size: 10px; line-height: 1.2; }
+.v4c-show-s { max-width: 100%; overflow: hidden; color: var(--color-text-hi); font-size: 12px; font-weight: 700; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+.v4c-show-i.r1 { --r: var(--color-rarity-1); } .v4c-show-i.r2 { --r: var(--color-rarity-2); } .v4c-show-i.r3 { --r: var(--color-rarity-3); }
 .v4c-show-i.r4 { --r: #8F63E6; } .v4c-show-i.r5 { --r: #4F6BFF; }
 @keyframes v4c-drift { to { transform: translateX(-50%); } }
 .v4c-top.is-opening .v4c-show, .v4c-top.is-done .v4c-show { opacity: .35; transition: opacity .4s; }
@@ -186,7 +200,8 @@ html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow
   .v4c-frame { height: 200px; }
   .v4c-box { width: 250px; }
   .v4c-head { gap: 8px; } .v4c-title .wf-case-line { margin-top: 4px; }
-  .v4c-show { padding-bottom: 32px; } .v4c-show-i { width: 84px; } .v4c-show-i img { width: 64px; height: 36px; }
+  .v4c-show { padding-bottom: 32px; } .v4c-show-i { width: 92px; padding: 6px 4px 9px; } .v4c-show-a { height: 50px; } .v4c-show-a img { width: 80px; height: 42px; }
+  .v4c-show-a::before, .v4c-show-a::after { width: 54px; height: 47px; margin: -23.5px 0 0 -27px; }
   .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-name b { font-size: 12px; }
   .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-w { font-size: 11px; }
   .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-ax { display: none; }
@@ -295,5 +310,130 @@ html body .v4c-go[hidden] { display: none; }
 .v4c-rounds summary { cursor: pointer; color: var(--color-text-hi); font-weight: 700; text-align: center; }
 .v4c-rounds p { margin: 8px 0 4px; } .v4c-rounds ol { margin: 0; padding-left: 20px; } .v4c-rounds li { margin: 3px 0; }
 .v4c-rounds b { color: var(--color-text-hi); } .v4c-rounds a { color: var(--color-text-hi); }
-html body .v4-btn.is-ask { background: var(--btn-stripes), #8A1240; box-shadow: inset 0 0 0 2px #FF6FA8; }
 .v4c-sell1 { white-space: normal; line-height: 1.15; text-align: center; }
+
+
+/* ===== THE LIGHT ON THE STAGE, stage-lab rows E to G, ?light=b, c, d; row A above is ?light=a =====
+   Founder of 4 Nov 2026 on the case screen: "вроде и не плохо, но что-то не то, много ИИ слопа визуального". The Hallmark audit of that day
+   ranked the stage's atmosphere first: turning rays, dust, a masked grid, a pink corner bloom, a coloured glow round the case, the case
+   floating and the contents drifting, all at rest. These rows keep row A's composition and take all of that away, then light the case
+   one way each. D-188's ask stands under all three: "the stage is a stage", a floor line and light from above. Nothing moves at rest, the
+   contents stand in one row, and the stage is lower so the act fits a 1280 by 800 window. */
+.v4c-beam, .v4c-pad, .v4c-line { display: none; }
+.v4c-stage:not([data-light="a"]) { background: linear-gradient(180deg, #121140 0%, #0B0A28 100%); }
+.v4c-stage:not([data-light="a"])::before { content: none; }
+.v4c-stage:not([data-light="a"]) :is(.v4c-rays, .v4c-dust) { display: none; }
+.v4c-stage:not([data-light="a"]) .v4c-box { animation: none; }
+.v4c-stage:not([data-light="a"]) .v4c-box img { filter: drop-shadow(0 16px 12px rgba(0, 0, 0, .5)); }
+.v4c-stage:not([data-light="a"]) .v4c-frame[data-count="1"] { height: 236px; }
+/* the outcome keeps row A's 300px until its own block is redrawn: at 250 the item's lines ran into each other */
+.v4c-top.is-done .v4c-stage:not([data-light="a"]) .v4c-frame[data-count="1"] { height: 300px; }
+/* while the reel runs and on the outcome the beam steps back, so only the reel and then the item hold the light */
+.v4c-stage:not([data-light="a"]) :is(.v4c-beam, .v4c-pad, .v4c-line, .v4c-floor) { transition: opacity .3s; }
+.v4c-stage:not([data-light="a"]) .v4c-frame[data-phase] .v4c-beam { opacity: 0; }
+/* on the outcome the floor goes too: the item's name and value stand where the pad and the line were */
+.v4c-top.is-done .v4c-stage:not([data-light="a"]) :is(.v4c-beam, .v4c-pad, .v4c-line, .v4c-floor) { opacity: 0; }
+.v4c-stage:not([data-light="a"]) .v4c-show { display: flex; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; padding-bottom: 30px; -webkit-mask: none; mask: none; }
+.v4c-stage:not([data-light="a"]) .v4c-show::-webkit-scrollbar { display: none; }
+.v4c-stage:not([data-light="a"]) .v4c-show-run { animation: none; margin-inline: auto; padding-inline: 22px; }
+.v4c-stage:not([data-light="a"]) .v4c-show-i:nth-child(n+10) { display: none; } /* the run holds the nine twice for row A's loop */
+/* the floor line every row shares: a hairline across the stage at the case's foot, and the case's contact shadow on it */
+.v4c-stage:not([data-light="a"]) .v4c-line { display: block; position: absolute; left: 4%; right: 4%; bottom: 12px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .2) 20%, rgba(255, 255, 255, .2) 80%, transparent); }
+.v4c-stage:not([data-light="a"]) .v4c-floor { left: 50%; bottom: 0; width: 340px; height: 26px; margin-left: -170px;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, .6), transparent); }
+
+/* E, ?light=b: one light from above, a cone in the case's own hue falling on it, and its reflection on the floor */
+.v4c-stage[data-light="b"] .v4c-beam { display: block; position: absolute; left: 50%; top: 40px; bottom: 12px; width: min(560px, 92%); translate: -50% 0;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--case-hue) 30%, transparent) 16%, color-mix(in srgb, var(--case-hue) 6%, transparent) 85%, transparent);
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%); }
+.v4c-stage[data-light="b"] .v4c-box, .v4c-stage[data-light="c"] .v4c-box { -webkit-box-reflect: below -6px linear-gradient(transparent 82%, rgba(255, 255, 255, .14)); }
+.v4c-stage:not([data-light="a"]) .v4c-show { margin-top: 14px; } /* room for the reflection under the floor line */
+/* the count no longer hangs on the stage's lower edge, the Hallmark audit's "a tab caught on the border": it stands under the stage */
+.v4c-top:has(.v4c-stage:not([data-light="a"])) .v4c-show { padding-bottom: 16px; }
+.v4c-top:has(.v4c-stage:not([data-light="a"])) :is(.v4c-commit, .v4c-after) { margin-top: 14px; }
+/* and on a desktop the count and the act share one row, count then the trigger carrying the total, as the audit put it; the money line and the
+   seed hash run under both. A phone keeps them stacked */
+@media (min-width: 900px) {
+  .v4c-top:has(.v4c-stage:not([data-light="a"])) .v4c-commit:not([hidden]) { display: grid; grid-template-columns: auto auto; justify-content: center; align-items: center; column-gap: 20px; row-gap: 10px; }
+  .v4c-top:has(.v4c-stage:not([data-light="a"])) .v4c-commit > :not(.v4c-count):not(.v4c-act) { grid-column: 1 / -1; justify-self: center; }
+}
+
+/* F, ?light=c: D-188 as it was asked, the case on a lit pad with two rings, three narrow beams from above, the floor line, the reflection */
+.v4c-stage[data-light="c"] .v4c-beam { display: block; position: absolute; left: 50%; top: 40px; bottom: 12px; width: 80px; translate: -50% 0;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--case-hue) 26%, transparent) 20%, transparent 90%); } /* each beam fades in from above, no cut top edge */
+.v4c-stage[data-light="c"] .v4c-beam::before, .v4c-stage[data-light="c"] .v4c-beam::after { content: ''; position: absolute; top: 0; bottom: 0; width: 64px; background: inherit; }
+.v4c-stage[data-light="c"] .v4c-beam::before { right: 150%; transform: skewX(24deg); transform-origin: top; }
+.v4c-stage[data-light="c"] .v4c-beam::after { left: 150%; transform: skewX(-24deg); transform-origin: top; }
+.v4c-stage[data-light="c"] .v4c-pad { display: block; position: absolute; left: 50%; bottom: -11px; width: 400px; height: 46px; translate: -50% 0; border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--case-hue) 34%, transparent), transparent);
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--case-hue) 50%, transparent); }
+.v4c-stage[data-light="c"] .v4c-pad::after { content: ''; position: absolute; inset: 9px 40px; border-radius: 50%; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--case-hue) 32%, transparent); }
+
+/* G, ?light=d: flat, as the baseline is: one ground, the floor line and the contact shadow, no light at all */
+.v4c-stage[data-light="d"] { background: #100F33; }
+
+@media (max-width: 899px) {
+  .v4c-stage:not([data-light="a"]) .v4c-frame[data-count="1"] { height: 240px; }
+  .v4c-stage[data-light="c"] .v4c-pad { width: min(400px, 86%); }
+}
+@media (max-width: 599px) {
+  .v4c-stage:not([data-light="a"]) .v4c-frame[data-count="1"] { height: 190px; }
+  .v4c-stage:not([data-light="a"]) .v4c-floor { width: 240px; margin-left: -120px; }
+  .v4c-stage:not([data-light="a"]) .v4c-show-run { padding-inline: 14px; }
+  .v4c-stage[data-light="c"] .v4c-pad { bottom: -6px; height: 36px; }
+}
+
+/* ===== THE HEAD'S TWO FLANKS, founder of 5 Nov 2026 =====
+   The risk "скучно, у нас есть решение готовое": the case tiles' four bolts (case-tiles.css and .js), the band's word in the tooltip and for
+   a screen reader. The favourite "меняем на сердечко": the tiles' heart on a 40px plate, pink with a pink edge once pressed, with the tiles'
+   small burst on the way on; its word stays its accessible name */
+.v4c-flanks { gap: 12px; }
+.v4c-flanks .wf-risk.v4c-risk { position: relative; display: block; flex: none; width: 80px; height: 22px; min-height: 0; margin: 0; padding: 0; border: 0; background: none; box-shadow: none; font-size: 0; }
+.v4c-flanks .v4c-risk > span:not(.v4-bolts):not(.v4-risk-tip) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.v4c-flanks .v4c-risk .v4-risk-tip { font-size: 12px; white-space: nowrap; }
+.v4c-flanks .wf-fav-case.v4c-fav { position: relative; justify-content: center; width: 40px; height: 40px; min-height: 40px; padding: 0; overflow: visible; border-radius: 10px; color: var(--color-text-hi); }
+.v4c-fav [data-str="favourite"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.v4c-fav .wf-fav-i { display: block; width: 20px; height: 20px; margin: 0; background: currentColor; -webkit-mask: var(--v4-heart) center / contain no-repeat; mask: var(--v4-heart) center / contain no-repeat; transition: scale .2s; }
+.v4c-flanks .wf-fav-case.v4c-fav[aria-pressed="true"] { color: var(--color-pink); box-shadow: inset 0 0 0 2px var(--color-pink); }
+@media (hover: hover) { .v4c-fav:hover .wf-fav-i { scale: 1.12; } }
+
+/* ===== ROW H, stage-lab: the case in a chamfered frame, founder of 5 Nov 2026 =====
+   "из конкурентов нравится ... но это не значит, что надо скопировать": the two pages they named show the case flat, in a wide frame with
+   cut corners, the reel's markers already waiting at its middle and the price in a tag beside the case. Here in v4's own grammar: the frame
+   is the hexagon of a live drop stretched across the stage, the markers are the reel's pink pointer, the tag is the price in coins, and
+   under the case lies a hexagon in its hue. Flat, no light (V.light d), nothing moves at rest */
+.v4c-hexframe, .v4c-mark, .v4c-hexpad, .v4c-tag { display: none; }
+.v4c-top[data-v="h"] .v4c-hexframe { display: block; position: absolute; inset: 58px 2% 0; pointer-events: none;
+  clip-path: polygon(4% 0, 96% 0, 100% 50%, 96% 100%, 4% 100%, 0 50%);
+  background: linear-gradient(90deg, rgba(139, 124, 255, .55), rgba(139, 124, 255, .1) 22%, rgba(139, 124, 255, .1) 78%, rgba(139, 124, 255, .55)); }
+.v4c-top[data-v="h"] .v4c-hexframe::after { content: ''; position: absolute; inset: 1.5px; clip-path: inherit; background: linear-gradient(180deg, #121138, #0E0D2E); }
+.v4c-top[data-v="h"] .v4c-mark { display: block; position: absolute; left: 50%; width: 16px; height: 13px; margin-left: -8px; background: var(--color-pink); }
+.v4c-top[data-v="h"] .v4c-mark.is-t { top: 50px; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.v4c-top[data-v="h"] .v4c-mark.is-b { bottom: -8px; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.v4c-top[data-v="h"] .v4c-hexpad { display: block; position: absolute; left: 50%; top: 56%; width: 270px; height: 234px; translate: -50% -50%; pointer-events: none;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--case-hue) 16%, transparent), color-mix(in srgb, var(--case-c1) 6%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; }
+.v4c-top[data-v="h"] .v4c-tag { display: inline-flex; position: absolute; left: calc(50% + 140px); top: 64px; align-items: center; gap: 6px; padding: 7px 16px;
+  background: #22204F; color: #FFC44D; font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0 50%); }
+.v4c-top[data-v="h"] .v4c-tag img { width: 16px; height: 16px; }
+.v4c-top[data-v="h"] :is(.v4c-line, .v4c-floor) { display: none; }
+.v4c-top[data-v="h"] .v4c-box { width: 300px; -webkit-box-reflect: none; }
+.v4c-top[data-v="h"] .v4c-frame[data-count="1"] { height: 240px; }
+.v4c-top[data-v="h"] :is(.v4c-hexpad, .v4c-tag) { transition: opacity .3s; }
+.v4c-top[data-v="h"] .v4c-frame[data-phase] :is(.v4c-hexpad, .v4c-tag), .v4c-top[data-v="h"].is-done :is(.v4c-hexpad, .v4c-tag, .v4c-mark) { opacity: 0; }
+@media (max-width: 599px) {
+  .v4c-top[data-v="h"] .v4c-hexframe { inset: 50px 0 0; clip-path: polygon(7% 0, 93% 0, 100% 50%, 93% 100%, 7% 100%, 0 50%); }
+  .v4c-top[data-v="h"] .v4c-hexpad { width: 210px; height: 182px; }
+  .v4c-top[data-v="h"] .v4c-box { width: 240px; }
+  .v4c-top[data-v="h"] .v4c-frame[data-count="1"] { height: 230px; }
+  .v4c-top[data-v="h"] .v4c-tag { left: auto; right: 6%; top: 62px; padding: 5px 12px; font-size: 13px; }
+  .v4c-top[data-v="h"] .v4c-mark.is-t { top: 42px; }
+}
+
+/* ?solo, stage-lab: the block alone, with the page's side margins only */
+.v4c-solo body { min-height: 0; padding-top: 0; }
+.v4c-solo .wf-screen-body, .v4c-solo .wf-main { margin: 0 !important; padding: 0 !important; display: block !important; min-height: 0 !important; }
+.v4c-solo .v4c-top { margin: 12px; }
+

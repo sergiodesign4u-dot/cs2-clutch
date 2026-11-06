@@ -92,7 +92,7 @@
 
   /* runs after _nav.js has flipped aria-pressed, so it bursts only on the way on */
   document.addEventListener('click', function (e) {
-    var btn = e.target.closest('.wf-tile .wf-fav');
+    var btn = e.target.closest('.wf-tile .wf-fav, .v4c-fav'); /* and the case screen's heart, founder of 5 Nov 2026 */
     if (!btn) return;
     setTimeout(function () { if (btn.getAttribute('aria-pressed') === 'true') burst(btn); }, 0);
   });

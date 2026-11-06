@@ -14,21 +14,27 @@
   <link rel="stylesheet" href="case-open.css">
   <link rel="stylesheet" href="case-lab.css">
   <link rel="stylesheet" href="../../_nav.css">
+  <style>.cl-frame { display: block; width: 100%; height: 640px; border: 0; border-radius: 18px; background: #060A1E; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }</style>
 </head>
 <body>
 <aside id="sidebar"></aside>
 <!-- A part of v4's case screen, D-209: the reel, node 3.5. Founder of 4 Nov 2026: "кейс опенинг страница должні еще более вау смотреться".
      Every row runs the same engine, case-open.js, so every row keeps the same rules: settled first, no near-miss, 4 to 6 seconds, lanes
-     side by side from two opens. Only the look differs. Row A is on case.html until the founder picks. -->
+     side by side from two opens. Only the look differs. Row M is on case.html since 6 Nov 2026. -->
 <main class="cl">
   <h1>Case opening: the open</h1>
-  <p>The moment the case gives up its item, node 3.5. Every row below runs the same engine, so every row keeps the same three rules: the result is fixed before anything moves, the reel never slows past something better than what you got, and it stops inside the card, never on its edge. What differs is how it looks while it runs. In the last second and a half each frame takes the colour of what is actually landing, an honest build up rather than a fake one. Pick the item to land on, or leave it to the odds, and open a row or all of them. Row A is on <a href="case.html">the case screen</a> now; <a href="case.html?reel=b">B</a> and <a href="case.html?reel=c">C</a> open there too.</p>
+  <p>The moment the case gives up its item, node 3.5, as row M of <a href="stage-lab.html">the case block</a>, founder of 5 and 6 Nov 2026. The band of skins behind the case is the reel itself, "I would not change the band, I would spin it there": on the tap the case draws back, lunges to the middle and hits, a flash and a wave run along the band, and the band takes off and runs to the settled result between the two pointers, which close in on it and take the colour of what is landing. Two to five cases fold the band into a column behind each case, the pointers turn to the stage's sides, and the columns lock one after another. The prize then leaves the run from the spot it landed on; it is worked on <a href="win-lab.html">Case outcome</a>. The rules are the engine's own and hold here as before: the result is fixed before anything moves, nothing better than the result passes the line as the run slows or stands in view after it, and it stops inside the card, never on its edge.</p>
   <div class="cl-ctl">
     <label>Land on <select id="pick"></select></label>
     <label>Cases to open <span class="cl-seg" id="count"></span></label>
-    <label><input type="checkbox" id="snd"> Sound</label>
-    <button type="button" class="v4-btn v4-btn--m" id="all">Open every row</button>
+    <span>Then press Open on the stage.</span>
   </div>
+  <section class="cl-row"><div class="cl-row-h"><h2>M. The band is the reel</h2><span class="cl-tag">On row M</span><p>The real page cut to the case block on row M, the row the case screen itself opens on since 6 Nov 2026. <a class="cl-open" id="full" href="case.html?stage=m">Open full size</a></p></div>
+    <iframe class="cl-frame" id="live" title="The open on the case screen"></iframe></section>
+
+  <h2 class="cl-h2">Earlier: the reel on its own</h2>
+  <p>The three looks of 4 Nov 2026, a reel of its own that replaced the case on the tap. Row M took the open into the band instead; these stay for the record and run on the same engine.</p>
+  <div class="cl-ctl"><button type="button" class="v4-btn v4-btn--m v4-btn--ghost" id="all">Open every earlier row</button></div>
   <div id="rows"></div>
 </main>
 <script>
@@ -50,7 +56,14 @@ window.NAV_BASE = '../../';
   [1, 2, 3, 4, 5].forEach(function (n) { var b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.setAttribute('aria-pressed', String(n === 1));
     b.onclick = function () { count = n; Array.prototype.forEach.call(seg.children, function (c, i) { c.setAttribute('aria-pressed', String(i + 1 === n)); }); };
     seg.appendChild(b); });
-  document.getElementById('snd').onchange = function (e) { O.sound = e.target.checked; };
+  // the live row: the page reloads with the item asked for and the count chosen, ?land= and ?count= (case-page.js)
+  var live = document.getElementById('live'), full = document.getElementById('full');
+  function reload() { var q = 'stage=m' + (pick.value !== '' ? '&land=' + (all[+pick.value] === O.knife ? 'k' : pick.value) : '') + (count > 1 ? '&count=' + count : '');
+    live.src = 'case.html?embed&solo&' + q; full.href = 'case.html?' + q; }
+  pick.onchange = reload;
+  Array.prototype.forEach.call(seg.children, function (c) { var f = c.onclick; c.onclick = function () { f(); reload(); }; });
+  reload();
+  window.addEventListener('message', function (e) { if (e.data && e.data.v4cSolo != null && e.source === live.contentWindow) live.style.height = Math.max(420, e.data.h) + 'px'; });
   document.getElementById('rows').innerHTML = ROWS.map(function (r) {
     return '<section class="cl-row" data-row="' + r[0] + '"><div class="cl-row-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="cl-tag">On the case screen</span>' : '') + '<p>' + r[2] + '</p></div>' +
       '<div class="cl-box"><div class="v4o-reelhost" data-v="' + r[0] + '"></div><div class="cl-under"><button type="button" class="v4-btn v4-btn--m" data-go>Open</button><span data-out>Not opened yet.</span></div></div></section>';

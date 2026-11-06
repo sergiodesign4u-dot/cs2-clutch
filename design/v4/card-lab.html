@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skin cards</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="case-open.css">
+  <link rel="stylesheet" href="case-stage.css">
+  <link rel="stylesheet" href="case-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+  <style>
+    .ck-run { display: flex; flex-wrap: wrap; gap: 12px; }
+    .ck-run .v4o-card { width: 146px; height: 170px; text-align: left; } /* the names stand left on the stage, so here too */
+    .ck-run.is-s .v4o-card { width: 96px; height: 112px; }
+    .ck-cap { margin: 16px 0 8px; color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .ck-cap:first-child { margin-top: 0; }
+    /* card F on a phone's band, as case-stage.css draws it under 600px */
+    .v4c-top[data-card="f"] .ck-run.is-s .v4o-card::before { top: 6px !important; right: 6px !important; padding: 2px 5px 2px 17px !important; background-size: 10px, auto !important; background-position: 4px 50%, 0 0 !important; font-size: 10px !important; }
+    .v4c-top[data-card="f"] .ck-run.is-s .v4o-img { top: 24%; height: 38%; }
+    .ck-say { margin: 6px 0 0; flex-basis: 100%; color: var(--color-text-hi); font-size: 14px; }
+    .cl-tag.is-no { background: #2A1630; color: #F08AB4; }
+  </style>
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A part of v4's case block, D-209: the skin card of row M on stage-lab.html, the card the band, its columns and the open run. Each row is
+     the same six items through one card; the cards are case-open.js's own, styled by case-stage.css, so a row picked here is the card on
+     the stage by ?card= without a second build. -->
+<main class="cl">
+  <h1>Skin cards</h1>
+  <p>The card the band runs on the case block's row M, apart from the stage, founder of 5 Nov 2026: "give me the skin card variants separately". Each row is one card through six items of four tiers and the top one, at the band's size and at a phone's. Your read of each, 6 Nov 2026, stands under its name. Then the same day, F refused for its cut corners and "the skin's value must carry a strong accent": I to L are new, the value first on each and no corner cut, after the references' reels where the skin sits neatly in a cell on a hexagon. Until you pick, the stage shows I. Then: "I + L", no line along the foot, and the hexagons you like combined with Home's live drop hexagon: N to Q. Then, of N: "let us work with the hexagon": R to V, five rings in place of N's outer and dashed lines; then "not very like" the reference, and a gap wanted between the ring and the fill: W to Y; then "the colour does not work yet ... with the gap it is better": W1 to W3, the ring in two tones; then "W1, yes, closer", with a darker card, the light from a side and no dark inner edge: W4 to W6; then W6's card with W5's ring: W7, the stage's card now, at the top. Every card is the stage's own, so "See it on the stage" opens row M with that card in the band, the run and the columns.</p>
+  <div id="rows"></div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+</script>
+<script src="case-open.js"></script>
+<script>
+(function () {
+  var O = window.V4Open;
+  // the six: the top tier's knife, then Ironbound's Covert, Classified, Restricted and two Mil-Spec
+  var SIX = [O.knife].concat(['AK-47', 'M4A1-S', 'USP-S', 'P250', 'Nova'].map(function (w) { return O.items.filter(function (x) { return x.w === w; })[0]; }));
+  // the founder's read of every card, 6 Nov 2026, kept beside it; I to L came after it, the value first in each
+  var ROWS = [
+    ['w7', 'W7. W6 with W5\'s ring', 'The value large on top; the skin on a ring of its tier lit from the top left corner, its light leaning that way, round a clear gap and the gradient fill; the card dark, a little of the tier in its ground from the lit side; Home\'s short bar at the foot. On a card under 110px wide the ring and the skin sit higher, clear of the name.', 'Picked, on the stage', '"Let us take this card" (W6) "and from here only" W5\'s ring lit from the top left corner.', 'new'],
+    ['w4', 'W4. Lit from the left, on a darker card', 'W1 on a darker card, as the reference\'s cells are, the gradient fill kept inside the ring; the dark inner edge is gone, and the ring\'s light comes from the left side, its outer light leaning left with it.', 'Not picked', '', 'new'],
+    ['w5', 'W5. Lit from the top left corner', 'W4 with the ring lit from the top left corner instead, its outer light leaning up and left.', 'Its ring picked', '', 'new'],
+    ['w6', 'W6. Lit from the left, the card lit with it', 'W4 with the card\'s dark ground taking a little of the tier on the lit side, fading to dark across it.', 'Its card picked', '', 'new'],
+    ['w1', 'W1. The ring in two tones', 'The reference\'s ring is not one colour: it runs light at its top to deep at its foot, its inner edge sits in a dark shadow, a soft light goes round it. Each card\'s ring has its own gradient in its tier, the gap to the fill stays clear.', 'Closer', '"W1, yes, it got closer"; then a darker card, the light from a side, and not the 1px dark edge.', 'new'],
+    ['w2', 'W2. With a little light inward', 'W1 with the faintest wash of the tier just inside the ring, the light the reference lets fall inward, the gap still reading as the card\'s ground.', 'New', '', 'new'],
+    ['w3', 'W3. A step heavier', 'W1 with a thicker ring, its foot deeper and its light wider.', 'New', '', 'new'],
+    ['w', 'W. The reference\'s ring', 'One crisp ring of the tier\'s colour, a step lighter than it, a soft light round it; no bevel and no gloss. The fill is drawn smaller inside it, a clear band of the card\'s own ground between the ring and the fill, nothing drawn in it.', 'Gap kept, colour not', '"The colour does not work yet, there is not that effect; and yes, with the gap it is better."', 'new'],
+    ['x', 'X. The ring a step heavier', 'W with a thicker ring and a wider light round it.', 'Gap kept, colour not', '"The colour does not work yet, there is not that effect; and yes, with the gap it is better."', 'new'],
+    ['y', 'Y. The ring with a dark inner edge', 'W with a fine dark edge along the inside of the ring, so the ring sits on the gap like the reference\'s does on its dark ground.', 'Gap kept, colour not', '"The colour does not work yet, there is not that effect; and yes, with the gap it is better."', 'new'],
+    ['r', 'R. N with a neon ring', 'N with its outer and dashed lines gone for a ring with some body, the gradient fill kept inside and the hexagon\'s angle as it is: a fine bright ring on a darker one, its light falling inward and glowing out a little.', 'Not like it', '"Not very like" the reference; and "I would add a gap, as here, between the outer and the inner hexagon".'],
+    ['s', 'S. N with a bevelled ring', 'A thick ring lit along its upper half and shaded along its lower, on a dark stroke, a soft shadow under it: a ring you could pick up.', 'Not like it', '"Not very like" the reference; and "I would add a gap, as here, between the outer and the inner hexagon".'],
+    ['t', 'T. N with a glossy tube', 'A medium ring with a gloss along its middle, as a lit tube, a little of its light inward and out.', 'Not like it', '"Not very like" the reference; and "I would add a gap, as here, between the outer and the inner hexagon".'],
+    ['u', 'U. N with a thin ring and deep light', 'The finest ring, almost white, with the most light falling inward from it onto the fill.', 'Not like it', '"Not very like" the reference; and "I would add a gap, as here, between the outer and the inner hexagon".'],
+    ['v', 'V. N with the bevel drawn tight', 'S\'s bevelled ring drawn close round the fill instead of out where N\'s lines were, so the ring and the fill read as one object.', 'Not like it', '"Not very like" the reference; and "I would add a gap, as here, between the outer and the inner hexagon".'],
+    ['n', 'N. I and L', 'Your "I + L": L\'s rounded card without its foot line, I\'s value large on top, the skin on Home\'s live drop hexagon (the outer line, the dashed line and the fill), and Home\'s short bar at the foot with its light rising into the card.', 'The base of R to V', '"Let us work with the hexagon": in place of the outer and the dashed line a ring like the one you showed, "such a nice 3D", the gradient fill kept, the angle kept, its thickness, colour and shadows tried.', 'new'],
+    ['o', 'O. The medal on the live drop hexagon', 'L\'s medal with the hexagon you like: the skin on the live drop hexagon, the value on a pill across its foot, I\'s short bar under the name, no line along the foot.', 'New', '', 'new'],
+    ['p', 'P. I with the standing ring', 'I\'s cell, no card and hairlines between, the value on top; the skin on the hexagon you showed, a thick ring of its tier standing on its point, its light falling inward.', 'New', '', 'new'],
+    ['q', 'Q. The ring inside the live drop\'s lines', 'A rounded card, the value on top; the thick standing ring inside the live drop hexagon\'s outer and dashed lines turned to stand with it; Home\'s short bar and its light at the foot.', 'New', '', 'new'],
+    ['i', 'I. The live drop\'s cell', 'No card at all: the band parted into cells by hairlines, as the references\' reels are. The value in coins large over the skin, white, the coin beside it; the skin on Home\'s own live drop hexagon in its tier, the outer line and the gradient fill; the gun and the skin under it and a short bar of the tier at the foot.', 'On the stage until you pick', '"I + L", and of its short bar under the name: "I like it".', 'new'],
+    ['j', 'J. The price bar', 'A rounded card whose foot is a bar of its tier carrying the value, the way the act carries the price in its chip. The value is the loudest thing on the card and the tier is the colour it sits on.', 'New', '', 'new'],
+    ['k', 'K. The big number', 'The value set as the card\'s headline at its foot, the largest type on it; the gun and the skin small over it; the tier rising from the foot and edging the card\'s top.', 'New', '', 'new'],
+    ['l', 'L. The medal', 'The skin on a thick ring of its tier, a hexagon, and the value on a pill across the ring\'s foot like a medal\'s ribbon; the tier\'s line along the card\'s foot.', 'Combined', '"I + L", and of its line along the foot: "I definitely do not like it".', 'new'],
+    ['e', 'E. The colour card', 'The whole card a saturated gradient of its tier, light at the top corner and deep at the foot, the skin a size larger over it, the name in white.', 'Not picked', '"Fun, but I do not even know, a bit boring."'],
+    ['g', 'G. The split', 'The card cut on a slant: its top in the tier\'s colour, its foot dark, the skin lying across the cut and the name on the dark.', 'Not picked', '"More or less, but still boring."'],
+    ['f', 'F. The chamfer and the value', 'Two corners cut, a bar of the tier down the left edge, and the item\'s value in coins on a chip at the top right.', 'Refused', '"Original, and the most right card, because it shows the skin\'s price", then: "F does not suit us, because of the cut corners; the skin\'s value must carry a strong accent."'],
+    ['a', 'A. The poster', 'The gun\'s name set huge behind the skin as outlined type, cut by the card\'s edges, on a ground of its tier\'s colour.', 'Refused', '"I do not like the lines crossing on the cards."'],
+    ['d', 'D. The stripes', 'The primary button\'s diagonal stripes, in the tier\'s colour, over the card\'s top and fading down; a solid bar of the tier at its foot.', 'Refused', '"This one drops out at once."'],
+    ['h', 'H. The ticket', 'A drop ticket: notched at both sides, a torn line across, the stub under it in the tier\'s colour carrying the name.', 'Refused', '"Looks unusual, but not us at all."'],
+    ['b', 'B. The pop out', 'A block of the tier\'s colour fills the card\'s top, and the skin, larger than the card and turned a little, breaks out above its top edge.', 'Refused', '"Boring."'],
+    ['c', 'C. The pedestal', 'A dark card, a cone of the tier\'s light from above onto a lit floor, the skin standing on it over its own reflection.', 'Refused', '"Awful, all round."']
+  ];
+  var host = document.getElementById('rows');
+  ROWS.forEach(function (r) {
+    var sec = document.createElement('section'); sec.className = 'cl-row';
+    sec.innerHTML = '<div class="cl-row-h"><h2>' + r[1] + '</h2><span class="cl-tag' + (r[5] ? '' : ' is-no') + '">' + r[3] + '</span>' +
+      '<p>' + r[2] + ' <a class="cl-open" href="case.html?stage=m&card=' + r[0] + '">See it on the stage</a></p>' + (r[4] ? '<p class="ck-say">Founder, 6 Nov 2026: ' + r[4] + '</p>' : '') + '</div>';
+    var box = document.createElement('div'); box.className = 'cl-box';
+    var top = document.createElement('div'); top.className = 'v4c-top'; top.setAttribute('data-v', 'm'); top.setAttribute('data-card', r[0]);
+    [['The band', ''], ['A phone\'s band', ' is-s']].forEach(function (k) {
+      var cap = document.createElement('p'); cap.className = 'ck-cap'; cap.textContent = k[0]; top.appendChild(cap);
+      var run = document.createElement('div'); run.className = 'ck-run' + k[1];
+      SIX.forEach(function (x) { run.appendChild(O.card(x)); });
+      top.appendChild(run);
+    });
+    box.appendChild(top); sec.appendChild(box); host.appendChild(sec);
+  });
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

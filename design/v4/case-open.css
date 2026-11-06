@@ -32,6 +32,7 @@
 .v4o-y .v4o-plate { top: 8px; width: 84px; height: 72px; margin-left: -42px; }
 .v4o-img { position: absolute; left: 50%; top: 14px; width: 132px; height: 92px; margin-left: -66px; object-fit: contain; filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .6)); }
 .v4o-y .v4o-img { top: 8px; width: 112px; height: 76px; margin-left: -56px; }
+.v4o-price, .v4o-hex { display: none; } /* shown by the looks that print it, case-stage.css */
 .v4o-name { position: relative; display: flex; flex-direction: column; gap: 1px; line-height: 1.15; }
 .v4o-name b { font-size: 13px; font-weight: 700; color: var(--color-text-hi); }
 .v4o-name span { font-size: 12px; color: var(--color-text-soft); }

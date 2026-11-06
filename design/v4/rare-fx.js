@@ -266,5 +266,30 @@
     });
   };
 
+  /* a fire loop drawn once, for rare-lab.html, founder of 6 Nov 2026: "чтобы не начало FPS падать, может как видео сделать?". The same
+     shader rendered n times over T seconds into one strip of frames, each frame the fire at its time faded into the fire one loop earlier,
+     so the last frame runs into the first without a seam; the page plays the strip by moving it, which costs no painting at all.
+     C: four colours as #rrggbb. Returns the strip as a canvas, or null without WebGL */
+  FX.fireStrip = function (w, h, n, T, C) {
+    var cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+    var gl = cv.getContext('webgl', { premultipliedAlpha: true, alpha: true, preserveDrawingBuffer: true });
+    if (!gl) return null;
+    function sh(type, src) { var x = gl.createShader(type); gl.shaderSource(x, src); gl.compileShader(x); return x; }
+    var pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr); gl.useProgram(pr);
+    var b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    var lp = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(lp); gl.vertexAttribPointer(lp, 2, gl.FLOAT, false, 0, 0);
+    ['c1', 'c2', 'c3', 'c4'].forEach(function (k, i) { var c = rgb(C[i]); gl.uniform3f(gl.getUniformLocation(pr, k), c[0], c[1], c[2]); });
+    gl.uniform1f(gl.getUniformLocation(pr, 'inside'), 0); gl.uniform2f(gl.getUniformLocation(pr, 'r'), w, h); gl.viewport(0, 0, w, h);
+    var ut = gl.getUniformLocation(pr, 't'), strip = document.createElement('canvas'); strip.width = w * n; strip.height = h;
+    var sx = strip.getContext('2d');
+    function at(t) { gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.uniform1f(ut, t); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); }
+    for (var i = 0; i < n; i++) {
+      var s = i / n * T, k = s / T;
+      at(10 + s); sx.globalAlpha = 1 - k; sx.drawImage(cv, i * w, 0);
+      at(10 + s - T); sx.globalAlpha = k; sx.drawImage(cv, i * w, 0);
+    }
+    var lose = gl.getExtension('WEBGL_lose_context'); if (lose) lose.loseContext();
+    return strip;
+  };
   window.RDFX = FX;
 })();

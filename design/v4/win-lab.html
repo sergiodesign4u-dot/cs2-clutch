@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="rare.css">
   <link rel="stylesheet" href="case-page.css">
   <link rel="stylesheet" href="case-win.css">
+  <link rel="stylesheet" href="case-open.css">
+  <link rel="stylesheet" href="case-stage.css">
   <link rel="stylesheet" href="case-lab.css">
   <link rel="stylesheet" href="../../_nav.css">
 </head>
@@ -22,7 +24,7 @@
 <!-- A part of v4's case screen, D-209: the outcome, node 3.6, three ways, on case-win.js, the renderer case.html uses. Row A is on the page. -->
 <main class="cl">
   <h1>Case outcome: what came out</h1>
-  <p>The second after the reel stops, node 3.6. Every row shows the same things the grey outcome does, in the same order: the item's own published chance above it, the item, its wear and tier, its value. They differ in how the item arrives and how much of the stage it takes, and every row lets the tier decide that: a Mil-Spec arrives quietly, a Covert takes the stage, a knife takes the screen. Pick an item, or a tier at random, and replay. Row A is on <a href="case.html">the case screen</a>; <a href="case.html?win=b">B</a> and <a href="case.html?win=c">C</a> open there too.</p>
+  <p>The second after the reel stops, node 3.6. Every row shows the same things the grey outcome does, in the same order: the item's own published chance above it, the item, its wear and tier, its value. They differ in how the item arrives and how much of the stage it takes, and every row lets the tier decide that: a Mil-Spec arrives quietly, a Covert takes the stage, a knife takes the screen. Pick an item, or a tier at random, and replay. W7 is row M's prize, the one being worked on. Row A is on <a href="case.html">the case screen</a>; <a href="case.html?win=b">B</a> and <a href="case.html?win=c">C</a> open there too.</p>
   <div class="cl-ctl">
     <label>Item <select id="pick"></select></label>
     <label>Items <span class="cl-seg" id="count"></span></label>
@@ -40,6 +42,10 @@ window.NAV_BASE = '../../';
 (function () {
   var O = window.V4Open;
   var ROWS = [
+    ['w7', 'W7. The stage\'s card at full size', 'The prize as row M of the case block shows it now, the row being worked on, founder of 6 Nov 2026, "the prize at the end in W7\'s style": the card of the band grown, its value first and largest, the skin in the ring of its tier lit from the top left corner round a clear gap and the gradient fill, the card dark with a little of the tier from its lit side, Home\'s short bar at its foot. One prize is wide; two to five stand upright in their cells with Sell under each. On the stage it leaves the run from the spot it landed on; here it simply arrives. The baseline\'s prize card and yours are the next round of this row.', true],
+    ['x1', 'X1. The emblem', 'No card: the prize stands on the stage as an emblem, the stage\'s ring large round the skin, the chance tucked at the ring\'s upper right, the gun, the skin and its wear under it, and the value in the act\'s own price chip, the coin and the figure, with the multiple of the price beside it.', 'New'],
+    ['x2', 'X2. The plaque', 'No card: the value on a plaque across the ring\'s foot, the tier\'s edge round it, the way a medal carries its ribbon; the name under it and the multiple of the price under the name.', 'New'],
+    ['x3', 'X3. The cell', 'W7\'s dark card with Home\'s short bar moved to its top: the wear in short at one corner, the chance at the other, the ring in the middle, the name to the left, the value large at the foot with the multiple beside it. The quietest of the three.', 'New'],
     ['a', 'A. On the stage', 'The item rises onto the stage where the case stood, on a hexagon in its tier\'s colour, with turning rays behind it and one ring of light going out. The same weight for every tier except the colour.', true],
     ['b', 'B. The card that turns', 'The item arrives face down as a card in the case\'s colours and turns over; several turn one after another, left to right. From Classified up a band of light runs across its face, the foil of a rare card. Familiar from card games, and it gives a second of suspense that is honest: the result is already on the other side.'],
     ['c', 'C. The takeover', 'The stage floods with the tier\'s colour from the middle, the chance it had written huge behind it, and the item arrives from deep in the frame. The flood reaches further the higher the tier; Covert and above add the live drops\' own effect behind the item and shake the stage once. The loudest, and the one that most makes a knife feel like a knife.']
@@ -52,6 +58,8 @@ window.NAV_BASE = '../../';
     b.onclick = function () { count = n; Array.prototype.forEach.call(seg.children, function (c) { c.setAttribute('aria-pressed', String(+c.textContent === n)); }); play(); };
     seg.appendChild(b); });
   document.getElementById('rows').innerHTML = ROWS.map(function (r) {
+    if (r[0] === 'w7' || r[0][0] === 'x') return '<section class="cl-row"><div class="cl-row-h"><h2>' + r[1] + '</h2><span class="cl-tag">' + (r[3] === 'New' ? 'New' : 'On row M') + '</span><p>' + r[2] + (r[0][0] === 'x' ? ' <a class="cl-open" href="case.html?stage=m&prize=' + r[0] + '">See it on the stage</a>' : '') + '</p></div>' +
+      '<div class="v4c-top" data-v="m" data-card="w7"' + (r[0][0] === 'x' ? ' data-prize="' + r[0] + '"' : '') + '><section class="v4c-stage"><div class="v4c-frame" data-phase="won" data-count="1"><div class="v4c-win" data-v="a"></div></div></section></div></section>';
     return '<section class="cl-row"><div class="cl-row-h"><h2>' + r[1] + '</h2>' + (r[3] ? '<span class="cl-tag">On the case screen</span>' : '') + '<p>' + r[2] + '</p></div>' +
       '<div class="v4c-top"><section class="v4c-stage"><div class="v4c-frame" data-phase="won" data-count="1" style="height:420px"><div class="v4c-scene"><span class="v4c-rays"></span><span class="v4c-floor"></span><span class="v4c-dust"></span></div>' +
       '<div class="v4c-win" data-v="' + r[0] + '"></div></div></section></div></section>';
@@ -67,8 +75,14 @@ window.NAV_BASE = '../../';
   function play() {
     var rs = results();
     Array.prototype.forEach.call(document.querySelectorAll('.v4c-win'), function (w) {
-      var f = w.closest('.v4c-frame'); f.setAttribute('data-count', rs.length);
-      window.V4Win.render(w, rs, { price: 12.40 });
+      var f = w.closest('.v4c-frame'); f.setAttribute('data-count', rs.length); f.style.setProperty('--count', rs.length);
+      var m = !!w.closest('[data-card="w7"]');
+      window.V4Win.render(w, rs, { price: 12.40, sell: m });
+      // the stage's card: its ring between the fill and the skin and its gun's name, as case-page.js gives it after the run, then it arrives
+      if (m) window.V4Win.dress(w, rs);
+      if (m) Array.prototype.forEach.call(w.querySelectorAll('.v4c-won-card'), function (c, i) {
+        if (!O.still) c.animate([{ transform: 'translateY(24px) scale(.82)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 640, delay: i * 90, easing: 'cubic-bezier(.34, 1.3, .5, 1)', fill: 'backwards' });
+      });
     });
   }
   pick.onchange = play;

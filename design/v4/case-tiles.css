@@ -130,6 +130,10 @@
   white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .15s, translate .2s cubic-bezier(.22, 1, .36, 1); }
 .v4-risk-tip::after { content: ''; position: absolute; right: 100%; top: 50%; width: 6px; height: 10px; translate: 0 -50%; background: color-mix(in srgb, var(--rc) 70%, rgb(11, 10, 34)); clip-path: polygon(100% 0, 100% 100%, 0 50%); }
 .wf-tile-risk:hover .v4-risk-tip { opacity: 1; translate: 0 -50%; }
+/* founder of 5 Nov 2026, a bug: the next tile's bolts drew over the tooltip. Every tile is its own stacking layer (isolation) and a later
+   tile paints over an earlier one, so the tooltip's z-index never reached past its own tile; the tile whose bolts are hovered rises */
+.wf-tile:has(.wf-tile-risk:hover) { z-index: 2; transition: z-index 0s; }
+.wf-tile { z-index: 0; transition: z-index 0s .2s; } /* and stays up while the tooltip fades out; 0, not auto, so the step can wait */
 
 @media (prefers-reduced-motion: reduce) {
   .wf-tile-risk:hover .v4-bolts i, .wf-tile-risk:hover .v4-bolts i::before { animation: none; }
