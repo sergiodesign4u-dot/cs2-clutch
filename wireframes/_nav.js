@@ -1392,6 +1392,10 @@ window.WF_PAY = window.WF_PAY || {
                       Samples, D-124, marked in 3.3. */
                    usp: 'tallowcs', nova: 'brisk', mp9: 'oriole_cs', p250: 'harrow', m4: 'vandal88' };
 
+  /* WHO WON A ROUND, read by v4's case screen for its best drops, founder of 9 Nov 2026 ("по ховеру кому упало и когда"): the same
+     answer 7.1 gives, a feed winner's sample name or the account's own, declared once here and never typed again in design/. */
+  window.WF_WON_BY = function (key) { return FEED_WHO[key] || window.WF_WHO.name; };
+
   /* WHERE A WINNER'S NAME GOES, ONE ANSWER FOR THE STRIP AND FOR 7.1, D-177.
      The account's own name opens its page. Another winner of a feed round opens
      7.3 drawn for them, mountPlayerGuest. A bot or a hidden profile has no page,

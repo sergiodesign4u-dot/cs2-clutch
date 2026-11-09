@@ -18,6 +18,38 @@
   var ic = function (n) { return '<span class="am-ic" style="--ic: var(--icon-' + n + ')" aria-hidden="true"></span>'; };
   var num = function (v) { return (+v).toFixed(2); };
 
+  /* WHOSE PICTURE, declared once for every v4 surface that draws a person, founder of 10 Nov 2026: "я бы еще аватарки подобавлял, они же у
+     нас есть" and "везде круглые". The account keeps the fifth of the set; the sample winners of wireframes/_nav.js FEED_WHO (D-124) each
+     take one of the other five, the best drops' four all different so no two cards side by side share a face; a name not listed takes one by
+     its letters. A bot gets no picture (row A3: a bot is labelled, never dressed as a person) */
+  var AVA = { nightjar_cs: 5, tallowcs: 1, brisk: 2, oriole_cs: 3, harrow: 4, kestrel: 6, mira_cs: 1, vandal88: 2, frostbyte: 3, okapi: 4,
+    lynx_cs: 6, duskrunner: 1, saltyfox: 2, emberjay: 3, quill: 4, ghostline: 6 };
+  function ava(name) {
+    var n = AVA[name];
+    if (!n) { n = 0; for (var i = 0; i < String(name).length; i++) n = (n * 31 + String(name).charCodeAt(i)) % 997; n = [1, 2, 3, 4, 6][n % 5]; }
+    return 'art/avatars/a' + n + '.webp';
+  }
+  window.V4Ava = ava;
+
+  /* the live drops' back: the winner's picture, round, in place of the grey screen's mark; a bot keeps a plain round mark */
+  function feedAva() {
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-feed-who:not([data-ava]) .wf-feed-av'), function (m) {
+      var who = m.parentNode, n = who.querySelector('.wf-feed-whon');
+      who.setAttribute('data-ava', '');
+      if (!n || who.querySelector('.wf-feed-bot')) { m.classList.add('is-bot'); return; }
+      var im = document.createElement('img'); im.className = 'wf-feed-av v4-ava'; im.src = ava(n.textContent.trim()); im.alt = ''; im.setAttribute('aria-hidden', 'true');
+      m.replaceWith(im);
+    });
+  }
+  function feedWatch() {
+    feedAva();
+    var run = document.querySelector('.wf-feed-run') || document.querySelector('.wf-feed');
+    if (run && window.MutationObserver) new MutationObserver(feedAva).observe(run, { childList: true, subtree: true });
+    else if (!run && feedWatch.n++ < 40) setTimeout(feedWatch, 100);
+  }
+  feedWatch.n = 0;
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', feedWatch); else feedWatch();
+
   /* o.base: the wireframes folder; o.ava: the avatar picture; o.dep: the old +, whose address, name, data-dep-open and badge are kept */
   function render(o) {
     var B = o.base || W, who = window.WF_WHO || {}, m = window.moneyNow ? window.moneyNow() : { balance: 0, held: 0 }, dep = o.dep;
@@ -105,7 +137,7 @@
     if (!money || !acct || money.querySelector('.wf-fig-missing')) { document.documentElement.classList.remove('v4-ac-wait'); return; }
     var ac = document.createElement('div');
     ac.className = 'v4-ac ac2 ac3';
-    ac.innerHTML = render({ base: window.WF_BASE || W, ava: 'art/avatars/a5.webp', dep: dep });
+    ac.innerHTML = render({ base: window.WF_BASE || W, ava: ava((window.WF_WHO || {}).name), dep: dep });
     money.hidden = true;
     money.classList.add('v4-ac-old');
     if (dep) dep.remove();

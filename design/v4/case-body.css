@@ -162,7 +162,7 @@
 
 /* row C: the live drops' card from the header's ticker (theme.css .wf-feed-i), all nine in one row: what is in the case in one look */
 .wf-drops[data-v="c"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
-.wf-main:has(.v4c-top) .wf-tablewrap:has(.wf-drops[data-v="b"], .wf-drops[data-v="c"], .wf-drops[data-v="e"]) ~ .wf-stamp { margin-top: 14px; }
+.wf-main:has(.v4c-top) .wf-tablewrap:has(.wf-drops[data-v="b"], .wf-drops[data-v="c"], .wf-drops[data-v="e"], .wf-drops[data-v="f"]) ~ .wf-stamp { margin-top: 14px; }
 .wf-drops[data-v="c"] tbody { display: contents; }
 .wf-drops[data-v="c"] .wf-tier-h { display: none; }
 .wf-drops[data-v="c"] .v4b-row { grid-template-columns: 1fr; grid-template-areas: 'art' 'name' 'ch' 'v' 't'; padding: 8px 8px 12px; border-radius: 8px; text-align: center; gap: 2px;
@@ -182,3 +182,61 @@
 .wf-drops[data-v="c"] td[data-l="Chance"]::before, .wf-drops[data-v="c"] td[data-l="Value"]::before { display: none; }
 .wf-drops[data-v="c"] td[data-l="Tickets"] { flex-direction: column; align-items: center; gap: 0; margin-top: 6px; padding-top: 6px; font-size: 10px; }
 @media (max-width: 599px) { .wf-drops[data-v="c"] { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; } .wf-drops[data-v="c"] .v4b-img { width: 90px; height: 56px; } }
+
+/* row F, founder of 9 Nov 2026: "давай делать What is in this case секцию, так же должно быть красиво в стиле нашем и аккуратным", the
+   name, the picture, the chance and the range of the 100 000 it falls in. The stage's own card, as Best drops D (case-blocks.css): the value
+   first with the coin, the skin in its tier's lit ring, the gun, the skin and the wear, then a line of the 100 000 tickets with the item's
+   stretch of it lit in its tier's colour, and the chance and the tickets under it. No tier headings: the ring and the foot bar are the tier,
+   and the wear line names it in words. case-blocks.js table() adds the ring and the coin */
+.wf-drops[data-v="f"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 12px; }
+.wf-drops[data-v="f"] tbody { display: contents; }
+.wf-drops[data-v="f"] .wf-tier-h { display: none; }
+.wf-drops[data-v="f"] .v4b-row { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr auto auto; grid-template-areas: 'v' 'art' 'name' 'ch' 't'; align-items: start; gap: 0; padding: 16px 14px 18px; border-radius: 18px; text-align: center;
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--r-lit) 16%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--r-lit) 10%, #0D0C2C), #0D0C2C 60%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 22px rgba(3, 3, 16, .45); }
+.wf-drops[data-v="f"] .v4b-row::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 44px; height: 3px; margin-left: -22px; border-radius: 3px 3px 0 0; background: var(--r-lit); box-shadow: 0 0 10px 1px var(--r-lit); }
+/* the 100 000 tickets as the line over the chance and the tickets, the item's stretch lit; at least 4px so the rarest still shows */
+.wf-drops[data-v="f"] .v4b-row::before { content: ''; position: absolute; grid-area: ch; top: 0; left: 0; right: 0; height: 3px; border-radius: 2px;
+  background: linear-gradient(90deg, transparent calc(var(--a, 0) * 1%), var(--r-lit) calc(var(--a, 0) * 1%), var(--r-lit) max(calc(var(--b, 0) * 1%), calc(var(--a, 0) * 1% + 4px)), transparent 0), rgba(255, 255, 255, .08); }
+@media (hover: hover) { .wf-drops[data-v="f"] .v4b-row:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--r-lit) 55%, transparent), 0 14px 28px rgba(3, 3, 16, .55), 0 0 22px color-mix(in srgb, var(--r-lit) 22%, transparent); }
+  .wf-drops[data-v="f"] .v4b-row:hover .v4b-img { transform: scale(1.12) rotate(-3deg); } }
+.wf-drops[data-v="f"] .v4b-row > * { text-align: center; }
+.wf-drops[data-v="f"] td[data-l="Value"] { grid-area: v; flex-direction: row; justify-self: center; align-items: center; gap: 6px; color: #fff; font-size: 20px; line-height: 1; }
+.wf-drops[data-v="f"] td[data-l="Value"]::before { display: none; }
+.wf-drops[data-v="f"] .v4f-coin { width: 18px; height: 18px; }
+.wf-drops[data-v="f"] .v4d-c { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.wf-drops[data-v="f"] .wf-art-c { width: 100%; height: 112px; margin: 10px 0 8px; display: block; }
+.wf-drops[data-v="f"] .wf-art-c::before { display: none; }
+.wf-drops[data-v="f"] .wf-art-c .v4o-hex { display: block; position: absolute; left: 50%; top: 50%; height: 86%; width: auto; aspect-ratio: 136 / 118; translate: -50% -50%; overflow: visible; pointer-events: none;
+  filter: drop-shadow(-1.5px -1.5px 2px color-mix(in srgb, var(--r-lit) 55%, transparent)) drop-shadow(-3px -3px 10px color-mix(in srgb, var(--r-lit) 28%, transparent)); }
+.wf-drops[data-v="f"] .wf-art-c .v4o-hex .hx-grad-d { display: inline; stroke-width: 3.6; }
+.wf-drops[data-v="f"] .wf-art-c .hs1 { stop-color: color-mix(in srgb, var(--r-lit) 62%, #fff); } .wf-drops[data-v="f"] .wf-art-c .hs2 { stop-color: color-mix(in srgb, var(--r-lit) 92%, #fff); } .wf-drops[data-v="f"] .wf-art-c .hs3 { stop-color: color-mix(in srgb, var(--r-lit) 72%, #12001C); }
+.wf-drops[data-v="f"] .wf-art-c .v4d-plate { --r: var(--r-lit); }
+.wf-drops[data-v="f"] .v4b-img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; transform: scale(1.06); filter: drop-shadow(0 8px 6px rgba(0, 0, 0, .7)); }
+.wf-drops[data-v="f"] th { grid-area: name; margin: 0 0 14px; min-width: 0; }
+.wf-drops[data-v="f"] .wf-d-name { align-items: center; }
+.wf-drops[data-v="f"] .wf-d-weapon { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.wf-drops[data-v="f"] .wf-d-skin, .wf-drops[data-v="f"] .wf-d-axes { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.wf-drops[data-v="f"] .wf-d-skin { color: #fff; font-size: 16px; }
+.wf-drops[data-v="f"] .wf-d-axes { margin-top: 2px; font-size: 11px; }
+/* the chance and the tickets a line each, the label on the left and the figure on the right, so neither runs into the other at any width */
+.wf-drops[data-v="f"] td[data-l="Chance"], .wf-drops[data-v="f"] td[data-l="Tickets"] { flex-direction: row; flex-wrap: wrap; justify-content: flex-end; align-items: baseline; gap: 2px 8px; margin: 0; padding: 12px 0 0; border: 0; font-size: 14px; font-weight: 900; line-height: 1.2; text-align: right; white-space: nowrap; }
+.wf-drops[data-v="f"] td[data-l="Chance"] { grid-area: ch; color: #fff; }
+.wf-drops[data-v="f"] td[data-l="Tickets"] { grid-area: t; padding-top: 6px; color: color-mix(in srgb, var(--r-lit) 35%, #fff); }
+.wf-drops[data-v="f"] td[data-l="Chance"]::before, .wf-drops[data-v="f"] td[data-l="Tickets"]::before { flex: none; margin-right: auto; font-size: 10px; }
+/* the range fits beside its label on a wide card; on a narrow one every card puts it on its own line under the label, so the cards of a
+   row keep their feet level rather than some wrapping and some not */
+.wf-drops[data-v="f"] .v4b-row { container: v4f / inline-size; }
+.wf-drops[data-v="f"] td[data-l="Tickets"] { font-size: 13px; }
+@container v4f (max-width: 160px) { .wf-drops[data-v="f"] td[data-l="Tickets"]::before { flex-basis: 100%; } }
+.wf-drops[data-v="f"] .v4b-rule { display: none; }
+@media (max-width: 599px) {
+  .wf-drops[data-v="f"] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .wf-drops[data-v="f"] .v4b-row { padding: 14px 10px 16px; }
+  .wf-drops[data-v="f"] td[data-l="Value"] { font-size: 18px; }
+  .wf-drops[data-v="f"] .wf-art-c { height: 88px; }
+  .wf-drops[data-v="f"] .wf-d-skin { font-size: 14px; }
+  .wf-drops[data-v="f"] td[data-l="Chance"], .wf-drops[data-v="f"] td[data-l="Tickets"] { gap: 6px; font-size: 12px; }
+  .wf-drops[data-v="f"] td[data-l="Chance"]::before, .wf-drops[data-v="f"] td[data-l="Tickets"]::before { font-size: 9px; letter-spacing: .04em; }
+}
+@media (prefers-reduced-motion: reduce) { .wf-drops[data-v="f"] .v4b-row, .wf-drops[data-v="f"] .v4b-img { transition: none; } }

@@ -234,7 +234,9 @@
   // founder, 6 Nov 2026, on card-lab.html after rows A to W6: "давай вот эту карточку" (W6) with W5's ring lit from the top left corner,
   // W7: the value large on top, a ring of the tier lit from the corner round a clear gap and a gradient fill, on a dark card lit from its side
   host.setAttribute('data-card', /^[a-z][1-9]?$/.test(Q.get('card') || '') ? Q.get('card') : 'w7');
-  if (/^x[1-3]$/.test(Q.get('prize') || '')) host.setAttribute('data-prize', Q.get('prize')); // win-lab.html's prize looks, on the stage by address
+  // the prize card is Z7 of win-lab.html, founder of 9 Nov 2026: "вот этот вариант хороший"; the other looks stay reachable by address
+  var PZ = Q.get('prize') || 'z7';
+  if (/^[xyz][1-9]$/.test(PZ)) host.setAttribute('data-prize', PZ);
   host.appendChild(stage); host.appendChild(commit); host.appendChild(after);
   top.parentNode.replaceChild(host, top);
 

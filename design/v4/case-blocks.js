@@ -7,7 +7,10 @@
    ?embed&focus=<block> draws one block alone for its lab and tells the lab its height. Figures are the grey screen's samples, D-124. */
 (function () {
   var Q = new URLSearchParams(location.search);
-  var V = { info: Q.get('info') || 'a', drops: Q.get('drops') || 'a', pays: Q.get('pays') || 'a', observed: Q.get('observed') || 'a' };
+  // D of each, founder of 9 Nov 2026: "делаем вот это симпатично" (the two lines) and "скины в best drops делаем тоже классными и как на сайте";
+  // pays B, founder of 10 Nov 2026: "What this case pays давай теперь делать, в целом думаю норм будет"; observed D the same day: "мне
+  // нравится как у нас было в направлении"; how F, the reworked B: "вот этот интересный получился, но его бы я доработал", picked the same day: "о, прикольно, берем"
+  var V = { info: Q.get('info') || 'd', drops: Q.get('drops') || 'd', pays: Q.get('pays') || 'b', observed: Q.get('observed') || 'd', how: Q.get('how') || 'f' };
   var W = window.WF_BASE || '../../wireframes/', SKINS = '../concept/assets/skins/';
   var ARROW = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   // the tier's plate, Home's round card colours (proof-home.js ROUNDS), the other tiers from the same rarity steps
@@ -57,6 +60,14 @@
     if (c) c.classList.add('v4i-cost');
     if (w) w.classList.add('v4i-steam');
     if (V.info === 'c') { var cm = document.querySelector('.v4c-commit'); if (cm) cm.appendChild(s); }
+    // D: each line a plate of its own, its mark on Home's tile, the lead as the plate's title and the link as the plate's way out
+    if (V.info === 'd') Array.prototype.forEach.call(s.querySelectorAll(':scope > p'), function (p) {
+      var st = p.querySelector('strong'), a = p.querySelector('a'), head = st ? st.textContent.replace(/\.\s*$/, '') : '';
+      if (st) st.remove(); if (a) a.remove();
+      var say = p.textContent.trim();
+      p.innerHTML = '<span class="v4i-ic" aria-hidden="true"></span><span class="v4i-body"><strong class="v4i-h">' + head + '</strong><span class="v4i-say">' + say + '</span></span>';
+      if (a) { a.className = 'v4i-go'; a.innerHTML = go(a.textContent.trim()); p.querySelector('.v4i-body').appendChild(a); }
+    });
   }
 
   /* ---- Best drops: A the live drops' card; B Home's round card; C the best drop large, the rest ranked beside it ---- */
@@ -79,13 +90,27 @@
     if (V.drops === 'a') return;
     var D = Array.prototype.map.call(ul.querySelectorAll('li > a'), function (a) {
       var w = txt(a, '.wf-r-w'), s = txt(a, '.wf-r-s'), im = a.querySelector('img');
-      return { w: w, s: s, n: w + ' ' + s, v: num(txt(a, '.wf-r-v')), t: txt(a, '.wf-r-t').replace(',', ''), href: a.getAttribute('href'), img: im ? im.getAttribute('src') : '',
+      return { w: w, s: s, n: w + ' ' + s, v: num(txt(a, '.wf-r-v')), t: txt(a, '.wf-r-t').replace(',', ''), tc: txt(a, '.wf-r-t'), href: a.getAttribute('href'), img: im ? im.getAttribute('src') : '',
         r: (a.parentNode.className.match(/\br[1-7]\b/) || ['r5'])[0] };
     });
     if (!D.length) return;
     var box = document.createElement('div');
     box.className = 'v4d v4d--' + V.drops;
-    if (V.drops === 'b') box.innerHTML = '<div class="x6 v4d-grid">' + D.map(function (d) { return card(d, IT[d.n]); }).join('') + '</div>';
+    // D: the stage's own card, W7 of card-lab.html (case-open.js card, case-stage.css): the value first with the coin, the skin in its tier's
+    // lit ring, the gun and the skin under it, the moment it dropped, the tier's short bar at the foot
+    // founder of 9 Nov 2026: "только в одну строку", "огромные скины не надо делать" and "по ховеру типа кому упало и когда": one row that
+    // scrolls sideways when it runs out of width, the skin held to one height, and who won it and when over the card on hover or focus
+    // (the name is 7.1's, WF_WON_BY in wireframes/_nav.js, the picture account-home.js V4Ava, round, founder of 10 Nov 2026; "won by" stays
+    // for a screen reader, G42)
+    if (V.drops === 'd') box.innerHTML = '<ol class="v4d-w7">' + D.map(function (d) {
+      var k = (d.href.match(/[?&]round=([^&#]+)/) || [0, 'ak'])[1], who = window.WF_WON_BY ? window.WF_WON_BY(k) : '';
+      return '<li class="' + d.r + '"><a href="' + d.href + '"><span class="v4d-p"><img src="art/brand/coin-6-small.svg" alt="">' + d.v.toFixed(2) + '<span class="v4d-c">&#160;coins</span></span>' +
+        '<span class="v4d-art"><span class="v4d-plate"></span>' + (window.V4Open && window.V4Open.hex ? window.V4Open.hex() : '') + '<img class="v4d-img" src="' + d.img + '" alt="" loading="lazy"></span>' +
+        '<span class="v4d-w">' + d.w + '</span><b class="v4d-s">' + d.s + '</b>' +
+        (who ? '<span class="v4d-who">' + (window.V4Ava ? '<img class="v4d-av v4-ava" src="' + window.V4Ava(who) + '" alt="">' : '') + '<span class="v4d-c">won by&#160;</span><b class="v4d-wn">' + who + '</b><span class="v4d-t">' + d.tc + '</span></span>'
+          : '<span class="v4d-t">' + d.tc + '</span>') + '</a></li>';
+    }).join('') + '</ol>';
+    else if (V.drops === 'b') box.innerHTML = '<div class="x6 v4d-grid">' + D.map(function (d) { return card(d, IT[d.n]); }).join('') + '</div>';
     else {
       var top = D[0].v;
       box.innerHTML = '<div class="x6 v4d-lead">' + card(D[0], IT[D[0].n], true) + '</div><ol class="v4d-list">' + D.slice(1).map(function (d) {
@@ -98,8 +123,28 @@
     ul.parentNode.insertBefore(box, ul.nextSibling);
   }
 
+  /* ---- What is in this case, F, founder of 9 Nov 2026: "должно быть красиво в стиле нашем и аккуратным", the name, the picture, the
+     chance and the range of the 100 000 it falls in. Every item on the stage's own card, the one Best drops D draws: the value first with the
+     coin (the word stays for a screen reader), the skin in its tier's lit ring, the gun, the skin, the wear, then the chance and the tickets
+     at the foot over a line of the 100 000 with the item's stretch of it lit. The table stays a table; case-body.css draws it ---- */
+  function table() {
+    var t = document.querySelector('.wf-drops[data-v="f"]');
+    if (!t || t.hasAttribute('data-f')) return;
+    t.setAttribute('data-f', '');
+    Array.prototype.forEach.call(t.querySelectorAll('tr.v4b-row'), function (tr) {
+      var art = tr.querySelector('.wf-art-c'), v = tr.querySelector('td[data-l="Value"]'), rl = tr.querySelector('.v4b-rule');
+      // the item's stretch of the 100 000, case-body.js's ruler, handed to the card so its foot line can draw it
+      if (rl) { tr.style.setProperty('--a', rl.style.getPropertyValue('--a')); tr.style.setProperty('--b', rl.style.getPropertyValue('--b')); }
+      if (art) art.insertAdjacentHTML('afterbegin', '<span class="v4d-plate" aria-hidden="true"></span>' + (window.V4Open && window.V4Open.hex ? window.V4Open.hex() : ''));
+      if (v && !v.querySelector('.wf-fig-missing')) {
+        var n = num(v.firstChild ? v.firstChild.textContent : '');
+        if (!isNaN(n)) v.firstChild.replaceWith(document.createRange().createContextualFragment('<img class="v4f-coin" src="art/brand/coin-6-small.svg" alt="">' + n.toFixed(2) + '<span class="v4d-c">&#160;coins</span>'));
+      }
+    });
+  }
+
   /* ---- What this case pays: A four figures; B Home's money strip; C the price against what comes back ---- */
-  function pays() {
+  function pays(IT) {
     var h = document.getElementById('h2-pays'), host = h && h.closest('section'), figs = host && host.querySelector('.wf-figs');
     if (!figs || figs.hasAttribute('data-v')) return;
     figs.setAttribute('data-v', V.pays); host.setAttribute('data-pays', V.pays);
@@ -108,13 +153,18 @@
     var rtp = F[0], ev = F[1], back = F[2], copy = F[3], P = price(), EVn = num(ev.v), BK = num(back.v);
     var box = document.createElement('div');
     if (V.pays === 'b') {
-      var caseArt = '<span class="x6-case" aria-hidden="true"><span class="b"></span><img class="sk" src="' + SKINS + 'ak-47-redline.png" alt="" width="512" height="384"><span class="f"></span></span>';
+      // founder of 10 Nov 2026: "данные кейса должны быть как и картинка": the case in the strip, its name and the skin rising out of it are
+      // this page's own, read from its H1 and its item table (the most valuable item), never Home's Ironbound typed in again
+      var K = ((document.getElementById('h1') || {}).firstChild || {}).textContent || 'Ironbound'; K = K.trim();
+      var art = 'art/cases-v2/' + K.toLowerCase() + '-c.webp', top = Object.keys(IT).sort(function (a, b) { return IT[b].v - IT[a].v; })[0] || 'AK-47 Redline';
+      var bg = ' style="background-image: url(' + art + ')"';
+      var caseArt = '<span class="x6-case" aria-hidden="true"><span class="b"' + bg + '></span><img class="sk" src="' + SKINS + top.toLowerCase().replace(/★\s*/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.png" alt="" width="512" height="384"><span class="f"' + bg + '></span></span>';
       var p = function (cls, k, v, say, link) {
         return '<div class="x6-p' + cls + '">' + (cls.indexOf('rtp') >= 0 ? caseArt : '') + '<span class="x6-k">' + k + '</span><span class="x6-v">' + v + '</span><span class="x6-say">' + say + '</span>' + (link || '') + '</div>';
       };
       box.className = 'x6-frame v4p-b';
       box.innerHTML = '<div class="x6"><div class="x6-strip v4p-strip"><div class="x6-stub" aria-hidden="true"><span class="v4p-ic"></span><span class="v4p-h">What this case pays</span></div>' +
-        p(' x6-rtp', 'Tested RTP, Ironbound', rtp.v.replace(/\s%/, '<small> %</small>'), 'In coins at our values.') +
+        p(' x6-rtp', 'Tested RTP, ' + K, rtp.v.replace(/\s%/, '<small> %</small>'), 'In coins at our values.') +
         p('', 'Expected value per open', '<span class="x6-money">' + EVn.toFixed(2) + '</span>', 'Every chance above times its value.') +
         p('', 'Chance to get back its price', BK.toFixed(1) + '<small> %</small>', 'At least ' + P.toFixed(2) + '&#160;coins back.') +
         (copy ? p(' x6-fee', 'Against a real copy', copy.v.replace(/\s%/, '<small> %</small>'), 'Our values, case average.', '<a class="x6-go" href="' + copy.link.getAttribute('href') + '">' + go('How it settles') + '</a>') : '') +
@@ -131,11 +181,35 @@
   }
 
   /* ---- Published against observed: A the table; B each tier as two bars and its gap; C each tier on Home's round card ---- */
-  function observed() {
+  function observed(IT) {
     var h = document.getElementById('h2-observed'), sec = h && h.closest('section'), tb = sec && sec.querySelector('.wf-table');
     if (!tb || tb.hasAttribute('data-v')) return;
     tb.setAttribute('data-v', V.observed); sec.setAttribute('data-obs', V.observed);
     if (V.observed === 'a') return;
+    /* D, founder of 10 Nov 2026: "мне нравится как у нас было в направлении ... можно улучшить визуальнее и в стиле сайта". The ladder of
+       direction 2 (design/concept/directions.html, The stage): every tier's published chance as a bar in its colour on the whole 100 %, the
+       observed rate a lit tick on it, the observed figure and the rounds beside it. The table stays the table: its own rows are dressed, the
+       column names repeated on each cell (data-l) so a phone, which hides the head, still names them; no new words */
+    if (V.observed === 'd') {
+      var L = Array.prototype.map.call(tb.querySelectorAll('thead th'), function (th) { return th.textContent.trim(); });
+      Array.prototype.forEach.call(tb.querySelectorAll('tbody tr'), function (tr) {
+        var c = tr.children, pv = num(c[1].textContent), ov = num(c[2].textContent);
+        Array.prototype.forEach.call(c, function (td, i) { if (L[i]) td.setAttribute('data-l', L[i]); });
+        c[0].insertAdjacentHTML('afterbegin', '<span class="v4o-hx" aria-hidden="true"></span>');
+        c[1].innerHTML = '<span class="v4o-pv">' + c[1].innerHTML + '</span><span class="v4o-bar" aria-hidden="true" style="--p:' + pv + '; --o:' + ov + '"><i></i><b></b></span>';
+        // the change under it, founder of 10 Nov 2026: "в Observed покажем так же снизу процент изменения, плюс либо минус, цветным": observed
+        // less published, in the same per cent of all rounds, signed, coloured and with an arrow so the colour is never the only sign
+        // the colour says who it favours, founder of 10 Nov 2026: "давай на пользу игрока". A tier whose items are worth the price on average
+        // (the table's own values against one open's price) favours the player when it comes out more; a tier worth less, when it comes
+        // out less. The arrow keeps the direction
+        var d = Math.round((ov - pv) * 100) / 100, rc = TIERCLS[c[0].textContent.trim()], vs = Object.keys(IT).filter(function (n) { return IT[n].r === rc; }).map(function (n) { return IT[n].v; });
+        var worth = vs.length ? vs.reduce(function (a, b) { return a + b; }, 0) / vs.length >= price() : true, good = worth ? d > 0 : d < 0;
+        var cls = d === 0 ? 'is-eq' : good ? 'is-up' : 'is-dn';
+        c[2].innerHTML = '<span class="v4o-ov"><span class="v4o-tk" aria-hidden="true"></span>' + c[2].innerHTML + '</span>' +
+          '<span class="v4o-dl ' + cls + '"><span aria-hidden="true">' + (d > 0 ? '▲' : d < 0 ? '▼' : '') + '</span>' + (d > 0 ? '+' : d < 0 ? '−' : '') + Math.abs(d).toFixed(2) + '&#160;%</span>';
+      });
+      return;
+    }
     var R = Array.prototype.map.call(tb.querySelectorAll('tbody tr'), function (tr) {
       var c = tr.children; return { n: c[0].textContent.trim(), p: num(c[1].textContent), o: num(c[2].textContent), k: c[3].textContent.trim() };
     });
@@ -158,6 +232,87 @@
     wrap.parentNode.insertBefore(box, wrap);
   }
 
+  /* ---- How this case works, founder of 10 Nov 2026: "давай доделаем последнюю секцию, какие есть варианты" and "покажи мне варианты".
+     The words are the IA node's SEO text (block C), never changed here: every row changes only how they are laid out and what stands beside
+     them. A as it is; B the text with the tickets drawn: this case's 100 000 split into its items in their tiers' colours, a checked round's
+     ticket marked on it and the item it landed on; C two plates as Before you open D, the section's own H2 and the H3 as their titles;
+     D as it is with this case and its best item in place of the stock art; E the plates of C with the tickets of B under the first one ---- */
+  function sl(n) { return n.toLowerCase().replace(/★\s*/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  function caseName() { var h = document.getElementById('h1'); return ((h && h.firstChild && h.firstChild.textContent) || 'Ironbound').trim(); }
+  function ruler(IT, small) {
+    var N = Object.keys(IT).sort(function (a, b) { return IT[a].a - IT[b].a; });
+    var hit = N.filter(function (n) { return TICKET[n]; })[0], it = hit && IT[hit], tk = hit && TICKET[hit];
+    var seg = N.map(function (n) { var x = IT[n]; return '<i class="' + x.r + '" style="--a:' + x.a + '; --w:' + (x.b - x.a) + '"></i>'; }).join('');
+    return '<div class="v4h-tix' + (small ? ' is-small' : '') + '" aria-hidden="true"><div class="v4h-ends"><span>1</span><span>100&#160;000</span></div>' +
+      '<div class="v4h-line">' + seg + (tk ? '<b class="v4h-pin" style="--t:' + tk[1] + '"><span>' + tk[0] + '</span></b>' : '') + '</div>' +
+      (it ? '<div class="v4h-got ' + it.r + '" style="--t:' + tk[1] + '"><span class="v4h-ring"><span class="v4d-plate"></span>' + (window.V4Open && window.V4Open.hex ? window.V4Open.hex() : '') +
+        '<img src="' + SKINS + sl(hit) + '.png" alt=""></span><span class="v4h-gn"><b>' + hit + '</b><span>' + it.range + '</span></span></div>' : '') + '</div>';
+  }
+  /* F, founder of 10 Nov 2026 on B: "интересный получился, но я бы доработал, сделай интереснее, и что-то с цифрами 1 и 100к". The two ends
+     are the line's own bookends now, not loose labels over it; a checked round's ticket is pinned on the whole 100 000, and its item's stretch
+     opens out under it into a line of its own, 1 to 3 180 with the ticket on it, so the range a round resolves against is seen at its own
+     scale; under a perforation, as on a ticket, the item it landed on. In view it plays once: the pin runs the line and stops on its
+     ticket, the stretch opens, the number counts up to it, the item comes up. Reduced motion shows it at rest */
+  function ruler2(IT) {
+    var N = Object.keys(IT).sort(function (a, b) { return IT[a].a - IT[b].a; });
+    var hit = N.filter(function (n) { return TICKET[n]; })[0];
+    if (!hit) return ruler(IT);
+    var it = IT[hit], tk = TICKET[hit], rg = it.range.split(' to '), lo = num(rg[0]), hi = num(rg[1]), t = num(tk[0].replace(/&#160;/g, ''));  // the entity's own digits would read as part of the number
+    var z = ((t - lo) / (hi - lo) * 100).toFixed(2);
+    var seg = N.map(function (n) { var x = IT[n]; return '<i class="' + x.r + (n === hit ? ' is-hit' : '') + '" style="--a:' + x.a + '; --w:' + (x.b - x.a) + '"></i>'; }).join('');
+    var end = function (v) { return '<span class="v4t-end">' + v + '</span>'; };
+    return '<div class="v4t ' + it.r + '" aria-hidden="true" style="--t:' + tk[1] + '; --ha:' + it.a + '; --hb:' + it.b + '; --z:' + z + '">' +
+      '<div class="v4t-row">' + end('1') + '<div class="v4t-line">' + seg + '<b class="v4t-pin"></b></div>' + end('100&#160;000') + '</div>' +
+      '<div class="v4t-row v4t-fun-row"><span></span><svg class="v4t-fun" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="' + it.a + ',0 ' + it.b + ',0 100,100 0,100"/></svg><span></span></div>' +
+      '<div class="v4t-row">' + end(rg[0]) + '<div class="v4t-zoom"><b class="v4t-zpin"><span class="v4t-n" data-to="' + t + '">' + tk[0] + '</span></b></div>' + end(rg[1]) + '</div>' +
+      '<div class="v4t-cut"></div>' +
+      '<div class="v4t-got"><span class="v4h-ring"><span class="v4d-plate"></span>' + (window.V4Open && window.V4Open.hex ? window.V4Open.hex() : '') + '<img src="' + SKINS + sl(hit) + '.png" alt=""></span>' +
+      '<span class="v4h-gn"><b>' + hit + '</b><span>' + it.range + '</span></span><span class="v4t-tk">' + tk[0] + '</span></div></div>';
+  }
+  function play(box) {
+    var v = box.querySelector('.v4t'); if (!v) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { v.classList.add('is-on', 'is-still'); return; }
+    var n = v.querySelector('.v4t-n'), to = +n.getAttribute('data-to'), fin = n.innerHTML;
+    var go = function () {
+      v.classList.add('is-on');
+      setTimeout(function () {
+        var t0 = performance.now(), D = 900;
+        (function step(now) { var k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 3);
+          n.textContent = String(Math.max(1, Math.round(to * e))).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+          if (k < 1) requestAnimationFrame(step); else n.innerHTML = fin; })(t0);
+      }, 1300);
+    };
+    if (!window.IntersectionObserver) return go();
+    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io.disconnect(); go(); } }, { threshold: .45 });
+    io.observe(v);
+  }
+  function how(IT) {
+    var h = document.getElementById('h2-how'), sec = h && h.closest('section');
+    if (!sec || sec.hasAttribute('data-how')) return;
+    sec.setAttribute('data-how', V.how);
+    if (V.how === 'a') return;
+    var cols = sec.querySelector('.wf-prose-cols'), K = caseName();
+    if (V.how === 'b' || V.how === 'f') { var sc = document.createElement('div'); sc.className = 'v4h-side'; sc.innerHTML = V.how === 'f' ? ruler2(IT) : ruler(IT); sec.appendChild(sc); if (V.how === 'f') play(sc); }
+    if (V.how === 'd') {
+      var top = Object.keys(IT).sort(function (a, b) { return IT[b].v - IT[a].v; })[0];
+      var art = document.createElement('div'); art.className = 'v4h-art'; art.setAttribute('aria-hidden', 'true');
+      art.innerHTML = '<img class="v4h-case" src="art/cases-v2/' + K.toLowerCase() + '-c.webp" alt=""><img class="v4h-sk" src="' + SKINS + sl(top) + '.png" alt="">';
+      sec.appendChild(art);
+    }
+    if (V.how === 'c' || V.how === 'e') {
+      var ps = cols.querySelectorAll('p'), h3 = cols.querySelector('h3'), head = sec.querySelector('.wf-sec-head');
+      var plate = function (cls, title, p, extra) {
+        var d = document.createElement('div'); d.className = 'v4h-plate ' + cls;
+        d.innerHTML = '<span class="v4h-ic" aria-hidden="true"></span><div class="v4h-body"></div>';
+        var b = d.querySelector('.v4h-body'); b.appendChild(title); b.appendChild(p); if (extra) b.insertAdjacentHTML('beforeend', extra);
+        return d;
+      };
+      var p1 = plate('is-case', h, ps[0], V.how === 'e' ? ruler(IT, true) : ''), p2 = plate('is-check', h3, ps[1]);
+      cols.innerHTML = ''; cols.appendChild(p1); cols.appendChild(p2);
+      if (head) head.remove();
+    }
+  }
+
   /* ---- ?embed&focus=<block>: one block alone, for its lab, which sizes its frame by the height this posts ---- */
   var FOCUS = { info: '.wf-case-info', drops: '#h2-recent', table: '#h2-contents', pays: '#h2-pays', observed: '#h2-observed', how: '#h2-how' };
   function focus() {
@@ -178,7 +333,7 @@
     var main = document.querySelector('.wf-main');
     if (!main || !document.querySelector('.wf-drops[data-v4] .v4b-row')) return false;
     var IT = items();
-    info(); drops(IT); pays(); observed();
+    info(); drops(IT); table(); pays(IT); observed(IT); how(IT);
     relink(document.querySelector('.wf-screen-body') || document);
     if (Q.has('focus')) { focus(); post(); if (window.ResizeObserver) new ResizeObserver(post).observe(main); }
     return true;

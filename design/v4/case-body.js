@@ -12,7 +12,7 @@
     var q = new URLSearchParams(location.search);
     var t = document.querySelector('.wf-drops'), rows = null;
     if (t && !t.hasAttribute('data-v4')) {
-      t.setAttribute('data-v4', ''); t.setAttribute('data-v', q.get('table') || 'a');
+      t.setAttribute('data-v4', ''); t.setAttribute('data-v', q.get('table') || 'f'); // F, founder of 9 Nov 2026: "давай делать What is in this case секцию", case-blocks.js table()
       rows = [];
       Array.prototype.forEach.call(t.querySelectorAll('tbody'), function (tb) {
         var tier = (tb.getAttribute('aria-label') || '').split(',')[0];

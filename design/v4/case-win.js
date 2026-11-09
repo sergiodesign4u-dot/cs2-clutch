@@ -17,13 +17,13 @@
     var h = '<div class="v4c-win-fx"><span class="v4c-flood"></span><span class="v4c-burst"></span><span class="v4c-ring"></span><span class="v4c-big">' + best.ch.toFixed(best.ch < .1 ? 3 : 2) + '%</span></div><div class="v4c-won-row">';
     rs.forEach(function (x, i) {
       h += '<div class="v4c-won ' + x.r + '" style="--i:' + i + '">' +
-        '<span class="v4c-won-odds"><b>' + x.ch.toFixed(3) + ' %</b> chance on this case</span>' +
+        '<span class="v4c-won-odds"><b>' + x.ch.toFixed(3) + ' %</b> <span class="v4c-won-ol">chance<span class="v4c-won-oc"> on this case</span></span></span>' +
         '<span class="v4c-won-card"><span class="v4c-won-back" aria-hidden="true"></span><span class="v4c-won-face">' +
         '<span class="v4c-won-art"><span class="v4c-won-hex"></span><img src="' + x.art + '" alt=""></span>' +
         '<span class="v4c-won-name"><span class="v4c-won-w">' + esc(x.w) + '</span><b>' + esc(x.s) + '</b><span class="v4c-won-ax">' + esc(x.wear.split(' · ')[0]) + ' · ' + x.tier + '</span></span>' +
-        '<span class="v4c-won-v">' + coins(x.v) + '</span>' +
+        '<span class="v4c-won-v"><span>' + x.v.toFixed(2) + '<span class="v4c-won-c">&nbsp;coins</span></span></span>' +
         // its value against what one open cost, the multiplier hellcase prints on its top drops, here on every result, up or down
-        (opts.price ? '<span class="v4c-won-x' + (x.v >= opts.price ? ' is-up' : '') + '">×' + (x.v / opts.price).toFixed(2) + ' of the price</span>' : '') +
+        (opts.price ? '<span class="v4c-won-x' + (x.v >= opts.price ? ' is-up' : '') + '">×' + (x.v / opts.price).toFixed(2) + '<span class="v4c-won-xo"> of the price</span></span>' : '') +
         '</span></span>' +
         (rs.length > 1 && opts.sell ? '<button type="button" class="v4c-sell1 v4-btn v4-btn--s v4-btn--ghost">Sell<span class="v4c-sell1-v"> for ' + coins(x.v) + '</span></button>' : '') +
         '</div>';
@@ -51,8 +51,14 @@
       var art = c.querySelector('.v4c-won-art'), im = art && art.querySelector('img');
       if (ring && im && !art.querySelector('.v4o-hex')) { var hw = document.createElement('span'); hw.innerHTML = window.V4Open.hex(); art.insertBefore(hw.firstChild, im); }
       var ab = WEAR[x.wear.split(' · ')[0]];
-      if (ab && !c.querySelector('.v4c-won-wear')) { var wr = document.createElement('span'); wr.className = 'v4c-won-wear'; wr.textContent = ab; c.appendChild(wr); }
+      if (ab && !c.querySelector('.v4c-won-wear')) { var wr = document.createElement('span'); wr.className = 'v4c-won-wear'; wr.innerHTML = '<span class="v4c-won-wl">Wear</span><b>' + ab + '</b>'; c.appendChild(wr);
+        // Z7 of win-lab.html: the wear joins the gun's line, "Karambit · FN", the way the item's own name carries it
+        var gw = c.querySelector('.v4c-won-w'); if (gw && host.closest('[data-prize="z7"]')) gw.appendChild(wr); }
       var od = w.querySelector('.v4c-won-odds'); if (inside && od && od.parentNode !== c) c.appendChild(od);
+      // Y2 of win-lab.html: the Sell is the card's own foot, founder of 8 Nov 2026
+      // Z4 and Z5: the multiple leaves the card so it can stand on the card's top edge, which the card's own clip would cut
+      var mx = c.querySelector('.v4c-won-x'); if (mx && host.closest('[data-prize="z4"], [data-prize="z5"]')) w.appendChild(mx);
+      var sl = w.querySelector('.v4c-sell1'); if (sl && host.closest('[data-prize="y2"]') && sl.parentNode !== c) c.appendChild(sl);
     });
   }
   window.V4Win = { render: render, dress: dress };

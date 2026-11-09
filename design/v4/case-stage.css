@@ -484,15 +484,15 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
    X2, the plaque: no card; the value on a plaque across the ring's foot, the multiple under the name;
    X3, the cell: W7's dark card with Home's bar along its top, the wear in short at one corner and the chance at the other, the ring, the
       name to the left, the value large at the foot and the multiple beside it */
-.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"]) .v4c-win[data-count] .v4c-won { position: relative; }
-.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"]) .v4c-win[data-count] .v4c-won-odds { display: flex; white-space: nowrap; flex-direction: column; align-items: flex-end; gap: 0; padding: 0; background: none; box-shadow: none; color: var(--color-text-soft);
+.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won { position: relative; }
+.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-odds { display: flex; white-space: nowrap; flex-direction: column; align-items: flex-end; gap: 0; padding: 0; background: none; box-shadow: none; color: var(--color-text-soft);
   font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1.2; text-align: right; }
-.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"]) .v4c-win[data-count] .v4c-won-odds b { order: 2; color: color-mix(in srgb, var(--r) 70%, #fff); font-size: 15px; font-weight: 900; letter-spacing: 0; text-transform: none; }
-.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"]) .v4c-win[data-count] .v4c-won-x { display: inline-block; white-space: nowrap; padding: 4px 8px; border-radius: 6px; background: rgba(255, 255, 255, .06); font-size: 12px; }
-.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"]) .v4c-win[data-count] .v4c-won-x.is-up { background: rgba(53, 224, 138, .12); }
-.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"]) .v4c-win[data-count] .v4c-won-name { align-items: center; }
-.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"]) .v4c-win[data-count] .v4c-won-name b { font-size: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
-.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"]) .v4c-win[data-count] .v4c-won-ax { display: block; }
+.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-odds b { order: 2; color: color-mix(in srgb, var(--r) 70%, #fff); font-size: 15px; font-weight: 900; letter-spacing: 0; text-transform: none; }
+.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-x { display: inline-block; white-space: nowrap; padding: 4px 8px; border-radius: 6px; background: rgba(255, 255, 255, .06); font-size: 12px; }
+.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-x.is-up { background: rgba(53, 224, 138, .12); }
+.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-name { align-items: center; }
+.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-name b { font-size: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-ax { display: block; }
 /* X1 and X2: no card, the prize stands on the stage */
 .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"]) .v4c-win[data-count] .v4c-won-card { display: grid; justify-content: center; justify-items: center; align-items: center; gap: 6px 10px; width: auto; height: auto; padding: 0; background: none; box-shadow: none; overflow: visible; text-align: center; }
 .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"]) .v4c-win[data-count] .v4c-won-card::before, .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"]) .v4c-win[data-count] .v4c-won-card::after { content: none; } /* no card, so no foil sweeping across the stage */
@@ -509,16 +509,16 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"][data-prize="x2"] .v4c-win[data-count] .v4c-won-name { margin-top: 10px; }
 .v4c-top[data-v="m"][data-prize="x2"] .v4c-win[data-count] .v4c-won-x { grid-area: x; }
 /* X3: the cell */
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win[data-count] .v4c-won-card { grid-template-columns: 1fr auto; grid-template-rows: auto 1fr auto auto auto; grid-template-areas: "wear odds" "art art" "name name" "v v" "x x"; align-items: center; gap: 4px 10px;
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-card { grid-template-columns: 1fr auto; grid-template-rows: auto 1fr auto auto auto; grid-template-areas: "wear odds" "art art" "name name" "v v" "x x"; align-items: center; gap: 4px 10px;
   width: 300px; max-width: 100%; height: 330px; padding: 16px 18px 16px; text-align: left; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win[data-count] .v4c-won-card::before { top: 0; bottom: auto; border-radius: 0 0 3px 3px; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win[data-count] .v4c-won-wear { display: block; grid-area: wear; align-self: start; color: var(--color-text-soft); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win[data-count] .v4c-won-odds { grid-area: odds; align-self: start; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win[data-count] .v4c-won-art { grid-area: art; height: 100%; min-height: 0; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win[data-count] .v4c-won-name { grid-area: name; align-items: flex-start; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win[data-count] .v4c-won-name b { font-size: 22px; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win[data-count] .v4c-won-v { grid-area: v; justify-self: start; margin: 4px 0 0; padding: 0 0 0 30px; background: url(art/brand/coin-6-small.svg) 0 50% / 22px no-repeat; box-shadow: none; font-size: 26px; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win[data-count] .v4c-won-x { grid-area: x; justify-self: start; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-card::before { top: 0; bottom: auto; border-radius: 0 0 3px 3px; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-wear { display: block; grid-area: wear; align-self: start; color: var(--color-text-soft); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-odds { grid-area: odds; align-self: start; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-art { grid-area: art; height: 100%; min-height: 0; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-name { grid-area: name; align-items: flex-start; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-name b { font-size: 22px; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-v { grid-area: v; justify-self: start; margin: 4px 0 0; padding: 0 0 0 30px; background: url(art/brand/coin-6-small.svg) 0 50% / 22px no-repeat; box-shadow: none; font-size: 26px; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-x { grid-area: x; justify-self: start; }
 /* two to five: the same, smaller, one to a cell */
 .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"]) .v4c-win:not([data-count="1"]) .v4c-won-art { width: 180px; height: 130px; }
 .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"]) .v4c-win:not([data-count="1"]) .v4c-won-odds { right: calc(50% - 96px); }
@@ -526,15 +526,114 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"][data-prize] .v4c-win:not([data-count="1"]) .v4c-won-ax { display: none; }
 .v4c-top[data-v="m"][data-prize="x1"] .v4c-win:not([data-count="1"]) .v4c-won-v { font-size: 16px; padding: 5px 10px 5px 28px; background-position: 9px 50%, 0 0; background-size: 14px, auto; }
 .v4c-top[data-v="m"][data-prize="x2"] .v4c-win:not([data-count="1"]) .v4c-won-v { font-size: 16px; padding: 4px 12px 4px 30px; background-position: 10px 50%, 0 0; background-size: 15px, auto; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win:not([data-count="1"]) .v4c-won-card { width: min(220px, 92%); height: 270px; padding: 12px 12px 12px; }
-.v4c-top[data-v="m"][data-prize="x3"] .v4c-win:not([data-count="1"]) .v4c-won-v { font-size: 18px; padding-left: 22px; background-size: 16px; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win:not([data-count="1"]) .v4c-won-card { width: min(220px, 92%); height: 270px; padding: 12px 12px 12px; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win:not([data-count="1"]) .v4c-won-v { font-size: 18px; padding-left: 22px; background-size: 16px; }
 .v4c-top[data-v="m"][data-prize] .v4c-win:not([data-count="1"]) .v4c-won-x { font-size: 11px; padding: 3px 6px; }
 @media (max-width: 599px) {
   .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"]) .v4c-win[data-count] .v4c-won-art { width: 200px; height: 150px; }
   .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"]) .v4c-win[data-count] .v4c-won-odds { right: calc(50% - 104px); }
   .v4c-top[data-v="m"][data-prize] .v4c-win:not([data-count="1"]) .v4c-won-art { width: 96px; height: 76px; }
   .v4c-top[data-v="m"][data-prize] .v4c-win:not([data-count="1"]) .v4c-won-odds { display: none; }
-  .v4c-top[data-v="m"][data-prize="x3"] .v4c-win:not([data-count="1"]) .v4c-won-card { height: 190px; }
+  .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win:not([data-count="1"]) .v4c-won-card { height: 190px; }
+}
+/* Y1 to Y3, founder of 8 Nov 2026 on the win cards: "вот такой вариант мне нравится" (X3, five in a row) "и вот такой вот" (W7),
+   "может подумать еще над какими-то вариантами". Each starts from X3's cell and the facts it carries and changes one thing:
+   Y1, value first: W7's order, the value large at the top with the multiple under it, X3's two corners moved to the foot;
+   Y2, the sell in the card: the Sell is the card's own foot, one object to read and to press, after "везде у конкурентов ты продаешь
+       быстро" of 6 Nov 2026; a sold card goes dark and its foot says what it brought;
+   Y3, the tier's head: the card's top is a band in the tier's colour holding the wear and the chance, the ring standing across its edge */
+.v4c-top[data-v="m"][data-prize="y1"] .v4c-win[data-count] .v4c-won-card { grid-template-rows: auto auto 1fr auto auto; grid-template-areas: "v v" "x x" "art art" "name name" "wear odds"; }
+.v4c-top[data-v="m"][data-prize="y1"] .v4c-win[data-count] .v4c-won-v { justify-self: start; margin: 0; }
+.v4c-top[data-v="m"][data-prize="y1"] .v4c-win[data-count] .v4c-won-x { justify-self: start; }
+.v4c-top[data-v="m"][data-prize="y1"] .v4c-win[data-count] :is(.v4c-won-wear, .v4c-won-odds) { align-self: end; }
+.v4c-top[data-v="m"][data-prize="y1"] .v4c-win[data-count] .v4c-won-name { margin-bottom: 4px; }
+.v4c-top[data-v="m"][data-prize="y2"] .v4c-win[data-count] .v4c-won-card { grid-template-rows: auto 1fr auto auto auto auto; grid-template-areas: "wear odds" "art art" "name name" "v v" "x x" "sell sell"; }
+.v4c-top[data-v="m"][data-prize="y2"] .v4c-win:not([data-count="1"]) .v4c-won-card { height: 318px; padding-bottom: 0; }
+.v4c-top[data-v="m"][data-prize="y2"] .v4c-won-card .v4c-sell1.v4c-sell1 { grid-area: sell; position: relative; z-index: 3; align-self: end; justify-self: stretch; width: auto; min-height: 44px; margin: 10px -12px 0; border: 0; border-radius: 0;
+  background: color-mix(in srgb, #DF055C 16%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, #DF055C 55%, transparent); color: #fff; opacity: 1; }
+.v4c-top[data-v="m"][data-prize="y2"] .v4c-win:not(.is-on) .v4c-won-card .v4c-sell1.v4c-sell1 { opacity: 0; }
+@media (hover: hover) { .v4c-top[data-v="m"][data-prize="y2"] .v4c-won-card .v4c-sell1.v4c-sell1:hover:not(:disabled) { background: #DF055C; box-shadow: none; } }
+.v4c-top[data-v="m"][data-prize="y2"] .v4c-won-card .v4c-sell1.v4c-sell1:disabled { background: rgba(255, 255, 255, .04); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08); color: #35E08A; cursor: default; }
+.v4c-top[data-v="m"][data-prize="y2"] .v4c-won-card:has(.v4c-sell1:disabled) :is(.v4c-won-art, .v4c-won-name, .v4c-won-v, .v4c-won-x, .v4c-won-odds, .v4c-won-wear) { opacity: .38; filter: grayscale(.85); transition: opacity .3s, filter .3s; }
+.v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-card { background: linear-gradient(180deg, color-mix(in srgb, var(--r) 58%, #0D0C2C), color-mix(in srgb, var(--r) 30%, #0D0C2C) 29.8%, #0D0C2C 30%, #0D0C2C 72%, color-mix(in srgb, var(--r) 14%, #0D0C2C)); }
+.v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-card::before { content: none; }
+.v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-wear { color: rgba(255, 255, 255, .9); }
+.v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-odds { color: rgba(255, 255, 255, .72); }
+.v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-odds b { color: #fff; }
+/* Z1 to Z3, founder of 8 Nov 2026 on X3: "убрал бы лишний текст, типа оставить только chance, убрать coins слово, а ×1.15 of the price
+   поставить такой бровкой внизу или сверху поменять местами цветную бровку, сделай пару вариаников". X3 with the words cut to Chance and the
+   bare figure (the cut words stay for a screen reader), and the multiple of the price on a tab on the card's edge, as the tier's bar is:
+   Z1, the tab at the foot, the tier's bar left at the top; Z2, the tab at the top, the tier's bar moved to the foot;
+   Z3, one tab: the tier's bar grown to carry the multiple, in the tier's colour, at the top */
+.v4c-top[data-v="m"][data-prize^="z"] .v4c-won :is(.v4c-won-oc, .v4c-won-c, .v4c-won-xo) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.v4c-top[data-v="m"][data-prize^="z"] .v4c-win[data-count] .v4c-won-card { grid-template-rows: auto 1fr auto auto; grid-template-areas: "wear odds" "art art" "name name" "v v"; }
+.v4c-top[data-v="m"][data-prize^="z"] .v4c-win[data-count] .v4c-won-x.v4c-won-x { grid-area: auto; position: absolute; z-index: 3; left: 50%; translate: -50% 0; margin: 0; padding: 4px 12px; font-size: 14px; font-weight: 900; font-variant-numeric: tabular-nums;
+  color: var(--color-text-soft); background: #1A1940; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); }
+.v4c-top[data-v="m"][data-prize^="z"] .v4c-win[data-count] .v4c-won-x.is-up { color: #35E08A; background: #0F2E33; box-shadow: inset 0 0 0 1px rgba(53, 224, 138, .35), 0 0 14px rgba(53, 224, 138, .22); }
+.v4c-top[data-v="m"]:is([data-prize="z1"], [data-prize="z6"], [data-prize="z7"]) .v4c-win[data-count] .v4c-won-x.v4c-won-x { bottom: 0; border-radius: 10px 10px 0 0; }
+.v4c-top[data-v="m"]:is([data-prize="z1"], [data-prize="z6"], [data-prize="z7"]) .v4c-win[data-count] .v4c-won-card { padding-bottom: 34px; }
+.v4c-top[data-v="m"]:is([data-prize="z2"], [data-prize="z3"]) .v4c-win[data-count] .v4c-won-x.v4c-won-x { top: 0; border-radius: 0 0 10px 10px; }
+.v4c-top[data-v="m"]:is([data-prize="z2"], [data-prize="z3"]) .v4c-win[data-count] .v4c-won-card { padding-top: 34px; }
+.v4c-top[data-v="m"]:is([data-prize="z2"], [data-prize="z4"], [data-prize="z5"]) .v4c-win[data-count] .v4c-won-card::before { top: auto; bottom: 0; border-radius: 3px 3px 0 0; }
+/* Z4 and Z5, founder of 8 Nov 2026 on Z2: "вроде неплохо, но как-то не очень". What read wrong in Z2: the tab hung inside the card as a grey
+   label, grey reading as switched off, and it pushed the wear and the chance down into a third tier at the top. Here the tab leaves the card's
+   inside, the top row goes back up, and a price under the cost is white, not grey:
+   Z4, the tab grows out of the card's top edge in the card's colour, a folder's tab, the card's outline running round it;
+   Z5, a badge sitting across the top edge, half in and half out, ringed in the tier's colour */
+.v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win .v4c-won > .v4c-won-x { opacity: 0; }
+.v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win.is-on .v4c-won > .v4c-won-x { animation: v4c-m-in .4s ease-out calc(.55s + var(--i, 0) * 90ms) forwards; }
+.v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win[data-count] .v4c-won-x.v4c-won-x { color: #fff; }
+.v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win[data-count] .v4c-won-x.is-up { color: #35E08A; }
+.v4c-top[data-v="m"][data-prize="z4"] .v4c-win[data-count] .v4c-won { padding-top: 27px; } /* room above the card for its tab, which the frame would cut */
+.v4c-top[data-v="m"][data-prize="z4"] .v4c-win[data-count] .v4c-won-x.v4c-won-x { top: 0; padding: 5px 14px 6px; border-radius: 10px 10px 0 0;
+  background: color-mix(in srgb, var(--r) 12%, #0D0C2C); box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .07), inset -1px 0 0 rgba(255, 255, 255, .07), 0 -6px 18px color-mix(in srgb, var(--r) 16%, transparent); }
+.v4c-top[data-v="m"][data-prize="z5"] .v4c-win[data-count] .v4c-won-x.v4c-won-x { top: -14px; padding: 5px 14px; border-radius: 999px;
+  background: #0D0C2C; box-shadow: inset 0 0 0 1.5px var(--r), 0 0 14px color-mix(in srgb, var(--r) 45%, transparent), 0 4px 10px rgba(3, 3, 16, .6); }
+.v4c-top[data-v="m"][data-prize="z5"] .v4c-win[data-count] .v4c-won-x.is-up { box-shadow: inset 0 0 0 1.5px #35E08A, 0 0 14px rgba(53, 224, 138, .4), 0 4px 10px rgba(3, 3, 16, .6); }
+.v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win:not([data-count="1"]) .v4c-won-x.v4c-won-x { font-size: 13px; }
+.v4c-top[data-v="m"][data-prize="z3"] .v4c-win[data-count] .v4c-won-card::before { content: none; }
+.v4c-top[data-v="m"][data-prize="z3"] .v4c-win[data-count] .v4c-won-x.v4c-won-x { color: #fff; background: linear-gradient(180deg, color-mix(in srgb, var(--r) 70%, #fff), var(--r)); box-shadow: 0 0 14px color-mix(in srgb, var(--r) 70%, transparent); text-shadow: 0 1px 2px rgba(0, 0, 0, .45); }
+.v4c-top[data-v="m"][data-prize^="z"] .v4c-win[data-count] .v4c-won-odds { font-size: 10px; }
+.v4c-top[data-v="m"][data-prize^="z"] .v4c-win:not([data-count="1"]) .v4c-won-x.v4c-won-x { padding: 3px 10px; font-size: 12px; }
+.v4c-top[data-v="m"][data-prize^="z"] .v4c-win[data-count] .v4c-won-v { font-size: 30px; }
+.v4c-top[data-v="m"][data-prize^="z"] .v4c-win[data-count] .v4c-won-ax { display: none; } /* the wear in full repeats the corner's short wear: cut with the other extra words */
+.v4c-top[data-v="m"][data-prize^="z"] .v4c-win:not([data-count="1"]) .v4c-won-v { font-size: 22px; } /* the word coins gone, the figure takes its room */
+.v4c-won-wl { display: none; } /* the wear's own label, drawn by Z6 only */
+/* Z6 and Z7, founder of 9 Nov 2026 on Z1: "цена не по центру, FN где-то непонятно где находится, у множителя вид приплюснутый, я бы дал
+   воздуха слева и справа". Z1 with the name and the value on the card's middle line, and the tab at the foot wider, with room either side
+   of its figure. Z6 gives the wear a label like the chance's, so the top row is two matched pairs, Wear FN and Chance 0.008 %;
+   Z7 moves the wear onto the gun's line, Karambit · FN, and leaves the chance alone at the top, under the tier's bar */
+.v4c-top[data-v="m"]:is([data-prize="z6"], [data-prize="z7"]) .v4c-win[data-count] .v4c-won-name { align-items: center; text-align: center; justify-self: stretch; }
+.v4c-top[data-v="m"]:is([data-prize="z6"], [data-prize="z7"]) .v4c-win[data-count] .v4c-won-v { justify-self: center; }
+.v4c-top[data-v="m"]:is([data-prize="z6"], [data-prize="z7"]) .v4c-win[data-count] .v4c-won-x.v4c-won-x { min-width: 92px; padding: 7px 24px 6px; border-radius: 12px 12px 0 0; text-align: center; font-size: 15px; letter-spacing: .02em; }
+.v4c-top[data-v="m"]:is([data-prize="z6"], [data-prize="z7"]) .v4c-win:not([data-count="1"]) .v4c-won-x.v4c-won-x { min-width: 76px; padding: 5px 18px 4px; font-size: 13px; }
+.v4c-top[data-v="m"]:is([data-prize="z6"], [data-prize="z7"]) .v4c-win[data-count] .v4c-won-card { padding-bottom: 40px; }
+.v4c-top[data-v="m"][data-prize="z6"] .v4c-win[data-count] .v4c-won-wear { display: flex; flex-direction: column; align-items: flex-start; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1.2; }
+.v4c-top[data-v="m"][data-prize="z6"] .v4c-win[data-count] .v4c-won-wl { display: block; }
+.v4c-top[data-v="m"][data-prize="z6"] .v4c-win[data-count] .v4c-won-wear b { color: #fff; font-size: 15px; font-weight: 900; letter-spacing: 0; }
+.v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-card { grid-template-areas: "odds odds" "art art" "name name" "v v"; }
+.v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-odds { justify-self: center; align-items: center; text-align: center; }
+.v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-w .v4c-won-wear { display: inline; grid-area: auto; color: #fff; font: inherit; letter-spacing: inherit; }
+.v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-w .v4c-won-wear::before { content: "\00B7"; margin: 0 .45em; color: var(--color-text-soft); }
+.v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-w .v4c-won-wear b { display: inline; font: inherit; }
+.v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-w { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 599px) {
+  .v4c-top[data-v="m"][data-prize="y2"] .v4c-win:not([data-count="1"]) .v4c-won-card { height: 230px; }
+  .v4c-top[data-v="m"][data-prize="y2"] .v4c-won-card .v4c-sell1.v4c-sell1 { min-height: 36px; margin-inline: -8px; font-size: 12px; }
+  /* a phone, two to five, cards 100px wide: the cell's words were cut ("47.30 coi", "Water Elemen") and the second row of five ran out
+     of the frame; the type comes down to the width and the frame grows to hold two rows. X3 had both faults before the Y rows came */
+  .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win:not([data-count="1"]) .v4c-won-card { padding-inline: 8px; }
+  .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win:not([data-count="1"]) .v4c-won-v { font-size: 13px; padding-left: 17px; background-size: 13px; }
+  .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win:not([data-count="1"]) .v4c-won-name { min-width: 0; max-width: 100%; overflow: hidden; }
+  .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win:not([data-count="1"]) .v4c-won-name b { display: block; font-size: 13px; }
+  .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win:not([data-count="1"]) .v4c-won-x { font-size: 9.5px; padding: 2px 4px; }
+  .v4c-top[data-v="m"][data-prize].is-done .v4c-stage:not([data-light="a"]) .v4c-frame:is([data-count="4"], [data-count="5"]) { height: 520px; }
+  .v4c-top[data-v="m"][data-prize="z4"].is-done .v4c-stage:not([data-light="a"]) .v4c-frame:is([data-count="4"], [data-count="5"]) { height: 576px; } /* two rows of tabs */
+  .v4c-top[data-v="m"][data-prize^="z"].is-done .v4c-stage:not([data-light="a"]) .v4c-frame[data-count="1"] { height: 348px; } /* one card: its foot tab ran 10px under the frame */
+  .v4c-top[data-v="m"]:is([data-prize="z6"], [data-prize="z7"]) .v4c-win:not([data-count="1"]) .v4c-won-x.v4c-won-x { min-width: 0; padding: 3px 12px 2px; font-size: 11px; }
+  .v4c-top[data-v="m"]:is([data-prize="z6"], [data-prize="z7"]) .v4c-win:not([data-count="1"]) .v4c-won-card { padding-bottom: 28px; }
+  .v4c-top[data-v="m"][data-prize="z6"] .v4c-win:not([data-count="1"]) .v4c-won-wear { font-size: 8px; }
+  .v4c-top[data-v="m"][data-prize="z6"] .v4c-win:not([data-count="1"]) .v4c-won-wear b { font-size: 12px; }
 }
 /* W7, founder of 6 Nov 2026: "давай вот эту карточку" (W6) "а отсюда только" W5's ring lit from the top left corner. The stage's card from
    now on. On a card under 110px wide (a phone's band, five columns) the ring, the fill and the skin sit higher and a little smaller, so

@@ -94,7 +94,8 @@ window.NAV = [
               { label: 'Best drops', pageLabel: 'Best drops v4', page: 'design/v4/drops-lab.html', live: true },
               { label: 'What is in this case', pageLabel: 'What is in this case v4', page: 'design/v4/table-lab.html', live: true },
               { label: 'What this case pays', pageLabel: 'What this case pays v4', page: 'design/v4/pays-lab.html', live: true },
-              { label: 'Published against observed', pageLabel: 'Published against observed v4', page: 'design/v4/observed-lab.html', live: true }
+              { label: 'Published against observed', pageLabel: 'Published against observed v4', page: 'design/v4/observed-lab.html', live: true },
+              { label: 'How this case works', pageLabel: 'How this case works v4', page: 'design/v4/how-lab.html', live: true }
           ]},
           { label: 'Case opening', pageLabel: 'Case opening v4', page: 'design/v4/open-lab.html', live: true },
           { label: 'Case outcome', pageLabel: 'Case outcome v4', page: 'design/v4/win-lab.html', live: true }
