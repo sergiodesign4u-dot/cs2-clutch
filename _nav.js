@@ -90,6 +90,7 @@ window.NAV = [
               { label: 'Case block', pageLabel: 'Case block v4', page: 'design/v4/stage-lab.html', live: true },
               { label: 'Skin cards', pageLabel: 'Skin cards v4', page: 'design/v4/card-lab.html', live: true },
               { label: 'Rare skins', pageLabel: 'Rare skins in the band v4', page: 'design/v4/rare-lab.html', live: true },
+              { label: 'Rare marks', pageLabel: 'Rare marks, live drops and cards v4', page: 'design/v4/rare-marks-lab.html', live: true },
               { label: 'Before you open', pageLabel: 'Before you open v4', page: 'design/v4/info-lab.html', live: true },
               { label: 'Best drops', pageLabel: 'Best drops v4', page: 'design/v4/drops-lab.html', live: true },
               { label: 'What is in this case', pageLabel: 'What is in this case v4', page: 'design/v4/table-lab.html', live: true },

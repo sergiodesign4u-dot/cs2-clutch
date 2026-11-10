@@ -10,7 +10,7 @@
   // D of each, founder of 9 Nov 2026: "делаем вот это симпатично" (the two lines) and "скины в best drops делаем тоже классными и как на сайте";
   // pays B, founder of 10 Nov 2026: "What this case pays давай теперь делать, в целом думаю норм будет"; observed D the same day: "мне
   // нравится как у нас было в направлении"; how F, the reworked B: "вот этот интересный получился, но его бы я доработал", picked the same day: "о, прикольно, берем"
-  var V = { info: Q.get('info') || 'd', drops: Q.get('drops') || 'd', pays: Q.get('pays') || 'b', observed: Q.get('observed') || 'd', how: Q.get('how') || 'f' };
+  var V = { info: Q.get('info') || 'd', drops: Q.get('drops') || 'd', pays: Q.get('pays') || 'b', observed: Q.get('observed') || 'd', how: Q.get('how') || 'i' }; // How I since 10 Nov 2026, founder: "самый адекватный вариант"
   var W = window.WF_BASE || '../../wireframes/', SKINS = '../concept/assets/skins/';
   var ARROW = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   // the tier's plate, Home's round card colours (proof-home.js ROUNDS), the other tiers from the same rarity steps
@@ -206,8 +206,14 @@
         var worth = vs.length ? vs.reduce(function (a, b) { return a + b; }, 0) / vs.length >= price() : true, good = worth ? d > 0 : d < 0;
         var cls = d === 0 ? 'is-eq' : good ? 'is-up' : 'is-dn';
         c[2].innerHTML = '<span class="v4o-ov"><span class="v4o-tk" aria-hidden="true"></span>' + c[2].innerHTML + '</span>' +
-          '<span class="v4o-dl ' + cls + '"><span aria-hidden="true">' + (d > 0 ? '▲' : d < 0 ? '▼' : '') + '</span>' + (d > 0 ? '+' : d < 0 ? '−' : '') + Math.abs(d).toFixed(2) + '&#160;%</span>';
+          '<span class="v4o-dl ' + cls + '"><span aria-hidden="true">' + (d > 0 ? '▲' : d < 0 ? '▼' : '') + '</span>' + (d > 0 ? '+' : d < 0 ? '−' : '') + Math.abs(d).toFixed(2) + '&#160;%' +
+          (d === 0 ? '' : '<span class="wf-vh">, ' + (good ? 'in your favour' : 'against you') + '</span>') + '</span>';
       });
+      // what the colour means, founder of 10 Nov 2026: "червоний ▲ нічим не пояснений, давай поясним" (microcopy 3.3-66). Under the table,
+      // before the note: the two colours named, then the rule with this case's own price in it, so a red rise reads as the rule, not a fault
+      var wrapD = tb.closest('.wf-tablewrap') || tb;
+      if (!sec.querySelector('.v4o-key')) wrapD.insertAdjacentHTML('afterend', '<p class="v4o-key"><span class="v4o-sw is-up">In your favour</span><span class="v4o-sw is-dn">Against you</span>' +
+        '<span class="v4o-why">More items from a tier whose average value is at least the price, ' + price().toFixed(2) + '&#160;coins, is in your favour; more from a cheaper tier is not. The arrow shows which way the rate moved.</span></p>');
       return;
     }
     var R = Array.prototype.map.call(tb.querySelectorAll('tbody tr'), function (tr) {
@@ -269,6 +275,44 @@
       '<div class="v4t-got"><span class="v4h-ring"><span class="v4d-plate"></span>' + (window.V4Open && window.V4Open.hex ? window.V4Open.hex() : '') + '<img src="' + SKINS + sl(hit) + '.png" alt=""></span>' +
       '<span class="v4h-gn"><b>' + hit + '</b><span>' + it.range + '</span></span><span class="v4t-tk">' + tk[0] + '</span></div></div>';
   }
+  /* G, H and I, founder of 10 Nov 2026 on F: "вроде хорошо, но не очень, этот красный треугольник смотрится странно, в целом есть над чем
+     ещё поработать", and "да, давай" to three rows to compare. All three tidy F the same way: the 1 and the 100 000 are quiet figures under
+     the line's ends rather than plates beside it, the ticket's number is said once, on its pin, and the stub keeps the item and its range.
+     G: F with the filled triangle gone; two fine dashed lines run from the ends of the item's stretch to the ends of its own line.
+     H: no second line; a round lens over the stretch holds it enlarged, 1 to 3 180 with the ticket on it, on a stem from the stretch.
+     I: no second line; the 100 000 as a ruler, ticks every 5 000 and its quarters named under it, the ticket a flag dropped on it over
+     the item's lit stretch; the stub names the item and its range */
+  function ruler3(IT, k) {
+    var N = Object.keys(IT).sort(function (a, b) { return IT[a].a - IT[b].a; });
+    var hit = N.filter(function (n) { return TICKET[n]; })[0];
+    if (!hit) return ruler(IT);
+    var it = IT[hit], tk = TICKET[hit], rg = it.range.split(' to '), lo = num(rg[0]), hi = num(rg[1]), t = num(tk[0].replace(/&#160;/g, ''));
+    var z = ((t - lo) / (hi - lo) * 100).toFixed(2), m = ((it.a + it.b) / 2).toFixed(2);
+    var seg = N.map(function (n) { var x = IT[n]; return '<i class="' + x.r + (n === hit ? ' is-hit' : '') + '" style="--a:' + x.a + '; --w:' + (x.b - x.a) + '"></i>'; }).join('');
+    var nTag = '<span class="v4t-n" data-to="' + t + '">' + tk[0] + '</span>';
+    var ends = function (a, b) { return '<div class="v4u-ends"><span>' + a + '</span><span>' + b + '</span></div>'; };
+    var top = '<div class="v4u-top"><div class="v4t-line">' + seg + '<b class="v4t-pin">' + (k === 'i' ? nTag : '') + '</b></div>' +
+      (k === 'i' ? '<div class="v4u-scale">' + Array.apply(null, Array(21)).map(function (_, i) { return '<i' + (i % 5 ? '' : ' class="is-q"') + ' style="--k:' + (i * 5) + '"></i>'; }).join('') + '</div>' +
+        '<div class="v4u-qs">' + ['1', '25&#160;000', '50&#160;000', '75&#160;000', '100&#160;000'].map(function (q, i) { return '<span style="--k:' + (i * 25) + '">' + q + '</span>'; }).join('') + '</div>'
+        : ends('1', '100&#160;000')) + '</div>';
+    var mid = '';
+    if (k === 'g') mid = '<svg class="v4u-con" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="' + it.a + '" y1="0" x2="0" y2="100"/><line x1="' + it.b + '" y1="0" x2="100" y2="100"/></svg>' +
+      '<div class="v4u-zrow"><div class="v4t-zoom"><b class="v4t-zpin">' + nTag + '</b></div>' + ends(rg[0], rg[1]) + '</div>';
+    if (k === 'h') mid = '<div class="v4u-lensrow"><svg class="v4u-stem"><line/></svg><div class="v4u-lens"><span class="v4u-lname">' + hit + '</span>' +
+      '<div class="v4t-zoom"><b class="v4t-zpin">' + nTag + '</b></div>' + ends(rg[0], rg[1]) + '</div></div>';
+    return '<div class="v4t v4u is-' + k + ' ' + it.r + '" aria-hidden="true" style="--t:' + tk[1] + '; --ha:' + it.a + '; --hb:' + it.b + '; --z:' + z + '; --m:' + m + '">' + top + mid +
+      '<div class="v4t-cut"></div>' +
+      '<div class="v4t-got"><span class="v4h-ring"><span class="v4d-plate"></span>' + (window.V4Open && window.V4Open.hex ? window.V4Open.hex() : '') + '<img src="' + SKINS + sl(hit) + '.png" alt=""></span>' +
+      '<span class="v4h-gn"><b>' + hit + '</b><span>' + it.range + '</span></span></div></div>';
+  }
+  // H's stem: from the middle of the item's stretch on the line to the top of the lens, wherever the lens had to sit to stay in the card
+  function stem(box) {
+    var v = box.querySelector('.v4u.is-h'); if (!v) return;
+    var row = v.querySelector('.v4u-lensrow'), lens = v.querySelector('.v4u-lens'), ln = v.querySelector('.v4u-stem line'), line = v.querySelector('.v4t-line');
+    function set() { var R = row.getBoundingClientRect(), L = lens.getBoundingClientRect(), T = line.getBoundingClientRect(), m = parseFloat(v.style.getPropertyValue('--m'));
+      ln.setAttribute('x1', T.left - R.left + T.width * m / 100); ln.setAttribute('y1', T.bottom - R.top + 2); ln.setAttribute('x2', L.left - R.left + L.width / 2); ln.setAttribute('y2', L.top - R.top + 2); }
+    set(); if (window.ResizeObserver) new ResizeObserver(set).observe(row);
+  }
   function play(box) {
     var v = box.querySelector('.v4t'); if (!v) return;
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { v.classList.add('is-on', 'is-still'); return; }
@@ -292,7 +336,8 @@
     sec.setAttribute('data-how', V.how);
     if (V.how === 'a') return;
     var cols = sec.querySelector('.wf-prose-cols'), K = caseName();
-    if (V.how === 'b' || V.how === 'f') { var sc = document.createElement('div'); sc.className = 'v4h-side'; sc.innerHTML = V.how === 'f' ? ruler2(IT) : ruler(IT); sec.appendChild(sc); if (V.how === 'f') play(sc); }
+    if (/^[bfghi]$/.test(V.how)) { var sc = document.createElement('div'); sc.className = 'v4h-side';
+      sc.innerHTML = V.how === 'f' ? ruler2(IT) : V.how === 'b' ? ruler(IT) : ruler3(IT, V.how); sec.appendChild(sc); if (V.how !== 'b') { play(sc); stem(sc); } }
     if (V.how === 'd') {
       var top = Object.keys(IT).sort(function (a, b) { return IT[b].v - IT[a].v; })[0];
       var art = document.createElement('div'); art.className = 'v4h-art'; art.setAttribute('aria-hidden', 'true');

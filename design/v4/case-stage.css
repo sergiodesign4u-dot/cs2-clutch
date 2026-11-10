@@ -431,6 +431,18 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"]:is([data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .hx-in { stroke: none; }
 .v4c-top[data-v="m"]:is([data-card="w4"], [data-card="w6"]) .v4o-hex { filter: drop-shadow(-2px 0 2px color-mix(in srgb, var(--r) 55%, transparent)) drop-shadow(-4px 0 10px color-mix(in srgb, var(--r) 28%, transparent)); }
 .v4c-top[data-v="m"]:is([data-card="w5"], [data-card="w7"]) .v4o-hex { filter: drop-shadow(-1.5px -1.5px 2px color-mix(in srgb, var(--r) 55%, transparent)) drop-shadow(-3px -3px 10px color-mix(in srgb, var(--r) 28%, transparent)); }
+/* the ring's light on W7's band and reel cards, performance pass of 10 Nov 2026, founder: "мне хочется оптимизировать сделать сайт быстрее и
+   отзывчивее, но при этом не потерять общее впечатление". The two drop shadows above are blur work for every card painted, and the reel
+   paints a new card every few frames in each of up to five lanes. Here the same two lights, offset to the top left and blurred as before
+   (2px at 55 %, 10px at 28 %, in the hexagon's own units for an 85px ring), are already blurred inside one mask image the browser
+   rasterises once, and the tier's colour shows through it. The prize keeps its filter, it is one card */
+:root { --v4-hex-glow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); }
+.v4c-top[data-v="m"][data-card="w7"] .v4o-card .v4o-hex { filter: none; }
+/* and the skin's shadow, once case-open.js has drawn it into the skin's own picture (is-baked) */
+.v4c-top[data-v="m"][data-card="w7"] .v4o-card .v4o-img.is-baked { filter: none; }
+.v4c-top[data-v="m"][data-card="w7"] .v4o-glow { display: block; position: absolute; left: 50%; top: 13.03%; height: 66.95%; aspect-ratio: 176 / 158; translate: -50% 0; pointer-events: none;
+  background: var(--r); -webkit-mask: var(--v4-hex-glow) center / 100% 100% no-repeat; mask: var(--v4-hex-glow) center / 100% 100% no-repeat; }
+@container (max-width: 110px) { .v4c-top[data-v="m"][data-card="w7"] .v4o-glow { top: 10.88%; height: 56.24%; } }
 /* then: "что за дырку ты сделал? верни нормальную версию, я думал ты карточки хочешь сделать темнее, сам фон". The "dark inside" was the
    card's ground, not the hexagon's: the gradient fill is back, and the card itself goes darker, as the reference's cells are, its light
    at the foot kept low; W6 lets a little of the tier into the card's ground from the lit side */

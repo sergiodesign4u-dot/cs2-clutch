@@ -19,6 +19,8 @@
   var top = document.querySelector('.wf-top');
   if (!top || !window.V4Open) return;
   var O = window.V4Open;
+  // the band, the columns and the reels mark a rare skin by its chance, founder of 10 Nov 2026 (rare-mark.js)
+  O.marks = true;
   O.sound = (function () { try { return localStorage.getItem('v4-sound') === 'on'; } catch (e) { return false; } })();
 
   function el(tag, cls, html) { var n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; }
@@ -394,7 +396,8 @@
         { transform: 'translate(0, 8px) scale(.93)', filter: 'brightness(.85)', opacity: 1, offset: .24 },  // draws back
         { transform: at + 'scale(1.12)', filter: 'brightness(1.4)', opacity: 1, offset: .5 },              // lunges to the middle
         { transform: at + 'scale(1.22, .86)', filter: 'brightness(2.6)', opacity: 1, offset: .57 },        // the hit
-        { transform: at + 'scale(1.75)', filter: 'brightness(3) blur(12px)', opacity: 0 }                  // bursts toward the reader
+        { transform: at + 'scale(1.75)', filter: 'brightness(3)', opacity: 0 }                  // bursts toward the reader; no blur since
+        // the performance pass of 10 Nov 2026: a 12px blur over two to five cases this size cost about 7 of 57 frames a second in an open of four, measured
       ], { duration: 690, delay: i * 70, easing: 'cubic-bezier(.33, 0, .2, 1)', fill: 'forwards' });
       // the flash and the wave, at the case's middle, on the hit
       var fx = frame.getBoundingClientRect();

@@ -1,0 +1,52 @@
+/* design/v4/rare-mark.css, a rare skin's mark by its chance, D-209. Founder of 10 Nov 2026 on rare-lab.html: "в целом у меня работает
+   отлично, можно сделать так же как и в лайф дропах, причём таким образом: A для 5 %, B для 2.5 % и для 1 % C". A skin whose chance in its
+   case is 5 % or less carries A, 2.5 % or less B, 1 % or less C; each one mark, the rarest that applies. rare-mark.js puts it on a card.
+   A, the ring's current: a bright arc runs round the card's own ring, a turning layer seen only through the ring's shape; the browser
+   turns it and paints nothing.
+   B, lightning, and C, plasma: a loop of 24 frames drawn once (art/fx/, recorded from Home's live drop lightning and plasma on
+   rare-lab.html) and played by stepping the picture's position in a box the size of one frame, so a mark is one small picture, never a
+   strip 24 frames wide: that strip, laid out whole on every rare card, is what made rare-lab drop to no frames for a moment on switching
+   to B or C, founder: "когда переключаешься на B C D фреймы падают до 0 и поднимаются до 120".
+   Where the ring sits differs by host: a W7 card of the band and the reel (case-stage.css), a live drop (theme.css). */
+:root { --rm-ringmask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 136 118'%3E%3Cpath d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z' fill='none' stroke='%23000' stroke-width='7' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+
+.rm { position: absolute; pointer-events: none; }
+
+/* A */
+.rm-ring { z-index: 2; overflow: hidden; -webkit-mask: var(--rm-ringmask) center / 100% 100% no-repeat; mask: var(--rm-ringmask) center / 100% 100% no-repeat; }
+.rm-ring i { position: absolute; inset: -40%; animation: rm-turn 1.4s linear infinite;
+  background: conic-gradient(from 0deg, transparent 0 62%, color-mix(in srgb, var(--r, #FB3F8A) 60%, #fff) 82%, #fff 88%, transparent 94%); }
+@keyframes rm-turn { to { transform: rotate(360deg); } }
+
+/* B and C */
+.rm-loop { overflow: hidden; background-repeat: no-repeat; background-size: 2400% 100%; animation: rm-step var(--d, 1s) steps(24, jump-none) infinite; }
+@keyframes rm-step { from { background-position: 0 0; } to { background-position: 100% 0; } }
+.rm-bolt { z-index: 4; background-image: url(art/fx/bolt-24.webp); --d: 1s; }
+.rm-fire { z-index: 0; opacity: .9; background-image: url(art/fx/plasma-24.webp); --d: 1.2s; }
+
+/* on a W7 card of the band and the reel: the ring where case-stage.css draws the hexagon */
+.v4o-card > .rm-ring { left: 50%; top: 21.5%; height: 50%; aspect-ratio: 136 / 118; translate: -50% 0; }
+.v4o-card > .rm-bolt { inset: -12px; }
+.v4o-card > .rm-fire { inset: 0; border-radius: inherit; }
+.v4o-card.rm-on { overflow: visible; }
+@container (max-width: 110px) { .v4o-card > .rm-ring { top: 18%; height: 42%; } .v4o-card > .rm-bolt { inset: -8px; } }
+
+/* on a live drop: the ring where theme.css draws the tile's hexagon, its fire under the tile's skin */
+.wf-feed-hit > .rm-ring { left: 50%; top: 7px; width: 78px; height: 68px; margin-left: -39px; }
+.wf-feed-i > .rm-bolt { inset: -8px; }
+.wf-feed-i > .rm-fire { inset: 0; border-radius: inherit; }
+/* C on a live drop burns outside the tile, founder of 10 Nov 2026: "в лайф дропах можно сделать снаружи, если это не влияет критично на
+   скорость". It is the same kind of picture, 24 frames of Home's plasma drawn once (art/fx/plasma-tall-24.webp), in the box the live flame
+   had (rare.css .v4-rare-fire): 28 % wider than the tile and rising 100px over it, behind the tile's own ground so it shows only round it.
+   Measured on rare-marks-lab.html, outside costs what inside does: the picture is a little larger, nothing is drawn while it plays. The tile
+   lends its ground to a layer under it so the flame can pass behind; rare.css lifts a live one over the sticky header at the page's top.
+   .rm-in keeps the flame inside, for the lab */
+.wf-feed-i.rm-c:not(.rm-in) { isolation: isolate; }
+.wf-feed-i.rm-c:not(.rm-in):not(.v4-rare) { background: none; }
+.wf-feed-i.rm-c:not(.rm-in):not(.v4-rare)::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); }
+.wf-feed-i.rm-c:not(.rm-in) > .rm-fire { inset: auto; top: -100px; left: -14%; width: 128%; height: calc(60% + 100px); z-index: -2; border-radius: 0; opacity: 1;
+  background-image: url(art/fx/plasma-tall-24.webp); }
+@media (max-width: 599px) { .wf-feed-hit > .rm-ring { top: 5px; width: 60px; height: 52px; margin-left: -30px; } .wf-feed-i > .rm-bolt { inset: -6px; } }
+
+@media (prefers-reduced-motion: reduce) { .rm-ring i, .rm-loop { animation: none; } }

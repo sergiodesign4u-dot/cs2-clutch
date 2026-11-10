@@ -44,8 +44,8 @@
 
 /* the header is sticky at z-index 30 and would hide the flame, so a live rare card stands over it while the page is at its top, as on
    rare-drops.html where the founder took it; once the page scrolls, the header covers the strip again as it covers everything */
-.wf-feed-i.v4-rare-plasma.is-live { z-index: 31; }
-.v4-scrolled .wf-feed-i.v4-rare-plasma.is-live { z-index: auto; } /* only the plasma has a flame to show over it */
+.wf-feed-i.v4-rare.rm-c.is-live { z-index: 31; }
+.v4-scrolled .wf-feed-i.v4-rare.rm-c.is-live { z-index: auto; } /* only a drop whose mark is C has a flame to show over it, rare-mark.css */
 /* the effect canvases: on the card, 8px past it; the plasma's flame behind the plate, its tips about 40px over the card */
 .v4-rare-fx { position: absolute; inset: -8px; width: calc(100% + 16px); height: calc(100% + 16px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }
 .v4-rare-sparks { position: absolute; left: -8px; top: -8px; width: calc(100% + 16px); height: calc(100% + 8px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }

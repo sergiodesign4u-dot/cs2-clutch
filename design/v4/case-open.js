@@ -86,8 +86,11 @@
     c.setAttribute('data-w', x.w); // the gun's name for a card that sets it as type behind the skin, stage-lab row M
     c.setAttribute('data-p', x.v.toFixed(2)); // and its value, for card-lab.html's card F, which prints it on the card
     // the value in coins rides on every card, hidden unless the card's look shows it: founder of 6 Nov 2026, "акцент сильный на стоимость скина"
-    c.innerHTML = '<span class="v4o-plate"></span><img class="v4o-img" src="' + x.art + '" alt="" draggable="false"><span class="v4o-name"><b>' + x.w + '</b><span>' + x.s + '</span></span>' +
-      '<span class="v4o-price"><img src="art/brand/coin-6-small.svg" alt="">' + x.v.toFixed(2) + '</span>' + hex();
+    var baked = lean() && BAKED[x.art];
+    c.innerHTML = '<span class="v4o-plate"></span><img class="v4o-img' + (baked ? ' is-baked' : '') + '" src="' + (baked || x.art) + '" alt="" draggable="false"><span class="v4o-name"><b>' + x.w + '</b><span>' + x.s + '</span></span>' +
+      '<span class="v4o-price"><img src="art/brand/coin-6-small.svg" alt="">' + x.v.toFixed(2) + '</span><span class="v4o-glow" aria-hidden="true"></span>' + hex();
+    // a rare skin's mark by its chance in this case, rare-mark.js, on a page that asks for it (case-page.js sets V.marks)
+    if (V.marks && window.V4Rare) window.V4Rare.mark(c, x.ch);
     return c;
   }
 
@@ -214,6 +217,65 @@
       ma.style.left = (f.offsetLeft - 8) + 'px'; ma.style.right = (host.clientWidth - z.offsetLeft - z.offsetWidth - 8) + 'px'; host.appendChild(ma); }
     return Promise.all(lanes);
   }
+
+  /* THE CARD'S TWO LIGHTS, DRAWN ONCE, performance pass of 10 Nov 2026, founder: "когда выбираешь 3-4 кейса начинает подлагивать, как и
+     при нажатии на open ... хочется оптимизировать, сделать сайт быстрее и отзывчивее, но при этом не потерять общее впечатление". Measured
+     on case.html at 1440 with four cases, frames a second while the reels run: 25 as it was, 40 without the ring's light, 60 without the
+     ring's light and the skin's shadow. Both are blurs, and a blur is worked out again for every card the band, the columns and the reels
+     paint, which in an open is a new card every few frames in each lane. So on W7's cards both are drawn once when the page is idle, at
+     the sizes the stage uses, and from then on a card is plain pictures:
+     - the skin with its shadow under it, 0 8px 6px at 70 % black as case-stage.css had it, for a skin drawn 73px tall, in the skin's own
+       picture (512 by 384), so the card's image stays where it was and only its source changes;
+     - the ring's light per tier, the two drop shadows of case-stage.css W5 (2px at 55 %, 10px at 28 %, to the top left), in a picture the
+       size of .v4o-glow, which shows it in place of the masked fallback that stands until it is ready.
+     Pages whose cards are not W7 keep the filters (lean() is false there) */
+  var BAKED = {}, leanOn = null;
+  // only on a page whose every stage draws W7: a lab showing several looks side by side (card-lab.html) keeps the filters on all of them,
+  // since a baked skin under another look's filter would cast its shadow twice
+  function lean() { if (leanOn === null) { var t = document.querySelectorAll('.v4c-top');
+    leanOn = t.length > 0 && Array.prototype.every.call(t, function (x) { return x.getAttribute('data-v') === 'm' && x.getAttribute('data-card') === 'w7'; });
+    if (!leanOn) setTimeout(function () { leanOn = null; }, 500); } return leanOn; }
+  function bakeSkin(src, done) {
+    var im = new Image(); im.onload = function () {
+      var w = im.naturalWidth, h = im.naturalHeight, k = 73 / h; if (!w || !h) return done();
+      var cv = document.createElement('canvas'); cv.width = w; cv.height = h; var x = cv.getContext('2d');
+      x.shadowColor = 'rgba(0, 0, 0, .7)'; x.shadowOffsetY = 8 / k; x.shadowBlur = 6 / k; x.drawImage(im, 0, 0);
+      x.shadowColor = 'transparent'; x.drawImage(im, 0, 0);
+      cv.toBlob(function (b) { if (b) BAKED[src] = URL.createObjectURL(b); done(); });
+    };
+    im.onerror = function () { done(); }; im.src = src;
+  }
+  var HPTS = [[128, 59], [98, 110.96], [38, 110.96], [8, 59], [38, 7.04], [98, 7.04]];
+  function bakeGlow(r, color) {
+    // the glow's box is the hexagon's 136 by 118 with 20 units on every side (case-stage.css .v4o-glow), at 2 pixels per CSS pixel of an
+    // 85px ring: 0.72 CSS pixels a unit, so 1.44 canvas pixels a unit; shadows are set in canvas pixels, 2 to a CSS pixel
+    var S = 1.44, cv = document.createElement('canvas'); cv.width = Math.round(176 * S); cv.height = Math.round(158 * S);
+    var x = cv.getContext('2d'), FAR = 4000, c = color.trim();
+    function ring() { x.beginPath(); HPTS.forEach(function (p, i) { var px = (p[0] + 20) * S + FAR, py = (p[1] + 20) * S; if (i) x.lineTo(px, py); else x.moveTo(px, py); }); x.closePath(); }
+    x.lineWidth = 3.6 * S; x.lineJoin = 'round'; x.strokeStyle = '#000';
+    [[-3, 20, .28], [-1.5, 4, .55]].forEach(function (L) {
+      x.save(); x.shadowColor = c; x.shadowBlur = L[1]; x.shadowOffsetX = -FAR + L[0] * 2; x.shadowOffsetY = L[0] * 2; x.globalAlpha = L[2]; ring(); x.stroke(); x.restore();
+    });
+    cv.toBlob(function (b) {
+      if (!b) return; var u = URL.createObjectURL(b), st = document.getElementById('v4o-baked') || document.head.appendChild(Object.assign(document.createElement('style'), { id: 'v4o-baked' }));
+      st.textContent += '.v4c-top[data-v="m"][data-card="w7"] .v4o-card.' + r + ' .v4o-glow { -webkit-mask: none; mask: none; background: url(' + u + ') center / 100% 100% no-repeat; }\n';
+    });
+  }
+  var tries = 0;
+  function bake() {
+    leanOn = null;
+    if (!lean()) { if (++tries < 6) setTimeout(bake, 700); return; }
+    var probe = document.querySelector('.v4c-top[data-card="w7"]'), arts = IRONBOUND.concat([KNIFE]).map(function (x) { return x.art; }), left = arts.length;
+    Object.keys(RANK).forEach(function (r) { var t = el('span', 'v4o-card ' + r); t.style.display = 'none'; probe.appendChild(t); var c = getComputedStyle(t).getPropertyValue('--r'); t.remove(); if (c) bakeGlow(r, c); });
+    arts.forEach(function (a) { bakeSkin(a, function () {
+      if (--left) return;
+      // the cards already on the stage take the baked skins too
+      Array.prototype.forEach.call(document.querySelectorAll('.v4c-top[data-v="m"][data-card="w7"] .v4o-card .v4o-img:not(.is-baked)'), function (im) {
+        var a = im.getAttribute('src'); if (BAKED[a]) { im.src = BAKED[a]; im.classList.add('is-baked'); } });
+    }); });
+  }
+  (function () { var go = function () { if (window.requestIdleCallback) requestIdleCallback(bake, { timeout: 1500 }); else setTimeout(bake, 200); };
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go); })();
 
   V.items = IRONBOUND; V.knife = KNIFE; V.roll = roll; V.dress = dress; V.lane = lane; V.open = open; V.drive = drive; V.card = card; V.hex = hex; V.rank = RANK; V.still = still;
   window.V4Open = V;

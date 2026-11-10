@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rare marks</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_theme.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="rare.css">
+  <link rel="stylesheet" href="rare-mark.css">
+  <link rel="stylesheet" href="case-open.css">
+  <link rel="stylesheet" href="case-stage.css">
+  <link rel="stylesheet" href="case-lab.css">
+  <link rel="stylesheet" href="../../_nav.css">
+  <style>
+    .rk-fps { display: inline-flex; gap: 14px; align-items: baseline; padding: 6px 12px; border-radius: 8px; background: #0B0A26; font-variant-numeric: tabular-nums; }
+    .rk-fps b { font-size: 22px; font-weight: 900; color: #35E08A; }
+    .rk-fps b.is-mid { color: #FFC44D; } .rk-fps b.is-low { color: #FF5A6E; }
+    .rk-fps span { color: var(--color-text-soft); font-size: 13px; }
+    #rk .cl-ctl label { flex-wrap: wrap; max-width: 100%; } #rk .cl-seg { flex-wrap: wrap; }
+    .rk-out { margin: 8px 0 0; color: var(--color-text-soft); font-size: 14px; min-height: 20px; }
+    .rk-out b { color: var(--color-text-hi); }
+    .rk-row { margin: 0 0 30px; }
+    .rk-row h3 { margin: 0 0 6px; font-size: 16px; font-weight: 900; }
+    .rk-row > p { margin: 0 0 12px; color: var(--color-text-soft); font-size: 14px; line-height: 1.5; max-width: 80ch; }
+    /* the live drops: tiles as the strip draws them, with room over them for C's flame */
+    .rk-feed { padding: 112px 18px 14px; border-radius: 18px; background: var(--color-ground, #0B0A26); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); overflow-x: auto; }
+    .rk-feed .wf-feed-run { display: flex; gap: 22px; width: max-content; margin: 0; padding: 0; list-style: none; }
+    .rk-feed .wf-feed-i { position: relative; width: 104px; height: 114px; box-sizing: border-box; }
+    @media (max-width: 599px) { .rk-feed .wf-feed-i { width: 86px; height: 85px; } }
+    .rk-cap { display: block; margin-top: 8px; text-align: center; color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+    .rk-cap b { color: #fff; }
+    /* the case cards: the stage's W7 card, as the band draws it */
+    .rk-cards { display: flex; gap: 26px; padding: 26px 22px; border-radius: 18px; background: linear-gradient(180deg, #121140, #0B0A28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); overflow-x: auto; }
+    .rk-cards .rk-c { flex: none; }
+    .rk-cards .v4o-card { position: relative; width: 146px; height: 170px; }
+    @media (max-width: 599px) { .rk-feed .wf-feed-run { gap: 16px; } .rk-cards { gap: 18px; padding: 20px 14px; } }
+  </style>
+</head>
+<body>
+<aside id="sidebar"></aside>
+<!-- A satellite of v4's case screen, D-209 and D-214, founder of 10 Nov 2026: "покажи мне отдельно страницу с рарность для лайф вида и для
+     кейсов по видам". Every mark of rare-mark.css on its two hosts, a live drop and the stage's W7 card, each kind on its own, and C on a live
+     drop both inside the tile and outside it, with a frame counter to see what each costs. -->
+<main class="cl" id="rk">
+  <h1>Rare marks</h1>
+  <p>Founder of 10 Nov 2026: a rare skin carries a mark by its chance in its case, A at 5 % or less, B at 2.5 % or less, C at 1 % or less, one mark each, the rarest that applies. Here is each kind on its own, on a live drop and on the case screen's card, so they can be judged one at a time. Asked the same day: "the flame in the live drops is inside: does inside or outside change the speed?" Both are below, with a counter: switch which tiles play, then Measure. The counter is this machine's; a phone runs lower.</p>
+  <div class="cl-ctl">
+    <label>Playing <span class="cl-seg" id="play"></span></label>
+    <span class="rk-fps"><b id="fps">60</b><span>frames a second</span></span>
+    <button type="button" class="v4-btn v4-btn--m" id="measure">Measure 10 s</button>
+  </div>
+  <p class="rk-out" id="out">Not measured yet.</p>
+
+  <h2 class="cl-h2">On a live drop</h2>
+  <div class="rk-row">
+    <h3>An ordinary drop</h3>
+    <p>The strip's tile on the stage's ring. A runs a light round the ring, B is lightning round the tile, C is plasma: outside, rising behind the tile as Home's live flame did, which is how the live drops now carry it; inside, behind the skin, as it was this morning.</p>
+    <div class="rk-feed"><ul class="wf-feed-run" id="feedPlain"></ul></div>
+  </div>
+  <div class="rk-row">
+    <h3>A rare drop, as it arrives on Home</h3>
+    <p>The three rare drops of the strip with their chance and, at 0.008 %, the crown. No turning rays behind them any more: "overdone with animations, there is the fire and a glow turning from the centre" (translated). The mark by the chance is the one thing that moves.</p>
+    <div class="rk-feed"><ul class="wf-feed-run" id="feedRare"></ul></div>
+  </div>
+
+  <h2 class="cl-h2">On the case screen's card</h2>
+  <div class="rk-row">
+    <p>W7, as the band and the reels draw it. On Ironbound A falls on the AK-47 and the M4A1-S, B on the AWP and the Desert Eagle, and C on nothing in its table: it is shown here on the Karambit of the top tier's demo.</p>
+    <div class="v4c-top" data-v="m" data-card="w7"><div class="rk-cards" id="cards"></div></div>
+  </div>
+</main>
+<script>
+window.NAV_BASE = '../../';
+</script>
+<script src="case-open.js"></script>
+<script src="rare-mark.js"></script>
+<script>
+(function () {
+  var O = window.V4Open, R = window.V4Rare;
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function tile(art, w, s, r, kind, cap, rare) {
+    var li = el('li', 'wf-feed-i ' + r), a = el('a', 'wf-feed-hit'); a.href = '#'; a.addEventListener('click', function (e) { e.preventDefault(); });
+    var im = el('span', 'wf-feed-art'); im.setAttribute('data-art', art); im.setAttribute('aria-hidden', 'true');
+    a.appendChild(im); a.appendChild(el('span', 'wf-feed-w', w)); a.appendChild(el('span', 'wf-feed-s', s)); li.appendChild(a);
+    if (rare) {
+      li.classList.add('v4-rare', 'v4-rare-' + rare.fx, 'is-live');
+      var bg = el('span', 'v4-rare-bg'); bg.setAttribute('aria-hidden', 'true'); bg.appendChild(el('span', 'v4-rare-chance', rare.ch + '%'));
+      if (rare.crown) bg.appendChild(el('span', 'v4-rare-crown')); li.insertBefore(bg, li.firstChild);
+      if (rare.fx === 'plasma') li.appendChild(el('span', 'v4-rare-eq'));
+    }
+    if (kind === 'c-in') li.classList.add('rm-in');
+    li.setAttribute('data-kind', kind || 'none');
+    if (kind) R.mark(li, null, a, kind.charAt(0));
+    var wrap = el('div'); wrap.appendChild(li); var c = el('span', 'rk-cap'); c.innerHTML = cap; wrap.appendChild(c);
+    var host = el('li'); host.style.listStyle = 'none'; host.appendChild(wrap);
+    return { host: host, li: li };
+  }
+  var plain = document.getElementById('feedPlain'), rareRow = document.getElementById('feedRare');
+  [['ak-47-redline', 'AK-47', 'Redline', 'r2', null, '<b>None</b>, over 5 %'],
+   ['ak-47-redline', 'AK-47', 'Redline', 'r2', 'a', '<b>A</b>, 5 % or less'],
+   ['awp-asiimov', 'AWP', 'Asiimov', 'r2', 'b', '<b>B</b>, 2.5 % or less'],
+   ['awp-asiimov', 'AWP', 'Asiimov', 'r2', 'c', '<b>C outside</b>, 1 % or less'],
+   ['awp-asiimov', 'AWP', 'Asiimov', 'r2', 'c-in', '<b>C inside</b>, as it was']
+  ].forEach(function (t) { plain.appendChild(tile(t[0], t[1], t[2], t[3], t[4], t[5]).host); });
+  [['m4a4-the-emperor', 'M4A4', 'The Emperor', 'r2', 'b', '<b>2.40 %</b>, B', { fx: 'volt', ch: '2.40' }],
+   ['ak-47-gold-arabesque', 'AK-47', 'Gold Arabesque', 'r2', 'c', '<b>0.42 %</b>, C outside', { fx: 'orbit', ch: '0.42' }],
+   ['karambit-tiger-tooth', '★ Karambit', 'Tiger Tooth', 'r1', 'c', '<b>0.008 %</b>, C outside', { fx: 'plasma', ch: '0.008', crown: true }],
+   ['ak-47-gold-arabesque', 'AK-47', 'Gold Arabesque', 'r2', 'c-in', '<b>0.42 %</b>, C inside', { fx: 'orbit', ch: '0.42' }]
+  ].forEach(function (t) { rareRow.appendChild(tile(t[0], t[1], t[2], t[3], t[4], t[5], t[6]).host); });
+
+  var cards = document.getElementById('cards'), I = O.items, by = function (w, s) { return I.filter(function (x) { return x.w === w && x.s === s; })[0]; };
+  [[by('Nova', 'Koi'), null, '<b>None</b>, over 5 %'], [by('AK-47', 'Redline'), 'a', '<b>A</b>, AK-47 at 3.18 %'], [by('AWP', 'Asiimov'), 'b', '<b>B</b>, AWP at 1.02 %'], [O.knife, 'c', '<b>C</b>, Karambit at 0.008 %']].forEach(function (t) {
+    var w = el('div', 'rk-c'), c = O.card(t[0]); c.setAttribute('data-kind', t[1] || 'none'); if (t[1]) R.mark(c, null, null, t[1]);
+    w.appendChild(c); var cap = el('span', 'rk-cap'); cap.innerHTML = t[2]; w.appendChild(cap); cards.appendChild(w);
+  });
+
+  // which marks play: all, or one kind at a time, so the counter can be read for each
+  var MODES = [['all', 'All'], ['none', 'None'], ['a', 'A'], ['b', 'B'], ['c', 'C outside'], ['c-in', 'C inside']], seg = document.getElementById('play'), mode = 'all';
+  function apply() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-kind]'), function (n) {
+      var on = mode === 'all' || n.getAttribute('data-kind') === mode;
+      Array.prototype.forEach.call(n.querySelectorAll('.rm'), function (m) { m.style.display = on ? '' : 'none'; });
+    });
+  }
+  MODES.forEach(function (m) { var b = el('button', null, m[1]); b.type = 'button'; b.setAttribute('aria-pressed', String(m[0] === mode));
+    b.onclick = function () { mode = m[0]; Array.prototype.forEach.call(seg.children, function (x, i) { x.setAttribute('aria-pressed', String(MODES[i][0] === mode)); }); apply(); };
+    seg.appendChild(b); });
+
+  // the counter: frames in the last second, and a ten second measure with its slowest frame
+  var stamps = [], fpsEl = document.getElementById('fps'), rec = null;
+  requestAnimationFrame(function tick(now) {
+    if (stamps.length) { var dt = now - stamps[stamps.length - 1]; if (rec) { rec.n++; rec.worst = Math.max(rec.worst, dt); if (dt > 34) rec.slow++; } }
+    stamps.push(now); while (stamps.length && now - stamps[0] > 1000) stamps.shift();
+    if (stamps.length % 10 === 0) { var f = stamps.length; fpsEl.textContent = f; fpsEl.className = f >= 55 ? '' : f >= 40 ? 'is-mid' : 'is-low'; }
+    if (rec && now - rec.t0 >= 10000) { var out = document.getElementById('out');
+      out.innerHTML = 'Playing <b>' + MODES.filter(function (m) { return m[0] === rec.mode; })[0][1] + '</b>: <b>' + Math.round(rec.n / 10) + '</b> frames a second on average, the slowest frame <b>' + Math.round(rec.worst) + ' ms</b>, <b>' + rec.slow + '</b> frames over 34 ms.';
+      rec = null; document.getElementById('measure').disabled = false; }
+    requestAnimationFrame(tick);
+  });
+  document.getElementById('measure').onclick = function () { this.disabled = true; document.getElementById('out').textContent = 'Measuring for ten seconds…';
+    rec = { t0: performance.now(), n: 0, worst: 0, slow: 0, mode: mode }; };
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>
