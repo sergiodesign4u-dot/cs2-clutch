@@ -13,7 +13,10 @@
   --v4-mode-cases: linear-gradient(120deg, #FB3F8A, #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4 */
   --v4-mode-battles: linear-gradient(120deg, #3955E8, #1B2A8F); /* blue; comp A, founder pick; from --color-rarity-5 */
   --v4-mode-showdowns: linear-gradient(120deg, #D1273E, #7A0F22); /* red; comp A, founder pick; from --color-rarity-2 */
-  --v4-mode-upgrade: linear-gradient(120deg, #B57A06, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it */
+  --v4-mode-upgrade: linear-gradient(120deg, #9E6905, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it: #B57A06 held
+     white 12px at 3.65:1, so the gold end went to #9E6905, 4.7:1, stage 06 critique of 10 Nov 2026, row 6 */
+  --v4-fair-blue: #0B6A8C; /* the light end of the provably fair blue, Every round on Home and in the footer; was #0F7EA6, where white 13px sat at 3.3 to 3.9:1
+     under the plates' stripes; #0B6A8C holds white at 4.9:1 with the stripes over it, stage 06 critique of 10 Nov 2026, rows 4 and 5 */
   --v4-panel-ground: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); /* the footer's own panel, footer I of 3 Nov 2026; the rail's panel took it too as a trial and kept it on 4 Nov 2026,
      founder: "более темний мне больше нравится как в футере давай поставим на главной в боковом меню", D-209; the rail was linear-gradient(180deg, #16133C, #0D0C28), the header strip's navy */
   /* ONE SMALL TILE: the side menu's sound and language tiles are the standard, founder of 4 Nov 2026: "єто разние кнопки ... надо привести их к одному стандарту",
@@ -282,7 +285,9 @@
 
 /* --- the four modes: laid out as comp B, painted as comp A ----------------------------------- */
 .wf-mode { min-height: 150px; border-radius: var(--v4-radius); padding: 20px 20px 18px; background: var(--mode-fill); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); }
-.wf-mode:has([data-icon="box"]) { --mode-fill: var(--v4-mode-cases); --mode-art: url(art/mode-cases.webp); }
+/* the Cases card's pink end is the buttons' deeper pink, --btn-fill: on --color-pink its 12px white line held 3.4:1, on #DF055C it holds 4.9:1;
+   the pink of every other place --v4-mode-cases fills carries no small white text and keeps its tone, stage 06 critique of 10 Nov 2026, row 6 */
+.wf-mode:has([data-icon="box"]) { --mode-fill: linear-gradient(120deg, var(--btn-fill, #DF055C), #8E2BC9);--mode-art: url(art/mode-cases.webp); }
 .wf-mode:has([data-icon="battle"]) { --mode-fill: var(--v4-mode-battles); --mode-fx: url(art/mode-battles-fx.webp); --mode-art: url(../concept/assets/skins/karambit-tiger-tooth.png); }
 .wf-mode:has([data-icon="target"]) { --mode-fill: var(--v4-mode-showdowns); --mode-fx: url(art/mode-showdowns-fx.webp); --mode-art: url(../concept/assets/skins/desert-eagle-blaze.png); }
 .wf-mode:has([data-icon="arrow-up"]) { --mode-fill: var(--v4-mode-upgrade); --mode-fx: url(art/mode-upgrade-fx.webp); --mode-art: url(../concept/assets/skins/ak-47-gold-arabesque.png); }
@@ -393,4 +398,14 @@
 .wf-feed:is(:hover, :focus-within, .is-held) .wf-feed-lbl::after { display: none; }
 @media (hover: none) { .wf-feed-lbl::after { display: none; } }
 @media (prefers-reduced-motion: reduce) { .wf-feed-lbl::after { animation: none; opacity: 0; } }
+
+/* ONE TEXT LINK, founder of 10 Nov 2026 on the case screen: "у нас тут кстати разние кнопки линки, надо би к одну формату привести, толщина и
+   цвет" (our text links differ; bring them to one format, weight and colour), picked brand pink, bold, an arrow. Five formats became one: on
+   the dark ground a text link is --color-pink (5.8:1 on the page), 700, an arrow after its last word; on a colour plate the same link is white
+   (.x6-go, .x6-cgo), because pink is lost on pink. The size stays its place's. .v4-go is set by case-blocks.js links() on the links the grey
+   body writes plain; .v4i-go, .fq-go, .sl-go and the case title's How it works read the same two values in their own files */
+.v4-go { color: var(--color-pink); font-weight: 700; text-decoration: none; }
+.v4-go svg { display: inline; width: 14px; height: 14px; margin-left: 5px; vertical-align: -2px; transition: translate .2s var(--v4-ease-pop, ease-out); }
+@media (hover: hover) { .v4-go:hover { color: var(--color-text-hi); } .v4-go:hover svg { translate: 3px 0; } }
+@media (prefers-reduced-motion: reduce) { .v4-go svg { transition: none; } }
 

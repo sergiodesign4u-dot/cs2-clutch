@@ -15,8 +15,8 @@
 /* shared parts: a link with its arrow, a dark pill, the case with a real skin in its tray (the front of the case drawn over the skin) */
 .nw { white-space: nowrap; }
 .nw > svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: translate .2s var(--v4-ease-pop); }
-.sl-go { display: inline-block; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
-@media (hover: hover) { .sl-go:hover .nw > svg { translate: 3px 0; } }
+.sl-go { display: inline-block; color: var(--color-pink); font-size: 13px; font-weight: 700; letter-spacing: .02em; } /* was white: one text link format, theme.css ONE TEXT LINK, 10 Nov 2026 */
+@media (hover: hover) { .sl-go:hover { color: var(--color-text-hi); } .sl-go:hover .nw > svg { translate: 3px 0; } }
 .sl-pill { display: inline-flex; align-items: center; gap: 7px; box-sizing: border-box; min-height: 30px; padding: 0 12px; border-radius: var(--btn-radius, 10px);
   background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); color: var(--color-text-hi); font-size: 12px; font-weight: 700; white-space: nowrap; }
 .sl-case { position: absolute; aspect-ratio: 3 / 2; pointer-events: none; }

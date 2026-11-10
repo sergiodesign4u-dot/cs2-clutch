@@ -84,7 +84,7 @@
 .v4p-b .x6 { --case-h: clamp(80px, 11cqw, 150px); }
 .v4p-strip .x6-stub { gap: 12px; }
 .v4p-ic { display: block; width: 32px; height: 32px; background: #fff; -webkit-mask: var(--icon-dollar) center / contain no-repeat; mask: var(--icon-dollar) center / contain no-repeat; }
-.v4p-h { font-size: clamp(18px, 2cqw, 24px); font-weight: 900; line-height: 1.05; text-transform: uppercase; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
+.v4p-h { font-size: clamp(19px, 2cqw, 24px); /* floor was 18px; from 18.66px bold it is large text, which the pink stub holds at 3:1, critique row 3 */ font-weight: 900; line-height: 1.05; text-transform: uppercase; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
 .v4p-strip .x6-money { font-weight: 900; }
 .v4p-strip a.x6-go { text-decoration: none; }
 @container x6 (max-width: 979px) {
@@ -177,7 +177,7 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
 .wf-case-info[data-v="d"] .v4i-ic::after { content: ''; position: absolute; inset: 11px; background: #fff; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
 .wf-case-info[data-v="d"] .v4i-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .wf-case-info[data-v="d"] .v4i-h { color: #fff; font-size: 16px; font-weight: 900; line-height: 1.3; }
-.wf-main:has(.v4c-top) .wf-case-info[data-v="d"] .v4i-go { align-self: flex-start; margin-top: 8px; color: color-mix(in srgb, var(--c) 55%, #fff); font-weight: 800; text-decoration: none; }
+.wf-main:has(.v4c-top) .wf-case-info[data-v="d"] .v4i-go { align-self: flex-start; margin-top: 8px; color: var(--color-pink); font-weight: 700; text-decoration: none; } /* was the plate's hue paled, 800: one text link format, theme.css ONE TEXT LINK, 10 Nov 2026 */
 .wf-case-info[data-v="d"] .v4i-go svg { width: 14px; height: 14px; margin-left: 5px; vertical-align: -2px; transition: translate .2s; }
 @media (hover: hover) { .wf-main:has(.v4c-top) .wf-case-info[data-v="d"] .v4i-go:hover { color: #fff; } .wf-case-info[data-v="d"] .v4i-go:hover svg { translate: 3px 0; } }
 @media (max-width: 759px) { .wf-main:has(.v4c-top) .wf-case-info[data-v="d"] { grid-template-columns: minmax(0, 1fr); } }

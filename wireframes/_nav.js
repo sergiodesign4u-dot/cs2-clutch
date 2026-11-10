@@ -3442,15 +3442,15 @@ window.WF_PAY = window.WF_PAY || {
     ak: { w: 'AK-47', s: 'Redline', axes: ['Field-Tested', 'StatTrak', 'Covert'], won: '47.30', now: '46.85',
           at: '18 Aug 2026 14:44', hash: '4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208',
           seed: 'a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9', client: '7d19f4a2', nonce: '41 207',
-          ticket: '2 417', range: '1 to 3 180' },
+          ticket: '417', range: '1 to 640' },
     glock: { w: 'Glock-18', s: 'Water Elemental', axes: ['Minimal Wear', 'Restricted'], won: '12.90', now: '12.60',
           at: '18 Aug 2026 14:58', hash: 'a3f91c58d02e4b7f6a19c3e08d5b2f7461e0c9ab38d4f25e7c61b09a3f7d20e4',
           seed: '5c8e21f0a7b34d96e18f02c5b7a94d3e60f1b82c9d07a45e3b6c18f2d09e7a51', client: '7d19f4a2', nonce: '41 208',
-          ticket: '29 684', range: '23 001 to 37 000' },
+          ticket: '12 684', range: '10 491 to 15 090' },
     m4: { w: 'M4A1-S', s: 'Hyper Beast', axes: ['Factory New', 'Classified'], won: '24.60', now: '24.10',
           at: '18 Aug 2026 15:06', hash: 'e04b7d2a91c65f38b0d4e17a2c96f5b308d1e7c42a6f9b05d3c8e71f4a2b69c3',
           seed: '9b2f60d4e1a87c35f09b2d6e4a71c8f3052e9d7b1c4a86f30e5d2b97c1a4f608', client: 'e3a0c95b', nonce: '27 044',
-          ticket: '6 112', range: '4 201 to 8 800' }
+          ticket: '2 612', range: '1 791 to 3 890' }
   };
   /* The other four best drops get records too, so every tile on the case screen
      opens its own round. Their seeds are generated, which is what a sample is. */
@@ -3462,10 +3462,10 @@ window.WF_PAY = window.WF_PAY || {
     }
     return o.slice(0, n);
   }
-  [['usp', 'USP-S', 'Kill Confirmed', ['Minimal Wear', 'Restricted'], '14.20', '13.95', '18 Aug 2026 14:22', '15 843', '11 001 to 23 000'],
-   ['nova', 'Nova', 'Koi', ['Factory New', 'Mil-Spec'], '7.90', '7.80', '18 Aug 2026 14:39', '91 377', '80 001 to 100 000'],
-   ['mp9', 'MP9', 'Rose Iron', ['Field-Tested', 'Mil-Spec'], '7.40', '7.35', '18 Aug 2026 14:51', '44 902', '37 001 to 59 000'],
-   ['p250', 'P250', 'Asiimov', ['Battle-Scarred', 'Mil-Spec'], '6.90', '6.70', '18 Aug 2026 14:31', '66 019', '59 001 to 80 000']
+  [['usp', 'USP-S', 'Kill Confirmed', ['Minimal Wear', 'Restricted'], '14.20', '13.95', '18 Aug 2026 14:22', '8 843', '6 791 to 10 490'],
+   ['nova', 'Nova', 'Koi', ['Factory New', 'Mil-Spec'], '10.90', '10.80', '18 Aug 2026 14:39', '31 377', '15 091 to 39 090'],
+   ['mp9', 'MP9', 'Rose Iron', ['Field-Tested', 'Mil-Spec'], '10.30', '10.25', '18 Aug 2026 14:51', '44 902', '39 091 to 67 090'],
+   ['p250', 'P250', 'Asiimov', ['Battle-Scarred', 'Mil-Spec'], '9.60', '9.40', '18 Aug 2026 14:31', '86 019', '67 091 to 100 000']
   ].forEach(function (r, i) {
     ROUNDS[r[0]] = { w: r[1], s: r[2], axes: r[3], won: r[4], now: r[5], at: r[6], hash: hx(r[0] + 'h', 64), seed: hx(r[0] + 's', 64),
       client: hx(r[0] + 'c', 8), nonce: String(30411 + i * 977).replace(/(\d)(\d{3})$/, '$1 $2'), ticket: r[7], range: r[8] };
@@ -3607,8 +3607,8 @@ window.WF_PAY = window.WF_PAY || {
      five, and every figure that depends on the count is computed here: what was
      spent, the hashes, the balance, what selling or sending them settles. */
   var MULTI = [
-    { w: 'P250', key: 'o5p250', v: 6.90, st: 2.70 }, { w: 'Nova', key: 'o5nova', v: 7.90, st: -1.40 },
-    { w: 'MP9', key: 'o5mp9', v: 7.40, st: 1.45 }, { w: 'USP-S', key: 'o5usp', v: 14.20, st: -6.85 },
+    { w: 'P250', key: 'o5p250', v: 9.60, st: 2.70 }, { w: 'Nova', key: 'o5nova', v: 10.90, st: -1.40 },
+    { w: 'MP9', key: 'o5mp9', v: 10.30, st: 1.45 }, { w: 'USP-S', key: 'o5usp', v: 14.20, st: -6.85 },
     { w: 'M4A1-S', key: 'o5m4', v: 24.60, st: null }
   ];
   function mountMultiCount() {
@@ -4032,7 +4032,7 @@ window.WF_PAY = window.WF_PAY || {
       var path = location.pathname;
       var sayAt = b.parentNode, say = sayAt.querySelector('.wf-refuse') || sayAt.appendChild(el('p', 'wf-refuse is-said'));
       if (/fair-unavailable/.test(path)) { say.textContent = 'Nothing to recompute yet: the server seed for this round is revealed when it rotates.'; return; }
-      if (/fair-proof-failed/.test(path)) { say.textContent = 'Recomputed again: 30 211. It still does not match 2 417, and the report above stands.'; return; }
+      if (/fair-proof-failed/.test(path)) { say.textContent = 'Recomputed again: 30 211. It still does not match 417, and the report above stands.'; return; }
       /* WHAT WAS TYPED IS COMPARED WITH THE ROUND, round 16, D-152 answer 4,
          B1-11. Any well formed input agreed, which is a verifier that cannot
          say no. The round is the one whose published hash was entered; each
@@ -4255,19 +4255,21 @@ window.WF_PAY = window.WF_PAY || {
      printed with its figures in the outcome block, so it is not said twice.
      --------------------------------------------------------------------- */
   var CASE_ITEMS = [
-    ['Covert', '4.200 %', [
-      ['AK-47', 'Redline', 'Field-Tested · StatTrak', '3.180 %', '47.30', '1 to 3 180'],
-      ['AWP', 'Asiimov', 'Well-Worn', '1.020 %', '38.90', '3 181 to 4 200']]],
-    ['Classified', '6.800 %', [
-      ['M4A1-S', 'Hyper Beast', 'Factory New', '4.600 %', '24.60', '4 201 to 8 800'],
-      ['Desert Eagle', 'Blaze', 'Factory New', '2.200 %', '21.80', '8 801 to 11 000']]],
-    ['Restricted', '26.000 %', [
-      ['USP-S', 'Kill Confirmed', 'Minimal Wear', '12.000 %', '14.20', '11 001 to 23 000'],
-      ['Glock-18', 'Water Elemental', 'Minimal Wear', '14.000 %', '12.90', '23 001 to 37 000']]],
-    ['Mil-Spec', '63.000 %', [
-      ['MP9', 'Rose Iron', 'Field-Tested', '22.000 %', '7.40', '37 001 to 59 000'],
-      ['P250', 'Asiimov', 'Battle-Scarred', '21.000 %', '6.90', '59 001 to 80 000'],
-      ['Nova', 'Koi', 'Factory New', '20.000 %', '7.90', '80 001 to 100 000']]]
+    /* REBALANCED, D-217, founder of 10 Nov 2026: the dearer the skin, the smaller its chance; one under 1 %, some from 1 to 3 %, some
+       from 3 to 5 %. Entry cost 12.40, expected value 11.68 and RTP 94.2 % held, so the three Mil-Spec skins' values rose to carry it */
+    ['Covert', '1.790 %', [
+      ['AK-47', 'Redline', 'Field-Tested · StatTrak', '0.640 %', '47.30', '1 to 640'],
+      ['AWP', 'Asiimov', 'Well-Worn', '1.150 %', '38.90', '641 to 1 790']]],
+    ['Classified', '5.000 %', [
+      ['M4A1-S', 'Hyper Beast', 'Factory New', '2.100 %', '24.60', '1 791 to 3 890'],
+      ['Desert Eagle', 'Blaze', 'Factory New', '2.900 %', '21.80', '3 891 to 6 790']]],
+    ['Restricted', '8.300 %', [
+      ['USP-S', 'Kill Confirmed', 'Minimal Wear', '3.700 %', '14.20', '6 791 to 10 490'],
+      ['Glock-18', 'Water Elemental', 'Minimal Wear', '4.600 %', '12.90', '10 491 to 15 090']]],
+    ['Mil-Spec', '84.910 %', [
+      ['Nova', 'Koi', 'Factory New', '24.000 %', '10.90', '15 091 to 39 090'],
+      ['MP9', 'Rose Iron', 'Field-Tested', '28.000 %', '10.30', '39 091 to 67 090'],
+      ['P250', 'Asiimov', 'Battle-Scarred', '32.910 %', '9.60', '67 091 to 100 000']]]
   ];
 
   /* EACH CASE'S TABLE, round 17, D-160 answer 2. Round 16 drew every other
@@ -4439,7 +4441,7 @@ window.WF_PAY = window.WF_PAY || {
     var CT = caseTable(CK), CC = WF_CASES[CK][1];
     out.push(fig('94.2 %', 'Tested RTP, in coins at our values'));
     out.push(fig(degraded ? null : (CK === 'ironbound' ? '11.68' : CT.ev.toFixed(2)) + ' coins', 'Expected value per open: every chance above times its value'));
-    out.push(fig(degraded ? null : (CK === 'ironbound' ? '37.000' : CT.back.toFixed(3)) + ' %', 'Chance to get back at least its price, ' + CC.toFixed(2) + ' coins'));
+    out.push(fig(degraded ? null : (CK === 'ironbound' ? '15.090' : CT.back.toFixed(3)) + ' %', 'Chance to get back at least its price, ' + CC.toFixed(2) + ' coins'));
     if (state !== 'outcome') {
       out.push(fig(degraded ? null : '-6.2 %', 'Our values against a real copy, case average', '<a href="withdraw.html">How it settles</a>'));
     }
@@ -4460,10 +4462,10 @@ window.WF_PAY = window.WF_PAY || {
         '<thead><tr><th scope="col">Tier</th><th scope="col">Published</th><th scope="col">Observed</th><th scope="col">' + WF_STR.rolls + '</th></tr></thead><tbody>' +
         /* PUBLISHED FROM THE TABLE ABOVE, OBSERVED A SAMPLE BESIDE IT, round 17. */
         (CK === 'ironbound'
-          ? '<tr><th scope="row">Covert</th><td>4.200 %</td><td>4.06 %</td><td>41 208</td></tr>' +
-            '<tr><th scope="row">Classified</th><td>6.800 %</td><td>6.94 %</td><td>41 208</td></tr>' +
-            '<tr><th scope="row">Restricted</th><td>26.000 %</td><td>25.71 %</td><td>41 208</td></tr>' +
-            '<tr><th scope="row">Mil-Spec</th><td>63.000 %</td><td>63.29 %</td><td>41 208</td></tr>'
+          ? '<tr><th scope="row">Covert</th><td>1.790 %</td><td>1.75 %</td><td>41 208</td></tr>' +
+            '<tr><th scope="row">Classified</th><td>5.000 %</td><td>5.08 %</td><td>41 208</td></tr>' +
+            '<tr><th scope="row">Restricted</th><td>8.300 %</td><td>8.21 %</td><td>41 208</td></tr>' +
+            '<tr><th scope="row">Mil-Spec</th><td>84.910 %</td><td>84.96 %</td><td>41 208</td></tr>'
           : caseTable(CK).map(function (t, i) { var ob = t[1] * (1 + ((i % 2 ? 1 : -1) * 0.012)); return '<tr><th scope="row">' + t[0] + '</th><td>' + fmtCh(t[1]) + '</td><td>' + ob.toFixed(2) + ' %</td><td>' + fmtT(Math.round(60000 / CC)) + '</td></tr>'; }).join('')) +
         '</tbody></table></div>' +
         '<p class="wf-note">Counted since this case launched, never reset. <a href="fair.html">' + WF_STR.provablyFair + '</a></p></section>');
@@ -5381,8 +5383,8 @@ window.WF_PAY = window.WF_PAY || {
        THE CASH OUT OF 21 AUG 08:35, round 17, B2-13: the cash out ledger asks for
        it that morning, and an item sold on 18 Aug could not be cashed out on 21;
        5.1 and its 140.95 still do not hold it. */
-    { key: 'glock',   when: '18 Aug 14:58', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'Glock-18',     s: 'Water Elemental', wear: 'Minimal Wear',   cost: '12.40', worth: '12.90', chance: '14.00%', hash: 'a3f91c58', state: 'sold', went: '21 Aug' },
-    { key: 'ak',      when: '18 Aug 14:44', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'AK-47',        s: 'Redline',         wear: 'Field-Tested, StatTrak', cost: '12.40', worth: '47.30', chance: '3.18%', hash: '4f2a91c7', state: 'sold', went: '18 Aug' },
+    { key: 'glock',   when: '18 Aug 14:58', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'Glock-18',     s: 'Water Elemental', wear: 'Minimal Wear',   cost: '12.40', worth: '12.90', chance: '4.60%', hash: 'a3f91c58', state: 'sold', went: '21 Aug' },
+    { key: 'ak',      when: '18 Aug 14:44', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'AK-47',        s: 'Redline',         wear: 'Field-Tested, StatTrak', cost: '12.40', worth: '47.30', chance: '0.64%', hash: '4f2a91c7', state: 'sold', went: '18 Aug' },
     { key: 'uspc',    when: '16 Aug 19:40', date: '16 Aug 2026', kase: 'Coldfront Case', w: 'USP-S',        s: 'Cortex',          wear: 'Minimal Wear',   cost: '2.10',  worth: '7.10',  now: '7.35',  chance: '2.40%',  hash: '9e41d7a2', state: 'held' },
     { key: 'm4ft',    when: '14 Aug 08:55', date: '14 Aug 2026', kase: 'Nightfall Case', w: 'M4A1-S',       s: 'Hyper Beast',     wear: 'Field-Tested',   cost: '31.00', worth: '28.60', now: '29.90', chance: '1.20%',  hash: '3b7c0e95', state: 'held' },
     { key: 'deagle',  when: '13 Aug 20:18', date: '13 Aug 2026', kase: 'Coldfront Case', w: 'Desert Eagle', s: 'Blaze',           wear: 'Minimal Wear',   cost: '2.10',  worth: '11.80', now: '12.05', chance: '0.90%',  hash: 'd5f21a68', state: 'held' }

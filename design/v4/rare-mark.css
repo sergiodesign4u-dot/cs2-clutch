@@ -49,4 +49,23 @@
   background-image: url(art/fx/plasma-tall-24.webp); }
 @media (max-width: 599px) { .wf-feed-hit > .rm-ring { top: 5px; width: 60px; height: 52px; margin-left: -30px; } .wf-feed-i > .rm-bolt { inset: -6px; } }
 
+/* on an item card of What is in this case (table F), only while it is hovered or holds focus, founder of 10 Nov 2026: "давай тут при ховере
+   показивать анимации редких скинов" (show the rare skins' animations here on hover). Hidden, a mark draws nothing, so the grid of cards
+   costs what it did; one card plays at a time. A's ring sits where case-body.css draws the card's hexagon. C burns outside the card, "по
+   самому редкому скину пламя должно бути снаружи" (the rarest skin's flame outside): as on a live drop, the card lends its ground to a layer
+   under it so the flame passes behind and shows only round it */
+.wf-drops[data-v="f"] .v4b-row.rm-on .rm { display: none; }
+.wf-drops[data-v="f"] .v4b-row.rm-on:is(:hover, :focus-within) .rm { display: block; }
+.wf-drops[data-v="f"] .v4b-row.rm-on:is(:hover, :focus-within) { overflow: visible; }
+.wf-drops[data-v="f"] .wf-art-c > .rm-ring { left: 50%; top: 50%; height: 86%; aspect-ratio: 136 / 118; translate: -50% -50%; }
+.wf-drops[data-v="f"] .v4b-row > .rm-bolt { inset: -12px; }
+.wf-drops[data-v="f"] .v4b-row.rm-c { isolation: isolate; }
+.wf-drops[data-v="f"] .v4b-row.rm-c:is(:hover, :focus-within) { background: none; }
+.wf-drops[data-v="f"] .v4b-row > .rm-ground { display: none; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--r-lit) 16%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--r-lit) 10%, #0D0C2C), #0D0C2C 60%); } /* = case-body.css F's card ground */
+.wf-drops[data-v="f"] .v4b-row.rm-c:is(:hover, :focus-within) > .rm-ground { display: block; }
+.wf-sec:has(> .wf-tablewrap .wf-drops[data-v="f"] .rm-c) > .wf-sec-head { position: relative; z-index: 1; } /* the section's heading stays over the flame */
+.wf-drops[data-v="f"] .v4b-row.rm-c > .rm-fire { inset: auto; top: -150px; left: -8%; width: 116%; height: 240px; /* the picture's flame body stands in its upper two thirds: 150 of 240px over the card */ z-index: -2; border-radius: 0; opacity: 1;
+  background-image: url(art/fx/plasma-tall-24.webp); }
+
 @media (prefers-reduced-motion: reduce) { .rm-ring i, .rm-loop { animation: none; } }

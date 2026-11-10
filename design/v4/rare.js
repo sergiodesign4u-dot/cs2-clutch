@@ -60,7 +60,7 @@
   /* EVERY DROP IN THE STRIP CARRIES ITS MARK, not only the rare three: a drop's chance in the case it came from. The strip's rows are
      wireframes/_nav.js FEED, keyed by their round; the three from Ironbound read Ironbound's table (case-open.js), the others are samples
      in the same spirit, D-124, as the rare rows above are. A drop at more than 5 % has no mark */
-  var CH = { ak: 3.18, fglock: 14, fdeagle: 2.2, fawp: 1.8, fusp: 4.2, fm4: 3.6, fmp9: 21, fp250: 19, fawpnn: 1.4, fvulcan: 2.9, ffive: 6.8, fsg: 13 };
+  var CH = { ak: 0.64, fglock: 14, fdeagle: 2.2, fawp: 1.8, fusp: 4.2, fm4: 3.6, fmp9: 21, fp250: 19, fawpnn: 1.4, fvulcan: 2.9, ffive: 6.8, fsg: 13 };
   function keyOf(li) { var a = li.querySelector('.wf-feed-hit'), m = a && /[?&]round=([a-z0-9]+)/.exec(a.getAttribute('href') || ''); return m ? m[1] : 'ak'; }
   function dress(li) {
     if (li.nodeType !== 1 || !li.classList.contains('wf-feed-i') || li.classList.contains('v4-rare') || li.hasAttribute('data-rm') || !window.V4Rare) return;

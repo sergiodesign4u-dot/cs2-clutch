@@ -6962,3 +6962,65 @@ Six art files moved from `mode-gunfights` to `mode-showdowns`, the variables wit
 **The cost.** The chances of the live drops outside Ironbound are samples, `D-124`, like the rare rows were. The live drop's ring light takes the ring's own colours, a little paler at the top left than the stage's. The plasma's tall flame over the header on a 0.008 % drop is now C's flame inside the card. The open of four still runs at about half the screen's 120 frames; the live strip is the next largest cost. No Claude and Codex critique ran.
 
 **Updated the same day, the live drops calmer and C outside.** The founder on the 0.42 % drop: "overdone with animations, there is the fire and a glow turning from the centre"; then "in the live drops it can be outside, if that does not hurt the speed critically", and "show me a separate page with the rarity for the live view and for the cases, by kind" (translated). So a rare live drop loses its turning rays and the mark by its chance is the one thing on it that moves; C on a live drop burns outside the tile, rising 100px behind it as Home's live flame did, from a third picture of 24 frames (`art/fx/plasma-tall-24.webp`), and a live one stands over the sticky header while the page is at its top. On `rare-marks-lab.html`, new in the nav under the case screen, every kind on a live drop and on the stage's card, with a counter: C outside measured 121 frames a second, slowest frame 9 ms, and C inside 120, slowest 17 to 26 ms; where the flame burns does not change the speed, since nothing is drawn while a picture plays.
+
+## D-215. Step 8, run 1: DESIGN-artifacts.md restored, the coloured screens' contrast brought to AA, three case states moved to stage 07
+
+**Date:** 2026-11-10. **Stage:** 06, step 8. **Decided by:** the founder, on the merged table of the two instrument check, `design/concept/docs/critique.md`: "let's do 1, then 3 to 7, and 2 goes to stage 07" (translated).
+
+**What was decided.**
+
+1. **`DESIGN-artifacts.md` is restored.** Commit `6e2fc5f` (`D-205`, 30 October 2026) wrote the file whole instead of appending to it, and 33 458 bytes became 270: every value's origin, which `design/_theme.css` points to and stage 07 reads. The text is back from `5317406`, the last commit before, with `D-205`'s entry as it stood after `d0c58c5` appended at its end, and a `D-215` entry after it.
+2. **Every pair the critique measured below WCAG AA now passes, by value, not by size alone.** Variable, value, why:
+   - `--v4-mode-upgrade`, gold end `#B57A06` to `#9E6905`: the Upgrade card's 12px white line held 3.65:1, now 4.69:1. Its own comment already promised that white type holds on it.
+   - The Cases mode card's fill, pink end `--color-pink` to `--btn-fill` (`#DF055C`), on that card only: its 12px white line held 3.40:1, now 4.87:1. `--v4-mode-cases` itself keeps the brand pink wherever it carries no small white text.
+   - `--v4-fair-blue`, new, `#0B6A8C`, the light end of the provably fair blue on Home's Every round plate and the footer's Every round plate, was `#0F7EA6`: white under the stripes held 3.3 to 3.9:1, now 4.93 and 5.07:1.
+   - The Before you spend stub, `#FF5C9C` → `--color-pink` → `#D42C76` becomes `--color-pink` → `--btn-fill` → `#B8044E`: the white heading held 2.64:1 at its lightest stripe, now 3.11:1, and the case screen's What this case pays heading (`.v4p-h`) never drops under 19px, so both are large text.
+   - Daily's Elite tier, `--g1` `#C98A0A` to `#B07806`: ELITE held 2.62:1, now 3.25:1; a tier's name on a phone goes from 18 to 19px so that it stays large text.
+   - Small white type on coloured plates at full white instead of 80 to 88 %: `.x6-k`, `.x6-r`, `.x6-from`, the footer plates' sublines (`.fl-ptx > span`); the 18+ subline holds 4.62:1.
+   - The hash box under Recomputed: matches, `rgba(6, 10, 30, .42)` to `.6`: the green line holds 5.98:1.
+3. **The case screen's three missing states go to stage 07:** values degraded, no observed counter, interrupted reveal. The grey copy keeps them (`wireframes/case-degraded.html`, `case-nocounter.html`, `case-interrupted.html`); the coloured case screen owes them, and stage 07's sample of screens in colour inherits the debt, named.
+
+**Rejected.** Deepening `--v4-mode-cases` everywhere: every section heading's icon, the account's items tile and the footer's counter tiles would darken, none of which carries small white text. A dark scrim behind the mode cards' lines: an overlay to rescue a colour is the device the founder's AI-look feedback names. Dark type on the pink: every mode card speaks in white. Raising the lines to large text: a mode card's line is a 12px sentence, not a heading.
+
+**The cost.** On Home's Cases card the Open a case button is now the same deeper pink as the card's corner it sits nearest; it holds by its stripes, its edge and its shadow, less than before at 1440. The Before you spend stub and the Elite tier pass as large text only, 3.11 and 3.25:1; no smaller text may sit on them. The values v4 added after `D-205`, in `design/v4/theme.css`, `buttons.css` and `case-tiles.css`, never reached `DESIGN-artifacts.md`; stage 07 derives the product `DESIGN.md` from the code. Rows 8 to 19 of the critique stay open.
+
+**Updated the same day, run 2.** Codex, read only, on the six files run 1 touched: the restore matches `5317406` plus `D-205` and `D-215`'s own entry; every changed pair passes, measured 4.69 to 6.02:1 for small text and 3.13 and 3.31:1 for large; origin comments on every changed value. One new finding, confirmed and fixed: Daily's available tier, `.is-hero`, lifted its fill 22 % toward white, which put the white name at 2.3 to 2.5:1 on Silver, Legend and Elite. Its light is now an edge of its own hue, a 2px inner ring, and the fill stays the tier's. Withdrawn on verification: `#DF055C` as the fallback of `var(--btn-fill, #DF055C)` (the pattern `theme.css` already uses for pages that do not load `buttons.css`), and `#FF5C9C` in `.v4p-bar` (a bar with no text on it, and no variable holds that value).
+
+## D-216. One format for a text link, and a rare skin's mark on its item card on hover
+
+**Date:** 2026-11-10. **Stage:** 06, step 8. **Decided by:** the founder, on the case screen: "by the way our text links differ, they should be brought to one format, weight and colour", picked "Brand pink bold + arrow"; then on What is in this case: "show the rare skins' animations here on hover", "and the rarest skin's flame should be outside the card", "won't this make the page lag?" (translated).
+
+**What was decided.**
+
+1. **A text link has one format:** `--color-pink`, weight 700, an arrow after its last word, white on hover; its size stays its place's. Five formats became one: the pale pink and pale blue of Before you open, the plain pink of a section's subline and of the observed note, the white of Home's FAQ and SEO links, the case's own blue of How it works and of the outcome's links. On a colour plate the same link stays white with its arrow (What this case pays, Before you spend), because pink is lost on pink. A link inside a sentence (My items, Inspect in game) takes the colour and the weight and no arrow. The rule is `theme.css` ONE TEXT LINK; `case-blocks.js links()` gives the grey body's plain links the class and the arrow.
+2. **What is in this case shows a rare skin's mark while its card is hovered or holds focus:** A, B or C by its chance as on the band, `rare-mark.css`. C's flame burns outside the card, as on a live drop: the card lends its ground to a layer under it and the flame passes behind.
+
+**Measured,** case screen at 1440, frames a second over 3 s: no card hovered 117; A hovered 116, B 117, C 118. A hidden mark draws nothing and one card plays at a time.
+
+**Rejected.** A link format per ground colour (pink on dark, blue on the blue plate): two formats again. Marks always on in the grid: nine cards animating at once on a page the founder has asked to keep fast.
+
+**The cost.** The case's own hue no longer colours its links, so How it works reads the same pink on every case. Touch screens have no hover, so on a phone the item cards show no mark; the band and the reels still do. Ironbound had no C when this was drawn, so C was first checked on a forced card; since `D-217` the AK-47 Redline carries it.
+
+## D-217. Ironbound's table rebalanced: the dearer the skin, the smaller its chance
+
+**Date:** 2026-11-10. **Stage:** 06, step 8. **Decided by:** the founder, on What is in this case: "make the case more composed by its skins: one very rare under 1 %, several from 1 to 3 and from 3 to 5, and the others; the dearer the skin, the smaller its chance; it should not be 24.60 at 4.600 % and then 21.80 at 2.200 %", then "yes, let's do it" on the proposed table (translated).
+
+**What was decided.** Ironbound, entry cost 12.40, in ticket order, value, chance, tickets, mark:
+
+| Item | Value | Chance | Tickets | Mark |
+|---|---|---|---|---|
+| AK-47 Redline | 47.30 | 0.640 % | 1 to 640 | C |
+| AWP Asiimov | 38.90 | 1.150 % | 641 to 1 790 | B |
+| M4A1-S Hyper Beast | 24.60 | 2.100 % | 1 791 to 3 890 | B |
+| Desert Eagle Blaze | 21.80 | 2.900 % | 3 891 to 6 790 | A |
+| USP-S Kill Confirmed | 14.20 | 3.700 % | 6 791 to 10 490 | A |
+| Glock-18 Water Elemental | 12.90 | 4.600 % | 10 491 to 15 090 | A |
+| Nova Koi | 10.90, was 7.90 | 24.000 % | 15 091 to 39 090 | |
+| MP9 Rose Iron | 10.30, was 7.40 | 28.000 % | 39 091 to 67 090 | |
+| P250 Asiimov | 9.60, was 6.90 | 32.910 % | 67 091 to 100 000 | |
+
+The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the case screen's money figures do not move; the three Mil-Spec values rose to carry them. What moved with the table: the chance to get back at least the price, 37.000 to 15.090 %; the tiers published, Covert 1.790, Classified 5.000, Restricted 8.300, Mil-Spec 84.910 %, observed 1.75, 5.08, 8.21 and 84.96 % over the same 41 208 rounds, the same four directions as before; the checked rounds' tickets, moved into their items' new ranges: AK 2 417 to 417, Glock 29 684 to 12 684, M4 6 112 to 2 612, USP 15 843 to 8 843, Nova 91 377 to 31 377, P250 66 019 to 86 019, MP9 44 902 kept; the outcome samples' values and totals (two: Sell all 23.20, held 164.15; five: Sell all 69.60, held 210.55), the history rows' chances, the live drop AK's chance, 0.64 %, so it now carries C. Changed in `wireframes/_nav.js` (one declaration read by every case page, grey and coloured), the grey outcome, interrupted and verifier pages, `design/v4/case-open.js`, `case-blocks.js`, `proof-home.js`, `rare.js`, IA nodes `3.3`, the public result and the skin card with their pages, and `microcopy.md` R50.
+
+**Rejected.** Keeping the three Mil-Spec values: the expected value falls to about 9.20 and the tested RTP to about 74 %, against the 94.2 % printed on Home and on the case screen. Adding skins to the case: more art and more rows for the same rule.
+
+**The cost.** The chance to get back the price drops from about one open in three to about one in seven, and it is printed. The Steam settlement samples keep their differences, so a Mil-Spec skin's Steam price rose with its value. The labs keep the old figures as their record (`proof-lab.html`, `seo-lab.html`, `rare-marks-lab.html` captions). All figures are samples, `D-124`.

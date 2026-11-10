@@ -115,7 +115,7 @@
 |---|---|---|
 | No result page. A ticker tile leads to the winner's profile, `/en/profile/<id>`, `baseline.md` section 3 | The tile as a route | **A page per round**, section 0: `F4` puts a shared object into the world and the baseline has none to share. The profile route survives as the winner's name on this page, `7.3` |
 
-**One record per round.** The item, both values, the time, the seeds, the ticket and its range come from one record per round in `_nav.js`, which best drops, the outcome, this page and the verifier all read. **These are samples, `D-124`:** the AK-47 Redline, Field-Tested, StatTrak, Covert, 47.30 coins when won on 18 Aug 2026 14:44 and 46.85 now, ticket 2 417 in 1 to 3 180; the Glock-18 Water Elemental, 12.90 and 12.60, ticket 29 684; and one record each for the other best drops. `?round=` selects the record.
+**One record per round.** The item, both values, the time, the seeds, the ticket and its range come from one record per round in `_nav.js`, which best drops, the outcome, this page and the verifier all read. **These are samples, `D-124`:** the AK-47 Redline, Field-Tested, StatTrak, Covert, 47.30 coins when won on 18 Aug 2026 14:44 and 46.85 now, ticket 417 in 1 to 640; the Glock-18 Water Elemental, 12.90 and 12.60, ticket 12 684; and one record each for the other best drops. `?round=` selects the record.
 
 **Cut from the screen.** "No outside listing for this float band is published yet", and on `7.2` the reason we do not say which of two causes applies. The proof panel's scope is one line with a route to published against observed.
 

@@ -1558,7 +1558,7 @@ Lines `_nav.js` writes after an act: refusals, confirmations, the answers of a f
 | R47 | `mountVerifier` | 3925 | Paste the client seed. | kept |
 | R48 | `mountVerifier` | 3926 | Enter the nonce. | kept |
 | R49 | `mountVerifier` | 3942 | Nothing to recompute yet: the server seed for this round is revealed when it rotates. | kept |
-| R50 | `mountVerifier` | 3943 | Recomputed again: 30 211. It still does not match 2 417, and the report above stands. | kept |
+| R50 | `mountVerifier` | 3943 | Recomputed again: 30 211. It still does not match 417, and the report above stands. | kept |
 | R51 | `mountVerifier` | 3949 | No published round has this server seed hash. Check it was copied whole, from the round you mean. | kept |
 | R52 | `mountVerifier` | 3955 | published for this round. | kept |
 | R53 | `mountVerifier` | 3958 | Does not match this round, | kept |

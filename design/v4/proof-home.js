@@ -16,9 +16,9 @@
   /* the two checked rounds on Ironbound, the samples wireframes/_nav.js prints on their result pages (ROUNDS.glock and ROUNDS.ak) */
   var ROUNDS = [
     { q: '?round=glock', r1: '#6B42B9', r2: '#2E1A63', skin: 'glock-18-water-elemental', rar: 'Restricted', w: 'Glock-18', s: 'Water Elemental', at: '18 Aug 14:58',
-      t: '29&#160;684', a: 23, b: 37, tk: 29.684, range: '23 001 to 37 000' },
+      t: '12&#160;684', a: 10.49, b: 15.09, tk: 12.684, range: '10 491 to 15 090' },
     { q: '', r1: '#D1273E', r2: '#7A0F22', skin: 'ak-47-redline', rar: 'Covert', w: 'AK-47', s: 'Redline', at: '18 Aug 14:44',
-      t: '2&#160;417', a: 0, b: 3.18, tk: 2.417, range: '1 to 3 180' }
+      t: '417', a: 0, b: 0.64, tk: 0.417, range: '1 to 640' }
   ];
 
   /* the last word of a link and its arrow never part */

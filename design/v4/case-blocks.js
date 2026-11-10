@@ -18,7 +18,7 @@
   var TIER = { r1: 'Extraordinary', r2: 'Covert', r3: 'Classified', r4: 'Restricted', r5: 'Mil-Spec' };
   var TIERCLS = { Covert: 'r2', Classified: 'r3', Restricted: 'r4', 'Mil-Spec': 'r5', Extraordinary: 'r1' };
   // the checked rounds whose ticket the grey screens print, ROUNDS.ak and ROUNDS.glock in wireframes/_nav.js
-  var TICKET = { 'AK-47 Redline': ['2&#160;417', 2.417], 'Glock-18 Water Elemental': ['29&#160;684', 29.684] };
+  var TICKET = { 'AK-47 Redline': ['417', 0.417], 'Glock-18 Water Elemental': ['12&#160;684', 12.684] }; // D-217
 
   function go(t) { var i = t.lastIndexOf(' '); return t.slice(0, i + 1) + '<span class="nw">' + t.slice(i + 1) + ARROW + '</span>'; }
   function txt(n, s) { var x = n && n.querySelector(s); return x ? x.textContent.replace(/\s+/g, ' ').trim() : ''; }
@@ -373,12 +373,35 @@
     window.parent.postMessage({ v4lab: location.search, h: Math.ceil((m ? m.getBoundingClientRect().height : 0) + 4) }, '*');
   }
 
+  /* ---- text links in one format, founder of 10 Nov 2026: "надо би к одну формату привести толщина и цвет" (theme.css ONE TEXT LINK). The
+     grey body writes these plain; each takes .v4-go and the arrow the plates' links carry. A link holding markup of its own (How it works
+     reads its words through data-str) keeps it and takes the arrow after it ---- */
+  function links() {
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-main .wf-sec-sub a[href], .wf-main .wf-note a[href], .wf-case-how a[href]'), function (a) {
+      if (a.classList.contains('v4-go') || (a.className && a.className.trim())) return;
+      a.classList.add('v4-go');
+      if (a.children.length) a.insertAdjacentHTML('beforeend', ARROW); else a.innerHTML = go(a.textContent.trim());
+    });
+  }
+
+  /* ---- a rare skin's mark on its item card, shown on hover (rare-mark.css): A, B or C by its chance, as on the band; C gets the card's ground
+     as a layer of its own so its flame burns outside the card, founder of 10 Nov 2026 ---- */
+  function rare() {
+    if (!window.V4Rare) return;
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-drops[data-v="f"] tr.v4b-row'), function (tr) {
+      if (tr.hasAttribute('data-rm')) return;
+      var t = window.V4Rare.mark(tr, num(txt(tr, 'td[data-l="Chance"]')), tr.querySelector('.wf-art-c'));
+      tr.setAttribute('data-rm', t || '');
+      if (t === 'c') tr.insertAdjacentHTML('afterbegin', '<span class="rm-ground" aria-hidden="true"></span>');
+    });
+  }
+
   var tries = 0;
   function run() {
     var main = document.querySelector('.wf-main');
     if (!main || !document.querySelector('.wf-drops[data-v4] .v4b-row')) return false;
     var IT = items();
-    info(); drops(IT); table(); pays(IT); observed(IT); how(IT);
+    info(); drops(IT); table(); pays(IT); observed(IT); how(IT); links(); rare();
     relink(document.querySelector('.wf-screen-body') || document);
     if (Q.has('focus')) { focus(); post(); if (window.ResizeObserver) new ResizeObserver(post).observe(main); }
     return true;

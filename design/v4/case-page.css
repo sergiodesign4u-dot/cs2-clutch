@@ -22,7 +22,7 @@
 .v4c-nav .wf-crumb a:hover { color: var(--color-text-hi); }
 .v4c-nav .wf-crumb [aria-current] { color: var(--color-text-hi); }
 .v4c-nav .wf-case-how { margin: 0; }
-.v4c-nav .wf-case-how a { display: inline-flex; align-items: center; gap: 6px; color: var(--case-hue); font-size: 13px; font-weight: 700; text-decoration: none; }
+.v4c-nav .wf-case-how a { display: inline-flex; align-items: center; gap: 0; color: var(--color-pink); font-size: 13px; font-weight: 700; text-decoration: none; } /* was the case's hue: one text link format, theme.css ONE TEXT LINK, 10 Nov 2026 */
 .v4c-title { text-align: center; }
 .v4c-title h1 { margin: 0; font-size: clamp(30px, 4vw, 46px); font-weight: 900; font-style: italic; letter-spacing: .01em; text-transform: uppercase; line-height: 1;
   color: var(--color-text-hi); text-shadow: 0 2px 0 rgba(0, 0, 0, .35), 0 0 22px color-mix(in srgb, var(--case-c1) 70%, transparent); }
@@ -161,7 +161,7 @@
 html body .v4c-go { min-width: 220px; min-height: 56px; font-size: 18px; }
 html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow: none; }
 .v4c-line { margin: 0; color: var(--color-text-soft); font-size: 13px; }
-.v4c-line a, .v4c-saved a, .v4c-inst a { color: var(--color-text-hi); }
+.v4c-line a, .v4c-saved a, .v4c-inst a { color: var(--color-pink); font-weight: 700; text-decoration: none; } /* a link inside a sentence: the one format's colour and weight, no arrow mid-line; theme.css ONE TEXT LINK */
 .v4c-hash { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 8px; }
 .v4c-hash-l { color: var(--color-text-soft); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .v4c-hash code { padding: 3px 8px; border-radius: 6px; background: rgba(11, 10, 34, .8); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); color: var(--color-text-hi); font: 500 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
@@ -174,8 +174,7 @@ html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow
 .v4c-steam.is-gone { display: none; }
 .v4c-saved { margin: 0; color: var(--color-text-soft); font-size: 13px; }
 .v4c-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 0; }
-.v4c-links a { color: var(--case-hue); font-size: 13px; font-weight: 700; text-decoration: none; }
-.v4c-links a:hover { text-decoration: underline; }
+.v4c-links a { font-size: 13px; } /* .v4-go, set in case-page.js: theme.css ONE TEXT LINK; was the case's hue, underlined on hover */
 .v4c-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* ===== 360 to 899 ===== */

@@ -43,9 +43,9 @@
 .fq-in { min-height: 0; overflow: hidden; padding: 0 22px; opacity: 0; translate: 0 -6px; transition: opacity .2s, translate .3s cubic-bezier(.2, .7, .2, 1), padding .4s cubic-bezier(.2, .7, .2, 1); }
 .fq-i.is-open .fq-in { padding-bottom: 20px; opacity: 1; translate: 0 0; transition: opacity .3s .1s, translate .35s cubic-bezier(.2, .7, .2, 1) .1s, padding .4s cubic-bezier(.2, .7, .2, 1); }
 .fq-in p { margin: 0; max-width: 62ch; color: var(--color-text-soft); font-size: 16px; line-height: 1.55; }
-.fq-go { display: inline-block; margin-top: 12px; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+.fq-go { display: inline-block; margin-top: 12px; color: var(--color-pink); font-size: 13px; font-weight: 700; letter-spacing: .02em; } /* was white: one text link format, theme.css ONE TEXT LINK, 10 Nov 2026 */
 .fq-go .nw > svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: translate .2s var(--v4-ease-pop, ease-out); }
-@media (hover: hover) { .fq-go:hover .nw > svg { translate: 3px 0; } }
+@media (hover: hover) { .fq-go:hover { color: var(--color-text-hi); } .fq-go:hover .nw > svg { translate: 3px 0; } }
 @media (prefers-reduced-motion: reduce) { .fq-a, .fq-in, .fq-x, .fq-x::before, .fq-x::after, .fq-i { transition: none !important; } }
 
 /* ---- About Clutch: a lead, then four short parts under H3s in two columns, parted by hairlines ---- */

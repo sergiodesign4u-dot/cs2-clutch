@@ -17,15 +17,15 @@
   var RANK = { r1: 7, r2: 6, r3: 5, r4: 4, r5: 3, r6: 2, r7: 1 };
   function it(w, s, wear, tier, ch, v, slug) { return { w: w, s: s, wear: wear, tier: tier, r: TIERS[tier], ch: ch, v: v, art: ART + slug + '.png' }; }
   var IRONBOUND = [
-    it('AK-47', 'Redline', 'Field-Tested · StatTrak', 'Covert', 3.18, 47.30, 'ak-47-redline'),
-    it('AWP', 'Asiimov', 'Well-Worn', 'Covert', 1.02, 38.90, 'awp-asiimov'),
-    it('M4A1-S', 'Hyper Beast', 'Factory New', 'Classified', 4.60, 24.60, 'm4a1-s-hyper-beast'),
-    it('Desert Eagle', 'Blaze', 'Factory New', 'Classified', 2.20, 21.80, 'desert-eagle-blaze'),
-    it('USP-S', 'Kill Confirmed', 'Minimal Wear', 'Restricted', 12.00, 14.20, 'usp-s-kill-confirmed'),
-    it('Glock-18', 'Water Elemental', 'Minimal Wear', 'Restricted', 14.00, 12.90, 'glock-18-water-elemental'),
-    it('MP9', 'Rose Iron', 'Field-Tested', 'Mil-Spec', 22.00, 7.40, 'mp9-rose-iron'),
-    it('P250', 'Asiimov', 'Battle-Scarred', 'Mil-Spec', 21.00, 6.90, 'p250-asiimov'),
-    it('Nova', 'Koi', 'Factory New', 'Mil-Spec', 20.00, 7.90, 'nova-koi')
+    it('AK-47', 'Redline', 'Field-Tested · StatTrak', 'Covert', 0.64, 47.30, 'ak-47-redline'),
+    it('AWP', 'Asiimov', 'Well-Worn', 'Covert', 1.15, 38.90, 'awp-asiimov'),
+    it('M4A1-S', 'Hyper Beast', 'Factory New', 'Classified', 2.10, 24.60, 'm4a1-s-hyper-beast'),
+    it('Desert Eagle', 'Blaze', 'Factory New', 'Classified', 2.90, 21.80, 'desert-eagle-blaze'),
+    it('USP-S', 'Kill Confirmed', 'Minimal Wear', 'Restricted', 3.70, 14.20, 'usp-s-kill-confirmed'),
+    it('Glock-18', 'Water Elemental', 'Minimal Wear', 'Restricted', 4.60, 12.90, 'glock-18-water-elemental'),
+    it('Nova', 'Koi', 'Factory New', 'Mil-Spec', 24.00, 10.90, 'nova-koi'),
+    it('MP9', 'Rose Iron', 'Field-Tested', 'Mil-Spec', 28.00, 10.30, 'mp9-rose-iron'),
+    it('P250', 'Asiimov', 'Battle-Scarred', 'Mil-Spec', 32.91, 9.60, 'p250-asiimov') // D-217: the dearer, the rarer; the values hold EV 11.68
   ];
   var KNIFE = it('★ Karambit', 'Tiger Tooth', 'Factory New', 'Extraordinary', 0.008, 1940.00, 'karambit-tiger-tooth');
   function value(x) { return RANK[x.r] * 1e6 + x.v; }

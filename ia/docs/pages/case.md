@@ -161,7 +161,7 @@
 |---|---|---|
 | One hash per open | The hash chip, variant V1 of `0.14` | **A multi-roll open lists one hash per roll, each with its own copy**, and every roll on the outcome opens its own verifier. The five-roll share opens the M4 of that open, not a stranger's best drop |
 
-**Samples, `D-124`, marked here:** the six rounds of the two and five roll opens, struck at 18 Aug 14:58 from the Ironbound table; **added by round 15 step 6:** the tested RTP, `94.2 %`; the observed rates in block 8, `4.06 %`, `6.94 %`, `25.71 %` and `63.29 %`, and their roll count, `41 208`; the stamp on the drop table, `Last updated 18 Aug 2026 14:02`, and the degraded stamp, `Last read 18 Aug 2026 09:41`; the outcome Glock's float `0.1174` and pattern `418`, and the price of a copy from us, `19.60`, read 18 Aug 2026 14:58; and the floats and patterns on every batch receipt line.
+**Samples, `D-124`, marked here:** the six rounds of the two and five roll opens, struck at 18 Aug 14:58 from the Ironbound table; **added by round 15 step 6:** the tested RTP, `94.2 %`; the observed rates in block 8, `1.75 %`, `5.08 %`, `8.21 %` and `84.96 %` (since `D-217`), and their roll count, `41 208`; the stamp on the drop table, `Last updated 18 Aug 2026 14:02`, and the degraded stamp, `Last read 18 Aug 2026 09:41`; the outcome Glock's float `0.1174` and pattern `418`, and the price of a copy from us, `19.60`, read 18 Aug 2026 14:58; and the floats and patterns on every batch receipt line.
 
 ---
 

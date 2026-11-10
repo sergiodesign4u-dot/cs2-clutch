@@ -27,6 +27,8 @@
   function now() { var d = new Date(); return d.getDate() + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()] + ' ' + d.getFullYear() + ' ' + String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); }
   function coins(v) { return v.toFixed(2) + '&nbsp;coins'; }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  // a standalone link's words and its arrow, the last word kept with the arrow: theme.css ONE TEXT LINK, founder of 10 Nov 2026
+  function golink(t) { var i = t.lastIndexOf(' '); return esc(t.slice(0, i + 1)) + '<span class="nw">' + esc(t.slice(i + 1)) + '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>'; }
 
   // the header's balance, read and written in place; wireframes/_nav.js draws it as "74.20 coins"
   // the shell may render after this file runs, so the figure is looked up when it is written
@@ -462,8 +464,8 @@
         '</ol></details>';
     after.innerHTML = inst + acts +
       '<p class="v4c-saved">' + (n > 1 ? 'All ' + n + ' saved' : 'Saved') + ' to <a href="../../wireframes/account.html">My items</a>. <strong>Selling cannot be undone.</strong></p>' +
-      '<p class="v4c-links"><a href="../../wireframes/fair-prefilled.html">' + (n > 1 ? 'Check each of the ' + n + ' rounds' : 'Check this round') + '</a>' +
-      '<a href="../../wireframes/result.html">' + (n > 1 ? 'Share a round' : 'Share this round') + '</a><a href="https://steamcommunity.com/market/" rel="external nofollow">See it on the Steam Market</a></p>';
+      '<p class="v4c-links"><a class="v4-go" href="../../wireframes/fair-prefilled.html">' + golink(n > 1 ? 'Check each of the ' + n + ' rounds' : 'Check this round') + '</a>' +
+      '<a class="v4-go" href="../../wireframes/result.html">' + golink(n > 1 ? 'Share a round' : 'Share this round') + '</a><a class="v4-go" href="https://steamcommunity.com/market/" rel="external nofollow">' + golink('See it on the Steam Market') + '</a></p>';
     after.hidden = false; commit.hidden = true;
     var again = after.querySelector('button.v4c-again');
     // founder of 6 Nov 2026: "не должен запускать снова рулетку, он должен показать страницу кейса". The press spends nothing, so it

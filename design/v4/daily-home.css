@@ -15,7 +15,7 @@
 .dc-t2 { --hue: #65A3FF; --g1: #3955E8; --g2: #1B2A8F; --case: url(art/daily-cases-v2/nova.webp); }
 .dc-t3 { --hue: #A35CFF; --g1: #8E2BC9; --g2: #41157A; --case: url(art/daily-cases-v2/guardian.webp); }
 .dc-t4 { --hue: #FB3F8A; --g1: #FB3F8A; --g2: #8E1F5E; --case: url(art/daily-cases-v2/legend.webp); }
-.dc-t5 { --hue: #FADA62; --g1: #C98A0A; --g2: #B4400F; --case: url(art/daily-cases-v2/elite.webp); }
+.dc-t5 { --hue: #FADA62; --g1: #B07806; --g2: #B4400F; /* --g1 was #C98A0A: ELITE in white sat at 2.6:1 under the stripes; #B07806 holds 3.3:1, large text, stage 06 critique of 10 Nov 2026, row 7 */ --case: url(art/daily-cases-v2/elite.webp); }
 /* "coins" for a screen reader only */
 .dc-sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* coin 6, art/brand/coin-6-small.svg, the gold ring with the bolt on navy, as on Home's prices */
@@ -69,12 +69,14 @@
   color: var(--color-text-hi); transition: translate .22s cubic-bezier(.2, .8, .2, 1), box-shadow .22s ease; }
 .dc-name { position: relative; font-size: 24px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .4); }
 /* the available card is the action: higher, in its own brighter light, its button inside it */
-.dc-card.is-hero { translate: 0 -12px; background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 78%, #fff), var(--g2));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 18px 30px rgba(6, 10, 30, .55); }
+/* its light is an edge of its own hue, not a paler fill: the fill lifted 22 % to white put the white name at 2.3 to 2.5:1 on Silver, Legend and
+   Elite, under large text's 3:1; Codex, stage 06 critique run 2 of 10 Nov 2026, row 7 */
+.dc-card.is-hero { translate: 0 -12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), inset 0 0 0 2px color-mix(in srgb, var(--hue) 70%, transparent), 0 18px 30px rgba(6, 10, 30, .55); }
 .dc-card.is-hero .v4-btn { position: relative; align-self: stretch; padding: 0 10px; }
 @media (hover: hover) {
   .dc-card:hover { translate: 0 -6px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 18px 30px rgba(6, 10, 30, .6), 0 0 36px color-mix(in srgb, var(--hue) 60%, transparent); }
-  .dc-card.is-hero:hover { translate: 0 -18px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 24px 36px rgba(6, 10, 30, .6), 0 0 40px color-mix(in srgb, var(--hue) 70%, transparent); }
+  .dc-card.is-hero:hover { translate: 0 -18px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), inset 0 0 0 2px color-mix(in srgb, var(--hue) 70%, transparent), 0 24px 36px rgba(6, 10, 30, .6), 0 0 40px color-mix(in srgb, var(--hue) 70%, transparent); }
 }
 /* the case: the picture behind, the skins in its tray, the case's front over them (its front wall's top edge is level at 55% in every
    picture), the skins leaning in front of it */
@@ -172,7 +174,7 @@
      case and the skins rising out of a high one, as the desktop row lets them rise into the 16px row gap; the card's top padding stops 4px
      under the picture's lowest content, 97% of its height (Elite's coins): 83% of a 3:2 picture is 55% of its width, 116px at 210px */
   .dc-art, .dc-card.is-hero .dc-art { left: 50%; right: auto; top: 0; bottom: auto; width: min(100%, 210px); translate: -50% -14%; }
-  .dc-name { font-size: 18px; }
+  .dc-name { font-size: 19px; } /* was 18px: bold from 18.66px is large text and needs 3:1, not 4.5, on the tiers' lighter ends; critique row 7 */
   .dc-chip { font-size: 12px; }
   /* the available card is one of the grid's cards, not a row of its own, so the ladder keeps its order; its button stays inside it, its
      label allowed a second line at a 143px card */
