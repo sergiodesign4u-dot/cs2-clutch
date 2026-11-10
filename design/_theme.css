@@ -32,6 +32,7 @@
   --color-pink: #FB3F8A; /* the one lit action, the logo; рішення користувача, D-185 */
   --color-blue: #65A3FF; /* links, secondary accent; наявний бренд, baseline.md 5 */
   --color-gold: #FADA62; /* the coin and every price; наявний бренд, baseline.md 5 */
+  --color-money: #FFC44D; /* money is the coin's gold on v4, the price, the balance, the coin; рішення користувача, D-209 update of 2 Nov 2026 ("да"); --color-gold keeps its other jobs; moved here from design/v4/case-tiles.css, stage 06 critique of 10 Nov 2026 */
   --color-green: #33CC66; /* success; наявний бренд, baseline.md 5 */
 
   /* Text and edges */

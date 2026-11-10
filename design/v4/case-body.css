@@ -219,6 +219,7 @@
 .wf-drops[data-v="f"] .wf-d-skin, .wf-drops[data-v="f"] .wf-d-axes { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .wf-drops[data-v="f"] .wf-d-skin { color: #fff; font-size: 16px; }
 .wf-drops[data-v="f"] .wf-d-axes { margin-top: 2px; font-size: 11px; }
+.wf-drops[data-v="f"] .wf-d-axes { white-space: normal; overflow: visible; text-overflow: clip; text-wrap: balance; } /* the wear and the grade wrap to a second line instead of losing Covert at 360, stage 06 critique of 10 Nov 2026, row 8 */
 /* the chance and the tickets a line each, the label on the left and the figure on the right, so neither runs into the other at any width */
 .wf-drops[data-v="f"] td[data-l="Chance"], .wf-drops[data-v="f"] td[data-l="Tickets"] { flex-direction: row; flex-wrap: wrap; justify-content: flex-end; align-items: baseline; gap: 2px 8px; margin: 0; padding: 12px 0 0; border: 0; font-size: 14px; font-weight: 900; line-height: 1.2; text-align: right; white-space: nowrap; }
 .wf-drops[data-v="f"] td[data-l="Chance"] { grid-area: ch; color: #fff; }

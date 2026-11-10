@@ -965,3 +965,6 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   html:not(.v4c-solo) .wf-main > .v4c-top[data-v="m"]:has(.v4c-stage) > .v4c-commit:not([hidden]),
   html:not(.v4c-solo) .wf-main > .v4c-top[data-v="m"] > .v4c-after { width: auto; margin-inline: 16px; }
 }
+
+/* two to five on a phone: a long name takes a second line instead of an ellipsis, "Water Element..." at 360, stage 06 critique of 10 Nov 2026, row 9 */
+@media (max-width: 599px) { .v4c-top[data-v="m"][data-prize] .v4c-win[data-count]:not([data-count="1"]) .v4c-won-name b { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.1; text-wrap: balance; } }

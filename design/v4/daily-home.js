@@ -11,7 +11,9 @@
   var TIERS = [
     { n: 'Silver', at: 5 }, { n: 'Nova', at: 25 }, { n: 'Guardian', at: 100 }, { n: 'Legend', at: 500 }, { n: 'Elite', at: 2000 }
   ];
-  var HUES = ['#C9D2E3', '#65A3FF', '#A35CFF', '#FB3F8A', '#FADA62'];
+  // each tier's hue as daily-home.css declares it on .dc-t1 to .dc-t5 (--hue), read rather than written twice, critique row 15
+  var HUES = [1, 2, 3, 4, 5].map(function (i) { var e = document.createElement('i'); e.className = 'dc-t' + i; e.hidden = true; document.body.appendChild(e);
+    var h = getComputedStyle(e).getPropertyValue('--hue').trim(); e.remove(); return h || 'var(--color-text-hi)'; });
   var WAGER = 87.5, RESET = '00:00 UTC', OPENED = ['Silver'];
   var SUB = 'Wager to climb. Each tier you reach opens its own case, once a day.';
   var SUB_LIMIT = 'Each tier reached opens its own case, once a day.';
@@ -35,7 +37,8 @@
   };
   var COIN = '<i class="dc-coin" aria-hidden="true"></i>';
 
-  function money(n) { return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  // thousands grouped with a space as every other figure is, 2 000.00, glossary C11; it wrote 2,000.00 with the en-US comma, critique row 13
+  function money(n) { var p = n.toFixed(2).split('.'); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') + '.' + p[1]; }
   /* a money figure: coin 6 and the figure on screen, "coins" for a screen reader */
   function coins(n) { return '<b class="dc-m">' + COIN + money(n) + '<span class="dc-sr"> coins</span></b>'; }
   function nextIdx() { for (var i = 0; i < TIERS.length; i++) if (WAGER < TIERS[i].at) return i; return -1; }

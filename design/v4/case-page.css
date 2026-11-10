@@ -436,3 +436,5 @@ html body .v4c-go[hidden] { display: none; }
 .v4c-solo .wf-screen-body, .v4c-solo .wf-main { margin: 0 !important; padding: 0 !important; display: block !important; min-height: 0 !important; }
 .v4c-solo .v4c-top { margin: 12px; }
 
+/* the favourite's hit area 40 to 44px, its drawn size kept, stage 06 critique of 10 Nov 2026, row 11 */
+.v4c-flanks .wf-fav-case.v4c-fav::after { content: ''; position: absolute; inset: -2px; }

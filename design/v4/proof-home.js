@@ -15,9 +15,9 @@
   var SKINS = '../concept/assets/skins/';
   /* the two checked rounds on Ironbound, the samples wireframes/_nav.js prints on their result pages (ROUNDS.glock and ROUNDS.ak) */
   var ROUNDS = [
-    { q: '?round=glock', r1: '#6B42B9', r2: '#2E1A63', skin: 'glock-18-water-elemental', rar: 'Restricted', w: 'Glock-18', s: 'Water Elemental', at: '18 Aug 14:58',
+    { q: '?round=glock', r1: 'var(--v4-plate-r4-a)', r2: 'var(--v4-plate-r4-b)', skin: 'glock-18-water-elemental', rar: 'Restricted', w: 'Glock-18', s: 'Water Elemental', at: '18 Aug 14:58',
       t: '12&#160;684', a: 10.49, b: 15.09, tk: 12.684, range: '10 491 to 15 090' },
-    { q: '', r1: '#D1273E', r2: '#7A0F22', skin: 'ak-47-redline', rar: 'Covert', w: 'AK-47', s: 'Redline', at: '18 Aug 14:44',
+    { q: '', r1: 'var(--v4-plate-r2-a)', r2: 'var(--v4-plate-r2-b)', skin: 'ak-47-redline', rar: 'Covert', w: 'AK-47', s: 'Redline', at: '18 Aug 14:44',
       t: '417', a: 0, b: 0.64, tk: 0.417, range: '1 to 640' }
   ];
 

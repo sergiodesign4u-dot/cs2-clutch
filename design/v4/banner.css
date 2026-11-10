@@ -104,7 +104,7 @@
   .wf-event-end { padding-bottom: 4px; font-size: 10px; }
   .wf-event-cell { padding: 3px 0 3px; }
   .wf-event-cell b { font-size: 18px; }
-  .wf-event-cell span { margin-top: 2px; font-size: 8.5px; }
+  .wf-event-cell span { margin-top: 2px; font-size: 11px; letter-spacing: .04em; } /* was 8.5px; at 11px Seconds takes 54 of a cell's 76px at 360, critique row 12 */
   .wf-event-go { bottom: 12px; }
   html body .wf-event a.wf-btn.wf-event-go { min-height: 44px; font-size: 15px; } /* the family's large button is 52px (buttons.css, loaded later, so one step stronger); a 44px bar leaves 8px over it */
 }

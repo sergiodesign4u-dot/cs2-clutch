@@ -2,7 +2,8 @@
  * under the pointer, and the favourite's small burst. The link and its accessible name stay as they are, so the price in coins is still
  * read out; the favourite's toggling and its sign in for a guest stay with wireframes/_nav.js. */
 (function () {
-  var COLOURS = ['#FB3F8A', '#FFFFFF', '#FFC44D', '#65A3FF', '#FF8DBD'];
+  // the sparks' colours read from the theme, not written here, critique row 15; the pale pink has no token of its own, so it is the pink mixed with white in CSS
+  var COLOURS = ['var(--color-pink)', 'var(--color-text-hi)', 'var(--color-money)', 'var(--color-blue)', 'color-mix(in srgb, var(--color-pink) 55%, var(--color-text-hi))'];
   var SHAPES = ['heart', 'heart', 'star', 'star', 'stroke'];
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function rand(a, b) { return a + Math.random() * (b - a); }

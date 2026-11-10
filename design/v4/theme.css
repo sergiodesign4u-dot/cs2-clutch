@@ -15,6 +15,14 @@
   --v4-mode-showdowns: linear-gradient(120deg, #D1273E, #7A0F22); /* red; comp A, founder pick; from --color-rarity-2 */
   --v4-mode-upgrade: linear-gradient(120deg, #9E6905, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it: #B57A06 held
      white 12px at 3.65:1, so the gold end went to #9E6905, 4.7:1, stage 06 critique of 10 Nov 2026, row 6 */
+  /* A RARITY TIER'S PLATE, the round cards' two ends (proof-home.js, case-blocks.js): read by the scripts as var(), not written in them, stage 06
+     critique of 10 Nov 2026, row 15. r2, r4, r5 start on --color-rarity-2, -4, -5 and end on the mode cards' darks; r1 starts on the Upgrade card's
+     gold (D-215, white type holds on it); r3 is a violet between rarity 3 and 4 */
+  --v4-plate-r1-a: #9E6905; --v4-plate-r1-b: #B4400F;
+  --v4-plate-r2-a: #D1273E; --v4-plate-r2-b: #7A0F22;
+  --v4-plate-r3-a: #A62BC4; --v4-plate-r3-b: #4A1260;
+  --v4-plate-r4-a: #6B42B9; --v4-plate-r4-b: #2E1A63;
+  --v4-plate-r5-a: #3955E8; --v4-plate-r5-b: #1B2A8F;
   --v4-fair-blue: #0B6A8C; /* the light end of the provably fair blue, Every round on Home and in the footer; was #0F7EA6, where white 13px sat at 3.3 to 3.9:1
      under the plates' stripes; #0B6A8C holds white at 4.9:1 with the stripes over it, stage 06 critique of 10 Nov 2026, rows 4 and 5 */
   --v4-panel-ground: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); /* the footer's own panel, footer I of 3 Nov 2026; the rail's panel took it too as a trial and kept it on 4 Nov 2026,
@@ -22,7 +30,7 @@
   /* ONE SMALL TILE: the side menu's sound and language tiles are the standard, founder of 4 Nov 2026: "єто разние кнопки ... надо привести их к одному стандарту",
      the rail's marked OK; the footer's social squares, payment cards and language control read the same four values */
   --v4-tile-bg: #0B0A22; /* the rail's tile fill, 31 Oct 2026, a dark near the page ground */
-  --v4-tile-edge: inset 0 0 0 1px rgba(255, 255, 255, .05);
+  --v4-tile-edge: inset 0 0 0 1px rgba(255, 255, 255, .05); /* the tile's hairline, white at 5 %, read off the rail's tile, 31 Oct 2026 */
   --v4-tile-radius: 12px; /* = --v4-radius */
   --v4-tile-h: 42px; /* the rail tile's height */
 }
@@ -223,7 +231,7 @@
   .wf-feed-hit::after { top: -3.8px; width: 78px; height: 70px; margin-left: -39px; }
   .wf-feed-hit .wf-feed-art { height: 44px; margin: 2px -14% 3px; }
   .wf-feed-hit .wf-feed-w { font-size: 11px; line-height: 1.2; }
-  .wf-feed-hit .wf-feed-s { margin-top: 1px; font-size: 10px; line-height: 1.2; }
+  .wf-feed-hit .wf-feed-s { margin-top: 1px; font-size: 11px; line-height: 1.2; } /* was 10px, critique row 12 */
   .wf-feed-i::after { width: 28px; margin-left: -14px; }
   .wf-feed-head { top: 10px; right: 10px; }
   .wf-feed-back { gap: 4px; padding: 6px 6px 8px; }
@@ -261,8 +269,8 @@
 .wf-event-end { grid-row: 1; grid-column: 1 / -1; padding-bottom: 8px; border-bottom: 1px solid rgba(101, 163, 255, .14); color: var(--color-text-soft); font-size: var(--size-xs); letter-spacing: .08em; text-transform: uppercase; }
 .wf-event-cell { grid-row: 2; padding: 7px 0 5px; border-radius: 8px; background: rgba(15, 14, 43, .9); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
 .wf-event-cell b { color: var(--color-text-hi); font-size: 26px; font-weight: 900; line-height: 1; }
-.wf-event-cell span { margin-top: 4px; color: var(--color-text-soft); font-size: var(--size-micro); letter-spacing: .08em; }
-.wf-event-go { left: max(var(--space-5), (100% - var(--size-content)) / 2); top: 346px; bottom: auto; transform: none; min-width: 240px; min-height: 52px; border-radius: 8px; font-size: var(--size-text); font-weight: 900; letter-spacing: 1px;
+.wf-event-cell span { margin-top: 4px; color: var(--color-text-soft); font-size: 11px; letter-spacing: .08em; } /* was --size-micro, 9px: the 11px floor, critique row 12 */
+.wf-event-go { left: max(var(--space-5), (100% - var(--size-content)) / 2); top: 346px; bottom: auto; transform: none; min-width: 240px; min-height: 52px; border-radius: var(--btn-radius, 10px); font-size: var(--size-text); font-weight: 900; letter-spacing: 1px;
   background: var(--v4-stripes), var(--btn-fill, #DF055C); box-shadow: 0 8px 24px rgba(223, 5, 92, .4); }
 @media (max-width: 899px) {
   .wf-event .wf-banner-art { aspect-ratio: auto; height: 460px; }
@@ -306,7 +314,7 @@
 .wf-grid .wf-mode h3, .wf-grid .wf-mode.is-later h3 { font-size: 24px; line-height: 1.1; letter-spacing: .01em; text-transform: uppercase; color: var(--color-text-hi); text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
 .wf-mode h3::before { content: none; }
 .wf-mode p { max-width: 200px; margin: 6px 0 14px; color: var(--color-text-hi); text-shadow: 0 1px 2px rgba(6, 10, 30, .55); }
-.wf-mode .wf-btn { min-height: 40px; border-radius: 8px; padding: 0 var(--space-4); font-weight: 900; background: var(--v4-stripes), var(--btn-fill, #DF055C); box-shadow: 0 6px 16px rgba(6, 10, 30, .35); border-color: rgba(255, 255, 255, .35); }
+.wf-mode .wf-btn { min-height: 40px; border-radius: var(--btn-radius, 10px); padding: 0 var(--space-4); font-weight: 900; background: var(--v4-stripes), var(--btn-fill, #DF055C); box-shadow: 0 6px 16px rgba(6, 10, 30, .35); border-color: rgba(255, 255, 255, .35); }
 .wf-mode > .wf-fig-missing, .wf-mode > .wf-btn { max-width: none; white-space: nowrap; }
 .wf-mode .wf-fig-missing { display: inline-flex; align-items: center; min-height: 38px; padding: 0 var(--space-4); border-radius: 8px; background: rgba(6, 10, 30, .38); color: var(--color-text-hi); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
 
@@ -334,7 +342,7 @@
 .wf-tile-name { font-size: var(--size-text); font-weight: 900; letter-spacing: .04em; }
 .wf-tile-risk { margin-block: 2px var(--space-2); }
 /* the price on a full width pink plate with a gold coin, as comps A and C, founder pick; the figure white on pink */
-.wf-tile-price { align-self: stretch; justify-content: center; align-items: center; gap: 6px; min-height: 40px; margin-top: 0; border-radius: 8px; background: var(--v4-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); }
+.wf-tile-price { align-self: stretch; justify-content: center; align-items: center; gap: 6px; min-height: 40px; margin-top: 0; border-radius: var(--btn-radius, 10px); background: var(--v4-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); }
 .wf-tile-cost { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; }
 .wf-tile-cur { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; }
 .wf-tile:hover .wf-tile-price { filter: brightness(1.1); }
@@ -409,3 +417,5 @@
 @media (hover: hover) { .v4-go:hover { color: var(--color-text-hi); } .v4-go:hover svg { translate: 3px 0; } }
 @media (prefers-reduced-motion: reduce) { .v4-go svg { transition: none; } }
 
+/* a live drop's winner name, 12 to 24px of hit area, WCAG 2.2 target size, its drawn line kept, stage 06 critique of 10 Nov 2026, row 11 */
+.wf-feed-back a.wf-feed-who { padding-block: 6px; margin-block: -6px; }

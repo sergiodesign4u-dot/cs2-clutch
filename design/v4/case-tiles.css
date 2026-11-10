@@ -32,7 +32,7 @@
 .wf-feed-back .wf-feed-art[data-art="case-ember"] { background-image: url(art/cases-v2/emberforge-c.webp); }
 
 /* money is gold #FFC44D everywhere, the coin's own gold, founder of 2 Nov 2026 */
-:root { --color-money: #FFC44D; }
+/* --color-money lives in design/_theme.css since the stage 06 critique of 10 Nov 2026, row 16 */
 .wf-tile-cost { color: var(--color-money); }
 
 /* the favourite, founder of 2 Nov 2026: "иконку руки я би поменял на сердечко", a heart; pressed, it pops and a few small hearts, stars and

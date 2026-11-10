@@ -105,8 +105,8 @@
 /* buttons.css sizes the plate's words at 4.6cqw: 9.6px on a 240px side card, 6px on a 132px stack card. They keep 10.5px or more at
    every width (7.6cqw where the plate spans a stack card), with a little less tracking so the line still fits a 117px plate; the selector
    outweighs buttons.css on purpose, this file owns the card */
-html body .wf-sec .wf-grid.wf-modes .wf-mode > .wf-fig-missing { font-size: max(10.5px, min(13px, 4.6cqw)); letter-spacing: .03em; }
-@container modes (max-width: 515px) or ((min-width: 624px) and (max-width: 991px)) { html body .wf-sec .wf-grid.wf-modes .wf-mode > .wf-fig-missing { font-size: max(10.5px, min(13px, 7.6cqw)); } }
+html body .wf-sec .wf-grid.wf-modes .wf-mode > .wf-fig-missing { font-size: max(11px, min(13px, 4.6cqw)); letter-spacing: .03em; } /* floor 10.5 to 11px, critique row 12 */
+@container modes (max-width: 515px) or ((min-width: 624px) and (max-width: 991px)) { html body .wf-sec .wf-grid.wf-modes .wf-mode > .wf-fig-missing { font-size: max(11px, min(13px, 7.6cqw)); } }
 /* a stack card under 160px (four across at 624 to 700 or so): the plate spans the card, so its sides come from the tracking, not the width;
    untracked, Not launched yet keeps 12px or more each side instead of 8, founder, 4 Nov 2026: "кнопки сплюшило" */
 @container (max-width: 159px) { html body .wf-sec .wf-grid.wf-modes .wf-mode > .wf-fig-missing { letter-spacing: 0; padding: 0 8px; } }

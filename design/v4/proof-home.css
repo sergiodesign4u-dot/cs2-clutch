@@ -79,7 +79,7 @@
 .x6-card > :not(.x6-skin) { position: relative; z-index: 1; }
 .x6-skin { position: absolute; z-index: 0; right: -3%; top: calc(-1 * clamp(36px, 4.6cqw, 54px)); width: 50%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--v4-ease-pop); }
 .x6-r { font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-hi); } /* was white at .8, 3.9:1 on the red card; critique row 5 */
-.x6-w { margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255, 255, 255, .9); }
+.x6-w { margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--color-text-hi); } /* was white at .9: 4.13 and 4.42:1 on r1 and r2, full white 4.69 and 5.16, critique run 3 */
 .x6-s { max-width: 54%; font-size: clamp(18px, 1.9cqw, 22px); font-weight: 900; line-height: 1.1; }
 .x6-from { margin-top: 4px; font-size: 12px; color: var(--color-text-hi); } /* was white at .82, 4.3:1 on the red card; critique row 5 */
 .x6-card .x6-t { margin-top: 12px; }

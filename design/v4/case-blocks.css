@@ -430,3 +430,6 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
   .v4t-tk { font-size: 13px; padding: 6px 9px; }
   .v4t .v4h-ring { width: 88px; height: 70px; }
 }
+
+/* a section's subline and its note at 1.4 at every width, they were 1.2, stage 06 critique of 10 Nov 2026, row 19 */
+.wf-main:has(.v4c-top) :is(.wf-sec-sub, .wf-note) { line-height: 1.4; }
