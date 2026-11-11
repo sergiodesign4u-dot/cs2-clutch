@@ -7104,3 +7104,19 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** Folding now: it rewrites 38 sheets just before stage 07 takes a census of them, and a fold is a refactor that may not change a value as a side effect; inside the census each value is seen once. Redrawing the stand on v4: the stand is the record of the search, and v4's own pages and labs are the live stand. Leaving the generator unnumbered: a pack dependency done differently with no record reads as a skipped step.
 
 **The cost.** Stage 07 starts with two sheets of values and a pack input, `_theme.css` as the one source, that is not true until its first step. `DESIGN-artifacts.md` lags v4 until then, and so does its icon row. The contract closes with these rows deferred, not done; they are listed in the log with this record against each.
+
+## D-223. The published site carries only what a page or a doc cites, and a push waits for the last deploy
+
+**Date:** 2026-11-11. **Stage:** between 06 and 07. **Decided by:** the founder, after four failed Pages runs: "why do our pushes keep failing, what are we doing wrong, can we make a rule", then "155 MB is a lot, let's go as you recommend; maybe we don't need some photos, the competitor shots for cases and so on that we took point by point, they are not really needed in git; keep only the screenshots used in the research and on the pages themselves" (translated).
+
+**What was found.** Pushes never failed; the Pages deploy did, 8 of the last 100 runs since 20 October 2026. Four on 11 November were GitHub's own outage (the run's annotation, "An unexpected error has occurred", and an open githubstatus incident on Actions and Pages). Three were cancelled by a push landing while the last deploy ran, and two stalled. Every deploy published the whole repository, 155 MB in 868 files, 72 MB of it research screenshots, and `D-213` had already recorded file sync timeouts on a deploy of that size.
+
+**What was decided.**
+
+1. **An image stays in git only when a page or a doc cites it by name.** 125 images were cited nowhere; 95 of them, 37.4 MB, left git for `_archive/`, which `.gitignore` names and which stays on the founder's machine. The logo kit and the flags, 30 files and 0.4 MB, stay: they are `D-184`'s brand kit, not working shots. A crawl of all 216 pages after the move found no image failing to load.
+2. **Every PNG left is optimised without loss,** `oxipng -o 3 --strip safe`, 118 files from 72.8 MB to 62.0 MB; the pixels of the three largest compared identical before and after. The published site is 106.8 MB in 773 files.
+3. **One push per finished batch, and the next waits until the previous Pages run is green;** a failed or stuck run is retried once through the Pages API after 10 minutes, then reported with its link. Both rules are in `CLAUDE.md`, the line count unchanged at 131.
+
+**Rejected.** Rewriting git history to drop the moved files from the clone, `.git` being 377 MB: it needs a force push and is a decision of its own. Converting the research screenshots to WebP: lossy, and they are evidence cited by shot. A custom deploy workflow: kept for when a deploy fails on our side again, since this failure was GitHub's.
+
+**The cost.** A screenshot no page cites is no longer in the repository and is lost with the founder's machine unless backed up; the git history still holds every one of them until it is rewritten.
