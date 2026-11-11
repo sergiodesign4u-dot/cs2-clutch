@@ -371,9 +371,13 @@
     var land = Q.get('land');
     if (land === 'k') results[0] = O.dress(O.knife); else if (land && O.items[+land]) results[0] = O.dress(O.items[+land]);
     act.disabled = true; counter.classList.add('is-locked');
-    // founder of 11 Nov 2026: "центрированно текст и может что то типа минус такая то сумма а маленький текст ваш баланс такой то"
-    cost.innerHTML = '<b>−' + coins(total) + '</b><span>Your balance ' + coins(balance) + '</span>';
-    act.hidden = true;
+    /* founder of 11 Nov 2026, of the minus and the balance left that stood here: "давай типа как дизейбл кнопка Rolling... с анимацией какой то".
+       The act stays where it stood, at the width it had, disabled, and says Rolling with three dots and a light running through it; the
+       spend already left the balance in the header */
+    cost.innerHTML = '';
+    act.style.width = act.offsetWidth + 'px';
+    act.classList.add('is-rolling'); act.setAttribute('aria-label', 'Rolling');
+    act.innerHTML = '<span class="v4c-roll">Rolling<i></i><i></i><i></i></span>';
     line.innerHTML = count > 1 ? 'Opening ' + count + ' cases. All ' + count + ' results were fixed before the animation started.' : 'Opening. The result was fixed before the animation started.';
     live.textContent = 'Opening ' + (count > 1 ? count + ' cases' : 'the case') + '.';
     frame.setAttribute('data-phase', 'open');
@@ -457,7 +461,6 @@
     // a copy on sale is a sample, D-124, drawn between 10 % under and 15 % over our value so both directions of the settlement show,
     // case.md section 8.1b: "the direction goes both ways and this surface must print both"
     rs.forEach(function (x) { if (x.copy == null) x.copy = Math.round(x.v * (0.9 + Math.random() * 0.25) * 100) / 100; });
-    function signed(v) { return (v >= 0 ? '+' : '−') + coins(Math.abs(v)); }
     function left() { return rs.filter(function (x, i) { return !sold[i]; }); }
     function worth(list) { return list.reduce(function (a, x) { return a + x.v; }, 0); }
     /* two acts, founder of 11 Nov 2026: "не писал би длинные кнопки, в любом случае Open again, которое ведет на новое открытие кейсов (без
@@ -466,9 +469,13 @@
        again spends nothing and never asks for a deposit (critique run 4 row 27); sending to Steam is in My items, named in the line below */
     var acts = '<div class="v4c-acts"><button type="button" class="v4c-sell v4-btn v4-btn--l"></button>' +
       '<button type="button" class="v4c-again v4-btn v4-btn--l v4-btn--ghost">Open again</button></div>';
-    // the net of this open first, run 4 row 27: what it cost against what came out of it, at our values
+    /* the net of this open first, run 4 row 27: what it cost against what came out of it, at our values. Founder of 11 Nov 2026: "тут не
+       показываем минус а только если будет плюс, не даем негативние емоции" and "если позитив то пишем + монетка и число": a gain is the
+       plus, the coin and the figure, the word left to a screen reader; a loss or an even open prints no figure, and the line of what was
+       spent and what the items are worth stays in both, so the sum can still be done */
     var spent = PRICE * n, got = worth(rs), net = Math.round((got - spent) * 100) / 100;
-    var netLine = '<div class="v4c-net"><b>' + signed(net) + '</b><span>Spent ' + coins(spent) + ' · items worth ' + coins(got) + '</span></div>';
+    var netLine = '<div class="v4c-net">' + (net > 0 ? '<b>+<img src="art/brand/coin-6-small.svg" alt="" width="20" height="20">' + net.toFixed(2) + '<span class="v4c-sr"> coins</span></b>' : '') +
+      '<span>Spent ' + coins(spent) + ' · items worth ' + coins(got) + '</span></div>';
     var inst = n === 1 ? '<p class="v4c-inst">As of ' + now() + ' · Float <b>' + rs[0].float + '</b> · Pattern <b>' + rs[0].pattern + '</b> · <a href="steam://rungame/730">Inspect in game</a></p>' +
       '<p class="v4c-inst">Value <b>' + rs[0].v.toFixed(2) + '</b> coins · a copy on sale <b>' + rs[0].copy.toFixed(2) + '</b> coins, read ' + now() + '</p>'
       // a batch: what sending each one settles, 3.3-45, and every round's own receipt and proof route, case.md 8 block 7, 3.3-37 to 3.3-40
@@ -511,7 +518,7 @@
   }
   function reset() {
     commit.hidden = false; after.hidden = true; win.classList.remove('is-on'); win.innerHTML = '';
-    frame.removeAttribute('data-phase'); reel.innerHTML = ''; reel.className = 'v4c-reel'; act.disabled = false; act.hidden = false; counter.classList.remove('is-locked');
+    frame.removeAttribute('data-phase'); reel.innerHTML = ''; reel.className = 'v4c-reel'; act.disabled = false; act.classList.remove('is-rolling'); act.style.width = ''; counter.classList.remove('is-locked');
     host.classList.remove('is-done'); drawCommit();
     // row M: the runs go back to drifting and the cases come back where they stood
     if (V.stage === 'm') {

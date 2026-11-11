@@ -174,12 +174,23 @@ html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow
 .v4c-sell:disabled { justify-content: center; } /* Sold, +{n} coins, the chip gone */
 /* short of the price: the act keeps its words and refuses, the line beside it says by how much, run 4 row 29 */
 html body .v4c-go.is-short { cursor: not-allowed; }
-/* while it opens the spend stands alone, centred: the minus and the balance left under it, founder of 11 Nov 2026; and the outcome's net
-   first, in the same form, run 4 row 27 */
-.v4c-act:has(> .v4c-go[hidden]) { justify-content: center; }
-.v4c-act:has(> .v4c-go[hidden]) .v4c-cost, .v4c-net { align-items: center; text-align: center; }
-.v4c-net { display: flex; flex-direction: column; gap: 2px; }
-.v4c-net b { color: var(--color-money); font-size: 22px; font-weight: 900; font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* while it opens the act stays where it stood, disabled, and says Rolling: three dots in turn and a light running through it, founder of
+   11 Nov 2026, "как дизейбл кнопка Rolling... с анимацией какой то". It replaces the minus and the balance left that stood beside it */
+html body .v4c-go.is-rolling { position: relative; overflow: hidden; justify-content: center; padding-right: 18px; cursor: progress; }
+.v4c-go.is-rolling::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .16) 50%, transparent 70%); translate: -100% 0;
+  animation: v4c-roll-sweep 1.6s cubic-bezier(.45, 0, .25, 1) infinite; }
+.v4c-roll { display: inline-flex; align-items: baseline; }
+.v4c-roll i { width: 5px; height: 5px; margin-left: 4px; border-radius: 50%; background: currentColor; animation: v4c-roll-dot 1.2s ease-in-out infinite; }
+.v4c-roll i:first-of-type { margin-left: 6px; }
+.v4c-roll i:nth-of-type(2) { animation-delay: .2s; } .v4c-roll i:nth-of-type(3) { animation-delay: .4s; }
+@keyframes v4c-roll-sweep { to { translate: 100% 0; } }
+@keyframes v4c-roll-dot { 0%, 70%, 100% { opacity: .25; } 35% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .v4c-go.is-rolling::after { animation: none; display: none; } .v4c-roll i { animation: none; opacity: .7; } }
+/* the outcome's net first, run 4 row 27: a gain as a plus, the coin and the figure, a loss as no figure, founder of 11 Nov 2026 */
+.v4c-net { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
+.v4c-net b { display: inline-flex; align-items: center; gap: 6px; color: var(--color-money); font-size: 22px; font-weight: 900; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.v4c-net b img { display: block; width: 20px; height: 20px; }
 .v4c-net span { color: var(--color-text-soft); font-size: 12px; }
 .v4c-saved { margin: 0; color: var(--color-text-soft); font-size: 13px; }
 .v4c-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 0; }

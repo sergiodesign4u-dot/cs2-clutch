@@ -7074,3 +7074,16 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** For Daily, keeping the track and only dropping its countdown: a track drawn to Elite still reads as the way to climb. For the counter, saying what it counts: the founder keeps it as drawn.
 
 **The cost.** A signed in person no longer sees how far the next tier is; the tier's own figure and the wager so far are both on screen, and the subtraction is theirs. The lab keeps its other rows (R1 to R8) as their record; R9 there is drawn by the same renderer and changed with Home. A doubter can still read the upgrades counter as invented. Run 4 is closed: 7 fixed on 11 November, 1 more fixed here, 2 kept, 1 deferred, 1 withdrawn on verification.
+
+## D-221. The case screen's outcome prints its net on a gain only, and while it opens the act says Rolling
+
+**Date:** 2026-11-11. **Stage:** 06, step 8. **Decided by:** the founder, on two screenshots of the v4 case screen after `D-219`: "here we don't show the minus, only if it's a plus, we don't give negative emotions", "and here let's make it like a disabled button, Rolling..., with some animation", "and here, if it's positive, we write plus, the coin and the number" (translated).
+
+**What was decided.**
+
+1. **The outcome's net is printed on a gain only.** A gain reads a plus, the coin and the figure, in gold (+ coin 1927.60), the word coins left to a screen reader, the way Home's Before you spend prints money. A loss or an even open prints no figure. The line under it, Spent {n} coins · items worth {n} coins, stays on every outcome. `microcopy.md` 3.3-68.
+2. **While it opens, the act says Rolling.** The Open button stays where it stood, at the width it had, disabled, and reads Rolling with three dots lit in turn and a light that runs through it every 1.6 seconds; under reduced motion the word and the dots stand still. It replaces `D-219`'s −{n} coins with Your balance {n} coins under it, which took the act's place; the balance left is in the header. `microcopy.md` 3.3-67, accessible name Rolling.
+
+**Rejected.** Dropping the Spent line on a loss as well: the founder asked to take away the minus, not the figures, and without that line the outcome of a loss says nothing of what the open cost (an assumption, shown to the founder before this record). A signed minus in a quieter colour: still the minus the founder asked to remove. The spend beside Rolling: two things where one act stood.
+
+**The cost.** The outcome shows a gain as a large figure and a loss only as two small facts, an asymmetry that pulls against principle 3, clarity at every risk moment, and against critique run 4 row 27, which asked for the net first. The Spent line keeps the sum possible; it no longer says it. While it opens, the spend is printed only as the header's balance. Run 4 row 27 stays fixed: the deposit chained to a reopen, its P0, is still gone.
