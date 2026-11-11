@@ -49,7 +49,7 @@
 @media (prefers-reduced-motion: reduce) { .fq-a, .fq-in, .fq-x, .fq-x::before, .fq-x::after, .fq-i { transition: none !important; } }
 
 /* ---- About Clutch: a lead, then four short parts under H3s in two columns, parted by hairlines ---- */
-.ab-lead { margin: 0; max-width: 72ch; color: rgba(255, 255, 255, .9); font-size: 17px; line-height: 1.65; }
+.ab-lead { margin: 0; max-width: 65ch; text-wrap: pretty; /* 72 to 65ch and no word alone on a last line, critique run 4 row 36 */ color: rgba(255, 255, 255, .9); font-size: 17px; line-height: 1.65; }
 .ab-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; margin-top: 24px; }
 .ab-i { padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, .08); }
 .ab-i h3 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 18px; font-weight: 900; line-height: 1.25; }
@@ -101,3 +101,5 @@
    it becomes press, and 12px more below is given back by a negative margin, so the words stay where they were and the answer keeps its
    height; the open answer's 16px padding keeps the grown press inside its clip */
 .fq-go { padding: 12px 0; margin: 0 0 -12px; }
+
+.fq-in p { text-wrap: pretty; } /* critique run 4 row 36 */

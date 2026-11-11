@@ -43,7 +43,7 @@
 .sx-h .sx-ic { position: absolute; left: 10px; top: 50%; width: 22px; height: 22px; margin-top: -11px; color: var(--color-text-hi); }
 .sx-h h2 { margin: 0; color: var(--color-text-hi); font-size: 26px; font-weight: 900; line-height: 1.1; text-transform: uppercase; }
 .sx-text { grid-area: t; min-width: 0; }
-.sx-p { max-width: 60ch; margin: 18px 0 0; color: rgba(255, 255, 255, .9); font-size: 17px; line-height: 1.65; }
+.sx-p { max-width: 60ch; text-wrap: pretty; margin: 18px 0 0; color: rgba(255, 255, 255, .9); font-size: 17px; line-height: 1.65; }
 .sx-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 26px; }
 .sx-fair { gap: 10px; }
 .sx-fair .sx-ic { width: 18px; height: 18px; }

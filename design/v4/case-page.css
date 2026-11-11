@@ -171,7 +171,16 @@ html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow
 .v4c-inst { margin: 0; color: var(--color-text-soft); font-size: 13px; }
 .v4c-inst b { color: var(--color-text-hi); font-variant-numeric: tabular-nums; }
 .v4c-acts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-.v4c-steam.is-gone { display: none; }
+.v4c-sell:disabled { justify-content: center; } /* Sold, +{n} coins, the chip gone */
+/* short of the price: the act keeps its words and refuses, the line beside it says by how much, run 4 row 29 */
+html body .v4c-go.is-short { cursor: not-allowed; }
+/* while it opens the spend stands alone, centred: the minus and the balance left under it, founder of 11 Nov 2026; and the outcome's net
+   first, in the same form, run 4 row 27 */
+.v4c-act:has(> .v4c-go[hidden]) { justify-content: center; }
+.v4c-act:has(> .v4c-go[hidden]) .v4c-cost, .v4c-net { align-items: center; text-align: center; }
+.v4c-net { display: flex; flex-direction: column; gap: 2px; }
+.v4c-net b { color: var(--color-money); font-size: 22px; font-weight: 900; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.v4c-net span { color: var(--color-text-soft); font-size: 12px; }
 .v4c-saved { margin: 0; color: var(--color-text-soft); font-size: 13px; }
 .v4c-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 0; }
 .v4c-links a { font-size: 13px; } /* .v4-go, set in case-page.js: theme.css ONE TEXT LINK; was the case's hue, underlined on hover */

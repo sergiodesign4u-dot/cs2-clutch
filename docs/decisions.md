@@ -7043,3 +7043,19 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** For the radius, 8px for every button and 10px kept. For the item card, A (label over figure on the left) and B (the same centred), both four lines on a card at every width. For the head, 1 (the whole breadcrumb, the name on the left) and 2 (the whole breadcrumb, centred).
 
 **The cost.** "One radius" becomes one radius for buttons and one named exception. On a phone the item card no longer matches Best drops' card and the band's, the same W7 card a skin wore everywhere since D-213. A visible Check names its act only beside the hash; the link still opens the fair page's checker without the round, critique row 28's class. Recorded in `design/concept/docs/critique.md`, rows 39 to 45.
+
+## D-219. The outcome ends on two acts, Sell all and Open again, and the case screen names a shortfall instead of turning into a deposit
+
+**Date:** 2026-11-11. **Stage:** 06, step 8. **Decided by:** the founder, on the outcome of an open of four: "here I would centre the text, and maybe something like minus such a sum, and a small text, your balance is such", "I would not write long buttons; in any case Open again, which leads to a new opening of cases (without the opening, without telling you to top up your wallet, we will show that on the case's own open), and remove the Send to Steam button and leave two buttons, Sell all as the primary and Open again as the secondary", "and let's take run 4" (translated).
+
+**What was decided.**
+
+1. **While it opens, the spend stands alone, centred:** −49.60 coins, and under it Your balance 24.60 coins, in place of 49.60 coins Spent.
+2. **The outcome starts with its net:** −9.90 coins, and under it Spent 49.60 coins · items worth 39.70 coins, at our values. Critique run 4 row 27.
+3. **Two acts on the outcome:** Sell all, primary, its sum in a chip as Open carries its price (Sell, for one), and Open again, secondary, for every count and every balance. Open again puts the case back at rest and spends nothing, as since 6 Nov 2026; it never becomes Add funds to open again. **Send to Steam leaves the outcome;** the line under the acts says where it is: "All 4 saved to My items, where they can be sent to Steam." The batch's "Sending to Steam: … on your balance" line goes with it.
+4. **Short of the price, the act refuses instead of turning into Add funds:** it keeps Open 5 cases and 62.00, takes the refused look, and the line beside it says "You have 24.60 coins, 37.40 coins short. Add funds", the link to the deposit. Its accessible name adds the shortfall. Run 4 row 29.
+5. **The rest of run 4's batch:** the expected value for the count chosen, "46.72 coins for 4 opens" (row 30); Check this round and Share carry `?round=` where the prototype holds the record (row 28); Community and Classic cases leave the footer (row 35); Home's prose at 65ch with no word alone on a last line (row 36); Medium on screen beside the risk bolts, and the Trustpilot badge no longer a link to trustpilot.com's front page (row 37).
+
+**Rejected.** Keeping Send to Steam as a third act (the founder: two buttons). Add funds as a second button beside the refused act: a deposit act at the spend again, where a link in the line names the way. Spent and the items as two figures with no net, which leaves the subtraction to the reader at the low point.
+
+**The cost.** Node `3.3` and its grey outcome keep three acts, keep, sell and send; the v4 outcome has two, and sending to Steam is one screen further, in My items, which the line names. The outcome's two acts both keep the money on the platform, selling for coins and opening again; the net line above them and Selling cannot be undone under them are what answer principle 3 there. Rows 31, 32 and 34 of run 4 are the founder's own earlier decisions and stay open for the founder; row 33 stays open.

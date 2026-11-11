@@ -15,7 +15,7 @@
   function STORY(n) { var s = window.V4RailIcons && window.V4RailIcons.svg(n); return s ? '<span class="fl-ri" aria-hidden="true">' + s + '</span>' : ICON(MASK[n] || n); }
   var COLS = [
     ['Play', [['Cases', 'catalogue.html']]],
-    ['Cases', [['All cases', 'catalogue.html'], ['Daily cases', 'catalogue.html#cat-daily'], ['Featured cases', 'catalogue.html#cat-featured'], ['Community cases', 'catalogue.html#cat-community'], ['Classic cases', 'catalogue.html#cat-classic']]],
+    ['Cases', [['All cases', 'catalogue.html'], ['Daily cases', 'catalogue.html#cat-daily'], ['Featured cases', 'catalogue.html#cat-featured']]] /* Community and Classic cases dropped: listed here and nowhere else, critique run 4 row 35, 11 Nov 2026 */,
     ['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal-unpublished.html?doc=privacy'], ['Cookie policy', 'legal-unpublished.html?doc=cookie'], ['Refund and payments policy', 'legal-refund.html'], ['Cookie settings', null]]],
     ['Platform', [['Provably fair', 'fair.html'], ['Support', 'support.html'], ['Responsible play', 'responsible.html']]]
   ];

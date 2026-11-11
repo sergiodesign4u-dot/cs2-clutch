@@ -25,6 +25,9 @@
       tiles += '<i style="--fill:' + Math.round(fill * 100) + '%;--n:' + i + '">' + star() + '</i>';
     }
     link.setAttribute('aria-label', line);
+    /* no link, critique run 4 row 37: it went to trustpilot.com's front page, not to a page of reviews of this product, which does not exist
+       yet; the badge reads as a picture with its line as its name until a review page does */
+    link.removeAttribute('href'); link.removeAttribute('rel'); link.setAttribute('role', 'img');
     link.classList.add('v4-trust');
     link.innerHTML = '<span class="v4-trust-tiles" aria-hidden="true">' + tiles + '</span>' +
       '<b class="v4-trust-score" aria-hidden="true">' + found[2] + '</b>' +

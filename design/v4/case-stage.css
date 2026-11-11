@@ -10,7 +10,7 @@
 /* The price rides in the button, founder of 5 Nov 2026, against Hallmark's two lines: "нужно сделать что-то такое", a reference of a pink
    button with "Open 1 case" and the price in a darker chip at its end. The line under the act keeps the balance after, the peg and the
    return, D-28; the stripes on the pressed count stay, "не согласен", and so do the uppercase labels, "да, оставляем" */
-html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
+html body .v4c-go, html body .v4c-sell { gap: 14px; padding-right: 8px; } /* the price or the sum in a chip at the end, short or not, 11 Nov 2026 */
 .v4c-go-price { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; box-sizing: border-box; padding: 0 12px 0 8px; border-radius: var(--btn-radius, 12px);
   background: rgba(46, 4, 26, .45); color: var(--color-money); /* was white; gold on the pink as Home's tile price, 11 Nov 2026 */ font-size: 17px; font-weight: 900; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
 .v4c-go-price img { display: block; width: 20px; height: 20px; }
@@ -712,6 +712,11 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-plate .v4c-risk .v4-bolts i { width: 28px; height: 28px; }
 .v4c-plate .v4c-risk .v4-bolts i::before { -webkit-mask-size: 28px 28px; mask-size: 28px 28px; }
 .v4c-plate .v4c-risk .v4-risk-tip { font-size: 13px; white-space: nowrap; }
+/* the band's word beside the bolts, critique run 4 row 37: Medium was only for a screen reader; Risk stays for it alone */
+.v4c-plate .wf-risk.v4c-risk { display: flex; align-items: center; gap: 8px; width: auto; }
+.v4c-plate .wf-risk.v4c-risk .v4-bolts { position: relative; inset: auto; flex: none; width: 128px; height: 30px; }
+.v4c-plate .wf-risk.v4c-risk > span:not([class]) { position: static; order: 2; width: auto; height: auto; overflow: visible; clip-path: none; color: var(--color-text-soft); font-size: 13px; font-weight: 700; }
+.v4c-plate .wf-risk.v4c-risk .v4-risk-tip { display: none; } /* the word is on screen now, so the tooltip that said it goes */
 @media (min-width: 900px) {
   .v4c-plate { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: 20px; }
   .v4c-plate > .v4c-count { grid-column: 1; justify-self: start; }
@@ -942,7 +947,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   .v4c-top[data-v="i"] .v4c-idle-slot { width: 180px; } .v4c-top[data-v="i"] .v4c-idle-slot img { width: 200px; }
   .v4c-top:is([data-v="i"], [data-v="j"], [data-v="k"], [data-v="l"]) .v4c-frame[data-count="1"] { height: 220px; }
   .v4c-top:is([data-v="i"], [data-v="j"], [data-v="k"], [data-v="l"]) .v4c-box { width: 220px; }
-  html body .v4c-go:not(.is-short) { justify-content: space-between; padding-left: 18px; }
+  html body .v4c-go, html body .v4c-sell { justify-content: space-between; padding-left: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { .v4c-fan-c::after { animation: none; opacity: 0; } }
 

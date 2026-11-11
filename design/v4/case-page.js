@@ -28,6 +28,10 @@
   function coins(v) { return v.toFixed(2) + '&nbsp;coins'; }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
   // a standalone link's words and its arrow, the last word kept with the arrow: theme.css ONE TEXT LINK, founder of 10 Nov 2026
+  // the prototype's round records, wireframes/_nav.js ROUNDS: a won item links its own round where one is held, else no round is named
+  var RKEY = { 'AK-47': 'ak', 'Glock-18': 'glock', 'M4A1-S': 'm4', 'USP-S': 'usp', 'Nova': 'nova', 'MP9': 'mp9', 'P250': 'p250' };
+  function rq(x) { return x && RKEY[x.w] ? '?round=' + RKEY[x.w] : ''; }
+  function best(rs) { return rs.slice().sort(function (a, b) { return b.v - a.v; })[0]; }
   function golink(t) { var i = t.lastIndexOf(' '); return esc(t.slice(0, i + 1)) + '<span class="nw">' + esc(t.slice(i + 1)) + '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>'; }
 
   // the header's balance, read and written in place; wireframes/_nav.js draws it as "74.20 coins"
@@ -329,11 +333,17 @@
     /* founder, 5 Nov 2026, instead of a line under the act: the price rides in the button, "Open 1 case" and the coins in a chip at its end;
        the accessible name still says what it costs */
     if (!guest) {
-      act.innerHTML = short ? '<span>Add funds</span>' : '<span>Open ' + count + ' case' + (count > 1 ? 's' : '') + '</span><span class="v4c-go-price"><img src="art/brand/coin-6-small.svg" alt="">' + total.toFixed(2) + '</span>';
-      if (short) act.removeAttribute('aria-label'); else act.setAttribute('aria-label', 'Open ' + count + ' case' + (count > 1 ? 's' : '') + ' for ' + total.toFixed(2) + ' coins');
+      /* short of the price, critique run 4 row 29 and the founder of 11 Nov 2026, "мы это покажем на открытии кейса самого": the act keeps
+         its words and its price and refuses, the line beside it says by how much and where to add funds; it no longer turns into Add funds */
+      act.innerHTML = '<span>Open ' + count + ' case' + (count > 1 ? 's' : '') + '</span><span class="v4c-go-price"><img src="art/brand/coin-6-small.svg" alt="">' + total.toFixed(2) + '</span>';
+      act.setAttribute('aria-label', 'Open ' + count + ' case' + (count > 1 ? 's' : '') + ' for ' + total.toFixed(2) + ' coins' + (short ? ', ' + (total - balance).toFixed(2) + ' coins short' : ''));
+      if (short) act.setAttribute('aria-disabled', 'true'); else act.removeAttribute('aria-disabled');
     }
     act.classList.toggle('is-short', short);
-    line.innerHTML = (guest || short ? '' : 'After this open, ' + coins(balance - total) + ' · ') + '1 coin = $1.00 · <a href="#h2-pays">RTP ' + RTP + ', expected value ' + EV + ' coins</a>';
+    // the expected value for the count chosen, run 4 row 30: 11.68 per open beside a total of 62.00 read as the return on the total
+    var ev = count > 1 ? coins(parseFloat(EV) * count) + ' for ' + count + ' opens' : EV + ' coins';
+    line.innerHTML = (guest ? '' : short ? 'You have ' + coins(balance) + ', ' + coins(total - balance) + ' short. <a href="../../wireframes/deposit.html">Add funds</a> · ' : 'After this open, ' + coins(balance - total) + ' · ') +
+      '1 coin = $1.00 · <a href="#h2-pays">RTP ' + RTP + ', expected value ' + ev + '</a>';
     // the hash is on screen before the act, 0.14 V1 at the trigger, in its pre-roll state
     var hs = []; for (var i = 0; i < count; i++) hs.push(hash());
     hashRow.innerHTML = guest ? '' : '<span class="v4c-hash-l">Server seed hash' + (count > 1 ? 'es' : '') + '</span>' + hs.map(function (h) { return '<code>' + h + '</code>'; }).join('');
@@ -353,7 +363,7 @@
     e.preventDefault();
     if (busy) return;
     var total = PRICE * count;
-    if (total > balance) { location.href = '../../wireframes/deposit.html'; return; }
+    if (total > balance) { line.querySelector('a').focus(); return; } // refuses; the reason and Add funds stand beside it
     busy = true; host.classList.add('is-opening');
     setBalance(balance - total);
     var results = O.roll(O.items, count);
@@ -361,7 +371,8 @@
     var land = Q.get('land');
     if (land === 'k') results[0] = O.dress(O.knife); else if (land && O.items[+land]) results[0] = O.dress(O.items[+land]);
     act.disabled = true; counter.classList.add('is-locked');
-    cost.innerHTML = '<b>' + coins(total) + '</b><span>Spent</span>';
+    // founder of 11 Nov 2026: "центрированно текст и может что то типа минус такая то сумма а маленький текст ваш баланс такой то"
+    cost.innerHTML = '<b>−' + coins(total) + '</b><span>Your balance ' + coins(balance) + '</span>';
     act.hidden = true;
     line.innerHTML = count > 1 ? 'Opening ' + count + ' cases. All ' + count + ' results were fixed before the animation started.' : 'Opening. The result was fixed before the animation started.';
     live.textContent = 'Opening ' + (count > 1 ? count + ' cases' : 'the case') + '.';
@@ -448,36 +459,39 @@
     rs.forEach(function (x) { if (x.copy == null) x.copy = Math.round(x.v * (0.9 + Math.random() * 0.25) * 100) / 100; });
     function signed(v) { return (v >= 0 ? '+' : '−') + coins(Math.abs(v)); }
     function left() { return rs.filter(function (x, i) { return !sold[i]; }); }
-    function gap(list) { return Math.round(list.reduce(function (a, x) { return a + x.v - x.copy; }, 0) * 100) / 100; }
     function worth(list) { return list.reduce(function (a, x) { return a + x.v; }, 0); }
-    var acts = '<div class="v4c-acts">' +
-      (balance >= PRICE * n ? '<button type="button" class="v4c-again v4-btn v4-btn--l">' + (n > 1 ? 'Open ' + n + ' again' : 'Open again') + '</button>'
-        : '<a class="v4c-again v4-btn v4-btn--l" href="../../wireframes/deposit.html">Add funds to open ' + (n > 1 ? n + ' ' : '') + 'again for ' + coins(PRICE * n) + '</a>') +
-      '<button type="button" class="v4c-sell v4-btn v4-btn--l"></button>' +
-      '<a class="v4c-steam v4-btn v4-btn--l v4-btn--ghost" href="../../wireframes/withdraw.html"></a></div>';
+    /* two acts, founder of 11 Nov 2026: "не писал би длинные кнопки, в любом случае Open again, которое ведет на новое открытие кейсов (без
+       открытия, без того что тебе надо пополнить кошелек, мы это покажем на открытии кейса самого) и убрать кнопку send to steam и оставить
+       две кнопки Sell ALL как праймери и Open again как второстепенная". Sell all carries its sum in a chip as Open carries its price; Open
+       again spends nothing and never asks for a deposit (critique run 4 row 27); sending to Steam is in My items, named in the line below */
+    var acts = '<div class="v4c-acts"><button type="button" class="v4c-sell v4-btn v4-btn--l"></button>' +
+      '<button type="button" class="v4c-again v4-btn v4-btn--l v4-btn--ghost">Open again</button></div>';
+    // the net of this open first, run 4 row 27: what it cost against what came out of it, at our values
+    var spent = PRICE * n, got = worth(rs), net = Math.round((got - spent) * 100) / 100;
+    var netLine = '<div class="v4c-net"><b>' + signed(net) + '</b><span>Spent ' + coins(spent) + ' · items worth ' + coins(got) + '</span></div>';
     var inst = n === 1 ? '<p class="v4c-inst">As of ' + now() + ' · Float <b>' + rs[0].float + '</b> · Pattern <b>' + rs[0].pattern + '</b> · <a href="steam://rungame/730">Inspect in game</a></p>' +
       '<p class="v4c-inst">Value <b>' + rs[0].v.toFixed(2) + '</b> coins · a copy on sale <b>' + rs[0].copy.toFixed(2) + '</b> coins, read ' + now() + '</p>'
       // a batch: what sending each one settles, 3.3-45, and every round's own receipt and proof route, case.md 8 block 7, 3.3-37 to 3.3-40
-      : '<p class="v4c-inst">Sending to Steam: ' + rs.map(function (x) { return x.w + ' ' + signed(x.v - x.copy); }).join(', ') + ' on your balance.</p>' +
-        '<details class="v4c-rounds"><summary>Round details, ' + n + ' rounds</summary><p>Every round, in the order of the row above, which is the order of the reels.</p><ol>' +
-        rs.map(function (x) { return '<li>' + esc(x.w + ' ' + x.s) + ' · Float <b>' + x.float + '</b> · Pattern <b>' + x.pattern + '</b> · <a href="../../wireframes/fair-prefilled.html">Check this round</a> · <a href="steam://rungame/730">Inspect in game</a></li>'; }).join('') +
+      : '<details class="v4c-rounds"><summary>Round details, ' + n + ' rounds</summary><p>Every round, in the order of the row above, which is the order of the reels.</p><ol>' +
+        rs.map(function (x) { return '<li>' + esc(x.w + ' ' + x.s) + ' · Float <b>' + x.float + '</b> · Pattern <b>' + x.pattern + '</b> · <a href="../../wireframes/fair-prefilled.html' + rq(x) + '">Check this round</a> · <a href="steam://rungame/730">Inspect in game</a></li>'; }).join('') +
         '</ol></details>';
-    after.innerHTML = inst + acts +
-      '<p class="v4c-saved">' + (n > 1 ? 'All ' + n + ' saved' : 'Saved') + ' to <a href="../../wireframes/account.html">My items</a>. <strong>Selling cannot be undone.</strong></p>' +
-      '<p class="v4c-links"><a class="v4-go" href="../../wireframes/fair-prefilled.html">' + golink(n > 1 ? 'Check each of the ' + n + ' rounds' : 'Check this round') + '</a>' +
-      '<a class="v4-go" href="../../wireframes/result.html">' + golink(n > 1 ? 'Share a round' : 'Share this round') + '</a><a class="v4-go" href="https://steamcommunity.com/market/" rel="external nofollow">' + golink('See it on the Steam Market') + '</a></p>';
+    after.innerHTML = netLine + inst + acts +
+      '<p class="v4c-saved">' + (n > 1 ? 'All ' + n + ' saved' : 'Saved') + ' to <a href="../../wireframes/account.html">My items</a>, where ' + (n > 1 ? 'they' : 'it') + ' can be sent to Steam. <strong>Selling cannot be undone.</strong></p>' +
+      // the round goes with the link where the prototype holds its record, run 4 row 28 (_nav.js ROUNDS); several rounds go to the checker
+      '<p class="v4c-links"><a class="v4-go" href="../../wireframes/' + (n > 1 ? 'fair.html#check' : 'fair-prefilled.html' + rq(rs[0])) + '">' + golink(n > 1 ? 'Check each of the ' + n + ' rounds' : 'Check this round') + '</a>' +
+      '<a class="v4-go" href="../../wireframes/result.html' + rq(best(rs)) + '">' + golink(n > 1 ? 'Share a round' : 'Share this round') + '</a><a class="v4-go" href="https://steamcommunity.com/market/" rel="external nofollow">' + golink('See it on the Steam Market') + '</a></p>';
     after.hidden = false; commit.hidden = true;
     var again = after.querySelector('button.v4c-again');
     // founder of 6 Nov 2026: "не должен запускать снова рулетку, он должен показать страницу кейса". The press spends nothing, so it
     // carries no price: it puts the case back at rest with the same count, and the Open button, where the price is printed, takes the spend
     if (again) again.addEventListener('click', function () { reset(); act.focus({ preventScroll: true }); });
-    var sell = after.querySelector('.v4c-sell'), steam = after.querySelector('.v4c-steam'), ones = win.querySelectorAll('.v4c-sell1');
+    var sell = after.querySelector('.v4c-sell'), ones = win.querySelectorAll('.v4c-sell1');
     // the batch controls follow what is left, case.md section 12, "on a batch the batch control follows what is left"
     function drawBatch() {
       var l = left();
-      if (!l.length) { sell.disabled = true; steam.classList.add('is-gone'); return; }
-      sell.innerHTML = (l.length > 1 ? 'Sell all ' + l.length + ' for ' : 'Sell for ') + coins(worth(l));
-      steam.innerHTML = (l.length > 1 ? 'Send ' + l.length + ' to Steam, ' : 'Send to Steam, ') + signed(gap(l));
+      if (!l.length) { sell.disabled = true; sell.innerHTML = 'All sold'; sell.removeAttribute('aria-label'); return; }
+      sell.innerHTML = '<span>' + (l.length > 1 ? 'Sell all' : 'Sell') + '</span><span class="v4c-go-price"><img src="art/brand/coin-6-small.svg" alt="">' + worth(l).toFixed(2) + '</span>';
+      sell.setAttribute('aria-label', (l.length > 1 ? 'Sell all ' + l.length + ' for ' : 'Sell for ') + worth(l).toFixed(2) + ' coins');
     }
     function sellOne(i, b) {
       sold[i] = true; setBalance(balance + rs[i].v);
@@ -488,7 +502,7 @@
     sell.addEventListener('click', function () {
       var l = left(); if (!l.length) return;
       var back = worth(l); rs.forEach(function (x, i) { if (!sold[i]) sellOne(i, ones[i]); });
-      sell.disabled = true; sell.innerHTML = 'Sold, +' + coins(back); steam.classList.add('is-gone');
+      sell.disabled = true; sell.innerHTML = 'Sold, +' + coins(back); sell.removeAttribute('aria-label');
     });
     Array.prototype.forEach.call(ones, function (b, i) {
       b.addEventListener('click', function () { if (sold[i]) return; sellOne(i, b); drawBatch(); });
