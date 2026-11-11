@@ -15,7 +15,10 @@
   var HUES = [1, 2, 3, 4, 5].map(function (i) { var e = document.createElement('i'); e.className = 'dc-t' + i; e.hidden = true; document.body.appendChild(e);
     var h = getComputedStyle(e).getPropertyValue('--hue').trim(); e.remove(); return h || 'var(--color-text-hi)'; });
   var WAGER = 87.5, RESET = '00:00 UTC', OPENED = ['Silver'];
-  var SUB = 'Wager to climb. Each tier you reach opens its own case, once a day.';
+  /* no climb, critique run 4 row 34 and the founder of 11 Nov 2026, "yes, on the whole": a ladder of spending with a track to Elite is the
+     completion and status that CLAUDE.md forbids a limit; the tiers stay as a table, each with the wager that opens it, and nothing counts
+     down to the next one (the track, its marker and Wager remaining are gone) */
+  var SUB = 'Each tier opens its own case, once a day, at the wager shown on it.';
   var SUB_LIMIT = 'Each tier reached opens its own case, once a day.';
   var LIMIT_NOTE = 'Your limits are in force, so no wager targets are shown.';
   /* the skins of each tier, our real pictures, never generated: none, one, two, three, four with the karambit. a and b stand in the tray
@@ -31,8 +34,6 @@
     opened: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6 11-11-1.4-1.4z"/></svg>',
     open: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>',
     lock: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3h1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zm2 0h6V8a3 3 0 0 0-6 0z"/></svg>',
-    /* the next tier's lock in two parts, so its shackle can tug at the body */
-    tug: '<svg class="dc-lock" viewBox="0 0 24 24" aria-hidden="true"><path class="dc-shackle" d="M8 11V8a4 4 0 0 1 8 0v3"/><rect class="dc-body" x="5" y="11" width="14" height="10" rx="2"/></svg>',
     clock: '<svg class="dc-clock" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
   };
   var COIN = '<i class="dc-coin" aria-hidden="true"></i>';
@@ -41,16 +42,8 @@
   function money(n) { var p = n.toFixed(2).split('.'); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') + '.' + p[1]; }
   /* a money figure: coin 6 and the figure on screen, "coins" for a screen reader */
   function coins(n) { return '<b class="dc-m">' + COIN + money(n) + '<span class="dc-sr"> coins</span></b>'; }
-  function nextIdx() { for (var i = 0; i < TIERS.length; i++) if (WAGER < TIERS[i].at) return i; return -1; }
   function openable(st) { return TIERS.filter(function (t) { return WAGER >= t.at && st.opened.indexOf(t.n) < 0; }); }
-  function segFill(i) { var lo = i ? TIERS[i - 1].at : 0, f = (WAGER - lo) / (TIERS[i].at - lo); return Math.max(0, Math.min(1, f)); }
-  /* where a wager sits on a row of five, a tier's mark under its card's centre */
-  function at(k, f) { return 'calc((100% - 4 * var(--gap)) * ' + ((k + 0.5 + f) / 5).toFixed(4) + ' + var(--gap) * ' + (k + f).toFixed(4) + ')'; }
-  function wagerPos() {
-    if (WAGER < TIERS[0].at) return 'calc((100% - 4 * var(--gap)) * ' + (0.1 * WAGER / TIERS[0].at).toFixed(4) + ')';
-    for (var k = 0; k < TIERS.length - 1; k++) if (WAGER < TIERS[k + 1].at) return at(k, (WAGER - TIERS[k].at) / (TIERS[k + 1].at - TIERS[k].at));
-    return '100%';
-  }
+
   function chip(k, ico, html) { return '<span class="dc-chip is-' + k + '">' + ico + '<span>' + html + '</span></span>'; }
   function box(cls, mark, fig, label, style) { return '<div class="dc-box ' + cls + '"' + (style ? ' style="' + style + '"' : '') + '>' + mark + '<div><b>' + fig + '</b><span>' + label + '</span></div></div>'; }
   function art(i) {
@@ -62,7 +55,7 @@
      section, opts.signin is the guest's sign in link */
   function render(st, opts) {
     opts = opts || {};
-    var n = nextIdx(), o = openable(st), h = st.s === 'guest' || !o.length ? -1 : TIERS.indexOf(o[0]);
+    var o = openable(st), h = st.s === 'guest' || !o.length ? -1 : TIERS.indexOf(o[0]);
     var cards = TIERS.map(function (t, i) {
       var line;
       var reached = st.s !== 'guest' && WAGER >= t.at, opened = st.opened.indexOf(t.n) >= 0;
@@ -70,34 +63,14 @@
       else if (st.s === 'guest') line = chip('info', '', 'At ' + coins(t.at) + ' wagered');
       else if (reached) line = opened ? chip('opened', ICON.opened, 'Opened today') : chip('open', ICON.open, 'Open now');
       else if (st.s === 'limit') line = chip('locked', ICON.lock, 'Locked');
-      else if (i === n) line = chip('next', ICON.tug, 'Needs ' + coins(t.at - WAGER) + ' more');
       else line = chip('locked', ICON.lock, 'At ' + coins(t.at) + ' wagered');
-      var k = st.s === 'guest' ? 'info' : reached ? (opened ? 'opened' : 'open') : (i === n && st.s === 'acct' ? 'next' : 'locked');
+      var k = st.s === 'guest' ? 'info' : reached ? (opened ? 'opened' : 'open') : 'locked';
       return '<li class="dc-card dc-t' + (i + 1) + ' is-' + k + (i === h ? ' is-hero' : '') + '">' + art(i) + '<b class="dc-name">' + t.n + '</b>' + line + '</li>';
     }).join('');
     var track = '';
-    if (st.s !== 'limit') {
-      var acct = st.s === 'acct';
-      var ticks = TIERS.map(function (t, i) {
-        var on = acct && WAGER >= t.at, nx = acct && i === n;
-        return '<span class="dc-tick dc-t' + (i + 1) + (on ? ' is-on' : '') + (nx ? ' is-next' : '') + '" style="left:' + at(i, 0) + '"><b></b><em>' + money(t.at) + '</em></span>';
-      }).join('');
-      /* the fill's colours are stopped at the dots themselves, so each reached dot sits on its own colour */
-      var stops = HUES.map(function (c, i) { return c + ' ' + at(i, 0); }).join(', ');
-      var you = acct ? '<span class="dc-pin"></span><span class="dc-you">' + COIN + money(WAGER) + '<span class="dc-sr"> coins wagered</span></span>' : '';
-      /* the guest, founder of 2 Nov 2026: the same marker as a signed in person's, standing at the track's start with a start dot and a short
-         fill, and saying where the wager will show; it opens sign in, as the head's button does. A start, not a zero: no figure is shown */
-      if (st.s === 'guest') you = '<span class="dc-start" aria-hidden="true"></span><span class="dc-pin is-start" aria-hidden="true"></span>' +
-        '<a class="dc-you is-start" href="' + (opts.signin || '../../wireframes/signin.html') + '"' + (opts.authOpen ? ' data-auth-open="default"' : '') + '>' + COIN + 'Sign in to see your wager</a>';
-      var lab = acct && n >= 0 ? money(WAGER) + ' coins wagered of ' + money(TIERS[n].at) + ' for ' + TIERS[n].n : 'The wager that opens each tier, in coins';
-      track = '<div class="dc-track" style="--pos:' + (acct ? wagerPos() : '0%') + '" role="img" aria-label="' + lab + '"><div class="dc-bar">' +
-        (acct ? '<i class="dc-fill" style="background:linear-gradient(90deg, ' + stops + ')"></i>' : '') + '</div>' + ticks + you + '</div>' +
-        '<p class="dc-unit">' + COIN + '<span><span class="dc-sr">Coins </span>Wagered since ' + RESET + '. Each mark is the wager that opens that tier\'s case.</span></p>';
-    }
     var boxes = '';
     if (st.s === 'acct') {
       boxes += box('is-money', COIN, money(WAGER) + '<span class="dc-sr"> coins</span>', 'Wagered since ' + RESET);
-      if (n >= 0) boxes += box('is-money is-remain', COIN, money(TIERS[n].at - WAGER) + '<span class="dc-sr"> coins</span>', 'Wager remaining to ' + TIERS[n].n, '--tier:' + HUES[n]);
     }
     boxes += box('is-time', ICON.clock, RESET, 'Daily reset');
     var btn = st.s === 'guest' ? '<a class="v4-btn v4-btn--l" href="' + (opts.signin || '../../wireframes/signin.html') + '"' + (opts.authOpen ? ' data-auth-open="default"' : '') + '>Sign in to see your tier</a>' : '';

@@ -7059,3 +7059,18 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** Keeping Send to Steam as a third act (the founder: two buttons). Add funds as a second button beside the refused act: a deposit act at the spend again, where a link in the line names the way. Spent and the items as two figures with no net, which leaves the subtraction to the reader at the low point.
 
 **The cost.** Node `3.3` and its grey outcome keep three acts, keep, sell and send; the v4 outcome has two, and sending to Steam is one screen further, in My items, which the line names. The outcome's two acts both keep the money on the platform, selling for coins and opening again; the net line above them and Selling cannot be undone under them are what answer principle 3 there. Rows 31, 32 and 34 of run 4 are the founder's own earlier decisions and stay open for the founder; row 33 stays open.
+
+## D-220. Run 4's last four rows: Daily keeps its tiers and loses its climb, the upgrades counter stays, the strip keeps a value without a chance
+
+**Date:** 2026-11-11. **Stage:** 06, step 8. **Decided by:** the founder, on four recommendations for critique run 4 rows 31 to 34: "yes, on the whole; on the upgrade, we keep it" (translated).
+
+**What was decided.**
+
+1. **Daily cases on Home is a table of tiers, not a climb (row 34).** The track to Elite, its marker and the guest's "Sign in to see your wager" on it, the box Wager remaining to {tier}, and the chip Needs {n} coins more are gone; the next tier's tugging lock goes with that chip. Each tier keeps its case and the wager that opens it ("At 100.00 coins wagered"), Open now, Opened today and the hero's Open {tier} case, and a signed in person keeps Wagered since 00:00 UTC beside the reset. The line reads "Each tier opens its own case, once a day, at the wager shown on it." `CLAUDE.md` forbids a limit completion mechanics, streaks, status or a session score; a track that counts down to the next spending tier is that same thing on spending, and the critique read it so.
+2. **The footer's upgrades counter stays (row 31),** the founder's call, against the recommendation to drop a figure for a mode marked Not launched yet. It stays a sample, `D-124`.
+3. **The strip and the reel keep a value with no chance beside it (row 32),** the W7 card of `D-213`. A divergence from `D2`, that a value and its chance travel together, named here: every chance is in What is in this case under the stage, and a chance on every tile of a moving strip was judged noise.
+4. **The promise above the first screen at 360 (row 33) goes to stage 10,** whose measure is the first screen; the case's head is 56px shorter since `D-218`.
+
+**Rejected.** For Daily, keeping the track and only dropping its countdown: a track drawn to Elite still reads as the way to climb. For the counter, saying what it counts: the founder keeps it as drawn.
+
+**The cost.** A signed in person no longer sees how far the next tier is; the tier's own figure and the wager so far are both on screen, and the subtraction is theirs. The lab keeps its other rows (R1 to R8) as their record; R9 there is drawn by the same renderer and changed with Home. A doubter can still read the upgrades counter as invented. Run 4 is closed: 7 fixed on 11 November, 1 more fixed here, 2 kept, 1 deferred, 1 withdrawn on verification.

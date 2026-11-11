@@ -42,8 +42,6 @@
 .dc-box .dc-coin { width: 20px; height: 20px; }
 .dc-clock { flex: 0 0 20px; width: 20px; height: 20px; fill: none; stroke: var(--color-blue); stroke-width: 2.2; stroke-linecap: round; }
 /* the remaining box points at the tier it is about: its colour as an edge and a tint */
-.dc-box.is-remain { background: linear-gradient(120deg, color-mix(in srgb, var(--tier) 30%, rgba(11, 10, 34, .72)), rgba(11, 10, 34, .72)); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--tier); }
-.dc-box.is-remain span { color: var(--color-text-soft); }
 @container dc (min-width: 1080px) {
   .dc-head.has-title { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0 24px; }
   .dc-head.has-title .dc-title { display: contents; }
@@ -112,30 +110,7 @@
 .dc-chip.is-opened svg { fill: var(--color-green); }
 .dc-chip.is-open { background: var(--color-text-hi); color: var(--color-ground); }
 .dc-chip.is-locked { color: var(--color-text-muted); }
-/* the next tier's lock: pink, and every few seconds its shackle tugs up twice and the body gives a small shake */
-.dc-lock { overflow: visible; }
-.dc-body { fill: var(--color-pink); transform-origin: 12px 21px; animation: dc-shake 3.2s ease-in-out infinite; }
-.dc-shackle { fill: none; stroke: var(--color-pink); stroke-width: 2.4; stroke-linecap: round; animation: dc-tug 3.2s ease-in-out infinite; }
-@keyframes dc-tug { 0%, 66%, 100% { translate: 0 0; } 72% { translate: 0 -3px; } 78% { translate: 0 0; } 83% { translate: 0 -2px; } 88% { translate: 0 0; } }
-@keyframes dc-shake { 0%, 70%, 92%, 100% { rotate: 0deg; } 74% { rotate: -8deg; } 80% { rotate: 7deg; } 85% { rotate: -5deg; } 89% { rotate: 3deg; } }
 
-/* ---- the track: the fill passes through each tier's colour at its dot; the marker sits on the fill's end with a chat tail ---- */
-.dc-track { position: relative; height: 70px; margin-top: 18px; }
-.dc-bar { position: absolute; left: 0; right: 0; top: 31px; height: 10px; border-radius: 5px; background: rgba(255, 255, 255, .08); }
-.dc-fill { position: absolute; inset: 0; border-radius: inherit; clip-path: inset(0 calc(100% - var(--pos)) 0 0 round 5px); }
-.dc-tick { position: absolute; top: 28px; display: grid; justify-items: center; gap: 6px; translate: -50% 0; }
-.dc-tick b { width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; background: #0D0C28; box-shadow: inset 0 0 0 3px var(--hue); }
-.dc-tick.is-on b { background: var(--hue); box-shadow: 0 0 0 3px #0D0C28; }
-.dc-tick.is-next b { animation: dc-breathe 1.8s ease-in-out infinite; }
-@keyframes dc-breathe { 50% { scale: 1.3; } }
-.dc-tick em { color: var(--money); opacity: .6; font-size: 13px; font-style: normal; font-weight: 700; white-space: nowrap; }
-.dc-tick.is-on em { opacity: 1; }
-.dc-pin { position: absolute; z-index: 2; top: 14px; left: calc(var(--pos) - 22px); width: 22px; height: 17px; background: var(--color-pink); clip-path: polygon(0 0, 100% 0, 100% 100%); }
-.dc-you { position: absolute; z-index: 3; top: 0; left: max(var(--pos), 84px); translate: -100% 0; display: inline-flex; align-items: center; gap: 5px; box-sizing: border-box; height: 24px;
-  padding: 0 10px 0 6px; border-radius: 12px; background: rgb(11, 10, 34); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); color: var(--money); font-size: 13px; font-weight: 900; white-space: nowrap; }
-.dc-you .dc-coin { width: 14px; height: 14px; }
-.dc-unit { display: flex; align-items: center; gap: 6px; margin: 4px 0 0; color: var(--color-text-muted); font-size: 13px; line-height: 1.4; } /* leading 1.2 to 1.4, critique row 19 */
-.dc-unit .dc-coin { width: 14px; height: 14px; }
 .dc-say { order: 4; margin: 10px 0 0; color: var(--color-text-soft); font-size: 13px; }
 .dc-say:empty { display: none; }
 
@@ -143,7 +118,7 @@
   .dc-card { transition: none; }
   .dc-card:hover { translate: none; }
   .dc-card.is-hero:hover { translate: 0 -12px; }
-  .dc-card.is-hero .dc-skin, .dc-tick.is-next b, .dc-body, .dc-shackle { animation: none; }
+  .dc-card.is-hero .dc-skin { animation: none; }
 }
 
 /* ---- a phone ---- */
@@ -159,9 +134,6 @@
   .dc-box span { font-size: 11px; white-space: normal; line-height: 1.15; }
   .dc-box.is-time:nth-child(odd) { grid-column: 1 / -1; }
   .dc-row .v4-btn { width: 100%; }
-  .dc-track { order: 1; margin-top: 18px; }
-  .dc-unit { order: 2; }
-  .dc-tick em { font-size: 12px; }
   /* founder, 4 Nov 2026, on Home at a phone and a tablet: "где то можно поставить два в ряд вместо одного". The tiers were one row each,
      100px tall and as wide as the panel, the case on the left and empty stripes on the right (704px wide at 768). Each tier is now the
      desktop's upright card, the case above its name and its chip: two per row under 440px of panel, three from 440px. Five divides by
@@ -196,6 +168,7 @@
   .dc-box.is-time > div { display: flex; align-items: baseline; gap: 8px; }
   .dc-box.is-time span { white-space: nowrap; }
   .dc.is-guest .dc-boxes { display: flex; width: auto; }
+  .dc.is-acct .dc-boxes { grid-template-columns: minmax(0, 1fr); } /* the wager and the reset a row each: two boxes since Wager remaining went, D-220 */
   .dc-row .v4-btn { min-height: 44px; padding: 0 16px; font-size: 14px; }
 }
 
@@ -205,16 +178,8 @@
 
 /* the same day: for a signed in person the cases not yet reached are darkened, the case and its skins, so the reachable ones lead; the
    card keeps its colour and the chip says what is missing */
-.dc.is-acct .dc-card:is(.is-next, .is-locked) .dc-art { filter: brightness(.45) saturate(.75); }
+.dc.is-acct .dc-card.is-locked .dc-art { filter: brightness(.45) saturate(.75); }
 
-/* the guest's marker, founder of 2 Nov 2026, redrawn the same day: no dot apart from the track; the track's own rounded start is filled, a
-   12px round cap in Silver's colour, "чуть заполнено", a start and not a figure. The signed in marker's pill turned to the right stands
-   from the cap's edge, its tail's tip on the cap, saying "Sign in to see your wager" and opening sign in */
-.dc-start { position: absolute; z-index: 1; left: -1px; top: 30px; width: 12px; height: 12px; border-radius: 50%; background: #C9D2E3; }
-.dc-pin.is-start { left: 11px; clip-path: polygon(0 0, 100% 0, 0 100%); }
-.dc-you.is-start { left: 11px; translate: none; color: var(--color-text-hi); text-decoration: none; }
-.dc-you.is-start:hover { filter: brightness(1.12); }
-.dc-you.is-start:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
 
 /* founder of 2 Nov 2026 at a panel about 1050px wide, "тоже что то поломалось мне вообще не нравится": between 761 and 1079px the head row
    stretched every box and the button to fill it, so a guest's one reset box and one button became two half-width bars. A guest keeps both
@@ -240,7 +205,7 @@
      panel's padding; it takes its label's width */
   .dc.is-guest .dc-row .v4-btn { width: auto; }
   /* a signed in person's three boxes in one row, so the reset plate no longer spans an empty full width row of its own */
-  .dc.is-acct .dc-boxes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .dc.is-acct .dc-boxes { grid-template-columns: repeat(2, minmax(0, 1fr)); } /* two since Wager remaining went, D-220 */
   .dc.is-acct .dc-box.is-time:nth-child(odd) { grid-column: auto; }
 }
 /* founder of 2 Nov 2026 at a panel about 790px wide, "и с этим я бы тоже что то сделал": a guest's head left the right half empty, and the

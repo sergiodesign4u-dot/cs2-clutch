@@ -25,7 +25,7 @@
 | What | Count |
 |---|---|
 | Product pages read, each at 1440 and 360 | 133 |
-| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8; 1305 since `D-209` added six global and thirty five Home strings and listed one missed, 3 Nov 2026; 1313 since the case screen v4 added eight rows to `3.3`, 3.3-48 to 3.3-55, 4 Nov 2026; 1317 since the case screen's block labs added four, 3.3-56 to 3.3-59, all on lab rows only, 4 Nov 2026; 1318 since `D-218` put Check in Home's Every round plate, 1.0-47, 11 Nov 2026; 1325 since `D-219` added seven to the v4 case screen, 3.3-67 to 3.3-73, 11 Nov 2026 |
+| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8; 1305 since `D-209` added six global and thirty five Home strings and listed one missed, 3 Nov 2026; 1313 since the case screen v4 added eight rows to `3.3`, 3.3-48 to 3.3-55, 4 Nov 2026; 1317 since the case screen's block labs added four, 3.3-56 to 3.3-59, all on lab rows only, 4 Nov 2026; 1318 since `D-218` put Check in Home's Every round plate, 1.0-47, 11 Nov 2026; 1325 since `D-219` added seven to the v4 case screen, 3.3-67 to 3.3-73, 11 Nov 2026; 1319 since `D-220` retired seven of Home's Daily strings and added one, 1.0-48, 11 Nov 2026 |
 | of them Global | 164 |
 | of them By screen | 1093 at step 1; 1099 since `D-169` to `D-174` |
 | of them SEO / IA ownership | 86 |
@@ -564,18 +564,18 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 1.0-9 | main | Ends {date}, {time} UTC | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-172`; `voice.md` "Forbidden": a stated end, never a bare clock |
 | 1.0-10 | main | Time left in {d} | accessible name | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-172` |
 | 1.0-11 | main | See Coldfront | button (link) | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept; the event banner's act since `D-172`, missed by the step 1 scan and listed on 3 Nov 2026 |
-| 1.0-12 | main | Wager to climb. Each tier you reach opens its own case, once a day. | text | `design/v4/daily-home.js` | `design/v4/index.html`, both states | N1 N2 | new, D-209: the Daily cases panel's line |
+| 1.0-12 | main | Wager to climb. Each tier you reach opens its own case, once a day. | text | `design/v4/daily-home.js` | `design/v4/index.html`, both states | N1 N2 | new, D-209: the Daily cases panel's line; **retired by `D-220`, 11 Nov 2026: the Daily track and the countdown to the next tier left Home, critique run 4 row 34** |
 | 1.0-13 | main | At {n} coins wagered | text | `design/v4/daily-home.js` | `design/v4/index.html`, both states | N2 | new, D-209: a tier's threshold; on screen the figure stands by coin 6 and "coins" is read to a screen reader, D-204 |
-| 1.0-14 | main | Needs {n} coins more | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: the next tier |
+| 1.0-14 | main | Needs {n} coins more | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: the next tier; **retired by `D-220`, 11 Nov 2026: the Daily track and the countdown to the next tier left Home, critique run 4 row 34** |
 | 1.0-15 | main | Open now | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | C9 | new, D-209: a reached tier not yet opened today |
 | 1.0-16 | main | Opened today | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | C9 | new, D-209 |
 | 1.0-17 | main | Open {d} case | button | `design/v4/daily-home.js` | `design/v4/index.html?account` | N1 | new, D-209: the first reached tier's act; a daily case costs nothing, so the label carries no figure |
-| 1.0-18 | main | Sign in to see your wager | link | `design/v4/daily-home.js` | `design/v4/index.html` | N2 | new, D-209: the guest's marker at the track's start, no figure shown |
-| 1.0-19 | main | The wager that opens each tier, in coins | accessible name | `design/v4/daily-home.js` | `design/v4/index.html` | N2 | new, D-209: the track, for a guest |
-| 1.0-20 | main | {n} coins wagered of {n} for {d} | accessible name | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: the track, signed in |
-| 1.0-21 | main | Coins Wagered since {time} UTC. Each mark is the wager that opens that tier's case. | text | `design/v4/daily-home.js` | `design/v4/index.html`, both states | N2 | new, D-209: under the track; "Coins" is read to a screen reader only |
+| 1.0-18 | main | Sign in to see your wager | link | `design/v4/daily-home.js` | `design/v4/index.html` | N2 | new, D-209: the guest's marker at the track's start, no figure shown; **retired by `D-220`, 11 Nov 2026: the Daily track and the countdown to the next tier left Home, critique run 4 row 34** |
+| 1.0-19 | main | The wager that opens each tier, in coins | accessible name | `design/v4/daily-home.js` | `design/v4/index.html` | N2 | new, D-209: the track, for a guest; **retired by `D-220`, 11 Nov 2026: the Daily track and the countdown to the next tier left Home, critique run 4 row 34** |
+| 1.0-20 | main | {n} coins wagered of {n} for {d} | accessible name | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: the track, signed in; **retired by `D-220`, 11 Nov 2026: the Daily track and the countdown to the next tier left Home, critique run 4 row 34** |
+| 1.0-21 | main | Coins Wagered since {time} UTC. Each mark is the wager that opens that tier's case. | text | `design/v4/daily-home.js` | `design/v4/index.html`, both states | N2 | new, D-209: under the track; "Coins" is read to a screen reader only; **retired by `D-220`, 11 Nov 2026: the Daily track and the countdown to the next tier left Home, critique run 4 row 34** |
 | 1.0-22 | main | Wagered since {time} UTC | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: a box over its figure |
-| 1.0-23 | main | Wager remaining to {d} | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: glossary N2's own "Wager remaining" |
+| 1.0-23 | main | Wager remaining to {d} | text | `design/v4/daily-home.js` | `design/v4/index.html?account` | N2 | new, D-209: glossary N2's own "Wager remaining"; **retired by `D-220`, 11 Nov 2026: the Daily track and the countdown to the next tier left Home, critique run 4 row 34** |
 | 1.0-24 | main | Nothing to open now. Opens reset at {time} UTC. | text | `design/v4/daily-home.js` | `design/v4/index.html?account`, when every reached tier is opened |  | new, D-209: an empty state, why and when |
 | 1.0-25 | main | Tested RTP, {d} | text | `design/v4/proof-home.js` | `design/v4/index.html`, both states |  | new, D-209: Before you spend; "tested" beside RTP, as the scene's words ask |
 | 1.0-26 | main | Expected value {n} coins at this cost. | text | `design/v4/proof-home.js` | `design/v4/index.html`, both states | S4 | Expected value {n} coins at this price. (S4: the price of an open is "price", never "cost") |
@@ -600,6 +600,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 1.0-45 | main | Play with limits | heading | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C5 | new, D-209 round 8: H3 |
 | 1.0-46 | main | Clutch is for adults, 18 and over. Deposit limits, session limits, a cool down and self exclusion are on the Responsible play page, and no limit ever stops you sending items to Steam. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C5 C7 | Clutch is for people 18 or over. Deposit limits, session limits, a cool down and self exclusion are on the Responsible play page, and no limit ever stops you sending items to Steam. (the age in the consent's and the footer's words, "18 or over", G65) |
 | 1.0-47 | main | Check; accessible name Check this round | button (link) | `design/v4/proof-home.js` | `design/v4/index.html`, both states | C9 | Check a round (founder of 11 Nov 2026: the button moved into the box of the round's hash, "make it just Check"; beside the hash the verb names the act, and the accessible name keeps it whole, as C9 words it) |
+| 1.0-48 | main | Each tier opens its own case, once a day, at the wager shown on it. | text | `design/v4/daily-home.js` | `design/v4/index.html`, both states | N1 N2 | new, `D-220`: replaces 1.0-12; no "climb", the tiers as a table, critique run 4 row 34 |
 
 ### `1.2` Provably fair
 
