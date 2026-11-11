@@ -59,59 +59,59 @@ window.NAV = [
 
   // Each Home in colour is registered under its version, the current one first, founder of 1 November 2026: "надо добавить концепты
   // v1-v4 какие есть и в текущем ... Concept v4 а в нем подпункты Home rare-drops cases". Every one was a satellite of concept.html before.
-  { label: 'Concept', wip: true, children: [
+  { label: 'Concept', children: [ // stage 06 closed, 11 Nov 2026, D-222: wip off and every page in it done, which moves Next to UI + Visual
       { label: 'Directions', page: 'design/concept/directions.html', done: true },
       { label: 'Concept',    page: 'design/concept/concept.html',    done: true },
       // A page's parts sit under it, founder of 4 Nov 2026: "то что ми делали варианти блоки части хоум єто должно стать подпунтами Home, ее
       // часть, типа откріваем нажимаем на хоум и у нас появлется пункти". A leaf may carry parts: [...]; they show while the page or one of
       // its parts is open, and stay folded otherwise.
       { subhead: 'Concept v4', items: [
-          { label: 'Home', pageLabel: 'Home v4', page: 'design/v4/index.html', live: true, parts: [
-              { label: 'Rare drops',  pageLabel: 'Rare drops v4',      page: 'design/v4/rare-drops.html', live: true },
-              { label: 'Case art',    pageLabel: 'Case art v4',        page: 'design/v4/cases-lab.html',  live: true },
-              { label: 'Mode cards',  pageLabel: 'Mode cards v4',      page: 'design/v4/modes-lab.html',  live: true },
-              { label: 'Side menu',   pageLabel: 'Side menu v4',       page: 'design/v4/rail-lab.html',   live: true },
-              { label: 'Daily cases', pageLabel: 'Daily cases v4',     page: 'design/v4/daily-lab.html',  live: true },
-              { label: 'Before you spend', pageLabel: 'Before you spend v4', page: 'design/v4/proof-lab.html', live: true },
-              { label: 'What opening involves', pageLabel: 'What opening involves v4', page: 'design/v4/seo-lab.html', live: true },
-              { label: 'Logo and coin', pageLabel: 'Logo and coin v4',  page: 'design/v4/brand-lab.html',  live: true },
-              { label: 'Buttons',     pageLabel: 'Buttons v4',         page: 'design/v4/buttons-lab.html', live: true },
-              { label: 'Case tile hover', pageLabel: 'Case tile hover v4', page: 'design/v4/tile-hover-lab.html', live: true },
-              { label: 'Section headings', pageLabel: 'Section headings v4', page: 'design/v4/heading-lab.html', live: true },
-              { label: 'Footer', pageLabel: 'Footer v4', page: 'design/v4/footer-lab.html', live: true },
-              { label: 'Sign in', pageLabel: 'Sign in v4', page: 'design/v4/signin-lab.html', live: true },
-              { label: 'Account', pageLabel: 'Account v4', page: 'design/v4/account-lab.html', live: true }
+          { label: 'Home', pageLabel: 'Home v4', page: 'design/v4/index.html', done: true, parts: [
+              { label: 'Rare drops',  pageLabel: 'Rare drops v4',      page: 'design/v4/rare-drops.html', done: true },
+              { label: 'Case art',    pageLabel: 'Case art v4',        page: 'design/v4/cases-lab.html',  done: true },
+              { label: 'Mode cards',  pageLabel: 'Mode cards v4',      page: 'design/v4/modes-lab.html',  done: true },
+              { label: 'Side menu',   pageLabel: 'Side menu v4',       page: 'design/v4/rail-lab.html',   done: true },
+              { label: 'Daily cases', pageLabel: 'Daily cases v4',     page: 'design/v4/daily-lab.html',  done: true },
+              { label: 'Before you spend', pageLabel: 'Before you spend v4', page: 'design/v4/proof-lab.html', done: true },
+              { label: 'What opening involves', pageLabel: 'What opening involves v4', page: 'design/v4/seo-lab.html', done: true },
+              { label: 'Logo and coin', pageLabel: 'Logo and coin v4',  page: 'design/v4/brand-lab.html',  done: true },
+              { label: 'Buttons',     pageLabel: 'Buttons v4',         page: 'design/v4/buttons-lab.html', done: true },
+              { label: 'Case tile hover', pageLabel: 'Case tile hover v4', page: 'design/v4/tile-hover-lab.html', done: true },
+              { label: 'Section headings', pageLabel: 'Section headings v4', page: 'design/v4/heading-lab.html', done: true },
+              { label: 'Footer', pageLabel: 'Footer v4', page: 'design/v4/footer-lab.html', done: true },
+              { label: 'Sign in', pageLabel: 'Sign in v4', page: 'design/v4/signin-lab.html', done: true },
+              { label: 'Account', pageLabel: 'Account v4', page: 'design/v4/account-lab.html', done: true }
           ]},
           // The case page's parts are its blocks, as Home's are, founder of 4 Nov 2026: "я хотел что би ти сделал мне страници для например
           // первий єкран и варианти, потом страница с блоком Best drops и варианти". The open and the outcome are states of the page, not
           // blocks, and stand beside it ("я би делал би их верхним уровнем а не подуровнем кейса").
-          { label: 'Case screen', pageLabel: 'Case screen v4', page: 'design/v4/case.html', live: true, parts: [
-              { label: 'Competitors', pageLabel: 'Case pages, 8 competitors', page: 'design/v4/case-research.html', live: true },
-              { label: 'Case block', pageLabel: 'Case block v4', page: 'design/v4/stage-lab.html', live: true },
-              { label: 'Skin cards', pageLabel: 'Skin cards v4', page: 'design/v4/card-lab.html', live: true },
-              { label: 'Rare skins', pageLabel: 'Rare skins in the band v4', page: 'design/v4/rare-lab.html', live: true },
-              { label: 'Rare marks', pageLabel: 'Rare marks, live drops and cards v4', page: 'design/v4/rare-marks-lab.html', live: true },
-              { label: 'Before you open', pageLabel: 'Before you open v4', page: 'design/v4/info-lab.html', live: true },
-              { label: 'Best drops', pageLabel: 'Best drops v4', page: 'design/v4/drops-lab.html', live: true },
-              { label: 'What is in this case', pageLabel: 'What is in this case v4', page: 'design/v4/table-lab.html', live: true },
-              { label: 'What this case pays', pageLabel: 'What this case pays v4', page: 'design/v4/pays-lab.html', live: true },
-              { label: 'Published against observed', pageLabel: 'Published against observed v4', page: 'design/v4/observed-lab.html', live: true },
-              { label: 'How this case works', pageLabel: 'How this case works v4', page: 'design/v4/how-lab.html', live: true }
+          { label: 'Case screen', pageLabel: 'Case screen v4', page: 'design/v4/case.html', done: true, parts: [
+              { label: 'Competitors', pageLabel: 'Case pages, 8 competitors', page: 'design/v4/case-research.html', done: true },
+              { label: 'Case block', pageLabel: 'Case block v4', page: 'design/v4/stage-lab.html', done: true },
+              { label: 'Skin cards', pageLabel: 'Skin cards v4', page: 'design/v4/card-lab.html', done: true },
+              { label: 'Rare skins', pageLabel: 'Rare skins in the band v4', page: 'design/v4/rare-lab.html', done: true },
+              { label: 'Rare marks', pageLabel: 'Rare marks, live drops and cards v4', page: 'design/v4/rare-marks-lab.html', done: true },
+              { label: 'Before you open', pageLabel: 'Before you open v4', page: 'design/v4/info-lab.html', done: true },
+              { label: 'Best drops', pageLabel: 'Best drops v4', page: 'design/v4/drops-lab.html', done: true },
+              { label: 'What is in this case', pageLabel: 'What is in this case v4', page: 'design/v4/table-lab.html', done: true },
+              { label: 'What this case pays', pageLabel: 'What this case pays v4', page: 'design/v4/pays-lab.html', done: true },
+              { label: 'Published against observed', pageLabel: 'Published against observed v4', page: 'design/v4/observed-lab.html', done: true },
+              { label: 'How this case works', pageLabel: 'How this case works v4', page: 'design/v4/how-lab.html', done: true }
           ]},
-          { label: 'Case opening', pageLabel: 'Case opening v4', page: 'design/v4/open-lab.html', live: true },
-          { label: 'Case outcome', pageLabel: 'Case outcome v4', page: 'design/v4/win-lab.html', live: true }
+          { label: 'Case opening', pageLabel: 'Case opening v4', page: 'design/v4/open-lab.html', done: true },
+          { label: 'Case outcome', pageLabel: 'Case outcome v4', page: 'design/v4/win-lab.html', done: true }
       ]},
       { subhead: 'Concept v3', items: [
-          { label: 'Home',        pageLabel: 'Home v3',            page: 'design/v3/index.html',      live: true }
+          { label: 'Home',        pageLabel: 'Home v3',            page: 'design/v3/index.html',      done: true }
       ]},
       { subhead: 'Concept v2', items: [
-          { label: 'Home, direction A', pageLabel: 'Home v2 A',    page: 'design/v2-a/index.html',    live: true },
-          { label: 'Home, direction B', pageLabel: 'Home v2 B',    page: 'design/v2-b/index.html',    live: true },
-          { label: 'Home, direction C', pageLabel: 'Home v2 C',    page: 'design/v2-c/index.html',    live: true }
+          { label: 'Home, direction A', pageLabel: 'Home v2 A',    page: 'design/v2-a/index.html',    done: true },
+          { label: 'Home, direction B', pageLabel: 'Home v2 B',    page: 'design/v2-b/index.html',    done: true },
+          { label: 'Home, direction C', pageLabel: 'Home v2 C',    page: 'design/v2-c/index.html',    done: true }
       ]},
       { subhead: 'Concept v1', items: [
-          { label: 'Home',           pageLabel: 'Home v1',           page: 'design/index.html',         live: true },
-          { label: 'Home, signed in', pageLabel: 'Home v1 signed in', page: 'design/index-account.html', live: true }
+          { label: 'Home',           pageLabel: 'Home v1',           page: 'design/index.html',         done: true },
+          { label: 'Home, signed in', pageLabel: 'Home v1 signed in', page: 'design/index-account.html', done: true }
       ]}
   ]},
 
