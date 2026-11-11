@@ -81,3 +81,85 @@ Founder: "let's do it", rows 8 to 17 as one batch, row 10 shown first. Claude: t
 | 26 | P3 | Small text | `.wf-d-axes` | 11px read as body text, the detector's floor for it is 12 | None | impeccable | **withdrawn on verification**: a meta line under the name, at the 11px floor for functional text the critique holds |
 
 Held: the ellipsis removals win the cascade, `.wf-d-axes` on order and `.v4c-won-name b` at 0,7,1 against 0,6,1; no figure in visible text groups thousands with a comma; `--color-money` is declared once.
+
+## The stage contract as a checklist, 11 November 2026
+
+A separate table from the defects, by the pack's rule: both instruments read what exists, so a step that never happened shows in neither. Built by a read-only Claude subagent against `06 - Concept.md` ("Вхід і вихід" VI, "Перед етапом" G, "Що на виході" O, "Готово, коли" R), then checked by Claude: rows 15 and 36 are done since (the Before and after section and five pairs, one at 360), and row 26 was narrowed in the browser (Home v4's case links open v4's case screen; one link, What this case pays, opens the grey case screen).
+
+| # | Contract line | Verdict | Reason | Proof |
+|---|---|---|---|---|
+| 1 | VI: every declared input read; the contrast screen chosen | done | The gate found every input; the contrast screen is 3.3 | `D-182` |
+| 2 | VI, R: `DESIGN-artifacts.md` gives every value's origin, for 07 | not done | Restored, but v4's values never reached it; `D-215` names it as a cost only | `DESIGN-artifacts.md`; `D-215` |
+| 3 | VI, R: `concept.md` holds taste, attributes, brand and the chosen layout | not done | The layout section still records direction 2; v4 and `D-209` are absent | `concept.md` section 7 |
+| 4 | VI: `design/_theme.css` is the one source 07 moves by `git mv` | not done | v4's values live in `design/v4/theme.css` and the block sheets; `D-209` waits for a named fold decision | `design/v4/index.html` links; `D-209` |
+| 5 | VI, O: two coloured screens in `design/` | done | Home v4 and the case screen v4 | `D-209`, `D-213` |
+| 6 | VI, R: the plate on `concept.html` for 09 | done | One collected plate, the brand exists route | `concept.html` Brand and references |
+| 7 | VI, R: `references.md` visible, its section in `NAV_SECTIONS` | done | | `concept.html` |
+| 8 | G: Refero | done | | `references.md` |
+| 9 | G: impeccable | done | Detector v4.7.0 | this log |
+| 10 | G: Magnific, Nano Banana 2, 4k | done differently | The founder chose Codex; recorded in `concept.md` without a decision number | `concept.md` section 5 |
+| 11 | G: real photos, no grey placeholder | done differently | Real skin art, no stock (`D-183`); no placeholder found in runs 1 to 3 | `concept.md` section 6 |
+| 12 | G: Solar icons as inline SVG | done differently | CSS masks (`D-191`); the stated style differs, Linear in one file and Bold in another | `DESIGN-artifacts.md` section 7; `_theme.css` |
+| 13 | O: this log with a separate contract table | done | This table | here |
+| 14 | O: `directions.html`, three directions | done | | `D-187` |
+| 15 | O, R: before and after pairs in `screens/`, one at 360 | done | Five pairs, pair 3 at a measured 360 | `concept.html#before-after` |
+| 16 | O, R: `_theme.css` naming convention and an origin on every variable | not done | Prefixes outside the convention (`--icon`, `--art`, `--mix`, `--shadow`, `--motion`, `--shape`, `--blur`) are undeclared; `--space-1..7` share one origin line | `design/_theme.css` |
+| 17 | O, R: no inline styles on the pages | done | No `style=` in either page; scripts set runtime values | grep |
+| 18 | O, R: copies, the grey screens untouched | done differently | Grey markup untouched; the shared data in `wireframes/_nav.js` edited by decision | `D-213`, `D-217` |
+| 19 | O, R: `CLAUDE.md` gets the stage's rules and the keep-it rule | not done | Proposed to the founder, not written | `CLAUDE.md` |
+| 20 | O, R: README Concept = Done | not done | Still in progress | `README.md` |
+| 21 | O, R: decisions record the plate and the direction with what was rejected | done | | `D-184`, `D-185`, `D-187`, `D-209` |
+| 22 | R: the brand fork asked and answered out loud | done | Brand exists | `D-18`, `D-181`, `D-182` |
+| 23 | R: palette from plate pixels, two Google Fonts | done differently | Brand values as fact, the pink from a pixel; Roboto alone | `D-182`, `D-185` |
+| 24 | R: `concept.html` is the stand of the chosen language, no contradiction | not done for v4 | The stand still shows direction 2 and links to the closed first copies | `concept.html` |
+| 25 | R: both screens take colour only from the theme | not done | Only `design/v4/theme.css` is declared; literals remain in block rules (`case-blocks.css` heading colours, `case-stage.css`) beyond the ones run 3 fixed | `case-blocks.css:8` |
+| 26 | R: links go to the coloured versions where they exist | not done, narrowed | One link, What this case pays on Home, opens the grey case screen; the rest go to v4 or to grey screens that have no coloured copy, as the pack asks | browser, 11 Nov 2026 |
+| 27 | R: the same card looks like one product on both screens | done | The W7 card and its ring on both | `D-213`, `D-214` |
+| 28 | R: every value pairs with an attribute or the taste | not done | v4's values come from founder picks not written into `concept.md` | `D-209`, `D-213` |
+| 29 | R: WCAG AA on every pair | done | Runs 1 to 3 | `D-215` |
+| 30 | R: structural desync zero | not done | Three states deferred to 07 by the founder (`D-215`); the markup diff was not rerun since v4's scripts began writing markup | `D-215` |
+| 31 | R: `done:true` for Directions and Concept | done | | `/_nav.js` |
+| 32 | R: `wip:true` removed from the Concept group | not done | Still set | `/_nav.js` |
+| 33 | R: both screens at a measured 360 | done | | runs 1 to 3 |
+| 34 | R: `/impeccable critique` | not done | It ran on the first copies (`D-191`), never on v4 | `D-212` to `D-214` "The cost" |
+| 35 | R: `/impeccable audit`, verified, fixed, a second pass | done | | runs 1 to 3 |
+| 36 | R: the Before and after section on `concept.html` | done | Built 11 Nov 2026, in `NAV_SECTIONS` | `concept.html#before-after` |
+| 37 | R: the closing ritual and GitHub | not done | Waits on 19, 20, 32 | |
+| 38 | R: this checklist | done | | here |
+
+**Idle control.** The table has fourteen not done rows; it was not passed formally.
+
+## Run 4, `/impeccable critique` of v4 and the structural diff, 11 November 2026
+
+The founder's go: "yes, run both". `/impeccable critique` as the skill asks it, two isolated read-only subagents: A, a design review in the browser at 1440 and 360, unanchored by any detector output (Home 25 of 36, n/a for flexibility; case screen 24 of 40); B, the detector at 1280 and 375 and its overlay in the page. Codex, read only, the structural diff of both v4 pages against their grey copies. Claude verified each row below in the browser or the file before it entered. Status: **open, for the founder** until the founder sets the priorities; nothing here is fixed yet.
+
+| # | Sev | Class | Where | What is wrong | How to fix | Found by | Status |
+|---|---|---|---|---|---|---|---|
+| 27 | P0 | Risk moment | Case screen, the outcome of five when the balance is short | After a loss (62.00 spent, items 50.60) the first and largest act is "Add funds to open 5 again for 62.00 coins"; no line states the net, −11.40. A deposit chained to a reopen at the low point of the journey, against principle 3 and the compliance stance | A net line first ("Spent 62.00 · items 50.60 · −11.40"); keep, sell and send as the acts; the reopen quiet and never a deposit | critique A | confirmed in the browser; open. Two main acts on the outcome are `D-38`; turning one into a deposit when short is not |
+| 28 | P1 | Structure | `design/v4/case-page.js` outcome links | Check this round, Share a round and Send to Steam carry no round or item; the grey outcome sends `?round=`, `?item=`, `?items=` | Pass the won round and items where a record exists | Codex | confirmed; open |
+| 29 | P1 | Risk moment | Case screen, five chosen, balance short | The act turns into Add funds and the total and the After this open line disappear; the shortfall is never named | Keep "Open 5 cases · 62.00" with "you have 61.80, 0.20 short"; Add funds as the second act | critique A | open, to verify on the exact balance |
+| 30 | P1 | Clarity at the spend | Case screen commit line at count 5 | "expected value 11.68 coins" stays per open beside a 62.00 total | Scale it, "expected 58.40 of 62.00", or name it per open | critique A | confirmed; open |
+| 31 | P1 | Trust | Footer counters on both pages | "3 349 339 upgrades" for a mode marked Not launched yet reads as invented numbers to a doubter | Drop the counter or say what it counts | critique A | open; drawn by founder decision, so the founder's to reopen (run 1 withdrew it on that decision) |
+| 32 | P2 | Value without its chance | The stage's strip and the reel tiles | A value with no chance beside it, against the rule that the two travel together (`D2`) | A chance chip, or no figure on the tiles | critique A | open; the W7 card is `D-213`, the founder's to reopen |
+| 33 | P2 | First screen | Home and case at 360 | The promise (RTP, EV, Before you spend) sits below the first screen; Home's header has no logo on a phone | One RTP and EV line inside the commit block; Before you spend up under the H1 | critique A | open |
+| 34 | P2 | Responsible play | Home, Daily cases | "Wager to climb" with a track to an Elite tier at 2 000 wagered: completion and status on spending, which `CLAUDE.md` forbids for a limit and the critique reads the same way here | The founder's to weigh: Daily is the baseline's, drawn by decision | critique A | open, for the founder |
+| 35 | P2 | Consistency | Footer | Community cases and Classic cases are listed and exist nowhere else | Remove or mark Not launched yet | critique A | open |
+| 36 | P3 | Reading | Home prose and FAQ | Lines of about 91 characters (`p.ab-lead`); single words alone on a last line in four paragraphs | 65ch measure; balance the last lines | impeccable | open |
+| 37 | P3 | Clarity | Case screen | The risk band shows bolts with Medium only for a screen reader; the Trustpilot badge links to the site's root | The word beside the bolts; the badge to the review page or no link | critique A | open |
+| 38 | P2 | Reveal | Case screen, the reel | The reel converges on the result before it lands | Fill the strip from the published mix; the result only in the landing slot | critique A | **withdrawn on verification** for five: 1.5 s into an open of five, 15 of 40 visible tiles were an Asiimov against a published 34 %, the mix itself; the one-case strip is not re-measured |
+
+Withdrawn or carried, from B: 92 ai-color-palette, side-tab, glow, halo, pulsing dot, marquee, stripes, nested cards in the band, Roboto: the baseline's register and language (`D-18`, `D-181`) or founder picks; the bounce curve is stage 11's (row 18); the 11px wear line is row 26.
+
+## The founder's review of the before and after page, 11 November 2026
+
+A local page set every step 8 change side by side, commit `008e884` against the working copy, at the same width with one random seed and reduced motion; the founder: "on the whole the fixes are fine", and six notes. Two were done at once, three were drawn as options on the same page and picked, one came with the picks. Decision record: `D-218`.
+
+| # | Sev | Class | Where | What is wrong | How to fix | Found by | Status |
+|---|---|---|---|---|---|---|---|
+| 39 | P2 | Rare marks | Home at 1440, live drops | The AK-47's C flame shows over the header on a phone and is hidden under the sticky header on a wide screen | A C drop over the header while the page is at its top, as the live rare card | founder | fixed, `rare.css` |
+| 40 | P1 | Value from its token | Case screen: the band, the reel, Best drops, What is in this case, the Open button | Prices in white, against `--color-money` | Every price reads `--color-money` | founder | fixed, measured: no white price left at 1440 or 360 |
+| 41 | P2 | Shape | Buttons on both pages; a Featured tile's price | 10px, "I don't like 10"; shown at 8, 10 and 12 | `--btn-radius` 12px; the tile's price plate 8px, named | founder | fixed |
+| 42 | P2 | Breaks at 360 | What is in this case, a card of 139px | The chance on one line, the tickets on two and pushed right | Option C refined: a row, the value over the skin, the foot bar under the hexagon's middle; the wide card unchanged | founder | fixed |
+| 43 | P2 | First screen at 360 | The case's head | Breadcrumb, How it works, name, line and heart stacked, 160px | Option 3: ‹ Cases with How it works, the name with the heart, 104px | founder | fixed |
+| 44 | P3 | Layout | Home, Every round | Check a round sat under the hash it checks | Check inside the hash's box, accessible name Check this round, `microcopy.md` 1.0-47 | founder | fixed |
+| 45 | P3 | Shape | Case screen, the heart | 10px as a literal beside 12px buttons | Reads `--btn-radius` | Claude, confirmed by the founder | fixed |

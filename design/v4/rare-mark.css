@@ -15,7 +15,7 @@
 /* A */
 .rm-ring { z-index: 2; overflow: hidden; -webkit-mask: var(--rm-ringmask) center / 100% 100% no-repeat; mask: var(--rm-ringmask) center / 100% 100% no-repeat; }
 .rm-ring i { position: absolute; inset: -40%; animation: rm-turn 1.4s linear infinite;
-  background: conic-gradient(from 0deg, transparent 0 62%, color-mix(in srgb, var(--r, #FB3F8A) 60%, #fff) 82%, #fff 88%, transparent 94%); }
+  background: conic-gradient(from 0deg, transparent 0 62%, color-mix(in srgb, var(--r, #FB3F8A) 60%, var(--color-text-hi)) 82%, var(--color-text-hi) 88%, transparent 94%); }
 @keyframes rm-turn { to { transform: rotate(360deg); } }
 
 /* B and C */
@@ -44,7 +44,7 @@
 .wf-feed-i.rm-c:not(.rm-in) { isolation: isolate; }
 .wf-feed-i.rm-c:not(.rm-in):not(.v4-rare) { background: none; }
 .wf-feed-i.rm-c:not(.rm-in):not(.v4-rare)::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
-  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); }
+  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 38%, transparent), transparent), linear-gradient(to bottom, #191842, var(--color-card)); }
 .wf-feed-i.rm-c:not(.rm-in) > .rm-fire { inset: auto; top: -100px; left: -14%; width: 128%; height: calc(60% + 100px); z-index: -2; border-radius: 0; opacity: 1;
   background-image: url(art/fx/plasma-tall-24.webp); }
 @media (max-width: 599px) { .wf-feed-hit > .rm-ring { top: 5px; width: 60px; height: 52px; margin-left: -30px; } .wf-feed-i > .rm-bolt { inset: -6px; } }

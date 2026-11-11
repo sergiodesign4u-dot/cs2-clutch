@@ -9,9 +9,9 @@
 [data-art="karambit-tiger-tooth"] { --art: url(concept/assets/skins/karambit-tiger-tooth.png); }
 
 /* each tier's colours, read by rare-fx.js as plain hex; the same as rare-drops.css */
-.v4-rare-volt { --rd-c1: #F2FBFF; --rd-c2: #8FD3FF; --rd-c3: #3955E8; --rd-hex-c1: #F2FBFF; --rd-hex-c2: #8FD3FF; --rd-hex-c3: #3955E8; }
+.v4-rare-volt { --rd-c1: #F2FBFF; --rd-c2: #8FD3FF; --rd-c3: var(--color-rarity-5); --rd-hex-c1: #F2FBFF; --rd-hex-c2: #8FD3FF; --rd-hex-c3: var(--color-rarity-5); }
 .v4-rare-orbit { --rd-c1: #FFF6CF; --rd-c2: #F6C915; --rd-c3: #FF9A1F; --rd-hex-c1: #FFF6CF; --rd-hex-c2: #F6C915; --rd-hex-c3: #FF9A1F; }
-.v4-rare-plasma { --rd-c1: #FFE0F4; --rd-c2: #FB3F8A; --rd-c3: #D22BCE; --rd-hex-c1: #FFE0F4; --rd-hex-c2: #FB3F8A; --rd-hex-c3: #D22BCE; --rd-hex-c4: #3B1A7A; }
+.v4-rare-plasma { --rd-c1: #FFE0F4; --rd-c2: var(--color-pink); --rd-c3: #D22BCE; --rd-hex-c1: #FFE0F4; --rd-hex-c2: var(--color-pink); --rd-hex-c3: #D22BCE; --rd-hex-c4: #3B1A7A; }
 :root { --v4-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M3 13 17 27 32 5 47 27 61 13 55 38H9Z'/%3E%3Crect x='9' y='40' width='46' height='6' rx='2'/%3E%3Ccircle cx='3' cy='11' r='3.5'/%3E%3Ccircle cx='32' cy='4' r='4'/%3E%3Ccircle cx='61' cy='11' r='3.5'/%3E%3C/svg%3E"); } /* rare-drops.css's crown */
 
 /* the strip lets a rare card's light out above and below it, and still cuts at its ends */
@@ -20,7 +20,7 @@
 /* the rare card: its plate moves to a layer of its own, so the plasma can burn behind it */
 .wf-feed-i.v4-rare { isolation: isolate; background: none; }
 .wf-feed-i.v4-rare::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; transition: box-shadow .4s;
-  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); } /* theme.css's plate, unchanged */
+  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r) 38%, transparent), transparent), linear-gradient(to bottom, #191842, var(--color-card)); } /* theme.css's plate, unchanged */
 .v4-rare-volt:is(.is-live, .is-calm)::before { box-shadow: inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 12px rgba(57, 85, 232, .4); }
 .v4-rare-orbit:is(.is-live, .is-calm)::before { box-shadow: inset 0 0 0 1px rgba(246, 201, 21, .4), 0 0 12px rgba(246, 201, 21, .22); }
 .v4-rare-plasma:is(.is-live, .is-calm)::before { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--r) 45%, transparent), 0 0 12px rgba(210, 43, 206, .45); }
@@ -46,6 +46,10 @@
    rare-drops.html where the founder took it; once the page scrolls, the header covers the strip again as it covers everything */
 .wf-feed-i.v4-rare.rm-c.is-live { z-index: 31; }
 .v4-scrolled .wf-feed-i.v4-rare.rm-c.is-live { z-index: auto; } /* only a drop whose mark is C has a flame to show over it, rare-mark.css */
+/* every drop whose mark is C, not only the live one: on a phone the header is not sticky and the flame already rose over it, on a wide
+   screen the sticky header hid it, founder of 11 Nov 2026 on the before and after page: "here too we put it on top, as on mobile" */
+.wf-feed-i.rm-c:not(.rm-in) { z-index: 31; }
+.v4-scrolled .wf-feed-i.rm-c:not(.rm-in) { z-index: auto; }
 /* the effect canvases: on the card, 8px past it; the plasma's flame behind the plate, its tips about 40px over the card */
 .v4-rare-fx { position: absolute; inset: -8px; width: calc(100% + 16px); height: calc(100% + 16px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }
 .v4-rare-sparks { position: absolute; left: -8px; top: -8px; width: calc(100% + 16px); height: calc(100% + 8px); z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; }

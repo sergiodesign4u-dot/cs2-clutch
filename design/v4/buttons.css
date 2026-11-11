@@ -2,8 +2,10 @@
  * средняя и маленькая которые мы сможем переиспользовать дальше по сайту". One radius, three sizes, two kinds. .v4-btn with --l, --m or
  * --s and --ghost is the class to reuse; the block under it binds the buttons Home already has to the same values. */
 
-:root { --btn-radius: 10px; --btn-l: 52px; --btn-m: 40px; --btn-s: 32px; --btn-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .1) 0 14px, transparent 14px 28px);
-  --btn-fill: #DF055C; /* a filled button's pink, founder pick A of 4 Nov 2026, buttons-lab.html Contrast: the brand pink #FB3F8A carried a 13px white label at 3.1:1 on its light stripe, this deeper pink of the same hue at 4.5:1, WCAG AA; the brand pink itself is unchanged everywhere else */ }
+/* --btn-radius 10 to 12px, founder of 11 Nov 2026 on the before and after page, of 8, 10 and 12: "10 I don't like", 12 for the buttons
+   (the count and Open); a Featured tile's price plate takes 8px, case-tiles.css, an exception named there */
+:root { --btn-radius: 12px;--btn-l: 52px; --btn-m: 40px; --btn-s: 32px; --btn-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .1) 0 14px, transparent 14px 28px);
+  --btn-fill: #DF055C; /* a filled button's pink, founder pick A of 4 Nov 2026, buttons-lab.html Contrast: the brand pink var(--color-pink) carried a 13px white label at 3.1:1 on its light stripe, this deeper pink of the same hue at 4.5:1, WCAG AA; the brand pink itself is unchanged everywhere else */ }
 
 .v4-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; border: 0; border-radius: var(--btn-radius); color: var(--color-text-hi); font-family: inherit; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; cursor: pointer; background: var(--btn-stripes), var(--btn-fill); box-shadow: 0 6px 18px rgba(223, 5, 92, .3); transition: filter .2s, translate .2s, box-shadow .2s; }
 .v4-btn--l { min-height: var(--btn-l); padding: 0 28px; font-size: 16px; }
@@ -79,11 +81,11 @@ html body .v4-btn:not([aria-disabled="true"]):not(:disabled):active, html body a
 .v4-ibtn, html body .ft a.fl-sq { display: inline-grid; place-items: center; box-sizing: border-box; width: var(--v4-tile-h, 42px); height: var(--v4-tile-h, 42px); padding: 0; border: 0;
   border-radius: var(--v4-tile-radius, 12px); background: var(--v4-tile-bg, #0B0A22); box-shadow: var(--v4-tile-edge, inset 0 0 0 1px rgba(255, 255, 255, .05)); color: var(--color-text-soft);
   cursor: pointer; transition: background .2s, color .2s; }
-@media (hover: hover) { .v4-ibtn:hover, html body .ft a.fl-sq:hover { background: var(--btn-stripes), var(--btn-fill-hover); color: #fff; } }
+@media (hover: hover) { .v4-ibtn:hover, html body .ft a.fl-sq:hover { background: var(--btn-stripes), var(--btn-fill-hover); color: var(--color-text-hi); } }
 .v4-ibtn:focus-visible, html body .ft a.fl-sq:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
 .v4-ibtn--close { position: relative; } /* the dialog's close keeps the absolute place .sd-close gives it */
 .v4-ibtn--close, html body .sd .sd-x { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 10px;
-  background: rgba(6, 8, 24, .45); box-shadow: none; color: #fff; cursor: pointer; transition: color .15s, background-color .15s; }
+  background: rgba(6, 8, 24, .45); box-shadow: none; color: var(--color-text-hi); cursor: pointer; transition: color .15s, background-color .15s; }
 .v4-ibtn--close::before, .v4-ibtn--close::after, html body .sd .sd-x::before, html body .sd .sd-x::after { content: ''; position: absolute; left: 50%; top: 50%; width: 18px; height: 2.5px;
   margin: -1.25px 0 0 -9px; border-radius: 2px; background: currentColor; rotate: 45deg; transition: rotate .2s; }
 .v4-ibtn--close::after, html body .sd .sd-x::after { rotate: -45deg; }

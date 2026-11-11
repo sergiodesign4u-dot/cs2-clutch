@@ -10,19 +10,19 @@
   --v4-drop: 104px; /* a live drop tile; comp B, founder pick, a dark card round the hexagon; 124px until the founder, "карточки сделать меньше, сейчас они сильно много места занимают" */
   --v4-ease-pop: cubic-bezier(.34, 1.56, .64, 1); /* a lift that overshoots and settles; підібрано під характер, design principle 2 */
   --v4-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); /* faint diagonal stripes on a filled button; comp A and C, founder pick */
-  --v4-mode-cases: linear-gradient(120deg, #FB3F8A, #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4 */
-  --v4-mode-battles: linear-gradient(120deg, #3955E8, #1B2A8F); /* blue; comp A, founder pick; from --color-rarity-5 */
-  --v4-mode-showdowns: linear-gradient(120deg, #D1273E, #7A0F22); /* red; comp A, founder pick; from --color-rarity-2 */
+  --v4-mode-cases: linear-gradient(120deg, var(--color-pink), #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4 */
+  --v4-mode-battles: linear-gradient(120deg, var(--color-rarity-5), #1B2A8F); /* blue; comp A, founder pick; from --color-rarity-5 */
+  --v4-mode-showdowns: linear-gradient(120deg, var(--color-rarity-2), #7A0F22); /* red; comp A, founder pick; from --color-rarity-2 */
   --v4-mode-upgrade: linear-gradient(120deg, #9E6905, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it: #B57A06 held
      white 12px at 3.65:1, so the gold end went to #9E6905, 4.7:1, stage 06 critique of 10 Nov 2026, row 6 */
   /* A RARITY TIER'S PLATE, the round cards' two ends (proof-home.js, case-blocks.js): read by the scripts as var(), not written in them, stage 06
      critique of 10 Nov 2026, row 15. r2, r4, r5 start on --color-rarity-2, -4, -5 and end on the mode cards' darks; r1 starts on the Upgrade card's
      gold (D-215, white type holds on it); r3 is a violet between rarity 3 and 4 */
   --v4-plate-r1-a: #9E6905; --v4-plate-r1-b: #B4400F;
-  --v4-plate-r2-a: #D1273E; --v4-plate-r2-b: #7A0F22;
+  --v4-plate-r2-a: var(--color-rarity-2); --v4-plate-r2-b: #7A0F22;
   --v4-plate-r3-a: #A62BC4; --v4-plate-r3-b: #4A1260;
-  --v4-plate-r4-a: #6B42B9; --v4-plate-r4-b: #2E1A63;
-  --v4-plate-r5-a: #3955E8; --v4-plate-r5-b: #1B2A8F;
+  --v4-plate-r4-a: var(--color-rarity-4); --v4-plate-r4-b: #2E1A63;
+  --v4-plate-r5-a: var(--color-rarity-5); --v4-plate-r5-b: #1B2A8F;
   --v4-fair-blue: #0B6A8C; /* the light end of the provably fair blue, Every round on Home and in the footer; was #0F7EA6, where white 13px sat at 3.3 to 3.9:1
      under the plates' stripes; #0B6A8C holds white at 4.9:1 with the stripes over it, stage 06 critique of 10 Nov 2026, rows 4 and 5 */
   --v4-panel-ground: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); /* the footer's own panel, footer I of 3 Nov 2026; the rail's panel took it too as a trial and kept it on 4 Nov 2026,
@@ -164,7 +164,7 @@
   .wf-feed-run, .wf-feed-run { padding-left: 8px; }
   .wf-main > * { margin-inline: 8px 12px; }
 }
-.wf-feed-i { flex-basis: var(--v4-drop); border-radius: 6px; background: linear-gradient(to bottom, #191842, #0F0E2B); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); } /* card from --color-card, lifted a step at the top; comp B */
+.wf-feed-i { flex-basis: var(--v4-drop); border-radius: 6px; background: linear-gradient(to bottom, #191842, var(--color-card)); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); } /* card from --color-card, lifted a step at the top; comp B */
 .wf-feed-hit { padding: 6px 4px 8px; }
 .wf-feed-hit::before, .wf-feed-hit::after { top: 10px; left: 50%; opacity: 1; }
 /* THE BACKING UNDER THE SKIN AS THE BASELINE DRAWS IT, founder of 31 Oct 2026: "как у нас сейчас плюс как на дедди скинс подложку для скинов":
@@ -188,11 +188,11 @@
 :root { --v4-feed-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); }
 .wf-feed-hit::before { top: 15.5px; width: 59px; height: 51px; margin-left: -29.5px; }
 .wf-feed-hit::after { top: -4.5px; width: 101px; height: 91px; margin-left: -50.5px;
-  background: linear-gradient(to bottom right, color-mix(in srgb, var(--r, var(--color-rarity-6)) 62%, #fff), color-mix(in srgb, var(--r, var(--color-rarity-6)) 92%, #fff), color-mix(in srgb, var(--r, var(--color-rarity-6)) 72%, #12001C));
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--r, var(--color-rarity-6)) 62%, var(--color-text-hi)), color-mix(in srgb, var(--r, var(--color-rarity-6)) 92%, var(--color-text-hi)), color-mix(in srgb, var(--r, var(--color-rarity-6)) 72%, #12001C));
   -webkit-mask: var(--v4-feed-ring) center / 100% 100% no-repeat; mask: var(--v4-feed-ring) center / 100% 100% no-repeat; }
 /* "снизу карточки добавим небольшую полосочку внизу по центру с закруглениями и свечением внутри карточки по рарити":
    a short rounded bar in the rarity on the card's foot, and its light rising into the card */
-.wf-feed-i { background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); }
+.wf-feed-i { background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 38%, transparent), transparent), linear-gradient(to bottom, #191842, var(--color-card)); }
 .wf-feed-i::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: 36px; height: 3px; margin-left: -18px; border-radius: 3px 3px 0 0; pointer-events: none;
   background: var(--r, var(--color-rarity-6)); box-shadow: 0 0 10px 1px var(--r, var(--color-rarity-6)); }
 .wf-feed-hit .wf-feed-art { position: relative; width: 128%; height: 64px; margin: 4px -14% 5px; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); transition: transform .3s var(--v4-ease-pop); }

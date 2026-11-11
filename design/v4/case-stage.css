@@ -11,8 +11,8 @@
    button with "Open 1 case" and the price in a darker chip at its end. The line under the act keeps the balance after, the peg and the
    return, D-28; the stripes on the pressed count stay, "не согласен", and so do the uppercase labels, "да, оставляем" */
 html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
-.v4c-go-price { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; box-sizing: border-box; padding: 0 12px 0 8px; border-radius: 10px;
-  background: rgba(46, 4, 26, .45); color: #fff; font-size: 17px; font-weight: 900; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+.v4c-go-price { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; box-sizing: border-box; padding: 0 12px 0 8px; border-radius: var(--btn-radius, 12px);
+  background: rgba(46, 4, 26, .45); color: var(--color-money); /* was white; gold on the pink as Home's tile price, 11 Nov 2026 */ font-size: 17px; font-weight: 900; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
 .v4c-go-price img { display: block; width: 20px; height: 20px; }
 
 /* ===== THE MARKERS, rows H to J, founder: "стрелочки сделай интереснее, визуальнее" =====
@@ -57,7 +57,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   background: linear-gradient(160deg, color-mix(in srgb, var(--case-hue) 18%, transparent), color-mix(in srgb, var(--case-c1) 6%, transparent));
   -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; }
 .v4c-top[data-v="i"] .v4c-tag { display: none; position: absolute; left: calc(50% + 120px); top: 64px; z-index: 3; align-items: center; gap: 6px; padding: 7px 16px;
-  background: #22204F; color: #FFC44D; font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums; clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0 50%); }
+  background: #22204F; color: var(--color-money); font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums; clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0 50%); }
 .v4c-top[data-v="i"] .v4c-tag img { width: 16px; height: 16px; }
 .v4c-top[data-v="i"] .v4c-frame[data-count="1"] { height: 240px; }
 .v4c-top[data-v="i"] .v4c-rest { position: relative; z-index: 2; }
@@ -121,7 +121,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-fan-a img { position: relative; width: 120px; height: 58px; object-fit: contain; filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .6)); }
 .v4c-fan-w { margin-top: 4px; color: var(--color-text-soft); font-size: 11px; line-height: 1.2; }
 .v4c-fan-s { font-size: 13px; font-weight: 900; line-height: 1.25; }
-.v4c-fan-v { display: inline-flex; align-items: center; gap: 5px; color: #FFC44D; font-size: 14px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.v4c-fan-v { display: inline-flex; align-items: center; gap: 5px; color: var(--color-money); font-size: 14px; font-weight: 900; font-variant-numeric: tabular-nums; }
 .v4c-fan-v img { width: 14px; height: 14px; }
 .v4c-fan-c.r1 { --r: var(--color-rarity-1); } .v4c-fan-c.r2 { --r: var(--color-rarity-2); } .v4c-fan-c.r3 { --r: var(--color-rarity-3); } .v4c-fan-c.r4 { --r: #8F63E6; } .v4c-fan-c.r5 { --r: #4F6BFF; }
 
@@ -219,15 +219,15 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--r) 50%, transparent), 0 10px 22px rgba(3, 3, 16, .45); }
 .v4c-top[data-v="m"][data-card="a"] .v4o-card::before { content: attr(data-w); position: absolute; left: -4px; top: 6px; z-index: 0; color: transparent;
   font: 900 68px/.82 var(--font-family, Roboto, sans-serif); letter-spacing: -.03em; text-transform: uppercase; white-space: nowrap;
-  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--r) 75%, #fff 10%); opacity: .55; }
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--r) 75%, var(--color-text-hi) 10%); opacity: .55; }
 .v4c-top[data-v="m"][data-card="a"] .v4o-plate { display: none; }
 .v4c-top[data-v="m"][data-card="a"] .v4o-img { top: 16px; left: 0; width: 100%; height: 54%; margin: 0; transform: scale(1.1); filter: drop-shadow(0 10px 8px rgba(0, 0, 0, .75)); }
 .v4c-top[data-v="m"][data-card="a"] .v4o-y .v4o-card::before { font-size: 54px; }
 
 /* B, the pop out */
-.v4c-top[data-v="m"][data-card="b"] .v4o-card { overflow: visible; background: #0F0E2B; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07), 0 10px 22px rgba(3, 3, 16, .45); }
+.v4c-top[data-v="m"][data-card="b"] .v4o-card { overflow: visible; background: var(--color-card); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07), 0 10px 22px rgba(3, 3, 16, .45); }
 .v4c-top[data-v="m"][data-card="b"] .v4o-plate { left: 0; right: 0; top: 0; width: auto; height: 58%; margin: 0; opacity: 1; border-radius: 14px 14px 6px 6px; -webkit-mask: none; mask: none;
-  background: radial-gradient(120% 90% at 30% 0%, color-mix(in srgb, var(--r) 30%, #fff 12%), transparent 60%), linear-gradient(170deg, var(--r), color-mix(in srgb, var(--r) 45%, #0F0E2B)); }
+  background: radial-gradient(120% 90% at 30% 0%, color-mix(in srgb, var(--r) 30%, var(--color-text-hi) 12%), transparent 60%), linear-gradient(170deg, var(--r), color-mix(in srgb, var(--r) 45%, var(--color-card))); }
 .v4c-top[data-v="m"][data-card="b"] .v4o-img { top: -22px; left: -18%; width: 136%; height: 76%; margin: 0; rotate: -9deg; filter: drop-shadow(0 14px 10px rgba(0, 0, 0, .7)); }
 .v4c-top[data-v="m"][data-card="b"] .v4c-band { height: 230px; } /* room above the cards for the skins that break out */
 .v4c-top[data-v="m"][data-card="b"] .v4o-y .v4o-img { top: -8px; }
@@ -238,7 +238,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   background: linear-gradient(180deg, color-mix(in srgb, var(--r) 4%, transparent), color-mix(in srgb, var(--r) 30%, transparent));
   clip-path: polygon(38% 0, 62% 0, 92% 100%, 8% 100%); }
 .v4c-top[data-v="m"][data-card="c"] .v4o-plate { left: 14%; right: 14%; top: auto; bottom: 38%; width: auto; height: 16px; margin: 0; opacity: 1; border-radius: 50%; -webkit-mask: none; mask: none;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--r) 90%, #fff 10%), color-mix(in srgb, var(--r) 45%, transparent) 55%, transparent);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--r) 90%, var(--color-text-hi) 10%), color-mix(in srgb, var(--r) 45%, transparent) 55%, transparent);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--r) 35%, transparent); }
 .v4c-top[data-v="m"][data-card="c"] .v4o-img { top: 10px; left: 0; width: 100%; height: 48%; margin: 0; -webkit-box-reflect: below 6px linear-gradient(transparent 62%, rgba(255, 255, 255, .22)); filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .6)); }
 /* five more, founder of 5 Nov 2026: "давай отдельно мне варианты карточек скинов", compared on card-lab.html and usable here by ?card=:
@@ -255,17 +255,17 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"][data-card="d"] .v4o-card::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--r); }
 .v4c-top[data-v="m"][data-card="d"] .v4o-img { top: 12px; height: 56%; filter: drop-shadow(0 8px 6px rgba(0, 0, 0, .7)); }
 /* E */
-.v4c-top[data-v="m"][data-card="e"] .v4o-card { background: linear-gradient(160deg, color-mix(in srgb, var(--r) 88%, #fff 12%), var(--r) 34%, color-mix(in srgb, var(--r) 42%, #0B0A26)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 22px rgba(3, 3, 16, .45); }
+.v4c-top[data-v="m"][data-card="e"] .v4o-card { background: linear-gradient(160deg, color-mix(in srgb, var(--r) 88%, var(--color-text-hi) 12%), var(--r) 34%, color-mix(in srgb, var(--r) 42%, #0B0A26)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 22px rgba(3, 3, 16, .45); }
 .v4c-top[data-v="m"][data-card="e"] .v4o-img { top: 6px; left: -7%; width: 114%; height: 60%; filter: drop-shadow(0 10px 8px rgba(0, 0, 0, .5)); }
 .v4c-top[data-v="m"][data-card="e"] .v4o-name b { color: rgba(255, 255, 255, .78); }
-.v4c-top[data-v="m"][data-card="e"] .v4o-name span { color: #fff; }
+.v4c-top[data-v="m"][data-card="e"] .v4o-name span { color: var(--color-text-hi); }
 .v4c-top[data-v="m"][data-card="e"] .v4o-card:is(.r1, .r7) .v4o-name span { color: #1B1405; } /* white on gold or on grey would not read */
 .v4c-top[data-v="m"][data-card="e"] .v4o-card:is(.r1, .r7) .v4o-name b { color: rgba(27, 20, 5, .7); }
 /* F */
 .v4c-top[data-v="m"][data-card="f"] .v4o-card { border-radius: 4px; clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
   background: linear-gradient(0deg, color-mix(in srgb, var(--r) 30%, transparent), transparent 60%), linear-gradient(180deg, #1A1950, #0E0D2C); box-shadow: inset 3px 0 0 var(--r); }
 .v4c-top[data-v="m"][data-card="f"] .v4o-card::before { content: attr(data-p); position: absolute; top: 9px; right: 9px; z-index: 2; padding: 3px 7px 3px 22px; border-radius: 6px;
-  background: url(art/brand/coin-6-small.svg) 5px 50% / 13px no-repeat, rgba(6, 5, 22, .72); color: #FFC44D; font: 900 12px/1.25 var(--font-family, Roboto, sans-serif); font-variant-numeric: tabular-nums; }
+  background: url(art/brand/coin-6-small.svg) 5px 50% / 13px no-repeat, rgba(6, 5, 22, .72); color: var(--color-money); font: 900 12px/1.25 var(--font-family, Roboto, sans-serif); font-variant-numeric: tabular-nums; }
 .v4c-top[data-v="m"][data-card="f"] .v4o-img { top: 18%; height: 44%; filter: drop-shadow(0 8px 6px rgba(0, 0, 0, .7)); }
 /* a phone's band: a smaller chip, so it clears the skin under it */
 @media (max-width: 599px) { .v4c-top[data-v="m"][data-card="f"] .v4c-band .v4o-card::before, .v4c-top[data-v="m"][data-card="f"] .v4c-col .v4o-card::before { top: 6px; right: 6px; padding: 2px 5px 2px 17px; background-position: 4px 50%, 0 0; background-size: 10px, auto; font-size: 10px; }
@@ -276,7 +276,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   background: linear-gradient(0deg, color-mix(in srgb, var(--r) 32%, transparent), transparent 62%), linear-gradient(180deg, #1A1950, #0E0D2C); box-shadow: inset 4px 0 0 var(--r); }
 .v4c-top[data-v="m"][data-card="f"] .v4c-won-card::before { content: none; }
 /* G */
-.v4c-top[data-v="m"][data-card="g"] .v4o-card { background: linear-gradient(155deg, color-mix(in srgb, var(--r) 86%, #fff 10%), var(--r) 30%, color-mix(in srgb, var(--r) 72%, #0F0E2C) 47%, #0F0E2C 47.4%);
+.v4c-top[data-v="m"][data-card="g"] .v4o-card { background: linear-gradient(155deg, color-mix(in srgb, var(--r) 86%, var(--color-text-hi) 10%), var(--r) 30%, color-mix(in srgb, var(--r) 72%, #0F0E2C) 47%, #0F0E2C 47.4%);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 10px 22px rgba(3, 3, 16, .45); }
 .v4c-top[data-v="m"][data-card="g"] .v4o-img { top: 12px; height: 56%; filter: drop-shadow(0 10px 8px rgba(0, 0, 0, .6)); }
 /* H */
@@ -301,7 +301,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"]:is([data-card="i"], [data-card="j"], [data-card="k"], [data-card="l"]) .v4o-img { left: 0; width: 100%; margin: 0; }
 .v4c-top[data-v="m"]:is([data-card="j"], [data-card="k"]) .v4o-plate { display: none; }
 .v4c-top[data-v="m"]:is([data-card="i"], [data-card="j"], [data-card="k"], [data-card="l"]) .v4o-price { position: absolute; z-index: 2; display: flex; align-items: center; gap: .3em;
-  color: #fff; font-weight: 900; font-size: clamp(12px, 13cqw, 20px); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  color: var(--color-text-hi); font-weight: 900; font-size: clamp(12px, 13cqw, 20px); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .v4c-top[data-v="m"]:is([data-card="i"], [data-card="j"], [data-card="k"], [data-card="l"]) .v4o-price img { width: 1em; height: 1em; }
 /* I */
 .v4c-top[data-v="m"][data-card="i"] .v4o-card { overflow: visible; border-radius: 14px; background: none; box-shadow: none; padding-bottom: 14px; text-align: center; }
@@ -311,7 +311,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 85%, transparent));
   -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"][data-card="i"] .v4o-card::before { content: ''; position: absolute; left: 50%; top: 21.5%; height: 51%; aspect-ratio: 136 / 118; translate: -50% 0; opacity: .7;
-  background: color-mix(in srgb, var(--r) 75%, #fff); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
+  background: color-mix(in srgb, var(--r) 75%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"][data-card="i"] .v4o-img { top: 25%; height: 44%; transform: scale(1.12); filter: drop-shadow(0 8px 6px rgba(0, 0, 0, .7)); }
 .v4c-top[data-v="m"][data-card="i"] .v4o-name { align-items: center; }
 .v4c-top[data-v="m"][data-card="i"] .v4o-name::after { content: ''; position: absolute; left: 50%; bottom: -12px; width: 30px; height: 3px; margin-left: -15px; border-radius: 3px; background: var(--r); }
@@ -351,7 +351,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="o"], [data-card="p"], [data-card="q"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-img { left: 0; width: 100%; margin: 0; filter: drop-shadow(0 8px 6px rgba(0, 0, 0, .7)); }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="o"], [data-card="p"], [data-card="q"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-name { align-items: center; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="o"], [data-card="p"], [data-card="q"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-price { position: absolute; z-index: 2; display: flex; align-items: center; gap: .3em;
-  color: #fff; font-weight: 900; font-size: clamp(12px, 13cqw, 20px); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  color: var(--color-money); /* was white: money is gold, --color-money, founder of 11 Nov 2026 */ font-weight: 900; font-size: clamp(12px, 13cqw, 20px); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="o"], [data-card="p"], [data-card="q"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-price img { width: 1em; height: 1em; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="p"], [data-card="q"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-price { left: 0; right: 0; top: 7%; justify-content: center; }
 /* the rounded card of N, O and Q: L's ground without its foot line */
@@ -368,7 +368,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 85%, transparent));
   -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="o"]) .v4o-card::before { content: ''; position: absolute; left: 50%; aspect-ratio: 136 / 118; translate: -50% 0; opacity: .7;
-  background: color-mix(in srgb, var(--r) 75%, #fff); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
+  background: color-mix(in srgb, var(--r) 75%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-plate { top: 24%; height: 45%; }
 .v4c-top[data-v="m"][data-card="n"] .v4o-card::before { top: 21.5%; height: 50%; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-img { top: 25%; height: 43%; transform: scale(1.12); }
@@ -390,7 +390,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"][data-card="p"] .v4o-card::after { content: ''; position: absolute; right: -6.5px; top: 10%; bottom: 10%; width: 1px; background: linear-gradient(180deg, transparent, rgba(139, 124, 255, .28), transparent); }
 /* Q: the live drop's outer and dashed lines, turned to stand round the ring */
 .v4c-top[data-v="m"][data-card="q"] .v4o-card::before { content: ''; position: absolute; left: 50%; top: 13.5%; height: 46%; aspect-ratio: 136 / 118; translate: -50% 0; rotate: 90deg; opacity: .7;
-  background: color-mix(in srgb, var(--r) 75%, #fff); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
+  background: color-mix(in srgb, var(--r) 75%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
 /* five rings on N, founder of 6 Nov 2026: N's outer and dashed lines give way to a ring with some body, "такое приятное 3д", the gradient
    fill kept inside and the hexagon's angle as it is; the five try its thickness, its colour and its shadows:
    R, neon: a fine bright ring on a dark one, its light falling inward and glowing out a little;
@@ -409,8 +409,8 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
    W2, W1 with the faintest wash of the tier just inside the ring, the light the reference lets fall inward;
    W3, W1 a step thicker, its foot deeper and its light wider */
 .v4c-top[data-v="m"]:is([data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .hx-grad { display: inline; stroke-width: 3.6; }
-.v4c-top[data-v="m"]:is([data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .hs1 { stop-color: color-mix(in srgb, var(--r) 62%, #fff); }
-.v4c-top[data-v="m"]:is([data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .hs2 { stop-color: color-mix(in srgb, var(--r) 92%, #fff); }
+.v4c-top[data-v="m"]:is([data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .hs1 { stop-color: color-mix(in srgb, var(--r) 62%, var(--color-text-hi)); }
+.v4c-top[data-v="m"]:is([data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .hs2 { stop-color: color-mix(in srgb, var(--r) 92%, var(--color-text-hi)); }
 .v4c-top[data-v="m"]:is([data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .hs3 { stop-color: color-mix(in srgb, var(--r) 72%, #12001C); }
 .v4c-top[data-v="m"]:is([data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .hx-in { stroke: rgba(3, 2, 14, .6); stroke-width: 2.2; }
 .v4c-top[data-v="m"]:is([data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-hex { filter: drop-shadow(0 0 2px color-mix(in srgb, var(--r) 55%, transparent)) drop-shadow(0 0 9px color-mix(in srgb, var(--r) 28%, transparent)); }
@@ -468,7 +468,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"][data-card="w7"] .v4c-won-art img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; transform: scale(1.12); }
 .v4c-top[data-v="m"][data-card="w7"] .v4c-won-v { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 0 0 0 32px; background: url(art/brand/coin-6-small.svg) 0 50% / 24px no-repeat; box-shadow: none;
-  color: #fff; font-size: 30px; font-weight: 900; line-height: 1.1; }
+  color: var(--color-text-hi); font-size: 30px; font-weight: 900; line-height: 1.1; }
 .v4c-top[data-v="m"][data-card="w7"] .v4c-win[data-count="1"] .v4c-won-card { grid-template-columns: 46% 1fr; grid-template-rows: 1fr auto auto auto 1fr; }
 .v4c-top[data-v="m"][data-card="w7"] .v4c-win[data-count="1"] .v4c-won-art { grid-row: 1 / -1; height: 100%; }
 .v4c-top[data-v="m"][data-card="w7"] .v4c-win[data-count="1"] .v4c-won-v { grid-column: 2; grid-row: 2; margin: 0 0 10px; }
@@ -499,7 +499,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won { position: relative; }
 .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-odds { display: flex; white-space: nowrap; flex-direction: column; align-items: flex-end; gap: 0; padding: 0; background: none; box-shadow: none; color: var(--color-text-soft);
   font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1.2; text-align: right; }
-.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-odds b { order: 2; color: color-mix(in srgb, var(--r) 70%, #fff); font-size: 15px; font-weight: 900; letter-spacing: 0; text-transform: none; }
+.v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-odds b { order: 2; color: color-mix(in srgb, var(--r) 70%, var(--color-text-hi)); font-size: 15px; font-weight: 900; letter-spacing: 0; text-transform: none; }
 .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-x { display: inline-block; white-space: nowrap; padding: 4px 8px; border-radius: 6px; background: rgba(255, 255, 255, .06); font-size: 12px; }
 .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-x.is-up { background: rgba(53, 224, 138, .12); }
 .v4c-top[data-v="m"]:is([data-prize="x1"], [data-prize="x2"], [data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-name { align-items: center; }
@@ -562,7 +562,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"][data-prize="y2"] .v4c-win[data-count] .v4c-won-card { grid-template-rows: auto 1fr auto auto auto auto; grid-template-areas: "wear odds" "art art" "name name" "v v" "x x" "sell sell"; }
 .v4c-top[data-v="m"][data-prize="y2"] .v4c-win:not([data-count="1"]) .v4c-won-card { height: 318px; padding-bottom: 0; }
 .v4c-top[data-v="m"][data-prize="y2"] .v4c-won-card .v4c-sell1.v4c-sell1 { grid-area: sell; position: relative; z-index: 3; align-self: end; justify-self: stretch; width: auto; min-height: 44px; margin: 10px -12px 0; border: 0; border-radius: 0;
-  background: color-mix(in srgb, #DF055C 16%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, #DF055C 55%, transparent); color: #fff; opacity: 1; }
+  background: color-mix(in srgb, #DF055C 16%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, #DF055C 55%, transparent); color: var(--color-text-hi); opacity: 1; }
 .v4c-top[data-v="m"][data-prize="y2"] .v4c-win:not(.is-on) .v4c-won-card .v4c-sell1.v4c-sell1 { opacity: 0; }
 @media (hover: hover) { .v4c-top[data-v="m"][data-prize="y2"] .v4c-won-card .v4c-sell1.v4c-sell1:hover:not(:disabled) { background: #DF055C; box-shadow: none; } }
 .v4c-top[data-v="m"][data-prize="y2"] .v4c-won-card .v4c-sell1.v4c-sell1:disabled { background: rgba(255, 255, 255, .04); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08); color: #35E08A; cursor: default; }
@@ -571,7 +571,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-card::before { content: none; }
 .v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-wear { color: rgba(255, 255, 255, .9); }
 .v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-odds { color: rgba(255, 255, 255, .72); }
-.v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-odds b { color: #fff; }
+.v4c-top[data-v="m"][data-prize="y3"] .v4c-win[data-count] .v4c-won-odds b { color: var(--color-text-hi); }
 /* Z1 to Z3, founder of 8 Nov 2026 on X3: "убрал бы лишний текст, типа оставить только chance, убрать coins слово, а ×1.15 of the price
    поставить такой бровкой внизу или сверху поменять местами цветную бровку, сделай пару вариаников". X3 with the words cut to Chance and the
    bare figure (the cut words stay for a screen reader), and the multiple of the price on a tab on the card's edge, as the tier's bar is:
@@ -594,7 +594,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
    Z5, a badge sitting across the top edge, half in and half out, ringed in the tier's colour */
 .v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win .v4c-won > .v4c-won-x { opacity: 0; }
 .v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win.is-on .v4c-won > .v4c-won-x { animation: v4c-m-in .4s ease-out calc(.55s + var(--i, 0) * 90ms) forwards; }
-.v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win[data-count] .v4c-won-x.v4c-won-x { color: #fff; }
+.v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win[data-count] .v4c-won-x.v4c-won-x { color: var(--color-text-hi); }
 .v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win[data-count] .v4c-won-x.is-up { color: #35E08A; }
 .v4c-top[data-v="m"][data-prize="z4"] .v4c-win[data-count] .v4c-won { padding-top: 27px; } /* room above the card for its tab, which the frame would cut */
 .v4c-top[data-v="m"][data-prize="z4"] .v4c-win[data-count] .v4c-won-x.v4c-won-x { top: 0; padding: 5px 14px 6px; border-radius: 10px 10px 0 0;
@@ -604,7 +604,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"][data-prize="z5"] .v4c-win[data-count] .v4c-won-x.is-up { box-shadow: inset 0 0 0 1.5px #35E08A, 0 0 14px rgba(53, 224, 138, .4), 0 4px 10px rgba(3, 3, 16, .6); }
 .v4c-top[data-v="m"]:is([data-prize="z4"], [data-prize="z5"]) .v4c-win:not([data-count="1"]) .v4c-won-x.v4c-won-x { font-size: 13px; }
 .v4c-top[data-v="m"][data-prize="z3"] .v4c-win[data-count] .v4c-won-card::before { content: none; }
-.v4c-top[data-v="m"][data-prize="z3"] .v4c-win[data-count] .v4c-won-x.v4c-won-x { color: #fff; background: linear-gradient(180deg, color-mix(in srgb, var(--r) 70%, #fff), var(--r)); box-shadow: 0 0 14px color-mix(in srgb, var(--r) 70%, transparent); text-shadow: 0 1px 2px rgba(0, 0, 0, .45); }
+.v4c-top[data-v="m"][data-prize="z3"] .v4c-win[data-count] .v4c-won-x.v4c-won-x { color: var(--color-text-hi); background: linear-gradient(180deg, color-mix(in srgb, var(--r) 70%, var(--color-text-hi)), var(--r)); box-shadow: 0 0 14px color-mix(in srgb, var(--r) 70%, transparent); text-shadow: 0 1px 2px rgba(0, 0, 0, .45); }
 .v4c-top[data-v="m"][data-prize^="z"] .v4c-win[data-count] .v4c-won-odds { font-size: 10px; }
 .v4c-top[data-v="m"][data-prize^="z"] .v4c-win:not([data-count="1"]) .v4c-won-x.v4c-won-x { padding: 3px 10px; font-size: 12px; }
 .v4c-top[data-v="m"][data-prize^="z"] .v4c-win[data-count] .v4c-won-v { font-size: 30px; }
@@ -622,10 +622,10 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"]:is([data-prize="z6"], [data-prize="z7"]) .v4c-win[data-count] .v4c-won-card { padding-bottom: 40px; }
 .v4c-top[data-v="m"][data-prize="z6"] .v4c-win[data-count] .v4c-won-wear { display: flex; flex-direction: column; align-items: flex-start; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1.2; }
 .v4c-top[data-v="m"][data-prize="z6"] .v4c-win[data-count] .v4c-won-wl { display: block; }
-.v4c-top[data-v="m"][data-prize="z6"] .v4c-win[data-count] .v4c-won-wear b { color: #fff; font-size: 15px; font-weight: 900; letter-spacing: 0; }
+.v4c-top[data-v="m"][data-prize="z6"] .v4c-win[data-count] .v4c-won-wear b { color: var(--color-text-hi); font-size: 15px; font-weight: 900; letter-spacing: 0; }
 .v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-card { grid-template-areas: "odds odds" "art art" "name name" "v v"; }
 .v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-odds { justify-self: center; align-items: center; text-align: center; }
-.v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-w .v4c-won-wear { display: inline; grid-area: auto; color: #fff; font: inherit; letter-spacing: inherit; }
+.v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-w .v4c-won-wear { display: inline; grid-area: auto; color: var(--color-text-hi); font: inherit; letter-spacing: inherit; }
 .v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-w .v4c-won-wear::before { content: "\00B7"; margin: 0 .45em; color: var(--color-text-soft); }
 .v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-w .v4c-won-wear b { display: inline; font: inherit; }
 .v4c-top[data-v="m"][data-prize="z7"] .v4c-win[data-count] .v4c-won-w { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -656,25 +656,25 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
   .v4c-top[data-v="m"][data-card="w7"] .v4o-img { top: 20%; height: 37%; }
 }
 .v4c-top[data-v="m"][data-card="r"] .hx-under { stroke: rgba(4, 3, 18, .7); stroke-width: 7; }
-.v4c-top[data-v="m"][data-card="r"] .hx-ring { stroke: color-mix(in srgb, var(--r) 85%, #fff); stroke-width: 3.5; }
+.v4c-top[data-v="m"][data-card="r"] .hx-ring { stroke: color-mix(in srgb, var(--r) 85%, var(--color-text-hi)); stroke-width: 3.5; }
 .v4c-top[data-v="m"][data-card="r"] .hx-g1 { stroke: var(--r); stroke-width: 8; opacity: .22; }
 .v4c-top[data-v="m"][data-card="r"] .hx-g2 { stroke: var(--r); stroke-width: 14; opacity: .1; }
 /* S */
 .v4c-top[data-v="m"][data-card="s"] .v4o-hex, .v4c-top[data-v="m"][data-card="v"] .v4o-hex { filter: drop-shadow(0 4px 5px rgba(3, 3, 16, .65)); }
 .v4c-top[data-v="m"]:is([data-card="s"], [data-card="v"]) .hx-under { stroke: rgba(5, 4, 22, .85); stroke-width: 10; }
 .v4c-top[data-v="m"]:is([data-card="s"], [data-card="v"]) .hx-ring { stroke: var(--r); stroke-width: 7; }
-.v4c-top[data-v="m"]:is([data-card="s"], [data-card="v"]) .hx-top { stroke: color-mix(in srgb, var(--r) 45%, #fff); stroke-width: 2.2; translate: 0 -1.8px; }
+.v4c-top[data-v="m"]:is([data-card="s"], [data-card="v"]) .hx-top { stroke: color-mix(in srgb, var(--r) 45%, var(--color-text-hi)); stroke-width: 2.2; translate: 0 -1.8px; }
 .v4c-top[data-v="m"]:is([data-card="s"], [data-card="v"]) .hx-bot { stroke: color-mix(in srgb, var(--r) 55%, #000); stroke-width: 2.2; translate: 0 1.8px; }
 .v4c-top[data-v="m"][data-card="s"] .hx-g1 { stroke: var(--r); stroke-width: 6; opacity: .14; }
 /* T */
 .v4c-top[data-v="m"][data-card="t"] .v4o-hex { filter: drop-shadow(0 0 7px color-mix(in srgb, var(--r) 45%, transparent)) drop-shadow(0 3px 4px rgba(3, 3, 16, .5)); }
 .v4c-top[data-v="m"][data-card="t"] .hx-under { stroke: rgba(4, 3, 18, .7); stroke-width: 9; }
 .v4c-top[data-v="m"][data-card="t"] .hx-ring { stroke: var(--r); stroke-width: 6; }
-.v4c-top[data-v="m"][data-card="t"] .hx-hi { stroke: color-mix(in srgb, var(--r) 28%, #fff); stroke-width: 1.6; opacity: .85; }
+.v4c-top[data-v="m"][data-card="t"] .hx-hi { stroke: color-mix(in srgb, var(--r) 28%, var(--color-text-hi)); stroke-width: 1.6; opacity: .85; }
 .v4c-top[data-v="m"][data-card="t"] .hx-g1 { stroke: var(--r); stroke-width: 7; opacity: .2; }
 /* U */
 .v4c-top[data-v="m"][data-card="u"] .v4o-hex { filter: drop-shadow(0 0 4px color-mix(in srgb, var(--r) 60%, transparent)); }
-.v4c-top[data-v="m"][data-card="u"] .hx-ring { stroke: color-mix(in srgb, var(--r) 70%, #fff); stroke-width: 2.2; }
+.v4c-top[data-v="m"][data-card="u"] .hx-ring { stroke: color-mix(in srgb, var(--r) 70%, var(--color-text-hi)); stroke-width: 2.2; }
 .v4c-top[data-v="m"][data-card="u"] .hx-g1 { stroke: var(--r); stroke-width: 10; opacity: .28; }
 .v4c-top[data-v="m"][data-card="u"] .hx-g2 { stroke: var(--r); stroke-width: 18; opacity: .12; }
 /* W to Y, the same day: R to V were "не очень похоже" on the reference, a crisp ring of one saturated colour, a soft light round it and a
@@ -683,7 +683,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
    W is the reference's ring; X the same a step heavier with more light inward; Y W with a dark edge inside the ring, so it sits on the gap */
 .v4c-top[data-v="m"]:is([data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-plate { top: 27.5%; height: 38%; }
 .v4c-top[data-v="m"]:is([data-card="w"], [data-card="x"], [data-card="y"]) .v4o-hex { filter: drop-shadow(0 0 3px color-mix(in srgb, var(--r) 70%, transparent)) drop-shadow(0 0 10px color-mix(in srgb, var(--r) 30%, transparent)); }
-.v4c-top[data-v="m"]:is([data-card="w"], [data-card="x"], [data-card="y"]) .hx-ring { stroke: color-mix(in srgb, var(--r) 88%, #fff); stroke-width: 3.4; }
+.v4c-top[data-v="m"]:is([data-card="w"], [data-card="x"], [data-card="y"]) .hx-ring { stroke: color-mix(in srgb, var(--r) 88%, var(--color-text-hi)); stroke-width: 3.4; }
 /* nothing drawn in the gap: it stays the card's own ground, as in the reference and the live drop's hexagon */
 .v4c-top[data-v="m"][data-card="x"] .hx-ring { stroke-width: 4.8; }
 .v4c-top[data-v="m"][data-card="x"] .v4o-hex { filter: drop-shadow(0 0 4px color-mix(in srgb, var(--r) 75%, transparent)) drop-shadow(0 0 14px color-mix(in srgb, var(--r) 35%, transparent)); }
@@ -742,7 +742,7 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"] [data-tier="r3"] { --r: var(--color-rarity-3); } .v4c-top[data-v="m"] [data-tier="r4"] { --r: #8F63E6; }
 .v4c-top[data-v="m"] [data-tier="r5"] { --r: #4F6BFF; } .v4c-top[data-v="m"] [data-tier="r6"] { --r: var(--color-rarity-6); }
 .v4c-top[data-v="m"] [data-tier="r7"] { --r: var(--color-rarity-7); }
-.v4c-top[data-v="m"] .v4c-frame { --v4o-charge: 0; --hot: color-mix(in srgb, var(--r, #FB3F8A) calc(var(--v4o-charge) * 100%), #FB3F8A); --bh: 103px; }
+.v4c-top[data-v="m"] .v4c-frame { --v4o-charge: 0; --hot: color-mix(in srgb, var(--r, #FB3F8A) calc(var(--v4o-charge) * 100%), var(--color-pink)); --bh: 103px; }
 .v4c-top[data-v="m"][data-card="b"] .v4c-frame { --bh: 115px; }
 
 /* the columns: one per case, centred in its cell, the cards upright and drifting up; they open from the middle, one after another */
@@ -772,20 +772,20 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 /* both in step, founder of 6 Nov 2026: half a beat apart they moved the same way on screen, "как будто пилят кейс"; in step, each moves
    toward the case and back at once, the two closing on it and opening again */
 .v4c-ptr-a.is-b svg { animation-delay: 0s; }
-.v4c-ptr-a .f-t { fill: color-mix(in srgb, var(--hot) 45%, #fff); }
-.v4c-ptr-a .f-l { fill: color-mix(in srgb, var(--hot) 88%, #fff); }
+.v4c-ptr-a .f-t { fill: color-mix(in srgb, var(--hot) 45%, var(--color-text-hi)); }
+.v4c-ptr-a .f-l { fill: color-mix(in srgb, var(--hot) 88%, var(--color-text-hi)); }
 .v4c-ptr-a .f-r { fill: color-mix(in srgb, var(--hot) 58%, #1A0420); }
 .v4c-ptr-a .f-c { fill: var(--hot); }
-.v4c-ptr-a .f-h { fill: none; stroke: #fff; stroke-width: 1.1; stroke-linecap: round; opacity: .85; }
+.v4c-ptr-a .f-h { fill: none; stroke: var(--color-text-hi); stroke-width: 1.1; stroke-linecap: round; opacity: .85; }
 /* the fold, ?ptr=b and the default: the primary button's pink, its left face a step lighter, its right a step deeper, one soft shadow */
 .v4c-top[data-v="m"] .v4c-ptr:not(.is-gem) { --ptr: color-mix(in srgb, var(--r, #DF055C) calc(var(--v4o-charge) * 100%), #DF055C); }
 /* the holed triangle, 6 Nov 2026: one colour, no left and right faces; the light runs top to tip, the rim of the hole and the base catch it */
-.v4c-ptr-a .h-s1 { stop-color: color-mix(in srgb, var(--ptr) 72%, #fff); }
+.v4c-ptr-a .h-s1 { stop-color: color-mix(in srgb, var(--ptr) 72%, var(--color-text-hi)); }
 .v4c-ptr-a .h-s2 { stop-color: var(--ptr); }
 .v4c-ptr-a .h-s3 { stop-color: color-mix(in srgb, var(--ptr) 78%, #2A0018); }
 .v4c-ptr-a .h-f { fill: url(#v4cPtrG); }
-.v4c-ptr-a .h-e { fill: none; stroke: color-mix(in srgb, var(--ptr) 40%, #fff); stroke-width: .8; stroke-linejoin: round; opacity: .7; }
-.v4c-ptr-a .h-t { fill: none; stroke: #fff; stroke-width: .9; stroke-linecap: round; opacity: .45; }
+.v4c-ptr-a .h-e { fill: none; stroke: color-mix(in srgb, var(--ptr) 40%, var(--color-text-hi)); stroke-width: .8; stroke-linejoin: round; opacity: .7; }
+.v4c-ptr-a .h-t { fill: none; stroke: var(--color-text-hi); stroke-width: .9; stroke-linecap: round; opacity: .45; }
 .v4c-ptr-a .h-e.is-all { stroke-width: .7; opacity: .45; } /* the parted triangle: a fine light round its whole edge */
 .v4c-ptr:not(.is-gem) .v4c-ptr-a svg { filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--ptr) 45%, transparent)); }
 .v4c-ptr:not(.is-gem) .v4c-ptr-a::after { background: linear-gradient(90deg, transparent, var(--ptr), transparent); box-shadow: 0 0 8px var(--ptr); }
@@ -820,8 +820,8 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"] .v4c-frame[data-phase="open"] .v4c-cells { opacity: 1; }
 .v4c-bam, .v4c-wave { position: absolute; z-index: 3; pointer-events: none; border-radius: 50%; opacity: 0; }
 .v4c-bam { width: 420px; height: 420px; mix-blend-mode: screen;
-  background: radial-gradient(closest-side, #fff, color-mix(in srgb, #FB3F8A 70%, #fff) 18%, rgba(251, 63, 138, .35) 45%, transparent 72%); }
-.v4c-wave { width: 220px; height: 220px; box-shadow: 0 0 0 3px #FB3F8A, 0 0 26px #FB3F8A, inset 0 0 22px rgba(251, 63, 138, .6); }
+  background: radial-gradient(closest-side, var(--color-text-hi), color-mix(in srgb, var(--color-pink) 70%, var(--color-text-hi)) 18%, rgba(251, 63, 138, .35) 45%, transparent 72%); }
+.v4c-wave { width: 220px; height: 220px; box-shadow: 0 0 0 3px var(--color-pink), 0 0 26px var(--color-pink), inset 0 0 22px rgba(251, 63, 138, .6); }
 /* the run: every card at full strength while it moves, the one under the line lifts as it slows, the rest step back as it lands */
 .v4c-band[data-spin] .v4o-card, .v4c-col[data-spin] .v4o-card { opacity: 1; filter: none; transition: opacity .35s, filter .35s, transform .25s, box-shadow .3s; }
 :is(.v4c-band, .v4c-col)[data-spin="slow"] .v4o-card.is-at { transform: scale(1.04); }
@@ -855,9 +855,9 @@ html body .v4c-go:not(.is-short) { gap: 14px; padding-right: 8px; }
 .v4c-top[data-v="m"] .v4c-won-hex { display: none; }
 .v4c-top[data-v="m"][data-card="a"] .v4c-won-card::before { content: attr(data-w); position: absolute; left: -6px; top: 4px; z-index: -1; color: transparent; white-space: nowrap;
   font: 900 150px/.84 var(--font-family, Roboto, sans-serif); letter-spacing: -.03em; text-transform: uppercase;
-  -webkit-text-stroke: 2px color-mix(in srgb, var(--r) 80%, #fff 12%); opacity: .5; }
+  -webkit-text-stroke: 2px color-mix(in srgb, var(--r) 80%, var(--color-text-hi) 12%); opacity: .5; }
 .v4c-top[data-v="m"] .v4c-won-card::after { content: ''; position: absolute; inset: -30%; z-index: 2; pointer-events: none; opacity: 0;
-  background: linear-gradient(115deg, transparent 42%, rgba(255, 255, 255, .45) 49%, color-mix(in srgb, var(--r) 55%, #fff) 51%, transparent 58%); transform: translateX(-60%); }
+  background: linear-gradient(115deg, transparent 42%, rgba(255, 255, 255, .45) 49%, color-mix(in srgb, var(--r) 55%, var(--color-text-hi)) 51%, transparent 58%); transform: translateX(-60%); }
 .v4c-top[data-v="m"] .v4c-win.is-on .v4c-won-card::after { animation: v4c-foil 1.4s .7s ease-in-out 1; }
 .v4c-top[data-v="m"] .v4c-win.is-on:is([data-rank="5"], [data-rank="6"], [data-rank="7"]) .v4c-won-card::after { animation: v4c-foil 2.6s .7s ease-in-out infinite; }
 .v4c-top[data-v="m"] .v4c-won-art { width: 100%; height: 124px; min-height: 0; }

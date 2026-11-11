@@ -17,7 +17,7 @@
       '<div class="sx-text"><p class="sx-p">' + P + '</p>' +
       '<ul class="sx-facts" aria-hidden="true"><li><span class="sx-tile"><span class="sx-ic sx-ic--pct"></span></span>A published chance on each one</li><li><span class="sx-tile"><span class="sx-ic sx-ic--target"></span></span>One round decides the item</li><li><span class="sx-tile is-ok"><span class="sx-ic sx-ic--shield"></span></span>Checked afterwards</li></ul>' +
       '<div class="sx-acts"><a class="v4-btn v4-btn--m sx-fair" href="' + base + 'fair.html"><span class="sx-ic sx-ic--shield" aria-hidden="true"></span>Provably fair</a>' +
-      '<a class="sl-go" href="' + base + 'case.html#h2-pays">What this case <span class="nw">pays' + ARROW + '</span></a></div></div>' +
+      '<a class="sl-go" href="case.html#h2-pays">What this case <span class="nw">pays' + ARROW + '</span></a></div></div>' +
       '<div class="sx-stage" aria-hidden="true"><span class="sl-case sx-art"><span class="b"></span><img class="sk" src="../concept/assets/skins/' + skin + '.png" alt="" width="512" height="384"><span class="f"></span></span>' +
       '<span class="sx-pins"><span class="sl-pill sx-pin sx-pin1"><span class="sx-ic sx-ic--pct"></span>A published chance on each one</span>' +
       '<span class="sl-pill sx-pin sx-pin2"><span class="sx-ic sx-ic--target"></span>One round decides the item</span>' +

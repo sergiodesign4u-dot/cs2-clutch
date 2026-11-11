@@ -34,7 +34,7 @@
   function go(base, href, text) {
     var i = text.lastIndexOf(' ');
     var a = i < 0 ? '' : text.slice(0, i + 1), b = i < 0 ? text : text.slice(i + 1);
-    return '<a class="fq-go" href="' + base + href + '">' + a + '<span class="nw">' + b + ARROW + '</span></a>';
+    return '<a class="fq-go" href="' + (/^case\.html/.test(href) ? '' : base) + href + '">' /* the case screen has a coloured copy beside this page, the rest are grey; contract row 26 */ + a + '<span class="nw">' + b + ARROW + '</span></a>';
   }
 
   /* o.base: the wireframes folder the links open in; o.open: the item open at first, 0 by default */

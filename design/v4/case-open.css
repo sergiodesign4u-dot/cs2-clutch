@@ -4,13 +4,13 @@
 .v4o-lane[data-tier="r1"], .v4o-card.r1 { --r: var(--color-rarity-1); }
 .v4o-lane[data-tier="r2"], .v4o-card.r2 { --r: var(--color-rarity-2); }
 .v4o-lane[data-tier="r3"], .v4o-card.r3 { --r: var(--color-rarity-3); }
-.v4o-lane[data-tier="r4"], .v4o-card.r4 { --r: #8F63E6; } /* rarity step 4 lifted a step: #6B42B9 reads as navy on the reel's ground */
+.v4o-lane[data-tier="r4"], .v4o-card.r4 { --r: #8F63E6; } /* rarity step 4 lifted a step: var(--color-rarity-4) reads as navy on the reel's ground */
 .v4o-lane[data-tier="r5"], .v4o-card.r5 { --r: #4F6BFF; } /* rarity step 5 lifted a step, the same reason */
 .v4o-lane[data-tier="r6"], .v4o-card.r6 { --r: var(--color-rarity-6); }
 .v4o-lane[data-tier="r7"], .v4o-card.r7 { --r: var(--color-rarity-7); }
 
 .v4o-open { --v4o-card-w: 156px; --v4o-card-h: 168px; --v4o-gap: 8px; display: flex; gap: 10px; justify-content: center; width: 100%; }
-.v4o-lane { --v4o-charge: 0; --v4o-speed: 0; --hot: color-mix(in srgb, var(--r) calc(var(--v4o-charge) * 100%), #FB3F8A);
+.v4o-lane { --v4o-charge: 0; --v4o-speed: 0; --hot: color-mix(in srgb, var(--r) calc(var(--v4o-charge) * 100%), var(--color-pink));
   position: relative; overflow: hidden; flex: 1 1 0; min-width: 0; border-radius: 16px; isolation: isolate;
   background: radial-gradient(60% 90% at 50% 50%, color-mix(in srgb, var(--r) calc(var(--v4o-charge) * 30%), transparent), transparent 70%),
     linear-gradient(180deg, #12113A, #0A0926);
@@ -39,7 +39,7 @@
 .v4o-y .v4o-name b { font-size: 12px; } .v4o-y .v4o-name span { font-size: 11px; }
 
 /* the marker: a line through the middle with a notch at each end, pink while it runs, the landing colour as it settles */
-.v4o-mark { position: absolute; z-index: 3; pointer-events: none; background: var(--hot); box-shadow: 0 0 10px var(--hot), 0 0 2px #fff; }
+.v4o-mark { position: absolute; z-index: 3; pointer-events: none; background: var(--hot); box-shadow: 0 0 10px var(--hot), 0 0 2px var(--color-text-hi); }
 .v4o-x .v4o-mark { top: 6px; bottom: 6px; left: 50%; width: 2px; margin-left: -1px; }
 .v4o-y .v4o-mark { left: 6px; right: 6px; top: 50%; height: 2px; margin-top: -1px; }
 .v4o-mark::before, .v4o-mark::after { content: ''; position: absolute; width: 0; height: 0; border: 8px solid transparent; }
@@ -107,5 +107,5 @@
 .v4o-open:not([data-v="c"]) .v4o-y .v4o-mark { display: none; }
 .v4o-mark-all { position: absolute; z-index: 5; left: -4px; right: -4px; top: 50%; height: 2px; margin-top: -1px; pointer-events: none; background: var(--color-pink); box-shadow: 0 0 10px var(--color-pink), 0 0 2px var(--color-text-hi); }
 .v4o-mark-all::before, .v4o-mark-all::after { content: ''; position: absolute; top: -7px; width: 0; height: 0; border: 8px solid transparent; }
-.v4o-mark-all::before { left: -6px; border-left-color: #FB3F8A; }
-.v4o-mark-all::after { right: -6px; border-right-color: #FB3F8A; }
+.v4o-mark-all::before { left: -6px; border-left-color: var(--color-pink); }
+.v4o-mark-all::after { right: -6px; border-right-color: var(--color-pink); }

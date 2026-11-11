@@ -2,20 +2,20 @@
  * starts dc-, so nothing of Home's wf- layer is touched. The panel lays itself out by its own width, container dc.
  * Founder decisions it carries, 2 Nov 2026: one Daily case for the series, its filling growing from Silver to Elite (art/daily-cases-v2/),
  * the real skins 0 to 4; R8's background scene and full colour on the tiers ahead; R7's head boxes, the open button on the card, the
- * marker with its chat tail, the animated lock, the hover lift; money in gold #FFC44D with coin 6 and no word "coins" on screen. */
+ * marker with its chat tail, the animated lock, the hover lift; money in gold var(--color-money) with coin 6 and no word "coins" on screen. */
 
 .dc-frame { container: dc / inline-size; }
-.dc { --money: #FFC44D; --gap: 12px; position: relative; isolation: isolate; display: flex; flex-direction: column; box-sizing: border-box; padding: 28px; border-radius: 16px;
+.dc { --money: var(--color-money); --gap: 12px; position: relative; isolation: isolate; display: flex; flex-direction: column; box-sizing: border-box; padding: 28px; border-radius: 16px;
   background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); color: var(--color-text-hi); font-family: var(--font-family); text-align: left; }
 /* the background scene, approved option 1: a dim warehouse of cases on the panel's right, fading out to the left, at 15% */
 .dc::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: .15; background: url(art/daily-bg.webp) right center / cover no-repeat;
   -webkit-mask: linear-gradient(90deg, transparent 18%, #000 64%); mask: linear-gradient(90deg, transparent 18%, #000 64%); }
 /* the five tiers: their colour, their case */
 .dc-t1 { --hue: #C9D2E3; --g1: #7D88A8; --g2: #333C5A; --case: url(art/daily-cases-v2/silver.webp); }
-.dc-t2 { --hue: #65A3FF; --g1: #3955E8; --g2: #1B2A8F; --case: url(art/daily-cases-v2/nova.webp); }
+.dc-t2 { --hue: var(--color-blue); --g1: var(--color-rarity-5); --g2: #1B2A8F; --case: url(art/daily-cases-v2/nova.webp); }
 .dc-t3 { --hue: #A35CFF; --g1: #8E2BC9; --g2: #41157A; --case: url(art/daily-cases-v2/guardian.webp); }
-.dc-t4 { --hue: #FB3F8A; --g1: #FB3F8A; --g2: #8E1F5E; --case: url(art/daily-cases-v2/legend.webp); }
-.dc-t5 { --hue: #FADA62; --g1: #B07806; --g2: #B4400F; /* --g1 was #C98A0A: ELITE in white sat at 2.6:1 under the stripes; #B07806 holds 3.3:1, large text, stage 06 critique of 10 Nov 2026, row 7 */ --case: url(art/daily-cases-v2/elite.webp); }
+.dc-t4 { --hue: var(--color-pink); --g1: var(--color-pink); --g2: #8E1F5E; --case: url(art/daily-cases-v2/legend.webp); }
+.dc-t5 { --hue: var(--color-gold); --g1: #B07806; --g2: #B4400F; /* --g1 was #C98A0A: ELITE in white sat at 2.6:1 under the stripes; #B07806 holds 3.3:1, large text, stage 06 critique of 10 Nov 2026, row 7 */ --case: url(art/daily-cases-v2/elite.webp); }
 /* "coins" for a screen reader only */
 .dc-sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* coin 6, art/brand/coin-6-small.svg, the gold ring with the bolt on navy, as on Home's prices */

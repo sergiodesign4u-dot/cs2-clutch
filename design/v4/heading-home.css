@@ -9,18 +9,18 @@
 :root { --hx-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); }
 
 /* Featured cases: the h2's ::before becomes the tile, its ::after the mark, the head's ::after the fading line */
-.wf-main .wf-sec-head:has(#h2-cases) { --hx-g: var(--v4-mode-cases); --hx-c: #FB3F8A; --hx-ic: var(--icon-star); }
+.wf-main .wf-sec-head:has(#h2-cases) { --hx-g: var(--v4-mode-cases); --hx-c: var(--color-pink); --hx-ic: var(--icon-star); }
 .wf-main .wf-sec-head:has(#h2-cases) h2 { position: relative; gap: 14px; }
 .wf-main .wf-sec-head:has(#h2-cases) h2::before { flex: 0 0 42px; height: 42px; border-radius: 12px; filter: none; -webkit-mask: none; mask: none;
   background: var(--hx-stripes), var(--hx-g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
-.wf-main .wf-sec-head:has(#h2-cases) h2::after { content: ''; position: absolute; left: 10px; top: 50%; width: 22px; height: 22px; margin-top: -11px; background: #fff;
+.wf-main .wf-sec-head:has(#h2-cases) h2::after { content: ''; position: absolute; left: 10px; top: 50%; width: 22px; height: 22px; margin-top: -11px; background: var(--color-text-hi);
   -webkit-mask: var(--hx-ic) center / contain no-repeat; mask: var(--hx-ic) center / contain no-repeat; }
 .wf-main .wf-sec-head:has(#h2-cases)::after { height: 2px; background: linear-gradient(90deg, var(--hx-c), rgba(0, 0, 0, 0)); }
 
 /* Daily cases: the panel's own title, in the upgrade colour, the calendar */
 .dc-t { position: relative; display: flex; align-items: center; gap: 16px; }
 .dc-t::before { content: ''; flex: 0 0 46px; height: 46px; border-radius: 12px; background: var(--hx-stripes), var(--v4-mode-upgrade); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
-.dc-t::after { content: ''; position: absolute; left: 11px; top: 50%; width: 24px; height: 24px; margin-top: -12px; background: #fff;
+.dc-t::after { content: ''; position: absolute; left: 11px; top: 50%; width: 24px; height: 24px; margin-top: -12px; background: var(--color-text-hi);
   -webkit-mask: var(--icon-calendar) center / contain no-repeat; mask: var(--icon-calendar) center / contain no-repeat; }
 
 @media (max-width: 599px) {

@@ -2,7 +2,7 @@
    case-body.js. Scoped to the case page by .v4c-top's presence. The drop table's rows other than A live on table-lab.html:
    A cards by tier, B the tier's plate (Home's round card), C the live drops' card, all nine in a row, D one bar of the odds, E the comparison table. */
 
-.wf-main:has(.v4c-top) { --v4b-card: linear-gradient(to bottom, #191842, #0F0E2B); }
+.wf-main:has(.v4c-top) { --v4b-card: linear-gradient(to bottom, #191842, var(--color-card)); }
 .r4 { --r-lit: #8F63E6; } .r5 { --r-lit: #4F6BFF; } .r1, .r2, .r3, .r6, .r7 { --r-lit: var(--r); }
 
 /* before you open: the skin prices note and the Steam line, one quiet panel */
@@ -23,7 +23,7 @@
 .wf-recent .v4b-img { position: relative; width: 112px; height: 70px; object-fit: contain; filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .6)); }
 .wf-recent .wf-r-w { color: var(--color-text-hi); font-size: 13px; font-weight: 700; }
 .wf-recent .wf-r-s { color: var(--color-text-soft); font-size: 12px; }
-.wf-recent .wf-r-v { margin-top: 4px; color: #FFC44D; font-size: 14px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.wf-recent .wf-r-v { margin-top: 4px; color: var(--color-money); font-size: 14px; font-weight: 900; font-variant-numeric: tabular-nums; }
 .wf-recent .wf-r-t { color: var(--color-text-soft); font-size: 11px; opacity: .8; }
 
 /* the drop table, row A: the table as a grid of item cards under a chip per tier, chance and value side by side on every card */
@@ -53,12 +53,12 @@
 .wf-drops[data-v4] .wf-d-name { display: flex; flex-direction: column; gap: 1px; }
 .wf-drops[data-v4] .wf-d-weapon { color: var(--color-text-soft); font-size: 12px; }
 .wf-drops[data-v4] .wf-d-skin { color: var(--color-text-hi); font-size: 16px; font-weight: 900; }
-.wf-drops[data-v4] .wf-d-axes { color: color-mix(in srgb, var(--r-lit) 65%, #fff); font-size: 12px; }
+.wf-drops[data-v4] .wf-d-axes { color: color-mix(in srgb, var(--r-lit) 65%, var(--color-text-hi)); font-size: 12px; }
 .wf-drops[data-v4] .wf-d-mkt { margin-top: 2px; color: var(--color-text-soft); font-size: 11px; }
 .wf-drops[data-v4] td[data-l] { display: flex; flex-direction: column; gap: 2px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .wf-drops[data-v4] td[data-l]::before { content: attr(data-l); color: var(--color-text-soft); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .wf-drops[data-v4] td[data-l="Chance"] { grid-area: ch; color: var(--color-text-hi); font-size: 15px; font-weight: 900; }
-.wf-drops[data-v4] td[data-l="Value"] { grid-area: v; color: #FFC44D; font-size: 15px; font-weight: 900; }
+.wf-drops[data-v4] td[data-l="Value"] { grid-area: v; color: var(--color-money); font-size: 15px; font-weight: 900; }
 .wf-drops[data-v4] td[data-l="Tickets"] { grid-area: t; flex-direction: row; gap: 6px; align-items: baseline; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, .06); color: var(--color-text-soft); font-size: 11px; }
 
 .wf-main:has(.v4c-top) .wf-stamp { margin: -6px 0 0; color: var(--color-text-soft); font-size: 12px; }
@@ -93,7 +93,7 @@
 .v4b-dist-h b { font-size: 14px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
 .v4b-dist-h span { color: var(--color-text-soft); font-size: 12px; }
 .v4b-dist-bar { display: flex; gap: 2px; height: 22px; border-radius: 6px; overflow: hidden; }
-.v4b-dist-bar > span { min-width: 3px; background: linear-gradient(180deg, color-mix(in srgb, var(--r-lit) 80%, #fff), var(--r-lit)); }
+.v4b-dist-bar > span { min-width: 3px; background: linear-gradient(180deg, color-mix(in srgb, var(--r-lit) 80%, var(--color-text-hi)), var(--r-lit)); }
 .v4b-dist-up { position: relative; margin-top: 10px; padding-top: 8px; color: var(--color-text-soft); font-size: 12px; }
 .v4b-dist-up > span { position: absolute; left: 0; top: -16px; width: calc(var(--up) * 1%); height: 4px; border-radius: 2px; background: #35E08A; box-shadow: 0 0 8px rgba(53, 224, 138, .6); }
 .v4b-dist-up b { color: #35E08A; }
@@ -104,13 +104,13 @@
 /* row E: the comparison table, one line an item, sortable by chance or value; tiers as their own headers until it is sorted */
 .v4b-sort:has(+ .wf-drops[data-v="e"]) { display: flex; align-items: center; gap: 6px; margin: 0 0 12px; color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .v4b-sort button { min-height: 32px; padding: 0 12px; border: 0; border-radius: 8px; background: rgba(150, 160, 215, .1); color: var(--color-text-soft); font: 700 12px var(--font-family); cursor: pointer; }
-.v4b-sort button[aria-pressed="true"] { background: var(--btn-fill); color: #fff; }
+.v4b-sort button[aria-pressed="true"] { background: var(--btn-fill); color: var(--color-text-hi); }
 .wf-drops[data-v="e"] { display: flex; flex-direction: column; gap: 6px; }
 .wf-drops[data-v="e"] tbody { display: contents; }
 .wf-drops[data-v="e"] .wf-tier-h { margin-top: 12px; }
 .wf-drops[data-v="e"].is-flat .wf-tier-h { display: none; }
 .wf-drops[data-v="e"] .v4b-row { grid-template-columns: 96px minmax(180px, 1.6fr) 1fr 1fr 1.2fr; grid-template-areas: 'art name ch v t'; align-items: center; gap: 0 16px; padding: 6px 16px 6px 8px; border-radius: 12px;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--r-lit) 20%, #0F0E2B), #0F0E2B 40%); box-shadow: inset 3px 0 0 var(--r-lit); }
+  background: linear-gradient(90deg, color-mix(in srgb, var(--r-lit) 20%, var(--color-card)), var(--color-card) 40%); box-shadow: inset 3px 0 0 var(--r-lit); }
 @media (hover: hover) { .wf-drops[data-v="e"] .v4b-row:hover { transform: none; box-shadow: inset 3px 0 0 var(--r-lit), 0 0 0 1px color-mix(in srgb, var(--r-lit) 50%, transparent); } }
 .wf-drops[data-v="e"] .wf-art-c { height: 56px; }
 .wf-drops[data-v="e"] .wf-art-c::before { width: 60px; height: 52px; margin-left: -30px; top: 2px; }
@@ -132,8 +132,8 @@
 .wf-drops[data-v="b"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 58px 12px; padding-top: 46px; }
 .wf-drops[data-v="b"] tbody { display: contents; }
 .wf-drops[data-v="b"] .wf-tier-h { display: none; }
-.wf-drops[data-v="b"] .r2 { --p1: #D1273E; --p2: #7A0F22; } .wf-drops[data-v="b"] .r3 { --p1: #A62BC4; --p2: #4A1260; } .wf-drops[data-v="b"] .r4 { --p1: #6B42B9; --p2: #2E1A63; }
-.wf-drops[data-v="b"] .r5 { --p1: #3955E8; --p2: #1B2A8F; } .wf-drops[data-v="b"] .r1 { --p1: #B57A06; --p2: #B4400F; }
+.wf-drops[data-v="b"] .r2 { --p1: var(--color-rarity-2); --p2: #7A0F22; } .wf-drops[data-v="b"] .r3 { --p1: #A62BC4; --p2: #4A1260; } .wf-drops[data-v="b"] .r4 { --p1: var(--color-rarity-4); --p2: #2E1A63; }
+.wf-drops[data-v="b"] .r5 { --p1: var(--color-rarity-5); --p2: #1B2A8F; } .wf-drops[data-v="b"] .r1 { --p1: #B57A06; --p2: #B4400F; }
 .wf-drops[data-v="b"] .v4b-row { grid-template-columns: 1fr 1fr; grid-template-areas: 'name name' 'ch v' 't t'; align-content: end; min-height: 196px; padding: 18px; border-radius: var(--v4-radius); overflow: visible; isolation: isolate;
   background: linear-gradient(120deg, var(--p1), var(--p2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); }
 @media (hover: hover) { .wf-drops[data-v="b"] .v4b-row:hover { transform: none; filter: brightness(1.08); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); }
@@ -166,7 +166,7 @@
 .wf-drops[data-v="c"] tbody { display: contents; }
 .wf-drops[data-v="c"] .wf-tier-h { display: none; }
 .wf-drops[data-v="c"] .v4b-row { grid-template-columns: 1fr; grid-template-areas: 'art' 'name' 'ch' 'v' 't'; padding: 8px 8px 12px; border-radius: 8px; text-align: center; gap: 2px;
-  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r-lit) 40%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); }
+  background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r-lit) 40%, transparent), transparent), linear-gradient(to bottom, #191842, var(--color-card)); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); }
 .wf-drops[data-v="c"] .v4b-row::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 36px; height: 3px; margin-left: -18px; border-radius: 3px 3px 0 0; background: var(--r-lit); box-shadow: 0 0 10px var(--r-lit); }
 @media (hover: hover) { .wf-drops[data-v="c"] .v4b-row:hover { box-shadow: 0 0 0 1px color-mix(in srgb, var(--r-lit) 60%, transparent), 0 10px 22px rgba(0, 0, 0, .4); } }
 .wf-drops[data-v="c"] .v4b-row > * { text-align: center; }
@@ -201,7 +201,7 @@
 @media (hover: hover) { .wf-drops[data-v="f"] .v4b-row:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--r-lit) 55%, transparent), 0 14px 28px rgba(3, 3, 16, .55), 0 0 22px color-mix(in srgb, var(--r-lit) 22%, transparent); }
   .wf-drops[data-v="f"] .v4b-row:hover .v4b-img { transform: scale(1.12) rotate(-3deg); } }
 .wf-drops[data-v="f"] .v4b-row > * { text-align: center; }
-.wf-drops[data-v="f"] td[data-l="Value"] { grid-area: v; flex-direction: row; justify-self: center; align-items: center; gap: 6px; color: #fff; font-size: 20px; line-height: 1; }
+.wf-drops[data-v="f"] td[data-l="Value"] { grid-area: v; flex-direction: row; justify-self: center; align-items: center; gap: 6px; color: var(--color-money); font-size: 20px; line-height: 1; } /* was white: money is gold, --color-money, 11 Nov 2026 */
 .wf-drops[data-v="f"] td[data-l="Value"]::before { display: none; }
 .wf-drops[data-v="f"] .v4f-coin { width: 18px; height: 18px; }
 .wf-drops[data-v="f"] .v4d-c { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -210,20 +210,20 @@
 .wf-drops[data-v="f"] .wf-art-c .v4o-hex { display: block; position: absolute; left: 50%; top: 50%; height: 86%; width: auto; aspect-ratio: 136 / 118; translate: -50% -50%; overflow: visible; pointer-events: none;
   filter: drop-shadow(-1.5px -1.5px 2px color-mix(in srgb, var(--r-lit) 55%, transparent)) drop-shadow(-3px -3px 10px color-mix(in srgb, var(--r-lit) 28%, transparent)); }
 .wf-drops[data-v="f"] .wf-art-c .v4o-hex .hx-grad-d { display: inline; stroke-width: 3.6; }
-.wf-drops[data-v="f"] .wf-art-c .hs1 { stop-color: color-mix(in srgb, var(--r-lit) 62%, #fff); } .wf-drops[data-v="f"] .wf-art-c .hs2 { stop-color: color-mix(in srgb, var(--r-lit) 92%, #fff); } .wf-drops[data-v="f"] .wf-art-c .hs3 { stop-color: color-mix(in srgb, var(--r-lit) 72%, #12001C); }
+.wf-drops[data-v="f"] .wf-art-c .hs1 { stop-color: color-mix(in srgb, var(--r-lit) 62%, var(--color-text-hi)); } .wf-drops[data-v="f"] .wf-art-c .hs2 { stop-color: color-mix(in srgb, var(--r-lit) 92%, var(--color-text-hi)); } .wf-drops[data-v="f"] .wf-art-c .hs3 { stop-color: color-mix(in srgb, var(--r-lit) 72%, #12001C); }
 .wf-drops[data-v="f"] .wf-art-c .v4d-plate { --r: var(--r-lit); }
 .wf-drops[data-v="f"] .v4b-img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; transform: scale(1.06); filter: drop-shadow(0 8px 6px rgba(0, 0, 0, .7)); }
 .wf-drops[data-v="f"] th { grid-area: name; margin: 0 0 14px; min-width: 0; }
 .wf-drops[data-v="f"] .wf-d-name { align-items: center; }
 .wf-drops[data-v="f"] .wf-d-weapon { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .wf-drops[data-v="f"] .wf-d-skin, .wf-drops[data-v="f"] .wf-d-axes { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.wf-drops[data-v="f"] .wf-d-skin { color: #fff; font-size: 16px; }
+.wf-drops[data-v="f"] .wf-d-skin { color: var(--color-text-hi); font-size: 16px; }
 .wf-drops[data-v="f"] .wf-d-axes { margin-top: 2px; font-size: 11px; }
 .wf-drops[data-v="f"] .wf-d-axes { white-space: normal; overflow: visible; text-overflow: clip; text-wrap: balance; } /* the wear and the grade wrap to a second line instead of losing Covert at 360, stage 06 critique of 10 Nov 2026, row 8 */
 /* the chance and the tickets a line each, the label on the left and the figure on the right, so neither runs into the other at any width */
 .wf-drops[data-v="f"] td[data-l="Chance"], .wf-drops[data-v="f"] td[data-l="Tickets"] { flex-direction: row; flex-wrap: wrap; justify-content: flex-end; align-items: baseline; gap: 2px 8px; margin: 0; padding: 12px 0 0; border: 0; font-size: 14px; font-weight: 900; line-height: 1.2; text-align: right; white-space: nowrap; }
-.wf-drops[data-v="f"] td[data-l="Chance"] { grid-area: ch; color: #fff; }
-.wf-drops[data-v="f"] td[data-l="Tickets"] { grid-area: t; padding-top: 6px; color: color-mix(in srgb, var(--r-lit) 35%, #fff); }
+.wf-drops[data-v="f"] td[data-l="Chance"] { grid-area: ch; color: var(--color-text-hi); }
+.wf-drops[data-v="f"] td[data-l="Tickets"] { grid-area: t; padding-top: 6px; color: color-mix(in srgb, var(--r-lit) 35%, var(--color-text-hi)); }
 .wf-drops[data-v="f"] td[data-l="Chance"]::before, .wf-drops[data-v="f"] td[data-l="Tickets"]::before { flex: none; margin-right: auto; font-size: 10px; }
 /* the range fits beside its label on a wide card; on a narrow one every card puts it on its own line under the label, so the cards of a
    row keep their feet level rather than some wrapping and some not */
@@ -232,10 +232,20 @@
 @container v4f (max-width: 160px) { .wf-drops[data-v="f"] td[data-l="Tickets"]::before { flex-basis: 100%; } }
 .wf-drops[data-v="f"] .v4b-rule { display: none; }
 @media (max-width: 599px) {
-  .wf-drops[data-v="f"] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .wf-drops[data-v="f"] .v4b-row { padding: 14px 10px 16px; }
+  /* on a phone a card is a row, founder of 11 Nov 2026 of three on the before and after page, "берем C с доработкой": two cards side by
+     side were 139px wide, where the chance fit one line and the tickets broke into two. The value stands over the skin, and the tier's
+     foot bar sits under the middle of the skin's hexagon, "нижний подсветку под скином ставим по центру скина шестиугольника и цену ставим
+     над скином"; the name, the ticket line, the chance and the tickets take the rest, each figure on its label's line */
+  .wf-drops[data-v="f"] { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .wf-drops[data-v="f"] .v4b-row { --v4f-art: 104px; grid-template-columns: var(--v4f-art) minmax(0, 1fr); grid-template-rows: auto 1fr auto auto; grid-template-areas: 'v name' 'art name' 'art ch' 'art t'; column-gap: 14px; padding: 12px 14px 14px; }
+  .wf-drops[data-v="f"] .v4b-row > * { text-align: left; }
+  .wf-drops[data-v="f"] .v4b-row::after { left: calc(14px + var(--v4f-art) / 2); }
   .wf-drops[data-v="f"] td[data-l="Value"] { font-size: 18px; }
-  .wf-drops[data-v="f"] .wf-art-c { height: 88px; }
+  .wf-drops[data-v="f"] .wf-art-c { align-self: start; height: 84px; margin: 6px 0 0; }
+  .wf-drops[data-v="f"] th { margin: 2px 0 10px; }
+  .wf-drops[data-v="f"] .wf-d-name { align-items: flex-start; }
+  .wf-drops[data-v="f"] td[data-l="Chance"], .wf-drops[data-v="f"] td[data-l="Tickets"] { flex-wrap: nowrap; }
+  .wf-drops[data-v="f"] td[data-l="Tickets"]::before { flex-basis: auto; }
   .wf-drops[data-v="f"] .wf-d-skin { font-size: 14px; }
   .wf-drops[data-v="f"] td[data-l="Chance"], .wf-drops[data-v="f"] td[data-l="Tickets"] { gap: 6px; font-size: 12px; }
   .wf-drops[data-v="f"] td[data-l="Chance"]::before, .wf-drops[data-v="f"] td[data-l="Tickets"]::before { font-size: 9px; letter-spacing: .04em; }

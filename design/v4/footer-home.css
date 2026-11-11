@@ -12,7 +12,7 @@
 .fl-stat:nth-child(2) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-upgrade); }
 .fl-stat:nth-child(3) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-battles); }
 .fl-stat:nth-child(4) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-showdowns); }
-.fl-tile .fl-ic { width: 22px; height: 22px; color: #fff; }
+.fl-tile .fl-ic { width: 22px; height: 22px; color: var(--color-text-hi); }
 .fl-sv { display: grid; gap: 2px; min-width: 0; }
 .fl-sv b { font-size: 24px; font-weight: 900; line-height: 1.05; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .fl-sv span { color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
@@ -47,7 +47,7 @@
 .fl-tp { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; }
 .fl-tp-stars { display: flex; gap: 3px; }
 .fl-tp-stars i { position: relative; width: 20px; height: 20px; border-radius: 3px; background: #00B67A; }
-.fl-tp-stars i::after { content: ''; position: absolute; inset: 3px; background: #fff; -webkit-mask: var(--icon-star) center / contain no-repeat; mask: var(--icon-star) center / contain no-repeat; }
+.fl-tp-stars i::after { content: ''; position: absolute; inset: 3px; background: var(--color-text-hi); -webkit-mask: var(--icon-star) center / contain no-repeat; mask: var(--icon-star) center / contain no-repeat; }
 .fl-tp-stars i.is-part { background: linear-gradient(90deg, #00B67A 10%, #3B3F5C 10%); }
 .fl-tp b { font-size: 22px; font-weight: 900; }
 .fl-tp > span:last-child { color: var(--color-text-soft); font-size: 12px; line-height: 1.25; }
@@ -65,12 +65,12 @@
 .fl-plate.is-rg { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-battles); }
 .fl-plate.is-pf { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), linear-gradient(140deg, var(--v4-fair-blue), #1F55C9 60%, #24359E); }
 .fl-pt { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; background: rgba(6, 10, 30, .35); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18); }
-.fl-pt .fl-ic { width: 24px; height: 24px; color: #fff; }
+.fl-pt .fl-ic { width: 24px; height: 24px; color: var(--color-text-hi); }
 .fl-plate.is-rg .fl-pt .fl-ic { color: var(--color-money); }
 .fl-ptx { display: grid; gap: 3px; min-width: 0; }
 .fl-ptx b { font-size: 16px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; }
 .fl-ptx > span { color: var(--color-text-hi); font-size: 13px; } /* was white at .85: 3.7:1 on the 18+ red, 3.3:1 on the blue; full white holds 4.6 and 4.9, stage 06 critique of 10 Nov 2026, row 4 */
-.fl-go { position: absolute; right: 18px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-right: 2.5px solid #fff; border-top: 2.5px solid #fff; rotate: 45deg; transition: translate .2s; }
+.fl-go { position: absolute; right: 18px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-right: 2.5px solid var(--color-text-hi); border-top: 2.5px solid var(--color-text-hi); rotate: 45deg; transition: translate .2s; }
 @media (hover: hover) { .fl-plate:hover { translate: 0 -2px; filter: brightness(1.08); } .fl-plate:hover .fl-go { translate: 3px -3px; } }
 
 /* the case breaking out over the footer's top right corner, Nightfall */
@@ -162,7 +162,7 @@
 .fe-band::after { bottom: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .28) 50%, transparent); }
 .fe-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .fe-stat { display: flex; align-items: center; gap: 16px; min-width: 0; }
-.fe-stat > .fl-ic { flex: 0 0 auto; width: 46px; height: 46px; color: #fff; }
+.fe-stat > .fl-ic { flex: 0 0 auto; width: 46px; height: 46px; color: var(--color-text-hi); }
 .fe-stat > span { display: grid; gap: 6px; min-width: 0; }
 .fe-stat b { color: var(--color-pink); font-size: 40px; font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(251, 63, 138, .45); }
 .fe-stat b + span { color: var(--color-text-soft); font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
@@ -222,14 +222,14 @@
 .ff-band, .ff-foot { position: relative; isolation: isolate; }
 .ff-band::before, .ff-foot::before { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, transparent, rgba(5, 6, 20, .85) 22%, rgba(5, 6, 20, .85) 78%, transparent); }
 .ff-band { padding: 36px 28px 32px; background: radial-gradient(50% 120% at 50% 0%, rgba(74, 107, 255, .2), transparent 70%); }
-.ff-band::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, transparent, #FB3F8A 50%, transparent); }
+.ff-band::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--color-pink) 50%, transparent); }
 .ff-band > .ff-stats::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, #4A6BFF 50%, transparent); }
 .ff-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .ff-stat { display: flex; align-items: center; justify-content: center; gap: 14px; min-width: 0; }
 .ff-stat .fl-tile { width: min(58px, 4.4cqw); height: min(58px, 4.4cqw); border-radius: 14px; }
 .ff-stat .fl-tile .fl-ic { width: 55%; height: 55%; }
 .ff-stat > span:last-child { display: grid; gap: 6px; min-width: 0; }
-.ff-stat b { color: #FB3F8A; font-size: min(38px, 2.6cqw); font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(251, 63, 138, .45); }
+.ff-stat b { color: var(--color-pink); font-size: min(38px, 2.6cqw); font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 0 22px rgba(251, 63, 138, .45); }
 .ff-stat b + span { color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .ff-stat.is-live b + span::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: var(--color-green); vertical-align: 1px; animation: fl-live 2s ease-in-out infinite; }
 /* the strip: the red 18+ plate, the round plate, the language, nothing else */
@@ -237,10 +237,10 @@
 .ff-plates { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 12px; align-items: center; }
 .ft-g .ff-plates { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .fl-plate.is-18 { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-showdowns); }
-.ff-18 { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: #fff; color: #B4142E; font-size: 15px; font-weight: 900; letter-spacing: -.02em; box-shadow: 0 4px 10px rgba(60, 0, 10, .35); }
+.ff-18 { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: var(--color-text-hi); color: #B4142E; font-size: 15px; font-weight: 900; letter-spacing: -.02em; box-shadow: 0 4px 10px rgba(60, 0, 10, .35); }
 /* the foot: the payment cards and the age and market lines on one row, the fine print under them, on a band like the counters' */
 .ff-foot { margin-top: 28px; padding: 26px 28px 24px; }
-.ff-foot::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, #FB3F8A 50%, transparent); }
+.ff-foot::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--color-pink) 50%, transparent); }
 .ff-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; }
 .ff-legal { flex: 1 1 380px; max-width: 640px; }
 .ff-legal p { margin: 0; color: var(--color-text-muted); font-size: 12.5px; line-height: 1.5; }
@@ -359,8 +359,8 @@
   transition: translate .2s cubic-bezier(.2, .7, .2, 1), color .2s, background-color .2s, box-shadow .2s; }
 .fh-pay svg { height: 22px; width: auto; max-width: 60px; }
 .ft-i .fh-pay svg { height: 17px; }
-@media (hover: hover) { .fh-pay:hover { translate: 0 -2px; color: #fff; background-color: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px var(--color-pink), 0 8px 16px rgba(4, 6, 20, .45); } }
-.fh-pay:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; color: #fff; }
+@media (hover: hover) { .fh-pay:hover { translate: 0 -2px; color: var(--color-text-hi); background-color: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px var(--color-pink), 0 8px 16px rgba(4, 6, 20, .45); } }
+.fh-pay:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; color: var(--color-text-hi); }
 
 /* the icons move under the pointer and on focus, a short story each: the case's lid hops, the bars climb, the people lean in, the online
    mark nods; the 18+ disc turns once, the target's ring tightens. At rest the plain glyph; reduced motion keeps them still */
@@ -384,9 +384,9 @@
 /* founder of 3 Nov 2026: "у нас есть анимации этих иконок, сделай такие же", and the users and online marks were "очень скучные". The
    counters' marks are now the rail's drawings and play the rail's stories (rail-icons.css, .v4-ri-host), the round plate's target too;
    the tile's tilt stays; the earlier one-line moves are dropped for them */
-.fl-ri { display: block; width: 56%; height: 56%; color: #fff; }
+.fl-ri { display: block; width: 56%; height: 56%; color: var(--color-text-hi); }
 .fl-ri .ri { width: 100%; height: 100%; }
-.ff-stat, .fl-plate.is-pf { --ra: #fff; }
+.ff-stat, .fl-plate.is-pf { --ra: var(--color-text-hi); }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .ff-stat:nth-child(n):hover .fl-ic, .fl-plate.is-pf:hover .fl-pt .fl-ic { animation: none; }
   .ff-stat:focus-visible .fl-tile { translate: 0 -3px; rotate: -6deg; }

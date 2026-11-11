@@ -19,9 +19,9 @@
   :root body .wf-rail { --rb-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); --rb-dim: var(--color-text-muted); }
 
   /* the mode fills, the same as the mode cards and the lab */
-  :root body .wf-rail .wf-rail-item { --g: linear-gradient(120deg, #FB3F8A, #8E2BC9); }
-  :root body .wf-rail .wf-rail-item:has([data-icon="battle"]), :root body .wf-rail .wf-rail-item:has([data-icon="swap"]) { --g: linear-gradient(120deg, #3955E8, #1B2A8F); }
-  :root body .wf-rail .wf-rail-item:has([data-icon="target"]) { --g: linear-gradient(120deg, #D1273E, #7A0F22); }
+  :root body .wf-rail .wf-rail-item { --g: linear-gradient(120deg, var(--color-pink), #8E2BC9); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="battle"]), :root body .wf-rail .wf-rail-item:has([data-icon="swap"]) { --g: linear-gradient(120deg, var(--color-rarity-5), #1B2A8F); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="target"]) { --g: linear-gradient(120deg, var(--color-rarity-2), #7A0F22); }
   :root body .wf-rail .wf-rail-item:is(:has([data-icon="arrow-up"]), :has([data-icon="cup"]), :has([data-icon="dollar"])) { --g: linear-gradient(120deg, #B57A06, #B4400F); }
   :root body .wf-rail .wf-rail-item:has([data-icon="diamond"]) { --g: linear-gradient(120deg, #2C7FD6, #1B2A8F); }
   :root body .wf-rail .wf-rail-item:has([data-icon="box"]) { --peek: url(art/cases-v2/coldfront-c.webp); }

@@ -46,13 +46,15 @@
     var ev = 'Expected value <span class="x6-money"><img class="x6-coin" src="art/brand/coin-6-small.svg" alt="" width="16" height="16">11.68<span class="x6-vh"> coins</span></span> at this price.';
     return '<div class="x6-frame"><div class="x6"><div class="x6-strip">' +
       '<div class="x6-stub">' + ICON.shield + '<h2>Before you spend</h2></div>' +
-      panel(' x6-rtp', base + 'case.html#h2-pays', false, 'Tested RTP, Ironbound', '94.2<small> %</small>', ev, 'What this case pays', caseArt) +
+      panel(' x6-rtp', 'case.html#h2-pays', false, 'Tested RTP, Ironbound', '94.2<small> %</small>', ev, 'What this case pays', caseArt) +
       panel('', base + 'withdraw.html', g, 'Median time to Steam', '1<small> h </small>40<small> m</small>', 'Nine in ten arrive within 6&#160;h&#160;15&#160;m.', 'How a withdrawal settles') +
       panel(' x6-fee', base + 'withdraw.html#h3-total', g, 'Our commission on withdrawals', '0<small> %</small>', 'Withdrawals go to Steam, commission free.', 'What this settles at') +
       '</div><div class="x6-row"><div class="x6-plate">' +
       '<a class="x6-fig" href="' + base + 'fair.html"><span class="x6-k">Checkable without an account</span><span class="x6-word">Every round</span></a>' +
-      '<span class="x6-hash"><code>4f2a91c7…7e15b208</code><span class="x6-ok">' + ICON.ok + 'Recomputed: matches</span></span>' +
-      '<a class="v4-btn v4-btn--s x6-btn" href="' + base + 'fair.html">Check a round</a></div>' +
+      /* the button inside the hash's box and called Check, founder of 11 Nov 2026: "maybe move the button in here and make it just
+         Check"; its name for a screen reader keeps the act whole, microcopy.md 1.0-47 */
+      '<span class="x6-hash"><span class="x6-hash-t"><code>4f2a91c7…7e15b208</code><span class="x6-ok">' + ICON.ok + 'Recomputed: matches</span></span>' +
+      '<a class="v4-btn v4-btn--s x6-btn" href="' + base + 'fair.html" aria-label="Check this round">Check</a></span></div>' +
       ROUNDS.map(function (r) { return card(r, base); }).join('') + '</div></div></div>';
   }
 

@@ -25,7 +25,7 @@
 | What | Count |
 |---|---|
 | Product pages read, each at 1440 and 360 | 133 |
-| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8; 1305 since `D-209` added six global and thirty five Home strings and listed one missed, 3 Nov 2026; 1313 since the case screen v4 added eight rows to `3.3`, 3.3-48 to 3.3-55, 4 Nov 2026; 1317 since the case screen's block labs added four, 3.3-56 to 3.3-59, all on lab rows only, 4 Nov 2026 |
+| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8; 1305 since `D-209` added six global and thirty five Home strings and listed one missed, 3 Nov 2026; 1313 since the case screen v4 added eight rows to `3.3`, 3.3-48 to 3.3-55, 4 Nov 2026; 1317 since the case screen's block labs added four, 3.3-56 to 3.3-59, all on lab rows only, 4 Nov 2026; 1318 since `D-218` put Check in Home's Every round plate, 1.0-47, 11 Nov 2026 |
 | of them Global | 164 |
 | of them By screen | 1093 at step 1; 1099 since `D-169` to `D-174` |
 | of them SEO / IA ownership | 86 |
@@ -599,6 +599,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 1.0-44 | main | What you win waits in My items until you choose: keep it, sell it for coins or send it to your Steam inventory. You sign in on Steam's own page, and we never ask for your password. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C10 | An item from a case waits in My items until you choose: keep it, sell it for coins or send it to your Steam inventory. You sign in on Steam's own page, and we never ask for your password. (C10) |
 | 1.0-45 | main | Play with limits | heading | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C5 | new, D-209 round 8: H3 |
 | 1.0-46 | main | Clutch is for adults, 18 and over. Deposit limits, session limits, a cool down and self exclusion are on the Responsible play page, and no limit ever stops you sending items to Steam. | text | `design/v4/faq-home.js` | `design/v4/index.html`, both states | C5 C7 | Clutch is for people 18 or over. Deposit limits, session limits, a cool down and self exclusion are on the Responsible play page, and no limit ever stops you sending items to Steam. (the age in the consent's and the footer's words, "18 or over", G65) |
+| 1.0-47 | main | Check; accessible name Check this round | button (link) | `design/v4/proof-home.js` | `design/v4/index.html`, both states | C9 | Check a round (founder of 11 Nov 2026: the button moved into the box of the round's hash, "make it just Check"; beside the hash the verb names the act, and the accessible name keeps it whole, as C9 words it) |
 
 ### `1.2` Provably fair
 

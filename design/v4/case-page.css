@@ -2,7 +2,7 @@
    the grey body under them in v4's language. The rows of each block that were not taken live on its lab page; data-v on a block names its row. */
 
 /* ===== the top: a stage that holds the case, then the reel, then what came out ===== */
-.v4c-top { --case-c1: #3955E8; --case-c2: #1B2A8F; --case-hue: #65A3FF; position: relative; margin: 8px 0 0; }
+.v4c-top { --case-c1: var(--color-rarity-5); --case-c2: #1B2A8F; --case-hue: var(--color-blue); position: relative; margin: 8px 0 0; }
 .v4c-stage { position: relative; overflow: hidden; isolation: isolate; border-radius: 20px;
   background: radial-gradient(60% 70% at 50% 62%, color-mix(in srgb, var(--case-c1) 34%, transparent), transparent 70%),
     radial-gradient(40% 50% at 12% 8%, rgba(251, 63, 138, .14), transparent 70%),
@@ -30,7 +30,7 @@
 .v4c-flanks { display: flex; justify-content: flex-end; align-items: center; gap: 8px; }
 .v4c-flanks .wf-risk { display: inline-flex; flex-direction: row; align-items: center; gap: 6px; margin: 0; min-height: 32px; padding: 0 12px; border: 0; border-radius: 8px; background: rgba(11, 10, 34, .7); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); font-size: 12px; font-weight: 700; }
 .v4c-flanks .wf-risk-l { color: var(--color-text-soft); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
-.v4c-flanks .wf-risk > span:last-child { color: #FFC44D; }
+.v4c-flanks .wf-risk > span:last-child { color: var(--color-money); }
 .v4c-flanks .wf-fav-case { display: inline-flex; align-items: center; gap: 6px; margin: 0; min-height: 32px; padding: 0 12px; border: 0; border-radius: 8px; background: rgba(11, 10, 34, .7); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); color: var(--color-text-hi); font: 700 12px/1 var(--font-family); cursor: pointer; }
 .v4c-flanks .wf-fav-case[aria-pressed="true"] { box-shadow: inset 0 0 0 1.5px var(--color-pink); }
 
@@ -44,8 +44,8 @@
 .v4c-floor { position: absolute; left: 50%; bottom: 26px; width: 560px; height: 90px; margin-left: -280px; border-radius: 50%;
   background: radial-gradient(closest-side, color-mix(in srgb, var(--case-hue) 55%, transparent), color-mix(in srgb, var(--case-c1) 25%, transparent) 50%, transparent); }
 .v4c-dust { position: absolute; inset: 0; opacity: .7;
-  background: radial-gradient(1.5px 1.5px at 18% 30%, #fff, transparent), radial-gradient(1px 1px at 72% 22%, #fff, transparent), radial-gradient(1.5px 1.5px at 84% 60%, var(--case-hue), transparent),
-    radial-gradient(1px 1px at 30% 70%, var(--case-hue), transparent), radial-gradient(1.5px 1.5px at 60% 80%, #fff, transparent), radial-gradient(1px 1px at 44% 14%, var(--case-hue), transparent);
+  background: radial-gradient(1.5px 1.5px at 18% 30%, var(--color-text-hi), transparent), radial-gradient(1px 1px at 72% 22%, var(--color-text-hi), transparent), radial-gradient(1.5px 1.5px at 84% 60%, var(--case-hue), transparent),
+    radial-gradient(1px 1px at 30% 70%, var(--case-hue), transparent), radial-gradient(1.5px 1.5px at 60% 80%, var(--color-text-hi), transparent), radial-gradient(1px 1px at 44% 14%, var(--case-hue), transparent);
   animation: v4c-dust 9s ease-in-out infinite alternate; }
 @keyframes v4c-turn { to { transform: rotate(360deg); } }
 @keyframes v4c-dust { to { transform: translateY(-16px); opacity: .35; } }
@@ -107,10 +107,10 @@
 .v4c-won-name { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 2px; line-height: 1.15; }
 .v4c-won-w { color: var(--color-text-soft); font-size: 14px; }
 .v4c-won-name b { font-size: 26px; font-weight: 900; color: var(--color-text-hi); }
-.v4c-won-ax { color: color-mix(in srgb, var(--r) 70%, #fff); font-size: 13px; font-weight: 700; }
+.v4c-won-ax { color: color-mix(in srgb, var(--r) 70%, var(--color-text-hi)); font-size: 13px; font-weight: 700; }
 .v4c-won-x { color: var(--color-text-soft); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .v4c-won-x.is-up { color: #35E08A; }
-.v4c-won-v { padding: 5px 12px; border-radius: 8px; background: rgba(11, 10, 34, .8); font-size: 15px; font-weight: 900; color: #FFC44D; font-variant-numeric: tabular-nums; }
+.v4c-won-v { padding: 5px 12px; border-radius: 8px; background: rgba(11, 10, 34, .8); font-size: 15px; font-weight: 900; color: var(--color-money); font-variant-numeric: tabular-nums; }
 .v4c-sell1 { margin-top: 2px; }
 .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-sell1-v { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } /* narrow cards say Sell, the value is on the card and in the accessible name */
 .v4c-win[data-count="2"] .v4c-won-art { width: 240px; height: 160px; }
@@ -127,9 +127,9 @@
    it is now the live drop's own card: one flat dark plate, the hexagon in the tier's colour behind the skin (theme.css, --v4-hex-*), the
    value in coins over it, the gun and the skin under it, and a short bar of the tier at its foot, no glow */
 .v4c-show-i { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; width: 106px; padding: 7px 6px 9px; border-radius: 8px;
-  background: linear-gradient(to bottom, #191842, #0F0E2B); text-align: center; }
+  background: linear-gradient(to bottom, #191842, var(--color-card)); text-align: center; }
 .v4c-show-i::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 32px; height: 3px; margin-left: -16px; border-radius: 3px 3px 0 0; background: var(--r); }
-.v4c-show-v { display: inline-flex; align-items: center; gap: 4px; color: #FFC44D; font-size: 12px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; }
+.v4c-show-v { display: inline-flex; align-items: center; gap: 4px; color: var(--color-money); font-size: 12px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; }
 .v4c-show-v img { width: 12px; height: 12px; }
 .v4c-show-a { position: relative; display: grid; place-items: center; width: 100%; height: 54px; margin: 2px 0 4px; }
 .v4c-show-a::before, .v4c-show-a::after { content: ''; position: absolute; left: 50%; top: 50%; width: 62px; height: 54px; margin: -27px 0 0 -31px; pointer-events: none; }
@@ -149,14 +149,14 @@
 .v4c-commit[hidden], .v4c-after[hidden] { display: none; }
 .v4c-count { display: inline-flex; align-items: center; gap: 6px; padding: 6px; border-radius: 14px; background: #0B0A28; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), 0 10px 26px rgba(2, 4, 16, .5); }
 .v4c-count-l { padding: 0 8px 0 6px; color: var(--color-text-soft); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.v4c-count-b { width: 40px; height: 40px; border: 0; border-radius: 10px; background: rgba(150, 160, 215, .1); color: var(--color-text-soft); font: 900 15px/1 var(--font-family); cursor: pointer; transition: background-color .2s, color .2s, box-shadow .2s; }
+.v4c-count-b { width: 40px; height: 40px; border: 0; border-radius: var(--btn-radius, 12px); background: rgba(150, 160, 215, .1); color: var(--color-text-soft); font: 900 15px/1 var(--font-family); cursor: pointer; transition: background-color .2s, color .2s, box-shadow .2s; }
 .v4c-count-b:hover { color: var(--color-text-hi); background: rgba(150, 160, 215, .18); }
 .v4c-count-b[aria-pressed="true"] { color: var(--color-text-hi); background: var(--btn-stripes), var(--btn-fill); box-shadow: 0 4px 14px rgba(223, 5, 92, .35); }
 .v4c-count.is-locked { opacity: .5; pointer-events: none; }
 .v4c-count-b:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
 .v4c-act { display: flex; align-items: center; gap: 16px; }
 .v4c-cost { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; text-align: right; }
-.v4c-cost b { font-size: 22px; font-weight: 900; color: #FFC44D; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.v4c-cost b { font-size: 22px; font-weight: 900; color: var(--color-money); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .v4c-cost span { color: var(--color-text-soft); font-size: 12px; }
 html body .v4c-go { min-width: 220px; min-height: 56px; font-size: 18px; }
 html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow: none; }
@@ -179,8 +179,16 @@ html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow
 
 /* ===== 360 to 899 ===== */
 @media (max-width: 899px) {
-  .v4c-head { grid-template-columns: 1fr; justify-items: center; padding: 14px 14px 0; text-align: center; }
-  .v4c-nav { align-items: center; } .v4c-flanks { justify-content: center; order: 3; }
+  /* the head in three rows, not five, founder of 11 Nov 2026 of three on the before and after page, "Отличный вариант" for 3: the crumb cut
+     to its parent, Cases, on one line with How it works; the name on the left and the heart beside it. Above 900px nothing changes; the
+     breadcrumb's list stays whole in the markup, only Home and the case itself are hidden */
+  .v4c-head { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'nav nav' 'title fav'; align-items: center; row-gap: 10px; padding: 14px 14px 10px; text-align: left; }
+  .v4c-nav { grid-area: nav; flex-direction: row; justify-content: space-between; align-items: center; }
+  .v4c-nav .wf-crumb li:first-child, .v4c-nav .wf-crumb li:last-child { display: none; }
+  .v4c-nav .wf-crumb li + li::before { content: none; }
+  .v4c-nav .wf-crumb li:nth-child(2) a::before { content: '\2039'; margin-right: 6px; font-size: 16px; line-height: 0; }
+  .v4c-title { grid-area: title; text-align: left; }
+  .v4c-flanks { grid-area: fav; justify-content: flex-end; }
   .v4c-frame { height: 280px; margin: 0 10px; }
   .v4c-frame:not([data-count="1"]) { height: 400px; } .v4c-frame .v4o-y { height: 380px; }
   .v4c-box { width: 300px; }
@@ -198,7 +206,7 @@ html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow
   .v4c-stage { border-radius: 14px; }
   .v4c-frame { height: 200px; }
   .v4c-box { width: 250px; }
-  .v4c-head { gap: 8px; } .v4c-title .wf-case-line { margin-top: 4px; }
+  .v4c-title .wf-case-line { margin-top: 4px; }
   .v4c-show { padding-bottom: 32px; } .v4c-show-i { width: 92px; padding: 6px 4px 9px; } .v4c-show-a { height: 50px; } .v4c-show-a img { width: 80px; height: 42px; }
   .v4c-show-a::before, .v4c-show-a::after { width: 54px; height: 47px; margin: -23.5px 0 0 -27px; }
   .v4c-win:is([data-count="3"], [data-count="4"], [data-count="5"]) .v4c-won-name b { font-size: 12px; }
@@ -281,7 +289,7 @@ html body .v4c-go.is-short { background: var(--btn-stripes), #3A2D7A; box-shadow
 .v4c-idle .v4o-card.r4 { --r: #8F63E6; } .v4c-idle .v4o-card.r5 { --r: #4F6BFF; } .v4c-idle .v4o-card.r2 { --r: var(--color-rarity-2); } .v4c-idle .v4o-card.r3 { --r: var(--color-rarity-3); }
 .v4c-idle-slot { position: relative; flex: 0 0 auto; width: 200px; height: 168px; display: grid; place-items: center; }
 .v4c-idle-slot img { width: 230px; height: auto; filter: drop-shadow(0 14px 16px rgba(0, 0, 0, .6)) drop-shadow(0 0 22px color-mix(in srgb, var(--case-c1) 70%, transparent)); animation: v4c-float 4s ease-in-out infinite; }
-.v4c-idle-mark { position: absolute; left: 50%; top: 8px; bottom: 8px; width: 2px; margin-left: -1px; background: #FB3F8A; box-shadow: 0 0 10px #FB3F8A; opacity: .5; }
+.v4c-idle-mark { position: absolute; left: 50%; top: 8px; bottom: 8px; width: 2px; margin-left: -1px; background: var(--color-pink); box-shadow: 0 0 10px var(--color-pink); opacity: .5; }
 .v4c-top[data-v="d"] .v4c-frame[data-phase="open"] .v4c-rest { transform: none; filter: brightness(1.6); }
 .v4c-top[data-v="d"] .v4c-frame[data-phase="open"] .v4c-idle-slot img { transform: scale(1.3); opacity: 0; transition: transform .4s, opacity .4s .1s; }
 @media (max-width: 599px) { .v4c-idle { height: 190px; } .v4c-idle .v4o-card { width: 120px; height: 138px; } .v4c-idle-slot { width: 150px; height: 138px; } .v4c-idle-slot img { width: 170px; } .v4c-idle-run { top: 26px; } }
@@ -391,7 +399,7 @@ html body .v4c-go[hidden] { display: none; }
 .v4c-flanks .wf-risk.v4c-risk { position: relative; display: block; flex: none; width: 80px; height: 22px; min-height: 0; margin: 0; padding: 0; border: 0; background: none; box-shadow: none; font-size: 0; }
 .v4c-flanks .v4c-risk > span:not(.v4-bolts):not(.v4-risk-tip) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .v4c-flanks .v4c-risk .v4-risk-tip { font-size: 12px; white-space: nowrap; }
-.v4c-flanks .wf-fav-case.v4c-fav { position: relative; justify-content: center; width: 40px; height: 40px; min-height: 40px; padding: 0; overflow: visible; border-radius: 10px; color: var(--color-text-hi); }
+.v4c-flanks .wf-fav-case.v4c-fav { position: relative; justify-content: center; width: 40px; height: 40px; min-height: 40px; padding: 0; overflow: visible; border-radius: var(--btn-radius, 12px); color: var(--color-text-hi); }
 .v4c-fav [data-str="favourite"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .v4c-fav .wf-fav-i { display: block; width: 20px; height: 20px; margin: 0; background: currentColor; -webkit-mask: var(--v4-heart) center / contain no-repeat; mask: var(--v4-heart) center / contain no-repeat; transition: scale .2s; }
 .v4c-flanks .wf-fav-case.v4c-fav[aria-pressed="true"] { color: var(--color-pink); box-shadow: inset 0 0 0 2px var(--color-pink); }
@@ -414,7 +422,7 @@ html body .v4c-go[hidden] { display: none; }
   background: linear-gradient(160deg, color-mix(in srgb, var(--case-hue) 16%, transparent), color-mix(in srgb, var(--case-c1) 6%, transparent));
   -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; }
 .v4c-top[data-v="h"] .v4c-tag { display: inline-flex; position: absolute; left: calc(50% + 140px); top: 64px; align-items: center; gap: 6px; padding: 7px 16px;
-  background: #22204F; color: #FFC44D; font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums;
+  background: #22204F; color: var(--color-money); font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums;
   clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0 50%); }
 .v4c-top[data-v="h"] .v4c-tag img { width: 16px; height: 16px; }
 .v4c-top[data-v="h"] :is(.v4c-line, .v4c-floor) { display: none; }

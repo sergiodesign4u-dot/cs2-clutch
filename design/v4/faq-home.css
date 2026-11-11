@@ -16,7 +16,7 @@
 .v4-faq .hz-head { --hz-c: #4A6BFF; }
 .v4-about .hz-head { --hz-c: #E5394F; }
 .hz-tile { position: relative; width: 42px; height: 42px; border-radius: 12px; background: var(--hx-stripes, repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px)), var(--hz-g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
-.hz-tile::after { content: ''; position: absolute; inset: 10px; background: #fff; -webkit-mask: var(--hz-ic) center / contain no-repeat; mask: var(--hz-ic) center / contain no-repeat; }
+.hz-tile::after { content: ''; position: absolute; inset: 10px; background: var(--color-text-hi); -webkit-mask: var(--hz-ic) center / contain no-repeat; mask: var(--hz-ic) center / contain no-repeat; }
 .hz-head h2 { margin: 0; font-size: 26px; font-weight: 900; line-height: 1.1; text-transform: uppercase; }
 
 /* ---- the FAQ: a lead and the Support button on the left, the questions on the right; one column under 900px of its own width ---- */
@@ -32,7 +32,7 @@
 @media (hover: hover) { .fq-q:hover .fq-x { background-color: rgba(255, 255, 255, .12); } }
 /* the plus: a small tile whose two bars turn into a minus; open, the tile takes the button's pink and stripes */
 .fq-x { position: relative; flex: 0 0 34px; height: 34px; border-radius: 10px; background: rgba(255, 255, 255, .06); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); transition: background .3s, box-shadow .3s; }
-.fq-x::before, .fq-x::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; margin: -1.25px 0 0 -7px; border-radius: 2px; background: #fff; transition: rotate .35s cubic-bezier(.2, .7, .2, 1), opacity .25s; }
+.fq-x::before, .fq-x::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; margin: -1.25px 0 0 -7px; border-radius: 2px; background: var(--color-text-hi); transition: rotate .35s cubic-bezier(.2, .7, .2, 1), opacity .25s; }
 .fq-x::after { rotate: 90deg; }
 .fq-i.is-open .fq-x { background: var(--btn-stripes), var(--color-pink); box-shadow: none; }
 .fq-i.is-open .fq-x::before { rotate: 180deg; }
@@ -85,7 +85,7 @@
    bottom, brightest in the middle and fading to the sides; the answer stands on its own dark ground; the plus loses its grey tile and is
    drawn alone, white closed, pink open */
 .fq-i { position: relative; }
-.fq-i::before, .fq-i::after { content: ''; position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #FB3F8A 50%, transparent); opacity: 0; transition: opacity .3s; pointer-events: none; }
+.fq-i::before, .fq-i::after { content: ''; position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--color-pink) 50%, transparent); opacity: 0; transition: opacity .3s; pointer-events: none; }
 .fq-i::before { top: 0; } .fq-i::after { bottom: 0; }
 .fq-i.is-open { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); }
 .fq-i.is-open::before, .fq-i.is-open::after { opacity: 1; }
@@ -93,8 +93,8 @@
 .fq-i.is-open .fq-in { margin-bottom: 14px; padding: 16px; }
 .fq-x, .fq-i.is-open .fq-x { flex-basis: 28px; height: 28px; border-radius: 0; background: none; box-shadow: none; }
 .fq-x::before, .fq-x::after { width: 18px; height: 3px; margin: -1.5px 0 0 -9px; }
-.fq-i.is-open .fq-x::before { background: #FB3F8A; }
-@media (hover: hover) { .fq-q:hover .fq-x { background: none; } .fq-q:hover .fq-x::before, .fq-q:hover .fq-x::after { background: #FB3F8A; } }
+.fq-i.is-open .fq-x::before { background: var(--color-pink); }
+@media (hover: hover) { .fq-q:hover .fq-x { background: none; } .fq-q:hover .fq-x::before, .fq-q:hover .fq-x::after { background: var(--color-pink); } }
 @media (prefers-reduced-motion: reduce) { .fq-i::before, .fq-i::after { transition: none; } }
 
 /* an answer's link was a 16px press, under the product's 40px floor, found on 4 Nov 2026's sweep of Home's mobile: the 12px margin above

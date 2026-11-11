@@ -422,6 +422,16 @@ figure.wide img { width: 100%; border-radius: var(--radius-m); margin-bottom: va
 .bar[data-s="--space-6"] { width: var(--space-6); }
 .bar[data-s="--space-7"] { width: var(--space-7); }
 
+/* Before and after, stage 06 step 8: the critique closed, by class, with pairs of the screens before and after */
+.ba-pairs { display: grid; gap: var(--space-6); margin-top: var(--space-5); }
+.ba-pair h3 { margin-top: 0; }
+.ba { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); align-items: start; }
+.ba figure { margin: 0; background: var(--color-card); border-radius: var(--radius-m); padding: var(--space-3); }
+.ba img { display: block; width: 100%; height: auto; border-radius: var(--radius-s); }
+.ba figcaption { margin-top: var(--space-2); font-size: var(--size-xs); color: var(--color-text-muted); }
+.ba figcaption b { color: var(--color-text-hi); }
+.ba.is-narrow { grid-template-columns: repeat(2, minmax(0, 240px)); }
+@media (max-width: 600px) { .ba, .ba.is-narrow { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -530,6 +540,51 @@ figure.wide img { width: 100%; border-radius: var(--radius-m); margin-bottom: va
     <div class="f-cost"><strong>What this stops right now</strong> Nothing can be sent to Steam until this is set. Your items stay in My items, and everything else works.</div>
   </div>
 </section>
+<section id="before-after" class="sec">
+  <h2>Before and after</h2>
+  <p class="lead">Step 8 checked the two screens in colour, Home and the case screen, on 10 and 11 November 2026, on two instruments taken apart and merged only when complete: Claude with a browser at a measured 360 and at 1440, Codex read only, and <code>/impeccable audit</code>. Three runs. 26 findings were logged and 10 more withdrawn in run 1: 19 fixed, 4 withdrawn on verification, 2 deferred to a later stage, 1 kept by the founder. The log, row by row, is <code>design/concept/docs/critique.md</code>; the decisions are <code>D-215</code> to <code>D-217</code>.</p>
+  <div class="tw"><table class="tbl"><thead><tr><th>Class</th><th>Found</th><th>Found by</th><th>Fixed</th><th>Withdrawn on verification</th><th>Deferred or kept, why</th></tr></thead><tbody>
+    <tr><th scope="row">Source of values lost</th><td class="num">1</td><td>Claude</td><td class="num">1</td><td>none</td><td>none. <code>DESIGN-artifacts.md</code> had been overwritten by <code>D-205</code>'s commit, 33 458 bytes to 270, and is back from <code>5317406</code></td></tr>
+    <tr><th scope="row">Contrast under WCAG AA</th><td class="num">7</td><td>impeccable 4, Codex 3</td><td class="num">7</td><td>none</td><td>none. Small text now 4.62 to 6.02:1, large 3.11 to 3.31:1, by value, not by size alone</td></tr>
+    <tr><th scope="row">Breaks at 360</th><td class="num">3</td><td>Claude</td><td class="num">2</td><td>none</td><td>1 kept by the founder: the outcome of five keeps its group acts one scroll down, each card's Sell is on the first screen</td></tr>
+    <tr><th scope="row">Values beside their variable, tokens</th><td class="num">7</td><td>Codex</td><td class="num">5</td><td class="num">2: a <code>var()</code> fallback; a bar with no text</td><td>none</td></tr>
+    <tr><th scope="row">Small text, leading, touch targets</th><td class="num">4</td><td>impeccable 2, Claude 1, both 1</td><td class="num">3</td><td class="num">1: an 11px meta line, at the floor</td><td>none</td></tr>
+    <tr><th scope="row">One value, two forms</th><td class="num">1</td><td>Claude</td><td class="num">1</td><td>none</td><td>none. Thousands group with a space, <code>voice.md</code> C11</td></tr>
+    <tr><th scope="row">Structure against the grey copy</th><td class="num">1</td><td>Codex</td><td>none</td><td>none</td><td>Deferred to stage 07: the case screen's values degraded, no counter and interrupted states</td></tr>
+    <tr><th scope="row">Motion</th><td class="num">1</td><td>impeccable</td><td>none</td><td>none</td><td>Deferred to stage 11, which derives the motion: one overshoot curve</td></tr>
+    <tr><th scope="row">A restore check</th><td class="num">1</td><td>Codex</td><td>none</td><td class="num">1: the entry it flagged is the change's own record</td><td>none</td></tr>
+    <tr><th scope="row">Withdrawn in run 1</th><td class="num">10</td><td>impeccable, Codex, Claude</td><td>none</td><td class="num">10</td><td>The baseline's colour register and visual language (<code>D-18</code>, <code>D-181</code>), decided cells (Upgrades counter, Trustpilot, the live drops label), the ticket order, a URL that resolves, the course shell</td></tr>
+    <tr><th scope="row">The founder's review of the before and after page, 11 Nov</th><td class="num">7</td><td>founder 6, Claude 1</td><td class="num">7</td><td>none</td><td>none. Money gold everywhere; buttons at 12px, a Featured tile's price 8px; the item card a row under 600px; the case's head in three rows under 900px; Check inside Home's hash box; the C flame over the header on a wide screen too. Critique rows 39 to 45, <code>D-218</code></td></tr>
+  </tbody></table></div>
+  <div class="ba-pairs">
+    <div class="ba-pair">
+      <h3>1. Contrast, Before you spend on Home</h3>
+      <p class="small">The stub's white heading sat at 2.6:1 on its light end; it now runs from the brand pink to the buttons' deeper pink, 3.11:1 at its lightest stripe, large text. Small type on the plates is full white.</p>
+      <div class="ba"><figure><img src="screens/crit-1-contrast-stub-before.png" alt="Before you spend before the fix, the stub's light pink end" loading="lazy"><figcaption><b>Before</b>, 2.6:1</figcaption></figure><figure><img src="screens/crit-1-contrast-stub-after.png" alt="Before you spend after the fix" loading="lazy"><figcaption><b>After</b>, 3.11:1</figcaption></figure></div>
+    </div>
+    <div class="ba-pair">
+      <h3>2. Contrast, the footer's plates</h3>
+      <p class="small">Every round's line sat at 3.3:1 on the provably fair blue, Play responsibly's at 3.7:1. The blue's light end is now <code>--v4-fair-blue</code> <code>#0B6A8C</code>, the lines full white: 5.07 and 4.62:1.</p>
+      <div class="ba"><figure><img src="screens/crit-2-contrast-plates-before.png" alt="The footer's two plates before the fix" loading="lazy"><figcaption><b>Before</b>, 3.3 and 3.7:1</figcaption></figure><figure><img src="screens/crit-2-contrast-plates-after.png" alt="The footer's two plates after the fix" loading="lazy"><figcaption><b>After</b>, 5.07 and 4.62:1</figcaption></figure></div>
+    </div>
+    <div class="ba-pair">
+      <h3>3. Breaks at 360, an item card</h3>
+      <p class="small">Measured at a real 360 (<code>clientWidth</code> 360): the wear and grade lost Covert to an ellipsis, 139 of 149px. They now wrap to a second line. The chance and the tickets are the rebalanced table's, <code>D-217</code>.</p>
+      <p class="small"><b>Updated after publication, 11 November 2026:</b> since the founder's review the card under 600px is a row, the value over the skin and the chance and the tickets one line each beside their labels, so the after shot here is the two column card it replaced, <code>D-218</code>.</p>
+      <div class="ba is-narrow"><figure><img src="screens/crit-3-360-wear-before.png" alt="An item card at 360 before, the grade cut off" loading="lazy"><figcaption><b>Before</b>, "Co..."</figcaption></figure><figure><img src="screens/crit-3-360-wear-after.png" alt="An item card at 360 after, the grade on a second line" loading="lazy"><figcaption><b>After</b>, two lines</figcaption></figure></div>
+    </div>
+    <div class="ba-pair">
+      <h3>4. One text link</h3>
+      <p class="small">Five link formats became one, founder's pick: the brand pink, bold, an arrow after the last word; white on a colour plate. Before, the same kind of link was pale pink, pale blue, plain pink, white or the case's own blue by place, <code>D-216</code>.</p>
+      <div class="ba"><figure><img src="screens/crit-4-links-before.png" alt="Before you open's two plates before, a pink and a blue link" loading="lazy"><figcaption><b>Before</b>, two colours on one row</figcaption></figure><figure><img src="screens/crit-4-links-after.png" alt="Before you open's two plates after, one link format" loading="lazy"><figcaption><b>After</b>, one format</figcaption></figure></div>
+    </div>
+    <div class="ba-pair">
+      <h3>5. What is in this case</h3>
+      <p class="small">The founder: the dearer the skin, the smaller its chance, one under 1 %, some from 1 to 3 % and from 3 to 5 %. The M4A1-S at 24.60 had 4.600 % beside the Desert Eagle at 21.80 with 2.200 %. RTP 94.2 % and expected value 11.68 held, <code>D-217</code>. The before shot was taken with the side menu open, which is why it shows five columns.</p>
+      <div class="ba"><figure><img src="screens/crit-5-table-before.png" alt="The case's item table before the rebalance" loading="lazy"><figcaption><b>Before</b>, AK-47 at 3.180 %</figcaption></figure><figure><img src="screens/crit-5-table-after.png" alt="The case's item table after the rebalance" loading="lazy"><figcaption><b>After</b>, AK-47 at 0.640 %</figcaption></figure></div>
+    </div>
+  </div>
+</section>
 </main>
 <script>
 window.NAV_BASE = '../../';
@@ -542,7 +597,8 @@ window.NAV_SECTIONS = [
   { id: 'imagery', label: 'Imagery' },
   { id: 'icons', label: 'Icons' },
   { id: 'brand', label: 'Brand and references' },
-  { id: 'components', label: 'Components' }
+  { id: 'components', label: 'Components' },
+  { id: 'before-after', label: 'Before and after' }
 ];
 (function () {
   document.querySelectorAll('.s-fav, .icb').forEach(function (b) { b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); }); });

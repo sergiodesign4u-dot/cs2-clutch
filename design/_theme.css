@@ -13,7 +13,10 @@
  *   3. THE VISUAL LAYER. The language of The stage, D-187 to D-190, on those same classes.
  *
  * Names are flat and by kind: --color-*, --size-*, --radius-*, --space-*, --font-*,
- * --shadow-*, --mix-*, --icon-*. No semantic roles yet: those are stage 08's.
+ * --shadow-*, --mix-*, --icon-*, and since steps 6 and 7 --art-* (a picture), --motion-* (a
+ * duration or curve), --shape-* (a clip path) and --blur-* (a blur radius); the last four were
+ * in use before they were named here, stage 06 critique of 10 Nov 2026, contract row 16.
+ * No semantic roles yet: those are stage 08's.
  * The element rules of part 2 are scoped to a page that holds a .wf-screen-body, so the
  * stand can link this file for its values without taking a screen's type.
  */
@@ -72,13 +75,13 @@
   --font-family: Roboto, sans-serif; /* the one family, 400 500 700 900; наявний бренд, baseline.md 5; D-182 point 5 */
 
   /* Space, proposed at step 5 from the gaps The stage drew, D-187; confirmed or changed on this screen, DESIGN-artifacts 9 point 2 */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 56px;
+  --space-1: 4px; /* the hairline gap, an icon to its label; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-2: 8px; /* inside a chip, between a label and its value; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-3: 12px; /* a card's inner padding at its tightest, the gap between cards; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-4: 16px; /* a card's padding, the phone gutter; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-5: 24px; /* between blocks inside a section; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-6: 32px; /* a section's top, the desktop gutter; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-7: 56px; /* between sections; підібрано під характер, from the gaps The stage drew, D-187 */
 
   /* Lines, proposed at step 6, open until the founder picks, DESIGN-artifacts 9 point 1 */
   --color-line-soft: #262950; /* a divider, the edge of a quiet surface; наявний бренд, baseline.md 13.2, the welcome dialog edge; proposed, рішення користувача, D-191 */

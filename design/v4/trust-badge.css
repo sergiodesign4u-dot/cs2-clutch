@@ -12,7 +12,7 @@
   background: linear-gradient(135deg, rgba(0, 182, 122, .16), rgba(101, 163, 255, .08) 45%, rgba(251, 63, 138, .12)), rgba(12, 16, 44, .82);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1), 0 8px 24px rgba(6, 10, 30, .5); transition: translate .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s; }
 /* the lit edge */
-.wf-hero--short .wf-hero-line a.v4-trust::before { content: ''; position: absolute; z-index: -1; inset: 0; display: block; width: auto; height: auto; margin: 0; padding: 1px; border-radius: inherit; background: linear-gradient(120deg, #00B67A, rgba(101, 163, 255, .5) 45%, #FB3F8A); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+.wf-hero--short .wf-hero-line a.v4-trust::before { content: ''; position: absolute; z-index: -1; inset: 0; display: block; width: auto; height: auto; margin: 0; padding: 1px; border-radius: inherit; background: linear-gradient(120deg, #00B67A, rgba(101, 163, 255, .5) 45%, var(--color-pink)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
 /* the passing light */
 /* moved by transform, not background-position, so it costs no repaint per frame; performance pass of 4 Nov 2026 */
 .v4-trust::after { content: ''; position: absolute; z-index: 1; inset: 0; background: linear-gradient(105deg, transparent 23%, rgba(255, 255, 255, .22) 50%, transparent 77%); transform: translateX(-110%); pointer-events: none; animation: v4-trust-sweep 7s ease-in-out infinite; }
@@ -20,11 +20,11 @@
 
 .v4-trust-tiles { display: inline-flex; gap: 3px; }
 .v4-trust-tiles i { position: relative; display: block; width: 24px; height: 24px; border-radius: 5px; background: linear-gradient(90deg, #00B67A var(--fill), rgba(150, 160, 215, .24) var(--fill)); transition: translate .3s cubic-bezier(.22, 1, .36, 1) calc(var(--n) * 45ms); }
-.v4-trust-tiles svg { position: absolute; inset: 3px; display: block; fill: #FFFFFF; }
+.v4-trust-tiles svg { position: absolute; inset: 3px; display: block; fill: var(--color-text-hi); }
 
-.v4-trust-score { font-size: 26px; font-weight: 900; line-height: 1; letter-spacing: -.01em; color: #FFFFFF; font-variant-numeric: tabular-nums; }
+.v4-trust-score { font-size: 26px; font-weight: 900; line-height: 1; letter-spacing: -.01em; color: var(--color-text-hi); font-variant-numeric: tabular-nums; }
 .v4-trust-meta { display: flex; flex-direction: column; gap: 1px; padding-left: 10px; border-left: 1px solid rgba(255, 255, 255, .16); font-size: 12px; line-height: 1.2; white-space: nowrap; }
-.v4-trust-meta strong { font-size: 13px; font-weight: 900; color: #FFFFFF; }
+.v4-trust-meta strong { font-size: 13px; font-weight: 900; color: var(--color-text-hi); }
 .v4-trust-meta span { color: var(--color-text-soft); }
 
 @media (hover: hover) {
