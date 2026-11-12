@@ -37,16 +37,16 @@ body { margin: 0; background: var(--color-ground); color: var(--color-text-hi); 
 .hv[data-v="d"] .v4-fx { background: linear-gradient(to top, color-mix(in srgb, var(--c1) 30%, transparent), rgba(11, 10, 34, .85) 70%);
   box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--hue), 0 14px 30px rgba(4, 6, 20, .5); }
 /* E. striped and muted: the daily cards' and the rail's stripes, the colour toned down, a soft light in the case's colour */
-.hv[data-v="e"] .v4-fx { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--c1) 55%, #0F0E2B), color-mix(in srgb, var(--c2) 50%, #0B0A22));
+.hv[data-v="e"] .v4-fx { background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--c1) 55%, #0F0E2B), color-mix(in srgb, var(--c2) 50%, #0B0A22));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 18px 30px rgba(6, 10, 30, .6), 0 0 30px color-mix(in srgb, var(--hue) 35%, transparent); }
 /* F. dark with a lit top: navy tinted by the case colour, a 2px line of its light along the top */
 .hv[data-v="f"] .v4-fx { background: linear-gradient(180deg, color-mix(in srgb, var(--c1) 22%, #100E2E), #0B0A22);
   box-shadow: inset 0 var(--size-edge, 2px) 0 var(--hue), inset 0 0 0 1px rgba(255, 255, 255, .08), 0 14px 30px rgba(4, 6, 20, .5); }
 
 /* G. C and E together, founder of 2 Nov 2026: the stripes over the case's full colour, fading out toward the case */
-.hv[data-v="g"] .v4-fx { background: var(--btn-stripes), var(--tile-g); -webkit-mask: linear-gradient(to top, #000 30%, transparent 100%); mask: linear-gradient(to top, #000 30%, transparent 100%); box-shadow: none; }
+.hv[data-v="g"] .v4-fx { background: var(--gradient-button-stripes), var(--tile-g); -webkit-mask: linear-gradient(to top, #000 30%, transparent 100%); mask: linear-gradient(to top, #000 30%, transparent 100%); box-shadow: none; }
 /* H. the same with E's muted colour */
-.hv[data-v="h"] .v4-fx { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--c1) 55%, #0F0E2B), color-mix(in srgb, var(--c2) 50%, #0B0A22));
+.hv[data-v="h"] .v4-fx { background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--c1) 55%, #0F0E2B), color-mix(in srgb, var(--c2) 50%, #0B0A22));
   -webkit-mask: linear-gradient(to top, #000 30%, transparent 100%); mask: linear-gradient(to top, #000 30%, transparent 100%); box-shadow: none; }
 
 /* "centre the case", founder of 2 Nov 2026: "кейс стоит вроде по центру но визуально смотриться из-за подложки смещенным". Measured on

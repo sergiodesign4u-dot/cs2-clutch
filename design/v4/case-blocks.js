@@ -14,7 +14,7 @@
   var W = window.WF_BASE || '../../wireframes/', SKINS = '../concept/assets/skins/';
   var ARROW = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   // the tier's plate, Home's round card colours (proof-home.js ROUNDS), the other tiers from the same rarity steps
-  var PLATE = {}; ['r1', 'r2', 'r3', 'r4', 'r5'].forEach(function (r) { PLATE[r] = ['var(--v4-plate-' + r + '-a)', 'var(--v4-plate-' + r + '-b)']; }); // theme.css, critique row 15
+  var PLATE = {}; ['r1', 'r2', 'r3', 'r4', 'r5'].forEach(function (r) { PLATE[r] = ['var(--color-plate-' + r + '-a)', 'var(--color-plate-' + r + '-b)']; }); // theme.css, critique row 15
   var TIER = { r1: 'Extraordinary', r2: 'Covert', r3: 'Classified', r4: 'Restricted', r5: 'Mil-Spec' };
   var TIERCLS = { Covert: 'r2', Classified: 'r3', Restricted: 'r4', 'Mil-Spec': 'r5', Extraordinary: 'r1' };
   // the checked rounds whose ticket the grey screens print, ROUNDS.ak and ROUNDS.glock in wireframes/_nav.js

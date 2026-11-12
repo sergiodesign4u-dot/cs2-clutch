@@ -1,12 +1,6 @@
 /* design/v4/rare-drops.css, a satellite exploration of v4, D-209: six ways a rare, expensive drop could land in the live drops.
  * The card is v4's live drop card; each variant adds its own effect to the middle card and loops every 4s so it can be watched. */
 
-:root {
-  --rd-loop: 4s; /* one landing and its afterglow, then again; підібрано під характер, long enough to watch, short enough to compare */
-  --rd-gold: #F6C915; /* the rare drop's colour, --color-rarity-1, the top of the ladder */
-  --rd-fire: #FF5A2E; /* ember, as Emberforge's light in v4 */
-  --rd-zap: #8FD3FF; /* lightning, --color-blue lifted */
-}
 body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-text-hi); font-family: var(--font-family); }
 .rd-defs { position: absolute; width: 0; height: 0; }
 .rd-main { max-width: 980px; margin: 0 auto; padding: 32px 16px 80px; }
@@ -31,27 +25,27 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .rd-fx, .rd-fx2 { position: absolute; pointer-events: none; }
 
 /* --- A, fire: flames run round the edge, tongues rise from the foot, the skin glows ember -------------------------------- */
-.rd-fire .rd-rare .rd-fx { inset: -7px; z-index: -2; border-radius: 14px; background: conic-gradient(from var(--rd-a, 0deg), var(--rd-fire), var(--rd-gold), #FF2E4D, var(--rd-fire), var(--rd-gold), var(--rd-fire));
+.rd-fire .rd-rare .rd-fx { inset: -7px; z-index: -2; border-radius: 14px; background: conic-gradient(from var(--rd-a, 0deg), var(--color-rare-fire), var(--color-rare-gold), #FF2E4D, var(--color-rare-fire), var(--color-rare-gold), var(--color-rare-fire));
   filter: blur(6px); animation: rd-spin 1.6s linear infinite, rd-flicker .18s steps(2) infinite; }
 .rd-fire .rd-rare .rd-fx2 { left: -6px; right: -6px; bottom: -4px; height: 70%; z-index: 1; border-radius: 0 0 10px 10px; mix-blend-mode: screen;
-  background: radial-gradient(12% 40% at 15% 100%, var(--rd-fire), transparent), radial-gradient(10% 55% at 40% 100%, var(--rd-gold), transparent), radial-gradient(12% 45% at 65% 100%, #FF2E4D, transparent), radial-gradient(10% 60% at 88% 100%, var(--rd-fire), transparent);
+  background: radial-gradient(12% 40% at 15% 100%, var(--color-rare-fire), transparent), radial-gradient(10% 55% at 40% 100%, var(--color-rare-gold), transparent), radial-gradient(12% 45% at 65% 100%, #FF2E4D, transparent), radial-gradient(10% 60% at 88% 100%, var(--color-rare-fire), transparent);
   animation: rd-tongues .9s ease-in-out infinite alternate; }
 .rd-fire .rd-rare .rd-skin { animation: rd-hot 1.2s ease-in-out infinite alternate; }
 @keyframes rd-tongues { from { transform: scaleY(.85); opacity: .8; } to { transform: scaleY(1.15) translateY(-6px); opacity: 1; } }
-@keyframes rd-hot { from { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 6px var(--rd-fire)); } to { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 16px var(--rd-gold)); } }
+@keyframes rd-hot { from { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 6px var(--color-rare-fire)); } to { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 16px var(--color-rare-gold)); } }
 @keyframes rd-flicker { 50% { opacity: .85; } }
 
 /* --- B, lightning: an arc trembling on the edge, flashes, blue light on the skin --------------------------------------- */
-.rd-bolt .rd-rare .rd-fx { inset: -3px; z-index: 2; border: 2px solid var(--rd-zap); border-radius: 10px; filter: url(#rd-zap) drop-shadow(0 0 6px var(--rd-zap)) drop-shadow(0 0 14px #3955E8); }
-.rd-bolt .rd-rare .rd-fx2 { inset: 0; z-index: 3; border-radius: 8px; background: radial-gradient(circle at 50% 40%, rgba(200, 235, 255, .9), transparent 60%); mix-blend-mode: screen; opacity: 0; animation: rd-flash var(--rd-loop) linear infinite; }
-.rd-bolt .rd-rare .rd-skin { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 10px var(--rd-zap)); }
+.rd-bolt .rd-rare .rd-fx { inset: -3px; z-index: 2; border: 2px solid var(--color-rare-zap); border-radius: 10px; filter: url(#rd-zap) drop-shadow(0 0 6px var(--color-rare-zap)) drop-shadow(0 0 14px #3955E8); }
+.rd-bolt .rd-rare .rd-fx2 { inset: 0; z-index: 3; border-radius: 8px; background: radial-gradient(circle at 50% 40%, rgba(200, 235, 255, .9), transparent 60%); mix-blend-mode: screen; opacity: 0; animation: rd-flash var(--motion-rare-drop) linear infinite; }
+.rd-bolt .rd-rare .rd-skin { filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)) drop-shadow(0 0 10px var(--color-rare-zap)); }
 @keyframes rd-flash { 0%, 6%, 12%, 100% { opacity: 0; } 3%, 9% { opacity: 1; } 50% { opacity: 0; } 52% { opacity: .7; } 54% { opacity: 0; } }
 
 /* --- C, gold and holo: a gold edge circling, a holographic sheen sweeping, sparks round it ----------------------------- */
-.rd-gold .rd-rare .rd-fx { inset: -2px; z-index: -2; border-radius: 10px; background: conic-gradient(from var(--rd-a, 0deg), #FFF3B0, var(--rd-gold), #B8860B, var(--rd-gold), #FFF3B0); animation: rd-spin 3s linear infinite; }
+.rd-gold .rd-rare .rd-fx { inset: -2px; z-index: -2; border-radius: 10px; background: conic-gradient(from var(--rd-a, 0deg), #FFF3B0, var(--color-rare-gold), #B8860B, var(--color-rare-gold), #FFF3B0); animation: rd-spin 3s linear infinite; }
 .rd-gold .rd-rare .rd-fx2 { inset: 0; z-index: 3; border-radius: 8px; mix-blend-mode: screen;
   background: linear-gradient(115deg, transparent 30%, rgba(255, 120, 220, .35) 42%, rgba(120, 255, 240, .35) 50%, rgba(255, 240, 140, .4) 58%, transparent 70%) -160% 0 / 260% 100% no-repeat,
-    radial-gradient(circle, #fff 0 1.2px, transparent 2px) 12px 18px / 46px 52px, radial-gradient(circle, var(--rd-gold) 0 1.4px, transparent 2.2px) 30px 6px / 58px 64px;
+    radial-gradient(circle, #fff 0 1.2px, transparent 2px) 12px 18px / 46px 52px, radial-gradient(circle, var(--color-rare-gold) 0 1.4px, transparent 2.2px) 30px 6px / 58px 64px;
   animation: rd-sheen 2.4s ease-in-out infinite, rd-twinkle 1.1s steps(2) infinite; }
 @keyframes rd-sheen { 0% { background-position: -160% 0, 12px 18px, 30px 6px; } 60%, 100% { background-position: 160% 0, 12px 18px, 30px 6px; } }
 @keyframes rd-twinkle { 50% { opacity: .75; } }
@@ -65,10 +59,10 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 @keyframes rd-turn { to { transform: rotate(360deg); } }
 
 /* --- E, impact: the card lands with a flash and a shockwave, the neighbours flinch and catch the gold ------------------- */
-.rd-boom .rd-rare { animation: rd-land var(--rd-loop) cubic-bezier(.2, .9, .3, 1.2) infinite; }
-.rd-boom .rd-rare .rd-fx { top: 50%; left: 50%; width: 160px; height: 160px; margin: -80px 0 0 -80px; z-index: 4; border-radius: 50%; border: 3px solid var(--rd-gold); box-shadow: 0 0 20px var(--rd-gold), inset 0 0 20px var(--rd-gold); opacity: 0; animation: rd-wave var(--rd-loop) ease-out infinite; }
-.rd-boom .rd-rare .rd-fx2 { inset: 0; z-index: 5; border-radius: 8px; background: #fff; opacity: 0; animation: rd-white var(--rd-loop) ease-out infinite; }
-.rd-boom .rd-card:not(.rd-rare) { animation: rd-flinch var(--rd-loop) ease-out infinite; }
+.rd-boom .rd-rare { animation: rd-land var(--motion-rare-drop) cubic-bezier(.2, .9, .3, 1.2) infinite; }
+.rd-boom .rd-rare .rd-fx { top: 50%; left: 50%; width: 160px; height: 160px; margin: -80px 0 0 -80px; z-index: 4; border-radius: 50%; border: 3px solid var(--color-rare-gold); box-shadow: 0 0 20px var(--color-rare-gold), inset 0 0 20px var(--color-rare-gold); opacity: 0; animation: rd-wave var(--motion-rare-drop) ease-out infinite; }
+.rd-boom .rd-rare .rd-fx2 { inset: 0; z-index: 5; border-radius: 8px; background: #fff; opacity: 0; animation: rd-white var(--motion-rare-drop) ease-out infinite; }
+.rd-boom .rd-card:not(.rd-rare) { animation: rd-flinch var(--motion-rare-drop) ease-out infinite; }
 @keyframes rd-land { 0% { transform: scale(.4) rotate(-8deg); opacity: 0; } 8% { transform: scale(1.12) rotate(2deg); opacity: 1; } 14%, 100% { transform: none; opacity: 1; } }
 @keyframes rd-wave { 0%, 6% { transform: scale(.2); opacity: 0; } 8% { opacity: 1; } 30%, 100% { transform: scale(2.6); opacity: 0; } }
 @keyframes rd-white { 6% { opacity: 0; } 8% { opacity: .9; } 16%, 100% { opacity: 0; } }
@@ -76,10 +70,10 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 /* --- F, the whole row: fire runs round the strip's edge as the rare one lands, which keeps burning -------------------------- */
 .rd-lane .rd-row::before { content: ''; position: absolute; inset: -3px; z-index: -1; border-radius: 16px; padding: 3px;
-  background: conic-gradient(from var(--rd-a, 0deg), transparent 0 60%, var(--rd-fire) 72%, var(--rd-gold) 80%, #FF2E4D 88%, transparent 100%);
+  background: conic-gradient(from var(--rd-a, 0deg), transparent 0 60%, var(--color-rare-fire) 72%, var(--color-rare-gold) 80%, #FF2E4D 88%, transparent 100%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  filter: drop-shadow(0 0 6px var(--rd-fire)) drop-shadow(0 0 14px var(--rd-gold)); animation: rd-spin 1.8s linear infinite; }
-.rd-lane .rd-rare .rd-fx { inset: -3px; z-index: -2; border-radius: 11px; background: conic-gradient(from var(--rd-a, 0deg), var(--rd-fire), var(--rd-gold), #FF2E4D, var(--rd-fire)); filter: blur(4px); animation: rd-spin 1.4s linear infinite; }
+  filter: drop-shadow(0 0 6px var(--color-rare-fire)) drop-shadow(0 0 14px var(--color-rare-gold)); animation: rd-spin 1.8s linear infinite; }
+.rd-lane .rd-rare .rd-fx { inset: -3px; z-index: -2; border-radius: 11px; background: conic-gradient(from var(--rd-a, 0deg), var(--color-rare-fire), var(--color-rare-gold), #FF2E4D, var(--color-rare-fire)); filter: blur(4px); animation: rd-spin 1.4s linear infinite; }
 
 /* the turning angle for the conic edges */
 @property --rd-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
@@ -94,7 +88,7 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
    from under it and behind the skin, and one SVG turbulence that keeps changing shape bends them all, so the flame never repeats the same edge;
    embers drift up. G burns in the top rarity's gold, H in our pink and violet. ===== */
 .rd-was { margin: 56px 0 0; font-size: 16px; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: .08em; }
-.rd-live { --rd-c1: #FFF1A8; --rd-c2: var(--rd-gold); --rd-c3: var(--rd-fire); --rd-c4: #C81E3A; --rd-land: 6s; }
+.rd-live { --rd-c1: #FFF1A8; --rd-c2: var(--color-rare-gold); --rd-c3: var(--color-rare-fire); --rd-c4: #C81E3A; --rd-land: 6s; }
 .rd-plasma { --rd-c1: #FFD1F0; --rd-c2: #FB3F8A; --rd-c3: #D22BCE; --rd-c4: #6B42B9; }
 .rd-live .rd-rare { z-index: 2; animation: rd-land2 var(--rd-land) cubic-bezier(.2, .9, .3, 1.15) infinite; }
 .rd-live .rd-rare::before { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rd-c2) 70%, transparent), 0 0 22px color-mix(in srgb, var(--rd-c3) 45%, transparent); }
@@ -140,7 +134,7 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
    the card, and the frame hums. Drawn by rare-drops.js in the variant's own colours, blue as I or gold as the top rarity. ===== */
 .rd-arc { --rd-c1: #F2FBFF; --rd-c2: #8FD3FF; --rd-c3: #3955E8; --rd-c4: #1B2A8F; /* I's blue */
   --rd-hex-c1: #F2FBFF; --rd-hex-c2: #8FD3FF; --rd-hex-c3: #3955E8; } /* the same three as plain hex for the canvas, core, glow, deep */
-.rd-arc-gold { --rd-c1: #FFF8D6; --rd-c2: var(--rd-gold); --rd-c3: var(--rd-fire); --rd-c4: #7A0F22; /* G's gold flame, core lightened to a near white */
+.rd-arc-gold { --rd-c1: #FFF8D6; --rd-c2: var(--color-rare-gold); --rd-c3: var(--color-rare-fire); --rd-c4: #7A0F22; /* G's gold flame, core lightened to a near white */
   --rd-hex-c1: #FFF8D6; --rd-hex-c2: #F6C915; --rd-hex-c3: #FF5A2E; }
 .rd-arc .rd-rare::before { animation: rd-hum 2.4s ease-in-out infinite alternate; }
 @keyframes rd-hum { from { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rd-c2) 35%, transparent), 0 0 14px color-mix(in srgb, var(--rd-c3) 30%, transparent); }
@@ -181,9 +175,7 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .rd-t-orbit { --rd-c1: #FFF6CF; --rd-c2: #F6C915; --rd-c3: #FF9A1F; --rd-hex-c1: #FFF6CF; --rd-hex-c2: #F6C915; --rd-hex-c3: #FF9A1F; } /* the top rarity's gold, its core near white, its tail warmer */
 .rd-t-frost { --rd-c1: #FFFFFF; --rd-c2: #BFE6FF; --rd-c3: #5AA9FF; --rd-hex-c1: #F4FBFF; --rd-hex-c2: #BFE6FF; --rd-hex-c3: #5AA9FF; } /* ice, after Coldfront's icy blue */
 .rd-t-plasma { --rd-c1: #FFE0F4; --rd-c2: #FB3F8A; --rd-c3: #D22BCE; --rd-hex-c1: #FFE0F4; --rd-hex-c2: #FB3F8A; --rd-hex-c3: #D22BCE; --rd-hex-c4: #3B1A7A; } /* H's plasma */
-:root { --rd-hex-outer: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3C/svg%3E"); /* v4's --v4-hex-outer, the same paths */
-  --rd-hex-inner: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%221.6%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* v4's --v4-hex-inner */
-  --rd-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M3 13 17 27 32 5 47 27 61 13 55 38H9Z'/%3E%3Crect x='9' y='40' width='46' height='6' rx='2'/%3E%3Ccircle cx='3' cy='11' r='3.5'/%3E%3Ccircle cx='32' cy='4' r='4'/%3E%3Ccircle cx='61' cy='11' r='3.5'/%3E%3C/svg%3E"); } /* drawn here, three peaks on a band */
+ /* drawn here, three peaks on a band */
 
 /* the stage: a header, the strip, the top of the banner, at v4's spacing */
 .rd-sim { position: relative; margin-top: 16px; padding: 8px 12px 0; border-radius: 14px; background: var(--color-ground); overflow: hidden; }
@@ -200,8 +192,8 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
   background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r) 38%, transparent), transparent), linear-gradient(to bottom, #191842, #0F0E2B); }
 .rd-d::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: 36px; height: 3px; margin-left: -18px; border-radius: 3px 3px 0 0; background: var(--r); box-shadow: 0 0 10px 1px var(--r); }
 .rd-d-hex { position: absolute; z-index: -1; top: 7px; left: 50%; width: 78px; height: 68px; margin-left: -39px; background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 85%, transparent));
-  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--rd-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--rd-hex-inner) center / 100% 100% no-repeat; }
-.rd-d-hex::after { content: ''; position: absolute; inset: 0; background: color-mix(in srgb, var(--r) 75%, white); -webkit-mask: var(--rd-hex-outer) center / 100% 100% no-repeat; mask: var(--rd-hex-outer) center / 100% 100% no-repeat; }
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+.rd-d-hex::after { content: ''; position: absolute; inset: 0; background: color-mix(in srgb, var(--r) 75%, white); -webkit-mask: var(--shape-hex-outer) center / 100% 100% no-repeat; mask: var(--shape-hex-outer) center / 100% 100% no-repeat; }
 .rd-d img { position: relative; width: 128%; height: 64px; margin: 4px -14% 5px; object-fit: contain; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); }
 .rd-d b, .rd-d-s { position: relative; z-index: 2; line-height: 1; white-space: nowrap; text-shadow: 0 1px 2px rgba(0, 0, 0, .7); } /* line height 1 as v4 computes it, so the card is its 104 by 114px */
 .rd-d b { font-size: 13px; font-weight: 700; }
@@ -238,7 +230,7 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* the crown, large, cut off by the lower right corner, faint, under everything */
 .rd-crown { position: absolute; right: -8px; bottom: -5px; width: 66px; height: 50px; transform: rotate(-24deg); opacity: .42; } /* founder: "корону наверное прозрачной сделаем на фоне под всем", then "корону чуть поправим": smaller, so the whole crown sits in the corner under the hexagon and reads as one, only its right tip cut */
 .rd-crown::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFE27A, var(--r) 45%, #B87800);
-  -webkit-mask: var(--rd-crown) center / contain no-repeat; mask: var(--rd-crown) center / contain no-repeat; }
+  -webkit-mask: var(--icon-crown) center / contain no-repeat; mask: var(--icon-crown) center / contain no-repeat; }
 /* each tier's frame once it is live */
 .rd-t-volt .rd-d.is-live::before { box-shadow: inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 12px rgba(57, 85, 232, .4); }
 .rd-t-orbit .rd-d.is-live::before { box-shadow: inset 0 0 0 1px rgba(246, 201, 21, .4), 0 0 12px rgba(246, 201, 21, .22); }

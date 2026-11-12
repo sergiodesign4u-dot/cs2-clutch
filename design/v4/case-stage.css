@@ -11,15 +11,14 @@
    button with "Open 1 case" and the price in a darker chip at its end. The line under the act keeps the balance after, the peg and the
    return, D-28; the stripes on the pressed count stay, "не согласен", and so do the uppercase labels, "да, оставляем" */
 html body .v4c-go, html body .v4c-sell { gap: 14px; padding-right: 8px; } /* the price or the sum in a chip at the end, short or not, 11 Nov 2026 */
-.v4c-go-price { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; box-sizing: border-box; padding: 0 12px 0 8px; border-radius: var(--btn-radius, 12px);
+.v4c-go-price { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; box-sizing: border-box; padding: 0 12px 0 8px; border-radius: var(--radius-button, 12px);
   background: rgba(46, 4, 26, .45); color: var(--color-money); /* was white; gold on the pink as Home's tile price, 11 Nov 2026 */ font-size: 17px; font-weight: 900; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
 .v4c-go-price img { display: block; width: 20px; height: 20px; }
 
 /* ===== THE MARKERS, rows H to J, founder: "стрелочки сделай интереснее, визуальнее" =====
    The reel's pointer as a part, not a triangle: a cut chevron in the pink with a dark core, two short rails running out from it along the
    frame and a bead under its point; the lower one mirrored. On the tap they stay where the reel's line will run between them */
-:root { --v4c-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FF8DBD'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='r' x1='1' y1='0' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='22' height='2' fill='url(%23l)'/%3E%3Crect x='50' y='0' width='22' height='2' fill='url(%23r)'/%3E%3Cpath d='M22 0h28L36 17z' fill='url(%23g)'/%3E%3Cpath d='M29 3h14l-7 8z' fill='%23140F36'/%3E%3Ccircle cx='36' cy='21.5' r='2.2' fill='%23FB3F8A'/%3E%3C/svg%3E"); }
-.v4c-top:is([data-v="h"], [data-v="i"], [data-v="j"]) .v4c-mark { display: block; position: absolute; left: 50%; width: 72px; height: 24px; margin-left: -36px; clip-path: none; background: var(--v4c-mark) center / 100% 100% no-repeat; }
+.v4c-top:is([data-v="h"], [data-v="i"], [data-v="j"]) .v4c-mark { display: block; position: absolute; left: 50%; width: 72px; height: 24px; margin-left: -36px; clip-path: none; background: var(--shape-case-mark) center / 100% 100% no-repeat; }
 .v4c-top:is([data-v="h"], [data-v="i"], [data-v="j"]) .v4c-mark.is-b { scale: 1 -1; }
 .v4c-top[data-v="h"] .v4c-mark.is-t { top: 57px; } .v4c-top[data-v="h"] .v4c-mark.is-b { bottom: -1px; }
 
@@ -309,9 +308,9 @@ html body .v4c-go, html body .v4c-sell { gap: 14px; padding-right: 8px; } /* the
 .v4c-top[data-v="m"][data-card="i"] .v4o-price { left: 0; right: 0; top: 7%; justify-content: center; }
 .v4c-top[data-v="m"][data-card="i"] .v4o-plate { display: block; left: 50%; top: 24%; width: auto; height: 46%; aspect-ratio: 136 / 118; margin: 0; translate: -50% 0; opacity: 1;
   background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 85%, transparent));
-  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"][data-card="i"] .v4o-card::before { content: ''; position: absolute; left: 50%; top: 21.5%; height: 51%; aspect-ratio: 136 / 118; translate: -50% 0; opacity: .7;
-  background: color-mix(in srgb, var(--r) 75%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
+  background: color-mix(in srgb, var(--r) 75%, var(--color-text-hi)); -webkit-mask: var(--shape-hex-outer) center / 100% 100% no-repeat; mask: var(--shape-hex-outer) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"][data-card="i"] .v4o-img { top: 25%; height: 44%; transform: scale(1.12); filter: drop-shadow(0 8px 6px rgba(0, 0, 0, .7)); }
 .v4c-top[data-v="m"][data-card="i"] .v4o-name { align-items: center; }
 .v4c-top[data-v="m"][data-card="i"] .v4o-name::after { content: ''; position: absolute; left: 50%; bottom: -12px; width: 30px; height: 3px; margin-left: -15px; border-radius: 3px; background: var(--r); }
@@ -366,9 +365,9 @@ html body .v4c-go, html body .v4c-sell { gap: 14px; padding-right: 8px; } /* the
 /* the live drop hexagon, N and O: the fill and the inner line on the plate, the outer and the dashed line on the card's ::before */
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="o"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-plate { display: block; left: 50%; width: auto; aspect-ratio: 136 / 118; margin: 0; translate: -50% 0; opacity: 1;
   background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 85%, transparent));
-  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="o"]) .v4o-card::before { content: ''; position: absolute; left: 50%; aspect-ratio: 136 / 118; translate: -50% 0; opacity: .7;
-  background: color-mix(in srgb, var(--r) 75%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
+  background: color-mix(in srgb, var(--r) 75%, var(--color-text-hi)); -webkit-mask: var(--shape-hex-outer) center / 100% 100% no-repeat; mask: var(--shape-hex-outer) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-plate { top: 24%; height: 45%; }
 .v4c-top[data-v="m"][data-card="n"] .v4o-card::before { top: 21.5%; height: 50%; }
 .v4c-top[data-v="m"]:is([data-card="n"], [data-card="r"], [data-card="s"], [data-card="t"], [data-card="u"], [data-card="v"], [data-card="w"], [data-card="x"], [data-card="y"], [data-card="w1"], [data-card="w2"], [data-card="w3"], [data-card="w4"], [data-card="w5"], [data-card="w6"], [data-card="w7"]) .v4o-img { top: 25%; height: 43%; transform: scale(1.12); }
@@ -390,7 +389,7 @@ html body .v4c-go, html body .v4c-sell { gap: 14px; padding-right: 8px; } /* the
 .v4c-top[data-v="m"][data-card="p"] .v4o-card::after { content: ''; position: absolute; right: -6.5px; top: 10%; bottom: 10%; width: 1px; background: linear-gradient(180deg, transparent, rgba(139, 124, 255, .28), transparent); }
 /* Q: the live drop's outer and dashed lines, turned to stand round the ring */
 .v4c-top[data-v="m"][data-card="q"] .v4o-card::before { content: ''; position: absolute; left: 50%; top: 13.5%; height: 46%; aspect-ratio: 136 / 118; translate: -50% 0; rotate: 90deg; opacity: .7;
-  background: color-mix(in srgb, var(--r) 75%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
+  background: color-mix(in srgb, var(--r) 75%, var(--color-text-hi)); -webkit-mask: var(--shape-hex-outer) center / 100% 100% no-repeat; mask: var(--shape-hex-outer) center / 100% 100% no-repeat; }
 /* five rings on N, founder of 6 Nov 2026: N's outer and dashed lines give way to a ring with some body, "такое приятное 3д", the gradient
    fill kept inside and the hexagon's angle as it is; the five try its thickness, its colour and its shadows:
    R, neon: a fine bright ring on a dark one, its light falling inward and glowing out a little;
@@ -436,12 +435,11 @@ html body .v4c-go, html body .v4c-sell { gap: 14px; padding-right: 8px; } /* the
    paints a new card every few frames in each of up to five lanes. Here the same two lights, offset to the top left and blurred as before
    (2px at 55 %, 10px at 28 %, in the hexagon's own units for an 85px ring), are already blurred inside one mask image the browser
    rasterises once, and the tier's colour shows through it. The prize keeps its filter, it is one card */
-:root { --v4-hex-glow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); }
 .v4c-top[data-v="m"][data-card="w7"] .v4o-card .v4o-hex { filter: none; }
 /* and the skin's shadow, once case-open.js has drawn it into the skin's own picture (is-baked) */
 .v4c-top[data-v="m"][data-card="w7"] .v4o-card .v4o-img.is-baked { filter: none; }
 .v4c-top[data-v="m"][data-card="w7"] .v4o-glow { display: block; position: absolute; left: 50%; top: 13.03%; height: 66.95%; aspect-ratio: 176 / 158; translate: -50% 0; pointer-events: none;
-  background: var(--r); -webkit-mask: var(--v4-hex-glow) center / 100% 100% no-repeat; mask: var(--v4-hex-glow) center / 100% 100% no-repeat; }
+  background: var(--r); -webkit-mask: var(--shape-hex-glow) center / 100% 100% no-repeat; mask: var(--shape-hex-glow) center / 100% 100% no-repeat; }
 @container (max-width: 110px) { .v4c-top[data-v="m"][data-card="w7"] .v4o-glow { top: 10.88%; height: 56.24%; } }
 /* then: "что за дырку ты сделал? верни нормальную версию, я думал ты карточки хочешь сделать темнее, сам фон". The "dark inside" was the
    card's ground, not the hexagon's: the gradient fill is back, and the card itself goes darker, as the reference's cells are, its light
@@ -465,7 +463,7 @@ html body .v4c-go, html body .v4c-sell { gap: 14px; padding-right: 8px; } /* the
 .v4c-top[data-v="m"][data-card="w7"] .v4c-won-art .v4o-hex { display: block; position: absolute; left: 50%; top: 50%; height: 88%; width: auto; aspect-ratio: 136 / 118; translate: -50% -50%; overflow: visible; }
 .v4c-top[data-v="m"][data-card="w7"] .v4c-won-hex { display: block; position: absolute; inset: auto; left: 50%; top: 50%; height: 67%; width: auto; aspect-ratio: 136 / 118; translate: -50% -50%; opacity: 1;
   background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 85%, transparent));
-  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
 .v4c-top[data-v="m"][data-card="w7"] .v4c-won-art img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; transform: scale(1.12); }
 .v4c-top[data-v="m"][data-card="w7"] .v4c-won-v { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 0 0 0 32px; background: url(art/brand/coin-6-small.svg) 0 50% / 24px no-repeat; box-shadow: none;
   color: var(--color-text-hi); font-size: 30px; font-weight: 900; line-height: 1.1; }

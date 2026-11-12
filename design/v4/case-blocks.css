@@ -5,14 +5,14 @@
    block's lab. */
 
 /* ---- section headings: Home's Menu tile, a mode colour and a mark per section, the 2px line in it fading out ---- */
-.wf-main:has(.v4c-top) .wf-sec-head { --hx-g: var(--v4-mode-cases); --hx-c: var(--color-pink); --hx-ic: var(--icon-box); }
-.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-recent) { --hx-g: var(--v4-mode-upgrade); --hx-c: #F0A21B; --hx-ic: var(--icon-cup); }
-.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-pays) { --hx-g: var(--v4-mode-battles); --hx-c: #4A6BFF; --hx-ic: var(--icon-dollar); }
-.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-observed) { --hx-g: var(--v4-mode-showdowns); --hx-c: #E5394F; --hx-ic: var(--icon-pulse); }
-.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-how) { --hx-g: var(--v4-mode-cases); --hx-c: var(--color-pink); --hx-ic: var(--icon-shield); }
+.wf-main:has(.v4c-top) .wf-sec-head { --hx-g: var(--gradient-mode-cases); --hx-c: var(--color-pink); --hx-ic: var(--icon-box); }
+.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-recent) { --hx-g: var(--gradient-mode-upgrade); --hx-c: #F0A21B; --hx-ic: var(--icon-cup); }
+.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-pays) { --hx-g: var(--gradient-mode-battles); --hx-c: #4A6BFF; --hx-ic: var(--icon-dollar); }
+.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-observed) { --hx-g: var(--gradient-mode-showdowns); --hx-c: #E5394F; --hx-ic: var(--icon-pulse); }
+.wf-main:has(.v4c-top) .wf-sec-head:has(#h2-how) { --hx-g: var(--gradient-mode-cases); --hx-c: var(--color-pink); --hx-ic: var(--icon-shield); }
 .wf-main:has(.v4c-top) .wf-sec-head h2 { position: relative; gap: 14px; }
 .wf-main:has(.v4c-top) .wf-sec .wf-sec-head h2::before { flex: 0 0 42px; height: 42px; border-radius: 12px; filter: none; -webkit-mask: none; mask: none;
-  background: var(--hx-stripes), var(--hx-g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+  background: var(--gradient-stripes), var(--hx-g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
 .wf-main:has(.v4c-top) .wf-sec .wf-sec-head h2::after { content: ''; position: absolute; left: 10px; top: 50%; width: 22px; height: 22px; margin-top: -11px; background: var(--color-text-hi);
   -webkit-mask: var(--hx-ic) center / contain no-repeat; mask: var(--hx-ic) center / contain no-repeat; }
 .wf-main:has(.v4c-top) .wf-sec .wf-sec-head::after { height: 2px; background: linear-gradient(90deg, var(--hx-c), rgba(0, 0, 0, 0)); }
@@ -25,10 +25,10 @@
 .wf-main:has(.v4c-top) .wf-case-info[data-v="b"] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: none; margin-inline: max(var(--v4-gutter, 12px), (100% - 1560px) / 2); padding: 0; background: none; box-shadow: none; }
 .wf-main:has(.v4c-top) .wf-case-info[data-v="b"] > p { position: relative; padding: 18px 20px 18px 84px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #100E2E); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); font-size: 14px; }
 .wf-main:has(.v4c-top) .wf-case-info[data-v="b"] > p strong { display: block; margin-bottom: 4px; font-size: 16px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; }
-.wf-main:has(.v4c-top) .wf-case-info[data-v="b"] > p::before { content: ''; position: absolute; left: 20px; top: 18px; width: 46px; height: 46px; border-radius: 12px; background: var(--hx-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.wf-main:has(.v4c-top) .wf-case-info[data-v="b"] > p::before { content: ''; position: absolute; left: 20px; top: 18px; width: 46px; height: 46px; border-radius: 12px; background: var(--gradient-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
 .wf-main:has(.v4c-top) .wf-case-info[data-v="b"] > p::after { content: ''; position: absolute; left: 31px; top: 29px; width: 24px; height: 24px; background: var(--color-text-hi); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
-.wf-case-info .v4i-cost { --g: var(--v4-mode-upgrade); --ic: var(--icon-dollar); }
-.wf-case-info .v4i-steam { --g: var(--v4-mode-battles); --ic: var(--icon-steam); }
+.wf-case-info .v4i-cost { --g: var(--gradient-mode-upgrade); --ic: var(--icon-dollar); }
+.wf-case-info .v4i-steam { --g: var(--gradient-mode-battles); --ic: var(--icon-steam); }
 .wf-main:has(.v4c-top) .v4c-commit .wf-case-info[data-v="c"] { flex-basis: 100%; width: 100%; max-width: 660px; margin: 6px auto 0; padding: 12px 0 0; border-top: 1px solid rgba(255, 255, 255, .08); border-radius: 0; background: none; box-shadow: none; gap: 6px; text-align: left; }
 .wf-main:has(.v4c-top) .wf-case-info[data-v="c"] > p { position: relative; padding-left: 26px; font-size: 12px; }
 .wf-main:has(.v4c-top) .wf-case-info[data-v="c"] > p::before { content: ''; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; background: var(--color-text-soft); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
@@ -89,21 +89,21 @@
 .v4p-strip a.x6-go { text-decoration: none; }
 @container x6 (max-width: 979px) {
   .x6-strip.v4p-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .v4p-strip .x6-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; padding: 12px var(--pad); border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .v4p-strip .x6-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; padding: 12px var(--pad); border-radius: var(--radius-card) var(--radius-card) 0 0; }
   .v4p-strip .v4p-ic { width: 24px; height: 24px; }
   .v4p-strip .x6-p { min-height: 150px; }
   .v4p-strip .x6-rtp { grid-column: auto; border-radius: 0; }
   .v4p-strip .x6-p:nth-child(4)::before { display: none; }
   .v4p-strip .x6-p:nth-child(n+4) { border-top: 1px solid rgba(255, 255, 255, .18); }
-  .v4p-strip .x6-p:nth-child(4) { border-radius: 0 0 0 var(--v4-radius); }
-  .v4p-strip .x6-p:last-child { border-radius: 0 0 var(--v4-radius) 0; }
+  .v4p-strip .x6-p:nth-child(4) { border-radius: 0 0 0 var(--radius-card); }
+  .v4p-strip .x6-p:last-child { border-radius: 0 0 var(--radius-card) 0; }
 }
 @container x6 (max-width: 479px) {
   .x6-strip.v4p-strip { grid-template-columns: minmax(0, 1fr); }
   .v4p-strip .x6-p + .x6-p::before { display: none; }
   .v4p-strip .x6-p + .x6-p { border-top: 1px solid rgba(255, 255, 255, .18); }
   .v4p-strip .x6-p { min-height: 0; border-radius: 0; }
-  .v4p-strip .x6-p:last-child { border-radius: 0 0 var(--v4-radius) var(--v4-radius); }
+  .v4p-strip .x6-p:last-child { border-radius: 0 0 var(--radius-card) var(--radius-card); }
 }
 .v4p-c { display: grid; gap: 14px; max-width: 960px; padding: 22px 24px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #100E2E); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); }
 .v4p-row { display: grid; grid-template-columns: 210px minmax(0, 1fr) 120px; align-items: center; gap: 14px; }
@@ -165,7 +165,7 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
 .wf-case-info .v4i-cost { --c: #F0A21B; }
 .wf-case-info .v4i-steam { --c: #6F8BFF; }
 /* founder of 9 Nov 2026: "скин прайс делаем розовым подложку под иконку": our pink, the Cases mode's tile, so the plate is not a second gold beside Best drops' heading */
-.wf-case-info[data-v="d"] .v4i-cost { --g: var(--v4-mode-cases); --c: var(--color-pink); }
+.wf-case-info[data-v="d"] .v4i-cost { --g: var(--gradient-mode-cases); --c: var(--color-pink); }
 /* the pair in the middle, founder of 10 Nov 2026: "я бы эти блоки поставил бы по середине". Each plate had kept the text measure of a paragraph
    (535px) at the left of its half, so the two stood apart off centre; now each takes its column and the two columns, 600px at most, sit
    centred as one pair */
@@ -173,7 +173,7 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
 .wf-main:has(.v4c-top) .wf-case-info[data-v="d"] > p { max-width: none; position: relative; display: flex; align-items: flex-start; gap: 16px; margin: 0; padding: 20px 22px; border-radius: 16px; overflow: hidden;
   background: radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--c) 14%, transparent), transparent 55%), linear-gradient(180deg, #14123A, #0E0C2A);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 10px 24px rgba(3, 3, 16, .35); color: var(--color-text-soft); font-size: 14px; line-height: 1.55; }
-.wf-case-info[data-v="d"] .v4i-ic { position: relative; flex: 0 0 44px; height: 44px; border-radius: 12px; background: var(--hx-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 6px 16px color-mix(in srgb, var(--c) 30%, transparent); }
+.wf-case-info[data-v="d"] .v4i-ic { position: relative; flex: 0 0 44px; height: 44px; border-radius: 12px; background: var(--gradient-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 6px 16px color-mix(in srgb, var(--c) 30%, transparent); }
 .wf-case-info[data-v="d"] .v4i-ic::after { content: ''; position: absolute; inset: 11px; background: var(--color-text-hi); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
 .wf-case-info[data-v="d"] .v4i-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .wf-case-info[data-v="d"] .v4i-h { color: var(--color-text-hi); font-size: 16px; font-weight: 900; line-height: 1.3; }
@@ -203,7 +203,7 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
 .v4d-c { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .v4d-art { position: relative; width: 100%; height: 112px; margin: 10px 0 8px; }
 .v4d-plate { position: absolute; left: 50%; top: 50%; height: 64%; aspect-ratio: 136 / 118; translate: -50% -50%; background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r) 85%, transparent));
-  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
 .v4d-art .v4o-hex { display: block; position: absolute; left: 50%; top: 50%; height: 86%; width: auto; aspect-ratio: 136 / 118; translate: -50% -50%; overflow: visible; pointer-events: none;
   filter: drop-shadow(-1.5px -1.5px 2px color-mix(in srgb, var(--r) 55%, transparent)) drop-shadow(-3px -3px 10px color-mix(in srgb, var(--r) 28%, transparent)); }
 .v4d-art .v4o-hex .hx-grad-d { display: inline; stroke-width: 3.6; }
@@ -313,11 +313,11 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
 /* C and E: two plates as Before you open D, the section's own H2 and its H3 as their titles, each on Home's tile */
 .wf-main:has(.v4c-top) .wf-prose:is([data-how="c"], [data-how="e"]) { padding: 0; background: none; box-shadow: none; overflow: visible; border-radius: 0; }
 .wf-prose:is([data-how="c"], [data-how="e"]) .wf-prose-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: none; }
-.v4h-plate { --c: var(--color-pink); --g: var(--v4-mode-cases); --ic: var(--icon-box); display: flex; align-items: flex-start; gap: 16px; padding: 22px 24px; border-radius: 16px;
+.v4h-plate { --c: var(--color-pink); --g: var(--gradient-mode-cases); --ic: var(--icon-box); display: flex; align-items: flex-start; gap: 16px; padding: 22px 24px; border-radius: 16px;
   background: radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--c) 14%, transparent), transparent 55%), linear-gradient(180deg, #14123A, #0E0C2A);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 10px 24px rgba(3, 3, 16, .35); }
-.v4h-plate.is-check { --c: #6F8BFF; --g: var(--v4-mode-battles); --ic: var(--icon-shield); }
-.v4h-ic { position: relative; flex: 0 0 44px; height: 44px; border-radius: 12px; background: var(--hx-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 6px 16px color-mix(in srgb, var(--c) 30%, transparent); }
+.v4h-plate.is-check { --c: #6F8BFF; --g: var(--gradient-mode-battles); --ic: var(--icon-shield); }
+.v4h-ic { position: relative; flex: 0 0 44px; height: 44px; border-radius: 12px; background: var(--gradient-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 6px 16px color-mix(in srgb, var(--c) 30%, transparent); }
 .v4h-ic::after { content: ''; position: absolute; inset: 11px; background: var(--color-text-hi); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
 .v4h-body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .wf-main .v4h-body :is(h2, h3) { margin: 0; color: var(--color-text-hi); font-size: 17px; font-weight: 900; line-height: 1.3; letter-spacing: 0; text-transform: none; }

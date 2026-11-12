@@ -33,17 +33,17 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 /* a link's destination, named, with its arrow */
 .pa-go, .pb-go, .pc-go, .pd-go { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
-:is(.pa-go, .pb-go, .pc-go, .pd-go) svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+:is(.pa-go, .pb-go, .pc-go, .pd-go) svg { width: 14px; height: 14px; transition: translate .2s var(--motion-ease-pop); }
 @media (hover: hover) { :is(a:hover > .pa-go, a.pa-go:hover, a:hover > .pb-go, a:hover > .pc-go, a:hover .pd-go) svg { translate: 3px 0; } }
 
 /* Ironbound as Home's tile draws it: the world, the case, the real skin in it, the case's front cut along its rim over the skin */
-.pl-case { position: absolute; aspect-ratio: 3 / 2; pointer-events: none; transition: transform .45s var(--v4-ease-pop); }
+.pl-case { position: absolute; aspect-ratio: 3 / 2; pointer-events: none; transition: transform .45s var(--motion-ease-pop); }
 .pl-case i { position: absolute; inset: 0; }
 .pl-case .w { background: url(art/cases/ironbound-world.webp) center / 100% auto no-repeat; }
 .pl-case .c, .pl-case .r { background: url(art/cases/ironbound-case.webp) center / 100% auto no-repeat; }
 .pl-case .r { clip-path: polygon(0 46.5%, 18% 46.5%, 70% 48%, 80% 49.5%, 100% 50%, 100% 100%, 0 100%); }
 .pl-case .s { inset: -4% auto auto 20%; width: 62%; height: 70%; background: url(../concept/assets/skins/ak-47-redline.png) center / contain no-repeat; transform: rotate(7deg);
-  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); transition: transform .45s var(--v4-ease-pop); }
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); transition: transform .45s var(--motion-ease-pop); }
 @media (hover: hover) {
   a:hover > .pl-case { transform: scale(1.05); }
   a:hover > .pl-case .s { transform: rotate(4deg) translateY(-12%) scale(1.1); }
@@ -57,10 +57,10 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* one strip in the Cases card's pink and violet run into Ironbound's blue; the stub pink and striped as round 1's; each tear line is a
    dashed cut with a notch top and bottom in the page ground; every panel a different width for a different kind of figure */
 .pa { --cut: 2px dashed rgba(255, 255, 255, .28); position: relative; display: grid; grid-template-columns: 150px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, .88fr) minmax(0, 1.22fr);
-  margin-top: 60px; border-radius: var(--v4-radius); background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .035) 0 14px, transparent 14px 28px), linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%);
+  margin-top: 60px; border-radius: var(--radius-card); background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .035) 0 14px, transparent 14px 28px), linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .55); }
-.pa-stub { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 22px 20px; border-radius: var(--v4-radius) 0 0 var(--v4-radius);
-  background: var(--btn-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
+.pa-stub { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 22px 20px; border-radius: var(--radius-card) 0 0 var(--radius-card);
+  background: var(--gradient-button-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
 .pa-stub svg { width: 30px; height: 34px; fill: #fff; }
 .pa-stub .pl-tick { stroke: var(--color-pink); }
 .pa-stub h2 { margin: 0; font-size: 26px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
@@ -98,15 +98,15 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 @media (hover: hover) {
   .pa-sec:is(a):hover, .pa-round:hover { background-color: rgba(255, 255, 255, .06); }
-  .pa-time:hover .pa-track i { animation: pa-fill .9s var(--v4-ease-pop); }
-  .pa-time:hover .pa-track b { animation: pa-mark .9s var(--v4-ease-pop); }
+  .pa-time:hover .pa-track i { animation: pa-fill .9s var(--motion-ease-pop); }
+  .pa-time:hover .pa-track b { animation: pa-mark .9s var(--motion-ease-pop); }
 }
 @keyframes pa-fill { from { width: 0; } }
 @keyframes pa-mark { from { left: 0; } }
 
 /* B. THE LIVE CHECK ----------------------------------------------------------------------------------------------------- */
 .pb { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px; }
-.pb-proof { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 26px 28px 28px; border-radius: var(--v4-radius);
+.pb-proof { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 26px 28px 28px; border-radius: var(--radius-card);
   background: radial-gradient(80% 70% at 100% 0%, rgba(209, 39, 62, .28), transparent 60%), linear-gradient(150deg, #1B1A4E, #0F0E2B 70%);
   box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .22), inset 0 1px 0 rgba(255, 255, 255, .12), 0 14px 34px rgba(6, 10, 30, .55); outline: none; }
 .pb-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; }
@@ -136,11 +136,11 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .pb-acts { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .pb-side { display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.pb-row { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "v t" "go go"; align-content: center; gap: 12px 18px; padding: 18px 22px; border-radius: var(--v4-radius); overflow: hidden;
+.pb-row { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "v t" "go go"; align-content: center; gap: 12px 18px; padding: 18px 22px; border-radius: var(--radius-card); overflow: hidden;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), 0 10px 26px rgba(6, 10, 30, .45); transition: filter .2s; }
-.pb-row--rtp { background: var(--v4-mode-battles); }
-.pb-row--time { background: var(--v4-mode-cases); }
-.pb-row--fee { background: var(--v4-mode-upgrade); }
+.pb-row--rtp { background: var(--gradient-mode-battles); }
+.pb-row--time { background: var(--gradient-mode-cases); }
+.pb-row--fee { background: var(--gradient-mode-upgrade); }
 .pb-v { grid-area: v; align-self: center; font-size: 44px; font-weight: 900; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .pb-t { grid-area: t; display: flex; flex-direction: column; justify-content: center; gap: 4px; min-width: 0; }
 .pb-t b { font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
@@ -150,7 +150,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* under the pointer the round is recomputed: the ticket runs the ruler and lands in its range, then the match is said */
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .pb-proof:is(:hover, :focus-within) .pb-tick { animation: pb-run 1.1s cubic-bezier(.3, .7, .3, 1); }
-  .pb-proof:is(:hover, :focus-within) .pb-ok { animation: pb-ok 1.5s var(--v4-ease-pop); }
+  .pb-proof:is(:hover, :focus-within) .pb-ok { animation: pb-ok 1.5s var(--motion-ease-pop); }
   .pb-proof:is(:hover, :focus-within) .pb-dl code { animation: pb-read 1.1s steps(6); }
 }
 @keyframes pb-run { 0% { left: 100%; } 55% { left: 1%; } 75% { left: 3.6%; } 100% { left: 2.417%; } }
@@ -159,11 +159,11 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 /* C. FOUR CARDS, FOUR STORIES ------------------------------------------------------------------------------------------- */
 .pc { display: grid; grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr) minmax(0, .84fr) minmax(0, 1.18fr); gap: 12px; padding-top: 18px; }
-.pc-card { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 270px; padding: 20px 20px 18px; border-radius: var(--v4-radius);
+.pc-card { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 270px; padding: 20px 20px 18px; border-radius: var(--radius-card);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); transition: filter .2s, translate .2s; }
-.pc-rtp { background: var(--v4-mode-battles); }
-.pc-time { background: var(--v4-mode-cases); }
-.pc-fee { background: var(--v4-mode-upgrade); }
+.pc-rtp { background: var(--gradient-mode-battles); }
+.pc-time { background: var(--gradient-mode-cases); }
+.pc-fee { background: var(--gradient-mode-upgrade); }
 .pc-round { background: radial-gradient(90% 60% at 100% 0%, rgba(251, 63, 138, .22), transparent 70%), linear-gradient(160deg, #1C1A4E, #0F0E2B); box-shadow: inset 0 0 0 1px rgba(251, 63, 138, .45), 0 10px 30px rgba(6, 10, 30, .45); }
 .pc-mark { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: auto; border-radius: 12px; color: #fff; background: rgba(6, 10, 30, .3); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16); }
 .pc-mark svg { width: 40px; height: 40px; overflow: visible; }
@@ -190,8 +190,8 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .pc-btn { position: relative; z-index: 1; margin-top: auto; }
 @media (hover: hover) { .pc-card:is(a, :has(.pc-fig:hover)):hover { filter: brightness(1.08); translate: 0 -2px; } }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .pc-rtp:is(:hover, :focus-visible) .pc-g-on { animation: pc-arc .95s var(--v4-ease-pop); }
-  .pc-rtp:is(:hover, :focus-visible) .pc-g-nd { transform-box: view-box; transform-origin: 24px 34px; animation: pc-needle .95s var(--v4-ease-pop); }
+  .pc-rtp:is(:hover, :focus-visible) .pc-g-on { animation: pc-arc .95s var(--motion-ease-pop); }
+  .pc-rtp:is(:hover, :focus-visible) .pc-g-nd { transform-box: view-box; transform-origin: 24px 34px; animation: pc-needle .95s var(--motion-ease-pop); }
   .pc-time:is(:hover, :focus-visible) .pc-c-m { animation: pc-min .95s cubic-bezier(.3, .7, .3, 1); }
   .pc-time:is(:hover, :focus-visible) .pc-c-h { animation: pc-hour .95s cubic-bezier(.3, .7, .3, 1); }
   .pc-fee:is(:hover, :focus-visible) .pc-coin { animation: pc-toss .95s cubic-bezier(.3, .7, .3, 1); }
@@ -206,7 +206,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 /* D. THE HUD SCOREBOARD ------------------------------------------------------------------------------------------------- */
 /* CS2's top of screen: two team plates leaning in on a clock, slanted by clip-path; under them the kill feed, read as checked rounds */
-.pd { display: grid; gap: 14px; padding: 22px; border-radius: var(--v4-radius); background: linear-gradient(180deg, #121444, #0A0B26); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 14px 34px rgba(6, 10, 30, .5); }
+.pd { display: grid; gap: 14px; padding: 22px; border-radius: var(--radius-card); background: linear-gradient(180deg, #121444, #0A0B26); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 14px 34px rgba(6, 10, 30, .5); }
 .pd-score { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .92fr) minmax(0, 1fr); align-items: stretch; }
 .pd-team, .pd-clock { position: relative; box-sizing: border-box; display: flex; flex-direction: column; min-width: 0; padding: 18px 30px 20px; transition: filter .2s; }
 .pd-team--l { align-items: flex-end; text-align: right; padding-right: 46px; background: linear-gradient(90deg, #1B2A8F, #3955E8); clip-path: polygon(0 0, 100% 0, calc(100% - 26px) 100%, 0 100%); border-radius: 10px 0 0 10px; }
@@ -252,7 +252,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
   /* A: the stub a row across the top, the case's panel across the strip, the two withdrawal figures side by side, the round across the foot;
      every tear line horizontal, its notches at the strip's two sides only */
   .pa { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin-top: 0; }
-  .pa-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 12px; padding: 16px 20px; border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .pa-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 12px; padding: 16px 20px; border-radius: var(--radius-card) var(--radius-card) 0 0; }
   .pa-stub svg { width: 24px; height: 28px; }
   .pa-stub h2 { font-size: 22px; }
   .pa-sec { border-left: 0; border-top: var(--cut); }
@@ -332,33 +332,33 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .pl-notes ul { margin: 0; padding-left: 20px; color: var(--color-text-soft); font-size: 15px; line-height: 1.5; max-width: 100ch; }
 .pl-notes li + li { margin-top: 6px; }
 .pl-notes b { color: var(--color-text-hi); }
-.pl-round2 { margin-top: 56px; padding: 18px 20px; border-radius: var(--v4-radius); background: var(--color-card); box-shadow: inset 0 0 0 1px var(--color-line-soft); }
+.pl-round2 { margin-top: 56px; padding: 18px 20px; border-radius: var(--radius-card); background: var(--color-card); box-shadow: inset 0 0 0 1px var(--color-line-soft); }
 .pl-round2 > summary { margin: 0; cursor: pointer; }
 .pl-round2[open] > summary { margin-bottom: 8px; }
 
 /* THE STRIP: the Cases card's pink and violet run into Ironbound's blue, the stub pink and striped; no tear dots, no dashed cuts,
    the panels part on a hairline that stops short of the strip's edges */
 .tk { margin-top: 64px; } /* room for what breaks the strip's top edge */
-.tk-strip { position: relative; display: grid; grid-template-columns: 144px minmax(0, 2fr) minmax(0, 1.02fr) minmax(0, .9fr) minmax(0, 1.08fr); border-radius: var(--v4-radius);
+.tk-strip { position: relative; display: grid; grid-template-columns: 144px minmax(0, 2fr) minmax(0, 1.02fr) minmax(0, .9fr) minmax(0, 1.08fr); border-radius: var(--radius-card);
   background: linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .55); }
-.tk--deck .tk-strip { grid-template-columns: 160px minmax(0, 2.1fr) minmax(0, 1.1fr) minmax(0, 1fr); border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
-.tk-stub { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 22px 20px; border-radius: var(--v4-radius) 0 0 var(--v4-radius);
-  background: var(--btn-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
-.tk--deck .tk-stub { border-radius: var(--v4-radius) 0 0 0; }
+.tk--deck .tk-strip { grid-template-columns: 160px minmax(0, 2.1fr) minmax(0, 1.1fr) minmax(0, 1fr); border-radius: var(--radius-card) var(--radius-card) 0 0; }
+.tk-stub { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 22px 20px; border-radius: var(--radius-card) 0 0 var(--radius-card);
+  background: var(--gradient-button-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
+.tk--deck .tk-stub { border-radius: var(--radius-card) 0 0 0; }
 .tk-stub svg { width: 30px; height: 34px; fill: #fff; }
 .tk-stub .pl-tick { stroke: var(--color-pink); }
 .tk-stub h2 { margin: 0; font-size: 26px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
 .tk-p { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 196px; padding: 22px 22px 20px; transition: background-color .2s; }
 .tk-p + .tk-p::before { content: ''; position: absolute; left: 0; top: 22px; bottom: 22px; width: 1px; background: rgba(255, 255, 255, .18); }
-.tk-p:last-child { border-radius: 0 var(--v4-radius) var(--v4-radius) 0; }
-.tk--deck .tk-p:last-child { border-radius: 0 var(--v4-radius) 0 0; }
+.tk-p:last-child { border-radius: 0 var(--radius-card) var(--radius-card) 0; }
+.tk--deck .tk-p:last-child { border-radius: 0 var(--radius-card) 0 0; }
 .tk-k { position: relative; display: block; font-size: 12px; font-weight: 900; letter-spacing: .06em; line-height: 1.25; text-transform: uppercase; color: rgba(255, 255, 255, .88); }
 .tk-v { position: relative; display: block; margin-top: 8px; font-size: 52px; font-weight: 900; line-height: 1; letter-spacing: -.01em; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(6, 10, 30, .3); }
 .tk-v--word { font-size: 32px; }
 .tk-fee .tk-v { color: var(--color-gold); }
 .tk-say { position: relative; display: block; margin-top: 8px; color: rgba(255, 255, 255, .86); font-size: 14px; line-height: 1.4; }
 .tk-go { position: relative; display: block; margin-top: auto; padding-top: 14px; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
-.tk-go svg, .hd-go svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: translate .2s var(--v4-ease-pop); }
+.tk-go svg, .hd-go svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: translate .2s var(--motion-ease-pop); }
 .pl-frame .tk a:focus-visible, .pl-frame .hd a:focus-visible { outline-offset: -3px; } /* the panels clip, so the ring is drawn inside */
 
 /* Ironbound stands in its panel: the flames are the panel's and end at its edges, the case and the skin break the top edge only;
@@ -368,13 +368,13 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .tk--deck .tk-rtp > .tk-say { max-width: 40%; }
 .tk-burst { position: absolute; z-index: -1; inset: 0; background: url(art/cases/ironbound-world.webp) right -30px bottom -26px / auto 150% no-repeat;
   -webkit-mask: linear-gradient(90deg, transparent 30%, #000 62%); mask: linear-gradient(90deg, transparent 30%, #000 62%); pointer-events: none; }
-.tk-case { position: absolute; z-index: 0; right: -14%; bottom: -6px; height: calc(100% + var(--rise, 44px)); aspect-ratio: 3 / 2; pointer-events: none; transition: transform .45s var(--v4-ease-pop); transform-origin: 60% 90%; }
+.tk-case { position: absolute; z-index: 0; right: -14%; bottom: -6px; height: calc(100% + var(--rise, 44px)); aspect-ratio: 3 / 2; pointer-events: none; transition: transform .45s var(--motion-ease-pop); transform-origin: 60% 90%; }
 .tk-case i { position: absolute; inset: 0; }
 .tk-case .c, .tk-case .r { background: url(art/cases/ironbound-case.webp) center / 100% auto no-repeat; }
 .tk-case .c { filter: drop-shadow(0 10px 12px rgba(6, 10, 30, .5)); }
 .tk-case .r { clip-path: polygon(0 46.5%, 18% 46.5%, 70% 48%, 80% 49.5%, 100% 50%, 100% 100%, 0 100%); }
 .tk-case .s { inset: -14% auto auto 18%; width: 64%; height: 74%; background: url(../concept/assets/skins/ak-47-redline.png) center / contain no-repeat; transform: rotate(7deg);
-  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); transition: transform .45s var(--v4-ease-pop); }
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); transition: transform .45s var(--motion-ease-pop); }
 
 /* the last panel: the round, its hash, its check */
 .nw { white-space: nowrap; }
@@ -397,12 +397,12 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 /* THE FEED OF CHECKED ROUNDS: CS2's kill feed read as rounds; three rows, the newest edged in our pink */
 .fd { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; }
-.fd--deck { padding: 18px 22px 20px; border-radius: 0 0 var(--v4-radius) var(--v4-radius); background: linear-gradient(180deg, #121444, #0A0B26); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .16), 0 14px 34px rgba(6, 10, 30, .5); }
+.fd--deck { padding: 18px 22px 20px; border-radius: 0 0 var(--radius-card) var(--radius-card); background: linear-gradient(180deg, #121444, #0A0B26); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .16), 0 14px 34px rgba(6, 10, 30, .5); }
 .fd-h { display: flex; flex-direction: column; gap: 6px; padding: 4px 4px 4px 8px; }
 .fd-h b { font-size: 32px; font-weight: 900; line-height: 1; text-transform: uppercase; }
 .fd-h > span:not(.fd-go) { color: var(--color-text-soft); font-size: 14px; font-weight: 700; }
 .fd-go { display: block; margin-top: 6px; color: var(--color-blue); font-size: 13px; font-weight: 700; }
-.fd-go svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+.fd-go svg { width: 14px; height: 14px; transition: translate .2s var(--motion-ease-pop); }
 .fd-rows { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .fd-rows li { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto auto auto; align-items: center; gap: 14px; min-height: 40px; padding: 4px 14px 4px 8px; border-radius: 6px;
   background: rgba(2, 12, 23, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); font-size: 14px; }
@@ -415,7 +415,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 @media (hover: hover) { .fd-rows a:hover { color: var(--color-text-hi); } }
 
 /* THE HUD: two team plates leaning in on the clock, as round 2's D, each naming where it leads */
-.hd { display: grid; gap: 16px; padding: 22px; border-radius: var(--v4-radius); background: linear-gradient(180deg, #121444, #0A0B26); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 14px 34px rgba(6, 10, 30, .5); }
+.hd { display: grid; gap: 16px; padding: 22px; border-radius: var(--radius-card); background: linear-gradient(180deg, #121444, #0A0B26); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 14px 34px rgba(6, 10, 30, .5); }
 .hd-score { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr) minmax(0, 1fr); align-items: stretch; }
 .hd-team, .hd-clock { position: relative; box-sizing: border-box; display: flex; flex-direction: column; min-width: 0; padding: 18px 30px 18px; transition: filter .2s; }
 .hd-team--l { align-items: flex-end; text-align: right; padding-right: 48px; background: linear-gradient(90deg, #1B2A8F, #3955E8); clip-path: polygon(0 0, 100% 0, calc(100% - 26px) 100%, 0 100%); border-radius: 10px 0 0 10px; }
@@ -436,7 +436,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
   .tk { margin-top: 40px; }
   .tk-strip, .tk--deck .tk-strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .tk-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; padding: 16px 20px; } /* the heading on the left, so what breaks the case panel's top edge rises beside it, not over it */
-  .tk-stub, .tk--deck .tk-stub { border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .tk-stub, .tk--deck .tk-stub { border-radius: var(--radius-card) var(--radius-card) 0 0; }
   .tk-stub svg { width: 24px; height: 28px; }
   .tk-stub h2 { font-size: 22px; }
   .tk-rtp, .tk-round { grid-column: 1 / -1; }
@@ -445,7 +445,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
   .tk-burst { background-position: right 10px bottom -26px; }
   .tk-rtp > .tk-k, .tk-rtp > .tk-v, .tk-rtp > .tk-say, .tk--deck .tk-rtp > .tk-say { max-width: 50%; }
   .tk-p + .tk-p::before { left: 22px; right: 22px; top: 0; bottom: auto; width: auto; height: 1px; }
-  .tk-p:last-child, .tk--deck .tk-p:last-child { border-radius: 0 0 var(--v4-radius) var(--v4-radius); }
+  .tk-p:last-child, .tk--deck .tk-p:last-child { border-radius: 0 0 var(--radius-card) var(--radius-card); }
   .tk--deck .tk-p:last-child { border-radius: 0; }
   .tk-strip > .tk-p:nth-child(4):not(:last-child)::before, .tk--deck .tk-strip > .tk-p:nth-child(4)::before { top: 22px; bottom: 22px; left: 0; right: auto; width: 1px; height: auto; } /* the two withdrawal figures side by side part on an upright line */
   .tk-round > .tk-btn { align-self: flex-start; }
@@ -506,11 +506,11 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 /* Ironbound, the new case: its back, the skin over its tray, its front cut along the tray's rim over the skin (the cases lab's layers);
    the case sits low on the panel's right with its foot in the bottom edge, the drop rises out of it and breaks the strip's top edge */
-.tk-case2 { position: absolute; z-index: 0; right: -3%; bottom: -8px; height: 168px; aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--v4-ease-pop); }
+.tk-case2 { position: absolute; z-index: 0; right: -3%; bottom: -8px; height: 168px; aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--motion-ease-pop); }
 .tk-case2 .b, .tk-case2 .f { position: absolute; inset: 0; background: url(art/cases-v2/ironbound-c.webp) center / 100% auto no-repeat; }
 .tk-case2 .b { filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); }
 .tk-case2 .f { z-index: 2; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
-.tk-case2 .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); transition: transform .45s var(--v4-ease-pop); }
+.tk-case2 .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); transition: transform .45s var(--motion-ease-pop); }
 @media (hover: hover) {
   .tk-rtp:hover .tk-case2 { transform: scale(1.04); }
   .tk-rtp:hover .tk-case2 .sk { transform: translate(-50%, -66%) rotate(-12deg) scale(1.06); }
@@ -526,10 +526,10 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* A4: three round cards, each painted as Home's mode cards: its rarity's colour, the skin large and over the top edge only */
 .rc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 46px 0 0; padding: 0; list-style: none; }
 .rc-card { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 160px; padding: 16px 18px 16px 48%;
-  border-radius: var(--v4-radius); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
-  clip-path: inset(-80px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); transition: filter .2s; }
+  border-radius: var(--radius-card); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
+  clip-path: inset(-80px 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); transition: filter .2s; }
 .rc-card > :not(.rc-skin) { position: relative; z-index: 1; }
-.rc-skin { position: absolute; z-index: 0; left: -1%; top: -38px; width: 52%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--v4-ease-pop); }
+.rc-skin { position: absolute; z-index: 0; left: -1%; top: -38px; width: 52%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--motion-ease-pop); }
 .rc-r { font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
 .rc-w { margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255, 255, 255, .9); }
 .rc-s { font-size: 20px; font-weight: 900; line-height: 1.1; }
@@ -543,7 +543,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
   .rc-card:hover .rc-skin { transform: translateY(-6px) rotate(-16deg) scale(1.06); }
   .rc-card:hover .rc-go svg { translate: 3px 0; }
 }
-.rc-go svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+.rc-go svg { width: 14px; height: 14px; transition: translate .2s var(--motion-ease-pop); }
 
 /* A5: the strip's last panel turns through the rounds; the skin breaks the top edge as the drop does at the strip's other end */
 .tt { isolation: isolate; clip-path: inset(-90px 0 0 0); overflow-x: clip; }
@@ -556,15 +556,15 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .tt-n { font-size: 15px; font-weight: 900; }
 .tt-slide .rc-t { margin-top: 6px; }
 .tt-go { margin-top: 12px; color: #fff; font-size: 13px; font-weight: 700; }
-.tt-go svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+.tt-go svg { width: 14px; height: 14px; transition: translate .2s var(--motion-ease-pop); }
 .tt-dots { position: absolute; z-index: 1; right: 14px; bottom: 12px; display: flex; }
 .tt-dots button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; } /* a 24px target round a small mark */
-.tt-dots button::before { content: ''; width: 8px; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, .4); transition: width .25s var(--v4-ease-pop), background-color .2s; }
+.tt-dots button::before { content: ''; width: 8px; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, .4); transition: width .25s var(--motion-ease-pop), background-color .2s; }
 .tt-dots button[aria-pressed="true"]::before { width: 20px; background: #fff; }
 .tt-dots button:focus-visible { outline: 2px solid #fff; outline-offset: -2px; border-radius: 6px; }
 @media (hover: hover) { .tt-go:hover svg { translate: 3px 0; } .tt-dots button:hover::before { background: rgba(255, 255, 255, .8); } }
 @media (prefers-reduced-motion: no-preference) {
-  .tt-slide:not([hidden]) .tt-skin { animation: tt-skin .55s var(--v4-ease-pop); }
+  .tt-slide:not([hidden]) .tt-skin { animation: tt-skin .55s var(--motion-ease-pop); }
   .tt-slide:not([hidden]) > :not(.tt-skin) { animation: tt-text .35s ease-out; }
 }
 @keyframes tt-skin { from { opacity: 0; transform: translateY(18px) rotate(-2deg) scale(.88); } }
@@ -603,7 +603,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
    вниз, поставим слева от карточек скинов"; each card as A5's panel, "как типа тут": the skin over the top right corner, the words across.
    A7: the last panel ends on the pink button, "может в конце сделать такую кнопку".
    ====================================================================================================================== */
-.tk--v3 .tk-stub { background: var(--btn-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
+.tk--v3 .tk-stub { background: var(--gradient-button-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); }
 .tk--v3 .tk-go { white-space: nowrap; } /* one line each; the panels are sized so it fits at 1558 */
 .tk--three .tk-strip { grid-template-columns: 170px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr); }
 .tk--three .tk-case2 { height: 178px; }
@@ -620,23 +620,23 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 /* A6: the second ticket, the "Every round" plate in the stub's striped pink, then two round cards */
 .t6 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1.35fr); gap: 12px; margin-top: 58px; }
-.t6-plate { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 22px; border-radius: var(--v4-radius);
-  background: var(--btn-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .5); }
+.t6-plate { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 22px; border-radius: var(--radius-card);
+  background: var(--gradient-button-stripes), linear-gradient(160deg, #FF5C9C, var(--color-pink) 55%, #D42C76); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .5); }
 .t6-fig { display: block; }
 .t6-plate .tk-v--word { font-size: 36px; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
 .t6-btn { margin-top: auto; }
 .c6 { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 188px; padding: 18px 20px 18px;
-  border-radius: var(--v4-radius); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
-  clip-path: inset(-100px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); overflow-x: clip; transition: filter .2s; }
+  border-radius: var(--radius-card); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
+  clip-path: inset(-100px 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); overflow-x: clip; transition: filter .2s; }
 .c6 > :not(.c6-skin) { position: relative; z-index: 1; }
-.c6-skin { position: absolute; z-index: 0; right: -3%; top: -54px; width: 50%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--v4-ease-pop); }
+.c6-skin { position: absolute; z-index: 0; right: -3%; top: -54px; width: 50%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--motion-ease-pop); }
 .c6-r { font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
 .c6-w { margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255, 255, 255, .9); }
 .c6-s { max-width: 54%; font-size: 22px; font-weight: 900; line-height: 1.1; }
 .c6-from { margin-top: 4px; font-size: 12px; color: rgba(255, 255, 255, .82); }
 .c6 .rc-t { margin-top: 14px; }
 .c6-go { margin-top: auto; padding-top: 14px; color: #fff; font-size: 13px; font-weight: 700; }
-.c6-go svg { width: 14px; height: 14px; transition: translate .2s var(--v4-ease-pop); }
+.c6-go svg { width: 14px; height: 14px; transition: translate .2s var(--motion-ease-pop); }
 .pl-frame a.c6:focus-visible { outline-offset: 2px; }
 @media (hover: hover) {
   .c6:hover { filter: brightness(1.08); }
@@ -648,8 +648,8 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 @container pl (max-width: 1080px) {
   .tk--three .tk-strip, .tk--turn2 .tk-strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .tk--three .tk-strip > .tk-p:nth-child(4)::before { top: 22px; bottom: 22px; left: 0; right: auto; width: 1px; height: auto; }
-  .tk--three .tk-strip > .tk-p:nth-child(3) { border-radius: 0 0 0 var(--v4-radius); }
-  .tk--three .tk-strip > .tk-p:nth-child(4) { border-radius: 0 0 var(--v4-radius) 0; }
+  .tk--three .tk-strip > .tk-p:nth-child(3) { border-radius: 0 0 0 var(--radius-card); }
+  .tk--three .tk-strip > .tk-p:nth-child(4) { border-radius: 0 0 var(--radius-card) 0; }
   .tk--three .tk-case2, .tk--turn2 .tk-case2 { height: 178px; right: 0; }
   .t6 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: 62px; margin-top: 12px; }
   .t6-plate { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; }
@@ -659,7 +659,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
   .tk--three .tk-strip, .tk--turn2 .tk-strip { grid-template-columns: minmax(0, 1fr); }
   .tk--three .tk-strip > .tk-p:nth-child(4)::before { left: 18px; right: 18px; top: 0; bottom: auto; width: auto; height: 1px; }
   .tk--three .tk-strip > .tk-p:nth-child(3) { border-radius: 0; }
-  .tk--three .tk-strip > .tk-p:nth-child(4) { border-radius: 0 0 var(--v4-radius) var(--v4-radius); }
+  .tk--three .tk-strip > .tk-p:nth-child(4) { border-radius: 0 0 var(--radius-card) var(--radius-card); }
   .tk--three .tk-case2, .tk--turn2 .tk-case2 { height: 116px; right: -3%; bottom: 34px; }
   .t6 { grid-template-columns: minmax(0, 1fr); row-gap: 56px; }
   .t6-plate { padding: 18px; }
@@ -672,7 +672,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* A6 after the founder, 2 Nov 2026: "другой цвет карточки нужно" and the hash box, "давай добавим". The plate keeps its stripes and takes the
    shield's provably fair blue taken deeper, teal to blue: its own colour beside the pink stub, the violet Glock card and the red AK card.
    White type holds on its lightest end (#0F7EA6, about 4.6 to 1) */
-.t6-plate { background: var(--btn-stripes), linear-gradient(160deg, #0F7EA6, #1F55C9 58%, #24359E); }
+.t6-plate { background: var(--gradient-button-stripes), linear-gradient(160deg, #0F7EA6, #1F55C9 58%, #24359E); }
 .t6-plate .tk-v--word { text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
 .t6-hash { margin: 14px 0 16px; }
 @container pl (max-width: 1080px) { .t6-hash { flex: 1 1 260px; width: auto; margin: 0; } }

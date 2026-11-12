@@ -115,7 +115,7 @@ window.NAV = [
       ]}
   ]},
 
-  { label: 'UI + Visual',        pageLabel: 'Overview',  page: 'design/overview.html',     done: false },
+  { label: 'UI + Visual',        pageLabel: 'Overview',  page: 'design/overview.html',     done: false, wip: true }, // stage 07 begun 12 Nov 2026 with the fold of v4's values, D-224
   { label: 'Tokens + Components', pageLabel: 'Overview', page: 'design/kit/overview.html', done: false },
   { label: 'Design System',      pageLabel: 'Why',       page: 'design/kit/why.html',      done: false },
   { label: 'Responsive',         page: null,                       done: false },

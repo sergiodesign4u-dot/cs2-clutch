@@ -7120,3 +7120,22 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** Rewriting git history to drop the moved files from the clone, `.git` being 377 MB: it needs a force push and is a decision of its own. Converting the research screenshots to WebP: lossy, and they are evidence cited by shot. A custom deploy workflow: kept for when a deploy fails on our side again, since this failure was GitHub's.
 
 **The cost.** A screenshot no page cites is no longer in the repository and is lost with the founder's machine unless backed up; the git history still holds every one of them until it is rewritten.
+
+## D-224. Stage 07 opens with the fold: v4's values move into `design/_theme.css` under names by kind, and no value changes
+
+**Date:** 2026-11-12. **Stage:** 07, before step 1. **Decided by:** the founder, on the fold plan with three recommendations: "го" (go), after "да давай как ти рекомеднуешь" (yes, as you recommend) on the input gate.
+
+**The input gate.** All thirteen inputs the stage 07 pack declares exist. Two are hollow and this record fills them: `design/_theme.css` was not the one source of values, since v4 read 58 more from ten sheets of its own, and `DESIGN-artifacts.md` held none of v4's origins. Two stay open by name: the case screen's three states `D-215` deferred are drawn at step 5, and the icon style is chosen in step 2's control census, `D-222` point 4. The product is far above the eight screen floor, 134 grey pages.
+
+**What was decided.**
+
+1. **v4's 58 `:root` declarations, in `design/v4/theme.css` and nine block sheets, moved into `design/_theme.css`, part 1,** under 53 names by kind: `--color-*`, `--size-*`, `--radius-*`, `--shadow-*`, `--motion-*`, `--shape-*`, `--icon-*`, and `--gradient-*`, declared in the convention header as a kind of its own, a gradient that paints a surface and is neither a picture (`--art-*`) nor a percentage (`--mix-*`). The old prefixes `--v4-`, `--btn-`, `--rd-`, `--ri-`, `--hx-`, `--rm-` and `--v4c-` are gone from every `:root`; component-local variables keep their names.
+2. **Four pairs of byte-identical values became one name each:** `--gradient-stripes`, `--shape-hex-outer`, `--shape-hex-inner`, `--icon-crown`. **Two values are written as the variable they already were:** `--color-rare-gold: var(--color-rarity-1)`, `--radius-tile: var(--radius-card)`.
+3. **Two names were already taken by direction 2 with other values,** so v4's carry a suffix rather than overwrite them: `--size-banner-v4` 440px beside `--size-banner` 340px, and `--size-drop-v4` 104px (86px under 600px) beside `--size-drop` 92px. Overwriting would have changed direction 2's pages. One of each pair goes when `_theme.css` moves to `design/kit/kit.css` at step 3, as a value decision of its own.
+4. **Every value carries its origin** in `_theme.css` and in `DESIGN-artifacts.md` section 11, appended, not rewritten. 19 of the 53 take it from the header of the sheet they stood in rather than from a comment on the value; section 11 marks them as the candidates for checking.
+
+**How "no value changed" was measured.** The computed style of every element and pseudo-element on all 29 `design/v4/*.html` pages, plus three switched states, at 1440 and 375, with time and randomness pinned: 64 page loads, recorded twice before the fold and once after. 0 rows changed outside the rows that already differ between the two records taken before. Those rows were checked again with animations off against the committed tree: the one property still moving is `background-image` on `.v4o-glow`, a `blob:` URL `case-open.js` mints on every load. Every variable that resolved before resolves to the same value after under its new name. Screenshots of the case screen at both widths and of Home at 375 were identical byte for byte.
+
+**Rejected.** Folding the 623 component-local declarations and the 880 hex and 911 `rgba()` literals in block rules now: they go with the classes at step 3, where each value is seen once, `D-222`. Deleting direction 2's values v4 no longer reads: a value decision, at step 3. Overwriting `--size-banner` and `--size-drop` with v4's values. Filing the gradients under `--art-*`.
+
+**The cost.** `_theme.css` now holds two answers for two jobs, named in place, until step 3. v4's block sheets still hold their literals.

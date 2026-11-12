@@ -19,13 +19,13 @@ body.ml-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .ml-card p { max-width: 52cqw; margin: 5px 0 0 16px; font-size: 12px; line-height: 1.3; text-shadow: 0 1px 6px rgba(6, 10, 30, .8); }
 /* the short act: it stops at the art, as the references do */
 .ml-card .ml-act { position: absolute; left: 16px; bottom: 14px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 56cqw; max-width: none; min-height: 36px; margin: 0; border-radius: 8px; background: rgba(66, 74, 128, .62); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); color: var(--color-text-hi); font-size: 12px; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-.ml-card .ml-act.is-live { background: var(--v4-stripes), var(--color-pink); }
+.ml-card .ml-act.is-live { background: var(--gradient-stripes), var(--color-pink); }
 
 .ml-tag { position: absolute; z-index: 4; right: 8px; top: 8px; padding: 2px 6px; border-radius: 6px; background: rgba(6, 10, 30, .72); color: var(--color-text-soft); font-size: 11px; font-weight: 700; }
 
 .ml-light, .ml-skin { position: absolute; left: calc(var(--x) * 1cqw); top: calc(var(--y) * 1cqw); width: calc(var(--w) * 1cqw); height: auto; pointer-events: none; }
 .ml-light { z-index: 1; -webkit-mask: radial-gradient(closest-side, #000 58%, transparent); mask: radial-gradient(closest-side, #000 58%, transparent); transition: filter .35s; } /* a light never shows the square it was drawn on */
-.ml-skin { z-index: 2; transform: rotate(calc(var(--r, 0) * 1deg)) scaleX(var(--f, 1)); filter: drop-shadow(0 6px 8px rgba(6, 10, 30, .7)) drop-shadow(0 0 7px var(--g, transparent)); transition: translate .4s var(--v4-ease-pop), scale .4s var(--v4-ease-pop); }
+.ml-skin { z-index: 2; transform: rotate(calc(var(--r, 0) * 1deg)) scaleX(var(--f, 1)); filter: drop-shadow(0 6px 8px rgba(6, 10, 30, .7)) drop-shadow(0 0 7px var(--g, transparent)); transition: translate .4s var(--motion-ease-pop), scale .4s var(--motion-ease-pop); }
 .ml-bullet { z-index: 3; }
 .ml-low { filter: saturate(.5) brightness(.8) drop-shadow(0 6px 8px rgba(6, 10, 30, .7)); }
 

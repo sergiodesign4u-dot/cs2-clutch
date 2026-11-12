@@ -4,36 +4,6 @@
  * laid out as B and painted as A, the cases of comp D (low, wide, open, burning) with the real skin
  * in them. Only the first screen is v4; every block under the featured cases is still v1's. */
 
-:root {
-  --v4-banner-h: 440px; /* the banner at 1440; comp B, founder pick, the scene needs room for title, countdown and button stacked on its left */
-  --v4-radius: 12px; /* card and banner corner; comp A and B, founder pick */
-  --v4-drop: 104px; /* a live drop tile; comp B, founder pick, a dark card round the hexagon; 124px until the founder, "карточки сделать меньше, сейчас они сильно много места занимают" */
-  --v4-ease-pop: cubic-bezier(.34, 1.56, .64, 1); /* a lift that overshoots and settles; підібрано під характер, design principle 2 */
-  --v4-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); /* faint diagonal stripes on a filled button; comp A and C, founder pick */
-  --v4-mode-cases: linear-gradient(120deg, var(--color-pink), #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4 */
-  --v4-mode-battles: linear-gradient(120deg, var(--color-rarity-5), #1B2A8F); /* blue; comp A, founder pick; from --color-rarity-5 */
-  --v4-mode-showdowns: linear-gradient(120deg, var(--color-rarity-2), #7A0F22); /* red; comp A, founder pick; from --color-rarity-2 */
-  --v4-mode-upgrade: linear-gradient(120deg, #9E6905, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it: #B57A06 held
-     white 12px at 3.65:1, so the gold end went to #9E6905, 4.7:1, stage 06 critique of 10 Nov 2026, row 6 */
-  /* A RARITY TIER'S PLATE, the round cards' two ends (proof-home.js, case-blocks.js): read by the scripts as var(), not written in them, stage 06
-     critique of 10 Nov 2026, row 15. r2, r4, r5 start on --color-rarity-2, -4, -5 and end on the mode cards' darks; r1 starts on the Upgrade card's
-     gold (D-215, white type holds on it); r3 is a violet between rarity 3 and 4 */
-  --v4-plate-r1-a: #9E6905; --v4-plate-r1-b: #B4400F;
-  --v4-plate-r2-a: var(--color-rarity-2); --v4-plate-r2-b: #7A0F22;
-  --v4-plate-r3-a: #A62BC4; --v4-plate-r3-b: #4A1260;
-  --v4-plate-r4-a: var(--color-rarity-4); --v4-plate-r4-b: #2E1A63;
-  --v4-plate-r5-a: var(--color-rarity-5); --v4-plate-r5-b: #1B2A8F;
-  --v4-fair-blue: #0B6A8C; /* the light end of the provably fair blue, Every round on Home and in the footer; was #0F7EA6, where white 13px sat at 3.3 to 3.9:1
-     under the plates' stripes; #0B6A8C holds white at 4.9:1 with the stripes over it, stage 06 critique of 10 Nov 2026, rows 4 and 5 */
-  --v4-panel-ground: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); /* the footer's own panel, footer I of 3 Nov 2026; the rail's panel took it too as a trial and kept it on 4 Nov 2026,
-     founder: "более темний мне больше нравится как в футере давай поставим на главной в боковом меню", D-209; the rail was linear-gradient(180deg, #16133C, #0D0C28), the header strip's navy */
-  /* ONE SMALL TILE: the side menu's sound and language tiles are the standard, founder of 4 Nov 2026: "єто разние кнопки ... надо привести их к одному стандарту",
-     the rail's marked OK; the footer's social squares, payment cards and language control read the same four values */
-  --v4-tile-bg: #0B0A22; /* the rail's tile fill, 31 Oct 2026, a dark near the page ground */
-  --v4-tile-edge: inset 0 0 0 1px rgba(255, 255, 255, .05); /* the tile's hairline, white at 5 %, read off the rail's tile, 31 Oct 2026 */
-  --v4-tile-radius: 12px; /* = --v4-radius */
-  --v4-tile-h: 42px; /* the rail tile's height */
-}
 
 /* --- the header: its own strip, the logo in its middle in a pink glow, particles falling ------- */
 /* founder, 31 Oct 2026: "хедер ... полоской отдельной ... по центру логотип со свечением ... цвет розовый наш и падают частицы";
@@ -86,7 +56,7 @@
      its panel is drawn from under the strip down, and the strip shows through the rail's top */
   .wf-rail { grid-row: 1 / -1; grid-column: 1; top: 0; height: 100vh; margin: 0 0 0 12px; padding-top: 84px; border: 0; border-image: none; border-radius: 0; background: none; box-shadow: none; }
   .wf-rail::before { content: ''; position: absolute; inset: 72px 0 8px; z-index: -1; border-radius: 16px; pointer-events: none;
-    background: var(--v4-panel-ground); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
+    background: var(--gradient-panel); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
   .is-rail-overlay .wf-rail { top: 0; left: var(--wf-body-x, 0px); height: 100vh; background: none; box-shadow: none; } /* its 12px margin already sets it off the edge, so opening it moves nothing; founder, "идет смещение при открытии" */
   .wf-header { grid-column: 1 / -1; grid-row: 1; }
   /* founder, 31 Oct 2026: "они какие-то растянутые как прямоугольники ... может сделать внутри просто темный фон близкий к бэкграунду, а не градиент
@@ -108,7 +78,7 @@
    (_theme.css, 999px corners on --color-card-2); the drawer now carries the desktop rail's two tiles. Same two rules, moved out of the query above */
 @media all {
   .wf-rail .wf-rail-amb, .is-rail-collapsed .wf-rail .wf-rail-amb { gap: 8px; margin: 0 8px 8px; border: 0; }
-  .wf-rail .wf-rail-snd, .wf-rail .wf-rail-lang, .is-rail-collapsed .wf-rail .wf-rail-snd, .is-rail-collapsed .wf-rail .wf-rail-lang { min-height: var(--v4-tile-h); border: 0; border-radius: var(--v4-tile-radius); background: var(--v4-tile-bg); box-shadow: var(--v4-tile-edge); }
+  .wf-rail .wf-rail-snd, .wf-rail .wf-rail-lang, .is-rail-collapsed .wf-rail .wf-rail-snd, .is-rail-collapsed .wf-rail .wf-rail-lang { min-height: var(--size-tile); border: 0; border-radius: var(--radius-tile); background: var(--color-tile); box-shadow: var(--shadow-tile-edge); }
 }
 
 /* --- below 900: the header strip and the rail as the drawer, in the desktop's look -------------------------------------- */
@@ -135,11 +105,11 @@
      its edges, founder, 4 Nov 2026: "кнопки сплюшило" */
   html body .wf-header .wf-row > a.wf-btn:not(.wf-dep) { padding: 0 16px; }
 
-  /* the drawer: the desktop rail's panel, var(--v4-panel-ground) with its hairline, rounded on the side that faces the page. Its shadow only
+  /* the drawer: the desktop rail's panel, var(--gradient-panel) with its hairline, rounded on the side that faces the page. Its shadow only
      while it is open, so nothing of it shows at the window's left edge while it waits off screen */
   /* one column that scrolls when a short phone cannot hold it: _theme.css's base rail wraps, and a wrapped drawer threw its foot into a second
      column beyond the panel's right edge */
-  .wf-rail { flex-wrap: nowrap; padding: 0 0 12px; border: 0; border-image: none; border-radius: 0 16px 16px 0; background: var(--v4-panel-ground); box-shadow: inset -1px 0 0 rgba(255, 255, 255, .05); }
+  .wf-rail { flex-wrap: nowrap; padding: 0 0 12px; border: 0; border-image: none; border-radius: 0 16px 16px 0; background: var(--gradient-panel); box-shadow: inset -1px 0 0 rgba(255, 255, 255, .05); }
   .wf-rail.is-open { box-shadow: inset -1px 0 0 rgba(255, 255, 255, .05), 0 10px 26px rgba(0, 0, 0, .35); }
   /* the roadmap's strip (root _nav.css) is 32px at the page's top and scrolls away with it, so the drawer takes the whole window height
      and covers it while open */
@@ -164,42 +134,37 @@
   .wf-feed-run, .wf-feed-run { padding-left: 8px; }
   .wf-main > * { margin-inline: 8px 12px; }
 }
-.wf-feed-i { flex-basis: var(--v4-drop); border-radius: 6px; background: linear-gradient(to bottom, #191842, var(--color-card)); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); } /* card from --color-card, lifted a step at the top; comp B */
+.wf-feed-i { flex-basis: var(--size-drop-v4); border-radius: 6px; background: linear-gradient(to bottom, #191842, var(--color-card)); box-shadow: 0 6px 14px rgba(0, 0, 0, .35); } /* card from --color-card, lifted a step at the top; comp B */
 .wf-feed-hit { padding: 6px 4px 8px; }
 .wf-feed-hit::before, .wf-feed-hit::after { top: 10px; left: 50%; opacity: 1; }
 /* THE BACKING UNDER THE SKIN AS THE BASELINE DRAWS IT, founder of 31 Oct 2026: "как у нас сейчас плюс как на дедди скинс подложку для скинов":
    v1's hexagon of three lines, one dashed, over a fill running from clear to the rarity, here larger and brighter on comp B's card.
    Then "самый внутренний бордер сделаем градиентом с верхнего левого угла (полностью прозрачен) в нижний правый": the innermost line
    leaves the line layer and joins the fill's layer, so it runs from clear at the top left to the rarity at the bottom right with it */
-:root {
-  --v4-hex-outer: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3C/svg%3E"); /* the outer two of --shape-hex-line, the same paths */
-  --v4-hex-inner: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%221.6%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the inner line of --shape-hex-line, drawn a little heavier to carry the gradient */
-}
 .wf-feed-hit::before, .wf-feed-hit::after { top: 7px; width: 78px; height: 68px; margin-left: -39px; }
 .wf-feed-hit::before { opacity: 1; background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 85%, transparent));
-  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--v4-hex-inner) center / 100% 100% no-repeat; }
-.wf-feed-hit::after { opacity: 1; background: color-mix(in srgb, var(--r, var(--color-rarity-6)) 75%, var(--color-text-hi)); -webkit-mask: var(--v4-hex-outer) center / 100% 100% no-repeat; mask: var(--v4-hex-outer) center / 100% 100% no-repeat; }
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+.wf-feed-hit::after { opacity: 1; background: color-mix(in srgb, var(--r, var(--color-rarity-6)) 75%, var(--color-text-hi)); -webkit-mask: var(--shape-hex-outer) center / 100% 100% no-repeat; mask: var(--shape-hex-outer) center / 100% 100% no-repeat; }
 /* THE STAGE'S RING ON A LIVE DROP, founder of 10 Nov 2026: "и подложку рарити" as the case screen's card W7 draws it, not the hexagon of
    lines above. As case-stage.css W7: the fill inside, set in from the ring by the same gap (74 of 98 of the ring's box); one solid ring
    lit from the top left corner, light at its top left to deep at its foot; and its light round it, the two drop shadows of W5 (2px at
    55 %, 10px at 28 %, to the top left) already blurred inside the ring's mask, so the ring and its light are one masked layer and no
    filter. The mask's box is the ring's 136 by 118 with 20 units round it for the light. The light takes the ring's own colours, so it
    runs a little paler at the top left than the stage's, which is the tier's colour alone */
-:root { --v4-feed-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); }
 .wf-feed-hit::before { top: 15.5px; width: 59px; height: 51px; margin-left: -29.5px; }
 .wf-feed-hit::after { top: -4.5px; width: 101px; height: 91px; margin-left: -50.5px;
   background: linear-gradient(to bottom right, color-mix(in srgb, var(--r, var(--color-rarity-6)) 62%, var(--color-text-hi)), color-mix(in srgb, var(--r, var(--color-rarity-6)) 92%, var(--color-text-hi)), color-mix(in srgb, var(--r, var(--color-rarity-6)) 72%, #12001C));
-  -webkit-mask: var(--v4-feed-ring) center / 100% 100% no-repeat; mask: var(--v4-feed-ring) center / 100% 100% no-repeat; }
+  -webkit-mask: var(--shape-feed-ring) center / 100% 100% no-repeat; mask: var(--shape-feed-ring) center / 100% 100% no-repeat; }
 /* "снизу карточки добавим небольшую полосочку внизу по центру с закруглениями и свечением внутри карточки по рарити":
    a short rounded bar in the rarity on the card's foot, and its light rising into the card */
 .wf-feed-i { background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 38%, transparent), transparent), linear-gradient(to bottom, #191842, var(--color-card)); }
 .wf-feed-i::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: 36px; height: 3px; margin-left: -18px; border-radius: 3px 3px 0 0; pointer-events: none;
   background: var(--r, var(--color-rarity-6)); box-shadow: 0 0 10px 1px var(--r, var(--color-rarity-6)); }
-.wf-feed-hit .wf-feed-art { position: relative; width: 128%; height: 64px; margin: 4px -14% 5px; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); transition: transform .3s var(--v4-ease-pop); }
+.wf-feed-hit .wf-feed-art { position: relative; width: 128%; height: 64px; margin: 4px -14% 5px; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); transition: transform .3s var(--motion-ease-pop); }
 .wf-feed-i:hover .wf-feed-hit .wf-feed-art { transform: scale(1.08) rotate(-3deg); }
 .wf-feed-hit .wf-feed-w { font-size: var(--size-xs); font-weight: 700; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
 .wf-feed-hit .wf-feed-s { margin-top: 2px; font-size: var(--size-chip); color: var(--color-text-hi); opacity: .85; text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
-.wf-feed-i.is-new .wf-feed-hit { min-width: var(--v4-drop); }
+.wf-feed-i.is-new .wf-feed-hit { min-width: var(--size-drop-v4); }
 /* THE BACK OF A DROP, founder of 31 Oct 2026: "тут надо подровнять отступы и давай появление не сверху карточки, а с левого бока с каким-то
    интересным появлением": an opaque face in the card's own navy, so nothing of the front shows through; the case it came from, its name,
    then who won it, on one centred column with even gaps; it wipes in from the left on a slanted edge, its content a beat behind */
@@ -222,7 +187,6 @@
    the card goes from 104 by 115 to 86 by about 84, the hexagon and the skin scaled with it, the two names a step smaller, so the banner's
    title, countdown and button reach the first screen */
 @media (max-width: 599px) {
-  :root { --v4-drop: 86px; }
   .wf-feed { min-height: 0; padding-block: 6px; } /* _theme.css held the strip at --size-ticker, 120px, under 85px cards */
   .wf-feed-hit { padding: 4px 3px 6px; }
   .wf-feed-hit::before, .wf-feed-hit::after { top: 5px; width: 60px; height: 52px; margin-left: -30px; }
@@ -260,18 +224,18 @@
 .wf-event::before { inset: 0; background: url(art/banner-scene.webp) right 18% center / cover no-repeat; animation: none; }
 .wf-event::after { background: linear-gradient(90deg, rgba(6, 10, 30, .82), rgba(6, 10, 30, .35) 38%, transparent 60%), linear-gradient(to top, var(--color-ground), transparent 16%); opacity: 1; animation: none; }
 .wf-event .wf-banner-art::before, .wf-event .wf-banner-art::after { content: none; }
-@media (min-width: 900px) { .wf-event .wf-banner-art { height: var(--v4-banner-h); } }
+@media (min-width: 900px) { .wf-event .wf-banner-art { height: var(--size-banner-v4); } }
 .wf-event .wf-event-name { width: min(380px, 34%); aspect-ratio: 1100 / 454; top: 32px; left: max(var(--space-5), (100% - var(--size-content)) / 2); right: auto; margin: 0; transform: none;
   background-image: url(art/banner-title-d.webp); background-position: left center; /* the first version's wide COLDFRONT over WEEK on the left in pink ice with white light, founder of 1 Nov 2026: "раньше було лучше", and no ice block; the founder's pick */ filter: drop-shadow(0 1px 2px rgba(6, 10, 30, .9)) drop-shadow(0 6px 18px rgba(6, 10, 30, .75)); }
 /* THE COUNTDOWN AS COMP C DRAWS IT, founder pick: one dark panel, the end date across its top, four tiles under it */
-.wf-event-clock { top: 224px; right: auto; bottom: auto; left: max(var(--space-5), (100% - var(--size-content)) / 2); grid-template-columns: repeat(4, 72px); gap: 8px; padding: 10px; border-radius: var(--v4-radius);
+.wf-event-clock { top: 224px; right: auto; bottom: auto; left: max(var(--space-5), (100% - var(--size-content)) / 2); grid-template-columns: repeat(4, 72px); gap: 8px; padding: 10px; border-radius: var(--radius-card);
   background: rgba(6, 10, 30, .78); box-shadow: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 10px 30px rgba(6, 10, 30, .5); }
 .wf-event-end { grid-row: 1; grid-column: 1 / -1; padding-bottom: 8px; border-bottom: 1px solid rgba(101, 163, 255, .14); color: var(--color-text-soft); font-size: var(--size-xs); letter-spacing: .08em; text-transform: uppercase; }
 .wf-event-cell { grid-row: 2; padding: 7px 0 5px; border-radius: 8px; background: rgba(15, 14, 43, .9); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
 .wf-event-cell b { color: var(--color-text-hi); font-size: 26px; font-weight: 900; line-height: 1; }
 .wf-event-cell span { margin-top: 4px; color: var(--color-text-soft); font-size: 11px; letter-spacing: .08em; } /* was --size-micro, 9px: the 11px floor, critique row 12 */
-.wf-event-go { left: max(var(--space-5), (100% - var(--size-content)) / 2); top: 346px; bottom: auto; transform: none; min-width: 240px; min-height: 52px; border-radius: var(--btn-radius, 10px); font-size: var(--size-text); font-weight: 900; letter-spacing: 1px;
-  background: var(--v4-stripes), var(--btn-fill, #DF055C); box-shadow: 0 8px 24px rgba(223, 5, 92, .4); }
+.wf-event-go { left: max(var(--space-5), (100% - var(--size-content)) / 2); top: 346px; bottom: auto; transform: none; min-width: 240px; min-height: 52px; border-radius: var(--radius-button, 10px); font-size: var(--size-text); font-weight: 900; letter-spacing: 1px;
+  background: var(--gradient-stripes), var(--color-button, #DF055C); box-shadow: 0 8px 24px rgba(223, 5, 92, .4); }
 @media (max-width: 899px) {
   .wf-event .wf-banner-art { aspect-ratio: auto; height: 460px; }
   .wf-event::before { background-position: 72% center; }
@@ -292,19 +256,19 @@
   clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
 
 /* --- the four modes: laid out as comp B, painted as comp A ----------------------------------- */
-.wf-mode { min-height: 150px; border-radius: var(--v4-radius); padding: 20px 20px 18px; background: var(--mode-fill); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); }
-/* the Cases card's pink end is the buttons' deeper pink, --btn-fill: on --color-pink its 12px white line held 3.4:1, on #DF055C it holds 4.9:1;
-   the pink of every other place --v4-mode-cases fills carries no small white text and keeps its tone, stage 06 critique of 10 Nov 2026, row 6 */
-.wf-mode:has([data-icon="box"]) { --mode-fill: linear-gradient(120deg, var(--btn-fill, #DF055C), #8E2BC9);--mode-art: url(art/mode-cases.webp); }
-.wf-mode:has([data-icon="battle"]) { --mode-fill: var(--v4-mode-battles); --mode-fx: url(art/mode-battles-fx.webp); --mode-art: url(../concept/assets/skins/karambit-tiger-tooth.png); }
-.wf-mode:has([data-icon="target"]) { --mode-fill: var(--v4-mode-showdowns); --mode-fx: url(art/mode-showdowns-fx.webp); --mode-art: url(../concept/assets/skins/desert-eagle-blaze.png); }
-.wf-mode:has([data-icon="arrow-up"]) { --mode-fill: var(--v4-mode-upgrade); --mode-fx: url(art/mode-upgrade-fx.webp); --mode-art: url(../concept/assets/skins/ak-47-gold-arabesque.png); }
+.wf-mode { min-height: 150px; border-radius: var(--radius-card); padding: 20px 20px 18px; background: var(--mode-fill); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); }
+/* the Cases card's pink end is the buttons' deeper pink, --color-button: on --color-pink its 12px white line held 3.4:1, on #DF055C it holds 4.9:1;
+   the pink of every other place --gradient-mode-cases fills carries no small white text and keeps its tone, stage 06 critique of 10 Nov 2026, row 6 */
+.wf-mode:has([data-icon="box"]) { --mode-fill: linear-gradient(120deg, var(--color-button, #DF055C), #8E2BC9);--mode-art: url(art/mode-cases.webp); }
+.wf-mode:has([data-icon="battle"]) { --mode-fill: var(--gradient-mode-battles); --mode-fx: url(art/mode-battles-fx.webp); --mode-art: url(../concept/assets/skins/karambit-tiger-tooth.png); }
+.wf-mode:has([data-icon="target"]) { --mode-fill: var(--gradient-mode-showdowns); --mode-fx: url(art/mode-showdowns-fx.webp); --mode-art: url(../concept/assets/skins/desert-eagle-blaze.png); }
+.wf-mode:has([data-icon="arrow-up"]) { --mode-fill: var(--gradient-mode-upgrade); --mode-fx: url(art/mode-upgrade-fx.webp); --mode-art: url(../concept/assets/skins/ak-47-gold-arabesque.png); }
 /* the light of the mode, drawn on black, added to the card's own colour */
 .wf-mode::before { inset: 0; left: auto; width: 62%; height: 100%; border-radius: 0; background: var(--mode-fx, none) center / cover no-repeat; opacity: 1; filter: none; mix-blend-mode: screen;
   -webkit-mask: linear-gradient(90deg, transparent, #000 35%); mask: linear-gradient(90deg, transparent, #000 35%); }
 /* v1 darkened the text end of the card to its plate; the colour card needs no help */
 .wf-mode::after { content: none; }
-.wf-mode .wf-mode-art { width: 52%; max-width: none; right: -4%; background: var(--mode-art) center / contain no-repeat; filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); transform: rotate(var(--mode-turn, 0deg)); transition: transform .35s var(--v4-ease-pop); }
+.wf-mode .wf-mode-art { width: 52%; max-width: none; right: -4%; background: var(--mode-art) center / contain no-repeat; filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); transform: rotate(var(--mode-turn, 0deg)); transition: transform .35s var(--motion-ease-pop); }
 .wf-mode:has([data-icon="battle"]) .wf-mode-art { --mode-turn: -30deg; width: 40%; right: 4%; }
 .wf-mode:has([data-icon="battle"]) .wf-mode-art::after { content: ''; position: absolute; inset: 0; background: inherit; transform: scaleX(-1); }
 .wf-mode:has([data-icon="target"]) .wf-mode-art { --mode-turn: -8deg; width: 46%; right: 0; }
@@ -314,7 +278,7 @@
 .wf-grid .wf-mode h3, .wf-grid .wf-mode.is-later h3 { font-size: 24px; line-height: 1.1; letter-spacing: .01em; text-transform: uppercase; color: var(--color-text-hi); text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
 .wf-mode h3::before { content: none; }
 .wf-mode p { max-width: 200px; margin: 6px 0 14px; color: var(--color-text-hi); text-shadow: 0 1px 2px rgba(6, 10, 30, .55); }
-.wf-mode .wf-btn { min-height: 40px; border-radius: var(--btn-radius, 10px); padding: 0 var(--space-4); font-weight: 900; background: var(--v4-stripes), var(--btn-fill, #DF055C); box-shadow: 0 6px 16px rgba(6, 10, 30, .35); border-color: rgba(255, 255, 255, .35); }
+.wf-mode .wf-btn { min-height: 40px; border-radius: var(--radius-button, 10px); padding: 0 var(--space-4); font-weight: 900; background: var(--gradient-stripes), var(--color-button, #DF055C); box-shadow: 0 6px 16px rgba(6, 10, 30, .35); border-color: rgba(255, 255, 255, .35); }
 .wf-mode > .wf-fig-missing, .wf-mode > .wf-btn { max-width: none; white-space: nowrap; }
 .wf-mode .wf-fig-missing { display: inline-flex; align-items: center; min-height: 38px; padding: 0 var(--space-4); border-radius: 8px; background: rgba(6, 10, 30, .38); color: var(--color-text-hi); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
 
@@ -331,10 +295,10 @@
 .wf-tile::before { content: none; }
 .wf-tile::after { content: none; }
 /* four layers on one frame, founder of 1 Nov 2026: "кейсики мне нравится": the world around the case and the case itself on the box, a real skin, the case again cut along its rim. No rectangle anywhere; every layer carries its own alpha */
-.wf-tile-art[data-art] { isolation: isolate; width: 124%; margin: -6% -12% 0; aspect-ratio: 3 / 2; background: var(--v4-case) center / 100% auto no-repeat, var(--v4-world) center / 100% auto no-repeat; transform-origin: 50% 82%; transition: transform .45s var(--v4-ease-pop), filter .35s; }
+.wf-tile-art[data-art] { isolation: isolate; width: 124%; margin: -6% -12% 0; aspect-ratio: 3 / 2; background: var(--v4-case) center / 100% auto no-repeat, var(--v4-world) center / 100% auto no-repeat; transform-origin: 50% 82%; transition: transform .45s var(--motion-ease-pop), filter .35s; }
 .wf-tile-art[data-art]::before { content: ''; position: absolute; inset: 0; z-index: 2; background: var(--v4-case) center / 100% auto no-repeat; clip-path: var(--v4-rim, polygon(0 48%, 18% 48%, 68.9% 48.4%, 79.8% 50.2%, 100% 51%, 100% 100%, 0 100%)); pointer-events: none; }
 .wf-tile-art[data-art]::after { z-index: 1; top: -4%; left: 20%; width: 62%; height: 70%; transform: rotate(7deg); filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)) drop-shadow(0 0 10px color-mix(in srgb, var(--case) 70%, transparent));
-  transition: transform .45s var(--v4-ease-pop); }
+  transition: transform .45s var(--motion-ease-pop); }
 @media (hover: hover) {
   .wf-tile:hover .wf-tile-art[data-art] { transform: scale(1.06); filter: brightness(1.1); }
   .wf-tile:hover .wf-tile-art[data-art]::after { transform: rotate(4deg) translateY(-14%) scale(1.14); }
@@ -342,7 +306,7 @@
 .wf-tile-name { font-size: var(--size-text); font-weight: 900; letter-spacing: .04em; }
 .wf-tile-risk { margin-block: 2px var(--space-2); }
 /* the price on a full width pink plate with a gold coin, as comps A and C, founder pick; the figure white on pink */
-.wf-tile-price { align-self: stretch; justify-content: center; align-items: center; gap: 6px; min-height: 40px; margin-top: 0; border-radius: var(--btn-radius, 10px); background: var(--v4-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); }
+.wf-tile-price { align-self: stretch; justify-content: center; align-items: center; gap: 6px; min-height: 40px; margin-top: 0; border-radius: var(--radius-button, 10px); background: var(--gradient-stripes), var(--color-pink); box-shadow: 0 6px 18px rgba(251, 63, 138, .3); }
 .wf-tile-cost { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; }
 .wf-tile-cur { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; }
 .wf-tile:hover .wf-tile-price { filter: brightness(1.1); }
@@ -413,7 +377,7 @@
    (.x6-go, .x6-cgo), because pink is lost on pink. The size stays its place's. .v4-go is set by case-blocks.js links() on the links the grey
    body writes plain; .v4i-go, .fq-go, .sl-go and the case title's How it works read the same two values in their own files */
 .v4-go { color: var(--color-pink); font-weight: 700; text-decoration: none; }
-.v4-go svg { display: inline; width: 14px; height: 14px; margin-left: 5px; vertical-align: -2px; transition: translate .2s var(--v4-ease-pop, ease-out); }
+.v4-go svg { display: inline; width: 14px; height: 14px; margin-left: 5px; vertical-align: -2px; transition: translate .2s var(--motion-ease-pop, ease-out); }
 @media (hover: hover) { .v4-go:hover { color: var(--color-text-hi); } .v4-go:hover svg { translate: 3px 0; } }
 @media (prefers-reduced-motion: reduce) { .v4-go svg { transition: none; } }
 

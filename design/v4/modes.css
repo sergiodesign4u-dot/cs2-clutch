@@ -24,7 +24,7 @@
    own words instead of cutting its button off at the foot (founder, 4 Nov 2026: the button clipped on Showdowns at mid desktop); align-self
    stretch keeps the cards of a row one height when one of them grows, and justify-self stretch keeps a grown card from widening
    past its column through its ratio */
-.wf-grid .wf-mode { --k: 1; --dx: 0; --dy: 0; align-self: stretch; justify-self: stretch; overflow: visible; isolation: isolate; container-type: inline-size; justify-content: flex-start; gap: 0; min-height: auto; height: auto; aspect-ratio: 7 / 4; padding: 16px 16px 14px; background: linear-gradient(to top, rgba(8, 6, 30, .6), transparent 48%), var(--mode-fill); clip-path: inset(-80px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); transition: filter .35s; } /* comp A's cards darken towards the foot, the fill token stays; the clip keeps the art inside the card at its sides and foot and lets it break the top edge only */
+.wf-grid .wf-mode { --k: 1; --dx: 0; --dy: 0; align-self: stretch; justify-self: stretch; overflow: visible; isolation: isolate; container-type: inline-size; justify-content: flex-start; gap: 0; min-height: auto; height: auto; aspect-ratio: 7 / 4; padding: 16px 16px 14px; background: linear-gradient(to top, rgba(8, 6, 30, .6), transparent 48%), var(--mode-fill); clip-path: inset(-80px 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); transition: filter .35s; } /* comp A's cards darken towards the foot, the fill token stays; the clip keeps the art inside the card at its sides and foot and lets it break the top edge only */
 
 /* layer 1, the burst on the card's own colour, ending at the card's edge */
 .wf-grid .wf-mode::before, .wf-grid .wf-mode::after { content: ''; position: absolute; inset: 0; width: auto; height: auto; border-radius: inherit; pointer-events: none; filter: none;
@@ -39,7 +39,7 @@
 .wf-grid .wf-mode .wf-mode-art { position: absolute; z-index: 1; left: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx)) * 1cqw); top: calc((var(--ot) * var(--k) + var(--dy)) * 1cqw); right: auto; bottom: auto; width: calc(var(--ow) * var(--k) * 1cqw); max-width: none; height: auto; aspect-ratio: 1; margin: 0;
   background: var(--mode-obj) center / contain no-repeat; opacity: 1; clip-path: none; -webkit-mask: none; mask: none; transform: none; pointer-events: none;
   filter: drop-shadow(0 8px 10px rgba(6, 10, 30, .5));
-  animation: v4-float 4.6s ease-in-out infinite; transition: translate .4s var(--v4-ease-pop), rotate .4s var(--v4-ease-pop), scale .4s var(--v4-ease-pop); }
+  animation: v4-float 4.6s ease-in-out infinite; transition: translate .4s var(--motion-ease-pop), rotate .4s var(--motion-ease-pop), scale .4s var(--motion-ease-pop); }
 .wf-grid .wf-mode .wf-mode-art::before, .wf-grid .wf-mode .wf-mode-art::after { content: none; }
 .wf-grid .wf-mode:has([data-icon="arrow-up"]) .wf-mode-art { filter: drop-shadow(0 4px 8px rgba(90, 40, 0, .55)); } /* a warm shadow on the gold card; a navy one would dirty it */
 .wf-grid .wf-mode:has([data-icon="target"]) .wf-mode-art { -webkit-mask: linear-gradient(#000 84%, transparent 100%); mask: linear-gradient(#000 84%, transparent 100%); } /* the bust ends behind the act, not in a cut line beside it */
@@ -56,8 +56,8 @@
   .wf-grid .wf-mode:hover { filter: brightness(1.08); }
   .wf-grid .wf-mode:hover::before { filter: brightness(1.3) saturate(1.15); }
   .wf-grid .wf-mode:has([data-icon="battle"]):hover .wf-mode-art { scale: none; rotate: none; translate: none; }
-  .wf-grid .wf-mode:has([data-icon="battle"]):hover .wf-mode-art::before { animation: v4-strike-l .7s var(--v4-ease-pop) forwards; }
-  .wf-grid .wf-mode:has([data-icon="battle"]):hover .wf-mode-art::after { animation: v4-strike-r .7s var(--v4-ease-pop) forwards; }
+  .wf-grid .wf-mode:has([data-icon="battle"]):hover .wf-mode-art::before { animation: v4-strike-l .7s var(--motion-ease-pop) forwards; }
+  .wf-grid .wf-mode:has([data-icon="battle"]):hover .wf-mode-art::after { animation: v4-strike-r .7s var(--motion-ease-pop) forwards; }
   .wf-grid .wf-mode:hover .wf-mode-art { scale: 1.08; rotate: -4deg; translate: 0 -6px; animation-play-state: paused; }
 }
 

@@ -8,10 +8,10 @@
 .fl-ic { display: block; width: 20px; height: 20px; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
 .fl-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .fl-stat { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.fl-tile { display: grid; place-items: center; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-cases); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
-.fl-stat:nth-child(2) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-upgrade); }
-.fl-stat:nth-child(3) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-battles); }
-.fl-stat:nth-child(4) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-showdowns); }
+.fl-tile { display: grid; place-items: center; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--gradient-mode-cases); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.fl-stat:nth-child(2) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--gradient-mode-upgrade); }
+.fl-stat:nth-child(3) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--gradient-mode-battles); }
+.fl-stat:nth-child(4) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--gradient-mode-showdowns); }
 .fl-tile .fl-ic { width: 22px; height: 22px; color: var(--color-text-hi); }
 .fl-sv { display: grid; gap: 2px; min-width: 0; }
 .fl-sv b { font-size: 24px; font-weight: 900; line-height: 1.05; white-space: nowrap; font-variant-numeric: tabular-nums; }
@@ -51,7 +51,7 @@
 .fl-tp-stars i.is-part { background: linear-gradient(90deg, #00B67A 10%, #3B3F5C 10%); }
 .fl-tp b { font-size: 22px; font-weight: 900; }
 .fl-tp > span:last-child { color: var(--color-text-soft); font-size: 12px; line-height: 1.25; }
-.fl-lang { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; min-height: 44px; padding: 0 14px; border: 0; border-radius: var(--btn-radius); background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); color: var(--color-text-hi); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.fl-lang { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; min-height: 44px; padding: 0 14px; border: 0; border-radius: var(--radius-button); background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); color: var(--color-text-hi); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
 .fl-flag { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(#1B2A8F, #1B2A8F); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .2); }
 .fl-caret { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; rotate: 45deg; translate: 0 -2px; margin-left: 6px; }
 .fl-pay { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
@@ -62,8 +62,8 @@
 /* the trust plates: striped doors in the menu's colours, the round anyone can check beside responsible play */
 .fl-plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .fl-plate { position: relative; display: flex; align-items: center; gap: 14px; min-height: 72px; padding: 12px 44px 12px 14px; border-radius: 14px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 24px rgba(6, 10, 30, .4); transition: translate .2s, filter .2s; }
-.fl-plate.is-rg { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-battles); }
-.fl-plate.is-pf { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), linear-gradient(140deg, var(--v4-fair-blue), #1F55C9 60%, #24359E); }
+.fl-plate.is-rg { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--gradient-mode-battles); }
+.fl-plate.is-pf { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), linear-gradient(140deg, var(--color-fair), #1F55C9 60%, #24359E); }
 .fl-pt { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; background: rgba(6, 10, 30, .35); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18); }
 .fl-pt .fl-ic { width: 24px; height: 24px; color: var(--color-text-hi); }
 .fl-plate.is-rg .fl-pt .fl-ic { color: var(--color-money); }
@@ -217,7 +217,7 @@
 @container ft (max-width: 560px) { .fe-stat { flex-direction: column; align-items: flex-start; gap: 8px; } .fe-stat b { font-size: 21px; } }
 
 /* ================================================================ F and G: E round 3, founder of 3 Nov 2026 */
-.ft-f { background: var(--v4-panel-ground); } /* declared in theme.css, the rail's panel reads it too */
+.ft-f { background: var(--gradient-panel); } /* declared in theme.css, the rail's panel reads it too */
 /* the bands: square, a dark ground fading to both sides, lines brightest in the middle; blue on top of the counters, pink under them */
 .ff-band, .ff-foot { position: relative; isolation: isolate; }
 .ff-band::before, .ff-foot::before { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, transparent, rgba(5, 6, 20, .85) 22%, rgba(5, 6, 20, .85) 78%, transparent); }
@@ -236,7 +236,7 @@
 .ff-strip { position: relative; z-index: 1; margin: 0 28px; padding: 14px; border-radius: 16px; background: rgba(6, 8, 24, .7); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
 .ff-plates { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 12px; align-items: center; }
 .ft-g .ff-plates { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-.fl-plate.is-18 { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--v4-mode-showdowns); }
+.fl-plate.is-18 { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--gradient-mode-showdowns); }
 .ff-18 { display: grid; place-items: center; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: var(--color-text-hi); color: #B4142E; font-size: 15px; font-weight: 900; letter-spacing: -.02em; box-shadow: 0 4px 10px rgba(60, 0, 10, .35); }
 /* the foot: the payment cards and the age and market lines on one row, the fine print under them, on a band like the counters' */
 .ff-foot { margin-top: 28px; padding: 26px 28px 24px; }
@@ -272,9 +272,9 @@
   .ff-foot { padding: 20px 14px; }
 }
 /* each counter's tile in its own mode colour, as on E's first draw */
-.ff-stat:nth-child(2) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-upgrade); }
-.ff-stat:nth-child(3) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-battles); }
-.ff-stat:nth-child(4) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--v4-mode-showdowns); }
+.ff-stat:nth-child(2) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--gradient-mode-upgrade); }
+.ff-stat:nth-child(3) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--gradient-mode-battles); }
+.ff-stat:nth-child(4) .fl-tile { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px), var(--gradient-mode-showdowns); }
 
 /* ================================================================ H: G round 4, founder of 3 Nov 2026 */
 /* the block's rounded corners come back; the bands inside it keep their fade to the sides */
@@ -301,7 +301,7 @@
 .ft-i .fe-pay { display: grid; grid-template-columns: repeat(3, 66px); gap: 6px; }
 /* the payment cards on the side menu's tile, theme.css ONE SMALL TILE; two rows of 42 would stand above the 72px plates beside them, so a card is 33px,
    two rows and the gap exactly the plates' height; were 31px, radius 8px, rgba(255, 255, 255, .04) with a .08 edge */
-.ft-i .fe-pay li { width: 66px; height: 33px; border-radius: var(--v4-tile-radius); background: var(--v4-tile-bg); box-shadow: var(--v4-tile-edge); }
+.ft-i .fe-pay li { width: 66px; height: 33px; border-radius: var(--radius-tile); background: var(--color-tile); box-shadow: var(--shadow-tile-edge); }
 .ft-i .fe-pay svg { height: 17px; }
 /* the age and market lines take the row's whole width, each on one line where it fits, founder of 3 Nov 2026: "можно писать в одну строчку
    ... не обязательно его делать удобно читаемым" */
@@ -349,8 +349,8 @@
 /* the language control is _nav.js's own, moved in whole; here it wears the side menu's language tile, theme.css ONE SMALL TILE, its caret included;
    was 44px, radius 10px, rgba(255, 255, 255, .05) with a .1 edge, white words, no caret */
 .v4-foot .fh-lang { flex: 0 0 auto; }
-.v4-foot .fh-lang .wf-rail-lang { display: inline-flex; align-items: center; gap: 8px; min-height: var(--v4-tile-h); padding: 0 16px; border: 0; border-radius: var(--v4-tile-radius);
-  background: var(--v4-tile-bg); box-shadow: var(--v4-tile-edge); color: var(--color-text-soft); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.v4-foot .fh-lang .wf-rail-lang { display: inline-flex; align-items: center; gap: 8px; min-height: var(--size-tile); padding: 0 16px; border: 0; border-radius: var(--radius-tile);
+  background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-text-soft); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
 .v4-foot .fh-lang .wf-rail-lang::after { content: ''; display: inline-block; margin-left: 6px; border-style: solid; border-width: 5px 4px 0; border-color: var(--color-text-muted) transparent transparent; }
 
 /* the payment marks open deposit: under the pointer and on focus a card lifts, its mark turns white and its edge pink */

@@ -27,10 +27,10 @@ body.sl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .sl-h2::after { content: ''; flex: 1 1 40px; height: 1px; background: var(--color-blue); }
 .sl-h2--plain::after { content: none; }
 .nw { white-space: nowrap; }
-.nw > svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: translate .2s var(--v4-ease-pop); }
+.nw > svg { display: inline; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: translate .2s var(--motion-ease-pop); }
 .sl-go { display: inline-block; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
 @media (hover: hover) { .sl-go:hover .nw > svg { translate: 3px 0; } }
-.sl-pill { display: inline-flex; align-items: center; gap: 7px; box-sizing: border-box; min-height: 30px; padding: 0 12px; border-radius: var(--btn-radius, 10px);
+.sl-pill { display: inline-flex; align-items: center; gap: 7px; box-sizing: border-box; min-height: 30px; padding: 0 12px; border-radius: var(--radius-button, 10px);
   background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); color: var(--color-text-hi); font-size: 12px; font-weight: 700; white-space: nowrap; }
 .sl-pill--ico img, .sl-pill--ico svg { flex: 0 0 auto; width: 14px; height: 14px; }
 .sl-pill--ok svg { fill: var(--color-green); }
@@ -51,8 +51,8 @@ body.sl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* S1: three claims, three cards; the picture breaks out over the top right corner only, the words take the card's width */
 .s1-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 44px; }
 .s1-card { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 250px; padding: 22px;
-  border-radius: var(--v4-radius); background: var(--btn-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
-  clip-path: inset(-100px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); overflow-x: clip; }
+  border-radius: var(--radius-card); background: var(--gradient-button-stripes), var(--g); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
+  clip-path: inset(-100px 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); overflow-x: clip; }
 .s1-card > :not(.s1-art):not(.s1-skin) { position: relative; z-index: 1; }
 .s1-c1 { --g: linear-gradient(140deg, #3955E8, #1B2A8F); }
 .s1-c2 { --g: linear-gradient(140deg, #6B42B9, #2E1A63); }
@@ -71,10 +71,10 @@ body.sl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .sl-key span::before { content: ''; width: 8px; height: 8px; border-radius: 2px; background: var(--k); box-shadow: 0 0 0 1px rgba(255, 255, 255, .3); }
 
 /* S2: the third ticket, a striped stub in Ironbound's blue with the heading and the case, three panels of text parted on hairlines */
-.s2 { display: grid; grid-template-columns: 250px repeat(3, minmax(0, 1fr)); border-radius: var(--v4-radius); background: linear-gradient(100deg, #1F1E5E, #261D66 50%, #2E1A63);
+.s2 { display: grid; grid-template-columns: 250px repeat(3, minmax(0, 1fr)); border-radius: var(--radius-card); background: linear-gradient(100deg, #1F1E5E, #261D66 50%, #2E1A63);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 14px 34px rgba(6, 10, 30, .5); }
-.s2-stub { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-height: 250px; padding: 22px; border-radius: var(--v4-radius) 0 0 var(--v4-radius);
-  background: var(--btn-stripes), linear-gradient(160deg, #4A6BFF, #3955E8 50%, #1B2A8F); overflow: hidden; }
+.s2-stub { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-height: 250px; padding: 22px; border-radius: var(--radius-card) 0 0 var(--radius-card);
+  background: var(--gradient-button-stripes), linear-gradient(160deg, #4A6BFF, #3955E8 50%, #1B2A8F); overflow: hidden; }
 .s2-coin { width: 28px; height: 28px; }
 .s2-stub h2 { position: relative; z-index: 1; margin: 0; font-size: 24px; font-weight: 900; line-height: 1.05; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
 .s2-art { z-index: 0; right: -14%; bottom: -10px; height: 116px; }
@@ -89,7 +89,7 @@ body.sl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .s3-text { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
 .s3-p { max-width: 58ch; margin: 0; color: rgba(255, 255, 255, .9); font-size: 17px; line-height: 1.65; }
 .s3-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 20px; }
-.s3-stage { position: relative; min-height: 300px; border-radius: var(--v4-radius); background: var(--btn-stripes), linear-gradient(150deg, #3955E8, #1B2A8F); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22); overflow: hidden; }
+.s3-stage { position: relative; min-height: 300px; border-radius: var(--radius-card); background: var(--gradient-button-stripes), linear-gradient(150deg, #3955E8, #1B2A8F); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22); overflow: hidden; }
 .s3-art { left: 50%; bottom: 8px; height: 220px; translate: -50% 0; }
 .s3-pin { position: absolute; z-index: 3; }
 .s3-pin1 { left: 16px; top: 18px; }
@@ -106,7 +106,7 @@ body.sl-page { margin: 0; background: var(--color-ground); color: var(--color-te
   .s1-skin { top: 50%; translate: 0 -50%; width: 36%; }
   .s1-card .sl-proof { max-width: 64%; }
   .s2 { grid-template-columns: minmax(0, 1fr); }
-  .s2-stub { min-height: 0; flex-direction: row; align-items: center; padding: 16px 22px; border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .s2-stub { min-height: 0; flex-direction: row; align-items: center; padding: 16px 22px; border-radius: var(--radius-card) var(--radius-card) 0 0; }
   .s2-stub h2 { font-size: 22px; max-width: 62%; }
   .s2-art { right: -4%; bottom: -24px; height: 100px; }
   .s2-p + .s2-p::before { left: 22px; right: 22px; top: 0; bottom: auto; width: auto; height: 1px; }
@@ -159,7 +159,7 @@ body.sl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* R2: the heading over both columns, the case taller than its plate, its lid over the plate's top edge; only the foot and sides clip */
 .sxb { grid-template-areas: "h h" "t s"; row-gap: 22px; }
 .sxb .sx-p { margin-top: 0; }
-.sxb .sx-stage { margin-top: 72px; min-height: 270px; overflow: visible; clip-path: inset(-400px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); }
+.sxb .sx-stage { margin-top: 72px; min-height: 270px; overflow: visible; clip-path: inset(-400px 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); }
 .sxb .sx-art { bottom: 58px; width: min(100%, 520px); }
 .sxb .sx-pins { position: absolute; z-index: 3; left: 14px; right: 14px; bottom: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
 .sxb .sx-pin { position: static; }
@@ -173,14 +173,14 @@ body.sl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 /* R4: the whole block is the plate; the case breaks out over its top right corner; on a coloured plate the main button turns white */
 #var-r4 .sl-frame { padding-top: 70px; }
-.sxd { background: var(--btn-stripes), linear-gradient(140deg, var(--c1), var(--c2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .5); }
+.sxd { background: var(--gradient-button-stripes), linear-gradient(140deg, var(--c1), var(--c2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .5); }
 .sxd .sx-h .sx-ic { color: #fff; }
 .sxd .sx-p { color: #fff; }
 .sxd .sx-stage { min-height: 340px; background: none; box-shadow: none; overflow: visible; }
 .sxd .sx-art { left: auto; right: -4%; top: -96px; bottom: auto; width: min(108%, 560px); translate: none; }
 .sxd .sx-pins { position: absolute; z-index: 3; left: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .sxd .sx-pin { position: static; }
-.sxd .sx-fair { background: var(--btn-stripes), #fff; color: #16133C; box-shadow: 0 6px 18px rgba(6, 10, 30, .35); }
+.sxd .sx-fair { background: var(--gradient-button-stripes), #fff; color: #16133C; box-shadow: 0 6px 18px rgba(6, 10, 30, .35); }
 .sxd .sx-acts .sl-go { color: #fff; }
 
 @container sl (max-width: 1000px) {

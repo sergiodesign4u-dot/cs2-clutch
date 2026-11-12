@@ -42,15 +42,14 @@
 .wf-tile .wf-fav:hover .wf-fav-i { scale: 1.12; }
 .v4-burst { position: absolute; z-index: 3; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; }
 .v4-burst i { position: absolute; left: 0; top: 0; display: block; background: var(--bc); }
-.v4-burst i[data-s="heart"] { -webkit-mask: var(--v4-heart) center / contain no-repeat; mask: var(--v4-heart) center / contain no-repeat; }
+.v4-burst i[data-s="heart"] { -webkit-mask: var(--icon-heart) center / contain no-repeat; mask: var(--icon-heart) center / contain no-repeat; }
 .v4-burst i[data-s="star"] { clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%); }
 .v4-burst i[data-s="stroke"] { border-radius: 2px; }
-:root { --v4-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.4-4.5-9.6-9.1C.9 8.6 3 4.6 6.8 4.6c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 4 4.4 7.3C19.4 16.5 12 21 12 21z'/%3E%3C/svg%3E"); }
 
 /* the act, the ghost of buttons.css at its medium size. Round 3, founder: "я би не показивал би кнопку Open a case", so it is not shown;
    the price stays under the pointer and the whole tile is the link */
 .v4-open { display: none !important; }
-.v4-open { position: absolute; left: 50%; top: 50%; translate: -50% -20%; display: flex; align-items: center; justify-content: center; box-sizing: border-box; min-width: 148px; min-height: var(--btn-m, 40px); padding: 0 18px; border-radius: var(--btn-radius, 10px); background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); color: var(--color-text-hi); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s, translate .25s cubic-bezier(.22, 1, .36, 1); }
+.v4-open { position: absolute; left: 50%; top: 50%; translate: -50% -20%; display: flex; align-items: center; justify-content: center; box-sizing: border-box; min-width: 148px; min-height: var(--size-button-m, 40px); padding: 0 18px; border-radius: var(--radius-button, 10px); background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-pink); color: var(--color-text-hi); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s, translate .25s cubic-bezier(.22, 1, .36, 1); }
 
 /* the card: the tile's own, in its case's colour, starting under the lid so the case stands out of its top edge */
 .v4-fx { position: absolute; z-index: -1; left: -4px; right: -4px; top: 30%; bottom: -10px; border-radius: 16px; pointer-events: none; opacity: 0; translate: 0 10px;
@@ -65,7 +64,7 @@
 .wf-tile:has([data-art="case-ember"]) { --tile-g: linear-gradient(120deg, var(--color-rarity-2), #7A0F22); }
 /* founder of 2 Nov 2026, row G of tile-hover-lab.html: the stripes over the case's full colour, the card fading out toward the case, so the
    case rises out of the colour with no top edge; the mask takes the shadow with it, so none is drawn */
-.v4-fx { background: var(--btn-stripes), var(--tile-g, linear-gradient(120deg, var(--color-pink), #8E2BC9)); box-shadow: none;
+.v4-fx { background: var(--gradient-button-stripes), var(--tile-g, linear-gradient(120deg, var(--color-pink), #8E2BC9)); box-shadow: none;
   -webkit-mask: linear-gradient(to top, #000 30%, transparent 100%); mask: linear-gradient(to top, #000 30%, transparent 100%); }
 /* the same day: "кейс стоит вроде по центру но визуально смотриться смещенным". On all five cases-v2/*-c pictures the case's body, the
    lower third, has its middle at 43.2% of the picture while the open lid reaches right; the picture moves right 6.8% of its width so the
@@ -85,7 +84,6 @@
 /* the risk, founder of 2 Nov 2026: "черепа нам ни к чему, давай сделаем молнии, 4 штуки: Low, Medium, High и Extreme". Four bolts, one to four
    lit in the band's colour, the rest in the unlit tone the skulls had; the words stay in the page for a screen reader, as before (D-193).
    Extreme has no case yet: Home's five are low, medium and high, and the fourth band's threshold and its words are not decided */
-:root { --icon-bolt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.6 1 4 11.2h5l-1.6 7.8L16 8.6h-5.2z'/%3E%3C/svg%3E"); --color-risk-extreme: #FF4D3D; }
 .wf-tile-risk { width: 80px; height: 22px; }
 .wf-tile-risk::before { width: 80px; height: 20px; background: linear-gradient(90deg, var(--rc) 0 calc(var(--n) * 20px), var(--color-skull-off) 0);
   -webkit-mask: var(--icon-bolt) left center / 20px 20px repeat-x; mask: var(--icon-bolt) left center / 20px 20px repeat-x; }
@@ -158,7 +156,7 @@
 /* the price under the pointer, founder of 2 Nov 2026, P1 of tile-hover-lab.html: on G's colour the price "читается плоховато", so under the
    pointer and on keyboard focus it stands on a dark pill with a thin light edge, the plate of the daily boxes and the favourite. At rest
    it stays plain */
-.wf-tile .wf-tile-price { border-radius: 8px; /* not --btn-radius: the price plate on a tile is 8px, the buttons 12px, founder of 11 Nov 2026 */transition: background .2s, box-shadow .2s, padding .2s; }
+.wf-tile .wf-tile-price { border-radius: 8px; /* not --radius-button: the price plate on a tile is 8px, the buttons 12px, founder of 11 Nov 2026 */transition: background .2s, box-shadow .2s, padding .2s; }
 .wf-tile:is(:hover, :focus-within) .wf-tile-price { padding: 0 14px; background: rgba(11, 10, 34, .82); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
 @media (prefers-reduced-motion: reduce) { .wf-tile .wf-tile-price { transition: none; } }
 

@@ -5,3 +5,7 @@
 
 # Images no page, doc or script references, kept on this machine only, 11 Nov 2026
 _archive/
+
+# Tool state of local skills (impeccable, skills installer), not project artefacts
+.impeccable/
+skills-lock.json

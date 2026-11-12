@@ -7,7 +7,7 @@
  * resolving under design/v4/, which is where the old dialog's links failed. window.V4Signin.render draws the same dialog in the lab, so the
  * two cannot drift. Styles: signin-home.css. */
 (function () {
-  var PANEL = 'var(--btn-stripes), var(--v4-mode-battles)';
+  var PANEL = 'var(--gradient-button-stripes), var(--gradient-mode-battles)';
   var TICK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
   var ic = function (n) { return 'data-icon="' + n + '" style="--ic: var(--icon-' + n + ')" aria-hidden="true"'; };
   var tile = function (n) { return '<span class="sd-note-i" style="--ic: var(--icon-' + n + ')" aria-hidden="true"></span>'; };

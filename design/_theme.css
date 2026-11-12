@@ -14,8 +14,10 @@
  *
  * Names are flat and by kind: --color-*, --size-*, --radius-*, --space-*, --font-*,
  * --shadow-*, --mix-*, --icon-*, and since steps 6 and 7 --art-* (a picture), --motion-* (a
- * duration or curve), --shape-* (a clip path) and --blur-* (a blur radius); the last four were
- * in use before they were named here, stage 06 critique of 10 Nov 2026, contract row 16.
+ * duration or curve), --shape-* (a clip path or a mask outline) and --blur-* (a blur radius); the
+ * last four were in use before they were named here, stage 06 critique of 10 Nov 2026, contract
+ * row 16. Since stage 07, D-224, --gradient-* (a gradient that paints a surface), and v4's values
+ * live here too, at the end of part 1.
  * No semantic roles yet: those are stage 08's.
  * The element rules of part 2 are scoped to a page that holds a .wf-screen-body, so the
  * stand can link this file for its values without taking a screen's type.
@@ -214,6 +216,87 @@
   --icon-google: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133c-1.147 1.147-2.933 2.4-6.053 2.4c-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0C5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36c2.16-2.16 2.84-5.213 2.84-7.667c0-.76-.053-1.467-.173-2.053z%22/%3E%3C/svg%3E"); /* simple-icons:google, the provider's own mark on its own sign in button */
   --icon-discord: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M20.317 4.37a19.8 19.8 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.3 18.3 0 0 0-5.487 0a13 13 0 0 0-.617-1.25a.08.08 0 0 0-.079-.037A19.7 19.7 0 0 0 3.677 4.37a.1.1 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.08.08 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.08.08 0 0 0 .084-.028a14 14 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13 13 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10 10 0 0 0 .372-.292a.07.07 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.07.07 0 0 1 .078.01q.181.149.373.292a.077.077 0 0 1-.006.127a12.3 12.3 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.08.08 0 0 0 .084.028a19.8 19.8 0 0 0 6.002-3.03a.08.08 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03M8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418m7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418%22/%3E%3C/svg%3E"); /* simple-icons:discord, the provider's own mark on its own sign in button */
   --icon-x: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z%22/%3E%3C/svg%3E"); /* simple-icons:x, the provider's own mark on its own sign in button */
+  /* ===== v4, FOLDED AT STAGE 07, D-224. The values of Home v4 and the case screen v4, D-209 to D-221, moved here from
+     design/v4/theme.css and nine block sheets beside it, renamed by kind, every value byte for byte. A comment carried from
+     the sheet the value stood in is kept as it was; the origin after it names the record. ===== */
+
+  /* v4: Colours */
+  --color-button: #DF055C; /* a filled button's pink, founder pick A of 4 Nov 2026, buttons-lab.html Contrast: the brand pink var(--color-pink) carried a 13px white label at 3.1:1 on its light stripe, this deeper pink of the same hue at 4.5:1, WCAG AA; the brand pink itself is unchanged everywhere else; from buttons.css as --btn-fill */
+  --color-button-hover: #E8156A; /* the fill a little lighter under the pointer, founder of 4 Nov 2026: "на кнопках при ховери фон робити трохи світлишим"; the label holds 4.4:1 on it and 4.1:1 on its light stripe while hovered, under AA's 4.5, accepted as the cost; from buttons.css as --btn-fill-hover */
+  --color-fair: #0B6A8C; /* the light end of the provably fair blue, Every round on Home and in the footer; was #0F7EA6, where white 13px sat at 3.3 to 3.9:1 under the plates' stripes; #0B6A8C holds white at 4.9:1 with the stripes over it, stage 06 critique of 10 Nov 2026, rows 4 and 5; рішення користувача, D-209 (Every round, footer I of 3 Nov 2026); value set by D-215; from theme.css as --v4-fair-blue */
+  --color-tile: #0B0A22; /* the rail's tile fill, 31 Oct 2026, a dark near the page ground; рішення користувача, D-209, the side menu's tile marked OK by the founder on 4 Nov 2026; from theme.css as --v4-tile-bg */
+  --color-risk-extreme: #FF4D3D; /* the fourth band of the risk bolts, founder of 2 Nov 2026 in case-tiles.css: "4 штуки: Low, Medium, High и Extreme"; D-209; no case carries it yet, its threshold not decided; from case-tiles.css as --color-risk-extreme */
+  --color-rare-gold: var(--color-rarity-1); /* the rare drop's colour, --color-rarity-1, the top of the ladder, written as its variable since D-224; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-gold */
+  --color-rare-fire: #FF5A2E; /* ember, as Emberforge's light in v4; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-fire */
+  --color-rare-zap: #8FD3FF; /* lightning, --color-blue lifted; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-zap */
+  --color-rail-icon-red: color-mix(in srgb, var(--color-rarity-2) 72%, var(--color-text-hi)); /* the rarity red lifted until it holds on a dark tile, as the Showdowns card's colour; підібрано під характер, D-209, the side menu's icons; from rail-icons.css as --ri-red */
+  --color-rail-icon-cyan: color-mix(in srgb, var(--color-blue) 70%, var(--color-text-hi)); /* a gem's cold light, from the secondary accent; підібрано під характер, D-209, the side menu's icons; from rail-icons.css as --ri-cyan */
+  /* A RARITY TIER'S PLATE, the round cards' two ends, read by proof-home.js and case-blocks.js as var(), stage 06 critique of 10 Nov 2026,
+     row 15, D-215. r2, r4, r5 start on --color-rarity-2, -4, -5 and end on the mode cards' darks; r1 starts on the Upgrade card's gold, where
+     white type holds; r3 is a violet between rarity 3 and 4 */
+  --color-plate-r1-a: #9E6905; /* from theme.css as --v4-plate-r1-a */
+  --color-plate-r1-b: #B4400F; /* from theme.css as --v4-plate-r1-b */
+  --color-plate-r2-a: var(--color-rarity-2); /* from theme.css as --v4-plate-r2-a */
+  --color-plate-r2-b: #7A0F22; /* from theme.css as --v4-plate-r2-b */
+  --color-plate-r3-a: #A62BC4; /* from theme.css as --v4-plate-r3-a */
+  --color-plate-r3-b: #4A1260; /* from theme.css as --v4-plate-r3-b */
+  --color-plate-r4-a: var(--color-rarity-4); /* from theme.css as --v4-plate-r4-a */
+  --color-plate-r4-b: #2E1A63; /* from theme.css as --v4-plate-r4-b */
+  --color-plate-r5-a: var(--color-rarity-5); /* from theme.css as --v4-plate-r5-a */
+  --color-plate-r5-b: #1B2A8F; /* from theme.css as --v4-plate-r5-b */
+
+  /* v4: Sizes */
+  --size-banner-v4: 440px; /* the banner at 1440; comp B, founder pick, the scene needs room for title, countdown and button stacked on its left; рішення користувача, D-209; the same job as --size-banner, 340px, direction 2: one of the two goes at step 3, D-224; from theme.css as --v4-banner-h */
+  --size-drop-v4: 104px; /* a live drop tile; comp B, founder pick, a dark card round the hexagon; 124px until the founder, "карточки сделать меньше, сейчас они сильно много места занимают"; рішення користувача, D-209; the same job as --size-drop, 92px, direction 2: one of the two goes at step 3, D-224; from theme.css as --v4-drop */
+  --size-tile: 42px; /* the rail tile's height; рішення користувача, D-209, the side menu's tile marked OK by the founder on 4 Nov 2026; from theme.css as --v4-tile-h */
+  --size-button-l: 52px; /* рішення користувача, D-209 update of 2 Nov 2026, buttons.css: "кнопки везде сделать одинаковые ... большая средняя и маленькая"; from buttons.css as --btn-l */
+  --size-button-m: 40px; /* рішення користувача, D-209 update of 2 Nov 2026, buttons.css, the medium button; from buttons.css as --btn-m */
+  --size-button-s: 32px; /* рішення користувача, D-209 update of 2 Nov 2026, buttons.css, the small button; from buttons.css as --btn-s */
+
+  /* v4: Corners */
+  --radius-card: 12px; /* card and banner corner; comp A and B, founder pick; рішення користувача, D-209; from theme.css as --v4-radius */
+  --radius-tile: var(--radius-card); /* the tile's corner is the card's; рішення користувача, D-209; from theme.css as --v4-tile-radius */
+  --radius-button: 12px; /* рішення користувача, D-209 update of 2 Nov 2026, "одинаковые по закруглениям"; 10 to 12px by the founder on 11 Nov 2026 of 8, 10 and 12: "10 I don't like", D-218; from buttons.css as --btn-radius */
+
+  /* v4: Shadows */
+  --shadow-button: 0 4px 14px rgba(223, 5, 92, .32); /* the filled button's glow under the pointer, in --color-button; рішення користувача, D-209 update of 4 Nov 2026, buttons-lab.html; from buttons.css as --btn-glow */
+  --shadow-tile-edge: inset 0 0 0 1px rgba(255, 255, 255, .05); /* the tile's hairline, white at 5 %, read off the rail's tile, 31 Oct 2026; рішення користувача, D-209, the side menu's tile marked OK by the founder on 4 Nov 2026; from theme.css as --v4-tile-edge */
+
+  /* v4: Motion */
+  --motion-ease-pop: cubic-bezier(.34, 1.56, .64, 1); /* a lift that overshoots and settles; підібрано під характер, design principle 2; from theme.css as --v4-ease-pop */
+  --motion-rail-icon: .95s; /* one story; longer than a state change because it is the event, shorter than a wait; підібрано під характер, design principle 2; D-209, the side menu's icons; from rail-icons.css as --ri-play */
+  --motion-ease-rail-icon: cubic-bezier(.3, .7, .3, 1); /* підібрано під характер; the side menu's icons, D-209; from rail-icons.css as --ri-ease */
+  --motion-rare-drop: 4s; /* one landing and its afterglow, then again; підібрано під характер, long enough to watch, short enough to compare; D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-loop */
+
+  /* v4: Gradients, a kind of their own since D-224: a value that paints a surface and is neither a picture (--art-*) nor a percentage (--mix-*) */
+  --gradient-mode-cases: linear-gradient(120deg, var(--color-pink), #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4; from theme.css as --v4-mode-cases */
+  --gradient-mode-battles: linear-gradient(120deg, var(--color-rarity-5), #1B2A8F); /* blue; comp A, founder pick; from --color-rarity-5; from theme.css as --v4-mode-battles */
+  --gradient-mode-showdowns: linear-gradient(120deg, var(--color-rarity-2), #7A0F22); /* red; comp A, founder pick; from --color-rarity-2; from theme.css as --v4-mode-showdowns */
+  --gradient-mode-upgrade: linear-gradient(120deg, #9E6905, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it: #B57A06 held white 12px at 3.65:1, so the gold end went to #9E6905, 4.7:1, stage 06 critique of 10 Nov 2026, row 6; from theme.css as --v4-mode-upgrade */
+  --gradient-panel: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); /* the footer's own panel, footer I of 3 Nov 2026; the rail's panel took it too as a trial and kept it on 4 Nov 2026, founder: "более темний мне больше нравится как в футере давай поставим на главной в боковом меню", D-209; the rail was linear-gradient(180deg, #16133C, #0D0C28), the header strip's navy; from theme.css as --v4-panel-ground */
+  --gradient-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); /* faint diagonal stripes on a filled button; comp A and C, founder pick; also the section headings' tile, heading-home.css, founder of 2 Nov 2026: "о вот это прикольно смотрится - берем"; from theme.css as --v4-stripes */
+  --gradient-button-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .1) 0 14px, transparent 14px 28px); /* the stripes of a filled button; рішення користувача, D-209 update of 2 Nov 2026, buttons.css; from buttons.css as --btn-stripes */
+  --gradient-button-sheen: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .26) 50%, transparent 58%); /* the light that crosses a filled button under the pointer; рішення користувача, D-209 update of 4 Nov 2026, buttons-lab.html; from buttons.css as --btn-sheen */
+
+  /* v4: Shapes and masks, an outline a layer is cut to */
+  --shape-hex-outer: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3C/svg%3E"); /* the outer two of --shape-hex-line, the same paths; рішення користувача, D-209, founder of 31 Oct 2026: "как у нас сейчас плюс как на дедди скинс подложку для скинов"; also the rare drops' hexagon, rare-drops.css; from theme.css as --v4-hex-outer */
+  --shape-hex-inner: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%221.6%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the inner line of --shape-hex-line, drawn a little heavier to carry the gradient; рішення користувача, D-209, founder of 31 Oct 2026: "самый внутренний бордер сделаем градиентом"; from theme.css as --v4-hex-inner */
+  --shape-feed-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); /* a live drop's ring and its light in one mask, no filter; технічне рішення, the performance pass of 10 Nov 2026, D-214; from theme.css as --v4-feed-ring */
+  --shape-ring-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 136 118'%3E%3Cpath d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z' fill='none' stroke='%23000' stroke-width='7' stroke-linejoin='round'/%3E%3C/svg%3E"); /* the ring a rare mark's current runs round; рішення користувача, D-214, rare-mark.css, founder of 10 Nov 2026; from rare-mark.css as --rm-ringmask */
+  --shape-hex-glow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); /* the ring's light on W7's band and reel cards in one mask; технічне рішення, the performance pass of 10 Nov 2026, D-214; from case-stage.css as --v4-hex-glow */
+  --shape-case-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FF8DBD'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='r' x1='1' y1='0' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='22' height='2' fill='url(%23l)'/%3E%3Crect x='50' y='0' width='22' height='2' fill='url(%23r)'/%3E%3Cpath d='M22 0h28L36 17z' fill='url(%23g)'/%3E%3Cpath d='M29 3h14l-7 8z' fill='%23140F36'/%3E%3Ccircle cx='36' cy='21.5' r='2.2' fill='%23FB3F8A'/%3E%3C/svg%3E"); /* the reel's pointer, a cut chevron in the pink; рішення користувача, D-213, stage-lab.html rows H to J: "стрелочки сделай интереснее, визуальнее"; from case-stage.css as --v4c-mark */
+
+  /* v4: Icons drawn for v4, a mask as the set above */
+  --icon-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.4-4.5-9.6-9.1C.9 8.6 3 4.6 6.8 4.6c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 4 4.4 7.3C19.4 16.5 12 21 12 21z'/%3E%3C/svg%3E"); /* the favourite's heart and its burst; рішення користувача, D-209 update of 2 Nov 2026, round 4; from case-tiles.css as --v4-heart */
+  --icon-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M3 13 17 27 32 5 47 27 61 13 55 38H9Z'/%3E%3Crect x='9' y='40' width='46' height='6' rx='2'/%3E%3Ccircle cx='3' cy='11' r='3.5'/%3E%3Ccircle cx='32' cy='4' r='4'/%3E%3Ccircle cx='61' cy='11' r='3.5'/%3E%3C/svg%3E"); /* the rare drop's crown, the golden orbit tier; рішення користувача, D-209 rare drops of 1 Nov 2026; from rare.css as --v4-crown */
+  --icon-bolt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.6 1 4 11.2h5l-1.6 7.8L16 8.6h-5.2z'/%3E%3C/svg%3E"); /* the risk bolts, founder of 2 Nov 2026: "черепа нам ни к чему, давай сделаем молнии"; D-209; from case-tiles.css as --icon-bolt */
+  --icon-question: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.2 8.6a3.8 3.8 0 1 1 5.7 3.3c-1.2.7-1.9 1.4-1.9 2.8v.5' fill='none' stroke='%23000' stroke-width='2.8' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='19.4' r='1.9'/%3E%3C/svg%3E"); /* the FAQ heading's mark; рішення користувача, D-209 update of 2 Nov 2026, round 8; from faq-home.css as --icon-question */
+
+}
+
+/* the live drop tile on a phone, founder of 4 Nov 2026: "лайв фид в раза два меньше по высоте"; D-209; from design/v4/theme.css */
+@media (max-width: 599px) {
+  :root { --size-drop-v4: 86px; }
 }
 
 /* ===== 2. STRUCTURE, carried from wireframes/_wf.css ===== */

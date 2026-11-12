@@ -31,10 +31,10 @@
 .x6-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* the money strip: the striped stub, then RTP with the case, the median time, the commission */
-.x6-strip { position: relative; display: grid; grid-template-columns: var(--stub) minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr); border-radius: var(--v4-radius);
+.x6-strip { position: relative; display: grid; grid-template-columns: var(--stub) minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr); border-radius: var(--radius-card);
   background: linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .55); }
-.x6-stub { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: var(--pad); border-radius: var(--v4-radius) 0 0 var(--v4-radius);
-  background: var(--btn-stripes), linear-gradient(160deg, var(--color-pink), var(--btn-fill, #DF055C) 55%, #B8044E); } /* was #FF5C9C, var(--color-pink) 55%, #D42C76:
+.x6-stub { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: var(--pad); border-radius: var(--radius-card) 0 0 var(--radius-card);
+  background: var(--gradient-button-stripes), linear-gradient(160deg, var(--color-pink), var(--color-button, #DF055C) 55%, #B8044E); } /* was #FF5C9C, var(--color-pink) 55%, #D42C76:
   the white heading sat at 2.6:1 on the light end; from the brand pink down to the buttons' deeper pink it holds 3.2:1 at the worst stripe, large text,
   stage 06 critique of 10 Nov 2026, row 3 */
 .x6-stub svg { width: 30px; height: 34px; fill: var(--color-text-hi); }
@@ -42,7 +42,7 @@
 .x6-stub h2 { margin: 0; font-size: clamp(20px, 2.2cqw, 26px); font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(120, 10, 60, .35); }
 .x6-p { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: clamp(160px, 16.6cqw, 196px); padding: var(--pad); transition: background-color .2s; }
 .x6-p + .x6-p::before { content: ''; position: absolute; left: 0; top: var(--pad); bottom: var(--pad); width: 1px; background: rgba(255, 255, 255, .18); }
-.x6-p:last-child { border-radius: 0 var(--v4-radius) var(--v4-radius) 0; }
+.x6-p:last-child { border-radius: 0 var(--radius-card) var(--radius-card) 0; }
 .x6-k { position: relative; display: block; font-size: clamp(11px, 1.02cqw, 12px); font-weight: 900; letter-spacing: .06em; line-height: 1.25; text-transform: uppercase; color: var(--color-text-hi); } /* was white at .88; full white, critique row 5 */
 .x6-v { position: relative; display: block; margin-top: 8px; font-size: var(--fig); font-weight: 900; line-height: 1; letter-spacing: -.01em; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(6, 10, 30, .3); }
 .x6-fee .x6-v { color: var(--money); }
@@ -50,23 +50,23 @@
 .x6-money { color: var(--money); font-weight: 700; white-space: nowrap; }
 .x6-coin { width: 1em; height: 1em; margin-right: 4px; vertical-align: -2px; }
 .x6-go { position: relative; display: block; margin-top: auto; padding-top: 14px; color: var(--color-text-hi); font-size: clamp(12px, 1.1cqw, 13px); font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
-.x6-go svg { transition: translate .2s var(--v4-ease-pop); }
+.x6-go svg { transition: translate .2s var(--motion-ease-pop); }
 .x6 a:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: -3px; }
 
 /* Ironbound beside the RTP: its height a share of the panel's own width, so it shrinks with the panel and no gap opens between them */
 .x6-rtp { isolation: isolate; clip-path: inset(-90px 0 0 0); overflow-x: clip; }
 .x6-rtp > .x6-k, .x6-rtp > .x6-v { max-width: 48%; }
 .x6-rtp > .x6-say { max-width: 44%; }
-.x6-case { position: absolute; z-index: 0; right: -3%; bottom: -8px; height: var(--case-h); aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--v4-ease-pop); }
+.x6-case { position: absolute; z-index: 0; right: -3%; bottom: -8px; height: var(--case-h); aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--motion-ease-pop); }
 .x6-case .b, .x6-case .f { position: absolute; inset: 0; background: url(art/cases-v2/ironbound-c.webp) center / 100% auto no-repeat; }
 .x6-case .b { filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); }
 .x6-case .f { z-index: 2; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
-.x6-case .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); transition: transform .45s var(--v4-ease-pop); }
+.x6-case .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); transition: transform .45s var(--motion-ease-pop); }
 
 /* the second ticket: the "Every round" plate in the provably fair blue, then two round cards */
 .x6-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1.35fr); gap: 12px; margin-top: clamp(46px, 4.9cqw, 58px); }
-.x6-plate { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: var(--pad); border-radius: var(--v4-radius);
-  background: var(--btn-stripes), linear-gradient(160deg, var(--v4-fair-blue), #1F55C9 58%, #24359E); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .5); }
+.x6-plate { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: var(--pad); border-radius: var(--radius-card);
+  background: var(--gradient-button-stripes), linear-gradient(160deg, var(--color-fair), #1F55C9 58%, #24359E); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 34px rgba(6, 10, 30, .5); }
 .x6-fig { display: block; }
 .x6-word { display: block; margin-top: 6px; font-size: clamp(26px, 3cqw, 36px); font-weight: 900; line-height: 1; white-space: nowrap; text-shadow: 0 2px 8px rgba(6, 10, 30, .35); }
 .x6-hash { box-sizing: border-box; display: flex; flex-direction: column; gap: 4px; width: 100%; margin: 12px 0 14px; padding: 9px 12px; border-radius: 8px; background: rgba(6, 10, 30, .6); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
@@ -79,17 +79,17 @@
 .x6-hash-t code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .x6-hash .x6-btn { flex: none; margin: 0; }
 .x6-card { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: clamp(170px, 16cqw, 188px); padding: var(--pad);
-  border-radius: var(--v4-radius); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
-  clip-path: inset(-100px 0 0 0 round 0 0 var(--v4-radius) var(--v4-radius)); overflow-x: clip; transition: filter .2s; }
+  border-radius: var(--radius-card); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45);
+  clip-path: inset(-100px 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); overflow-x: clip; transition: filter .2s; }
 .x6-card > :not(.x6-skin) { position: relative; z-index: 1; }
-.x6-skin { position: absolute; z-index: 0; right: -3%; top: calc(-1 * clamp(36px, 4.6cqw, 54px)); width: 50%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--v4-ease-pop); }
+.x6-skin { position: absolute; z-index: 0; right: -3%; top: calc(-1 * clamp(36px, 4.6cqw, 54px)); width: 50%; height: auto; transform: rotate(-12deg); filter: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); transition: transform .45s var(--motion-ease-pop); }
 .x6-r { font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-hi); } /* was white at .8, 3.9:1 on the red card; critique row 5 */
 .x6-w { margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--color-text-hi); } /* was white at .9: 4.13 and 4.42:1 on r1 and r2, full white 4.69 and 5.16, critique run 3 */
 .x6-s { max-width: 54%; font-size: clamp(18px, 1.9cqw, 22px); font-weight: 900; line-height: 1.1; }
 .x6-from { margin-top: 4px; font-size: 12px; color: var(--color-text-hi); } /* was white at .82, 4.3:1 on the red card; critique row 5 */
 .x6-card .x6-t { margin-top: 12px; }
 .x6-cgo { margin-top: auto; padding-top: 14px; color: var(--color-text-hi); font-size: 13px; font-weight: 700; }
-.x6-cgo svg { transition: translate .2s var(--v4-ease-pop); }
+.x6-cgo svg { transition: translate .2s var(--motion-ease-pop); }
 @media (hover: hover) {
   a.x6-p:hover { background-color: rgba(255, 255, 255, .06); }
   .x6-rtp:hover .x6-case { transform: scale(1.04); }
@@ -107,11 +107,11 @@
      figure ran into the case art (founder, 4 Nov 2026: "что то огромное просто") */
   .x6 { --money: var(--color-money); --stub: 0px; --rtp: calc(100cqw * 1.25 / 3.1); --fig: 38px; }
   .x6-strip { grid-template-columns: minmax(0, 1.25fr) minmax(188px, 1fr) minmax(158px, .85fr); }
-  .x6-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; padding: 12px var(--pad); border-radius: var(--v4-radius) var(--v4-radius) 0 0; }
+  .x6-stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; padding: 12px var(--pad); border-radius: var(--radius-card) var(--radius-card) 0 0; }
   .x6-stub svg { width: 22px; height: 25px; }
   .x6-stub h2 { font-size: 20px; }
-  .x6-rtp { border-radius: 0 0 0 var(--v4-radius); }
-  .x6-p:last-child { border-radius: 0 0 var(--v4-radius) 0; }
+  .x6-rtp { border-radius: 0 0 0 var(--radius-card); }
+  .x6-p:last-child { border-radius: 0 0 var(--radius-card) 0; }
 }
 /* the second ticket, block under 820px: the plate and two cards no longer fit three across, so the plate becomes one compact row, its
    hash box taking the slack, and the two cards sit side by side under it. Founder, 4 Nov 2026, on a phone held sideways: "Every round"
@@ -134,7 +134,7 @@
   .x6-strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .x6-rtp { grid-column: 1 / -1; border-radius: 0; min-height: 0; }
   .x6-rtp > .x6-say { max-width: 50%; }
-  .x6-rtp + .x6-p { border-radius: 0 0 0 var(--v4-radius); }
+  .x6-rtp + .x6-p { border-radius: 0 0 0 var(--radius-card); }
   .x6-p.x6-rtp + .x6-p::before { left: var(--pad); right: var(--pad); top: 0; bottom: auto; width: auto; height: 1px; }
   .x6-fee::after { content: ''; position: absolute; left: var(--pad); right: var(--pad); top: 0; height: 1px; background: rgba(255, 255, 255, .18); }
 }
@@ -143,7 +143,7 @@
   .x6 { --case-h: 112px; }
   .x6-strip { grid-template-columns: minmax(0, 1fr); }
   .x6-rtp + .x6-p { border-radius: 0; }
-  .x6-fee { border-radius: 0 0 var(--v4-radius) var(--v4-radius); }
+  .x6-fee { border-radius: 0 0 var(--radius-card) var(--radius-card); }
   .x6-p.x6-fee::before { left: var(--pad); right: var(--pad); top: 0; bottom: auto; width: auto; height: 1px; }
   .x6-p { min-height: 0; }
   .x6-fee::after { content: none; }

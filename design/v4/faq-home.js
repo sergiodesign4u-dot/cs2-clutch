@@ -29,7 +29,7 @@
   ];
 
   function head(id, text, tone, icon) {
-    return '<div class="hz-head" style="--hz-g: var(--v4-mode-' + tone + '); --hz-ic: var(--icon-' + icon + ')"><span class="hz-tile" aria-hidden="true"></span><h2 id="' + id + '">' + text + '</h2></div>';
+    return '<div class="hz-head" style="--hz-g: var(--gradient-mode-' + tone + '); --hz-ic: var(--icon-' + icon + ')"><span class="hz-tile" aria-hidden="true"></span><h2 id="' + id + '">' + text + '</h2></div>';
   }
   function go(base, href, text) {
     var i = text.lastIndexOf(' ');

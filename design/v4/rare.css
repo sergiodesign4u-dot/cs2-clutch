@@ -12,7 +12,7 @@
 .v4-rare-volt { --rd-c1: #F2FBFF; --rd-c2: #8FD3FF; --rd-c3: var(--color-rarity-5); --rd-hex-c1: #F2FBFF; --rd-hex-c2: #8FD3FF; --rd-hex-c3: var(--color-rarity-5); }
 .v4-rare-orbit { --rd-c1: #FFF6CF; --rd-c2: #F6C915; --rd-c3: #FF9A1F; --rd-hex-c1: #FFF6CF; --rd-hex-c2: #F6C915; --rd-hex-c3: #FF9A1F; }
 .v4-rare-plasma { --rd-c1: #FFE0F4; --rd-c2: var(--color-pink); --rd-c3: #D22BCE; --rd-hex-c1: #FFE0F4; --rd-hex-c2: var(--color-pink); --rd-hex-c3: #D22BCE; --rd-hex-c4: #3B1A7A; }
-:root { --v4-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M3 13 17 27 32 5 47 27 61 13 55 38H9Z'/%3E%3Crect x='9' y='40' width='46' height='6' rx='2'/%3E%3Ccircle cx='3' cy='11' r='3.5'/%3E%3Ccircle cx='32' cy='4' r='4'/%3E%3Ccircle cx='61' cy='11' r='3.5'/%3E%3C/svg%3E"); } /* rare-drops.css's crown */
+ /* rare-drops.css's crown */
 
 /* the strip lets a rare card's light out above and below it, and still cuts at its ends */
 .wf-feed-clip { overflow-x: clip; overflow-y: visible; }
@@ -40,7 +40,7 @@
 @keyframes v4-rare-turn { to { transform: rotate(360deg); } }
 .v4-rare-crown { position: absolute; right: -8px; bottom: -5px; width: 66px; height: 50px; transform: rotate(-24deg); opacity: .42; }
 .v4-rare-crown::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #FFE27A, var(--r) 45%, #B87800);
-  -webkit-mask: var(--v4-crown) center / contain no-repeat; mask: var(--v4-crown) center / contain no-repeat; }
+  -webkit-mask: var(--icon-crown) center / contain no-repeat; mask: var(--icon-crown) center / contain no-repeat; }
 
 /* the header is sticky at z-index 30 and would hide the flame, so a live rare card stands over it while the page is at its top, as on
    rare-drops.html where the founder took it; once the page scrolls, the header covers the strip again as it covers everything */

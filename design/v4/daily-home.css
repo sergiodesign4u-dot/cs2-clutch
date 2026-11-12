@@ -32,7 +32,7 @@
 .dc-head:not(.has-title) .dc-note { margin: 0; }
 .dc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .dc-boxes { display: flex; flex-wrap: wrap; gap: 10px; }
-.dc-box { display: inline-flex; align-items: center; gap: 10px; box-sizing: border-box; height: var(--btn-l, 52px); padding: 0 16px 0 12px; border-radius: var(--btn-radius, 10px);
+.dc-box { display: inline-flex; align-items: center; gap: 10px; box-sizing: border-box; height: var(--size-button-l, 52px); padding: 0 16px 0 12px; border-radius: var(--radius-button, 10px);
   background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
 .dc-box > div { display: grid; gap: 2px; }
 .dc-box b { font-size: 18px; font-weight: 900; line-height: 1.05; white-space: nowrap; }
@@ -63,7 +63,7 @@
      to the reach measured on the page at 1558 and 1366, 100px and 84px */
   margin: max(20px, calc((100cqi - 104px) / 5 * .825 - 70px)) 0 0; }
 .dc-card { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 8px; min-width: 0; height: 166px;
-  padding: 14px 14px 16px; border-radius: 16px; background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25);
+  padding: 14px 14px 16px; border-radius: 16px; background: var(--gradient-button-stripes), linear-gradient(120deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25);
   color: var(--color-text-hi); transition: translate .22s cubic-bezier(.2, .8, .2, 1), box-shadow .22s ease; }
 .dc-name { position: relative; font-size: 24px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .4); }
 /* the available card is the action: higher, in its own brighter light, its button inside it */

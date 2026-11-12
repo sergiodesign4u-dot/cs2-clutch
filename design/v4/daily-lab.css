@@ -69,11 +69,11 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .va-title { flex: 1 1 320px; min-width: 0; }
 .va-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gap); margin: 72px 0 0; padding: 0; list-style: none; }
 .va-card { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 8px; min-width: 0; height: 200px; padding: 14px 14px 16px; border-radius: 16px;
-  background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+  background: var(--gradient-button-stripes), linear-gradient(120deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
 .va-card .dl-art { position: absolute; left: -4%; right: -4%; top: -60px; }
 .va-name { font-size: 24px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .4); }
 .va-card.is-open { translate: 0 -8px; box-shadow: inset 0 0 0 3px var(--color-text-hi), 0 14px 28px rgba(6, 10, 30, .5); }
-.va-card.is-next, .va-card.is-locked { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); color: var(--color-text-soft); }
+.va-card.is-next, .va-card.is-locked { background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); color: var(--color-text-soft); }
 .va-track { position: relative; height: 70px; margin-top: 18px; }
 .va-bar { position: absolute; left: 0; right: 0; top: 32px; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, .08); }
 .va-fill { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, #C9D2E3 10%, #65A3FF 30%, #A35CFF 50%, #FB3F8A 70%, #FADA62 90%); clip-path: inset(0 calc(100% - var(--pos)) 0 0 round 4px); }
@@ -89,7 +89,7 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* B. the tier I can open now, large ------------------------------------------------------------ */
 .vb { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 28px; padding: 28px; }
 .vb-focus { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; min-height: 410px; margin-top: 36px; padding: 22px; border-radius: 16px;
-  background: var(--btn-stripes), linear-gradient(140deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+  background: var(--gradient-button-stripes), linear-gradient(140deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
 .vb-focus .dl-art { position: absolute; left: -5%; right: -5%; top: -64px; }
 .vb-focus.is-opened .dl-art { filter: brightness(.85); }
 .vb-fcopy { position: relative; display: grid; gap: 10px; justify-items: start; }
@@ -104,7 +104,7 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .vb-next p { margin: 6px 0 0; color: var(--color-text-soft); font-size: 15px; line-height: 1.45; }
 .vb-next.is-limit .dl-note { margin: 0; }
 .vb-bar { height: 12px; border-radius: 6px; background: rgba(255, 255, 255, .08); overflow: hidden; }
-.vb-bar i { display: block; height: 100%; border-radius: inherit; background: var(--btn-stripes), linear-gradient(90deg, var(--g1), var(--hue)); }
+.vb-bar i { display: block; height: 100%; border-radius: inherit; background: var(--gradient-button-stripes), linear-gradient(90deg, var(--g1), var(--hue)); }
 .vb-ends { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; color: var(--color-text-muted); font-size: 13px; }
 .vb-ends .vb-now { color: var(--color-text-hi); font-weight: 700; text-align: center; }
 .vb-mini { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: auto 0 0; padding: 0; list-style: none; }
@@ -112,8 +112,8 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .vb-tile > b, .vb-tile > .dl-st { margin: 0 10px; justify-self: start; }
 .vb-tile > b { font-size: 16px; font-weight: 900; text-transform: uppercase; }
 .vb-tile .dl-st { font-size: 12px; }
-.vb-thumb { display: block; padding: 4px 6px 0; border-radius: 12px 12px 0 0; background: var(--btn-stripes), linear-gradient(140deg, var(--g1), var(--g2)); }
-.vb-tile.is-next .vb-thumb, .vb-tile.is-locked .vb-thumb { background: var(--btn-stripes), linear-gradient(140deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
+.vb-thumb { display: block; padding: 4px 6px 0; border-radius: 12px 12px 0 0; background: var(--gradient-button-stripes), linear-gradient(140deg, var(--g1), var(--g2)); }
+.vb-tile.is-next .vb-thumb, .vb-tile.is-locked .vb-thumb { background: var(--gradient-button-stripes), linear-gradient(140deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
 .vb-tile.is-focus { box-shadow: inset 0 0 0 2px var(--color-text-hi); }
 
 /* C. the pass ---------------------------------------------------------------------------------- */
@@ -122,16 +122,16 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .vc-pass { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 8px; margin: 60px 0 0; padding: 0; list-style: none; }
 .vc-col { display: grid; grid-template-rows: auto auto auto 1fr; gap: 12px; min-width: 0; }
 .vc-plate { position: relative; height: 150px; }
-.vc-plate::before { content: ''; position: absolute; inset: 0; background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
+.vc-plate::before { content: ''; position: absolute; inset: 0; background: var(--gradient-button-stripes), linear-gradient(120deg, var(--g1), var(--g2)); clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
 .vc-col:first-child .vc-plate::before { clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%); border-radius: 14px 0 0 14px; }
 .vc-col:last-child .vc-plate::before { clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%); border-radius: 0 14px 14px 0; }
-.vc-col.is-next .vc-plate::before, .vc-col.is-locked .vc-plate::before { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
-.vc-col.is-open .vc-plate::before { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 80%, #fff), var(--g2)); }
+.vc-col.is-next .vc-plate::before, .vc-col.is-locked .vc-plate::before { background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
+.vc-col.is-open .vc-plate::before { background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 80%, #fff), var(--g2)); }
 .vc-plate .dl-art { position: absolute; z-index: 1; left: 4%; right: 4%; top: -52px; }
 .vc-name { position: absolute; z-index: 2; left: 22px; bottom: 12px; font-size: 22px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .5); }
 .vc-col.is-next .vc-name, .vc-col.is-locked .vc-name { color: var(--color-text-soft); }
 .vc-seg { position: relative; height: 16px; background: rgba(255, 255, 255, .08); clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
-.vc-seg i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: var(--btn-stripes), var(--hue); }
+.vc-seg i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: var(--gradient-button-stripes), var(--hue); }
 .vc-at { color: var(--color-text-muted); font-size: 13px; font-weight: 700; }
 .vc-at.is-on { color: var(--color-text-hi); }
 .vc-at.is-part { color: var(--color-gold); }
@@ -158,8 +158,8 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .vd-row { display: grid; grid-template-columns: 120px minmax(0, 1fr) 200px 160px; /* fixed status and act columns, so the five statuses stand in one line */ align-items: center; gap: 16px; padding: 10px 12px 10px 0; box-shadow: inset 0 -1px 0 var(--color-line-soft); }
 .vd-row:last-child { box-shadow: none; }
 .vd-row.is-open { border-radius: 12px; background: linear-gradient(90deg, color-mix(in srgb, var(--hue) 22%, transparent), transparent 70%); }
-.vd-thumb { position: relative; height: 70px; border-radius: 12px; background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); }
-.vd-row.is-next .vd-thumb, .vd-row.is-locked .vd-thumb { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
+.vd-thumb { position: relative; height: 70px; border-radius: 12px; background: var(--gradient-button-stripes), linear-gradient(120deg, var(--g1), var(--g2)); }
+.vd-row.is-next .vd-thumb, .vd-row.is-locked .vd-thumb { background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
 .vd-thumb .dl-art { position: absolute; left: -2px; right: -2px; top: -18px; }
 .vd-name { display: grid; gap: 2px; min-width: 0; }
 .vd-name b { font-size: 20px; font-weight: 900; text-transform: uppercase; }
@@ -260,24 +260,24 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .r1 .dl-say, .r2 .dl-say, .r3 .dl-say { margin-top: 10px; }
 /* a tier not reached keeps its colour, quieter */
 .r1-col.is-next .r1-card, .r1-col.is-locked .r1-card, .r2-row.is-next .r2-thumb, .r2-row.is-locked .r2-thumb {
-  background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
+  background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 38%, #0F0E2B), color-mix(in srgb, var(--g2) 34%, #0B0A22)); }
 
 /* R1. five cards on a segmented meter -------------------------------------------------------------- */
 .r1-row { display: grid; grid-template-columns: var(--cols); align-items: end; gap: 0 10px; margin: 78px 0 0; padding: 0; list-style: none; }
 .r1-col { display: grid; gap: 10px; min-width: 0; }
 .r1-card { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 8px; height: 200px; padding: 14px 14px 16px; border-radius: 16px;
-  background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+  background: var(--gradient-button-stripes), linear-gradient(120deg, var(--g1), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
 .r1-card .dl-art { position: absolute; left: -4%; right: -4%; top: -58px; }
 .r1-name { font-size: 22px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 8px rgba(6, 10, 30, .4); }
 .r1-col.is-next .r1-name, .r1-col.is-locked .r1-name { color: var(--color-text-soft); }
 .r1-col:not(.is-hero) .dl-st { font-size: 12px; white-space: nowrap; }
-.r1-col.is-hero .r1-card { height: 258px; padding: 18px 20px 20px; gap: 12px; background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 82%, #fff), var(--g2));
+.r1-col.is-hero .r1-card { height: 258px; padding: 18px 20px 20px; gap: 12px; background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 82%, #fff), var(--g2));
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .9), 0 16px 32px rgba(6, 10, 30, .5); }
 .r1-col.is-hero .r1-card .dl-art { left: 10%; right: 10%; top: -66px; }
 .r1-col.is-hero .r1-name { font-size: 34px; }
 /* C's segment, straight under its own card; the white mark is where the person stands */
 .r1-seg { position: relative; height: 14px; background: rgba(255, 255, 255, .08); clip-path: polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%); }
-.r1-seg i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: var(--btn-stripes), var(--hue); }
+.r1-seg i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: var(--gradient-button-stripes), var(--hue); }
 .r1-seg.is-part::after, .r2-seg.is-part::after, .r3-band.is-part::after { content: ''; position: absolute; background: var(--color-text-hi); }
 .r1-seg.is-part::after { top: 0; bottom: 0; left: calc(var(--f) * 100% - 2px); width: 4px; }
 .r1-at { color: var(--color-text-muted); font-size: 13px; font-weight: 700; text-align: right; white-space: nowrap; }
@@ -292,8 +292,8 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .r2-facts b.is-reset { color: var(--color-blue); }
 .r2 .dl-say { grid-area: say; margin: 0; }
 .r2-hero { grid-area: hero; position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; min-height: 440px; margin-top: 44px; padding: 22px; border-radius: 16px;
-  background: var(--btn-stripes), linear-gradient(140deg, color-mix(in srgb, var(--g1) 82%, #fff), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 16px 32px rgba(6, 10, 30, .45); }
-.r2-hero.is-opened { background: var(--btn-stripes), linear-gradient(140deg, var(--g1), var(--g2)); }
+  background: var(--gradient-button-stripes), linear-gradient(140deg, color-mix(in srgb, var(--g1) 82%, #fff), var(--g2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 16px 32px rgba(6, 10, 30, .45); }
+.r2-hero.is-opened { background: var(--gradient-button-stripes), linear-gradient(140deg, var(--g1), var(--g2)); }
 .r2-hero .dl-art { position: absolute; left: -2%; right: -2%; top: -64px; }
 .r2-copy { position: relative; display: grid; gap: 10px; justify-items: start; }
 .r2-kicker { color: rgba(255, 255, 255, .85); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
@@ -304,9 +304,9 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .r2-row.is-hero { background: linear-gradient(90deg, color-mix(in srgb, var(--hue) 20%, transparent), transparent 75%); }
 /* the rungs fill from the bottom, Silver first, so the meter climbs with the ladder */
 .r2-seg { grid-area: seg; position: relative; align-self: stretch; border-radius: 6px; background: rgba(255, 255, 255, .08); }
-.r2-seg i { position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--f) * 100%); border-radius: inherit; background: var(--btn-stripes), var(--hue); }
+.r2-seg i { position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--f) * 100%); border-radius: inherit; background: var(--gradient-button-stripes), var(--hue); }
 .r2-seg.is-part::after { left: -3px; right: -3px; bottom: calc(var(--f) * 100% - 2px); height: 4px; border-radius: 2px; }
-.r2-thumb { grid-area: th; position: relative; height: 64px; border-radius: 12px; background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); }
+.r2-thumb { grid-area: th; position: relative; height: 64px; border-radius: 12px; background: var(--gradient-button-stripes), linear-gradient(120deg, var(--g1), var(--g2)); }
 .r2-thumb .dl-art { position: absolute; left: -2px; right: -2px; top: -16px; }
 .r2-nm { grid-area: nm; display: grid; gap: 2px; min-width: 0; }
 .r2-nm b { font-size: 20px; font-weight: 900; text-transform: uppercase; }
@@ -324,7 +324,7 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
   clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%); }
 .r3-col:first-child .r3-band { clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%); border-radius: 12px 0 0 12px; }
 .r3-col:last-child .r3-band { clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%); border-radius: 0 12px 12px 0; }
-.r3-band i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); }
+.r3-band i { position: absolute; inset: 0 auto 0 0; width: calc(var(--f) * 100%); background: var(--gradient-button-stripes), linear-gradient(120deg, var(--g1), var(--g2)); }
 .r3.is-guest .r3-band i { opacity: .6; } /* a guest sees what exists, nothing reached */
 .r3-band b { position: relative; font-size: 20px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 1px 6px rgba(6, 10, 30, .5); }
 .r3-band em { position: relative; color: var(--color-text-hi); font-size: 13px; font-style: normal; font-weight: 700; white-space: nowrap; text-shadow: 0 1px 4px rgba(6, 10, 30, .7); }
@@ -470,7 +470,7 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .r33-col .dl-art { z-index: 2; margin: 0 -4% -16%; }
 .r33-col.is-next .dl-art, .r33-col.is-locked .dl-art { filter: none; } /* every case at full glow: a reward ahead, not a reward missing */
 .r33-band { position: relative; display: grid; align-content: center; justify-items: start; gap: 8px; min-height: 100px; box-sizing: border-box; padding: 14px 18px 20px 24px;
-  background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%); }
+  background: var(--gradient-button-stripes), linear-gradient(120deg, var(--g1), var(--g2)); clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%); }
 .r33-col:first-child .r33-band { clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%); border-radius: 12px 0 0 12px; padding-left: 18px; }
 .r33-col:last-child .r33-band { clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%); border-radius: 0 12px 12px 0; }
 .r33-band > b { font-size: 21px; font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: 0 1px 6px rgba(6, 10, 30, .45); }
@@ -484,7 +484,7 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .r33-bar i { display: block; width: calc(var(--f) * 100%); height: 100%; border-radius: inherit; background: var(--color-text-hi); }
 /* the tier you can open now: higher, brighter, its button in its band */
 .r33-col.is-hero { translate: 0 -14px; }
-.r33-col.is-hero .r33-band { background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 78%, #fff), var(--g2)); }
+.r33-col.is-hero .r33-band { background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 78%, #fff), var(--g2)); }
 .r33-col.is-hero .r33-band .v4-btn { justify-self: stretch; padding: 0 10px; }
 /* where you are, under the band being filled, at the end of its fill line */
 .r33-you { position: absolute; z-index: 3; top: calc(100% + 10px); left: calc(24px + var(--f) * (100% - 42px)); translate: -50% 0; padding: 4px 9px; border-radius: 6px; background: var(--color-text-hi); color: var(--color-ground); font-size: 13px; font-weight: 900; white-space: nowrap; }
@@ -512,7 +512,7 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .r6-side { display: grid; gap: 10px; justify-items: end; margin-left: auto; }
 .r6 .dl-say { order: 4; margin-top: 10px; }
 /* 1. the available card is the action: higher, in its own brighter light, the button inside it; no white frame */
-.r6 .va-card.is-hero { translate: 0 -12px; background: var(--btn-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 78%, #fff), var(--g2));
+.r6 .va-card.is-hero { translate: 0 -12px; background: var(--gradient-button-stripes), linear-gradient(120deg, color-mix(in srgb, var(--g1) 78%, #fff), var(--g2));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 18px 30px rgba(6, 10, 30, .55); }
 .r6 .va-card.is-hero .v4-btn { align-self: stretch; padding: 0 10px; }
 /* "ready": the skin lifts a little out of its tray and settles, slowly */
@@ -548,7 +548,7 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .r7 .va-head { align-items: center; }
 .r7-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .r7-boxes { display: flex; flex-wrap: wrap; gap: 10px; }
-.r7-box { display: inline-flex; align-items: center; gap: 10px; box-sizing: border-box; height: var(--btn-l, 52px); padding: 0 16px 0 12px; border-radius: var(--btn-radius, 10px);
+.r7-box { display: inline-flex; align-items: center; gap: 10px; box-sizing: border-box; height: var(--size-button-l, 52px); padding: 0 16px 0 12px; border-radius: var(--radius-button, 10px);
   background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
 .r7-box > div { display: grid; gap: 2px; }
 .r7-box b { font-size: 18px; font-weight: 900; line-height: 1.05; white-space: nowrap; }
@@ -671,7 +671,7 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 
 /* founder, 2 Nov 2026, "да": in R8 the tiers ahead keep their full colour, case and card alike, as a guest sees them; the lock on the chip
    says the tier is closed, so the richest cases no longer look the dullest */
-.r8 .va-card.is-next, .r8 .va-card.is-locked { background: var(--btn-stripes), linear-gradient(120deg, var(--g1), var(--g2)); color: var(--color-text-hi); }
+.r8 .va-card.is-next, .r8 .va-card.is-locked { background: var(--gradient-button-stripes), linear-gradient(120deg, var(--g1), var(--g2)); color: var(--color-text-hi); }
 .r8 .is-next .dl-art, .r8 .is-locked .dl-art { filter: none; }
 
 /* ===== round 9: R9, one case for the series, a filling that grows, more real skins with every tier ======== */
