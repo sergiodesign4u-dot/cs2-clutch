@@ -115,7 +115,7 @@ window.NAV = [
       ]}
   ]},
 
-  { label: 'UI + Visual',        pageLabel: 'Overview',  page: 'design/overview.html',     done: false, wip: true }, // stage 07 begun 12 Nov 2026 with the fold of v4's values, D-224
+  { label: 'UI + Visual',        pageLabel: 'Overview',  page: 'design/overview.html',     done: false, wip: true, live: true }, // stage 07 begun 12 Nov 2026 with the fold of v4's values, D-224; its hub exists since D-225, so it is linked
   { label: 'Tokens + Components', pageLabel: 'Overview', page: 'design/kit/overview.html', done: false },
   { label: 'Design System',      pageLabel: 'Why',       page: 'design/kit/why.html',      done: false },
   { label: 'Responsive',         page: null,                       done: false },
@@ -307,6 +307,19 @@ window.NAV = [
         return out;
       }
     },
+    // The colour hub, D-225, founder of 12 Nov 2026: Visual in the side menu works as the wireframes
+    // do. Every coloured screen declares NAV_ACTIVE = this hub, so its sidebar is the hub's own list:
+    // a head per screen, its states as addresses, the grey original, and the way back to the hub.
+    // The list is design/_nav.js's; a state is an address, so the current row is matched by it.
+    'design/overview.html': {
+      dir: 'design/',
+      back: 'All screens in colour, the hub',
+      title: 'Screens in colour',
+      onHub: true,
+      registry: function () { return window.DESIGN_NAV && window.DESIGN_NAV.screens; },
+      rows: function () { return window.DESIGN_NAV.rows(); },
+      isCurrent: function (n, rows) { return window.DESIGN_NAV.isCurrent(n, rows); }
+    },
     'ia/structure.html': {
       dir: 'ia/',
       back: 'Structure, the chip index',
@@ -334,7 +347,9 @@ window.NAV = [
       var flat = cfg.rows();
       if (!flat.length) return null;
       flat.forEach(function (n) {
-        var isCur = n.file === cur;
+        // a head row names a group of rows, design/_nav.js's screens; it links nowhere
+        if (n.head) { wrap.appendChild(el('div', 'nav-siblings-head', n.head)); return; }
+        var isCur = cfg.isCurrent ? cfg.isCurrent(n, flat) : n.file === cur;
         if (isCur) matched = true;
         var row = el('a', 'nav-sibling' + (isCur ? ' is-current' : ''));
         row.href = BASE + cfg.dir + n.file;

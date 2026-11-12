@@ -7139,3 +7139,18 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** Folding the 623 component-local declarations and the 880 hex and 911 `rgba()` literals in block rules now: they go with the classes at step 3, where each value is seen once, `D-222`. Deleting direction 2's values v4 no longer reads: a value decision, at step 3. Overwriting `--size-banner` and `--size-drop` with v4's values. Filing the gradients under `--art-*`.
 
 **The cost.** `_theme.css` now holds two answers for two jobs, named in place, until step 3. v4's block sheets still hold their literals.
+
+## D-225. The screens in colour get a hub and a side menu of their own, as the wireframes have
+
+**Date:** 2026-11-12. **Stage:** 07. **Decided by:** the founder: "я хочу чтобы visual в боковом меню так же был доступный и работал как вайрфреймы, т.е. переносил на внутренние страницы, можно было вернуться к общему списку и смотреть уже готовые страницы" (Visual in the side menu should be open and work as the wireframes do: into the inner pages, back to the list, the finished pages to look at), then "робимо" (let's do it) on the proposal.
+
+**What was decided.**
+
+1. **`design/_nav.js` is the one list of screens in colour,** `window.DESIGN_NAV`: Home v4 with two states and the case screen v4 with five, each state an address the page already reads (`?account`, `?guest`, `?count=5`, `?land=k`, `?land=8`) and the grey page it copies. The pack names this file at step 5; it arrives now because the founder asked for the route now.
+2. **`design/overview.html` is the hub,** the roadmap's UI + Visual: a card per screen with its states, its labs read from `/_nav.js` and its grey original, and a coverage map over `wireframes/_nav.js`. Its four counts are computed from the two registries, never typed: 2 screens and 7 states in colour, 2 of 19 grey screens and 6 of 133 grey pages with a coloured copy on the day it was built.
+3. **Every coloured screen declares `NAV_ACTIVE = 'design/overview.html'`,** so the root sidebar shows the hub's own list in place of the roadmap: the way back to the hub at its top, a head per screen, its states, the grey original, the state you stand on lit. It is the mechanism the IA node pages already use with `ia/structure.html`, extended in `/_nav.js` by two lines: a row may be a head, and a hub may say which row is current. A state is matched by its switches, so an address with more on it, `?guest&v=1` or a lab's `?stage=h`, still lights the right row or falls back to the bare page.
+4. **UI + Visual is `live` and keeps `wip`,** so the stage is linked and Next stays on it; `done` waits for the stage's own end.
+
+**Rejected.** A second panel of the wireframes' kind beside the roadmap sidebar on the coloured screens: v4's layout is built on `#sidebar` and its width, and the inner panel already does the job. Listing the labs in the side menu: 27 rows would bury the screens, and the labs stay under Concept v4 in the roadmap and on the hub's cards.
+
+**The cost.** The open and the outcome are not pages of their own in colour: their rows name the address and say "press Open". The pack's design-only panel with its DESIGN badge is the root sidebar's inner panel here, a divergence named in this record.
