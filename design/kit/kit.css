@@ -44,7 +44,6 @@
   --color-text-hi: #FFFFFF; /* high emphasis, figures; наявний бренд, baseline.md 5 */
   --color-text: #9F9F9F; /* body; наявний бренд; рішення користувача, D-186 */
   --color-text-muted: #9E9DB1; /* meta, labels; наявний бренд; рішення користувача, D-186 */
-  --color-field-edge: #CECED4; /* edge of a field or a checkbox, never text; наявний бренд; рішення користувача, D-186 */
 
   /* Rarity ladder, rarest first */
   --color-rarity-1: #F6C915; /* rarity step 1; наявний бренд, baseline.md 13.4 */
@@ -53,7 +52,6 @@
   --color-rarity-4: #6B42B9; /* rarity step 4; наявний бренд, baseline.md 13.4 */
   --color-rarity-5: #3955E8; /* rarity step 5; наявний бренд, baseline.md 13.4 */
   --color-rarity-6: #305F8D; /* rarity step 6; наявний бренд, baseline.md 13.4 */
-  --color-rarity-7: #DDDDDD; /* rarity step 7; наявний бренд, baseline.md 13.4 */
 
   /* Type, the scale 13 15 18 24 40 */
   --size-xl: 40px; /* case name, the screen title, weight 900; рішення користувача, D-187 */
@@ -63,17 +61,10 @@
   --size-xs: 13px; /* meta, labels, the peg, weight 400; рішення користувача, D-187 */
 
   /* Shape, glow and the one family */
-  --size-action: 56px; /* height of every button; рішення користувача, D-187 */
-  --size-action-label: 20px; /* label of the one lit action, weight 900; large text; рішення користувача, D-187 */
   --radius-s: 8px; /* small: chips, ticker tiles; наявний бренд, baseline.md 13.2 */
   --radius-m: 16px; /* medium: cards, flanks, fields; наявний бренд, baseline.md 13.2 */
   --radius-l: 24px; /* large: the stage, panels; рішення користувача, D-186 */
   --radius-pill: 999px; /* every text button, the price chip; наявний бренд, baseline.md 13.2 */
-  --shadow-action: 0 8px 36px rgba(251, 63, 138, .45); /* the glow of the one lit action; рішення користувача, D-187; references.md S3 */
-  --shadow-glow: 0 0 12px; /* rarity glow, in the rarity colour; рішення користувача, D-187; references.md C1 */
-  --size-rarity-line: 2px; /* the line in the rarity colour along the foot of a card; рішення користувача, D-190; the live feed tile, D-59 */
-  --mix-rarity-tint: 18%; /* rarity colour in the tint rising from a card's foot; рішення користувача, D-188 */
-  --mix-rarity-pad: 42%; /* rarity colour in the lit pad under a skin; рішення користувача, D-188 */
   --font-family: Roboto, sans-serif; /* the one family, 400 500 700 900; наявний бренд, baseline.md 5; D-182 point 5 */
 
   /* Space, proposed at step 5 from the gaps The stage drew, D-187; confirmed or changed on this screen, DESIGN-artifacts 9 point 2 */
@@ -88,17 +79,11 @@
   /* Lines, proposed at step 6, open until the founder picks, DESIGN-artifacts 9 point 1 */
   --color-line-soft: #262950; /* a divider, the edge of a quiet surface; наявний бренд, baseline.md 13.2, the welcome dialog edge; proposed, рішення користувача, D-191 */
   --color-line: #353446; /* the edge of a control at rest; наявний бренд, baseline.md 13.2, the rail toggle edge; proposed, рішення користувача, D-191 */
-  --color-footer-edge: #65A3FF; /* the 2px line across the top of the footer; наявний бренд, baseline.md 13.2 */
 
   /* Depth, proposed at step 6, open, DESIGN-artifacts 9 point 3 */
-  --shadow-item: 0 4px 12px rgba(0, 0, 0, .5); /* an item lifted off its card; наявний бренд, baseline.md 13.2, the support button; proposed, рішення користувача, D-191 */
   --shadow-panel: 0 24px 48px -24px rgba(0, 0, 0, .7); /* a container over the ground: a dialog, a menu, the drawer; proposed, рішення користувача, D-191; technique S2 */
-  --color-scrim: rgba(6, 10, 30, .72); /* the ground behind a dialog; the ground at 72 %; структура, wireframes/_wf.css, stage 04 drew it black at 66 % */
 
   /* Light, the lit stage of D-188 moved here */
-  --mix-light-beam: 24%; /* blue in the brightest beam from above; рішення користувача, D-188 */
-  --mix-light-soft: 12%; /* blue in a soft beam, a glow behind a figure; рішення користувача, D-188 */
-  --mix-light-pad: 55%; /* blue at the centre of the pad under a case; рішення користувача, D-188 */
 
   /* The baseline look, taken as it is, D-192: computed styles of the baseline site read on 20 Oct 2026 */
   --size-unit: 11px; /* a countdown unit; наявний бренд, baseline walk of 20 Oct 2026, computed style, banner-timer__countdown-unit */
@@ -114,7 +99,6 @@
   --size-ticker: 120px; /* the live drop ticker; наявний бренд, baseline walk of 20 Oct 2026, computed style, drops-live-feed */
   --size-banner: 340px; /* the event banner at 1440; наявний бренд, baseline walk of 20 Oct 2026, computed style, banner-content */
   --size-mode: 160px; /* a mode card; наявний бренд, baseline walk of 20 Oct 2026, computed style, game-preview */
-  --size-daily: 344px; /* the Daily cases panel; наявний бренд, baseline walk of 20 Oct 2026, computed style, daily-cases-bg */
   --size-edge: 2px; /* the edge of a pill, filled or ghost; наявний бренд, baseline walk of 20 Oct 2026, computed style, rose-button border */
   --color-text-soft: #CECED4; /* a description on a mode card; наявний бренд, baseline walk of 20 Oct 2026, computed style, game-preview__description */
   --color-mode: #100F2C; /* a mode card; наявний бренд, baseline walk of 20 Oct 2026, computed style, game-preview */
@@ -124,10 +108,7 @@
   --color-risk-high: #D22BCE; /* a high-risk mark; наявний бренд, baseline walk of 20 Oct 2026, computed style drew #7E2DC8, 2.89:1, so rarity step 3 carries it */
 
   /* The baseline look, second pass, D-193: what the computed styles did not carry, read from the founder screenshots of 20 Oct 2026 */
-  --color-mode-glow: #2B1751; /* the purple glow at the art end of a mode card; наявний бренд, founder screenshots of 20 Oct 2026, pixel at the foot of the Cases card */
   --color-skull-off: #272D3F; /* a risk skull not lit; наявний бренд, founder screenshots of 20 Oct 2026, pixel, the dark skulls under a case */
-  --art-coin: radial-gradient(circle at 34% 30%, color-mix(in srgb, var(--color-text-hi) 70%, transparent) 0 8%, transparent 26%), radial-gradient(circle, transparent 0 46%, color-mix(in srgb, var(--color-ground) 45%, transparent) 48% 58%, transparent 60%), radial-gradient(circle, var(--color-gold) 0 62%, color-mix(in srgb, var(--color-gold) 62%, var(--color-ground)) 70%); /* the coin: a gold disc, a struck rim, a highlight; наявний бренд, founder screenshots of 20 Oct 2026, pixel, the coin beside a price, drawn in our gold */
-  --shape-hex: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cpolygon points=%2250,2 92,26 92,74 50,98 8,74 8,26%22 fill=%22%230A1230%22 fill-opacity=%22.55%22 stroke=%22%234E6FB8%22 stroke-opacity=%22.45%22 stroke-width=%221.6%22 stroke-dasharray=%224 3%22/%3E%3C/svg%3E"); /* the hexagon behind a drop in the ticker; наявний бренд, founder screenshots of 20 Oct 2026, pixel, the ticker drop; drawn as an outline */
 
   /* The baseline look, third pass, D-194: every block walked element by element, pseudo-elements included */
   --size-micro: 9px; /* a skin name under its weapon in the ticker; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, cases-live-tape-item h6 */
@@ -139,30 +120,7 @@
   --blur-mode: 40px; /* the blur of the light behind a mode card art; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, game-preview::before filter */
 
   /* Art of the Home, generated by Codex in our style, D-192 and D-193 */
-  --art-banner: url(../concept/assets/home/banner-coldfront.webp); /* the event banner; Codex image generation, D-192 */
-  --art-mode-cases: url(../concept/assets/home/mode-cases.webp); /* the Cases mode card; Codex image generation, D-192; redrawn D-193; a variation of the baseline mode art at the founder's ask, D-194; redrawn by Codex as one family with the case covers on the founder's mark, D-197 */
-  --art-mode-battles: url(../concept/assets/home/mode-battles.webp); /* the Case battles mode card; Codex image generation, D-192; a variation of the baseline mode art, D-194; redrawn by Codex as one family with the case covers on the founder's mark, D-197 */
-  --art-mode-showdowns: url(../concept/assets/home/mode-showdowns.webp); /* the Showdowns mode card; Codex image generation, D-192; a variation of the baseline mode art, D-194; redrawn by Codex as one family with the case covers on the founder's mark, D-197 */
-  --art-mode-upgrade: url(../concept/assets/home/mode-upgrade.webp); /* the Upgrade mode card; Codex image generation, D-192; a variation of the baseline mode art, D-194; redrawn by Codex as one family with the case covers on the founder's mark, D-197 */
-  --art-daily-bg: url(../concept/assets/home/daily-base.webp); /* the Daily cases panel, its base layer: three rifles in the dark, navy to magenta; Codex image generation, D-192; redrawn violet with a rifle silhouette, D-193; redrawn as a calm base layer under separate rings, dots and a plus, after the baseline panel's five layers, D-199 */
-  --art-daily-rings: url(../concept/assets/home/daily-rings.svg); /* the Daily cases panel, its ring layer: two rings and the turning arrows of the daily reset; drawn for D-199 after the layering of the baseline panel, walk of the baseline site on 22 Oct 2026, daily-cases-bg__circles */
-  --art-daily-1: url(../concept/assets/home/daily-1.webp); /* daily case, tier 1; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
-  --art-daily-2: url(../concept/assets/home/daily-2.webp); /* daily case, tier 2; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
-  --art-daily-3: url(../concept/assets/home/daily-3.webp); /* daily case, tier 3; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
-  --art-daily-4: url(../concept/assets/home/daily-4.webp); /* daily case, tier 4; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
-  --art-daily-5: url(../concept/assets/home/daily-5.webp); /* daily case, tier 5; Codex image generation, D-192; a variation of the baseline tier at the founder's ask, D-194 */
-  --art-banner-bg: url(../concept/assets/home/banner-bg.webp); /* the event banner, the arena alone, its back layer; Codex image generation, D-194, layers for motion */
-  --art-banner-case: url(../concept/assets/home/banner-case.webp); /* the event banner, the floating case; Codex image generation, D-194 */
-  --art-banner-operator: url(../concept/assets/home/banner-operator.webp); /* the event banner, the operator; Codex image generation, D-194 */
-  --art-banner-shards: url(../concept/assets/home/banner-shards.webp); /* the event banner, ice shards in front; Codex image generation, D-194 */
-  --art-banner-title: url(../concept/assets/home/banner-title.webp); /* the event banner, its title drawn as a logotype in ice; Codex image generation, D-195; the typed title stays in the page */
-  --art-case-ironbound: url(../concept/assets/home/cover-ironbound.webp); /* the Ironbound cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
-  --art-case-warsteel: url(../concept/assets/home/cover-warsteel.webp); /* the Warsteel cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
-  --art-case-coldfront: url(../concept/assets/home/cover-coldfront.webp); /* the Coldfront cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
-  --art-case-nightfall: url(../concept/assets/home/cover-nightfall.webp); /* the Nightfall cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
-  --art-case-emberforge: url(../concept/assets/home/cover-emberforge.webp); /* the Emberforge cover in the case grid, the fifth; Codex image generation, D-198: drawn in the family of the four covers at the founder's ask for five on a wide screen */
   --art-ground: url(../concept/assets/home/ground.webp); /* the page ground at the top of the page, two operators in the dark; Codex image generation, D-196: a variation of the baseline ground at the founder's mark that ours read lighter */
-  --color-footer-base: #030214; /* the strip under the footer, the copyright row; наявний бренд, walk of the baseline site on 22 Oct 2026, computed style, copyright-wrapper, D-196 */
 
   /* Motion of the event banner, D-194: the founder asked for a banner that moves as the baseline video does; motion is ours, not inherited, CLAUDE.md "Baseline" */
   --motion-drift: 26s; /* the arena drifting behind everything; підібрано під характер, D-194; slow enough to read as air, not as movement */
@@ -225,25 +183,15 @@
   --color-button-hover: #E8156A; /* the fill a little lighter under the pointer, founder of 4 Nov 2026: "на кнопках при ховери фон робити трохи світлишим"; the label holds 4.4:1 on it and 4.1:1 on its light stripe while hovered, under AA's 4.5, accepted as the cost; from buttons.css as --btn-fill-hover */
   --color-fair: #0B6A8C; /* the light end of the provably fair blue, Every round on Home and in the footer; was #0F7EA6, where white 13px sat at 3.3 to 3.9:1 under the plates' stripes; #0B6A8C holds white at 4.9:1 with the stripes over it, stage 06 critique of 10 Nov 2026, rows 4 and 5; рішення користувача, D-209 (Every round, footer I of 3 Nov 2026); value set by D-215; from theme.css as --v4-fair-blue */
   --color-tile: #0B0A22; /* the rail's tile fill, 31 Oct 2026, a dark near the page ground; рішення користувача, D-209, the side menu's tile marked OK by the founder on 4 Nov 2026; from theme.css as --v4-tile-bg */
-  --color-risk-extreme: #FF4D3D; /* the fourth band of the risk bolts, founder of 2 Nov 2026 in case-tiles.css: "4 штуки: Low, Medium, High и Extreme"; D-209; no case carries it yet, its threshold not decided; from case-tiles.css as --color-risk-extreme */
-  --color-rare-gold: var(--color-rarity-1); /* the rare drop's colour, --color-rarity-1, the top of the ladder, written as its variable since D-224; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-gold */
-  --color-rare-fire: #FF5A2E; /* ember, as Emberforge's light in v4; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-fire */
-  --color-rare-zap: #8FD3FF; /* lightning, --color-blue lifted; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-zap */
   --color-rail-icon-red: color-mix(in srgb, var(--color-rarity-2) 72%, var(--color-text-hi)); /* the rarity red lifted until it holds on a dark tile, as the Showdowns card's colour; підібрано під характер, D-209, the side menu's icons; from rail-icons.css as --ri-red */
   --color-rail-icon-cyan: color-mix(in srgb, var(--color-blue) 70%, var(--color-text-hi)); /* a gem's cold light, from the secondary accent; підібрано під характер, D-209, the side menu's icons; from rail-icons.css as --ri-cyan */
   /* A RARITY TIER'S PLATE, the round cards' two ends, read by proof-home.js and case-blocks.js as var(), stage 06 critique of 10 Nov 2026,
      row 15, D-215. r2, r4, r5 start on --color-rarity-2, -4, -5 and end on the mode cards' darks; r1 starts on the Upgrade card's gold, where
      white type holds; r3 is a violet between rarity 3 and 4 */
-  --color-plate-r1-a: #9E6905; /* from theme.css as --v4-plate-r1-a */
-  --color-plate-r1-b: #B4400F; /* from theme.css as --v4-plate-r1-b */
   --color-plate-r2-a: var(--color-rarity-2); /* from theme.css as --v4-plate-r2-a */
   --color-plate-r2-b: #7A0F22; /* from theme.css as --v4-plate-r2-b */
-  --color-plate-r3-a: #A62BC4; /* from theme.css as --v4-plate-r3-a */
-  --color-plate-r3-b: #4A1260; /* from theme.css as --v4-plate-r3-b */
   --color-plate-r4-a: var(--color-rarity-4); /* from theme.css as --v4-plate-r4-a */
   --color-plate-r4-b: #2E1A63; /* from theme.css as --v4-plate-r4-b */
-  --color-plate-r5-a: var(--color-rarity-5); /* from theme.css as --v4-plate-r5-a */
-  --color-plate-r5-b: #1B2A8F; /* from theme.css as --v4-plate-r5-b */
 
   /* v4: Sizes */
   --size-banner-v4: 440px; /* the banner at 1440; comp B, founder pick, the scene needs room for title, countdown and button stacked on its left; рішення користувача, D-209; the same job as --size-banner, 340px, direction 2: one of the two goes at step 3, D-224; from theme.css as --v4-banner-h */
@@ -264,9 +212,6 @@
 
   /* v4: Motion */
   --motion-ease-pop: cubic-bezier(.34, 1.56, .64, 1); /* a lift that overshoots and settles; підібрано під характер, design principle 2; from theme.css as --v4-ease-pop */
-  --motion-rail-icon: .95s; /* one story; longer than a state change because it is the event, shorter than a wait; підібрано під характер, design principle 2; D-209, the side menu's icons; from rail-icons.css as --ri-play */
-  --motion-ease-rail-icon: cubic-bezier(.3, .7, .3, 1); /* підібрано під характер; the side menu's icons, D-209; from rail-icons.css as --ri-ease */
-  --motion-rare-drop: 4s; /* one landing and its afterglow, then again; підібрано під характер, long enough to watch, short enough to compare; D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-loop */
 
   /* v4: Gradients, a kind of their own since D-224: a value that paints a surface and is neither a picture (--art-*) nor a percentage (--mix-*) */
   --gradient-mode-cases: linear-gradient(120deg, var(--color-pink), #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4; from theme.css as --v4-mode-cases */
@@ -284,7 +229,6 @@
   --shape-feed-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); /* a live drop's ring and its light in one mask, no filter; технічне рішення, the performance pass of 10 Nov 2026, D-214; from theme.css as --v4-feed-ring */
   --shape-ring-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 136 118'%3E%3Cpath d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z' fill='none' stroke='%23000' stroke-width='7' stroke-linejoin='round'/%3E%3C/svg%3E"); /* the ring a rare mark's current runs round; рішення користувача, D-214, rare-mark.css, founder of 10 Nov 2026; from rare-mark.css as --rm-ringmask */
   --shape-hex-glow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); /* the ring's light on W7's band and reel cards in one mask; технічне рішення, the performance pass of 10 Nov 2026, D-214; from case-stage.css as --v4-hex-glow */
-  --shape-case-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FF8DBD'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='r' x1='1' y1='0' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='22' height='2' fill='url(%23l)'/%3E%3Crect x='50' y='0' width='22' height='2' fill='url(%23r)'/%3E%3Cpath d='M22 0h28L36 17z' fill='url(%23g)'/%3E%3Cpath d='M29 3h14l-7 8z' fill='%23140F36'/%3E%3Ccircle cx='36' cy='21.5' r='2.2' fill='%23FB3F8A'/%3E%3C/svg%3E"); /* the reel's pointer, a cut chevron in the pink; рішення користувача, D-213, stage-lab.html rows H to J: "стрелочки сделай интереснее, визуальнее"; from case-stage.css as --v4c-mark */
 
   /* v4: Icons drawn for v4, a mask as the set above */
   --icon-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.4-4.5-9.6-9.1C.9 8.6 3 4.6 6.8 4.6c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 4 4.4 7.3C19.4 16.5 12 21 12 21z'/%3E%3C/svg%3E"); /* the favourite's heart and its burst; рішення користувача, D-209 update of 2 Nov 2026, round 4; from case-tiles.css as --v4-heart */
@@ -323,8 +267,66 @@
   --size-mark: 28px; /* рішення користувача, D-209; the plus and minus mark of a FAQ row; faq-home.css */
   --size-check: 20px; /* підібрано під характер; a checkbox or radio box; the fav glyph's size, case-tiles.css, so a box reads as one size with the icons */
   --size-switch-w: 40px; /* a switch's track; підібрано під характер, the medium button's height laid flat */
-  --color-edge-open: color-mix(in srgb, var(--color-pink) 60%, transparent); /* рішення користувача, D-209 round 8; an open FAQ row's edge, the pink at 60 %, faq-home.css */
+  --size-lead: 17px; /* рішення користувача, D-209; a lead paragraph and a FAQ question, seo-home.css and faq-home.css */
+  --color-text-lead: rgba(255, 255, 255, .9); /* рішення користувача, D-209; a lead paragraph's white at 90 %, seo-home.css */
+  --color-well: rgba(6, 8, 24, .6); /* рішення користувача, D-209 round 8; the sunken panel an open FAQ answer sits in, Home v4 */
+  --color-tile-veil: rgba(11, 10, 34, .7); /* рішення користувача, D-213; a count option not chosen, case-stage.css */
+  --gradient-edge-pink: linear-gradient(90deg, transparent, var(--color-pink) 50%, transparent); /* рішення користувача, D-209 round 8; the lit edges of an open FAQ row, Home v4 */
+  --tracking-link: .02em; /* рішення користувача, D-209; the onward link, theme.css ONE TEXT LINK */
   --size-switch-h: 24px; /* a switch's track height; підібрано під характер, the check box plus its 2px edges */
+
+  /* ===== v4's own art, stage 07 step 3, D-229: the pictures Home v4 and the case screen v4 draw, made variables so the kit draws the same.
+     Direction 2's art left the kit for design/archive/theme-d2.css; the paths are from design/kit/. Skins are Valve's own images and stay in concept/assets ===== */
+  --art-coin: url(../v4/art/brand/coin-6-small.svg); /* the coin, a bolt in a gold ring; rішення користувача, D-209, coin 6 of the brand lab, account-home.js and case-tiles.css */
+  --art-logo: url(../v4/art/brand/logo2-10.svg); /* the logo; rішення користувача, D-209, v4 theme.css */
+  --art-case-ironbound: url(../v4/art/cases-v2/ironbound-c.webp); /* a case's cover; rішення користувача, D-209, case-tiles.css */
+  --art-case-warsteel: url(../v4/art/cases-v2/warsteel-c.webp); /* rішення користувача, D-209, case-tiles.css */
+  --art-case-coldfront: url(../v4/art/cases-v2/coldfront-c.webp); /* rішення користувача, D-209, case-tiles.css */
+  --art-case-nightfall: url(../v4/art/cases-v2/nightfall-c.webp); /* rішення користувача, D-209, case-tiles.css */
+  --art-case-emberforge: url(../v4/art/cases-v2/emberforge-c.webp); /* rішення користувача, D-209, case-tiles.css */
+  --art-daily-silver: url(../v4/art/daily-cases-v2/silver.webp); /* a daily tier's case; rішення користувача, D-209, daily-home.js */
+  --art-daily-nova: url(../v4/art/daily-cases-v2/nova.webp); /* rішення користувача, D-209, daily-home.js */
+  --art-daily-guardian: url(../v4/art/daily-cases-v2/guardian.webp); /* rішення користувача, D-209, daily-home.js */
+  --art-daily-legend: url(../v4/art/daily-cases-v2/legend.webp); /* rішення користувача, D-209, daily-home.js */
+  --art-daily-elite: url(../v4/art/daily-cases-v2/elite.webp); /* rішення користувача, D-209, daily-home.js */
+  --art-mode-cases: url(../v4/art/mode-cases-obj4.webp); /* a mode card's object; rішення користувача, D-209, modes.css */
+  --art-mode-cases-burst: url(../v4/art/mode-cases-burst4.webp); /* rішення користувача, D-209, modes.css */
+  --art-mode-battles: url(../v4/art/mode-battles-clash.webp); /* rішення користувача, D-209, modes.css */
+  --art-mode-showdowns: url(../v4/art/mode-showdowns-obj4.webp); /* rішення користувача, D-209, modes.css */
+  --art-mode-showdowns-burst: url(../v4/art/mode-showdowns-burst4.webp); /* rішення користувача, D-209, modes.css */
+  --art-mode-upgrade: url(../v4/art/mode-upgrade-obj4.webp); /* rішення користувача, D-209, modes.css */
+  --art-mode-upgrade-burst: url(../v4/art/mode-upgrade-burst4.webp); /* rішення користувача, D-209, modes.css */
+  --art-banner-hero: url(../v4/art/banner-hero.webp); /* the event banner's scene; rішення користувача, D-209, banner.css */
+  --art-banner-aurora: url(../v4/art/banner-aurora.webp); /* rішення користувача, D-209, banner.css */
+  --art-banner-glow: url(../v4/art/banner-glow.webp); /* rішення користувача, D-209, banner.css */
+  --art-banner-plate: url(../v4/art/banner-plate.webp); /* rішення користувача, D-209, banner.css */
+  --art-banner-title: url(../v4/art/banner-title-d.webp); /* the event's title art; rішення користувача, D-209, banner.css */
+  --art-fx-bolt: url(../v4/art/fx/bolt-24.webp); /* a rare mark's current; рішення користувача, D-214, rare-mark.css */
+  --art-fx-plasma: url(../v4/art/fx/plasma-24.webp); /* рішення користувача, D-214, rare-mark.css */
+
+  /* ===== Kept at the cleanup of stage 07 step 3, D-229: v4's own scripts and rules reach these, some only for a rarity, a hover or a risk the
+     twelve measured loads did not draw (case-blocks.js builds the rarity plates by name), so they are the product's and stay ===== */
+  --color-scrim: rgba(6, 10, 30, .72); /* the ground behind a dialog; the ground at 72 %; структура, wireframes/_wf.css, stage 04 drew it black at 66 % */
+  --color-footer-base: #030214; /* the strip under the footer, the copyright row; наявний бренд, walk of the baseline site on 22 Oct 2026, computed style, copyright-wrapper, D-196 */
+  --color-mode-glow: #2B1751; /* the purple glow at the art end of a mode card; наявний бренд, founder screenshots of 20 Oct 2026, pixel at the foot of the Cases card */
+  --color-rare-gold: var(--color-rarity-1); /* the rare drop's colour, --color-rarity-1, the top of the ladder, written as its variable since D-224; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-gold */
+  --color-rare-fire: #FF5A2E; /* ember, as Emberforge's light in v4; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-fire */
+  --color-rare-zap: #8FD3FF; /* lightning, --color-blue lifted; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-zap */
+  --color-field-edge: #CECED4; /* edge of a field or a checkbox, never text; наявний бренд; рішення користувача, D-186 */
+  --color-footer-edge: #65A3FF; /* the 2px line across the top of the footer; наявний бренд, baseline.md 13.2 */
+  --color-rarity-7: #DDDDDD; /* rarity step 7; наявний бренд, baseline.md 13.4 */
+  --color-risk-extreme: #FF4D3D; /* the fourth band of the risk bolts, founder of 2 Nov 2026 in case-tiles.css: "4 штуки: Low, Medium, High и Extreme"; D-209; no case carries it yet, its threshold not decided; from case-tiles.css as --color-risk-extreme */
+  --color-plate-r1-a: #9E6905; /* from theme.css as --v4-plate-r1-a */
+  --color-plate-r1-b: #B4400F; /* from theme.css as --v4-plate-r1-b */
+  --color-plate-r3-a: #A62BC4; /* from theme.css as --v4-plate-r3-a */
+  --color-plate-r3-b: #4A1260; /* from theme.css as --v4-plate-r3-b */
+  --color-plate-r5-a: var(--color-rarity-5); /* from theme.css as --v4-plate-r5-a */
+  --color-plate-r5-b: #1B2A8F; /* from theme.css as --v4-plate-r5-b */
+  --size-daily: 344px; /* the Daily cases panel; наявний бренд, baseline walk of 20 Oct 2026, computed style, daily-cases-bg */
+  --motion-rail-icon: .95s; /* one story; longer than a state change because it is the event, shorter than a wait; підібрано під характер, design principle 2; D-209, the side menu's icons; from rail-icons.css as --ri-play */
+  --motion-ease-rail-icon: cubic-bezier(.3, .7, .3, 1); /* підібрано під характер; the side menu's icons, D-209; from rail-icons.css as --ri-ease */
+  --motion-rare-drop: 4s; /* one landing and its afterglow, then again; підібрано під характер, long enough to watch, short enough to compare; D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-loop */
+  --shape-case-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FF8DBD'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='r' x1='1' y1='0' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='22' height='2' fill='url(%23l)'/%3E%3Crect x='50' y='0' width='22' height='2' fill='url(%23r)'/%3E%3Cpath d='M22 0h28L36 17z' fill='url(%23g)'/%3E%3Cpath d='M29 3h14l-7 8z' fill='%23140F36'/%3E%3Ccircle cx='36' cy='21.5' r='2.2' fill='%23FB3F8A'/%3E%3C/svg%3E"); /* the reel's pointer, a cut chevron in the pink; рішення користувача, D-213, stage-lab.html rows H to J: "стрелочки сделай интереснее, визуальнее"; from case-stage.css as --v4c-mark */
 }
 
 /* the live drop tile on a phone, founder of 4 Nov 2026: "лайв фид в раза два меньше по высоте"; D-209; from design/v4/theme.css */
@@ -1746,7 +1748,7 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .icon--crown { --i: var(--icon-crown); } .icon--bolt { --i: var(--icon-bolt); } .icon--question { --i: var(--icon-question); } .icon--steam { --i: var(--icon-steam); }
 .icon--google { --i: var(--icon-google); } .icon--discord { --i: var(--icon-discord); } .icon--x { --i: var(--icon-x); } .icon--facebook { --i: var(--icon-facebook); }
 .icon--youtube { --i: var(--icon-youtube); } .icon--instagram { --i: var(--icon-instagram); } .icon--tiktok { --i: var(--icon-tiktok); } .icon--telegram { --i: var(--icon-telegram); }
-.icon--coin { background: var(--art-coin); -webkit-mask: none; mask: none; border-radius: 50%; }
+.icon--coin { background: var(--art-coin) center / contain no-repeat; -webkit-mask: none; mask: none; }
 
 /* FIGURE. A value with its unit, and its caption; money is gold at 900 and never moves (DESIGN.md, The Money Is Calm Rule). The missing form
    stands in for a value nobody has, D-124. From the header's money plate, design/v4/account-home.css. */
@@ -1771,7 +1773,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 
 /* LOGO. The mark in the rail and the footer; its asset is stage 06's, concept/assets/logo. */
 .logo { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-text-hi); text-decoration: none; }
-.logo__mark { display: block; height: var(--size-tile); width: auto; }
+.logo__mark { display: block; height: var(--size-tile); aspect-ratio: 3.74; background: var(--art-logo) left center / contain no-repeat; } /* the mark is the logo art, v4's logo2-10 */
 
 /* MEDIA SLOT. One framed image area with its aspect; a skin floats with no plate, case and mode art fills. */
 .media { position: relative; display: block; overflow: hidden; border-radius: var(--radius-card); background: var(--color-card-2); }
@@ -1780,22 +1782,26 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .media--square { aspect-ratio: 1; } .media--wide { aspect-ratio: 3 / 2; } .media--banner { aspect-ratio: 16 / 7; }
 
 /* TEXT LINK. The pink link that leads onward, with an arrow after it when it leaves the block. From the FAQ's "What this case pays", faq-home.css. */
-.link { color: var(--color-pink); font-weight: 700; text-decoration: none; text-underline-offset: .2em; }
-.link:hover { text-decoration: underline; }
+.link { color: var(--color-pink); font-weight: 700; letter-spacing: var(--tracking-link); text-decoration: none; transition: color .2s; }
+@media (hover: hover) { .link:hover { color: var(--color-text-hi); } }
+.link--arrow { font-size: var(--size-xs); }
 .link:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
 .link--arrow::after { content: ' \2192'; }
 .link--quiet { color: var(--color-text-soft); font-weight: 400; text-decoration: underline; }
 
 /* DISCLOSURE. A row that opens its panel, the plus turning to a minus; open, its edge takes the pink. From the FAQ, faq-home.css. Markup is
    details and summary, so it opens without a script. */
-.disclosure { border-radius: var(--radius-card); background: var(--gradient-row); box-shadow: var(--shadow-edge); }
-.disclosure[open] { box-shadow: inset 0 0 0 var(--size-hairline) var(--color-edge-open); }
-.disclosure > summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: var(--size-row); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5); color: var(--color-text-hi); font-size: var(--size-m); font-weight: 700; list-style: none; cursor: pointer; }
+.disclosure { position: relative; border-radius: var(--radius-card); background: var(--gradient-row); box-shadow: var(--shadow-edge); }
+.disclosure[open]::before, .disclosure[open]::after { content: ''; position: absolute; left: 0; right: 0; height: var(--size-edge); background: var(--gradient-edge-pink); pointer-events: none; }
+.disclosure[open]::before { top: 0; } .disclosure[open]::after { bottom: 0; }
+.disclosure > summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: var(--size-row); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5); color: var(--color-text-hi); font-size: var(--size-lead); font-weight: 700; line-height: 1.3; list-style: none; cursor: pointer; }
 .disclosure > summary::-webkit-details-marker { display: none; }
 .disclosure > summary:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--size-edge)); border-radius: var(--radius-card); }
-.disclosure > summary::after { content: ''; flex: none; width: var(--size-mark); height: var(--size-mark); border-radius: var(--radius-s); background: linear-gradient(currentColor, currentColor) center / 50% var(--size-edge) no-repeat, linear-gradient(currentColor, currentColor) center / var(--size-edge) 50% no-repeat, var(--color-tile); box-shadow: var(--shadow-edge); }
-.disclosure[open] > summary::after { background: linear-gradient(currentColor, currentColor) center / 50% var(--size-edge) no-repeat, var(--gradient-button-stripes), var(--color-pink); box-shadow: none; }
-.disclosure__body { max-width: var(--size-measure); padding: 0 var(--space-5) var(--space-5); color: var(--color-text-soft); font-size: var(--size-text); line-height: 1.55; }
+.disclosure > summary::after { --bar: calc(var(--size-edge) + var(--size-hairline)); --len: calc(var(--size-check) - var(--size-edge)); content: ''; flex: none; width: var(--size-mark); height: var(--size-mark); background: linear-gradient(currentColor, currentColor) center / var(--len) var(--bar) no-repeat, linear-gradient(currentColor, currentColor) center / var(--bar) var(--len) no-repeat; }
+.disclosure[open] > summary::after { color: var(--color-pink); background: linear-gradient(currentColor, currentColor) center / var(--len) var(--bar) no-repeat; }
+.disclosure__body { margin: 0 var(--space-3) var(--space-3); padding: var(--space-4); border-radius: var(--radius-s); background: var(--color-well); color: var(--color-text-soft); font-size: var(--size-text); line-height: 1.55; }
+.disclosure__body > p { margin: 0; max-width: 62ch; }
+.disclosure__body > .link { display: inline-block; margin-top: var(--space-3); }
 
 /* FAVOURITE TOGGLE. The heart with its count; pressed, it turns pink. From the case tile's corner, case-tiles.css. */
 .fav { display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--size-button-m); padding: 0 var(--space-2); border: 0; border-radius: var(--radius-s); background: var(--color-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-family: inherit; font-size: var(--size-label); font-weight: 700; font-variant-numeric: tabular-nums; cursor: pointer; }
@@ -1811,14 +1817,14 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .note--stamp { font-variant-numeric: tabular-nums; }
 
 /* PROSE. The page's own text, the SEO layer among it; a measure of 68ch. From the Home SEO block, seo-home.css. */
-.prose { max-width: var(--size-measure); color: var(--color-text-soft); font-size: var(--size-text); line-height: 1.65; }
+.prose { max-width: var(--size-measure); color: var(--color-text-lead); font-size: var(--size-lead); line-height: 1.65; }
 .prose > * + * { margin-top: var(--space-4); }
 .prose h2, .prose h3 { color: var(--color-text-hi); font-weight: 900; line-height: 1.2; }
 .prose a { color: var(--color-pink); }
 
 /* SEGMENTED CONTROL. Exclusive options in a row, one chosen and filled; the count switch 1 to 5 and the sort keys. From the case screen's count, case-stage.css. */
 .seg { display: inline-flex; gap: var(--space-2); }
-.seg__opt { display: inline-grid; place-items: center; min-width: var(--size-tap); min-height: var(--size-tap); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-button); background: var(--color-button-ghost); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-family: inherit; font-size: var(--size-s); font-weight: 900; font-variant-numeric: tabular-nums; cursor: pointer; }
+.seg__opt { display: inline-grid; place-items: center; min-width: var(--size-tap); min-height: var(--size-tap); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-button); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-family: inherit; font-size: var(--size-s); font-weight: 900; font-variant-numeric: tabular-nums; cursor: pointer; }
 .seg__opt[aria-pressed="true"] { background: var(--gradient-button-stripes), var(--color-button); box-shadow: var(--shadow-button); }
 .seg__opt:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
 
@@ -1860,21 +1866,27 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .input-unit > .input { flex: 1 1 auto; min-width: 0; box-shadow: none; background: none; } .input-unit > span { padding: 0 var(--space-3); color: var(--color-text-muted); font-size: var(--size-chip); white-space: nowrap; }
 .input-unit:focus-within { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
 .check, .radio { display: inline-flex; align-items: flex-start; gap: var(--space-3); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.45; cursor: pointer; }
-.check > input, .radio > input { appearance: none; flex: none; display: grid; place-items: center; width: var(--size-check); height: var(--size-check); margin: 0; border-radius: var(--radius-xs); background: var(--color-tile); box-shadow: inset 0 0 0 var(--size-edge) var(--color-line); cursor: pointer; }
+.check > input, .radio > input { appearance: none; flex: none; display: grid; place-items: center; width: var(--size-check); height: var(--size-check); margin: 0; border-radius: var(--radius-xs); background: var(--color-tile); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-text-muted); cursor: pointer; transition: background .15s, box-shadow .15s; }
+.check:hover > input:not(:checked), .radio:hover > input:not(:checked) { box-shadow: inset 0 0 0 var(--size-hairline) var(--color-button); } /* the box keeps one shape in every state; a refusal is said in the line beside it, D-58 */
 .radio > input { border-radius: 50%; }
 .check > input:checked { background: var(--color-button); box-shadow: none; }
 .check > input:checked::after { content: ''; width: 30%; height: 55%; margin-top: -10%; box-sizing: border-box; border: solid var(--color-text-hi); border-width: 0 var(--size-edge) var(--size-edge) 0; rotate: 45deg; }
 .radio > input:checked { box-shadow: inset 0 0 0 var(--size-edge) var(--color-button); }
 .radio > input:checked::after { content: ''; width: 50%; height: 50%; border-radius: 50%; background: var(--color-button); }
 .check > input:focus-visible, .radio > input:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
-.check.is-refused > input { box-shadow: inset 0 0 0 var(--size-edge) var(--color-down); }
 .switch { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--color-text-soft); font-size: var(--size-label); cursor: pointer; }
 .switch > input { appearance: none; position: relative; flex: none; width: var(--size-switch-w); height: var(--size-switch-h); margin: 0; border-radius: var(--radius-pill); background: var(--color-tile); box-shadow: inset 0 0 0 var(--size-edge) var(--color-line); cursor: pointer; transition: background .2s; }
 .switch > input::after { content: ''; position: absolute; top: var(--space-1); left: var(--space-1); width: calc(var(--size-switch-h) - 2 * var(--space-1)); height: calc(var(--size-switch-h) - 2 * var(--space-1)); border-radius: 50%; background: var(--color-text-soft); transition: translate .2s; }
 .switch > input:checked { background: var(--color-button); box-shadow: none; }
 .switch > input:checked::after { translate: calc(var(--size-switch-w) - var(--size-switch-h)) 0; background: var(--color-text-hi); }
 .switch > input:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
-.range { width: 100%; height: var(--size-check); margin: 0; background: none; accent-color: var(--color-button); cursor: pointer; }
+.range { --fill: 50%; width: 100%; height: var(--size-check); margin: 0; background: none; -webkit-appearance: none; appearance: none; cursor: pointer; } /* --fill is the share of the track lit, set by the page as the value moves */
+.range::-webkit-slider-runnable-track { height: var(--space-2); border-radius: var(--radius-pill); background: linear-gradient(var(--color-button), var(--color-button)) 0 0 / var(--fill) 100% no-repeat, var(--color-tile); box-shadow: var(--shadow-edge); }
+.range::-moz-range-track { height: var(--space-2); border-radius: var(--radius-pill); background: var(--color-tile); box-shadow: var(--shadow-edge); }
+.range::-moz-range-progress { height: var(--space-2); border-radius: var(--radius-pill); background: var(--color-button); }
+.range::-webkit-slider-thumb { -webkit-appearance: none; width: var(--size-check); height: var(--size-check); margin-top: calc((var(--space-2) - var(--size-check)) / 2); border-radius: 50%; background: var(--gradient-button-stripes), var(--color-button); box-shadow: inset 0 0 0 var(--size-edge) var(--color-text-hi), var(--shadow-button); }
+.range::-moz-range-thumb { width: var(--size-check); height: var(--size-check); border: 0; border-radius: 50%; background: var(--gradient-button-stripes), var(--color-button); box-shadow: inset 0 0 0 var(--size-edge) var(--color-text-hi), var(--shadow-button); }
+.range:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--space-1); border-radius: var(--radius-xs); }
 .file { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); color: var(--color-text-muted); font-size: var(--size-chip); }
 .file input { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 @media (prefers-reduced-motion: reduce) { .switch > input, .switch > input::after { transition: none; } }

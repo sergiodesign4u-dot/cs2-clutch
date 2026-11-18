@@ -489,3 +489,17 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--size-switch-h` | `24px` | a switch's track height; підібрано під характер, the check box plus its 2px edges | Switch |
 
 One value moved on the way and is named rather than hidden: v4 drew the inner hairline of a plate at .05, .06, .07 and .08 alpha for the same role; `--shadow-edge` takes .07, the header plate's and the FAQ row's.
+
+
+## 16. Stage 07 step 3, the kit holds only v4's language, `D-229`
+
+**Date:** 19 November 2026. The founder found the kit's showcase "like the screens but not them": an old coin, old case art, two kinds of checkbox, a browser range. The cause was the sheet itself: `kit.css` carried direction 2 and v4 together, as `D-224` had left them until step 3 chose. The founder chose "все как ти рекомендуешь".
+
+| What | Where it went | Proof |
+|---|---|---|
+| The whole sheet as it moved, with direction 2's values and art | `design/archive/theme-d2.css`, a byte copy of commit `d1a84a4` under a three line header | the 7 pages that record direction 2 (`design/index.html`, `index-account.html`, `v2-a`, `v2-b`, `v2-c`, `v3`, `concept/concept.html`) and the 27 v4 labs load it and render as before |
+| 12 values nothing reaches: `--size-action`, `--size-action-label`, `--shadow-action`, `--shadow-glow`, `--shadow-item`, `--size-rarity-line`, `--mix-rarity-tint`, `--mix-rarity-pad`, `--mix-light-beam`, `--mix-light-soft`, `--mix-light-pad`, `--shape-hex` | left the kit | no v4 sheet, script or kit rule names them |
+| 21 values `DESIGN.md` listed as not on the two screens, which v4 does reach for a rarity, a hover or a risk the twelve loads did not draw (`case-blocks.js` builds the rarity plates by name) | stay in the kit, in a block that says why | removing them dropped the Mil-spec plate on the case screen's recent drops |
+| Direction 2's art: the coin, the case covers, the daily cases, the mode art, the banner layers | left the kit; `--art-ground` stays, the one old picture v4 shows | the twelve loads render the same with each group set to none |
+| v4's own art | 26 variables at the end of `:root`, from `design/v4/art/`: the coin with the bolt, the logo, the five cases, the five daily tiers, the four modes and their bursts, the banner's five layers, two rare effects | the showcase draws them |
+| New values the atoms needed to match Home v4 | `--size-lead` 17px, `--color-text-lead`, `--color-well`, `--color-tile-veil`, `--tracking-link`, `--gradient-edge-pink`; `--color-edge-open` of section 15 left, v4 does not draw it | the side by side of each coloured atom with its original |

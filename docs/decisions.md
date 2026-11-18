@@ -7211,3 +7211,20 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** Keeping 14px for cards beside 12px for buttons. A large button of 44 on a phone. Prefixing every kit class to avoid collisions: one collision was found by rendering every page that loads the sheet and comparing it, and a prefix would have hidden the next one instead of showing it.
 
 **The cost.** The kit's look for the grey-only atoms (form controls, tabs, status steps) is read from the language, not from a screen, and is first seen on this page. 21 older variables still carry no origin word in their comment and are marked on the Tokens section. The new variables are accepted with the batch, not one by one.
+
+## D-229. Stage 07 step 3: the kit holds only the language of Home v4 and the case screen v4
+
+**Date:** 2026-11-19. **Stage:** 07. **Decided by:** the founder, after finding the kit's showcase "like the screens but not them, a bad copy" (translated) and asking where it was assembled from: "да делаем все как ти рекомендуешь" (yes, let's do everything as you recommend).
+
+**What was found.** The atoms of `D-228` had been rewritten from a few measured instances instead of carried over from v4's rules, the showcase drew direction 2's coin and case art, and `kit.css` still held direction 2 beside v4, the two answers `D-224` left for step 3 to choose between. The grey-only atoms were drawn from a description of the language; the checkbox had a second, red-edged shape for a refusal, and the range was the browser's own control.
+
+**What was decided.**
+
+1. **Direction 2 leaves the kit for an archive.** `design/archive/theme-d2.css` is the sheet as it moved, frozen; the 7 pages that record direction 2 and the 27 v4 labs load it and render as before. Home v4 and the case screen v4 stay on the kit.
+2. **The kit's values are v4's.** 12 values nothing reaches left. 21 that `DESIGN.md` listed as unused stay, because v4 reaches them for a rarity, a hover or a risk the measured loads did not draw. Direction 2's art left; v4's own art became 26 variables. `DESIGN-artifacts.md` section 16.
+3. **A coloured atom is carried over from v4 and checked beside its original,** not rewritten. The disclosure now opens into the sunken panel with the lit edges and the pink minus Home draws; the link, the lead paragraph and the count option take v4's values.
+4. **A grey-only atom is built from its nearest relative on the two screens.** The checkbox has one shape in every state, the founder's pick of the two drawn, and a refusal is said in the line beside it (`D-58`); the range is the count switch's pink on the tile's dark track.
+
+**Rejected.** Keeping both languages in one sheet until step 5. Deleting direction 2's values outright, which would have left the record pages unstyled.
+
+**The cost.** The kit's rules still carry the carried structure and direction 2's visual layer, parts 2 and 3, because Home v4 and the case screen still render through them; they leave when the screens move onto the kit's classes at step 5. One lab, `how-lab.html`, frames a variant of the case screen's How it works block that was not chosen and drew direction 2's banner case; that picture is gone from it.

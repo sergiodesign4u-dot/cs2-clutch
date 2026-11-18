@@ -468,6 +468,8 @@ Icons are masks in the colour of the text around them, Solar Bold plus drawn mar
 
 ## Not on these two screens
 
+**Updated after publication, 19 November 2026, `D-229`.** This list was read from twelve loads and missed what a rarity, a hover or a risk draws: 21 of its rows are reached by v4's own sheets and scripts and stay in the kit; the other 12 left it with direction 2's art for `design/archive/theme-d2.css`. `DESIGN-artifacts.md` section 16 names each.
+
 Declared in `design/kit/kit.css` (moved from `design/_theme.css` at step 3) and not reached by any rule or inline style on the twelve loads. They move to `design/kit/kit.css` byte for byte at step 3 like every other value; this file does not describe them as the language of the screens. Most are direction 2's language that v4 replaced: the 56px button and its glow, the 2px rarity line, the blue light mixes of the lit stage. Some wait for a screen that has their job: `--color-field-edge` for a field, `--color-risk-extreme` for a case that carries it, the tier 1, 3 and 5 plates for a round of those tiers.
 
 | Token | Value | Parent | Origin, as recorded |
