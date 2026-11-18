@@ -522,7 +522,7 @@ html body .v4c-go, html body .v4c-sell { gap: 14px; padding-right: 8px; } /* the
 .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-card { grid-template-columns: 1fr auto; grid-template-rows: auto 1fr auto auto auto; grid-template-areas: "wear odds" "art art" "name name" "v v" "x x"; align-items: center; gap: 4px 10px;
   width: 300px; max-width: 100%; height: 330px; padding: 16px 18px 16px; text-align: left; }
 .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-card::before { top: 0; bottom: auto; border-radius: 0 0 3px 3px; }
-.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-wear { display: block; grid-area: wear; align-self: start; color: var(--color-text-soft); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-wear { display: block; grid-area: wear; align-self: start; color: var(--color-text-soft); font-size: 12px; font-weight: 900; letter-spacing: .08em; }
 .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-odds { grid-area: odds; align-self: start; }
 .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-art { grid-area: art; height: 100%; min-height: 0; }
 .v4c-top[data-v="m"]:is([data-prize="x3"], [data-prize^="y"], [data-prize^="z"]) .v4c-win[data-count] .v4c-won-name { grid-area: name; align-items: flex-start; }

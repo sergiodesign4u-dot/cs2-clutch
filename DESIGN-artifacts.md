@@ -46,9 +46,9 @@ The plate column is the pixel actually sampled from the plate's swatch, shown so
 
 | Variable | Value | Role | Origin | Plate pixel | Attribute |
 |---|---|---|---|---|---|
-| `--color-pink` | `#FB3F8A` | the primary: the one lit action, the logo | `рішення користувача`, `D-185`; `піксель плейта, зона 2` | `#FB3F8A`, zone 2 | A3 |
+| `--color-pink` | `#FB3F8A` | the brand primary: the logo, a text link, the footer counters, a selected state; the act's fill is `--color-button` since `D-209`, `D-226` | `рішення користувача`, `D-185`; `піксель плейта, зона 2` | `#FB3F8A`, zone 2 | A3 |
 | `--color-blue` | `#65A3FF` | secondary accent | `наявний бренд`, `baseline.md` 5 | `#609DFC`, zone 2 | A1 |
-| `--color-gold` | `#FADA62` | the coin and every price | `наявний бренд`, `baseline.md` 5 | `#FADB58`, zone 2 | A5 |
+| `--color-gold` | `#FADA62` | the coin itself, a rail mark, the Daily tiers; every price is `--color-money` since `D-209`, `D-226` | `наявний бренд`, `baseline.md` 5 | `#FADB58`, zone 2 | A5 |
 | `--color-green` | `#33CC66` | success | `наявний бренд`, `baseline.md` 5 | `#25D562`, zone 2 | A5 |
 
 ### Text
@@ -56,7 +56,7 @@ The plate column is the pixel actually sampled from the plate's swatch, shown so
 | Variable | Value | Role | Origin | Plate pixel | Attribute |
 |---|---|---|---|---|---|
 | `--color-text-hi` | `#FFFFFF` | high emphasis, figures | `наявний бренд`, `baseline.md` 5, 221 elements | `#FEFEFE`, zone 2 | A5 |
-| `--color-text` | `#9F9F9F` | body | `наявний бренд`, `baseline.md` 5, 940 elements; `рішення користувача`, `D-186`, over `#A5A5A5` (174) | `#9B9B9B`, zone 2 | A5 |
+| `--color-text` | `#9F9F9F` | body in the rules carried from the grey screens; the body of v4 is `--color-text-soft` since `D-226` | `наявний бренд`, `baseline.md` 5, 940 elements; `рішення користувача`, `D-186`, over `#A5A5A5` (174) | `#9B9B9B`, zone 2 | A5 |
 | `--color-text-muted` | `#9E9DB1` | secondary lines, meta, labels | `наявний бренд`, `baseline.md` 5; `рішення користувача`, `D-186`, over `#727B8C`, which fails AA on a card | not on the plate | A3, calm |
 | `--color-field-edge` | `#CECED4` | the edge of a field or a checkbox, never text | `наявний бренд`, `baseline.md` 13.3, the checkbox edge; `рішення користувача`, `D-186` | not on the plate | A2 |
 
@@ -251,7 +251,7 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--size-mode` | `160px` | a mode card | `наявний бренд`, walk of 20 Oct 2026, game-preview |
 | `--size-daily` | `344px` | the Daily cases panel | `наявний бренд`, walk of 20 Oct 2026, daily-cases-bg |
 | `--size-edge` | `2px` | the edge of a pill, filled or ghost | `наявний бренд`, walk of 20 Oct 2026, rose-button border |
-| `--color-text-soft` | `#CECED4` | a description on a mode card | `наявний бренд`, walk of 20 Oct 2026, game-preview__description |
+| `--color-text-soft` | `#CECED4` | a description on a mode card; the body text of v4, `D-226` | `наявний бренд`, walk of 20 Oct 2026, game-preview__description |
 | `--color-mode` | `#100F2C` | a mode card | `наявний бренд`, walk of 20 Oct 2026, game-preview |
 | `--color-timer` | `rgba(2, 12, 23, .7)` | a countdown plate over art | `наявний бренд`, walk of 20 Oct 2026, banner-timer |
 | `--color-risk-low` | `#33CC66` | a low-risk mark | `наявний бренд`, walk of 20 Oct 2026, risk-level__skull |
@@ -409,3 +409,18 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--icon-question` | `SVG mask, data URI` | the FAQ heading's mark; рішення користувача, D-209 update of 2 Nov 2026, round 8 **Origin read from the sheet's header, not from the value.** | `--icon-question`, faq-home.css |
 
 53 rows; one more value, `--size-drop-v4: 86px` under 600px, stands in a media block after part 1. Section 7 still names Solar Linear; the icon style is chosen in step 2's control census, `D-222`.
+
+## 12. Stage 07 step 1, the founder's answers, `D-226`
+
+**Date:** 18 November 2026. `DESIGN.md` was formed from the code of v4 and set against this draft; where the code and the draft parted, the founder chose on a page of before and after crops: "Да все как ти рекомендуешь, только А3 - блюр оставляем мне так больше нравится". The rows of section 3 above were brought in line in place; what else follows from the answers:
+
+| What | Answer | Where it lands |
+|---|---|---|
+| Body text | `#CECED4`, `--color-text-soft`, 12.5:1 on the ground against 7.4:1 for `#9F9F9F` | section 3, the two text rows; the carried grey rules keep `--color-text` until step 3 |
+| Up and down | `#35E08A` up, `#FF5C7A` down, today literals in four block sheets | two variables declared at step 3, `--color-up` and `--color-down`, with this decision as their origin |
+| Weight 800 | moved to 900, the weight of every other figure | six rules in `design/v4/case-blocks.css` and `case-stage.css`; 0 text runs at 800 on the twelve measured loads after the change |
+| Pink and gold roles | the act fills with `--color-button` `#DF055C`, every price is `--color-money` `#FFC44D` | section 3, the pink and gold rows; both values were already the founder's, `D-209` |
+| The radii and the button heights | one ladder each, value by value with the founder | step 3; 17 radii and six button heights render today, `DESIGN.md` "Shapes" and "Components" |
+| Blur on a text plate | kept | `concept.md` section 1, point 1, now with a named exception |
+| Stripes | the texture mark of the act and of a section heading, nowhere else | `concept.md` section 1, point 2 |
+

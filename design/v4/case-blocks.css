@@ -241,7 +241,7 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
 .wf-main:has(.v4c-top) .wf-table[data-v="d"] .v4b-tier { padding: 16px 22px; border-radius: 16px;
   background: radial-gradient(50% 140% at 0% 50%, color-mix(in srgb, var(--r-lit) 18%, transparent), transparent 70%), linear-gradient(100deg, color-mix(in srgb, var(--r-lit) 8%, #0D0C2C), #0D0C2C 60%);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 22px rgba(3, 3, 16, .35); }
-.wf-main:has(.v4c-top) .wf-table[data-v="d"] .v4b-tier > * { padding: 0; background: none; border-radius: 0; box-shadow: none; color: var(--color-text-hi); font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.wf-main:has(.v4c-top) .wf-table[data-v="d"] .v4b-tier > * { padding: 0; background: none; border-radius: 0; box-shadow: none; color: var(--color-text-hi); font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums; }
 .wf-main:has(.v4c-top) .wf-table[data-v="d"] .v4b-tier th { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 900; }
 .v4o-hx { flex: none; width: 22px; height: 19px; background: linear-gradient(135deg, color-mix(in srgb, var(--r-lit) 55%, var(--color-text-hi)), var(--r-lit)); filter: drop-shadow(0 0 6px color-mix(in srgb, var(--r-lit) 70%, transparent));
   -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; }
@@ -329,12 +329,12 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
 /* the change under the observed figure, founder of 10 Nov 2026: green where it favours the player, red where it does not (case-blocks.js
    observed), the arrow for its direction */
 .wf-table[data-v="d"] td[data-l="Observed"] { display: flex; flex-direction: column; gap: 5px; }
-.v4o-dl { display: inline-flex; align-items: center; gap: 5px; margin-left: 13px; font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.v4o-dl { display: inline-flex; align-items: center; gap: 5px; margin-left: 13px; font-size: 12px; font-weight: 900; font-variant-numeric: tabular-nums; }
 .v4o-dl > span { font-size: 9px; }
 .v4o-dl.is-up { color: #35E08A; } .v4o-dl.is-dn { color: #FF5C7A; } .v4o-dl.is-eq { color: var(--color-text-soft); }
 /* the key under the table (microcopy 3.3-66): the two colours as dots with their names, then the rule in one line */
 .v4o-key { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin: 14px 0 0; color: var(--color-text-soft); font-size: 13px; line-height: 1.55; }
-.v4o-sw { display: inline-flex; align-items: center; gap: 7px; color: var(--color-text-hi); font-weight: 800; white-space: nowrap; }
+.v4o-sw { display: inline-flex; align-items: center; gap: 7px; color: var(--color-text-hi); font-weight: 900; white-space: nowrap; }
 .v4o-sw::before { content: ''; width: 8px; height: 8px; border-radius: 50%; }
 .v4o-sw.is-up::before { background: #35E08A; box-shadow: 0 0 8px rgba(53, 224, 138, .5); } .v4o-sw.is-dn::before { background: #FF5C7A; box-shadow: 0 0 8px rgba(255, 92, 122, .5); }
 .v4o-why { flex: 1 1 100%; max-width: 72ch; }
@@ -383,7 +383,7 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
 .v4t.is-still *, .v4t.is-still { transition: none !important; animation: none !important; }
 /* G, H and I (case-blocks.js ruler3): F tidied, the triangle gone. The line's ends as quiet figures, the ticket's number said once */
 .v4u-top { position: relative; }
-.v4u-ends { display: flex; justify-content: space-between; margin-top: 7px; color: var(--color-text-soft); font-size: 11px; font-weight: 800; letter-spacing: .03em; font-variant-numeric: tabular-nums; }
+.v4u-ends { display: flex; justify-content: space-between; margin-top: 7px; color: var(--color-text-soft); font-size: 11px; font-weight: 900; letter-spacing: .03em; font-variant-numeric: tabular-nums; }
 .v4u .v4t-pin { top: -6px; bottom: -6px; }
 /* G: the ends of the whole line over it, the ends of the item's line under it, two dashed lines between the two stretches */
 .v4u.is-g .v4u-top { display: flex; flex-direction: column-reverse; }
@@ -417,7 +417,7 @@ html.v4-focus body { min-height: 0 !important; overflow: hidden; }
 .v4u-scale { position: relative; height: 10px; margin-top: 5px; }
 .v4u-scale i { position: absolute; top: 0; left: calc(var(--k) * 1%); width: 1px; height: 5px; background: rgba(255, 255, 255, .22); }
 .v4u-scale i.is-q { height: 9px; background: rgba(255, 255, 255, .5); }
-.v4u-qs { position: relative; height: 14px; margin-top: 3px; color: var(--color-text-soft); font-size: 10px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.v4u-qs { position: relative; height: 14px; margin-top: 3px; color: var(--color-text-soft); font-size: 10px; font-weight: 900; font-variant-numeric: tabular-nums; }
 .v4u-qs span { position: absolute; left: calc(var(--k) * 1%); translate: -50% 0; white-space: nowrap; }
 .v4u-qs span:first-child { translate: 0 0; } .v4u-qs span:last-child { translate: -100% 0; }
 .v4u .v4t-cut { margin-top: 26px; }

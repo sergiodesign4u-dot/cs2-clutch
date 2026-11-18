@@ -21,8 +21,8 @@ Written on 19 October 2026 from the founder's own words, not inferred. The block
 **Anti-references, named.**
 - **The baseline as it is today**: dated, sharp corners, flat, static, boring. The baseline is the first anti-reference, at the level of finish only: its structure, colour, voice and type stay, `D-181`.
 - **AI slop.** The founder named it without listing it. It was translated into checkable markers and the founder confirmed them with amendments, in their words: "да, но с нюансами, прям все отказаться тоже не хочеться вот те же рефернси там у них есть свечения, градиенти, иконки в кружочках может бути, но в целом да иконок должно убти багато и еще и интерактивніх, там всякие штуки например бордери цветние сбоку со скруглениями и так далее, по генерациям скорее всего ми будем генерировать картинки под баннера, может по кейси, но тоже какие наши уникальние стильние кейси а вот скині". So slop is not a list of banned elements but one test: **an element that carries no job and no rarity.**
-  1. **Glass cards, blurred translucent panels.** Out.
-  2. **A glow or gradient with no job.** Out. Glows and gradients as such stay, as the references use them: each lights one thing, the primary action or a rarity, `references.md` S3 and C1.
+  1. **Glass cards, blurred translucent panels.** Out. **One exception since 18 November 2026, `D-226`:** a small plate that carries text over moving art may blur what is behind it, as the Live drops pill, the event countdown and the Not launched yet plate on a mode card do on v4. The founder, shown the plates with and without the blur: "блюр оставляем мне так больше нравится". A card or a panel is still never glass.
+  2. **A glow or gradient with no job.** Out. Glows and gradients as such stay, as the references use them: each lights one thing, the primary action or a rarity, `references.md` S3 and C1. **The diagonal stripes are our texture mark, `D-226`:** allowed on a filled act and on the tile beside a section heading, nowhere else. On a heading they carry no job; they stay there as the founder's pick of 2 November 2026, with this rule as their limit.
   3. **Icons as filler.** Out. Icons themselves are wanted, many of them and interactive, and an icon may sit in a circle where the circle is the control.
   4. **Radii and shadows chosen by eye** rather than taken from one ladder, `references.md` S1. Out.
   5. **Art that is not ours.** Out: generic stock, and generated art in no style of our own. In: generated banners, and generated case art in a style of our own. **Skins are never generated**: a skin is the real in-game item, because the job is "a rare skin I actually want", `jtbd.md`.
@@ -74,6 +74,18 @@ Five pairs. Each names the research row, the taste and the technique it is built
 **"Game-like" has lost two of its carriers.** On skin.fans most of the playfulness is carried by its cartoon illustration and its condensed display face, DIN Pro Cond, seen on `ref_skinfans_1440_19oct.png`. Both were rejected: the illustration as skin.fans's own voice, `references.md` 3.1, the display face by `D-182` point 5, Roboto only. So A4 puts the game feel on what this product already owns: the skins, their rarity colour, the baseline's own case and banner art, `walk7_home_1440_19oct.png`, and a step of scale in Roboto 900. The two ways back, both rejected:
 - (b) Roboto Condensed for headings only, a sibling of the inherited family, which would have amended `D-182` point 5;
 - (c) an illustration layer of our own, which no stage has scoped. Generated banner and case art in our own style is not that layer: it is content, and it is in.
+
+### 3.2 The attributes against the v4 screens, stage 07 step 1
+
+**Read on 18 November 2026, `D-226`.** `DESIGN.md` was formed from the code of Home v4 and the case screen v4, and each attribute was checked against what the screens render. Where a screen and an attribute parted, the founder chose on a page of before and after crops; every attribute below stands, and the screens move to it.
+
+| # | Holds on v4 | How v4 answers it, or what moves |
+|---|---|---|
+| A1 | yes | The event banner moves in layers, the rail's icons play a short story, the live drops pass overhead; depth is three dark surfaces and one soft card shadow. |
+| A2 | not yet, the screens move | Rounded, yes; of one piece, no: 17 radii render, and three buttons sit off the family's 32, 40 and 52px (the case act at 56px, two Daily buttons at 36 and 44px on a phone). Step 3 brings the radii onto one ladder and the buttons back to three heights, one value at a time with the founder. |
+| A3 | yes since `D-226` | Add funds and See Coldfront were filled beside the act; both are ghost buttons now, so each state has one filled act and the deposit is quiet. |
+| A4 | yes | Rarity is light: a ring on the skin card, a hexagon under a live drop, a lit plate per tier. The 2px rarity line of `D-190` is not drawn on v4; the ring and the hexagon replaced it. The stripes rule in section 1 is A4's limit on texture. |
+| A5 | yes | Every price is gold, `--color-money`, beside its chance; the published figures stand before the act at 44px. |
 
 ---
 

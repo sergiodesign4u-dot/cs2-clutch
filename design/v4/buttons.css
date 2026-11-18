@@ -69,6 +69,21 @@ html body .v4-btn:not([aria-disabled="true"]):not(:disabled):active, html body a
   html body .v4-btn--ghost:hover, html body .v4-btn--ghost:focus-visible { background-position: 100% 0 !important; }
 }
 
+/* ONE FILLED ACT PER STATE, D-226, founder of 18 Nov 2026 on stage 07 step 1, row A2: "все как ти рекомендуешь". Attribute A3 asks for
+   one lit act and calm money; Add funds in the header and See Coldfront on the banner were filled beside the act, so both take the
+   ghost of the family above, with the same hover and focus. The act of each state stays filled: Sign in for a guest, Open on a case. */
+html body .v4-ac a.ac2-dep, html body .wf-event a.wf-btn.wf-event-go {
+  background-color: rgba(11, 10, 34, .55); background-image: var(--gradient-button-sheen); background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-button); filter: none; }
+@media (hover: hover) {
+  html body .v4-ac a.ac2-dep:hover, html body .wf-event a.wf-btn.wf-event-go:hover {
+    background-color: rgba(223, 5, 92, .2); background-image: var(--gradient-button-sheen); background-size: 300% 100%; background-position: 0% 0; background-repeat: no-repeat;
+    box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-button), 0 4px 14px rgba(223, 5, 92, .2); }
+}
+html body .v4-ac a.ac2-dep:focus-visible, html body .wf-event a.wf-btn.wf-event-go:focus-visible { background-color: rgba(223, 5, 92, .2); background-position: 0% 0;
+  box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-button), 0 4px 14px rgba(223, 5, 92, .2); }
+html body .v4-ac a.ac2-dep:active, html body .wf-event a.wf-btn.wf-event-go:active { box-shadow: inset 0 0 0 var(--size-edge, 2px) var(--color-button); }
+
 /* ICON BUTTONS, founder of 4 Nov 2026: "ще треба додати ось такі кнопки у список". Two kinds, named here once and drawn by Home through its own markup.
    The icon button: the side menu's tile at rest, theme.css ONE SMALL TILE, the button pink --color-button with its stripes under the pointer; the footer's social squares.
    The ghost's edge and the icon button's hover were the brand pink, lighter than the filled button beside them, until the founder, 4 Nov 2026: "для кнопки где icon ховер светлее

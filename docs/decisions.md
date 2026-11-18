@@ -7154,3 +7154,25 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** A second panel of the wireframes' kind beside the roadmap sidebar on the coloured screens: v4's layout is built on `#sidebar` and its width, and the inner panel already does the job. Listing the labs in the side menu: 27 rows would bury the screens, and the labs stay under Concept v4 in the roadmap and on the hub's cards.
 
 **The cost.** The open and the outcome are not pages of their own in colour: their rows name the address and say "press Open". The pack's design-only panel with its DESIGN badge is the root sidebar's inner panel here, a divergence named in this record.
+
+## D-226. Stage 07 step 1: DESIGN.md is read from v4's code, and every attribute stands with the screens moving to it
+
+**Date:** 2026-11-18. **Stage:** 07. **Decided by:** the founder, on a page of before and after crops of v4 with two ways per row and a recommendation: "Да все как ти рекомендуешь, только А3 - блюр оставляем мне так больше нравится" (Yes, everything as you recommend, only A3: we keep the blur, I like it better that way).
+
+**What was decided.**
+
+1. **`DESIGN.md` stands at the root,** formed by `/impeccable document` from Home v4 and the case screen v4 in twelve loads (guest and signed in, an open landing a big gain and a loss, each at 1440 and 375), every stylesheet rule that matched read for its variables and every visible element for its computed style. 165 of the 210 declared values reach the screens; 113 tokens are tabulated with a one word parent and the origin carried as recorded; 45 values are listed as not on these two screens. Its north star is "The Stage", direction 2's name, confirmed. The impeccable sidecar `.impeccable/design.json` is not written: the project has no live panel, and a second file of the same tokens would be a second source.
+2. **A1, attribute A2 stands and the screens move.** 17 radii render, and three buttons sit off the family's 32, 40 and 52px: the case act at 56px at 1440, Daily's Open at 36px and its guest Sign in at 44px on a phone. Step 3 brings the radii onto one ladder and the buttons back to three heights, one value at a time with the founder.
+3. **A2, attribute A3 stands and the screens moved.** Add funds in the header and See Coldfront on the banner were filled beside the act; both are the family's ghost now, `design/v4/buttons.css`. Measured after: every state shows one filled act in its first screen, except Home for a guest at 1440, where Sign in and Open a case are both filled; that pair was not in this row and is named here, not changed.
+4. **A3, the blur stays, and the taste gains its one exception:** a small plate that carries text over moving art may blur what is behind it. Cards and panels are still never glass. `concept.md` section 1, point 1.
+5. **A4, the stripes are our texture mark,** allowed on a filled act and on the tile beside a section heading, nowhere else. `concept.md` section 1, point 2.
+6. **B1, the body text is `#CECED4`,** `--color-text-soft`, as v4 already draws it; `#9F9F9F` keeps the rules carried from the grey screens until step 3.
+7. **B2, up and down keep `#35E08A` and `#FF5C7A`** and become `--color-up` and `--color-down` at step 3, with this decision as their origin.
+8. **B3, weight 800 moved to 900** on six rules in `design/v4/case-blocks.css` and `case-stage.css`; measured after: 0 text runs at 800.
+9. **B4, the pink and gold role lines** in `DESIGN-artifacts.md` section 3 now say what the screens do: the act fills with `--color-button`, every price is `--color-money`.
+
+`concept.md` section 3.2 reads each attribute against the screens; `DESIGN-artifacts.md` section 12 lists where each answer lands; `concept.html` carries an "Updated after publication" line.
+
+**Rejected.** Narrowing A2 to "rounded, not sharp". Rewriting A3 as one filled act per zone and keeping the deposit lit. Removing the blur. Removing the stripes from headings. Going back to `#9F9F9F` for the body. Mapping up and down onto the brand green and the rarity red, the red too dark at 12px. Admitting 800 as a fifth weight.
+
+**The cost.** A1 is a promise until step 3, and it moves values the founder already picked. The blur is an exception to the founder's own slop list, kept by taste. Home for a guest still lights two buttons at 1440.
