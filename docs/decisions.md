@@ -7183,7 +7183,7 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 
 **What was decided.**
 
-1. **`design/kit/inventory.md` is the product's one component list.** Read in a browser at 360 and 1440 from the 133 product pages of `wireframes/`, mapped to 42 IA nodes through `WF_NAV.screens`. 68 components, 25 atoms, 22 molecules and 21 organisms; 28 one-offs stay out of the kit.
+1. **`design/kit/inventory.md` is the product's one component list.** Read in a browser at 360 and 1440 from the 133 product pages of `wireframes/`, mapped to 42 IA nodes through `WF_NAV.screens`. ~~68 components, 25 atoms,~~ **67 components, 24 atoms since `D-228`, which found the help directory a misread: `wf-dir` holds which way a limit moves and when (Extend: Immediately), a key-value line,** 22 molecules and 21 organisms; 28 one-offs stay out of the kit.
 2. **A screen is an IA node, and what stands behind a layer does not count for the layer.** "Two or more screens" means two nodes, so the 16 pages of History are one screen; the case screen's blocks behind the geo gate do not appear on node 2.1.
 3. **Two readings of the level rule:** a glyph or a pinned figure that never stands alone is a zone of its control, so a button with an icon stays an atom; a link inside running text is text. The level is recomputed from each row's contents; four rows moved on that check.
 4. **Six merges stand,** each by the zones and their order: item card (my items, the ledger, the public shelf), field (settings rows, limit rows, the verifier, the support form, the declarations), status notice (notices and the Steam failure), empty state, copyable value, disclosure.
@@ -7194,3 +7194,20 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** Option B, keeping the three drawn rail marks as outlines named as an exception: the rail would keep two styles side by side, which `D-222` point 4 asked this census to end. Counting pages instead of nodes. Counting a dialog's backdrop as the dialog's. Raising every button with an icon to level 2. Reading the icons' style from the `stroke` attribute, which called five filled marks outlines; they were read by eye on one rendered sheet.
 
 **The cost.** The merges are Claude's judgement accepted in one look; stage 08 may split one, and the table says which zones each was judged on. The census counts per page, so a shell control weighs once on every page. The inventory has no page of its own in the repo until step 3. Three icons are owed as redraws.
+
+## D-228. Stage 07 step 3, batch 1: the corners take one ladder, the large button is 52 at every width, and the atoms enter the kit
+
+**Date:** 2026-11-19. **Stage:** 07. **Decided by:** the founder, on the ladders page with before and after crops from v4: "1. да А 2. Да как ти рекомендуешь" (1. yes, A. 2. yes, as you recommend). This closes the promise of `D-226` row A1.
+
+**What was decided.**
+
+1. **The corner ladder is 4, 8, 12, 16, 24 and round.** 12 and 14 become 12, 16 and 18 become 16, 6, 8, 9 and 10 become 8, 20 becomes 24, and 1, 2, 3 and 5 become the new `--radius-xs`, 4px. The other steps were already variables: `--radius-s`, `--radius-card` and `--radius-button`, `--radius-m`, `--radius-l`, `--radius-pill`. The kit's classes use only these; the screens move onto them at step 5.
+2. **Three button heights, 32, 40 and 52, at every width.** The case act's 56 and Daily's 36 return to the family, and the large button on a phone is 52, not 44. The rail's and the header's square controls, 42 and 46, take the size of the rail row and the avatar and are not buttons of the family.
+3. **The 24 atoms are in `design/kit/kit.css`, part 4.1,** one class per component with its variants as modifiers, read from v4's code where v4 draws them and from the grey structure and `DESIGN.md` where it does not. The button is `.button`, not `.btn`: the concept stand already owns a `.btn`, and the first build changed its buttons; the rename left all 37 pages that load the sheet as they were, except where `D-227`'s filled diamond now draws.
+4. **32 new variables carry the values the atoms need,** each with its origin and the component that needs it, `DESIGN-artifacts.md` section 15. `--color-up` and `--color-down` are `D-226` row B2; `--icon-close` and `--icon-diamond` took their filled twins, `D-227`. The inner hairline v4 drew at four alphas is one, .07.
+5. **`design/kit/kit.html` is the kit's showcase** with the atoms and their states, every `:root` variable live with its origin word, and the inventory with its one-offs and both cross-check lists; the side menu of every screen in colour now carries "Kit of components".
+6. **The inventory is 67 components, not 68.** The atom named Help directory was `wf-dir`, which says which way a limit moves and when; it is a key-value line, and `D-227` is corrected in place.
+
+**Rejected.** Keeping 14px for cards beside 12px for buttons. A large button of 44 on a phone. Prefixing every kit class to avoid collisions: one collision was found by rendering every page that loads the sheet and comparing it, and a prefix would have hidden the next one instead of showing it.
+
+**The cost.** The kit's look for the grey-only atoms (form controls, tabs, status steps) is read from the language, not from a screen, and is first seen on this page. 21 older variables still carry no origin word in their comment and are marked on the Tokens section. The new variables are accepted with the batch, not one by one.

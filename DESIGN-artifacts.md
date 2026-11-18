@@ -447,3 +447,45 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | 36 links `_theme.css` became `kit/kit.css` | every page in `design/` that loaded the sheet: v2, v3, v4 and its labs, the first copies, the concept stand | the pack moves the seeded screens onto kit classes at step 5; a dead link until then would have left 36 published pages unstyled |
 
 **Proof.** Every one of the 37 pages that load the sheet was measured before and after: no request fails, and 33 pages plus all twelve seeded loads (Home and the case screen, guest, signed in, a gain, a loss, at 360 and 1440) render pixel for pixel the same. The four that differ differ by the same amount between two captures taken before the move, from their own motion. The before captures are kept on disk in `_archive/stage07-before/` with the script that took them, out of the published site, which carries only what a page cites (`D-223`).
+
+
+## 15. Stage 07 step 3, batch 1, the atoms: new variables, `D-228`
+
+**Date:** 19 November 2026. The kit's atoms read every value from `:root`, and v4 drew many of them as literals in its block sheets. Each literal an atom needs became a variable at the end of `:root` in `design/kit/kit.css`, with the value v4 draws, its origin and the component that needs it. `--radius-xs` and the button heights are the founder's answers on the ladders page; `--color-up` and `--color-down` are `D-226` row B2; the rest are listed here for the founder at the batch's gate, and a value the founder changes is changed in its one variable.
+
+| Variable | Value | Origin, as in the file | Needed by |
+|---|---|---|---|
+| `--radius-xs` | `4px` | thin lines and small marks; рішення користувача, D-228, the corner ladder 4 8 12 16 24, option A | thin lines, check box, close bars |
+| `--color-up` | `#35E08A` | a figure that went up, the net of a gain; рішення користувача, D-226 row B2, was a literal in four v4 block sheets | Figure, up |
+| `--color-down` | `#FF5C7A` | a figure that went down; рішення користувача, D-226 row B2, was a literal in four v4 block sheets | Figure, down; refusal note; invalid field |
+| `--color-button-ghost` | `rgba(11, 10, 34, .55)` | the ghost button's fill, the tile at 55 %; рішення користувача, D-209 update of 2 Nov 2026, buttons.css | Button, ghost; Segmented, not chosen |
+| `--color-button-ghost-hover` | `rgba(223, 5, 92, .2)` | the ghost under the pointer, the button pink at 20 %; рішення користувача, D-209 update of 4 Nov 2026, buttons.css | Button, ghost under the pointer; Status steps, now |
+| `--shadow-button-ghost` | `0 4px 14px rgba(223, 5, 92, .2)` | the ghost's glow under the pointer; рішення користувача, D-209 update of 4 Nov 2026, buttons.css | Button, ghost |
+| `--shadow-button-press` | `0 2px 8px rgba(223, 5, 92, .3)` | pressed, the glow tightens; рішення користувача, D-209 update of 4 Nov 2026, buttons.css | Button, pressed |
+| `--color-disabled` | `rgba(150, 160, 215, .14)` | the wash of a control that is busy; buttons.css; D-58 keeps controls live, so it shows only while a round rolls | Button, busy |
+| `--shadow-edge` | `inset 0 0 0 1px rgba(255, 255, 255, .07)` | the inner hairline of a plate, a FAQ row, a chip; v4 drew .05 to .08 for the one role, D-228 takes .07, the header plate's and the FAQ row's | plates, FAQ row, chips, fields |
+| `--color-veil` | `rgba(6, 8, 24, .78)` | a dark plate over art, the header's money plate; account-home.css, рішення користувача, D-209 | Favourite toggle; the money plate (molecule batch) |
+| `--color-veil-soft` | `rgba(6, 8, 24, .45)` | the close button's see-through tile; buttons.css, founder of 3 Nov 2026 | Button, close |
+| `--color-error` | `#FF4D6A` | the close cross under the pointer; buttons.css, founder of 3 Nov 2026: "крестик становится красным" | Button, close under the pointer |
+| `--color-badge-ink` | `#3A2600` | рішення користувача, D-209; the text on a gold badge; account-home.css, the 5 % bonus badge | Badge on gold |
+| `--gradient-row` | `linear-gradient(180deg, #16133C, #100E2E)` | a FAQ row's fill; faq-home.css, D-209 round 8 | Disclosure |
+| `--shadow-avatar` | `0 0 0 1px rgba(255, 255, 255, .12)` | рішення користувача, D-209; an avatar's ring; account-home.css | Avatar |
+| `--shadow-avatar-s` | `0 0 0 1px rgba(255, 255, 255, .25)` | рішення користувача, D-209; a 16px avatar's ring, stronger to read at that size; the ticker, v4 theme | Avatar, small |
+| `--size-hairline` | `1px` | технічне рішення; a hairline rule or ring; the 1px of every inset edge the screens draw | every 1px edge |
+| `--tracking-caps` | `.06em` | the letter spacing of an uppercase button label; buttons.css, D-209 update of 2 Nov 2026 | Button label |
+| `--tracking-label` | `.08em` | наявний бренд, DESIGN.md typography; an uppercase field label or key; DESIGN.md typography, label | key, field label, status badge |
+| `--size-button-l-pad` | `28px` | рішення користувача, D-209; the large button's side padding; buttons.css | Button, large |
+| `--size-button-m-pad` | `20px` | рішення користувача, D-209; the medium button's side padding; buttons.css | Button, medium |
+| `--size-button-s-pad` | `14px` | рішення користувача, D-209; the small button's side padding; buttons.css | Button, small |
+| `--size-badge` | `16px` | рішення користувача, D-209; a badge's height; account-home.css | Badge |
+| `--size-avatar-s` | `16px` | рішення користувача, D-209; the ticker's avatar; v4 theme | Avatar, small |
+| `--size-avatar-m` | `32px` | рішення користувача, D-209; the header's avatar; account-home.css | Avatar |
+| `--size-close` | `36px` | рішення користувача, D-209; the close button; buttons.css | Button, close |
+| `--size-row` | `64px` | рішення користувача, D-209; a FAQ row's height on a desktop; faq-home.css | Disclosure |
+| `--size-mark` | `28px` | рішення користувача, D-209; the plus and minus mark of a FAQ row; faq-home.css | Disclosure mark |
+| `--size-check` | `20px` | підібрано під характер; a checkbox or radio box; the fav glyph's size, case-tiles.css, so a box reads as one size with the icons | Checkbox, Radio, Range, Status steps |
+| `--size-switch-w` | `40px` | a switch's track; підібрано під характер, the medium button's height laid flat | Switch |
+| `--color-edge-open` | `color-mix(in srgb, var(--color-pink) 60%, transparent)` | рішення користувача, D-209 round 8; an open FAQ row's edge, the pink at 60 %, faq-home.css | Disclosure, open |
+| `--size-switch-h` | `24px` | a switch's track height; підібрано під характер, the check box plus its 2px edges | Switch |
+
+One value moved on the way and is named rather than hidden: v4 drew the inner hairline of a plate at .05, .06, .07 and .08 alpha for the same role; `--shadow-edge` takes .07, the header plate's and the FAQ row's.

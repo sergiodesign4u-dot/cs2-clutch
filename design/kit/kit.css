@@ -194,7 +194,7 @@
   --icon-settings: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M14.2788 2.15224C13.9085 2 13.439 2 12.5 2C11.561 2 11.0915 2 10.7212 2.15224C10.2274 2.35523 9.83509 2.74458 9.63056 3.23463C9.53719 3.45834 9.50065 3.7185 9.48635 4.09799C9.46534 4.65568 9.17716 5.17189 8.69017 5.45093C8.20318 5.72996 7.60864 5.71954 7.11149 5.45876C6.77318 5.2813 6.52789 5.18262 6.28599 5.15102C5.75609 5.08178 5.22018 5.22429 4.79616 5.5472C4.47814 5.78938 4.24339 6.1929 3.7739 6.99993C3.30441 7.80697 3.06967 8.21048 3.01735 8.60491C2.94758 9.1308 3.09118 9.66266 3.41655 10.0835C3.56506 10.2756 3.77377 10.437 4.0977 10.639C4.57391 10.936 4.88032 11.4419 4.88029 12C4.88026 12.5581 4.57386 13.0639 4.0977 13.3608C3.77372 13.5629 3.56497 13.7244 3.41645 13.9165C3.09108 14.3373 2.94749 14.8691 3.01725 15.395C3.06957 15.7894 3.30432 16.193 3.7738 17C4.24329 17.807 4.47804 18.2106 4.79606 18.4527C5.22008 18.7756 5.75599 18.9181 6.28589 18.8489C6.52778 18.8173 6.77305 18.7186 7.11133 18.5412C7.60852 18.2804 8.2031 18.27 8.69012 18.549C9.17714 18.8281 9.46533 19.3443 9.48635 19.9021C9.50065 20.2815 9.53719 20.5417 9.63056 20.7654C9.83509 21.2554 10.2274 21.6448 10.7212 21.8478C11.0915 22 11.561 22 12.5 22C13.439 22 13.9085 22 14.2788 21.8478C14.7726 21.6448 15.1649 21.2554 15.3694 20.7654C15.4628 20.5417 15.4994 20.2815 15.5137 19.902C15.5347 19.3443 15.8228 18.8281 16.3098 18.549C16.7968 18.2699 17.3914 18.2804 17.8886 18.5412C18.2269 18.7186 18.4721 18.8172 18.714 18.8488C19.2439 18.9181 19.7798 18.7756 20.2038 18.4527C20.5219 18.2105 20.7566 17.807 21.2261 16.9999C21.6956 16.1929 21.9303 15.7894 21.9827 15.395C22.0524 14.8691 21.9088 14.3372 21.5835 13.9164C21.4349 13.7243 21.2262 13.5628 20.9022 13.3608C20.4261 13.0639 20.1197 12.558 20.1197 11.9999C20.1197 11.4418 20.4261 10.9361 20.9022 10.6392C21.2263 10.4371 21.435 10.2757 21.5836 10.0835C21.9089 9.66273 22.0525 9.13087 21.9828 8.60497C21.9304 8.21055 21.6957 7.80703 21.2262 7C20.7567 6.19297 20.522 5.78945 20.2039 5.54727C19.7799 5.22436 19.244 5.08185 18.7141 5.15109C18.4722 5.18269 18.2269 5.28136 17.8887 5.4588C17.3915 5.71959 16.7969 5.73002 16.3099 5.45096C15.8229 5.17191 15.5347 4.65566 15.5136 4.09794C15.4993 3.71848 15.4628 3.45833 15.3694 3.23463C15.1649 2.74458 14.7726 2.35523 14.2788 2.15224ZM12.5 15C14.1695 15 15.5228 13.6569 15.5228 12C15.5228 10.3431 14.1695 9 12.5 9C10.8305 9 9.47716 10.3431 9.47716 12C9.47716 13.6569 10.8305 15 12.5 15Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:settings-bold, D-193 */
   --icon-shield: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M3.37752 5.08241C3 5.62028 3 7.21907 3 10.4167V11.9914C3 17.6294 7.23896 20.3655 9.89856 21.5273C10.62 21.8424 10.9807 22 12 22C13.0193 22 13.38 21.8424 14.1014 21.5273C16.761 20.3655 21 17.6294 21 11.9914V10.4167C21 7.21907 21 5.62028 20.6225 5.08241C20.245 4.54454 18.7417 4.02996 15.7351 3.00079L15.1623 2.80472C13.595 2.26824 12.8114 2 12 2C11.1886 2 10.405 2.26824 8.83772 2.80472L8.26491 3.00079C5.25832 4.02996 3.75503 4.54454 3.37752 5.08241ZM15.0595 10.4995C15.3353 10.1905 15.3085 9.71642 14.9995 9.44055C14.6905 9.16467 14.2164 9.19151 13.9405 9.50049L10.9286 12.8739L10.0595 11.9005C9.78358 11.5915 9.30947 11.5647 9.00049 11.8405C8.69151 12.1164 8.66467 12.5905 8.94055 12.8995L10.3691 14.4995C10.5114 14.6589 10.7149 14.75 10.9286 14.75C11.1422 14.75 11.3457 14.6589 11.488 14.4995L15.0595 10.4995Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:shield-check-bold, D-193 */
   --icon-out: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath fill-rule=%22evenodd%22 d=%22M16.125 12C16.125 11.5858 15.7892 11.25 15.375 11.25L4.40244 11.25L6.36309 9.56944C6.67759 9.29988 6.71401 8.8264 6.44444 8.51191C6.17488 8.19741 5.7014 8.16099 5.38691 8.43056L1.88691 11.4306C1.72067 11.573 1.625 11.7811 1.625 12C1.625 12.2189 1.72067 12.427 1.88691 12.5694L5.38691 15.5694C5.7014 15.839 6.17488 15.8026 6.44444 15.4881C6.71401 15.1736 6.67759 14.7001 6.36309 14.4306L4.40244 12.75L15.375 12.75C15.7892 12.75 16.125 12.4142 16.125 12Z%22 clip-rule=%22evenodd%22/%3E%3Cpath d=%22M9.375 8C9.375 8.70219 9.375 9.05329 9.54351 9.3055C9.61648 9.41471 9.71025 9.50848 9.81946 9.58145C10.0717 9.74996 10.4228 9.74996 11.125 9.74996L15.375 9.74996C16.6176 9.74996 17.625 10.7573 17.625 12C17.625 13.2426 16.6176 14.25 15.375 14.25L11.125 14.25C10.4228 14.25 10.0716 14.25 9.8194 14.4185C9.71023 14.4915 9.6165 14.5852 9.54355 14.6944C9.375 14.9466 9.375 15.2977 9.375 16C9.375 18.8284 9.375 20.2426 10.2537 21.1213C11.1324 22 12.5464 22 15.3748 22L16.3748 22C19.2032 22 20.6174 22 21.4961 21.1213C22.3748 20.2426 22.3748 18.8284 22.3748 16L22.3748 8C22.3748 5.17158 22.3748 3.75736 21.4961 2.87868C20.6174 2 19.2032 2 16.3748 2L15.3748 2C12.5464 2 11.1324 2 10.2537 2.87868C9.375 3.75736 9.375 5.17157 9.375 8Z%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:logout-2-bold, D-193 */
-  --icon-close: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:close-circle-linear */
+  --icon-close: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM8.96963 8.96965C9.26252 8.67676 9.73739 8.67676 10.0303 8.96965L12 10.9393L13.9696 8.96967C14.2625 8.67678 14.7374 8.67678 15.0303 8.96967C15.3232 9.26256 15.3232 9.73744 15.0303 10.0303L13.0606 12L15.0303 13.9696C15.3232 14.2625 15.3232 14.7374 15.0303 15.0303C14.7374 15.3232 14.2625 15.3232 13.9696 15.0303L12 13.0607L10.0303 15.0303C9.73742 15.3232 9.26254 15.3232 8.96965 15.0303C8.67676 14.7374 8.67676 14.2625 8.96965 13.9697L10.9393 12L8.96963 10.0303C8.67673 9.73742 8.67673 9.26254 8.96963 8.96965Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:close-circle-bold, filled, D-227; was solar:close-circle-linear; solar:close-circle-linear */
   --icon-like: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M2 11h3.6v10.4H2zM7 21.4V11.2l3.3-5.4c.6-1 2.1-.9 2.5.2.2.5.2 1 0 1.5L12 10h6.2c1.4 0 2.4 1.3 2 2.7l-1.9 7c-.3 1-1.1 1.7-2.1 1.7z%22/%3E%3C/g%3E%3Cg stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M16.6 1.6v2.2M20.6 3l-1.4 1.6M13 3l1.3 1.6%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026 */
   --icon-cup: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M21.9999 8.16234L21.9999 8.23487C21.9999 9.09561 21.9999 9.52598 21.7927 9.8781C21.5855 10.2302 21.2093 10.4392 20.4569 10.8572L19.6636 11.298C20.2102 9.44984 20.3926 7.46414 20.4601 5.76597C20.4629 5.69316 20.4662 5.61945 20.4695 5.54497L20.4718 5.49279C21.1231 5.71896 21.4887 5.88758 21.7168 6.20408C22 6.59692 22 7.11873 21.9999 8.16234Z%22/%3E%3Cpath d=%22M2 8.16234L2 8.23487C2.00003 9.09561 2.00004 9.52598 2.20723 9.8781C2.41442 10.2302 2.79063 10.4392 3.54305 10.8572L4.33681 11.2982C3.79007 9.45001 3.60767 7.46422 3.54025 5.76597C3.53736 5.69316 3.5341 5.61945 3.53081 5.54497L3.5285 5.49266C2.87701 5.7189 2.51126 5.88752 2.2831 6.20408C1.99996 6.59692 1.99997 7.11873 2 8.16234Z%22/%3E%3Cpath fill-rule=%22evenodd%22 d=%22M12.0002 2C13.7837 2 15.2531 2.15709 16.3771 2.34674C17.5159 2.53887 18.0852 2.63494 18.5609 3.22083C19.0367 3.80673 19.0115 4.43998 18.9612 5.70647C18.7886 10.0545 17.8503 15.4853 12.75 15.9657V19.5H14.1802C14.6569 19.5 15.0673 19.8365 15.1608 20.3039L15.35 21.25H18C18.4142 21.25 18.75 21.5858 18.75 22C18.75 22.4142 18.4142 22.75 18 22.75H6C5.58579 22.75 5.25 22.4142 5.25 22C5.25 21.5858 5.58579 21.25 6 21.25H8.65L8.83922 20.3039C8.93271 19.8365 9.34312 19.5 9.8198 19.5H11.25V15.9657C6.14996 15.4851 5.21169 10.0544 5.03907 5.70647C4.98879 4.43998 4.96365 3.80673 5.43937 3.22083C5.91508 2.63494 6.48445 2.53887 7.62318 2.34674C8.74724 2.15709 10.2166 2 12.0002 2ZM12.9524 6.19887L12.8541 6.02251C12.4741 5.34084 12.2841 5 12 5C11.7159 5 11.5259 5.34084 11.1459 6.02251L11.0476 6.19887C10.9397 6.39258 10.8857 6.48944 10.8015 6.55334C10.7173 6.61725 10.6125 6.64097 10.4028 6.68841L10.2119 6.73161C9.47396 6.89857 9.10501 6.98205 9.01723 7.26432C8.92945 7.54659 9.18097 7.84072 9.68403 8.42898L9.81418 8.58117C9.95713 8.74833 10.0286 8.83191 10.0608 8.93532C10.0929 9.03872 10.0821 9.15023 10.0605 9.37327L10.0408 9.57632C9.96476 10.3612 9.92674 10.7536 10.1565 10.9281C10.3864 11.1025 10.7318 10.9435 11.4227 10.6254L11.6014 10.5431C11.7978 10.4527 11.8959 10.4075 12 10.4075C12.1041 10.4075 12.2022 10.4527 12.3986 10.5431L12.5773 10.6254C13.2682 10.9435 13.6136 11.1025 13.8435 10.9281C14.0733 10.7536 14.0352 10.3612 13.9592 9.57632L13.9395 9.37327C13.9179 9.15023 13.9071 9.03872 13.9392 8.93532C13.9714 8.83191 14.0429 8.74833 14.1858 8.58117L14.316 8.42898C14.819 7.84072 15.0706 7.54659 14.9828 7.26432C14.895 6.98205 14.526 6.89857 13.7881 6.73161L13.5972 6.68841C13.3875 6.64097 13.2827 6.61725 13.1985 6.55334C13.1143 6.48944 13.0603 6.39258 12.9524 6.19887Z%22 clip-rule=%22evenodd%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:cup-star-bold, D-193 */
   --icon-calendar: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M7.75 2.5C7.75 2.08579 7.41421 1.75 7 1.75C6.58579 1.75 6.25 2.08579 6.25 2.5V4.07926C4.81067 4.19451 3.86577 4.47737 3.17157 5.17157C2.47737 5.86577 2.19451 6.81067 2.07926 8.25H21.9207C21.8055 6.81067 21.5226 5.86577 20.8284 5.17157C20.1342 4.47737 19.1893 4.19451 17.75 4.07926V2.5C17.75 2.08579 17.4142 1.75 17 1.75C16.5858 1.75 16.25 2.08579 16.25 2.5V4.0129C15.5847 4 14.839 4 14 4H10C9.16097 4 8.41527 4 7.75 4.0129V2.5Z%22/%3E%3Cpath fill-rule=%22evenodd%22 d=%22M2 12C2 11.161 2 10.4153 2.0129 9.75H21.9871C22 10.4153 22 11.161 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12ZM17 14C17.5523 14 18 13.5523 18 13C18 12.4477 17.5523 12 17 12C16.4477 12 16 12.4477 16 13C16 13.5523 16.4477 14 17 14ZM17 18C17.5523 18 18 17.5523 18 17C18 16.4477 17.5523 16 17 16C16.4477 16 16 16.4477 16 17C16 17.5523 16.4477 18 17 18ZM13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13ZM13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17ZM7 14C7.55228 14 8 13.5523 8 13C8 12.4477 7.55228 12 7 12C6.44772 12 6 12.4477 6 13C6 13.5523 6.44772 14 7 14ZM7 18C7.55228 18 8 17.5523 8 17C8 16.4477 7.55228 16 7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18Z%22 clip-rule=%22evenodd%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:calendar-bold, D-193 */
@@ -205,7 +205,7 @@
   --icon-gift: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M11.2498 2C7.03145 2.00411 4.84888 2.07958 3.46423 3.46423C2.07958 4.84888 2.00411 7.03145 2 11.2498H6.91352C6.56255 10.8114 6.30031 10.2943 6.15731 9.72228C5.61906 7.56926 7.56926 5.61906 9.72228 6.15731C10.2943 6.30031 10.8114 6.56255 11.2498 6.91352V2Z%22/%3E%3Cpath d=%22M2 12.7498C2.00411 16.9681 2.07958 19.1506 3.46423 20.5353C4.84888 21.9199 7.03145 21.9954 11.2498 21.9995V14.1234C10.4701 15.6807 8.8598 16.7498 6.99976 16.7498C6.58555 16.7498 6.24976 16.414 6.24976 15.9998C6.24976 15.5856 6.58555 15.2498 6.99976 15.2498C8.53655 15.2498 9.82422 14.1831 10.1628 12.7498H2Z%22/%3E%3Cpath d=%22M12.7498 21.9995C16.9681 21.9954 19.1506 21.9199 20.5353 20.5353C21.9199 19.1506 21.9954 16.9681 21.9995 12.7498H13.8367C14.1753 14.1831 15.463 15.2498 16.9998 15.2498C17.414 15.2498 17.7498 15.5856 17.7498 15.9998C17.7498 16.414 17.414 16.7498 16.9998 16.7498C15.1397 16.7498 13.5294 15.6807 12.7498 14.1234V21.9995Z%22/%3E%3Cpath d=%22M21.9995 11.2498C21.9954 7.03145 21.9199 4.84888 20.5353 3.46423C19.1506 2.07958 16.9681 2.00411 12.7498 2V6.91352C13.1882 6.56255 13.7053 6.30031 14.2772 6.15731C16.4303 5.61906 18.3805 7.56926 17.8422 9.72228C17.6992 10.2943 17.437 10.8114 17.086 11.2498H21.9995Z%22/%3E%3Cpath d=%22M9.35847 7.61252C10.47 7.8904 11.2498 8.88911 11.2498 10.0348V11.2498H10.0348C8.88911 11.2498 7.8904 10.47 7.61252 9.35847C7.34891 8.30403 8.30403 7.34891 9.35847 7.61252Z%22/%3E%3Cpath d=%22M12.7498 10.0348V11.2498H13.9647C15.1104 11.2498 16.1091 10.47 16.387 9.35847C16.6506 8.30403 15.6955 7.34891 14.6411 7.61252C13.5295 7.8904 12.7498 8.88911 12.7498 10.0348Z%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:gift-bold, D-193 */
   --icon-dollar: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12.75 6C12.75 5.58579 12.4142 5.25 12 5.25C11.5858 5.25 11.25 5.58579 11.25 6V6.31673C9.61957 6.60867 8.25 7.83361 8.25 9.5C8.25 11.4172 10.0628 12.75 12 12.75C13.3765 12.75 14.25 13.6557 14.25 14.5C14.25 15.3443 13.3765 16.25 12 16.25C10.6235 16.25 9.75 15.3443 9.75 14.5C9.75 14.0858 9.41421 13.75 9 13.75C8.58579 13.75 8.25 14.0858 8.25 14.5C8.25 16.1664 9.61957 17.3913 11.25 17.6833V18C11.25 18.4142 11.5858 18.75 12 18.75C12.4142 18.75 12.75 18.4142 12.75 18V17.6833C14.3804 17.3913 15.75 16.1664 15.75 14.5C15.75 12.5828 13.9372 11.25 12 11.25C10.6235 11.25 9.75 10.3443 9.75 9.5C9.75 8.65573 10.6235 7.75 12 7.75C13.3765 7.75 14.25 8.65573 14.25 9.5C14.25 9.91421 14.5858 10.25 15 10.25C15.4142 10.25 15.75 9.91421 15.75 9.5C15.75 7.83361 14.3804 6.60867 12.75 6.31673V6Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:dollar-minimalistic-bold, D-193 */
   --icon-swap: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M10.25 4.00003C10.25 3.69074 10.0602 3.41317 9.77191 3.30105C9.48366 3.18892 9.15614 3.26524 8.94715 3.49324L3.44715 9.49324C3.24617 9.71248 3.19374 10.0298 3.3135 10.302C3.43327 10.5743 3.70259 10.75 4.00002 10.75H20C20.4142 10.75 20.75 10.4142 20.75 10C20.75 9.58582 20.4142 9.25003 20 9.25003L10.25 9.25003V4.00003Z%22/%3E%3Cpath d=%22M13.75 20L13.75 14.75H4.00002C3.5858 14.75 3.25002 14.4142 3.25002 14C3.25002 13.5858 3.5858 13.25 4.00002 13.25L20 13.25C20.2974 13.25 20.5668 13.4258 20.6865 13.698C20.8063 13.9703 20.7539 14.2876 20.5529 14.5068L15.0529 20.5068C14.8439 20.7348 14.5164 20.8111 14.2281 20.699C13.9399 20.5869 13.75 20.3093 13.75 20Z%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:transfer-horizontal-bold, D-193 */
-  --icon-diamond: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M16 9h3l-5 7m-4-7h4l-2 8M5 9h3l2 7m5-12h2l2 3h-3m-5-3h2l1 3h-4M7 4h2L8 7H5m1-5L2 8l10 14L22 8l-4-6z%22/%3E%3C/svg%3E"); /* mdi:diamond-stone, D-193 */
+  --icon-diamond: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M6 2L2 8l10 14L22 8l-4-6z%22/%3E%3C/svg%3E"); /* mdi:diamond, filled, D-227; was mdi:diamond-stone, facets in outline; mdi:diamond-stone, D-193 */
   --icon-pistol: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M7 5h16v4h-1v1h-6a1 1 0 0 0-1 1v1a2 2 0 0 1-2 2H9.62c-.38 0-.73.22-.9.56l-2.45 4.89c-.17.34-.51.55-.89.55H2s-3 0 1-6c0 0 3-4-1-4V5h1l.5-1h3zm7 7v-1a1 1 0 0 0-1-1h-1s-1 1 0 2a2 2 0 0 1-2-2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1%22/%3E%3C/svg%3E"); /* mdi:pistol, the mark of the items held beside their value, as the baseline's header, founder screenshot of 30 Oct 2026; D-204 */
   --icon-facebook: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978c.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036a27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103l-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647%22/%3E%3C/svg%3E"); /* simple-icons:facebook, the provider's own mark on its own sign in button */
   --icon-youtube: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z%22/%3E%3C/svg%3E"); /* simple-icons:youtube, the provider's own mark on its own sign in button */
@@ -292,6 +292,39 @@
   --icon-bolt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.6 1 4 11.2h5l-1.6 7.8L16 8.6h-5.2z'/%3E%3C/svg%3E"); /* the risk bolts, founder of 2 Nov 2026: "черепа нам ни к чему, давай сделаем молнии"; D-209; from case-tiles.css as --icon-bolt */
   --icon-question: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.2 8.6a3.8 3.8 0 1 1 5.7 3.3c-1.2.7-1.9 1.4-1.9 2.8v.5' fill='none' stroke='%23000' stroke-width='2.8' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='19.4' r='1.9'/%3E%3C/svg%3E"); /* the FAQ heading's mark; рішення користувача, D-209 update of 2 Nov 2026, round 8; from faq-home.css as --icon-question */
 
+  /* ===== Added at stage 07 step 3, batch 1, atoms. Each value is read from v4's code or decided by the founder; the decision is D-228 ===== */
+  --radius-xs: 4px; /* thin lines and small marks; рішення користувача, D-228, the corner ladder 4 8 12 16 24, option A */
+  --color-up: #35E08A; /* a figure that went up, the net of a gain; рішення користувача, D-226 row B2, was a literal in four v4 block sheets */
+  --color-down: #FF5C7A; /* a figure that went down; рішення користувача, D-226 row B2, was a literal in four v4 block sheets */
+  --color-button-ghost: rgba(11, 10, 34, .55); /* the ghost button's fill, the tile at 55 %; рішення користувача, D-209 update of 2 Nov 2026, buttons.css */
+  --color-button-ghost-hover: rgba(223, 5, 92, .2); /* the ghost under the pointer, the button pink at 20 %; рішення користувача, D-209 update of 4 Nov 2026, buttons.css */
+  --shadow-button-ghost: 0 4px 14px rgba(223, 5, 92, .2); /* the ghost's glow under the pointer; рішення користувача, D-209 update of 4 Nov 2026, buttons.css */
+  --shadow-button-press: 0 2px 8px rgba(223, 5, 92, .3); /* pressed, the glow tightens; рішення користувача, D-209 update of 4 Nov 2026, buttons.css */
+  --color-disabled: rgba(150, 160, 215, .14); /* the wash of a control that is busy; buttons.css; D-58 keeps controls live, so it shows only while a round rolls */
+  --shadow-edge: inset 0 0 0 1px rgba(255, 255, 255, .07); /* the inner hairline of a plate, a FAQ row, a chip; v4 drew .05 to .08 for the one role, D-228 takes .07, the header plate's and the FAQ row's */
+  --color-veil: rgba(6, 8, 24, .78); /* a dark plate over art, the header's money plate; account-home.css, рішення користувача, D-209 */
+  --color-veil-soft: rgba(6, 8, 24, .45); /* the close button's see-through tile; buttons.css, founder of 3 Nov 2026 */
+  --color-error: #FF4D6A; /* the close cross under the pointer; buttons.css, founder of 3 Nov 2026: "крестик становится красным" */
+  --color-badge-ink: #3A2600; /* рішення користувача, D-209; the text on a gold badge; account-home.css, the 5 % bonus badge */
+  --gradient-row: linear-gradient(180deg, #16133C, #100E2E); /* a FAQ row's fill; faq-home.css, D-209 round 8 */
+  --shadow-avatar: 0 0 0 1px rgba(255, 255, 255, .12); /* рішення користувача, D-209; an avatar's ring; account-home.css */
+  --shadow-avatar-s: 0 0 0 1px rgba(255, 255, 255, .25); /* рішення користувача, D-209; a 16px avatar's ring, stronger to read at that size; the ticker, v4 theme */
+  --size-hairline: 1px; /* технічне рішення; a hairline rule or ring; the 1px of every inset edge the screens draw */
+  --tracking-caps: .06em; /* the letter spacing of an uppercase button label; buttons.css, D-209 update of 2 Nov 2026 */
+  --tracking-label: .08em; /* наявний бренд, DESIGN.md typography; an uppercase field label or key; DESIGN.md typography, label */
+  --size-button-l-pad: 28px; /* рішення користувача, D-209; the large button's side padding; buttons.css */
+  --size-button-m-pad: 20px; /* рішення користувача, D-209; the medium button's side padding; buttons.css */
+  --size-button-s-pad: 14px; /* рішення користувача, D-209; the small button's side padding; buttons.css */
+  --size-badge: 16px; /* рішення користувача, D-209; a badge's height; account-home.css */
+  --size-avatar-s: 16px; /* рішення користувача, D-209; the ticker's avatar; v4 theme */
+  --size-avatar-m: 32px; /* рішення користувача, D-209; the header's avatar; account-home.css */
+  --size-close: 36px; /* рішення користувача, D-209; the close button; buttons.css */
+  --size-row: 64px; /* рішення користувача, D-209; a FAQ row's height on a desktop; faq-home.css */
+  --size-mark: 28px; /* рішення користувача, D-209; the plus and minus mark of a FAQ row; faq-home.css */
+  --size-check: 20px; /* підібрано під характер; a checkbox or radio box; the fav glyph's size, case-tiles.css, so a box reads as one size with the icons */
+  --size-switch-w: 40px; /* a switch's track; підібрано під характер, the medium button's height laid flat */
+  --color-edge-open: color-mix(in srgb, var(--color-pink) 60%, transparent); /* рішення користувача, D-209 round 8; an open FAQ row's edge, the pink at 60 %, faq-home.css */
+  --size-switch-h: 24px; /* a switch's track height; підібрано під характер, the check box plus its 2px edges */
 }
 
 /* the live drop tile on a phone, founder of 4 Nov 2026: "лайв фид в раза два меньше по высоте"; D-209; from design/v4/theme.css */
@@ -1665,3 +1698,183 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
   .is-rail-collapsed .wf-rail .wf-rail-item.is-later:hover .wf-rail-lbl { padding-right: var(--space-2); }
   .is-rail-collapsed .wf-rail .wf-rail-item.is-later:hover .wf-rail-lbl[data-chip]::after { min-height: var(--size-btn-s); }
 }
+
+/* ===== 4. THE KIT'S COMPONENTS, stage 07 step 3 =====
+   Read from v4's code and the grey screens, design/kit/inventory.md. Grouped by level, atoms first, so a part always loads before its whole.
+   Every value is a variable of :root above; a class carries none of its own. The screens move onto these classes at step 5. */
+
+/* ----- 4.1 Atoms, batch 1, D-228 ----- */
+
+/* BUTTON. One family, three sizes by its container, D-228 option A: large 52 at every width. Rank: primary is filled, the one act of its zone
+   (D-226 row A2); ghost is the second act; icon is a square tile; close is the dialog's cross. Content: a label, a glyph before it (.button__icon),
+   an arrow after it (.button--arrow), a figure pinned to its corner (.button__pin). From design/v4/buttons.css. */
+.button { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); box-sizing: border-box; min-height: var(--size-button-m); padding: 0 var(--size-button-m-pad); border: 0; border-radius: var(--radius-button); background: none; color: var(--color-text-hi); font-family: inherit; font-size: var(--size-xs); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.2; text-decoration: none; text-transform: uppercase; white-space: nowrap; cursor: pointer; }
+.button--l { min-height: var(--size-button-l); padding: 0 var(--size-button-l-pad); font-size: var(--size-text); }
+.button--m { min-height: var(--size-button-m); padding: 0 var(--size-button-m-pad); font-size: var(--size-xs); }
+.button--s { min-height: var(--size-button-s); padding: 0 var(--size-button-s-pad); font-size: var(--size-chip); }
+.button--primary { background-color: var(--color-button); background-image: var(--gradient-button-sheen), var(--gradient-button-stripes); background-size: 300% 100%, auto; background-position: 100% 0, 0 0; background-repeat: no-repeat, repeat; transition: background-color .2s, box-shadow .2s; }
+.button--ghost { background-color: var(--color-button-ghost); background-image: var(--gradient-button-sheen); background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat; box-shadow: inset 0 0 0 var(--size-edge) var(--color-button); transition: background-color .2s, box-shadow .2s; }
+@media (hover: hover) {
+  .button--primary:hover { background-color: var(--color-button-hover); background-position: 0 0, 0 0; box-shadow: var(--shadow-button); transition: background-position .6s cubic-bezier(.3, .6, .2, 1), background-color .2s, box-shadow .2s; }
+  .button--ghost:hover { background-color: var(--color-button-ghost-hover); background-position: 0 0; box-shadow: inset 0 0 0 var(--size-edge) var(--color-button), var(--shadow-button-ghost); transition: background-position .6s cubic-bezier(.3, .6, .2, 1), background-color .2s, box-shadow .2s; }
+}
+.button--primary:focus-visible { background-color: var(--color-button-hover); background-position: 0 0, 0 0; box-shadow: var(--shadow-button); }
+.button--ghost:focus-visible { background-color: var(--color-button-ghost-hover); background-position: 0 0; box-shadow: inset 0 0 0 var(--size-edge) var(--color-button), var(--shadow-button-ghost); }
+.button--primary:active, .button--ghost:active { box-shadow: var(--shadow-button-press); transition-duration: .08s; }
+.button:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+.button[aria-busy="true"] { background: var(--color-disabled); box-shadow: var(--shadow-edge); color: var(--color-text-soft); cursor: progress; }
+.button--icon { width: var(--size-tile); min-height: var(--size-tile); padding: 0; border-radius: var(--radius-tile); background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-text-soft); transition: background .2s, color .2s; }
+@media (hover: hover) { .button--icon:hover { background: var(--gradient-button-stripes), var(--color-button-hover); color: var(--color-text-hi); } }
+.button--close { width: var(--size-close); min-height: var(--size-close); padding: 0; border-radius: var(--radius-s); background: var(--color-veil-soft); transition: color .15s; }
+.button--close::before, .button--close::after { content: ''; position: absolute; left: 50%; top: 50%; width: 50%; height: var(--size-edge); translate: -50% -50%; border-radius: var(--radius-xs); background: currentColor; rotate: 45deg; transition: rotate .2s; }
+.button--close::after { rotate: -45deg; }
+@media (hover: hover) { .button--close:hover { color: var(--color-error); } .button--close:hover::before { rotate: 135deg; } .button--close:hover::after { rotate: 45deg; } }
+.button__icon { flex: none; width: 1.25em; height: 1.25em; }
+.button--arrow::after { content: '\2192'; font-weight: 900; }
+.button__pin { position: absolute; top: calc(-1 * var(--space-2)); right: calc(-1 * var(--space-2)); }
+@media (prefers-reduced-motion: reduce) { .button, .button::before, .button::after { transition: none !important; } .button--primary:hover, .button--primary:focus-visible { background-position: 100% 0, 0 0; } .button--ghost:hover, .button--ghost:focus-visible { background-position: 100% 0; } }
+
+/* ICON. A glyph drawn as a mask in the colour of the text around it, D-191; one style, filled, D-227. It takes the size of its text. */
+.icon { display: inline-block; flex: none; width: 1em; height: 1em; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; vertical-align: -.125em; }
+.icon--box { --i: var(--icon-box); } .icon--battle { --i: var(--icon-battle); } .icon--target { --i: var(--icon-target); } .icon--arrow-up { --i: var(--icon-arrow-up); }
+.icon--users { --i: var(--icon-users); } .icon--pulse { --i: var(--icon-pulse); } .icon--star { --i: var(--icon-star); } .icon--home { --i: var(--icon-home); }
+.icon--user { --i: var(--icon-user); } .icon--history { --i: var(--icon-history); } .icon--send { --i: var(--icon-send); } .icon--settings { --i: var(--icon-settings); }
+.icon--shield { --i: var(--icon-shield); } .icon--out { --i: var(--icon-out); } .icon--close { --i: var(--icon-close); } .icon--like { --i: var(--icon-like); }
+.icon--cup { --i: var(--icon-cup); } .icon--calendar { --i: var(--icon-calendar); } .icon--skull { --i: var(--icon-skull); } .icon--rail { --i: var(--icon-rail); }
+.icon--sound { --i: var(--icon-sound); } .icon--mute { --i: var(--icon-mute); } .icon--gift { --i: var(--icon-gift); } .icon--dollar { --i: var(--icon-dollar); }
+.icon--swap { --i: var(--icon-swap); } .icon--diamond { --i: var(--icon-diamond); } .icon--pistol { --i: var(--icon-pistol); } .icon--heart { --i: var(--icon-heart); }
+.icon--crown { --i: var(--icon-crown); } .icon--bolt { --i: var(--icon-bolt); } .icon--question { --i: var(--icon-question); } .icon--steam { --i: var(--icon-steam); }
+.icon--google { --i: var(--icon-google); } .icon--discord { --i: var(--icon-discord); } .icon--x { --i: var(--icon-x); } .icon--facebook { --i: var(--icon-facebook); }
+.icon--youtube { --i: var(--icon-youtube); } .icon--instagram { --i: var(--icon-instagram); } .icon--tiktok { --i: var(--icon-tiktok); } .icon--telegram { --i: var(--icon-telegram); }
+.icon--coin { background: var(--art-coin); -webkit-mask: none; mask: none; border-radius: 50%; }
+
+/* FIGURE. A value with its unit, and its caption; money is gold at 900 and never moves (DESIGN.md, The Money Is Calm Rule). The missing form
+   stands in for a value nobody has, D-124. From the header's money plate, design/v4/account-home.css. */
+.fig { display: inline-flex; flex-direction: column; gap: var(--space-1); color: var(--color-text-muted); font-size: var(--size-chip); line-height: 1.2; }
+.fig__v { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.fig--money .fig__v { color: var(--color-money); }
+.fig--soft .fig__v { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; }
+.fig--up .fig__v { color: var(--color-up); } .fig--down .fig__v { color: var(--color-down); }
+.fig__c { color: var(--color-text-muted); font-size: var(--size-unit); }
+a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.fig--missing .fig__v { color: var(--color-text-muted); font-weight: 700; }
+
+/* BADGE. Short text in a pill: a count or a bonus pinned to a control, a ribbon on a tile, a status. From the 5 % badge, account-home.css. */
+.badge { display: inline-grid; place-items: center; height: var(--size-badge); padding: 0 var(--space-1); border-radius: var(--radius-s); background: var(--color-money); color: var(--color-badge-ink); font-size: var(--size-unit); font-weight: 900; line-height: 1; white-space: nowrap; }
+.badge--status { background: var(--color-tile); box-shadow: var(--shadow-edge); color: var(--color-text-soft); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.badge--count { background: var(--color-button); color: var(--color-text-hi); }
+.badge--good { background: var(--color-green); color: var(--color-ground); }
+
+/* AVATAR. The Steam picture in a circle with a hairline ring; the ticker's is the small one. From account-home.css and the ticker. */
+.avatar { display: block; flex: none; width: var(--size-avatar-m); height: var(--size-avatar-m); border-radius: 50%; background: var(--color-raised); box-shadow: var(--shadow-avatar); object-fit: cover; }
+.avatar--s { width: var(--size-avatar-s); height: var(--size-avatar-s); box-shadow: var(--shadow-avatar-s); }
+
+/* LOGO. The mark in the rail and the footer; its asset is stage 06's, concept/assets/logo. */
+.logo { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-text-hi); text-decoration: none; }
+.logo__mark { display: block; height: var(--size-tile); width: auto; }
+
+/* MEDIA SLOT. One framed image area with its aspect; a skin floats with no plate, case and mode art fills. */
+.media { position: relative; display: block; overflow: hidden; border-radius: var(--radius-card); background: var(--color-card-2); }
+.media > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.media--skin { background: none; overflow: visible; } .media--skin > img { object-fit: contain; }
+.media--square { aspect-ratio: 1; } .media--wide { aspect-ratio: 3 / 2; } .media--banner { aspect-ratio: 16 / 7; }
+
+/* TEXT LINK. The pink link that leads onward, with an arrow after it when it leaves the block. From the FAQ's "What this case pays", faq-home.css. */
+.link { color: var(--color-pink); font-weight: 700; text-decoration: none; text-underline-offset: .2em; }
+.link:hover { text-decoration: underline; }
+.link:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.link--arrow::after { content: ' \2192'; }
+.link--quiet { color: var(--color-text-soft); font-weight: 400; text-decoration: underline; }
+
+/* DISCLOSURE. A row that opens its panel, the plus turning to a minus; open, its edge takes the pink. From the FAQ, faq-home.css. Markup is
+   details and summary, so it opens without a script. */
+.disclosure { border-radius: var(--radius-card); background: var(--gradient-row); box-shadow: var(--shadow-edge); }
+.disclosure[open] { box-shadow: inset 0 0 0 var(--size-hairline) var(--color-edge-open); }
+.disclosure > summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: var(--size-row); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5); color: var(--color-text-hi); font-size: var(--size-m); font-weight: 700; list-style: none; cursor: pointer; }
+.disclosure > summary::-webkit-details-marker { display: none; }
+.disclosure > summary:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--size-edge)); border-radius: var(--radius-card); }
+.disclosure > summary::after { content: ''; flex: none; width: var(--size-mark); height: var(--size-mark); border-radius: var(--radius-s); background: linear-gradient(currentColor, currentColor) center / 50% var(--size-edge) no-repeat, linear-gradient(currentColor, currentColor) center / var(--size-edge) 50% no-repeat, var(--color-tile); box-shadow: var(--shadow-edge); }
+.disclosure[open] > summary::after { background: linear-gradient(currentColor, currentColor) center / 50% var(--size-edge) no-repeat, var(--gradient-button-stripes), var(--color-pink); box-shadow: none; }
+.disclosure__body { max-width: var(--size-measure); padding: 0 var(--space-5) var(--space-5); color: var(--color-text-soft); font-size: var(--size-text); line-height: 1.55; }
+
+/* FAVOURITE TOGGLE. The heart with its count; pressed, it turns pink. From the case tile's corner, case-tiles.css. */
+.fav { display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--size-button-m); padding: 0 var(--space-2); border: 0; border-radius: var(--radius-s); background: var(--color-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-family: inherit; font-size: var(--size-label); font-weight: 700; font-variant-numeric: tabular-nums; cursor: pointer; }
+.fav .icon { font-size: var(--size-title); transition: scale .2s; }
+@media (hover: hover) { .fav:hover .icon { scale: 1.12; } }
+.fav[aria-pressed="true"] { color: var(--color-pink); box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
+.fav:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+@media (prefers-reduced-motion: reduce) { .fav .icon { transition: none; } }
+
+/* NOTE LINE. One small line that qualifies a block; the refusal beside a control says what is missing, D-58; the stamp says as of when. */
+.note { margin: 0; color: var(--color-text-muted); font-size: var(--size-chip); line-height: 1.5; }
+.note--refuse { color: var(--color-down); font-weight: 700; }
+.note--stamp { font-variant-numeric: tabular-nums; }
+
+/* PROSE. The page's own text, the SEO layer among it; a measure of 68ch. From the Home SEO block, seo-home.css. */
+.prose { max-width: var(--size-measure); color: var(--color-text-soft); font-size: var(--size-text); line-height: 1.65; }
+.prose > * + * { margin-top: var(--space-4); }
+.prose h2, .prose h3 { color: var(--color-text-hi); font-weight: 900; line-height: 1.2; }
+.prose a { color: var(--color-pink); }
+
+/* SEGMENTED CONTROL. Exclusive options in a row, one chosen and filled; the count switch 1 to 5 and the sort keys. From the case screen's count, case-stage.css. */
+.seg { display: inline-flex; gap: var(--space-2); }
+.seg__opt { display: inline-grid; place-items: center; min-width: var(--size-tap); min-height: var(--size-tap); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-button); background: var(--color-button-ghost); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-family: inherit; font-size: var(--size-s); font-weight: 900; font-variant-numeric: tabular-nums; cursor: pointer; }
+.seg__opt[aria-pressed="true"] { background: var(--gradient-button-stripes), var(--color-button); box-shadow: var(--shadow-button); }
+.seg__opt:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+
+/* KEY-VALUE LINE. A key in small caps and its value; the facts of a drop row (Chance, Tickets), a total, a record. From case-blocks.css. */
+.kv { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); font-size: var(--size-chip); }
+.kv__k { color: var(--color-text-muted); font-size: var(--size-micro); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.kv__v { color: var(--color-text-hi); font-weight: 900; font-variant-numeric: tabular-nums; text-align: right; }
+.kv--total { padding-top: var(--space-2); border-top: var(--size-hairline) solid var(--color-line-soft); font-size: var(--size-label); }
+.kv--rule { justify-content: flex-start; } .kv--rule .kv__k { flex: 0 0 calc(2 * var(--size-tap)); } .kv--rule .kv__v { color: var(--color-text-soft); font-weight: 400; text-align: left; } /* which way a limit moves and when, Responsible play, wf-dir */
+
+/* STATUS STEPS. Ordered steps, each with whom it waits on, the time gone and the limit; done is green, now is pink, later is quiet.
+   Grey only so far, wireframes/withdraw-clock.html; the look is read from DESIGN.md's colours. */
+.steps { display: grid; gap: var(--space-3); margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.steps__i { display: grid; grid-template-columns: var(--size-check) 1fr auto; gap: var(--space-1) var(--space-3); align-items: center; color: var(--color-text-muted); font-size: var(--size-label); }
+.steps__i::before { content: ''; grid-row: span 2; width: var(--space-3); height: var(--space-3); justify-self: center; border-radius: 50%; box-shadow: inset 0 0 0 var(--size-edge) var(--color-line); }
+.steps__i.is-done::before { background: var(--color-green); box-shadow: none; } .steps__i.is-now::before { background: var(--color-pink); box-shadow: 0 0 0 var(--space-1) var(--color-button-ghost-hover); }
+.steps__i.is-now, .steps__i.is-done { color: var(--color-text-hi); }
+.steps__n { font-weight: 700; } .steps__who { grid-column: 2; color: var(--color-text-muted); font-size: var(--size-chip); }
+.steps__t { grid-row: 1 / span 2; grid-column: 3; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* TABS. Peers in a row, one current; the current carries the pink under it, DESIGN-artifacts.md zone 8, and a count where the grey has one. */
+.tabs { display: flex; gap: var(--space-1); overflow-x: auto; border-bottom: var(--size-hairline) solid var(--color-line-soft); }
+.tabs__t { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--size-tap); padding: 0 var(--space-4); border: 0; background: none; color: var(--color-text-soft); font-family: inherit; font-size: var(--size-label); font-weight: 700; text-decoration: none; white-space: nowrap; box-shadow: inset 0 calc(-1 * var(--size-edge)) 0 transparent; cursor: pointer; }
+.tabs__t[aria-current="page"], .tabs__t[aria-selected="true"] { color: var(--color-text-hi); box-shadow: inset 0 calc(-1 * var(--size-edge)) 0 var(--color-pink); }
+.tabs__t:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--size-edge)); }
+.tabs__n { min-width: var(--size-badge); }
+
+/* FORM CONTROLS. Grey only so far; the pack takes them into the kit from one screen. The look is the language's: the tile's dark fill, the
+   button's corner, a hairline at rest and the pink edge under focus, the button's heights. */
+.input, .select, .textarea { box-sizing: border-box; width: 100%; min-height: var(--size-button-m); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-button); background: var(--color-tile); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-family: inherit; font-size: var(--size-label); }
+.input--l, .select--l { min-height: var(--size-button-l); font-size: var(--size-text); }
+.textarea { min-height: calc(3 * var(--size-button-m)); padding: var(--space-3); line-height: 1.5; resize: vertical; }
+.input::placeholder, .textarea::placeholder { color: var(--color-text-muted); }
+.input:focus-visible, .select:focus-visible, .textarea:focus-visible { outline: none; box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
+.input[readonly] { background: var(--color-card-2); color: var(--color-text-soft); }
+.input[aria-invalid="true"], .select[aria-invalid="true"], .textarea[aria-invalid="true"] { box-shadow: inset 0 0 0 var(--size-edge) var(--color-down); }
+.select { appearance: none; padding-right: var(--space-6); background-image: linear-gradient(45deg, transparent 50%, var(--color-text-soft) 50%), linear-gradient(-45deg, transparent 50%, var(--color-text-soft) 50%); background-size: var(--space-1) var(--space-1); background-position: calc(100% - var(--space-4)) 50%, calc(100% - var(--space-3)) 50%; background-repeat: no-repeat; cursor: pointer; }
+.input-unit { display: flex; align-items: center; border-radius: var(--radius-button); background: var(--color-tile); box-shadow: var(--shadow-edge); }
+.input-unit > .input { flex: 1 1 auto; min-width: 0; box-shadow: none; background: none; } .input-unit > span { padding: 0 var(--space-3); color: var(--color-text-muted); font-size: var(--size-chip); white-space: nowrap; }
+.input-unit:focus-within { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
+.check, .radio { display: inline-flex; align-items: flex-start; gap: var(--space-3); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.45; cursor: pointer; }
+.check > input, .radio > input { appearance: none; flex: none; display: grid; place-items: center; width: var(--size-check); height: var(--size-check); margin: 0; border-radius: var(--radius-xs); background: var(--color-tile); box-shadow: inset 0 0 0 var(--size-edge) var(--color-line); cursor: pointer; }
+.radio > input { border-radius: 50%; }
+.check > input:checked { background: var(--color-button); box-shadow: none; }
+.check > input:checked::after { content: ''; width: 30%; height: 55%; margin-top: -10%; box-sizing: border-box; border: solid var(--color-text-hi); border-width: 0 var(--size-edge) var(--size-edge) 0; rotate: 45deg; }
+.radio > input:checked { box-shadow: inset 0 0 0 var(--size-edge) var(--color-button); }
+.radio > input:checked::after { content: ''; width: 50%; height: 50%; border-radius: 50%; background: var(--color-button); }
+.check > input:focus-visible, .radio > input:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+.check.is-refused > input { box-shadow: inset 0 0 0 var(--size-edge) var(--color-down); }
+.switch { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--color-text-soft); font-size: var(--size-label); cursor: pointer; }
+.switch > input { appearance: none; position: relative; flex: none; width: var(--size-switch-w); height: var(--size-switch-h); margin: 0; border-radius: var(--radius-pill); background: var(--color-tile); box-shadow: inset 0 0 0 var(--size-edge) var(--color-line); cursor: pointer; transition: background .2s; }
+.switch > input::after { content: ''; position: absolute; top: var(--space-1); left: var(--space-1); width: calc(var(--size-switch-h) - 2 * var(--space-1)); height: calc(var(--size-switch-h) - 2 * var(--space-1)); border-radius: 50%; background: var(--color-text-soft); transition: translate .2s; }
+.switch > input:checked { background: var(--color-button); box-shadow: none; }
+.switch > input:checked::after { translate: calc(var(--size-switch-w) - var(--size-switch-h)) 0; background: var(--color-text-hi); }
+.switch > input:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+.range { width: 100%; height: var(--size-check); margin: 0; background: none; accent-color: var(--color-button); cursor: pointer; }
+.file { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); color: var(--color-text-muted); font-size: var(--size-chip); }
+.file input { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (prefers-reduced-motion: reduce) { .switch > input, .switch > input::after { transition: none; } }

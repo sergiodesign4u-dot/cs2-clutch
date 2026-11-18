@@ -61,6 +61,9 @@ window.DESIGN_NAV = {
       sc.states.forEach(function (st) { out.push({ node: st.node, label: st.label, file: st.file }); });
       out.push({ node: 'grey', label: 'Grey original', file: '../wireframes/' + (sc.states[0].grey || 'index.html') });
     });
+    // The kit the screens are assembled from, stage 07 step 3: its own row, so it is one click from any screen in colour.
+    out.push({ head: 'Kit' });
+    out.push({ node: 'kit', label: 'Kit of components', file: 'kit/kit.html' });
     return out;
   };
 

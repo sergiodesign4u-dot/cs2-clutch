@@ -15,7 +15,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 5. **Inside level 3** the organisms that hold no other organism come first, then those that do, so a part always loads before its whole.
 6. **The level is computed, not chosen.** The script recomputes every level from the "Contains" column and fails on a mismatch. Four rows moved on that check while this file was drawn: Status notice rose to 3 (it holds a Copyable value); Daily ladder, Withdraw item and Deposit dock fell to 2 (they hold only atoms).
 
-**Totals.** 68 components: 25 atoms, 22 molecules, 21 organisms. 28 one-offs stay out of the kit. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
+**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms. 28 one-offs stay out of the kit. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
 
 ## The table
 
@@ -31,9 +31,8 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 | Favourite toggle | 1 | corner mark on a case tile with its count, labelled control on the case head | 7: 1.0, 1.1, 3.1, 3.3, 3.5, 3.6, 3.7 | off, on, with its count; on 21 pages | no | nothing from the kit | `wf-fav`, `wf-fav-case` |
 | Figure | 1 | plain, a link (whole figure clickable), missing (Not available) | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | value, missing (Not available, D-124); on 133 pages | no | nothing from the kit | `wf-fig` |
 | File picker (form control) | 1 | see the control census | 1: 0.10 | one state; on 1 pages | no | nothing from the kit | `input[file]` |
-| Help directory | 1 | one form | 2: 6.1, 6.3 | one state; on 4 pages | no | nothing from the kit | `wf-dir` |
 | Icon | 1 | destination mark (rail, bottom bar), figure mark, unit mark (the coin), act mark | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 133 pages | no, a glyph | nothing from the kit | `wf-icon`, `wf-rail-ico`, `wf-fig-ico`, `wf-cfg-ico`, `wf-bar-i`, `wf-actb-i`, and 3 more |
-| Key-value line | 1 | a total line (sum), a fact line, a record line | 18: 0.3, 0.4, 0.9, 0.10, 1.2, 1.3, 1.4, 4.1, 4.3, 4.4, and 8 more | one state; on 39 pages | no | nothing from the kit | `wf-tl`, `wf-closes-k`, `wf-docid`, `wf-ck-rec-k`, `wf-attr`, `wf-roll-k`, and 1 more |
+| Key-value line | 1 | a total line (sum), a fact line, a record line, a rule line (Extend: Immediately, on Responsible play) | 18: 0.3, 0.4, 0.9, 0.10, 1.2, 1.3, 1.4, 4.1, 4.3, 4.4, and 8 more | one state; on 39 pages | no | nothing from the kit | `wf-tl`, `wf-closes-k`, `wf-docid`, `wf-ck-rec-k`, `wf-attr`, `wf-roll-k`, and 2 more |
 | Logo | 1 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 133 pages | no, the logo asset | nothing from the kit | `wf-logo-mark` |
 | Media slot | 1 | skin image, case art, mode art, banner art, provider mark, brand art | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 133 pages | yes | nothing from the kit | `wf-ah-art`, `wf-art-c`, `wf-banner-art`, `wf-bonus-art`, `wf-case-art`, `wf-dlg-art`, and 18 more |
 | Note line | 1 | a qualifying fact under a block, a refusal beside a control (D-58), an as-of stamp, the cost said in words | 30: 0.9, 0.10, 1.1, 1.2, 1.3, 1.4, 3.1, 3.3, 3.5, 3.6, and 20 more | one state; on 76 pages | no | nothing from the kit | `wf-note`, `wf-refuse`, `wf-stamp`, `wf-cost-say` |
@@ -91,7 +90,7 @@ Order: first the organisms that hold no other organism, then Case head (holds Ca
 | Footer | 3 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 133 pages | brand art slot | Figure, Disclosure, Logo, Text link, Popover menu | `wf-footer` |
 | Header | 3 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | guest (Sign in), signed in (money pair, Add funds, account); on 132 pages | no | Button, Figure, Popover menu | `wf-header` |
 | Item grid | 3 | one form | 3: 5.1, 5.9, 7.3 | one state; on 6 pages | skins | Item card, Segmented control | `wf-itemgrid`, `wf-grid--inv` |
-| Limits panel | 3 | one form | 2: 6.1, 6.3 | one state; on 4 pages | no | Field, Key-value line, Help directory, Button, Note line | `wf-rp` |
+| Limits panel | 3 | one form | 2: 6.1, 6.3 | one state; on 4 pages | no | Field, Key-value line, Button, Note line | `wf-rp` |
 | Mode row | 3 | one form | 2: 1.0, 1.1 | one state; on 2 pages | mode art | Mode card | `wf-modes` |
 | Payment panel | 3 | one form | 3: 4.1, 4.3, 4.5 | card, crypto, crypto with no wallet, gift cards, skins, declined, ceiling pending; on 9 pages | provider marks | Chosen method, Amount field, Field, Copyable value, Deposit dock | `wf-pay-lay` |
 | Proof block | 3 | one form | 4: 1.2, 1.3, 1.4, 7.1 | settled, matched, mismatched, no proof, failed; on 11 pages | no | Copyable value, Key-value line, Badge, Button | `wf-proof-fields` |
