@@ -7176,3 +7176,21 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** Narrowing A2 to "rounded, not sharp". Rewriting A3 as one filled act per zone and keeping the deposit lit. Removing the blur. Removing the stripes from headings. Going back to `#9F9F9F` for the body. Mapping up and down onto the brand green and the rarity red, the red too dark at 12px. Admitting 800 as a fifth weight.
 
 **The cost.** A1 is a promise until step 3, and it moves values the founder already picked. The blur is an exception to the founder's own slop list, kept by taste. Home for a guest still lights two buttons at 1440.
+
+## D-227. Stage 07 step 2: the inventory is read from all 133 grey pages, and every icon is filled
+
+**Date:** 2026-11-18. **Stage:** 07. **Decided by:** the founder, on the review page of step 2: "Да в целом то все ок" (On the whole everything is fine), then, after asking whether this was still UI + Visual or already the design system and hearing that the kit is the raw material of stage 08, "да давай делать" (yes, let's do it). Option A for the icons was the recommendation the founder accepted with "все ок"; it is recorded as that, not as a separate answer.
+
+**What was decided.**
+
+1. **`design/kit/inventory.md` is the product's one component list.** Read in a browser at 360 and 1440 from the 133 product pages of `wireframes/`, mapped to 42 IA nodes through `WF_NAV.screens`. 68 components, 25 atoms, 22 molecules and 21 organisms; 28 one-offs stay out of the kit.
+2. **A screen is an IA node, and what stands behind a layer does not count for the layer.** "Two or more screens" means two nodes, so the 16 pages of History are one screen; the case screen's blocks behind the geo gate do not appear on node 2.1.
+3. **Two readings of the level rule:** a glyph or a pinned figure that never stands alone is a zone of its control, so a button with an icon stays an atom; a link inside running text is text. The level is recomputed from each row's contents; four rows moved on that check.
+4. **Six merges stand,** each by the zones and their order: item card (my items, the ledger, the public shelf), field (settings rows, limit rows, the verifier, the support form, the declarations), status notice (notices and the Steam failure), empty state, copyable value, disclosure.
+5. **The control census records rank in place of emphasis,** since the grey has no fill or outline: 10 584 control occurrences in 19 families, no product control without a family. Six jobs are drawn in clashing forms and go to stage 08 to be settled: Support in the footer, Check this round, Sell for N coins, Sign out, Add funds, Share this round.
+6. **Icons, option A: filled everywhere,** as `D-193` already said. `--icon-close` takes Solar close-circle-bold and `--icon-diamond` its filled mdi twin at step 3; `--icon-target`, `--icon-users` and `--icon-pulse` are redrawn filled with their motion kept, at step 4 at the latest. Five line glyphs stay lines because their own filled sets draw them so. `DESIGN-artifacts.md` section 7 now names Solar Bold, section 13 lists where each lands.
+7. **The inventory's visible place is the section "Inventory" of `design/kit/kit.html`, written at step 3.** Until then it is shown on the review page of this step.
+
+**Rejected.** Option B, keeping the three drawn rail marks as outlines named as an exception: the rail would keep two styles side by side, which `D-222` point 4 asked this census to end. Counting pages instead of nodes. Counting a dialog's backdrop as the dialog's. Raising every button with an icon to level 2. Reading the icons' style from the `stroke` attribute, which called five filled marks outlines; they were read by eye on one rendered sheet.
+
+**The cost.** The merges are Claude's judgement accepted in one look; stage 08 may split one, and the table says which zones each was judged on. The census counts per page, so a shell control weighs once on every page. The inventory has no page of its own in the repo until step 3. Three icons are owed as redraws.

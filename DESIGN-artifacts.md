@@ -199,8 +199,8 @@ The case screen's stage frame, `--wf-frame-h`, enters with that screen at step 7
 
 | What | Value | Origin | Attribute |
 |---|---|---|---|
-| Style | line icons, one stroke weight, rounded caps and joins, no fills, on a square grid | `піксель плейта, зона 7`: ten line icons of one stroke | A2 |
-| Set | Solar, Linear style, inline SVG | the stage's named icon set, `dp-concept` dependencies; its Linear style matches zone 7 | A2 |
+| Style | ~~line icons, one stroke weight, rounded caps and joins, no fills, on a square grid~~ **filled glyphs on a square grid, as the baseline draws them; a glyph its own filled set draws as a line (an arrow, the clock, the rail toggle, the crossed swords) stays a line** | `піксель плейта, зона 7`: ten line icons of one stroke; then `рішення користувача`, `D-193` and `D-227`, the census of stage 07 step 2 | A2 |
+| Set | ~~Solar, Linear style, inline SVG~~ **Solar Bold, drawn as a CSS mask; mdi or a mark drawn for this project where Solar has no glyph for the job, filled like it** | the stage's named icon set, `dp-concept` dependencies; Bold since `D-193`, one style for every icon since `D-227` | A2 |
 | Colour | text white or body grey at rest, pink when active | `піксель плейта, зона 7` and zone 8, the tabs | A3 |
 | Count and behaviour | many, and interactive; an icon sits in a circle only where the circle is the control | `рішення користувача`, `D-183` point 1 | A1 |
 | Carrier | `--icon-<name>` in `design/_theme.css`, a Solar SVG drawn as a CSS mask, so an icon takes the colour of the text around it | `D-191`: the grey renderer draws a placeholder and the copy may not add markup | A2 |
@@ -408,7 +408,7 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--icon-bolt` | `SVG mask, data URI` | the risk bolts, founder of 2 Nov 2026: "черепа нам ни к чему, давай сделаем молнии"; D-209 **Origin read from the sheet's header, not from the value.** | `--icon-bolt`, case-tiles.css |
 | `--icon-question` | `SVG mask, data URI` | the FAQ heading's mark; рішення користувача, D-209 update of 2 Nov 2026, round 8 **Origin read from the sheet's header, not from the value.** | `--icon-question`, faq-home.css |
 
-53 rows; one more value, `--size-drop-v4: 86px` under 600px, stands in a media block after part 1. Section 7 still names Solar Linear; the icon style is chosen in step 2's control census, `D-222`.
+53 rows; one more value, `--size-drop-v4: 86px` under 600px, stands in a media block after part 1. ~~Section 7 still names Solar Linear; the icon style is chosen in step 2's control census, `D-222`.~~ **Section 7 names Solar Bold since step 2's census, `D-227`.**
 
 ## 12. Stage 07 step 1, the founder's answers, `D-226`
 
@@ -424,3 +424,14 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | Blur on a text plate | kept | `concept.md` section 1, point 1, now with a named exception |
 | Stripes | the texture mark of the act and of a section heading, nowhere else | `concept.md` section 1, point 2 |
 
+
+## 13. Stage 07 step 2, the icon census, `D-227`
+
+**Date:** 18 November 2026. The control census read the 40 `--icon-*` values in `design/_theme.css` on one rendered sheet; the founder chose one style for them, option A on the review page of step 2: "Да в целом то все ок", then "да давай делать".
+
+| What | Answer | Where it lands |
+|---|---|---|
+| Style | filled everywhere, section 7 | 30 icons already filled; 5 line glyphs stay lines, as their own filled sets draw them: `--icon-send`, `--icon-swap`, `--icon-history`, `--icon-rail`, `--icon-battle` |
+| `--icon-close` | Solar close-circle-bold in place of close-circle-linear | step 3, in `design/kit/kit.css`, one variable changed with its origin |
+| `--icon-diamond` | the filled mdi twin of diamond-stone | step 3, the same way |
+| `--icon-target`, `--icon-users`, `--icon-pulse` | redrawn as filled marks after the baseline's same jobs, their motion kept | step 4 at the latest, with the visuals |
