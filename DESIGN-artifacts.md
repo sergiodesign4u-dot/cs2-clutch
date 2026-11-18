@@ -435,3 +435,15 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--icon-close` | Solar close-circle-bold in place of close-circle-linear | step 3, in `design/kit/kit.css`, one variable changed with its origin |
 | `--icon-diamond` | the filled mdi twin of diamond-stone | step 3, the same way |
 | `--icon-target`, `--icon-users`, `--icon-pulse` | redrawn as filled marks after the baseline's same jobs, their motion kept | step 4 at the latest, with the visuals |
+
+## 14. Stage 07 step 3, the move into the kit
+
+**Date:** 18 November 2026. `design/_theme.css` moved to `design/kit/kit.css` by `git mv`, its bytes identical at the move (sha1 `ea09d47f7b22` on both sides). No variable was renamed and no value changed. Three things had to follow the file, and each is a path, not a value:
+
+| What | Where | Why |
+|---|---|---|
+| 49 asset paths `url(concept/...)` became `url(../concept/...)` | `design/kit/kit.css`, 23 lines in `:root` and the rules that draw the art | a relative path resolves from the sheet's folder, now `design/kit/`; the files are the same ones in `design/concept/assets/` |
+| 3 paths the same way | `design/v4/rare.css`, the rare marks' art | its custom properties were resolved against the old folder of the theme sheet; `../concept/` resolves the same from `design/kit/` and `design/v4/` |
+| 36 links `_theme.css` became `kit/kit.css` | every page in `design/` that loaded the sheet: v2, v3, v4 and its labs, the first copies, the concept stand | the pack moves the seeded screens onto kit classes at step 5; a dead link until then would have left 36 published pages unstyled |
+
+**Proof.** Every one of the 37 pages that load the sheet was measured before and after: no request fails, and 33 pages plus all twelve seeded loads (Home and the case screen, guest, signed in, a gain, a loss, at 360 and 1440) render pixel for pixel the same. The four that differ differ by the same amount between two captures taken before the move, from their own motion. The before captures are kept on disk in `_archive/stage07-before/` with the script that took them, out of the published site, which carries only what a page cites (`D-223`).

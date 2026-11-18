@@ -8,7 +8,7 @@
  *    other link stays on the grey screen in wireframes/, the pack's rule for step 6.
  * 2. ART AND MARKS. The grey renderer draws placeholders. This file names each one with
  *    a data attribute read from the text the renderer already wrote (a skin name, a case
- *    name, a caption, a provider's label), and design/_theme.css paints it. No value lives here.
+ *    name, a caption, a provider's label), and design/kit/kit.css paints it. No value lives here.
  */
 (function () {
   // Screens with a coloured copy in design/. Grows with step 7.

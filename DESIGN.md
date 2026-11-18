@@ -126,11 +126,11 @@ components:
 
 # Design System: CS2 Clutch
 
-**What this file is.** The product `DESIGN.md`, formed at stage 07 step 1 on 18 November 2026 by `/impeccable document` from the code of the two coloured screens that close stage 06, [Home v4](design/v4/index.html) and the [case screen v4](design/v4/case.html), with their states, read together with `design/_theme.css` and `DESIGN-artifacts.md`. It describes what the screens render, not what earlier drafts proposed. Brand decisions are not rewritten here: they are in `DESIGN-artifacts.md`, which stays the source, and every origin below is carried from it or from the comment beside the value in `design/_theme.css` as written.
+**What this file is.** The product `DESIGN.md`, formed at stage 07 step 1 on 18 November 2026 by `/impeccable document` from the code of the two coloured screens that close stage 06, [Home v4](design/v4/index.html) and the [case screen v4](design/v4/case.html), with their states, read together with `design/_theme.css` (since step 3 `design/kit/kit.css`) and `DESIGN-artifacts.md`. It describes what the screens render, not what earlier drafts proposed. Brand decisions are not rewritten here: they are in `DESIGN-artifacts.md`, which stays the source, and every origin below is carried from it or from the comment beside the value in `design/_theme.css` as written.
 
 **How it was read.** Twelve loads, measured on 18 November 2026 in Chromium: Home as a guest and signed in (`?account`), the case screen as a guest and signed in, and the outcome after an open with a big gain (`?account&land=k`) and with a loss (`?account&land=8`), each at 1440 and 375. On each load every stylesheet rule that matched an element was read for the variables it names, and every visible element outside the project sidebar was read for its computed type, colour, radius and shadow. The frontmatter holds the values the screens render; where that value is a literal in a block sheet rather than a variable, the prose says so.
 
-**What the frontmatter is not.** The colour keys are the variable names of `design/_theme.css` without their `--color-` prefix. A colour written as a mix of two others (`--color-rail-icon-*`, the rarity plates) is not a primitive and is left to the tables. The typography roles are measured off the screens; only `--font-family` among them is a variable today, see "Typography".
+**What the frontmatter is not.** The colour keys are the variable names of `design/kit/kit.css` without their `--color-` prefix. A colour written as a mix of two others (`--color-rail-icon-*`, the rarity plates) is not a primitive and is left to the tables. The typography roles are measured off the screens; only `--font-family` among them is a variable today, see "Typography".
 
 **Visible place.** The section "Tokens" of `design/kit/kit.html`, built at step 3: the `:root` block live with the origin of each value beside it. Until then this file is read in the repository.
 
@@ -468,7 +468,7 @@ Icons are masks in the colour of the text around them, Solar Bold plus drawn mar
 
 ## Not on these two screens
 
-Declared in `design/_theme.css` and not reached by any rule or inline style on the twelve loads. They move to `design/kit/kit.css` byte for byte at step 3 like every other value; this file does not describe them as the language of the screens. Most are direction 2's language that v4 replaced: the 56px button and its glow, the 2px rarity line, the blue light mixes of the lit stage. Some wait for a screen that has their job: `--color-field-edge` for a field, `--color-risk-extreme` for a case that carries it, the tier 1, 3 and 5 plates for a round of those tiers.
+Declared in `design/kit/kit.css` (moved from `design/_theme.css` at step 3) and not reached by any rule or inline style on the twelve loads. They move to `design/kit/kit.css` byte for byte at step 3 like every other value; this file does not describe them as the language of the screens. Most are direction 2's language that v4 replaced: the 56px button and its glow, the 2px rarity line, the blue light mixes of the lit stage. Some wait for a screen that has their job: `--color-field-edge` for a field, `--color-risk-extreme` for a case that carries it, the tier 1, 3 and 5 plates for a round of those tiers.
 
 | Token | Value | Parent | Origin, as recorded |
 |---|---|---|---|
@@ -524,5 +524,5 @@ Named here, decided elsewhere. Each is a value or a pair a later step settles wi
 - `design/concept/docs/concept.md`: the founder's taste, the attributes A1 to A5, the logo, the plate, the layout record.
 - `design/concept/docs/references.md`: the techniques S1 to S4, C1, C2, R1, R2.
 - `DESIGN-artifacts.md`: the brand decisions and the origin of every value, the source this file carries from.
-- `design/_theme.css`: the values, each with its origin beside it; `design/kit/kit.css` from step 3.
+- `design/kit/kit.css`: the values, each with its origin beside it; it was `design/_theme.css` until stage 07 step 3.
 - `design/v4/index.html` and `design/v4/case.html` with their block sheets: the code this file was read from.

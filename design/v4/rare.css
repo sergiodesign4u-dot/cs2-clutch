@@ -4,9 +4,9 @@
    104 by 114px: lightning for 1 to 5%, the golden orbit for 0.1 to 1%, plasma under 0.1%. The effects are drawn by rare-fx.js. */
 
 /* the three rare skins' art, as design/_theme.css names the others; the path reads from design/, where _theme.css uses the var */
-[data-art="m4a4-the-emperor"] { --art: url(concept/assets/skins/m4a4-the-emperor.png); }
-[data-art="ak-47-gold-arabesque"] { --art: url(concept/assets/skins/ak-47-gold-arabesque.png); }
-[data-art="karambit-tiger-tooth"] { --art: url(concept/assets/skins/karambit-tiger-tooth.png); }
+[data-art="m4a4-the-emperor"] { --art: url(../concept/assets/skins/m4a4-the-emperor.png); }
+[data-art="ak-47-gold-arabesque"] { --art: url(../concept/assets/skins/ak-47-gold-arabesque.png); }
+[data-art="karambit-tiger-tooth"] { --art: url(../concept/assets/skins/karambit-tiger-tooth.png); }
 
 /* each tier's colours, read by rare-fx.js as plain hex; the same as rare-drops.css */
 .v4-rare-volt { --rd-c1: #F2FBFF; --rd-c2: #8FD3FF; --rd-c3: var(--color-rarity-5); --rd-hex-c1: #F2FBFF; --rd-hex-c2: #8FD3FF; --rd-hex-c3: var(--color-rarity-5); }
