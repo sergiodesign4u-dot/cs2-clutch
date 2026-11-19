@@ -347,6 +347,187 @@
   --motion-ease-rail-icon: cubic-bezier(.3, .7, .3, 1); /* підібрано під характер; the side menu's icons, D-209; from rail-icons.css as --ri-ease */
   --motion-rare-drop: 4s; /* one landing and its afterglow, then again; підібрано під характер, long enough to watch, short enough to compare; D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-loop */
   --shape-case-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FF8DBD'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='r' x1='1' y1='0' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='22' height='2' fill='url(%23l)'/%3E%3Crect x='50' y='0' width='22' height='2' fill='url(%23r)'/%3E%3Cpath d='M22 0h28L36 17z' fill='url(%23g)'/%3E%3Cpath d='M29 3h14l-7 8z' fill='%23140F36'/%3E%3Ccircle cx='36' cy='21.5' r='2.2' fill='%23FB3F8A'/%3E%3C/svg%3E"); /* the reel's pointer, a cut chevron in the pink; рішення користувача, D-213, stage-lab.html rows H to J: "стрелочки сделай интереснее, визуальнее"; from case-stage.css as --v4c-mark */
+
+  /* ===== Stage 07 step 3 batch 2, the molecules' language, D-231 ===== */
+  /* the geometry two or more molecules read: the half steps of the ladder (a quarter, a half or three quarters of the way to the next step,
+     --space-4-25 being 16 and a quarter of the step to 24), and the stage card's parts; the geometry one molecule reads is at the head of its block */
+  --space-hair: 2px; /* kit.css part 2 .wf-tile-link gap and theme.css .wf-tile-risk margin-block, case-tiles.css .wf-tile .wf-fav top and right: the smallest gap between stacked lines / a figure to its unit on a phone; v4 banner.css: .wf-event-cell span, margin-top; рішення користувача, D-209 (v4) carried by D-231 */
+  --space-thin: 3px; /* trust-badge.css .v4-trust-tiles gap and its svg inset, the Trustpilot star tiles / a cell's top and foot on a phone; v4 banner.css: .wf-event-cell, padding; рішення користувача, D-209 (v4) carried by D-231 */
+  --space-1-5: 6px; /* case-tiles.css .wf-tile .wf-fav padding and its ::before inset, .v4-risk-tip padding, kit.css .wf-tile-cost::before margin-right: the coin to its price, a small plate's height padding / рішення користувача, D-209; a status chip's icon to its words; design/v4/daily-home.css: .dc-chip gap / the same on a phone, "more compact"; v4 banner.css: .wf-event-clock, padding / the step v4 draws between --space-1 and --space-2: theme.css .wf-feed-hit padding and .wf-feed-back gap, modes.css .wf-grid .wf-mode p margin / v4 case-page.css: .v4c-nav .wf-crumb ol gap; case-blocks.css: .v4d-p gap; case-body.css: row F tickets padding-top. Breadcrumb, Drop card, Recent drop card */
+  --space-1-75: 7px; /* v4 case-stage.css: z7 .v4c-won-x padding-top; account-home.css: .ac2-btn padding-left. Outcome card, Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --space-2-5: 10px; /* trust-badge.css .v4-trust gap and padding, .v4-trust-meta padding-left; case-tiles.css .v4-risk-tip padding and offset, .v4-fx bottom and translate / рішення користувача, D-209; the Daily head's row and box gaps, a chip's sides, the line under the cards; design/v4/daily-home.css: .dc-row, .dc-boxes, .dc-box, .dc-chip, .dc-say / the title's top on a phone; v4 banner.css: .wf-event .wf-event-name, top / the countdown plate's padding; v4 theme.css: .wf-event-clock, padding / v4 case-body.css: row F .wf-art-c margin-top; case-stage.css: z7 card column-gap; account-home.css: .am3 top offset, .am3-t gap. Drop card, Recent drop card, Outcome card, Popover menu */
+  --space-3-5: 14px; /* heading-home.css .wf-sec-head h2 gap, the section tile to its title; case-tiles.css .wf-tile:hover .wf-tile-price padding, the price plate's sides / рішення користувача, D-209; a Daily card's inset and the lead's distance under a wide head; design/v4/daily-home.css: .dc-card padding, .dc-head.has-title .dc-l / v4 case-body.css: row F .v4b-row padding-inline, th margin-bottom; account-home.css: .am3-head gap. Drop card, Popover menu */
+  --space-4-25: 18px; /* v4 case-body.css: row F .v4b-row padding-bottom; case-blocks.css: .v4d-w7 a padding-bottom; case-stage.css: z7 card padding-inline. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --space-5-5: 28px; /* рішення користувача, D-209; the Daily panel's inset; design/v4/daily-home.css: .dc padding / the title's and the countdown's top and the act's foot from 900px; v4 banner.css: .wf-event .wf-event-name, .wf-event-clock, .wf-event-go */
+  --size-head-l: 26px; /* theme.css .wf-sec-head:has(+ .wf-grid .wf-tile) h2, the Featured cases title; trust-badge.css .v4-trust-score, the Trustpilot score / a countdown figure; v4 theme.css: .wf-event-cell b, font-size; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-lift: 3px; /* v4 case-blocks.css: .v4d-w7 a:hover translateY; case-body.css row F :hover, a card rising under the pointer. Drop card, Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-tier-bar: 3px; /* v4 case-blocks.css: .v4d-w7 a::after height, the tier's short bar at the card's foot; case-body.css row F ::before, the line of the 100 000. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-tier-bar-w: 44px; /* v4 case-blocks.css: .v4d-w7 a::after width. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-ring-stroke: 3.6px; /* v4 case-blocks.css: .v4d-art .v4o-hex .hx-grad-d stroke-width, in the ring's own 136 by 118 units. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-ring-glow-near: 1.5px; /* the ring's near light, cast up and left; case-blocks.css .v4d-art .v4o-hex filter, case-body.css row F, case-stage.css w5 and w7; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-ring-glow-far: 3px; /* the ring's far light, cast up and left; the same rules; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-card-art: 112px; /* v4 case-blocks.css: .v4d-art height; case-body.css: row F .wf-art-c height. Drop card, Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-card-art-s: 96px; /* v4 case-blocks.css: .v4d-art height at 599px. Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  /* Home's molecules: Case tile, Daily ladder, Event banner, Feed tile, Hero, Mode card, Section head, read from Home v4 */
+  --tracking-title: .02em; /* theme.css .wf-hero--short h1, Home's H1; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-case-name: .04em; /* theme.css .wf-tile-name, a case's name on its tile; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-score: -.01em; /* trust-badge.css .v4-trust-score; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-head-upgrade: #F0A21B; /* case-blocks.css .wf-sec-head:has(#h2-recent) --hx-c, the line of a head in the Upgrade colour; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-head-battles: #4A6BFF; /* case-blocks.css .wf-sec-head:has(#h2-pays) --hx-c, the line of a head in the Case battles colour; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-head-showdowns: #E5394F; /* case-blocks.css .wf-sec-head:has(#h2-observed) --hx-c, the line of a head in the Showdowns colour; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-trustpilot: #00B67A; /* trust-badge.css .v4-trust-tiles i, Trustpilot's own green, kept so the mark is known at a glance; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-trust-plate: rgba(12, 16, 44, .82); /* trust-badge.css a.v4-trust background, the badge's glass under its tint; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-trust-off: rgba(150, 160, 215, .24); /* trust-badge.css .v4-trust-tiles i, the unfilled part of a star tile; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-trust-rule: rgba(255, 255, 255, .16); /* trust-badge.css .v4-trust-meta border-left, the rule before the source; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-fav-plate: rgba(11, 10, 34, .78); /* case-tiles.css .wf-tile .wf-fav::before, the favourite's dark pill over a tile; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-price-plate: rgba(11, 10, 34, .82); /* case-tiles.css .wf-tile:hover .wf-tile-price, the price's plate under the pointer; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-trust: linear-gradient(135deg, rgba(0, 182, 122, .16), rgba(101, 163, 255, .08) 45%, rgba(251, 63, 138, .12)); /* trust-badge.css a.v4-trust, the tint over the badge's glass; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-trust-edge: linear-gradient(120deg, var(--color-trustpilot), rgba(101, 163, 255, .5) 45%, var(--color-pink)); /* trust-badge.css a.v4-trust::before, the lit edge; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-trust-sweep: linear-gradient(105deg, transparent 23%, rgba(255, 255, 255, .22) 50%, transparent 77%); /* trust-badge.css .v4-trust::after, the light that crosses the badge; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-case-gold: linear-gradient(120deg, #B57A06, #B4400F); /* case-tiles.css .wf-tile:has([data-art="case-gold"]) --tile-g, a gold case's card under the pointer; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-case-violet: linear-gradient(120deg, #8E2BC9, #3B1A8F); /* case-tiles.css .wf-tile:has([data-art="case-violet"]) --tile-g, a violet case's card under the pointer; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-fade-up: linear-gradient(to top, #000 30%, transparent 100%); /* case-tiles.css .v4-fx mask, the case's card fading out toward the case; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-tile-lit: inset 0 1px 0 rgba(255, 255, 255, .25); /* heading-home.css .wf-sec-head h2::before, the light along a striped tile's top edge / рішення користувача, D-209; the lit top edge of a striped tile: a tier card, the title's calendar tile; design/v4/daily-home.css: .dc-card, heading-home.css: .dc-t::before */
+  --shadow-edge-lit: inset 0 0 0 1px rgba(255, 255, 255, .1); /* case-tiles.css .wf-tile .wf-fav::before and trust-badge.css a.v4-trust, the hairline of a plate over art, brighter than --shadow-edge / рішення користувача, D-209; the hairline of a Daily head box, brighter than --shadow-edge's .07 because it sits on art; design/v4/daily-home.css: .dc-box box-shadow */
+  --shadow-price-edge: inset 0 0 0 1px rgba(255, 255, 255, .14); /* case-tiles.css .wf-tile:hover .wf-tile-price, the price plate's hairline; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-trust: var(--shadow-edge-lit), 0 8px 24px rgba(6, 10, 30, .5); /* trust-badge.css a.v4-trust box-shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-trust-hover: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 12px 30px rgba(0, 182, 122, .25); /* trust-badge.css a.v4-trust:hover box-shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-tip: 0 8px 18px rgba(4, 6, 20, .5); /* case-tiles.css .v4-risk-tip, the risk tooltip's drop; рішення користувача, D-209 (v4) carried by D-231 */
+  --shape-tip-tail: polygon(100% 0, 100% 100%, 0 50%); /* case-tiles.css .v4-risk-tip::after, the tooltip's tail; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-ease-settle: cubic-bezier(.22, 1, .36, 1); /* case-tiles.css .v4-fx and .v4-risk-tip, trust-badge.css a.v4-trust: a move that arrives fast and settles / a long settle for the lean; v4 banner.css: .wf-event --scene-ease; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-ease-bounce: cubic-bezier(.3, 1.6, .5, 1); /* case-tiles.css .wf-tile .wf-fav-i and the bolts' strike: a pop that overshoots; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-trust-sweep: 7s; /* trust-badge.css .v4-trust::after, one pass of the light and its rest; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-stagger: 45ms; /* trust-badge.css .v4-trust-tiles i, the delay from one star tile to the next; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-stagger-bolt: 70ms; /* case-tiles.css .wf-tile-risk:hover .v4-bolts i, the delay from one bolt to the next; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-daily-silver: #C9D2E3; /* рішення користувача, D-209; Silver's hue, its light and its live edge; design/v4/daily-home.css: .dc-t1 --hue */
+  --color-plate-veil: rgba(11, 10, 34, .72); /* рішення користувача, D-209; the dark plate of a Daily head box; design/v4/daily-home.css: .dc-box background */
+  --color-daily-chip: rgba(6, 10, 30, .62); /* рішення користувача, D-209; a tier's status chip on its colour; design/v4/daily-home.css: .dc-chip background */
+  --shadow-tile-lit-hover: inset 0 1px 0 rgba(255, 255, 255, .3); /* the same edge under the pointer; design/v4/daily-home.css: .dc-card:hover; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-tile-lit-live: inset 0 1px 0 rgba(255, 255, 255, .4); /* the same edge on the card with the open control; design/v4/daily-home.css: .dc-card.is-hero; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-lift: 0 18px 30px rgba(6, 10, 30, .55); /* the card with the open control standing off the panel; design/v4/daily-home.css: .dc-card.is-hero; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-lift-hover: 0 18px 30px rgba(6, 10, 30, .6); /* a card lifted under the pointer; design/v4/daily-home.css: .dc-card:hover; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-lift-live-hover: 0 24px 36px rgba(6, 10, 30, .6); /* the live card lifted under the pointer; design/v4/daily-home.css: .dc-card.is-hero:hover; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-name: 0 2px 8px rgba(6, 10, 30, .4); /* a tier name's text shadow on its stripes; design/v4/daily-home.css: .dc-name; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-skin: drop-shadow(0 6px 6px rgba(0, 0, 0, .65)); /* a skin's shadow in a daily case, a filter; .65 where --shadow-skin-drop is .7; design/v4/daily-home.css: .dc-skin; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-daily-panel: linear-gradient(180deg, #16133C, #0D0C28); /* рішення користувача, D-209; the Daily panel's fill; design/v4/daily-home.css: .dc background */
+  --gradient-daily-fade: linear-gradient(90deg, transparent 18%, #000 64%); /* the mask that fades the warehouse ground out to the left; design/v4/daily-home.css: .dc::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-daily-fade-s: linear-gradient(180deg, #000 0, transparent 440px); /* the same, downward, on a phone; design/v4/daily-home.css: @container dc (max-width: 760px) .dc::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-daily-silver: linear-gradient(120deg, #7D88A8, #333C5A); /* рішення користувача, D-209; Silver's card; design/v4/daily-home.css: .dc-t1 --g1 --g2 */
+  --gradient-daily-guardian: linear-gradient(120deg, #8E2BC9, #41157A); /* рішення користувача, D-209; Guardian's card; design/v4/daily-home.css: .dc-t3 --g1 --g2 */
+  --gradient-daily-legend: linear-gradient(120deg, var(--color-pink), #8E1F5E); /* рішення користувача, D-209; Legend's card; design/v4/daily-home.css: .dc-t4 --g1 --g2 */
+  --gradient-daily-elite: linear-gradient(120deg, #B07806, var(--color-plate-r1-b)); /* Elite's card; #B07806 holds ELITE in white at 3.3:1, stage 06 critique of 10 Nov 2026 row 7; design/v4/daily-home.css: .dc-t5 --g1 --g2; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-tight: .03em; /* the open control's label when it takes two lines on a phone card; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-card.is-hero .v4-btn / v4 modes.css .wf-mode > .wf-fig-missing: Not launched yet, tracked less so it fits a narrow plate; рішення користувача, D-209 (v4) carried by D-231 */
+  --shape-daily-rim: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); /* a daily case's front wall, level at 55 % in every tier picture, cut so the skins lie in the tray; design/v4/daily-home.css: .dc-front; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-banner: #0B0F2A; /* the night behind the scene before its pictures load; v4 banner.css: .wf-event, background; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-banner-clock-phone: rgba(6, 10, 30, .78); /* the countdown's plate on a phone, without the blur; v4 theme.css: .wf-event-clock, background; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-banner-cell: rgba(15, 14, 43, .9); /* a countdown cell, the card at 90 %; v4 theme.css: .wf-event-cell, background; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-banner-rule: rgba(101, 163, 255, .14); /* the line under the end date, the blue at 14 %; v4 theme.css: .wf-event-end, border-bottom; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-banner: 0 14px 34px rgba(0, 0, 0, .4); /* the banner's drop as a block from 900px; v4 banner.css: .wf-main > .wf-event, box-shadow (its inset .06 hairline is --shadow-edge, D-228); рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-banner-clock: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 10px 30px rgba(6, 10, 30, .5); /* the countdown's blue hairline and drop; v4 theme.css: .wf-event-clock, box-shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-banner-title: drop-shadow(0 1px 2px rgba(6, 10, 30, .9)) drop-shadow(0 6px 18px rgba(6, 10, 30, .75)); /* the title art's shadow on the sky, a filter; v4 theme.css: .wf-event .wf-event-name, filter; рішення користувача, D-209 (v4) carried by D-231 */
+  --filter-banner-plate: brightness(1.08) saturate(1.1); /* the plate lit a step, "brighter as in B"; v4 banner.css: .wf-event::before, filter; рішення користувача, D-209 (v4) carried by D-231 */
+  --filter-banner-flare: brightness(1.5); /* the case's light under the pointer or with the act focused; v4 banner.css: .wf-event:hover::after, filter; рішення користувача, D-209 (v4) carried by D-231 */
+  --filter-banner-flare-still: brightness(1.15); /* the same flare, still, for reduced motion; v4 banner.css: @media (prefers-reduced-motion) .wf-event:hover::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-banner-clock: 6px; /* the countdown plate's backdrop blur from 600px; v4 banner.css: .wf-event-clock, backdrop-filter; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-banner-unit-phone: .04em; /* the unit's tracking on a phone, so Seconds fits 76px at 360; v4 banner.css: .wf-event-cell span, letter-spacing; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-shade: linear-gradient(90deg, rgba(6, 10, 30, .5), rgba(6, 10, 30, .12) 30%, transparent 46%); /* the shade that keeps the title legible, from 600px; v4 banner.css: .wf-event::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-shade-phone: linear-gradient(to bottom, rgba(6, 10, 30, .45), transparent 26%); /* the same under the phone's title; v4 banner.css: @media (max-width: 599px) .wf-event::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-foot: linear-gradient(to top, var(--color-ground), transparent 14%); /* the plate melting into the page at its foot; v4 banner.css: .wf-event::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-foot-phone: linear-gradient(to top, var(--color-ground) 16%, transparent 34%); /* the same on a phone, behind the countdown; v4 banner.css: @media (max-width: 599px) .wf-event::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-hero-mask: linear-gradient(to top, transparent, #000 14%); /* the soldier's foot melting as the plate's; v4 banner.css: .wf-event .wf-banner-art::after, mask; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-hero-mask-phone: linear-gradient(to top, transparent 22%, #000 36%); /* the same on a phone; v4 banner.css: @media (max-width: 599px) .wf-event .wf-banner-art::after, mask; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-story-mask-phone: linear-gradient(to bottom, #000 68%, transparent); /* the phone story melting behind the countdown; v4 banner.css: @media (max-width: 599px) .v4-story, mask; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-art-mask: radial-gradient(closest-side, #000 72%, transparent); /* the soldier and the aurora fading at the corners; kit.css part 3: [data-art^="case-"] on the banner's art, which Home v4 draws; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-sweep: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, .45) 50%, transparent 80%); /* the light crossing the act; v4 banner.css: .wf-event-go::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-snow-near: radial-gradient(circle at 12% 18%, rgba(255, 255, 255, .95) 0 2px, transparent 2.6px), radial-gradient(circle at 63% 9%, rgba(255, 255, 255, .8) 0 1.6px, transparent 2.2px), radial-gradient(circle at 38% 57%, rgba(255, 255, 255, .9) 0 2.4px, transparent 3px), radial-gradient(circle at 86% 44%, rgba(255, 255, 255, .75) 0 1.8px, transparent 2.4px), radial-gradient(circle at 21% 83%, rgba(255, 255, 255, .85) 0 1.5px, transparent 2.1px), radial-gradient(circle at 72% 76%, rgba(255, 255, 255, .95) 0 2.2px, transparent 2.8px); /* falling snow, near; v4 banner.css: .wf-event --snow-near; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-snow-far: radial-gradient(circle at 8% 31%, rgba(220, 230, 255, .7) 0 1px, transparent 1.5px), radial-gradient(circle at 47% 14%, rgba(220, 230, 255, .6) 0 .8px, transparent 1.3px), radial-gradient(circle at 77% 61%, rgba(220, 230, 255, .7) 0 1.1px, transparent 1.6px), radial-gradient(circle at 29% 72%, rgba(220, 230, 255, .55) 0 .9px, transparent 1.4px), radial-gradient(circle at 91% 22%, rgba(220, 230, 255, .65) 0 1px, transparent 1.5px), radial-gradient(circle at 58% 92%, rgba(220, 230, 255, .6) 0 .8px, transparent 1.3px); /* falling snow, far; v4 banner.css: .wf-event --snow-far; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-pulse: 3.2s; /* the case's light pulsing; v4 banner.css: .wf-event::after, animation; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-pulse-fast: 1.4s; /* the pulse under the pointer; v4 banner.css: .wf-event:hover::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-snow-near: 11s; /* v4 banner.css: .wf-event::after, animation; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-snow-far: 22s; /* v4 banner.css: .wf-event .wf-banner-art::before, animation; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-sweep: 4.5s; /* the act's light, every few seconds; v4 banner.css: .wf-event-go::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-sweep-fast: .8s; /* the act's light at once under the pointer; v4 banner.css: .wf-event-go:hover::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-lean: .9s; /* the layers leaning apart; v4 banner.css: .wf-event::before, transition; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-fade: .6s; /* the story fading in, the flare settling; v4 banner.css: .v4-story and .wf-event::after, transition; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-feed-plate: linear-gradient(to bottom, #191842, var(--color-card)); /* v4 theme.css .wf-feed-i: the drop's plate, --color-card lifted a step at its top, comp B; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-feed-back: linear-gradient(to bottom, #1D1B4A, #110F31); /* v4 theme.css .wf-feed-back: the back face's opaque navy; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-feed-tile: 0 6px 14px rgba(0, 0, 0, .35); /* v4 theme.css .wf-feed-i: the drop's shadow on the strip; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-feed-skin: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); /* a filter; v4 theme.css .wf-feed-hit .wf-feed-art: the skin's shadow over its ring; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-feed-text: 0 1px 2px rgba(0, 0, 0, .6); /* a text shadow; v4 theme.css .wf-feed-hit .wf-feed-w and .wf-feed-s: the names over the ring's light; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-feed-ring-deep: #12001C; /* v4 theme.css .wf-feed-hit::after: the dark the ring's colour is mixed into at its foot; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-avatar-bot: #2B2A63; /* v4 account-home.css .wf-feed-av.is-bot: a bot's empty avatar disc; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-avatar-bot: inset 0 0 0 1px rgba(255, 255, 255, .18); /* v4 account-home.css .wf-feed-av.is-bot: its ring; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-mode-cases-card: linear-gradient(120deg, var(--color-button), #8E2BC9); /* v4 theme.css .wf-mode:has([data-icon="box"]) --mode-fill: the Cases card starts on the button's pink, not --gradient-mode-cases's brand pink; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-mode-foot: linear-gradient(to top, rgba(8, 6, 30, .6), transparent 48%); /* v4 modes.css .wf-grid .wf-mode: comp A's cards darken towards the foot; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-card: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); /* v4 theme.css .wf-mode: the card's lit top edge and its shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-art: drop-shadow(0 8px 10px rgba(6, 10, 30, .5)); /* a filter; v4 modes.css .wf-grid .wf-mode .wf-mode-art: the floating object's shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-art-warm: drop-shadow(0 4px 8px rgba(90, 40, 0, .55)); /* a filter; v4 modes.css, the Upgrade object: a warm shadow on the gold card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-knife: drop-shadow(0 6px 8px rgba(6, 10, 30, .55)); /* a filter; v4 modes.css, Case battles' two knives; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-name: 0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode h3; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-line: 0 1px 6px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode p; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-mode-later: rgba(66, 74, 128, .6); /* v4 modes.css .wf-mode > .wf-fig-missing: the Not launched plate, a pale glass over the art; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-later: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 6px 16px rgba(6, 10, 30, .3); /* the same plate's edge and shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-mode-later: 8px; /* the same plate's backdrop blur; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-mode-name: .01em; /* v4 theme.css .wf-grid .wf-mode h3: a mode's name; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-mode-float: 4.6s; /* v4 modes.css v4-float: the object's breath; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-mode-burst: 5s; /* v4 modes.css v4-burst: the rim copy's breath; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-mode-strike: .7s; /* v4 modes.css v4-strike-l and -r: the knives drawing apart under the pointer; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-bolt: 4px; /* the light round a lit risk bolt under the pointer; рішення користувача, D-209, case-tiles.css .wf-tile:hover .v4-bolts i.is-on; made a variable at the merge, D-231 */
+  --blur-bolt-strike: 6px; /* the same light while the bolts strike; case-tiles.css .wf-tile-risk:hover .v4-bolts i.is-on; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-tier-bar: 10px; /* the light a tier's foot bar casts, with a 1px spread: a live drop, a drop card, a best drop, the prize; theme.css .wf-feed-hit::after and .wf-feed-back::before, case-blocks.css .v4d-w7 a::after, case-body.css row F ::after, case-stage.css .v4c-won-card::before; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-feed-sub: .4px; /* a live drop's skin name; kit.css part 3 .wf-feed-hit .wf-feed-s, v4 theme.css live drops; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  /* the case screen's molecules and the two menus: Breadcrumb, Drop card, Recent drop card, Outcome card, Popover menu */
+  --tracking-tile: .03em; /* v4 account-home.css: .am3-t.is-items letter-spacing, My items in capitals. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-snug: .04em; /* v4 case-body.css: row F td::before at 599px, the label of Chance and Tickets on a phone. Drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-rarity-4-lit: #8F63E6; /* v4 case-body.css: .r4 --r-lit; case-blocks.css .v4d-w7 > li.r4; case-page.css .v4c-won.r4: Restricted lit on a dark card, rarity step 4 read too dark there. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-rarity-5-lit: #4F6BFF; /* v4 case-body.css: .r5 --r-lit; case-blocks.css .v4d-w7 > li.r5; case-page.css .v4c-won.r5: Mil-Spec lit. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-card-deep: #0D0C2C; /* v4 case-blocks.css: .v4d-w7 a background, the stage's own card W7; case-body.css row F; case-stage.css z7 card. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-ring-deep: #12001C; /* v4 case-blocks.css: .v4d-art .hs3, the foot of the ring's gradient. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-track: rgba(255, 255, 255, .08); /* v4 case-body.css: row F ::before, the 100 000 behind the item's stretch; case-stage.css z7 .v4c-won-x inset edge. Drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-foil: rgba(255, 255, 255, .45); /* v4 case-stage.css: .v4c-won-card::after, the band of light that crosses the prize once. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-tab: #1A1940; /* v4 case-stage.css: z .v4c-won-x background, the multiple's tab. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-up-tab: #0F2E33; /* v4 case-stage.css: z .v4c-won-x.is-up background, the tab of an item worth more than the open. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-wash: rgba(255, 255, 255, .07); /* v4 account-home.css: .am3-copy background. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-done: #7BE8A0; /* v4 account-home.css: .am3-copy.is-done color, Copied. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-done-wash: rgba(51, 204, 102, .18); /* v4 account-home.css: .am3-copy.is-done background. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-fail: #FF8FA3; /* v4 account-home.css: .am3-copy.is-fail color, Not copied. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-fail-wash: rgba(209, 39, 62, .2); /* v4 account-home.css: .am3-copy.is-fail background. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-error-wash: rgba(255, 77, 106, .08); /* v4 account-home.css: .am3-out:hover background, under Sign out. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-scrim-sheet: rgba(3, 5, 16, .6); /* v4 account-home.css: .v4-ac-scrim at 899px, the page dimmed under the sheet. Popover menu, account on a phone; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-handle: rgba(255, 255, 255, .25); /* v4 account-home.css: .am3::before at 899px, the sheet's handle. Popover menu, account on a phone; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-card: 0 10px 22px rgba(3, 3, 16, .45); /* v4 case-blocks.css: .v4d-w7 a, under the stage's own card; case-body.css row F. Drop card, Recent drop card / an item card lifted off the ground; design/v4/case-body.css .wf-drops[data-v="f"] .v4b-row, What is in this case; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-card-hover: 0 14px 28px rgba(3, 3, 16, .55); /* v4 case-blocks.css: .v4d-w7 a:hover. Drop card, Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-outcome: 0 24px 40px rgba(3, 3, 16, .55); /* v4 case-stage.css: w7 .v4c-won-card, under the prize. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-skin-card: drop-shadow(0 8px 6px rgba(0, 0, 0, .7)); /* v4 case-blocks.css: .v4d-img filter; case-body.css row F .v4b-img. Drop card, Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-skin-prize: drop-shadow(0 14px 12px rgba(0, 0, 0, .7)); /* v4 case-stage.css: .v4c-won-art img filter. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-up-tab: inset 0 0 0 1px rgba(53, 224, 138, .35), 0 0 14px rgba(53, 224, 138, .22); /* v4 case-stage.css: z .v4c-won-x.is-up. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-menu: 0 24px 48px rgba(0, 0, 0, .5); /* v4 account-home.css: .am3, under the account menu. Popover menu, account; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-avatar-l: 0 0 0 2px rgba(255, 255, 255, .85), 0 6px 14px rgba(6, 10, 30, .45); /* v4 account-home.css: .am3-ava. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-tile-lit-soft: inset 0 1px 0 rgba(255, 255, 255, .2); /* v4 account-home.css: .am3-t.is-items and .is-rp, the light along a lit tile's top. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-menu: linear-gradient(180deg, #16133C, #0D0C28); /* v4 account-home.css: .am3 background. Popover menu, account; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-stripes-m: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px); /* v4 account-home.css: .am3-t.is-rp, the stripes on Responsible play, wider than --gradient-stripes. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --art-flag-gb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cmask id='a'%3E%3Ccircle cx='256' cy='256' r='256' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%23eee' d='m0 0 8 22-8 23v23l32 54-32 54v32l32 48-32 48v32l32 54-32 54v68l22-8 23 8h23l54-32 54 32h32l48-32 48 32h32l54-32 54 32h68l-8-22 8-23v-23l-32-54 32-54v-32l-32-48 32-48v-32l-32-54 32-54V0l-22 8-23-8h-23l-54 32-54-32h-32l-48 32-48-32h-32l-54 32L68 0H0z'/%3E%3Cpath fill='%230052b4' d='M336 0v108L444 0Zm176 68L404 176h108zM0 176h108L0 68ZM68 0l108 108V0Zm108 512V404L68 512ZM0 444l108-108H0Zm512-108H404l108 108Zm-68 176L336 404v108z'/%3E%3Cpath fill='%23d80027' d='M0 0v45l131 131h45L0 0zm208 0v208H0v96h208v208h96V304h208v-96H304V0h-96zm259 0L336 131v45L512 0h-45zM176 336 0 512h45l131-131v-45zm160 0 176 176v-45L381 336h-45z'/%3E%3C/g%3E%3C/svg%3E"); /* a round flag beside a language, gb; carried from kit.css part 3 [data-flag="gb"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave; рішення користувача, D-209 (v4) carried by D-231 */
+  --art-flag-de: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cmask id='a'%3E%3Ccircle cx='256' cy='256' r='256' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%23ffda44' d='m0 345 256.7-25.5L512 345v167H0z'/%3E%3Cpath fill='%23d80027' d='m0 167 255-23 257 23v178H0z'/%3E%3Cpath fill='%23333' d='M0 0h512v167H0z'/%3E%3C/g%3E%3C/svg%3E"); /* a round flag beside a language, de; carried from kit.css part 3 [data-flag="de"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave; рішення користувача, D-209 (v4) carried by D-231 */
+  --art-flag-cn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cmask id='a'%3E%3Ccircle cx='256' cy='256' r='256' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%23d80027' d='M0 0h512v512H0z'/%3E%3Cpath fill='%23ffda44' d='m140.1 155.8 22.1 68h71.5l-57.8 42.1 22.1 68-57.9-42-57.9 42 22.2-68-57.9-42.1H118zm163.4 240.7-16.9-20.8-25 9.7 14.5-22.5-16.9-20.9 25.9 6.9 14.6-22.5 1.4 26.8 26 6.9-25.1 9.6zm33.6-61 8-25.6-21.9-15.5 26.8-.4 7.9-25.6 8.7 25.4 26.8-.3-21.5 16 8.6 25.4-21.9-15.5zm45.3-147.6L370.6 212l19.2 18.7-26.5-3.8-11.8 24-4.6-26.4-26.6-3.8 23.8-12.5-4.6-26.5 19.2 18.7zm-78.2-73-2 26.7 24.9 10.1-26.1 6.4-1.9 26.8-14.1-22.8-26.1 6.4 17.3-20.5-14.2-22.7 24.9 10.1z'/%3E%3C/g%3E%3C/svg%3E"); /* a round flag beside a language, cn; carried from kit.css part 3 [data-flag="cn"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave; рішення користувача, D-209 (v4) carried by D-231 */
+  --art-flag-fr: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cmask id='a'%3E%3Ccircle cx='256' cy='256' r='256' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%23eee' d='M167 0h178l25.9 252.3L345 512H167l-29.8-253.4z'/%3E%3Cpath fill='%230052b4' d='M0 0h167v512H0z'/%3E%3Cpath fill='%23d80027' d='M345 0h167v512H345z'/%3E%3C/g%3E%3C/svg%3E"); /* a round flag beside a language, fr; carried from kit.css part 3 [data-flag="fr"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave; рішення користувача, D-209 (v4) carried by D-231 */
+  --art-flag-pl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cmask id='a'%3E%3Ccircle cx='256' cy='256' r='256' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%23d80027' d='m0 256 256.4-44.3L512 256v256H0z'/%3E%3Cpath fill='%23eee' d='M0 0h512v256H0z'/%3E%3C/g%3E%3C/svg%3E"); /* a round flag beside a language, pl; carried from kit.css part 3 [data-flag="pl"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave; рішення користувача, D-209 (v4) carried by D-231 */
+  --art-flag-tr: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cmask id='a'%3E%3Ccircle cx='256' cy='256' r='256' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%23d80027' d='M0 0h512v512H0z'/%3E%3Cg fill='%23eee'%3E%3Cpath d='m245.5 209.2 21 29 34-11.1-21 29 21 28.9-34-11.1-21 29V267l-34-11.1 34-11z'/%3E%3Cpath d='M188.2 328.3a72.3 72.3 0 1 1 34.4-136 89 89 0 1 0 0 127.3 72 72 0 0 1-34.4 8.7z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* a round flag beside a language, tr; carried from kit.css part 3 [data-flag="tr"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave; рішення користувача, D-209 (v4) carried by D-231 */
+  --art-flag-pt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cmask id='a'%3E%3Ccircle cx='256' cy='256' r='256' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%236da544' d='M0 512h167l37.9-260.3L167 0H0z'/%3E%3Cpath fill='%23d80027' d='M512 0H167v512h345z'/%3E%3Ccircle cx='167' cy='256' r='89' fill='%23ffda44'/%3E%3Cpath fill='%23d80027' d='M116.9 211.5V267a50 50 0 1 0 100.1 0v-55.6H117z'/%3E%3Cpath fill='%23eee' d='M167 283.8c-9.2 0-16.7-7.5-16.7-16.7V245h33.4v22c0 9.2-7.5 16.7-16.7 16.7z'/%3E%3C/g%3E%3C/svg%3E"); /* a round flag beside a language, pt; carried from kit.css part 3 [data-flag="pt"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave; рішення користувача, D-209 (v4) carried by D-231 */
+  --art-flag-es: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cmask id='a'%3E%3Ccircle cx='256' cy='256' r='256' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%23ffda44' d='m0 128 256-32 256 32v256l-256 32L0 384Z'/%3E%3Cpath fill='%23d80027' d='M0 0h512v128H0zm0 384h512v128H0z'/%3E%3Cg fill='%23eee'%3E%3Cpath d='M144 304h-16v-80h16zm128 0h16v-80h-16z'/%3E%3Cellipse cx='208' cy='296' rx='48' ry='32'/%3E%3C/g%3E%3Cg fill='%23d80027'%3E%3Crect width='16' height='24' x='128' y='192' rx='8'/%3E%3Crect width='16' height='24' x='272' y='192' rx='8'/%3E%3Cpath d='M208 272v24a24 24 0 0 0 24 24 24 24 0 0 0 24-24v-24h-24z'/%3E%3C/g%3E%3Crect width='32' height='16' x='120' y='208' fill='%23ff9811' ry='8'/%3E%3Crect width='32' height='16' x='264' y='208' fill='%23ff9811' ry='8'/%3E%3Crect width='32' height='16' x='120' y='304' fill='%23ff9811' rx='8'/%3E%3Crect width='32' height='16' x='264' y='304' fill='%23ff9811' rx='8'/%3E%3Cpath fill='%23ff9811' d='M160 272v24c0 8 4 14 9 19l5-6 5 10a21 21 0 0 0 10 0l5-10 5 6c6-5 9-11 9-19v-24h-9l-5 8-5-8h-10l-5 8-5-8z'/%3E%3Cpath d='M122 252h172m-172 24h28m116 0h28'/%3E%3Cpath fill='%23d80027' d='M122 248a4 4 0 0 0-4 4 4 4 0 0 0 4 4h172a4 4 0 0 0 4-4 4 4 0 0 0-4-4zm0 24a4 4 0 0 0-4 4 4 4 0 0 0 4 4h28a4 4 0 0 0 4-4 4 4 0 0 0-4-4zm144 0a4 4 0 0 0-4 4 4 4 0 0 0 4 4h28a4 4 0 0 0 4-4 4 4 0 0 0-4-4z'/%3E%3Cpath fill='%23eee' d='M196 168c-7 0-13 5-15 11l-5-1c-9 0-16 7-16 16s7 16 16 16c7 0 13-4 15-11a16 16 0 0 0 17-4 16 16 0 0 0 17 4 16 16 0 1 0 10-20 16 16 0 0 0-27-5c-3-4-7-6-12-6zm0 8c5 0 8 4 8 8 0 5-3 8-8 8-4 0-8-3-8-8 0-4 4-8 8-8zm24 0c5 0 8 4 8 8 0 5-3 8-8 8-4 0-8-3-8-8 0-4 4-8 8-8zm-44 10 4 1 4 8c0 4-4 7-8 7s-8-3-8-8c0-4 4-8 8-8zm64 0c5 0 8 4 8 8 0 5-3 8-8 8-4 0-8-3-8-7l4-8z'/%3E%3Cpath fill='none' d='M220 284v12c0 7 5 12 12 12s12-5 12-12v-12z'/%3E%3Cpath fill='%23ff9811' d='M200 160h16v32h-16z'/%3E%3Cpath fill='%23eee' d='M208 224h48v48h-48z'/%3E%3Cpath fill='%23d80027' d='m248 208-8 8h-64l-8-8c0-13 18-24 40-24s40 11 40 24zm-88 16h48v48h-48z'/%3E%3Crect width='20' height='32' x='222' y='232' fill='%23d80027' rx='10' ry='10'/%3E%3Cpath fill='%23ff9811' d='M168 232v8h8v16h-8v8h32v-8h-8v-16h8v-8zm8-16h64v8h-64z'/%3E%3Cg fill='%23ffda44'%3E%3Ccircle cx='186' cy='202' r='6'/%3E%3Ccircle cx='208' cy='202' r='6'/%3E%3Ccircle cx='230' cy='202' r='6'/%3E%3C/g%3E%3Cpath fill='%23d80027' d='M169 272v43a24 24 0 0 0 10 4v-47h-10zm20 0v47a24 24 0 0 0 10-4v-43h-10z'/%3E%3Cg fill='%23338af3'%3E%3Ccircle cx='208' cy='272' r='16'/%3E%3Crect width='32' height='16' x='264' y='320' ry='8'/%3E%3Crect width='32' height='16' x='120' y='320' ry='8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* a round flag beside a language, es; carried from kit.css part 3 [data-flag="es"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave; рішення користувача, D-209 (v4) carried by D-231 */
+  --art-flag-ua: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cmask id='a'%3E%3Ccircle cx='256' cy='256' r='256' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%23ffda44' d='m0 256 258-39.4L512 256v256H0z'/%3E%3Cpath fill='%23338af3' d='M0 0h512v256H0z'/%3E%3C/g%3E%3C/svg%3E"); /* a round flag beside a language, ua; carried from kit.css part 3 [data-flag="ua"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-ring-glow-near: 2px; /* the near light's blur; the same rules; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-ring-glow-far: 10px; /* the far light's blur; the same rules; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-card-hover: 22px; /* a stage card's light in its tier under the pointer; case-blocks.css .v4d-w7 a:hover, case-body.css row F :hover; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-winner-ring: 16px; /* the light round the winner's avatar over a best drop; case-blocks.css .v4d-av; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-outcome: 40px; /* the prize's light in its tier; case-stage.css w7 .v4c-won-card; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  /* the molecules drawn only in grey so far, from their nearest v4 relatives: Category bar, Copyable value, Deposit dock, Empty state, Field, Item card, Withdraw item */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace; /* a value read one character at a time: a seed, a hash, an id, an address; design/v4/case-page.css .v4c-hash code, the server seed hash under the case screen's open act; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-plate: linear-gradient(180deg, #100F33, #0B0A26); /* the plate a bar of controls stands on; design/v4/case-stage.css .v4c-plate, the case screen's open bar; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-plate-edge: inset 0 0 0 1px rgba(139, 124, 255, .16); /* the violet hairline round that plate; design/v4/case-stage.css .v4c-plate; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-pink-edge: rgba(251, 63, 138, .45); /* the edge of a declaration that is made; design/v4/signin-home.css .sd-cbx.is-set; рішення користувача, D-209 (v4) carried by D-231 */
+  /* the refusal line, the atom .note--refuse of part 4.1, decision 4 of D-231 */
+  --color-refuse: #FF8297; /* the refusal line's words, a light error red; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-refuse-mark: 18px; /* the round "!" that leads a refusal line, in --color-error; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why::before; рішення користувача, D-209 (v4) carried by D-231 */
 }
 
 /* the live drop tile on a phone, founder of 4 Nov 2026: "лайв фид в раза два меньше по высоте"; D-209; from design/v4/theme.css */
@@ -1843,7 +2024,11 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 
 /* NOTE LINE. One small line that qualifies a block; the refusal beside a control says what is missing, D-58; the stamp says as of when. */
 .note { margin: 0; color: var(--color-text-muted); font-size: var(--size-chip); line-height: 1.5; }
-.note--refuse { color: var(--color-down); font-weight: 700; }
+/* the refusal: one line in a light error red led by a round "!" mark, no box and no side stripe; рішення користувача, D-231, "carried from v4's sign in",
+   design/v4/signin-home.css .sd--e.is-asked .sd-why and its ::before; the line is as tall as the mark with a hairline over and under it */
+.note--refuse { position: relative; padding-left: calc(var(--size-refuse-mark) + var(--space-2)); color: var(--color-refuse); font-size: var(--size-label); font-weight: 400; line-height: calc(var(--size-refuse-mark) + 2 * var(--size-hairline)); }
+.note--refuse :is(b, strong) { font-weight: 700; }
+.note--refuse::before { content: '!'; position: absolute; left: 0; top: var(--size-hairline); display: grid; place-items: center; width: var(--size-refuse-mark); height: var(--size-refuse-mark); border-radius: 50%; background: var(--color-error); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 900; line-height: 1; }
 .note--stamp { font-variant-numeric: tabular-nums; }
 
 /* PROSE. The page's own text, the SEO layer among it; a measure of 68ch. From the Home SEO block, seo-home.css. */
@@ -1920,3 +2105,1144 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .file { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); color: var(--color-text-muted); font-size: var(--size-chip); }
 .file input { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 @media (prefers-reduced-motion: reduce) { .switch > input, .switch > input::after { transition: none; } }
+
+/* ----- 4.2 Molecules, batch 2, D-231 ----- */
+/* Read from v4's code and the grey screens by three passes and merged on the founder's decisions of 19 Nov 2026, D-231. The language they share
+   is in :root above; the geometry one molecule reads is declared at the head of its own block, on its root class, and read inside it only. */
+
+/* AMOUNT FIELD. A label, the amount with its unit, and the presets that set it; a preset is pressed while the amount is its figure.
+   Grey only so far, wireframes/deposit-card.html; the look is the case screen's count switch, the label the server seed hash's, design/v4/case-stage.css
+   and case-page.css. Contains Text field (.input-unit, .input--l) and Segmented control (.seg). */
+.amount { display: grid; gap: var(--space-2); min-width: 0; }
+.amount__l { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.amount .input { font-weight: 900; font-variant-numeric: tabular-nums; } /* the amount is a figure: the figures' weight, as .fig__v */
+.amount__presets { flex-wrap: wrap; } /* on .seg: six presets wrap to a second row at 360 rather than leave the page */
+
+/* BREADCRUMB. Where this page sits, its links in the quiet soft grey, the page itself in white, a slash between them; small capitals at the
+   buttons' tracking. Cut to its parent with a back mark it reads as one step back, as the case screen does under 900px (--back). From the
+   case screen's head, design/v4/case-page.css (.v4c-nav .wf-crumb). Markup: nav > ol > li, the current page an element with aria-current. */
+.crumb { color: var(--color-text); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-caps); line-height: 1.2; text-transform: uppercase; }
+.crumb > ol { display: flex; flex-wrap: wrap; gap: var(--space-1-5); margin: 0; padding: 0; list-style: none; }
+.crumb li + li::before { content: '/'; margin-right: var(--space-1-5); color: var(--color-text-soft); opacity: .6; }
+.crumb a { color: var(--color-text-soft); text-decoration: none; }
+@media (hover: hover) { .crumb a:hover { color: var(--color-text-hi); } }
+.crumb a:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.crumb [aria-current] { color: var(--color-text-hi); }
+/* cut to its parent: every step but the one above the page is hidden from sight, never from the markup; the back mark stands before it */
+.crumb--back li:not(:nth-last-child(2)) { display: none; }
+.crumb--back li + li::before { content: none; }
+.crumb--back li:nth-last-child(2) a::before { content: '\2039'; margin-right: var(--space-1-5); font-size: var(--size-text); line-height: 0; }
+
+/* CASE TILE. A case as Home draws it, no plate at rest: the case with its skin (.media--case), its name, its risk as four bolts, its price in
+   gold with the coin. Under the pointer or keyboard focus the tile takes its own card in its case's colour, fading out toward the case so the
+   case rises out of it, the case swells and the skin lifts, the price stands on a dark plate. The favourite (.fav) sits in a strip above the
+   case, shown under the pointer, kept shown when on; with no pointer to hover with it always shows. The colour is a modifier (blue, gold, pink,
+   violet, ember); the picture is the atom's --case-art. Busy (aria-busy) is the catalogue's loading skeleton: the base case and bars in the
+   busy wash, the tile's own shape so the grid does not reflow, built from the grey catalogue-loading and the base case of D-230; v4 draws no
+   loading tile. From design/v4/case-tiles.css and theme.css on kit.css parts 2 and 3 .wf-tile. */
+/* its own geometry, read inside .case-tile only, D-231 */
+.case-tile {
+  --case-tile-fav-strip: 36px; /* case-tiles.css .wf-tile padding-top calc(var(--space-4) + 36px), the strip over a case where its favourite sits */
+  --case-tile-risk: 22px; /* case-tiles.css .wf-tile-risk height, the row of four bolts; its width is four --size-check */
+}
+.case-tile { --case-glow: var(--color-pink); --case-plate: var(--gradient-mode-cases); position: relative; z-index: 0; isolation: isolate; display: flex; flex-direction: column; box-sizing: border-box; padding: calc(var(--space-4) + var(--case-tile-fav-strip)) var(--space-2) var(--space-5); border-radius: var(--radius-m); color: var(--color-text); font-size: var(--size-text); line-height: 1.2; text-align: center; transition: z-index 0s .2s; }
+.case-tile--blue { --case-glow: var(--color-blue); --case-plate: var(--gradient-mode-battles); }
+.case-tile--gold { --case-glow: var(--color-gold); --case-plate: var(--gradient-case-gold); }
+.case-tile--violet { --case-glow: var(--color-case-violet); --case-plate: var(--gradient-case-violet); }
+.case-tile--ember { --case-glow: var(--color-rare-fire); --case-plate: var(--gradient-mode-showdowns); }
+.case-tile__link { position: relative; isolation: isolate; display: flex; flex: 1 1 auto; flex-direction: column; align-items: center; gap: var(--space-hair); color: inherit; text-decoration: none; }
+.case-tile__link:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-m); }
+/* the tile's own card under the pointer, starting under the lid so the case stands out of its top edge */
+.case-tile__fx { position: absolute; z-index: -1; inset: 30% calc(-1 * var(--space-1)) calc(-1 * var(--space-2-5)); border-radius: var(--radius-m); background: var(--gradient-button-stripes), var(--case-plate); opacity: 0; translate: 0 var(--space-2-5); pointer-events: none; -webkit-mask: var(--gradient-fade-up); mask: var(--gradient-fade-up); transition: opacity .22s, translate .3s var(--motion-ease-settle); }
+/* the case: the atom, wider than the tile and moved right so the case's body stands on the tile's centre line */
+.case-tile__art { width: 124%; margin: -6% -12% var(--space-3); translate: 6.8% 0; transform-origin: 50% 82%; transition: transform .45s var(--motion-ease-pop), filter .35s; }
+.case-tile__art > img { transition: rotate .45s var(--motion-ease-pop), translate .45s var(--motion-ease-pop), scale .45s var(--motion-ease-pop); }
+.case-tile__name { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; letter-spacing: var(--tracking-case-name); text-transform: uppercase; }
+/* the risk: four bolts, one to four lit in the band's colour; its words stay for a screen reader */
+.case-tile__risk { --rc: var(--color-text-muted); --n: 0; position: relative; display: block; width: calc(4 * var(--size-check)); height: var(--case-tile-risk); margin-block: var(--space-hair) var(--space-2); overflow: visible; color: transparent; font-size: 0; }
+.case-tile__risk[data-risk="low"] { --rc: var(--color-risk-low); } .case-tile__risk[data-risk="medium"] { --rc: var(--color-risk-mid); }
+.case-tile__risk[data-risk="high"] { --rc: var(--color-risk-high); } .case-tile__risk[data-risk="extreme"] { --rc: var(--color-risk-extreme); }
+.case-tile__bolts { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: var(--size-check); }
+.case-tile__bolts > .icon { position: relative; display: block; color: var(--color-skull-off); transition: filter .2s, scale .2s; }
+.case-tile__bolts > .icon.is-on { color: var(--rc); }
+.case-tile__bolts > .icon:nth-child(2) { --k: 1; } .case-tile__bolts > .icon:nth-child(3) { --k: 2; } .case-tile__bolts > .icon:nth-child(4) { --k: 3; }
+/* the band in words beside the bolts on their right, or their left (.is-left, set by the screen's script where the right has no room) */
+.case-tile__tip { position: absolute; z-index: 5; left: 0; right: auto; top: 50%; translate: calc(-1 * var(--space-1)) -50%; padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--color-tile); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--rc) 70%, transparent), var(--shadow-tip); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 700; line-height: 1.2; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .15s, translate .2s var(--motion-ease-settle), left 0s .2s, right 0s .2s; }
+.case-tile__tip::after { content: ''; position: absolute; right: 100%; top: 50%; width: var(--space-1-5); height: var(--space-2-5); translate: 0 -50%; background: color-mix(in srgb, var(--rc) 70%, var(--color-tile)); clip-path: var(--shape-tip-tail); }
+.case-tile__tip.is-left { translate: var(--space-1) -50%; }
+.case-tile__tip.is-left::after { right: auto; left: 100%; scale: -1 1; }
+.case-tile__price { position: relative; display: flex; align-self: center; align-items: center; justify-content: center; min-height: var(--size-button-m); margin-top: var(--space-1); padding: 0; border-radius: var(--radius-s); transition: background .2s, box-shadow .2s, padding .2s; }
+.case-tile__cost { color: var(--color-money); font-size: var(--size-title); font-weight: 900; font-variant-numeric: tabular-nums; transition: opacity .2s, translate .25s; }
+.case-tile__cost > .icon--coin { width: .8em; height: .8em; margin-right: var(--space-1-5); vertical-align: -.05em; }
+.case-tile:is(:hover, :focus-within) .case-tile__price { padding: 0 var(--space-3-5); background: var(--color-price-plate); box-shadow: var(--shadow-price-edge); }
+/* the favourite: the atom, its plate drawn inside the tap area as a smaller pill */
+.case-tile__fav { position: absolute; z-index: 2; top: var(--space-hair); right: var(--space-hair); isolation: isolate; overflow: visible; justify-content: center; min-width: var(--size-tap); min-height: var(--size-button-m); padding: 0 var(--space-1-5); border-radius: 0; background: none; box-shadow: none; font-size: var(--size-xs); font-weight: 400; font-variant-numeric: normal; line-height: 1.2; white-space: nowrap; }
+.case-tile__count { font-size: var(--size-label); font-weight: 700; }
+.case-tile__fav::before { content: ''; position: absolute; z-index: -1; inset: var(--space-1-5) 0; border-radius: var(--radius-s); background: var(--color-fav-plate); box-shadow: var(--shadow-edge-lit); } /* v4 drew 10px corners, the ladder's 8, D-228 */
+.case-tile__fav > * { position: relative; margin: 0 var(--space-1); }
+.case-tile__fav > .icon { font-size: var(--size-check); transition-timing-function: var(--motion-ease-bounce); }
+.case-tile__fav[aria-pressed="true"] { box-shadow: none; }
+.case-tile__fav[aria-pressed="true"]::before { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
+.case-tile__fav[aria-pressed="true"] > :not(.icon) { color: var(--color-text-hi); }
+@media (hover: hover) {
+  .case-tile:hover .case-tile__fx, .case-tile__link:focus-visible .case-tile__fx { opacity: 1; translate: 0 0; }
+  .case-tile:hover .case-tile__art { transform: scale(1.06); filter: brightness(1.1); }
+  .case-tile:hover .case-tile__art > img { rotate: 4deg; translate: 0 -14%; scale: 1.14; }
+  .case-tile:hover .case-tile__bolts > .is-on { filter: brightness(1.2) drop-shadow(0 0 var(--blur-bolt) color-mix(in srgb, var(--rc) 60%, transparent)); }
+  .case-tile__risk:hover .case-tile__bolts > .is-on { animation: case-tile-strike .5s var(--motion-ease-bounce) calc(var(--k, 0) * var(--motion-stagger-bolt)) both; filter: brightness(1.3) drop-shadow(0 0 var(--blur-bolt-strike) var(--rc)); }
+  .case-tile__risk:hover .case-tile__bolts > :not(.is-on) { animation: case-tile-flicker .5s ease-out calc(var(--k, 0) * var(--motion-stagger-bolt)) both; }
+  .case-tile .case-tile__fav:not([aria-pressed="true"]) { opacity: 0; transition: opacity .2s; }
+  .case-tile:is(:hover, :focus-within) .case-tile__fav { opacity: 1; }
+}
+@keyframes case-tile-strike { 0% { scale: 1; translate: 0 0; } 35% { scale: 1.4; translate: 0 -3px; } 100% { scale: 1.15; translate: 0 -1px; } }
+@keyframes case-tile-flicker { 0%, 100% { filter: none; color: var(--color-skull-off); } 30% { filter: drop-shadow(0 0 4px var(--rc)); color: color-mix(in srgb, var(--rc) 55%, var(--color-skull-off)); } }
+.case-tile__risk:hover .case-tile__tip { left: calc(100% + var(--space-2-5)); opacity: 1; translate: 0 -50%; transition: opacity .15s, translate .2s var(--motion-ease-settle), left 0s, right 0s; }
+.case-tile__risk:hover .case-tile__tip.is-left { left: auto; right: calc(100% + var(--space-2-5)); }
+.case-tile:has(.case-tile__risk:hover) { z-index: 2; transition: z-index 0s; } /* the tile whose bolts are hovered rises over its neighbours, so its tooltip is not covered */
+.case-tile .case-tile__fav:focus-visible { opacity: 1; }
+/* busy: the loading skeleton */
+.case-tile[aria-busy="true"] :is(.case-tile__name, .case-tile__cost) { border-radius: var(--radius-xs); background: var(--color-disabled); color: transparent; }
+.case-tile[aria-busy="true"] .case-tile__risk { border-radius: var(--radius-xs); background: var(--color-disabled); }
+.case-tile[aria-busy="true"] :is(.case-tile__bolts, .case-tile__tip, .case-tile__cost > .icon) { visibility: hidden; }
+.case-tile[aria-busy="true"] .case-tile__fav > :not(.icon) { min-width: 2.4em; border-radius: var(--radius-xs); background: var(--color-disabled); color: transparent; }
+@media (prefers-reduced-motion: reduce) {
+  .case-tile__fx, .case-tile__art, .case-tile__art > img, .case-tile__cost, .case-tile__price, .case-tile__tip, .case-tile__bolts > .icon, .case-tile__fav > .icon { transition: none; }
+  .case-tile:hover .case-tile__fx { translate: none; }
+  .case-tile:hover .case-tile__art { transform: none; }
+  .case-tile:hover .case-tile__art > img { rotate: -10deg; translate: none; scale: none; }
+  .case-tile__risk:hover .case-tile__bolts > .icon { animation: none; }
+}
+
+/* CATEGORY BAR. The shelf's sections as a run of options, one current, and the two acts on the shelf, Search and Filters with its count.
+   Grey only so far, wireframes/catalogue.html; the look is the case screen's open bar, a plate with the count switch at one end and the
+   acts at the other, design/v4/case-stage.css .v4c-plate. Contains Segmented control (.seg__opt as a link), Button, Badge. On a phone the
+   plate stacks as the open bar does: the run on its own row, the acts under it. */
+.catbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3); border-radius: var(--radius-m); background: var(--gradient-plate); box-shadow: var(--shadow-plate-edge); }
+.catbar__l { display: none; flex: none; color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.catbar__run { display: flex; flex: 1 1 100%; gap: var(--space-2); min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.catbar__run::-webkit-scrollbar { display: none; }
+.catbar__run > .seg__opt { flex: none; text-decoration: none; white-space: nowrap; }
+.catbar__run > .seg__opt[aria-current="true"] { background: var(--gradient-button-stripes), var(--color-button); box-shadow: var(--shadow-button); } /* the current section is the chosen option, .seg__opt[aria-pressed="true"] */
+.catbar__acts { display: flex; flex: none; gap: var(--space-2); margin-left: auto; }
+@media (min-width: 600px) {
+  .catbar { flex-wrap: nowrap; padding: var(--space-3) var(--space-4); }
+  .catbar__l { display: block; }
+  .catbar__run { flex: 1 1 auto; }
+}
+
+/* CHOSEN METHOD. The way to pay picked at step 1, its family over its name, and Change, which goes back to the list.
+   Grey only so far, wireframes/deposit-card.html; the look is the header's money plate with Add funds beside the balance,
+   design/v4/account-home.css .ac2-plate. Contains Button. */
+.chosen { display: flex; align-items: center; gap: var(--space-3); min-height: calc(var(--size-tap) + var(--size-edge)); box-sizing: border-box; padding: var(--space-1) var(--space-2) var(--space-1) var(--space-3); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+.chosen__t { display: grid; gap: var(--space-1); min-width: 0; margin: 0; }
+.chosen__k { color: var(--color-text-muted); font-size: var(--size-unit); line-height: 1.2; }
+.chosen__v { overflow: hidden; color: var(--color-text-hi); font-size: var(--size-label); font-weight: 900; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.chosen > .button { flex: none; margin-left: auto; }
+
+/* COPYABLE VALUE. A key over a value read one character at a time, and Copy; once copied, a green line says so. Variants: a seed or a hash
+   (the value wraps whole, never cut), the one-line strip under the open act, an id (ticket, reference), a wallet address with its QR.
+   Grey only so far, wireframes/result.html, support-submitted.html, system-500.html, case-open.html, deposit-crypto.html; the look is the
+   server seed hash under the case screen's open act, design/v4/case-page.css .v4c-hash, and the hash well of Home's Every round with its
+   green "Recomputed: matches", design/v4/proof-home.css .x6-hash. Contains Button. */
+.copy-value { display: grid; gap: var(--space-2); min-width: 0; }
+.copy-value__k { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.copy-value__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-width: 0; }
+.copy-value__v { min-width: 0; padding: var(--space-1) var(--space-2); border-radius: var(--radius-s); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-family: var(--font-mono); font-size: var(--size-chip); font-weight: 500; line-height: 1.4; overflow-wrap: anywhere; }
+.copy-value__said { color: var(--color-green); font-size: var(--size-chip); font-weight: 700; line-height: 1.2; }
+.copy-value__said:empty { display: none; }
+/* the one-line strip under the open act: key, value and Copy on one centred line */
+.copy-value--inline { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-1) var(--space-2); }
+/* a wallet address: the QR beside the address; on a phone the QR stands over it */
+.copy-value--address { grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--space-4); }
+.copy-value__qr { display: grid; place-items: center; width: min(100%, calc(4 * var(--size-tap))); aspect-ratio: 1; box-sizing: border-box; padding: var(--space-3); border-radius: var(--radius-card); background: var(--color-text-hi); color: var(--color-ground); font-size: var(--size-chip); }
+.copy-value__qr > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.copy-value__body { display: grid; gap: var(--space-2); min-width: 0; }
+@media (min-width: 600px) { .copy-value--address { grid-template-columns: calc(4 * var(--size-tap)) minmax(0, 1fr); } }
+
+/* DAILY LADDER. The five tiers of Daily cases, each with its case, its name and its status, under a head with the title, the reset and, for a
+   guest, the one act. A tier gives a case and nothing else, and the ladder never counts down to the next tier (D-220, CLAUDE.md "a limit
+   never acquires completion mechanics"). The panel lays itself out by its own width: .daily is the container, .daily__panel the plate.
+   Carried from design/v4/daily-home.css and daily-home.js, the title's tile from heading-home.css. States: .daily--guest (each tier says
+   the wager that opens it), .daily--acct (a tier reached, opened today or locked); the card whose case can be opened now is .is-live and holds
+   the open control; .is-locked darkens a case not reached. Contains .button, .icon--coin and a case as .media--case draws it, its front cut at
+   the daily cases' level rim. Corners: the heading tile's 10px on a narrow panel lands on 8, D-228; every other corner was already on the
+   ladder. Two heights leave v4 for the family, D-228: the phone's 36px open control is the medium 40, and the guest's 44px Sign in on a
+   narrow panel is the large 52. */
+/* its own geometry, read inside .daily only, D-231 */
+.daily {
+  --daily-space-4-5: 20px; /* рішення користувача, D-209; the Daily head's column gap, the panel's inset on a phone, the least air over the cards; design/v4/daily-home.css: .dc-head, .dc (phone), .dc-cards */
+  --daily-money-gap: 3px; /* рішення користувача, D-209; the coin to its figure inside a line of text; design/v4/daily-home.css: .dc-m gap */
+  --daily-heading: 36px; /* рішення користувача, D-209; the Daily cases title inside its panel; design/v4/daily-home.css: .dc-t font-size */
+  --daily-heading-s: 28px; /* рішення користувача, D-209; the same title on a panel under 761px; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-t */
+  --daily-name-s: 19px; /* the tier name on a phone; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-name, 18 to 19 for large text, stage 06 critique row 7 */
+  --daily-mark: 46px; /* рішення користувача, D-209; the striped calendar tile before the title; design/v4/heading-home.css: .dc-t::before */
+  --daily-mark-s: 36px; /* the same tile on a panel under 761px; design/v4/heading-home.css: @container dc (max-width: 760px) .dc-t::before */
+  --daily-title: 320px; /* the title column's basis before it wraps; design/v4/daily-home.css: .dc-title flex */
+  --daily-card: 166px; /* рішення користувача, D-209; a tier card's height on a wide panel; design/v4/daily-home.css: .dc-card height */
+  --daily-art-foot: 76px; /* how far above a card's foot its case stands; design/v4/daily-home.css: .dc-art bottom */
+  --daily-art-foot-live: 92px; /* the same over the card with the open control, and on every card from 761 to 1199px; design/v4/daily-home.css: .dc-card.is-hero .dc-art */
+  --daily-reach: 70px; /* the fitted reach of the highest picture pixel above the cards, subtracted from the row's top margin; design/v4/daily-home.css: .dc-cards margin */
+  --daily-reach-mid: 54px; /* the same between 761 and 1199px of panel; design/v4/daily-home.css: @container dc (min-width: 761px) and (max-width: 1199px) .dc-cards */
+  --daily-art-s: 210px; /* a tier's picture on a phone, never wider; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-art */
+  --daily-art-s-pad: 116px; /* the card's top padding that clears that picture, 55 % of 210; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-card */
+  --daily-ground-s: 440px; /* the height the warehouse ground keeps on a phone, and its fade; design/v4/daily-home.css: @container dc (max-width: 760px) .dc::before */
+  --daily-glow: 36px; /* a tier card's light in its hue under the pointer; design/v4/daily-home.css: .dc-card:hover */
+  --daily-glow-live: 40px; /* the same on the card with the open control; design/v4/daily-home.css: .dc-card.is-hero:hover */
+}
+.daily { container: daily / inline-size; }
+.daily__panel { position: relative; isolation: isolate; display: flex; flex-direction: column; box-sizing: border-box; padding: var(--space-5-5); border-radius: var(--radius-m); background: var(--gradient-daily-panel); box-shadow: var(--shadow-tile-edge); color: var(--color-text-hi); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; text-align: left; }
+.daily__panel::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: .15; background: var(--art-daily-ground) right center / cover no-repeat; -webkit-mask: var(--gradient-daily-fade); mask: var(--gradient-daily-fade); }
+.daily__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); margin: calc(-1 * var(--size-hairline)); overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* "coins" for a screen reader only */
+.daily__money { display: inline-flex; align-items: center; gap: var(--daily-money-gap); color: var(--color-money); font-weight: 900; white-space: nowrap; vertical-align: bottom; }
+.daily__money > .icon--coin { font-size: var(--size-xs); }
+
+/* the head: the title with its tile, its line, the reset box and a guest's act */
+.daily__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--daily-space-4-5); }
+.daily__title { flex: 1 1 var(--daily-title); min-width: 0; }
+.daily__heading { position: relative; display: flex; align-items: center; gap: var(--space-4); margin: 0; color: var(--color-text-hi); font-size: var(--daily-heading); font-weight: 900; line-height: 1; text-transform: uppercase; }
+.daily__heading::before { content: ''; flex: 0 0 var(--daily-mark); height: var(--daily-mark); border-radius: var(--radius-card); background: var(--gradient-stripes), var(--gradient-mode-upgrade); box-shadow: var(--shadow-tile-lit); }
+.daily__heading::after { content: ''; position: absolute; left: calc((var(--daily-mark) - var(--size-l)) / 2); top: 50%; width: var(--size-l); height: var(--size-l); margin-top: calc(var(--size-l) / -2); background: var(--color-text-hi); -webkit-mask: var(--icon-calendar) center / contain no-repeat; mask: var(--icon-calendar) center / contain no-repeat; }
+.daily__lead { max-width: var(--size-measure); margin: var(--space-2) 0 0; color: var(--color-text-soft); font-size: var(--size-s); line-height: 1.4; }
+.daily__note { max-width: var(--size-measure); margin: var(--space-2-5) 0 0; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; } /* a limit in force: no wager is shown */
+.daily__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2-5); }
+.daily__boxes { display: flex; flex-wrap: wrap; gap: var(--space-2-5); }
+.daily__box { display: inline-flex; align-items: center; gap: var(--space-2-5); box-sizing: border-box; height: var(--size-button-l); padding: 0 var(--space-4) 0 var(--space-3); border-radius: var(--radius-button); background: var(--color-plate-veil); box-shadow: var(--shadow-edge-lit); }
+.daily__box-t { display: grid; gap: calc(var(--space-1) / 2); }
+.daily__box-v { font-size: var(--size-m); font-weight: 900; line-height: 1.05; white-space: nowrap; }
+.daily__box-c { color: var(--color-text-muted); font-size: var(--size-chip); white-space: nowrap; }
+.daily__box--money .daily__box-v { color: var(--color-money); }
+.daily__box--time .daily__box-v { color: var(--color-blue); }
+.daily__box > .icon--coin { font-size: var(--size-title); }
+.daily__clock { flex: 0 0 auto; width: 1em; height: 1em; font-size: var(--size-title); fill: none; stroke: var(--color-blue); stroke-width: 2.2; stroke-linecap: round; }
+@container daily (min-width: 1080px) {
+  .daily__head--titled { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0 var(--space-5); }
+  .daily__head--titled .daily__title { display: contents; }
+  .daily__head--titled .daily__heading { grid-column: 1; grid-row: 1; }
+  .daily__head--titled .daily__row { grid-column: 2; grid-row: 1; justify-self: end; justify-content: flex-end; }
+  .daily__head--titled :is(.daily__lead, .daily__note) { grid-column: 1 / -1; }
+  .daily__head--titled .daily__lead { margin-top: var(--space-3-5); }
+}
+@container daily (min-width: 761px) and (max-width: 1079px) {
+  .daily__head--titled .daily__title { flex-basis: 100%; }
+  .daily__row { flex: 1 1 100%; }
+  .daily__boxes, .daily__box, .daily__row > .button { flex: 1 1 auto; }
+}
+
+/* the tiers: their colour, their case */
+.daily__cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); margin: max(var(--daily-space-4-5), calc((100cqi - 2 * var(--space-5-5) - 4 * var(--space-3)) / 5 * .825 - var(--daily-reach))) 0 0; padding: 0; list-style: none; }
+.daily__tier--silver { --tier-hue: var(--color-daily-silver); --tier-g: var(--gradient-daily-silver); --case-art: var(--art-daily-silver); }
+.daily__tier--nova { --tier-hue: var(--color-blue); --tier-g: var(--gradient-mode-battles); --case-art: var(--art-daily-nova); }
+.daily__tier--guardian { --tier-hue: var(--color-case-violet); --tier-g: var(--gradient-daily-guardian); --case-art: var(--art-daily-guardian); }
+.daily__tier--legend { --tier-hue: var(--color-pink); --tier-g: var(--gradient-daily-legend); --case-art: var(--art-daily-legend); }
+.daily__tier--elite { --tier-hue: var(--color-gold); --tier-g: var(--gradient-daily-elite); --case-art: var(--art-daily-elite); }
+.daily__tier { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: var(--space-2); min-width: 0; height: var(--daily-card); padding: var(--space-3-5) var(--space-3-5) var(--space-4); border-radius: var(--radius-m); background: var(--gradient-button-stripes), var(--tier-g); box-shadow: var(--shadow-tile-lit); color: var(--color-text-hi); transition: translate .22s cubic-bezier(.2, .8, .2, 1), box-shadow .22s ease; }
+.daily__name { position: relative; font-size: var(--size-l); font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: var(--shadow-daily-name); }
+/* the card whose case opens now: higher, an edge of its own hue, its open control inside it */
+.daily__tier.is-live { translate: 0 calc(-1 * var(--space-3)); box-shadow: var(--shadow-tile-lit-live), inset 0 0 0 var(--size-edge) color-mix(in srgb, var(--tier-hue) 70%, transparent), var(--shadow-daily-lift); }
+.daily__tier.is-live > .button { position: relative; align-self: stretch; padding: 0 var(--space-2-5); }
+@media (hover: hover) {
+  .daily__tier:hover { translate: 0 calc(-1 * var(--space-1-5)); box-shadow: var(--shadow-tile-lit-hover), var(--shadow-daily-lift-hover), 0 0 var(--daily-glow) color-mix(in srgb, var(--tier-hue) 60%, transparent); }
+  .daily__tier.is-live:hover { translate: 0 calc(-1 * (var(--space-3) + var(--space-1-5))); box-shadow: var(--shadow-tile-lit-live), inset 0 0 0 var(--size-edge) color-mix(in srgb, var(--tier-hue) 70%, transparent), var(--shadow-daily-lift-live-hover), 0 0 var(--daily-glow-live) color-mix(in srgb, var(--tier-hue) 70%, transparent); }
+}
+/* the case, as .media--case draws it: the picture, the skins in its tray, the picture's front over them cut at the level rim, the skins
+   that lean on it in front (--front) */
+.daily__art.media--case { position: absolute; left: -16%; right: -16%; bottom: var(--daily-art-foot); pointer-events: none; }
+.daily__art.media--case::after { content: ''; clip-path: var(--shape-daily-rim); }
+.daily__tier.is-live .daily__art { bottom: var(--daily-art-foot-live); }
+.daily__art > .daily__skin { position: absolute; z-index: 1; display: block; object-fit: contain; filter: var(--shadow-daily-skin); }
+.daily__art > .daily__skin--front { z-index: 3; }
+.daily__tier--nova .daily__skin--c { left: 50%; top: 46%; width: 36%; height: 36%; rotate: 24deg; }
+.daily__tier--guardian .daily__skin--a { left: 22%; top: 12%; width: 56%; height: 48%; rotate: -16deg; }
+.daily__tier--guardian .daily__skin--c { left: 0; top: 48%; width: 34%; height: 34%; rotate: -26deg; }
+.daily__tier--legend .daily__skin--a { left: 14%; top: 10%; width: 56%; height: 48%; rotate: -18deg; }
+.daily__tier--legend .daily__skin--b { left: 30%; top: 6%; width: 56%; height: 48%; rotate: 16deg; }
+.daily__tier--legend .daily__skin--d { left: 56%; top: 50%; width: 32%; height: 32%; rotate: 22deg; }
+.daily__tier--elite .daily__skin--a { left: 32%; top: 0; width: 40%; height: 44%; rotate: -12deg; }
+.daily__tier--elite .daily__skin--b { left: 12%; top: 14%; width: 56%; height: 44%; rotate: 14deg; }
+.daily__tier--elite .daily__skin--c { left: 6%; top: 44%; width: 36%; height: 36%; rotate: -30deg; }
+.daily__tier--elite .daily__skin--d { left: 52%; top: 42%; width: 36%; height: 36%; rotate: 30deg; }
+.daily__tier.is-live .daily__skin { animation: daily-lift 2.6s ease-in-out infinite alternate; } /* ready: the skins lift a little and settle */
+@keyframes daily-lift { to { translate: 0 -8%; } }
+.daily--acct .daily__tier.is-locked .daily__art { filter: brightness(.45) saturate(.75); } /* a case not reached is darkened, the card keeps its colour */
+@container daily (min-width: 761px) and (max-width: 1199px) {
+  .daily__art.media--case { bottom: var(--daily-art-foot-live); }
+  .daily__cards { margin-top: max(var(--daily-space-4-5), calc((100cqi - 2 * var(--space-5-5) - 4 * var(--space-3)) / 5 * .825 - var(--daily-reach-mid))); }
+}
+
+/* the statuses */
+.daily__chip { position: relative; display: inline-flex; align-items: center; gap: var(--space-1-5); max-width: 100%; box-sizing: border-box; padding: var(--size-badge-pad) var(--space-2-5) var(--size-badge-pad) var(--space-2); border-radius: var(--radius-s); background: var(--color-daily-chip); color: var(--color-text-hi); font-size: var(--size-xs); font-weight: 700; line-height: 1.2; }
+.daily__chip > svg { flex: 0 0 auto; width: 1em; height: 1em; font-size: var(--size-label); fill: currentColor; }
+.daily__chip--opened > svg { fill: var(--color-green); }
+.daily__chip--open { background: var(--color-text-hi); color: var(--color-ground); }
+.daily__chip--locked { color: var(--color-text-muted); }
+.daily__say { order: 4; max-width: var(--size-measure); margin: var(--space-2-5) 0 0; color: var(--color-text-soft); font-size: var(--size-xs); }
+.daily__say:empty { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .daily__tier { transition: none; }
+  .daily__tier:hover { translate: none; }
+  .daily__tier.is-live:hover { translate: 0 calc(-1 * var(--space-3)); }
+  .daily__tier.is-live .daily__skin { animation: none; }
+}
+
+/* a phone, after the still rules as in v4, so a live card on a phone lifts 6px under the pointer either way */
+@container daily (max-width: 760px) {
+  .daily__panel { padding: var(--daily-space-4-5) var(--space-4); }
+  .daily__panel::before { background: var(--art-daily-ground) 82% 0 / auto var(--daily-ground-s) no-repeat; -webkit-mask: var(--gradient-daily-fade-s); mask: var(--gradient-daily-fade-s); }
+  .daily__heading { gap: var(--space-3); font-size: var(--daily-heading-s); }
+  .daily__heading::before { flex-basis: var(--daily-mark-s); height: var(--daily-mark-s); border-radius: var(--radius-s); }
+  .daily__heading::after { left: calc((var(--daily-mark-s) - var(--size-title)) / 2); width: var(--size-title); height: var(--size-title); margin-top: calc(var(--size-title) / -2); }
+  .daily__head--titled .daily__title { flex-basis: 100%; }
+  .daily__row, .daily__boxes { width: 100%; }
+  .daily__boxes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+  .daily__box { padding: 0 var(--space-2-5); gap: var(--space-2); }
+  .daily__box-v { font-size: var(--size-text); }
+  .daily__box-c { font-size: var(--size-unit); white-space: normal; line-height: 1.15; }
+  .daily__box--time:nth-child(odd) { grid-column: 1 / -1; }
+  .daily__row > .button { width: 100%; }
+  /* each tier is the desktop's upright card, two to a row under 440px of panel and three from 440px, the short last row centred */
+  .daily__cards { order: 3; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4) var(--space-2-5); margin-top: calc(var(--daily-space-4-5) + var(--size-edge)); }
+  .daily__tier { grid-column: span 2; height: auto; justify-content: flex-start; gap: var(--space-1-5); padding: calc(min(55%, var(--daily-art-s-pad)) + var(--space-1)) var(--space-2-5) var(--space-2-5); }
+  .daily__tier:last-child { grid-column: 2 / span 2; }
+  .daily__art.media--case, .daily__tier.is-live .daily__art { left: 50%; right: auto; top: 0; bottom: auto; width: min(100%, var(--daily-art-s)); translate: -50% -14%; }
+  .daily__name { font-size: var(--daily-name-s); }
+  .daily__chip { font-size: var(--size-chip); }
+  .daily__tier.is-live { translate: none; align-items: stretch; }
+  .daily__tier.is-live > .button { min-height: var(--size-button-m); padding: var(--space-1) var(--space-1-5); font-size: var(--size-chip); letter-spacing: var(--tracking-tight); line-height: 1.15; white-space: normal; text-align: center; }
+}
+@media (hover: hover) { @container daily (max-width: 760px) { .daily__tier.is-live:hover { translate: 0 calc(-1 * var(--space-1-5)); } } }
+@container daily (min-width: 440px) and (max-width: 760px) {
+  .daily__cards { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .daily__tier:nth-child(4) { grid-column: 2 / span 2; }
+  .daily__tier:last-child { grid-column: 4 / span 2; }
+  .daily__name { font-size: var(--size-title); }
+}
+@container daily (max-width: 459px) {
+  .daily__box--time { height: var(--size-tap); }
+  .daily__box--time > .daily__box-t { display: flex; align-items: baseline; gap: var(--space-2); }
+  .daily__box--time .daily__box-c { white-space: nowrap; }
+  .daily--guest .daily__boxes { display: flex; width: auto; }
+  .daily--acct .daily__boxes { grid-template-columns: minmax(0, 1fr); }
+}
+@container daily (min-width: 761px) and (max-width: 1079px) {
+  .daily--guest :is(.daily__boxes, .daily__box, .daily__row > .button) { flex: 0 0 auto; }
+}
+@container daily (min-width: 900px) and (max-width: 1079px) {
+  .daily--guest .daily__head--titled { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0 var(--space-5); }
+  .daily--guest .daily__head--titled .daily__title { display: contents; }
+  .daily--guest .daily__head--titled .daily__heading { grid-column: 1; grid-row: 1; }
+  .daily--guest .daily__head--titled .daily__row { grid-column: 2; grid-row: 1; justify-self: end; justify-content: flex-end; flex: none; }
+  .daily--guest .daily__head--titled .daily__lead { grid-column: 1 / -1; margin-top: var(--space-3-5); }
+}
+@container daily (min-width: 460px) and (max-width: 760px) {
+  .daily--guest .daily__row { width: auto; flex-wrap: nowrap; }
+  .daily--guest .daily__boxes { display: flex; width: auto; }
+  .daily--guest :is(.daily__box, .daily__row > .button) { flex: 0 0 auto; }
+  .daily--guest .daily__row > .button { width: auto; }
+  .daily--acct .daily__boxes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .daily--acct .daily__box--time:nth-child(odd) { grid-column: auto; }
+}
+@container daily (min-width: 761px) and (max-width: 899px) {
+  .daily--guest .daily__head--titled { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 var(--space-5); }
+  .daily--guest .daily__head--titled .daily__row { grid-column: 2; grid-row: 1; display: grid; gap: var(--space-2-5); width: auto; flex: none; }
+  .daily--guest .daily__head--titled :is(.daily__boxes, .daily__box) { display: flex; width: 100%; }
+}
+@container daily (min-width: 761px) { .daily__name { font-size: min(var(--size-l), 2.5cqw); } }
+
+/* DEPOSIT DOCK. What arrives, in coins at the peg, what is charged, and the one act that pays; the refusal is said above the act, D-58.
+   Grey only so far, wireframes/deposit-card.html, deposit-skins.html, deposit-crypto.html; the look is the case screen's open bar with the
+   money line under it, design/v4/case-stage.css .v4c-plate and case-page.css .v4c-line, and the header's gold balance, account-home.css.
+   Contains Figure, Key-value line, Note line, Button. A crypto route carries the act alone: the person sends what they send. */
+.dock { display: grid; gap: var(--space-4); min-width: 0; padding: var(--space-5); border-radius: var(--radius-m); background: var(--gradient-plate); box-shadow: var(--shadow-plate-edge); }
+.dock__recv { padding-bottom: var(--space-4); border-bottom: var(--size-hairline) solid var(--color-line-soft); }
+.dock__recv .fig__v { font-size: var(--size-l); } /* --size-l is a figure in a panel, weight 900 */
+.dock__total { display: grid; gap: var(--space-3); }
+.dock__bonus { display: grid; gap: var(--space-1); padding: var(--space-3); border-radius: var(--radius-card); background: var(--color-well); box-shadow: var(--shadow-edge); }
+.dock__bonus-v { color: var(--color-up); font-size: var(--size-text); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.dock__act > .button { width: 100%; }
+
+/* THE STAGE'S OWN CARD, shared by Drop card, Recent drop card and Outcome card: the tier's colour, the skin in its tier's ring lit from the top
+   left corner round a gradient fill, a visually hidden word. W7 of card-lab.html, case-open.js hex() and case-blocks.css. The tier is a
+   modifier on the card, --r1 rarest to --r7; v4 lights Restricted and Mil-Spec a step brighter on the dark card */
+:is(.drop-card, .recent-drop, .outcome):is(.drop-card--r1, .recent-drop--r1, .outcome--r1) { --tier: var(--color-rarity-1); }
+:is(.drop-card, .recent-drop, .outcome):is(.drop-card--r2, .recent-drop--r2, .outcome--r2) { --tier: var(--color-rarity-2); }
+:is(.drop-card, .recent-drop, .outcome):is(.drop-card--r3, .recent-drop--r3, .outcome--r3) { --tier: var(--color-rarity-3); }
+:is(.drop-card, .recent-drop, .outcome):is(.drop-card--r4, .recent-drop--r4, .outcome--r4) { --tier: var(--color-rarity-4-lit); }
+:is(.drop-card, .recent-drop, .outcome):is(.drop-card--r5, .recent-drop--r5, .outcome--r5) { --tier: var(--color-rarity-5-lit); }
+:is(.drop-card, .recent-drop, .outcome):is(.drop-card--r6, .recent-drop--r6, .outcome--r6) { --tier: var(--color-rarity-6); }
+:is(.drop-card, .recent-drop, .outcome):is(.drop-card--r7, .recent-drop--r7, .outcome--r7) { --tier: var(--color-rarity-7); }
+/* the fill inside the ring, its tier from clear at the top left to deep at the foot */
+:is(.drop-card__plate, .recent-drop__plate, .outcome__plate) { position: absolute; left: 50%; top: 50%; height: 64%; aspect-ratio: 136 / 118; translate: -50% -50%;
+  background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--tier) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+/* the ring: one hexagon stroked with its own gradient (each card's svg names its own), light from the top left corner */
+:is(.drop-card__ring, .recent-drop__ring, .outcome__ring) { display: block; position: absolute; left: 50%; top: 50%; height: 86%; width: auto; aspect-ratio: 136 / 118; translate: -50% -50%; overflow: visible; pointer-events: none;
+  filter: drop-shadow(calc(-1 * var(--size-ring-glow-near)) calc(-1 * var(--size-ring-glow-near)) var(--blur-ring-glow-near) color-mix(in srgb, var(--tier) 55%, transparent))
+    drop-shadow(calc(-1 * var(--size-ring-glow-far)) calc(-1 * var(--size-ring-glow-far)) var(--blur-ring-glow-far) color-mix(in srgb, var(--tier) 28%, transparent)); }
+:is(.drop-card__ring, .recent-drop__ring, .outcome__ring) path { fill: none; stroke-width: var(--size-ring-stroke); stroke-linejoin: round; stroke-linecap: round; }
+:is(.drop-card__ring, .recent-drop__ring, .outcome__ring) stop:nth-of-type(1) { stop-color: color-mix(in srgb, var(--tier) 62%, var(--color-text-hi)); }
+:is(.drop-card__ring, .recent-drop__ring, .outcome__ring) stop:nth-of-type(2) { stop-color: color-mix(in srgb, var(--tier) 92%, var(--color-text-hi)); }
+:is(.drop-card__ring, .recent-drop__ring, .outcome__ring) stop:nth-of-type(3) { stop-color: color-mix(in srgb, var(--tier) 72%, var(--color-ring-deep)); }
+:is(.drop-card__sr, .recent-drop__sr, .outcome__sr) { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* DROP CARD. One item of What is in this case: its value in coins first and largest, the skin in its tier's ring, the gun, the skin and the
+   wear and grade, then the chance and its tickets of the 100 000 each on a line, label left and figure right, over a line of the 100 000 with
+   the item's stretch lit (--a and --b, its first and last ticket in thousandths of a percent of the run, set on the card). From design/v4/case-body.css row F
+   and case-blocks.js table(); the card as a row (--row) is the same card under 600px, where the table gives it the whole width. */
+/* its own geometry, read inside .drop-card only, D-231 */
+.drop-card {
+  --drop-card-row-art: 104px; /* v4 case-body.css: row F --v4f-art at 599px, the skin's column of a card laid as a row. Drop card */
+  --drop-card-row-art-h: 84px; /* v4 case-body.css: row F .wf-art-c height at 599px. Drop card */
+}
+.drop-card { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr auto auto; grid-template-areas: 'v' 'art' 'name' 'ch' 't'; align-items: start; gap: 0;
+  padding: var(--space-4) var(--space-3-5) var(--space-4-25); border-radius: var(--radius-m); overflow: hidden; container: drop-card / inline-size;
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 16%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 10%, var(--color-card-deep)), var(--color-card-deep) 60%);
+  box-shadow: var(--shadow-tile-edge), var(--shadow-card); color: var(--color-text); font-size: var(--size-text); line-height: 1.2; text-align: center; transition: transform .2s, box-shadow .2s; }
+.drop-card::after { content: ''; position: absolute; left: 50%; bottom: 0; width: var(--size-tier-bar-w); height: var(--size-tier-bar); margin-left: calc(var(--size-tier-bar-w) / -2); border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--tier); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--tier); }
+.drop-card::before { content: ''; position: absolute; grid-area: ch; top: 0; left: 0; right: 0; height: var(--size-tier-bar); border-radius: var(--radius-xs);
+  background: linear-gradient(90deg, transparent calc(var(--a, 0) * 1%), var(--tier) calc(var(--a, 0) * 1%), var(--tier) max(calc(var(--b, 0) * 1%), calc(var(--a, 0) * 1% + var(--space-1))), transparent 0), var(--color-track); }
+.drop-card__v { grid-area: v; justify-self: center; }
+.drop-card__v .fig__v, .recent-drop__v .fig__v { gap: var(--space-1-5); font-size: var(--size-title); }
+.drop-card__v .icon--coin, .recent-drop__v .icon--coin { font-size: var(--size-m); }
+.drop-card__art { grid-area: art; width: 100%; height: var(--size-card-art); margin: var(--space-2-5) 0 var(--space-2); }
+.drop-card__art > img, .recent-drop__art > img { position: absolute; inset: 0; z-index: 1; transform: scale(1.06); filter: var(--shadow-skin-card); transition: transform .3s; }
+.drop-card__name { grid-area: name; display: flex; font-size: inherit; font-weight: 400; flex-direction: column; align-items: center; gap: var(--size-hairline); min-width: 0; margin: 0 0 var(--space-3-5); }
+.drop-card__w { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.drop-card__s { max-width: 100%; overflow: hidden; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; white-space: nowrap; text-overflow: ellipsis; }
+.drop-card__ax { margin-top: var(--size-edge); color: color-mix(in srgb, var(--tier) 65%, var(--color-text-hi)); font-size: var(--size-unit); text-wrap: balance; }
+.drop-card__mkt.link { margin-top: var(--size-edge); color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 400; letter-spacing: normal; }
+@media (hover: hover) { .drop-card__mkt.link:hover { color: var(--color-text-hi); } }
+/* the facts: the key-value line, its key a step larger and soft, its figure 14px white, the label pushed left */
+.drop-card .kv { flex-wrap: wrap; justify-content: flex-end; gap: var(--size-edge) var(--space-2); margin: 0; padding: var(--space-3) 0 0; color: var(--color-text-hi); font-size: var(--size-label); font-weight: 900; line-height: 1.2; text-align: right; white-space: nowrap; }
+.drop-card .kv__k { flex: none; margin-right: auto; color: var(--color-text-soft); font-size: var(--size-badge-text); }
+.drop-card__ch { grid-area: ch; }
+.drop-card__t { grid-area: t; }
+.drop-card .drop-card__t { padding-top: var(--space-1-5); font-size: var(--size-xs); }
+.drop-card__t .kv__v { color: color-mix(in srgb, var(--tier) 35%, var(--color-text-hi)); }
+@container drop-card (max-width: 160px) { .drop-card__t .kv__k { flex-basis: 100%; } }
+@media (hover: hover) {
+  .drop-card:hover { transform: translateY(calc(-1 * var(--size-lift))); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--tier) 55%, transparent), var(--shadow-card-hover), 0 0 var(--blur-card-hover) color-mix(in srgb, var(--tier) 22%, transparent); }
+  .drop-card:hover .drop-card__art > img { transform: scale(1.12) rotate(-3deg); }
+}
+/* as a row: the value over the skin on the left, the name, the chance and the tickets on the right, the foot bar under the skin */
+.drop-card--row { grid-template-columns: var(--drop-card-row-art) minmax(0, 1fr); grid-template-rows: auto 1fr auto auto; grid-template-areas: 'v name' 'art name' 'art ch' 'art t'; column-gap: var(--space-3-5);
+  padding: var(--space-3) var(--space-3-5) var(--space-3-5); text-align: left; }
+.drop-card--row::after { left: calc(var(--space-3-5) + var(--drop-card-row-art) / 2); }
+.drop-card--row .drop-card__v .fig__v { font-size: var(--size-m); }
+.drop-card--row .drop-card__art { align-self: start; height: var(--drop-card-row-art-h); margin: var(--space-1-5) 0 0; }
+.drop-card--row .drop-card__name { align-items: flex-start; margin: var(--size-edge) 0 var(--space-2-5); }
+.drop-card--row .drop-card__s { font-size: var(--size-label); }
+.drop-card--row .kv { flex-wrap: nowrap; gap: var(--space-1-5); font-size: var(--size-chip); }
+.drop-card--row .drop-card__t { font-size: var(--size-chip); }
+.drop-card--row .kv__k { font-size: var(--size-micro); letter-spacing: var(--tracking-snug); }
+@container drop-card (max-width: 160px) { .drop-card--row .drop-card__t .kv__k { flex-basis: auto; } }
+@media (prefers-reduced-motion: reduce) { .drop-card, .drop-card__art > img { transition: none; } }
+
+/* EMPTY STATE. A heading that says what is not here, the sentence that says what would put it here, and the way on. Variants: nothing yet
+   (a list, a ledger, a shelf), nothing matches (the ways to widen, each with its act, and the count of the whole), not available (taken down
+   or never there, two ways on). Grey only so far, wireframes/account-empty.html, catalogue-empty.html, history-*-empty.html, player-empty.html,
+   result-gone.html, player-gone.html; the look is the case screen's two info cards, Skin prices and Before opening, a mark tile beside a
+   heading and its sentence, design/v4/case-page.css .v4i-cost. Contains Button, Text link, Note line. */
+.empty { display: flex; align-items: flex-start; gap: var(--space-4); min-width: 0; padding: var(--space-5); border-radius: var(--radius-m); background: var(--gradient-row); box-shadow: var(--shadow-edge), var(--shadow-card); }
+.empty__art { position: relative; flex: none; display: grid; place-items: center; width: var(--size-tap); height: var(--size-tap); border-radius: var(--radius-card); background: var(--gradient-stripes), var(--gradient-mode-cases); color: var(--color-text-hi); font-size: var(--size-tile-icon); }
+.empty__body { display: grid; justify-items: start; gap: var(--space-2); min-width: 0; }
+.empty__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.empty__p { margin: 0; max-width: var(--size-measure); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.55; }
+.empty__p strong { color: var(--color-text-hi); }
+.empty__widen { display: grid; gap: var(--space-2); margin: var(--space-1) 0 0; padding: 0; list-style: none; }
+.empty__widen > li { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.45; }
+.empty__widen strong { color: var(--color-money); font-variant-numeric: tabular-nums; }
+.empty__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-top: var(--space-2); }
+.empty--gone .empty__h { font-size: var(--size-l); line-height: 1.1; text-transform: uppercase; }
+
+/* EVENT BANNER. The event's scene from edge to edge, its title as an illustrated logotype, the countdown and the one act over it, D-209
+   comp B. Four still layers share one frame and each moves on its own: the plate (::before), the aurora and the far snow (__art::before),
+   the soldier with the case (__art::after), the case's light and the near snow (::after); a story video lies over them once it plays
+   (.is-story, set by the page's script as banner-story.js does) and never for reduced motion. The act is the ghost of the family since D-226
+   row A2, large at every width (D-228). Laid out by the window as Home lays it: a phone under 600, the wide cut from 600, a block with its
+   corner from 900. Corners: the block's 16px is --radius-m, the cells' 8px --radius-s, the countdown's 12px --radius-card; none moved.
+   From design/v4/banner.css, theme.css "the banner" and buttons.css, with kit.css part 3's mask on the art. */
+/* its own geometry, read inside .banner only, D-231 */
+.banner {
+  --banner-block: 360px; /* the banner's height from 900px, comp A's wide low card; v4 banner.css: .wf-event .wf-banner-art, height */
+  --banner-phone-max: 400px; /* the phone banner is as tall as the window is wide and never over this; v4 banner.css: .wf-event --ph-h */
+  --banner-scene: 480px; /* every layer drawn this high on the wide cut, from 600px; v4 banner.css: .wf-event --scene-size */
+  --banner-scene-x: 214px; /* the scene's offset past 45 % from the right, so the case stands near the banner's middle; v4 banner.css: .wf-event --scene-pos */
+  --banner-scene-y: -50px; /* the scene's top offset on the wide cut; v4 banner.css: .wf-event --scene-pos and --plate-pos */
+  --banner-plate: 1315px; /* the wide plate's least width, its width at 480px high; v4 banner.css: .wf-event --plate-size */
+  --banner-plate-x: 86px; /* the wide plate's offset past 45 %, stopped at the right edge; v4 banner.css: .wf-event --plate-pos */
+  --banner-scene-phone: 100vw; /* the scene's height on a phone, the window's width; v4 banner.css: @media (max-width: 599px) .wf-event --scene-size and --ph-h */
+  --banner-scene-phone-x: -24vw; /* the phone scene's right offset; v4 banner.css: @media (max-width: 599px) .wf-event --scene-pos */
+  --banner-scene-phone-y: 44px; /* the phone scene's top offset, under the title; v4 banner.css: @media (max-width: 599px) .wf-event --scene-pos */
+  --banner-story-foot: 70px; /* the phone story stops this far above the banner's foot and melts there; v4 banner.css: @media (max-width: 599px) .v4-story, height */
+  --banner-title: 500px; /* the title art's width from 900px, the title's 1100 by 454; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-room: 420px; /* what the title leaves the countdown from 1100px; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-room-narrow: 348px; /* the same from 900 to 1099px, where the cells are 60px; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-tablet: 300px; /* the title from 600 to 899px; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-room-tablet: 396px; /* the countdown's 332 and three 16px insets, 600 to 899px; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-phone: 320px; /* the title on a phone, "Coldfront can be bigger"; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-cell: 72px; /* a countdown cell's width; v4 theme.css: .wf-event-clock, grid-template-columns */
+  --banner-cell-narrow: 60px; /* a cell from 900 to 1099px, so the title is no stamp; v4 banner.css: .wf-event-clock, grid-template-columns */
+  --banner-end-phone: 10px; /* the end line on a phone; v4 banner.css: .wf-event-end, font-size; not --size-badge-text, a different job */
+  --banner-act: 240px; /* the act's least width from 600px; v4 theme.css: .wf-event-go, min-width */
+  --banner-content-v4: 1560px; /* the column v4 is drawn to on a wide screen, the inset of the banner's title and act from 1200px; v4 theme.css: .wf-event .wf-event-name, .wf-event-go */
+  --banner-lean: -14px -4px; /* the soldier leaning in under the pointer, a translate; v4 banner.css: .wf-event:hover .wf-banner-art::after */
+  --banner-snow-near: 300px 300px, 300px 300px, 300px 300px, 420px 420px, 420px 420px, 420px 420px; /* the near snow's two tiles; v4 banner.css: .wf-event::after, background-size */
+  --banner-snow-far: 230px 230px, 230px 230px, 230px 230px, 340px 340px, 340px 340px, 340px 340px; /* the far snow's two tiles; v4 banner.css: .wf-event .wf-banner-art::before, background-size */
+  --banner-gutter: 48px; /* the title's and the act's left from 1200px; v4 theme.css: .wf-event .wf-event-name, .wf-event-go */
+  --banner-cell-top: 7px; /* a cell's top padding; v4 theme.css: .wf-event-cell, padding */
+  --banner-cell-foot: 5px; /* a cell's foot padding; v4 theme.css: .wf-event-cell, padding */
+}
+.banner { --scene-size: auto var(--banner-scene); --scene-pos: right calc(45% + var(--banner-scene-x)) top var(--banner-scene-y);
+  --plate: var(--art-banner-plate-wide); --plate-size: max(100%, var(--banner-plate)) auto; --plate-pos: right min(45% + var(--banner-plate-x), 0px) top var(--banner-scene-y);
+  position: relative; overflow: hidden; isolation: isolate; background: var(--color-banner); color: var(--color-text); font-size: var(--size-text); line-height: 1.2; }
+/* layer 1, the plate, with the shade that keeps the title legible and the melt into the page at the foot */
+.banner::before { content: ''; position: absolute; inset: 0; z-index: -3; background: var(--gradient-banner-shade), var(--gradient-banner-foot), var(--plate) var(--plate-pos) / var(--plate-size) no-repeat;
+  filter: var(--filter-banner-plate); animation: banner-plate var(--motion-drift) ease-in-out infinite alternate; transition: translate var(--motion-banner-lean) var(--motion-ease-settle); }
+/* layer 4, the case's light and the near snow over everything */
+.banner::after { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: var(--gradient-banner-snow-near), var(--art-banner-glow) var(--scene-pos) / var(--scene-size) no-repeat;
+  background-size: var(--banner-snow-near), var(--scene-size); animation: banner-pulse var(--motion-banner-pulse) ease-in-out infinite, banner-snow-near var(--motion-banner-snow-near) linear infinite;
+  transition: filter var(--motion-banner-fade) var(--motion-ease-settle); }
+/* the frame of the two middle layers; its height is the banner's */
+.banner__art { position: relative; height: var(--banner-block); -webkit-mask-image: var(--gradient-banner-art-mask); mask-image: var(--gradient-banner-art-mask); }
+.banner__art::before, .banner__art::after { content: ''; position: absolute; inset: 0; pointer-events: none; transform-origin: 50% 50%; }
+/* layer 2, the aurora and the far snow */
+.banner__art::before { z-index: -2; background: var(--gradient-banner-snow-far), var(--art-banner-aurora) var(--scene-pos) / var(--scene-size) no-repeat; background-size: var(--banner-snow-far), var(--scene-size);
+  transform-origin: 60% 0; animation: banner-aurora var(--motion-sway) ease-in-out infinite alternate, banner-snow-far var(--motion-banner-snow-far) linear infinite; }
+/* layer 3, the soldier and the case */
+.banner__art::after { z-index: -1; background: var(--art-banner-hero) var(--scene-pos) / var(--scene-size) no-repeat; -webkit-mask: var(--gradient-banner-hero-mask); mask: var(--gradient-banner-hero-mask);
+  animation: banner-hero var(--motion-snow) ease-in-out infinite alternate; transition: translate var(--motion-banner-lean) var(--motion-ease-settle); }
+/* the story, a .media slot with its video, over the still layers and under the words */
+.banner__story { position: absolute; inset: 0; z-index: 1; border-radius: 0; background: none; opacity: 0; pointer-events: none; transition: opacity var(--motion-banner-fade) ease; }
+.banner.is-story .banner__story { opacity: 1; }
+.banner.is-story::before, .banner.is-story::after, .banner.is-story .banner__art::before, .banner.is-story .banner__art::after { animation-play-state: paused; }
+/* the title: the event's name as its logotype; the words stay for a screen reader */
+.banner__title { position: absolute; z-index: 2; top: var(--space-5-5); left: max(var(--space-5), (100% - var(--size-content)) / 2); width: min(var(--banner-title), 100% - var(--banner-title-room)); aspect-ratio: 1100 / 454; margin: 0;
+  background: var(--art-banner-title) left center / contain no-repeat; color: transparent; font-size: 0; filter: var(--shadow-banner-title); }
+/* the countdown: the end line over four cells */
+.banner__clock { position: absolute; z-index: 2; top: var(--space-5-5); right: max(var(--space-5), (100% - var(--size-content)) / 2); display: grid; grid-template-columns: repeat(4, var(--banner-cell)); gap: var(--space-2);
+  padding: var(--space-2-5); border-radius: var(--radius-card); background: var(--color-scrim); box-shadow: var(--shadow-banner-clock); -webkit-backdrop-filter: blur(var(--blur-banner-clock)); backdrop-filter: blur(var(--blur-banner-clock)); text-align: center; }
+.banner__cell { grid-row: 2; padding: var(--banner-cell-top) 0 var(--banner-cell-foot); border-radius: var(--radius-s); background: var(--color-banner-cell); box-shadow: var(--shadow-edge); }
+.banner__cell > b { display: block; color: var(--color-text-hi); font-size: var(--size-head-l); font-weight: 900; line-height: 1; }
+.banner__cell > span { display: block; margin-top: var(--space-1); color: var(--color-text-soft); font-size: var(--size-unit); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.banner__end { grid-row: 1; grid-column: 1 / -1; padding-bottom: var(--space-2); border-bottom: var(--size-hairline) solid var(--color-banner-rule); color: var(--color-text-soft); font-size: var(--size-xs); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+/* the act, a .button: a light crosses it every few seconds, and at once under the pointer */
+.banner__act { position: absolute; z-index: 2; bottom: var(--space-5-5); left: max(var(--space-5), (100% - var(--size-content)) / 2); min-width: var(--banner-act); overflow: hidden; isolation: isolate; }
+.banner__act::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--gradient-banner-sweep); transform: translateX(-110%); animation: banner-sweep var(--motion-banner-sweep) ease-in-out infinite; }
+.banner__act:focus-visible::after { animation: banner-sweep var(--motion-banner-sweep-fast) ease-out 1; }
+/* under the pointer, or with the act focused: the case flares, the soldier leans in */
+@media (hover: hover) {
+  .banner:hover::after { animation-duration: var(--motion-banner-pulse-fast), var(--motion-banner-snow-near); filter: var(--filter-banner-flare); }
+  .banner:hover .banner__art::after { translate: var(--banner-lean); }
+  .banner__act:hover::after { animation: banner-sweep var(--motion-banner-sweep-fast) ease-out 1; }
+}
+.banner:has(.banner__act:focus-visible)::after { animation-duration: var(--motion-banner-pulse-fast), var(--motion-banner-snow-near); filter: var(--filter-banner-flare); }
+.banner:has(.banner__act:focus-visible) .banner__art::after { translate: var(--banner-lean); }
+@keyframes banner-plate { from { transform: scale(1.03) translateX(3px); } to { transform: scale(1.045) translateX(-3px); } }
+@keyframes banner-hero { from { transform: translate(0, 0) scale(1.01); } to { transform: translate(-6px, -3px) scale(1.025); } }
+@keyframes banner-aurora { 0% { opacity: .65; transform: scaleY(1) skewX(0); } 50% { opacity: 1; } 100% { opacity: .8; transform: scaleY(1.06) skewX(-2deg); } }
+@keyframes banner-pulse { 0%, 100% { filter: brightness(.9); } 50% { filter: brightness(1.35); } }
+@keyframes banner-snow-near { from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, var(--scene-pos); } to { background-position: -60px 300px, -60px 300px, -60px 300px, -84px 420px, -84px 420px, -84px 420px, var(--scene-pos); } }
+@keyframes banner-snow-far { from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, var(--scene-pos); } to { background-position: -30px 230px, -30px 230px, -30px 230px, -44px 340px, -44px 340px, -44px 340px, var(--scene-pos); } }
+@keyframes banner-sweep { 0%, 70% { transform: translateX(-110%); } 100% { transform: translateX(110%); } }
+/* a block from 900px: inset in its column with the header strip's corner */
+@media (min-width: 900px) {
+  .banner { border-radius: var(--radius-m); box-shadow: var(--shadow-edge), var(--shadow-banner); }
+}
+/* a narrow desktop, 900 to 1099px: 60px cells give the title room */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .banner__clock { grid-template-columns: repeat(4, var(--banner-cell-narrow)); }
+  .banner__title { width: min(var(--banner-title), 100% - var(--banner-title-room-narrow)); }
+}
+/* a wide screen: the title and the act keep v4's column; the countdown keeps the kit's (v4's theme.css rule for it loses to banner.css) */
+@media (min-width: 1200px) {
+  .banner__title, .banner__act { left: max(var(--banner-gutter), (100% - var(--banner-content-v4)) / 2); }
+}
+/* a tablet, 600 to 899px: the desktop's form at 340px, the title top left, the countdown top right, the act at the foot */
+@media (min-width: 600px) and (max-width: 899px) {
+  .banner__art { height: var(--size-banner); }
+  .banner__title { top: var(--space-5); left: var(--space-4); width: min(var(--banner-title-tablet), 100% - var(--banner-title-room-tablet)); }
+  .banner__clock { top: var(--space-5); right: var(--space-4); }
+  .banner__act { bottom: var(--space-5); left: var(--space-4); }
+}
+/* a phone: as tall as the window is wide, the title over the sky, the countdown and a full-width act over the snow. The act is the family's
+   large 52, D-228, not v4's 44px bar, so the countdown stands 8px over it as v4's did: 12 + 52 + 8 from the foot */
+@media (max-width: 599px) {
+  .banner { --ph-h: clamp(var(--size-banner), var(--banner-scene-phone), var(--banner-phone-max)); --scene-size: auto var(--banner-scene-phone); --scene-pos: right var(--banner-scene-phone-x) top var(--banner-scene-phone-y); }
+  .banner::before { background: var(--gradient-banner-shade-phone), var(--gradient-banner-foot-phone), var(--art-banner-plate) var(--scene-pos) / var(--scene-size) no-repeat; }
+  .banner__art { height: var(--ph-h); }
+  .banner__art::after { -webkit-mask: var(--gradient-banner-hero-mask-phone); mask: var(--gradient-banner-hero-mask-phone); }
+  .banner__title { top: var(--space-2-5); left: var(--space-4); width: min(var(--banner-title-phone), 88%); }
+  .banner__clock { top: auto; left: var(--space-4); right: var(--space-4); bottom: calc(var(--space-3) + var(--size-button-l) + var(--space-2)); grid-template-columns: repeat(4, 1fr); gap: var(--space-1); padding: var(--space-1-5);
+    background: var(--color-banner-clock-phone); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .banner__cell { padding: var(--space-thin) 0; }
+  .banner__cell > b { font-size: var(--size-m); }
+  .banner__cell > span { margin-top: var(--space-hair); letter-spacing: var(--tracking-banner-unit-phone); }
+  .banner__end { padding-bottom: var(--space-1); font-size: var(--banner-end-phone); }
+  .banner__act { left: var(--space-4); right: var(--space-4); bottom: var(--space-3); min-width: 0; }
+  .banner__story { inset: 0 0 auto; height: calc(var(--ph-h) - var(--banner-story-foot)); -webkit-mask: var(--gradient-banner-story-mask-phone); mask: var(--gradient-banner-story-mask-phone); }
+  .banner__story > video { object-position: 50% 62%; }
+  .banner.is-story::after, .banner.is-story .banner__art::after { opacity: 0; transition: opacity var(--motion-banner-fade) ease; }
+}
+/* reduced motion: the still picture; no story, no drift, no sweep; the flare is a step, not a pulse */
+@media (prefers-reduced-motion: reduce) {
+  .banner::before, .banner::after, .banner__art::before, .banner__art::after, .banner__act::after, .banner__story { animation: none; transition: none; }
+  .banner__story { display: none; }
+  .banner:hover::after, .banner:has(.banner__act:focus-visible)::after { filter: var(--filter-banner-flare-still); }
+  .banner:hover .banner__art::after, .banner:has(.banner__act:focus-visible) .banner__art::after { translate: none; }
+}
+
+/* FEED TILE. One drop in the live ticker: the skin over the stage's ring in its rarity, the weapon and the skin's name, the mode mark in the
+   corner and a rarity bar on its foot. Under the pointer, or with focus inside, its back face wipes in from the left on a slanted edge: the case
+   it came from and who won it. The rarity is a modifier that sets --rarity; with none, the tile takes rarity 6. From design/v4/theme.css (live
+   drops, comp B), account-home.css (the winner's avatar) and kit.css part 3 (the drop as the baseline builds it). The rare marks A, B and C
+   (rare-mark.css) and the rare plate of rare.css are effects laid over a tile and are not part of it. Corner 6px moved to 8px, D-228. */
+/* its own geometry, read inside .feed-tile only, D-231 */
+.feed-tile {
+  --feed-bar: 36px; /* v4 theme.css .wf-feed-i::after: the rarity bar on the drop's foot; 28px on a phone */
+  --feed-bar-back: 44px; /* v4 theme.css .wf-feed-back::before: the rarity bar on the back face's top */
+  --feed-bar-h: 3px; /* v4 theme.css .wf-feed-i::after and .wf-feed-back::before: both bars' thickness */
+  --feed-hex-w: 59px; /* v4 theme.css .wf-feed-hit::before: the hexagon's fill, width; 45px on a phone */
+  --feed-hex-h: 51px; /* the same, height; 39px on a phone */
+  --feed-hex-top: 15.5px; /* the same, from the tile's top; 11.5px on a phone */
+  --feed-ring-w: 101px; /* v4 theme.css .wf-feed-hit::after: the ring with its light, width; 78px on a phone */
+  --feed-ring-h: 91px; /* the same, height; 70px on a phone */
+  --feed-ring-top: -4.5px; /* the same, from the tile's top; -3.8px on a phone */
+  --feed-skin: 64px; /* v4 theme.css .wf-feed-hit .wf-feed-art: the skin's height; 44px on a phone */
+  --feed-skin-above: 4px; /* the same, its top margin; 2px on a phone */
+  --feed-skin-below: 5px; /* the same, its bottom margin; 3px on a phone */
+  --feed-pad-top: 6px; /* v4 theme.css .wf-feed-hit: the face's padding, top; 4px on a phone */
+  --feed-pad-side: 4px; /* the same, sides; 3px on a phone */
+  --feed-pad-foot: 8px; /* the same, foot; 6px on a phone */
+  --feed-name: 13px; /* v4 theme.css .wf-feed-hit .wf-feed-w: the weapon's size; 11px on a phone */
+  --feed-sub: 12px; /* v4 theme.css .wf-feed-hit .wf-feed-s: the skin's name; 11px on a phone, critique row 12 */
+  --feed-sub-gap: 2px; /* the same, its top margin; 1px on a phone */
+  --feed-back-pad-top: 10px; /* v4 theme.css .wf-feed-back: the back face's padding, top; 6px on a phone */
+  --feed-back-pad-side: 8px; /* the same, sides; 6px on a phone */
+  --feed-back-pad-foot: 12px; /* the same, foot; 8px on a phone */
+  --feed-back-gap: 6px; /* the same, between the case and the winner; 4px on a phone */
+  --feed-case-w: 76px; /* v4 theme.css .wf-feed-back .wf-feed-art: the case on the back face, width; 60px on a phone */
+  --feed-case-h: 46px; /* the same, height; 34px on a phone */
+  --feed-mark: 14px; /* v4 theme.css .wf-feed-mode: the mode mark in the drop's corner */
+  --feed-back-shift: 14px; /* how far the back face's words slide in from; v4 theme.css .wf-feed-back > *; made a variable at the merge, D-231 */
+  --feed-underline: 3px; /* a winner's name underlined as a link; kit.css part 2, the product's link underline, wf-linklike; made a variable at the merge, D-231 */
+}
+/* the same on a phone, as --size-drop-v4 in :root; v4 theme.css @media (max-width: 599px), founder of 4 Nov 2026 */
+@media (max-width: 599px) {
+  .feed-tile { --feed-bar: 28px; --feed-hex-w: 45px; --feed-hex-h: 39px; --feed-hex-top: 11.5px; --feed-ring-w: 78px; --feed-ring-h: 70px; --feed-ring-top: -3.8px; --feed-skin: 44px; --feed-skin-above: 2px; --feed-skin-below: 3px; --feed-pad-top: 4px; --feed-pad-side: 3px; --feed-pad-foot: 6px; --feed-name: 11px; --feed-sub: 11px; --feed-sub-gap: 1px; --feed-back-pad-top: 6px; --feed-back-pad-side: 6px; --feed-back-pad-foot: 8px; --feed-back-gap: 4px; --feed-case-w: 60px; --feed-case-h: 34px; }
+}
+.feed-tile { --rarity: var(--color-rarity-6); position: relative; display: block; box-sizing: border-box; flex: none; width: var(--size-drop-v4); border-radius: var(--radius-s); background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--rarity) 38%, transparent), transparent), var(--gradient-feed-plate); box-shadow: var(--shadow-feed-tile); color: var(--color-text); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.feed-tile--gold { --rarity: var(--color-rarity-1); } .feed-tile--covert { --rarity: var(--color-rarity-2); } .feed-tile--classified { --rarity: var(--color-rarity-3); }
+.feed-tile--restricted { --rarity: var(--color-rarity-4); } .feed-tile--milspec { --rarity: var(--color-rarity-5); } .feed-tile--industrial { --rarity: var(--color-rarity-6); } .feed-tile--consumer { --rarity: var(--color-rarity-7); }
+/* the rarity bar on the foot, its light rising into the plate */
+.feed-tile::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: var(--feed-bar); height: var(--feed-bar-h); margin-left: calc(var(--feed-bar) / -2); border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--rarity); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--rarity); pointer-events: none; }
+/* the face: the link to the round */
+.feed-tile__hit { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; gap: 0; padding: var(--feed-pad-top) var(--feed-pad-side) var(--feed-pad-foot); border-radius: var(--radius-m); color: var(--color-text-hi); text-align: center; text-decoration: none; }
+.feed-tile__hit::before, .feed-tile__hit::after { content: ''; position: absolute; z-index: -1; left: 50%; }
+/* the fill inside the ring, clear at its top left to the rarity at its foot */
+.feed-tile__hit::before { top: var(--feed-hex-top); width: var(--feed-hex-w); height: var(--feed-hex-h); margin-left: calc(var(--feed-hex-w) / -2); background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--rarity) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+/* the stage's ring with its light, one masked layer */
+.feed-tile__hit::after { top: var(--feed-ring-top); width: var(--feed-ring-w); height: var(--feed-ring-h); margin-left: calc(var(--feed-ring-w) / -2);
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--rarity) 62%, var(--color-text-hi)), color-mix(in srgb, var(--rarity) 92%, var(--color-text-hi)), color-mix(in srgb, var(--rarity) 72%, var(--color-feed-ring-deep)));
+  -webkit-mask: var(--shape-feed-ring) center / 100% 100% no-repeat; mask: var(--shape-feed-ring) center / 100% 100% no-repeat; }
+.feed-tile__hit:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--size-edge)); border-radius: var(--radius-s); }
+/* the skin, larger than the ring, a media slot with no plate */
+.feed-tile__art { width: 128%; height: var(--feed-skin); margin: var(--feed-skin-above) -14% var(--feed-skin-below); border-radius: 0; filter: var(--shadow-feed-skin); transition: transform .3s var(--motion-ease-pop); }
+.feed-tile__w, .feed-tile__s { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-shadow: var(--shadow-feed-text); }
+.feed-tile__w { font-size: var(--feed-name); font-weight: 700; line-height: 1; }
+.feed-tile__s { margin-top: var(--feed-sub-gap); font-size: var(--feed-sub); line-height: 1; letter-spacing: var(--tracking-feed-sub); opacity: .85; }
+@media (max-width: 599px) { .feed-tile__w, .feed-tile__s { line-height: 1.2; } }
+/* the mode mark, an icon in the gold */
+.feed-tile__mode { position: absolute; z-index: 2; top: var(--space-2); right: var(--space-2); color: var(--color-gold); font-size: var(--feed-mark); opacity: .9; pointer-events: none; }
+/* the back face: the case it came from, its name, then who won it, on one centred column; hidden behind a slanted edge until it wipes in */
+.feed-tile__back { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: var(--feed-back-gap); box-sizing: border-box; padding: var(--feed-back-pad-top) var(--feed-back-pad-side) var(--feed-back-pad-foot); border-radius: var(--radius-s);
+  background: radial-gradient(70% 42% at 50% 0%, color-mix(in srgb, var(--rarity) 34%, transparent), transparent), radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--rarity) 30%, transparent), transparent), var(--gradient-feed-back);
+  clip-path: polygon(0 0, 0 0, -30% 100%, -30% 100%); pointer-events: none; transition: clip-path .42s cubic-bezier(.65, 0, .35, 1); }
+.feed-tile__back::before { content: ''; position: absolute; top: 0; left: 50%; width: var(--feed-bar-back); height: var(--feed-bar-h); margin-left: calc(var(--feed-bar-back) / -2); border-radius: 0 0 var(--radius-xs) var(--radius-xs); background: var(--rarity); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--rarity); pointer-events: none; }
+.feed-tile__back > * { opacity: 0; translate: calc(-1 * var(--feed-back-shift)) 0; transition: opacity .25s ease-out .12s, translate .35s var(--motion-ease-pop) .12s; }
+.feed-tile__case { flex: none; display: flex; flex-direction: column; align-items: center; gap: var(--space-1-5); color: var(--color-text-hi); font-size: var(--size-chip); line-height: 1.2; text-decoration: none; text-transform: uppercase; }
+.feed-tile__case-art { flex: none; align-self: center; width: var(--feed-case-w); height: var(--feed-case-h); background: var(--case-art) center / contain no-repeat; } /* the case's cover, --case-art as .media--case names it */
+.feed-tile__case-n { font-size: var(--size-xs); font-weight: 700; letter-spacing: var(--tracking-caps); line-height: 1.2; }
+.feed-tile__who { display: flex; justify-content: center; align-items: center; gap: var(--space-1-5); max-width: 100%; min-width: 0; min-height: 0; color: var(--color-text); font-size: var(--size-xs); line-height: 1.25; text-decoration: none; }
+a.feed-tile__who { margin-block: calc(-1 * var(--space-1-5)); padding-block: var(--space-1-5); color: var(--color-text-hi); font-size: var(--size-chip); text-transform: uppercase; } /* a winner with a profile: 12 to 24px of hit area, WCAG 2.2 target size, critique row 11 */
+.feed-tile__whon { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--size-xs); }
+a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-offset: var(--feed-underline); }
+.feed-tile__bot { color: var(--color-text-muted); font-size: var(--size-chip); letter-spacing: var(--tracking-label); line-height: 1.25; text-transform: uppercase; }
+.feed-tile__av--bot { background: var(--color-avatar-bot); box-shadow: var(--shadow-avatar-bot); } /* a bot has no picture: the avatar's disc, empty */
+.feed-tile__case:focus-visible, a.feed-tile__who:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+/* the back face opens under the pointer and for a keyboard inside it */
+.feed-tile__back:focus-within { clip-path: polygon(0 0, 130% 0, 100% 100%, -30% 100%); pointer-events: auto; }
+.feed-tile__back:focus-within > * { opacity: 1; translate: 0 0; }
+@media (hover: hover) {
+  .feed-tile:hover .feed-tile__back { clip-path: polygon(0 0, 130% 0, 100% 100%, -30% 100%); pointer-events: auto; }
+  .feed-tile:hover .feed-tile__back > * { opacity: 1; translate: 0 0; }
+  .feed-tile:hover .feed-tile__art { transform: scale(1.08) rotate(-3deg); }
+}
+@media (prefers-reduced-motion: reduce) { .feed-tile__art, .feed-tile__back, .feed-tile__back > * { transition: none; } }
+
+/* FIELD. A label and its control with the words around it: the help over it, the act and its as-of stamp under it, and the line that says
+   what happened. Variants: stacked (the label over the control), row (the words left, the control right), a declaration (a box with its
+   sentence and links, D-26). States: empty, filled, read-only, refused with its reason under the act (D-58), malformed with the reason under
+   the control. Grey only so far, wireframes/settings.html, settings-refused.html, fair.html, fair-malformed.html, support.html, signin.html;
+   the label is the server seed hash's, design/v4/case-page.css .v4c-hash-l; the row is Home's question row, design/v4/faq-home.css, as
+   .disclosure; the declaration's row is carried over from v4's sign in dialog, design/v4/signin-home.css .sd-cbx, and its box is the kit's checkbox, D-231.
+   Contains Text field, Select, Text area, Checkbox, Switch, Button, Note line. */
+.field { display: grid; gap: var(--space-2); min-width: 0; }
+.field__l { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.field__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-1); }
+/* row: the words left, the control right; a control too wide for the row goes under the words */
+.field--row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-4); min-height: var(--size-row); box-sizing: border-box; padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5); border-radius: var(--radius-card); background: var(--gradient-row); box-shadow: var(--shadow-edge); }
+.field__t { display: grid; flex: 1 1 calc(5 * var(--size-tap)); gap: var(--space-1); min-width: 0; }
+.field__k { color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.3; }
+.field__v { color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.45; }
+.field__c { flex: none; display: flex; align-items: center; gap: var(--space-2); max-width: 100%; }
+/* a declaration: the row is the press, a label round the kit's checkbox atom (.field--declare.check), the founder's pick of D-229, so the box
+   is 20px with a 4px corner and takes the button colour when ticked, D-231; the row takes the pink edge once its box is ticked; the refusal is
+   the note line under the rows (D-58), and the row it names takes the error edge */
+.field--declare { display: flex; align-items: center; gap: var(--space-3); min-height: calc(var(--size-tap) + var(--space-1)); box-sizing: border-box; padding: var(--space-2) var(--space-3); border-radius: var(--radius-card); background: var(--color-tile); box-shadow: var(--shadow-edge); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; cursor: pointer; transition: box-shadow .2s, background-color .2s, color .2s; }
+.field--declare:has(> input:checked) { color: var(--color-text-hi); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-pink-edge); }
+.field--declare.is-missing { box-shadow: inset 0 0 0 var(--size-edge) var(--color-error); animation: field-nudge .32s ease-out; }
+.field__s { flex: 1; min-width: 0; }
+.field__s a { color: var(--color-pink); font-weight: 700; text-decoration: none; }
+.field__s a:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+@media (hover: hover) { .field__s a:hover { text-decoration: underline; } }
+@keyframes field-nudge { 25% { translate: calc(-1 * var(--space-1)) 0; } 55% { translate: var(--space-1) 0; } 80% { translate: calc(-1 * var(--size-edge)) 0; } }
+@media (prefers-reduced-motion: reduce) { .field--declare { transition: none; } .field--declare.is-missing { animation: none; } }
+
+/* FILTER CHIP. A filter in force, said in words, and the cross that takes it off; Clear all beside the group is a small ghost button.
+   Grey only so far, wireframes/catalogue-filtered.html, catalogue-empty.html; the look is Home's fact pins on the picture of What opening a
+   case here involves, design/v4/seo-home.css (computed .sx-pin), with the dialog's cross of buttons.css as the remove. Contains Button. */
+.chip { display: inline-flex; align-items: center; gap: var(--space-1); max-width: 100%; min-height: var(--size-button-s); box-sizing: border-box; padding-left: var(--space-3); border-radius: var(--radius-card); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 700; line-height: 1.2; }
+.chip__t { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chip > .button--close { flex: none; width: var(--size-button-s); min-height: var(--size-button-s); background: none; color: var(--color-text-soft); } /* the cross at the chip's own height */
+
+/* HERO. Home's H1 in capitals and the Trustpilot line as a badge: a glass plate with a lit edge, five tiles filled to the score in Trustpilot's
+   green, the score large, the source and the count stacked; a light crosses it every few seconds and under the pointer the tiles hop in turn.
+   Centred under 900px, the badge under the H1; from 900px the H1 on the left and the badge beside it where both fit, else under it. Signed in,
+   the line is not drawn. The badge is a picture with its line as its name (role img) until a review page exists, so it is not a control.
+   v4 draws its lit edge cut to a star, theme.css's star clip-path leaking onto the badge's ::before; the kit does not carry the leak and the lit
+   edge follows the badge's own corners, D-231.
+   From design/v4/heading-home.css, trust-badge.css and trust-badge.js on theme.css .wf-hero--short. */
+/* its own geometry, read inside .hero only, D-231 */
+.hero {
+  --hero-title: clamp(24px, 4.5vw + 8px, 28px); /* heading-home.css .wf-hero--short h1, Home's H1 from 24px at 360 to 28px by 444 */
+  --hero-trust-tile: 24px; /* trust-badge.css .v4-trust-tiles i, one star tile */
+}
+.hero { display: block; padding: var(--space-3) 0 0; color: var(--color-text-hi); text-align: center; }
+.hero__title { max-width: none; margin: 0; color: var(--color-text-hi); font-size: var(--hero-title); font-weight: 900; letter-spacing: var(--tracking-title); line-height: 1.3; text-transform: uppercase; text-wrap: balance; }
+.hero__line { display: flex; justify-content: center; max-width: none; margin: var(--space-3) 0 0; color: var(--color-text-muted); font-size: var(--size-xs); line-height: 1.2; }
+@media (min-width: 900px) {
+  .hero { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-3) var(--space-4); padding: var(--space-5) 0 var(--space-3); text-align: left; }
+  .hero__line { justify-content: normal; margin: 0; white-space: nowrap; }
+}
+.hero__trust { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; gap: var(--space-2-5); padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2-5); border-radius: var(--radius-card); background: var(--gradient-trust), var(--color-trust-plate); box-shadow: var(--shadow-trust); color: var(--color-text-hi); font-size: var(--size-text); line-height: 1.2; text-decoration: none; transition: translate .3s var(--motion-ease-settle), box-shadow .3s; } /* v4 drew 14px corners, the ladder's 12, D-228 */
+.hero__trust::before { content: ''; position: absolute; z-index: -1; inset: 0; padding: var(--size-hairline); border-radius: inherit; background: var(--gradient-trust-edge); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+.hero__trust::after { content: ''; position: absolute; z-index: 1; inset: 0; background: var(--gradient-trust-sweep); transform: translateX(-110%); pointer-events: none; animation: hero-trust-sweep var(--motion-trust-sweep) ease-in-out infinite; }
+@keyframes hero-trust-sweep { 0%, 76% { transform: translateX(-110%); } 100% { transform: translateX(110%); } }
+.hero__stars { display: inline-flex; gap: var(--space-thin); }
+.hero__stars > i { --fill: 100%; position: relative; display: block; width: var(--hero-trust-tile); height: var(--hero-trust-tile); border-radius: var(--radius-xs); background: linear-gradient(90deg, var(--color-trustpilot) var(--fill), var(--color-trust-off) var(--fill)); transition: translate .3s var(--motion-ease-settle); } /* --fill is the share of the tile the score fills, set per tile; v4 drew 5px corners, the ladder's 4, D-228 */
+.hero__stars > i:nth-child(2) { transition-delay: var(--motion-stagger); } .hero__stars > i:nth-child(3) { transition-delay: calc(2 * var(--motion-stagger)); }
+.hero__stars > i:nth-child(4) { transition-delay: calc(3 * var(--motion-stagger)); } .hero__stars > i:nth-child(5) { transition-delay: calc(4 * var(--motion-stagger)); }
+.hero__stars svg { position: absolute; inset: var(--space-thin); display: block; fill: var(--color-text-hi); }
+.hero__score { color: var(--color-text-hi); font-size: var(--size-head-l); font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-score); line-height: 1; }
+.hero__meta { display: flex; flex-direction: column; gap: var(--size-hairline); padding-left: var(--space-2-5); border-left: var(--size-hairline) solid var(--color-trust-rule); font-size: var(--size-chip); line-height: 1.2; white-space: nowrap; }
+.hero__meta > strong { color: var(--color-text-hi); font-size: var(--size-xs); font-weight: 900; }
+.hero__meta > span { color: var(--color-text-soft); }
+@media (hover: hover) {
+  .hero__trust:hover { translate: 0 calc(-1 * var(--size-edge)); box-shadow: var(--shadow-trust-hover); }
+  .hero__trust:hover .hero__stars > i { translate: 0 calc(-1 * var(--space-thin)); }
+}
+.hero__trust:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+@media (prefers-reduced-motion: reduce) {
+  .hero__trust::after { animation: none; }
+  .hero__trust, .hero__stars > i { transition: none; }
+  .hero__trust:hover, .hero__trust:hover .hero__stars > i { translate: none; }
+}
+
+/* ITEM CARD. One skin with its picture in its tier's ring, the gun, the skin and the wear, and its value in gold. Variants: my items (the
+   tick and Share this round on top; the acts over the card on hover, focus or tick; the market foot and what it costs to take it out to
+   Steam), ledger and public shelf (the status band, value when won, where it came from and when, Check this round). States: selected,
+   sending to Steam, sold, gone (sent to Steam); a gone or sold band is marked harder than one still held.
+   Grey only so far, wireframes/account.html, history-items.html, player.html; the look is the case screen's drop card in What is in this
+   case, design/v4/case-body.css row F: the tier's tint and foot bar, the skin in the tier's lit hexagon, the figure lines under a rule.
+   Contains Media slot (.media--skin), Checkbox (.check), Button, Figure, Key-value line, Note line. The tier is --item-tier, set by the page
+   from the rarity ladder, as --case-art is on .media--case. */
+.item-card { --item-tier: var(--color-rarity-5); position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; padding: var(--space-4) var(--space-3); border-radius: var(--radius-m); text-align: center;
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--item-tier) 16%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--item-tier) 10%, var(--color-card)), var(--color-card) 60%);
+  box-shadow: var(--shadow-tile-edge), var(--shadow-card); transition: translate .2s, box-shadow .2s; }
+.item-card::after { content: ''; position: absolute; left: 50%; bottom: 0; width: var(--size-tap); height: calc(var(--size-edge) + var(--size-hairline)); translate: -50% 0; border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--item-tier); box-shadow: 0 0 var(--space-3) var(--size-hairline) var(--item-tier); }
+@media (hover: hover) { .item-card:hover { translate: 0 calc(-1 * (var(--size-edge) + var(--size-hairline))); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--item-tier) 55%, transparent), var(--shadow-card); } }
+.item-card:has(.item-card__top input:checked) { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink), var(--shadow-card); } /* selected: the pressed edge of .fav */
+.item-card__top { position: relative; z-index: 3; display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-2); min-height: var(--size-button-s); }
+.item-card__top > .button { visibility: hidden; } /* Share this round shows with the acts, D-128 */
+.item-card__band { display: block; margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-3)) var(--space-1); padding: var(--space-2) var(--space-3); border-bottom: var(--size-hairline) solid var(--color-line-soft); color: var(--color-text-muted); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.4; min-height: 2.8em; text-transform: uppercase; } /* two lines kept on every band, so a wrapped one and a short one sit alike (the grey's rule) */
+.item-card.is-sending .item-card__band { color: var(--color-pink); }
+.item-card.is-sold .item-card__band, .item-card.is-gone .item-card__band { color: var(--color-text-hi); border-bottom-color: var(--color-line); }
+.item-card__art { position: relative; display: block; height: calc(var(--size-drop-v4) + var(--space-2)); margin: var(--space-2) 0; }
+.item-card__art::before, .item-card__art::after { content: ''; position: absolute; left: 50%; top: 50%; height: 86%; aspect-ratio: 136 / 118; translate: -50% -50%; }
+.item-card__art::before { background: color-mix(in srgb, var(--item-tier) 22%, var(--color-card)); -webkit-mask: var(--shape-hex-fill) center / contain no-repeat; mask: var(--shape-hex-fill) center / contain no-repeat; }
+.item-card__art::after { background: linear-gradient(135deg, color-mix(in srgb, var(--item-tier) 62%, var(--color-text-hi)), var(--item-tier) 50%, color-mix(in srgb, var(--item-tier) 72%, var(--color-ground))); -webkit-mask: var(--shape-hex-inner) center / contain no-repeat; mask: var(--shape-hex-inner) center / contain no-repeat; }
+.item-card__art > .media { position: absolute; inset: 0; z-index: 1; }
+.item-card__art > .media > img { filter: var(--shadow-skin-drop); transition: scale .2s; }
+@media (hover: hover) { .item-card:hover .item-card__art > .media > img { scale: 1.06; } }
+.item-card__w { margin: 0; color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.3; text-transform: uppercase; }
+.item-card__s { margin: 0; overflow: hidden; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+.item-card__wear { margin: 0; color: color-mix(in srgb, var(--item-tier) 35%, var(--color-text-hi)); font-size: var(--size-unit); line-height: 1.3; }
+.item-card > .fig { align-self: center; align-items: center; margin-top: var(--space-2); }
+.item-card > .fig .fig__v { font-size: var(--size-title); }
+.item-card__k { margin: 0; color: var(--color-text-muted); font-size: var(--size-unit); }
+.item-card__facts { position: relative; z-index: 3; display: grid; gap: var(--space-1); margin-top: var(--space-2); padding-top: var(--space-2); border-top: var(--size-hairline) solid var(--color-line-soft); text-align: left; }
+.item-card__out { visibility: hidden; } /* what taking it out costs shows with the acts, D-128 */
+.item-card > .button { width: 100%; margin-top: var(--space-2); padding-inline: var(--space-1); } /* the label never wraps, the padding gives (the grey's D-52) */
+.item-card__acts { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: center; gap: var(--space-2); padding: var(--space-3); background: var(--color-veil); -webkit-backdrop-filter: blur(var(--blur-mode)); backdrop-filter: blur(var(--blur-mode)); visibility: hidden; } /* the grey's dim: the header's veil, and the card behind it blurred so its words do not read through (--blur-mode reused for its value, see report) */
+.item-card__acts > .button { width: 100%; padding-inline: var(--space-1); }
+.item-card__acts > .note { text-align: center; }
+.item-card:focus-within .item-card__acts, .item-card:has(.item-card__top input:checked) .item-card__acts,
+.item-card:focus-within .item-card__top > .button, .item-card:has(.item-card__top input:checked) .item-card__top > .button,
+.item-card:focus-within .item-card__out, .item-card:has(.item-card__top input:checked) .item-card__out { visibility: visible; }
+@media (hover: hover) { .item-card:hover .item-card__acts, .item-card:hover .item-card__top > .button, .item-card:hover .item-card__out { visibility: visible; } }
+@media (prefers-reduced-motion: reduce) { .item-card, .item-card__art > .media > img { transition: none; } .item-card:hover { translate: none; } }
+
+/* MODE CARD. One way to play on Home: its colour, its art breaking the card's top edge, the name, one line, and the act across the foot. Live,
+   the act is the filled button; not launched (.is-later), the button is absent and a glass plate says Not launched yet in its place (D-197).
+   The art is three layers: a burst on the card's colour ending at its edge, the object floating over the top edge, a thinner copy of the burst
+   in front of the object at its rim. Two forms: side (comp A, 7 to 4, words left and art right) and stacked (.mode-card--stack, the art over
+   the words), which the mode row chooses by its own width. The art's placement per card (--ol, --ot, --ow, --bz, --mx, --my, --pw) is
+   measured against comp A, in units of 1 % of the card (cqw). From design/v4/modes.css, theme.css and buttons.css. */
+/* its own geometry, read inside .mode-card only, D-231 */
+.mode-card {
+  --mode-rise: 80px; /* v4 modes.css .wf-grid .wf-mode clip-path: how far the art may break the card's top edge */
+  --mode-pad-foot: 14px; /* v4 modes.css .wf-grid .wf-mode: the card's padding at its foot */
+  --mode-line-foot: 10px; /* v4 modes.css, the stacked card's description, its bottom margin */
+}
+.mode-card { --k: 1; --dx: 0; --dy: 0; position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; box-sizing: border-box; isolation: isolate; container-type: inline-size; align-self: stretch; justify-self: stretch; aspect-ratio: 7 / 4; padding: var(--space-4) var(--space-4) var(--mode-pad-foot); border-radius: var(--radius-card); background: var(--gradient-mode-foot), var(--mode-fill); box-shadow: var(--shadow-mode-card);
+  clip-path: inset(calc(-1 * var(--mode-rise)) 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); color: var(--color-text); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; transition: filter .35s; }
+.mode-card--cases { --mode-fill: var(--gradient-mode-cases-card); --mode-obj: var(--art-mode-cases); --mode-burst: var(--art-mode-cases-burst); --ol: 43.4; --ot: -7.2; --ow: 70; --bz: 1.35; --pw: 45cqw; --mx: 78%; --my: 50%; }
+.mode-card--battles { --mode-fill: var(--gradient-mode-battles); --mode-obj: none; --mode-burst: var(--art-mode-battles); --ol: 53; --ot: -7; --ow: 62; --bz: 1.3; --pw: 56cqw; --mx: 84%; --my: 44%; }
+.mode-card--showdowns { --mode-fill: var(--gradient-mode-showdowns); --mode-obj: var(--art-mode-showdowns); --mode-burst: var(--art-mode-showdowns-burst); --ol: 45.6; --ot: -8; --ow: 59; --bz: 1.35; --mx: 75%; --my: 38%; }
+.mode-card--upgrade { --mode-fill: var(--gradient-mode-upgrade); --mode-obj: var(--art-mode-upgrade); --mode-burst: var(--art-mode-upgrade-burst); --ol: 44; --ot: -6; --ow: 70; --bz: 1.3; --mx: 79%; --my: 44%; } /* its foot goes into the card's bottom edge, it does not hang */
+/* layer 1, the burst on the card's colour, fading out before the words; layer 3, its thinner copy at the object's rim, breathing */
+.mode-card::before, .mode-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: var(--mode-burst) calc((100 - (100 - var(--ol)) * var(--k) + var(--dx) - var(--ow) * var(--k) * (var(--bz) - 1) / 2) * 1cqw) calc((var(--ot) * var(--k) + var(--dy) - var(--ow) * var(--k) * (var(--bz) - 1) / 2) * 1cqw) / calc(var(--ow) * var(--k) * var(--bz) * 1cqw) auto no-repeat; }
+.mode-card::before { z-index: 0; mix-blend-mode: screen; -webkit-mask: linear-gradient(90deg, transparent 36%, #000 58%); mask: linear-gradient(90deg, transparent 36%, #000 58%); transition: filter .35s; }
+.mode-card::after { z-index: 1; opacity: .3; -webkit-mask: radial-gradient(circle at var(--mx) var(--my), transparent 22cqw, #000 30cqw, transparent 38cqw); mask: radial-gradient(circle at var(--mx) var(--my), transparent 22cqw, #000 30cqw, transparent 38cqw);
+  animation: mode-card-burst var(--motion-mode-burst) ease-in-out infinite alternate; }
+/* layer 2, the object, floating, free over the top edge only */
+.mode-card__art { position: absolute; z-index: 1; left: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx)) * 1cqw); top: calc((var(--ot) * var(--k) + var(--dy)) * 1cqw); width: calc(var(--ow) * var(--k) * 1cqw); aspect-ratio: 1; background: var(--mode-obj) center / contain no-repeat; filter: var(--shadow-mode-art); pointer-events: none;
+  animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; transition: translate .4s var(--motion-ease-pop), rotate .4s var(--motion-ease-pop), scale .4s var(--motion-ease-pop); }
+.mode-card--upgrade .mode-card__art { filter: var(--shadow-mode-art-warm); } /* a navy shadow would dirty the gold card */
+.mode-card--showdowns .mode-card__art { -webkit-mask: linear-gradient(#000 84%, transparent 100%); mask: linear-gradient(#000 84%, transparent 100%); } /* the bust ends behind the act */
+/* Case battles: two knives crossing, each its own layer, tips over the top edge; the red one is the blue one's mirror */
+.mode-card--battles .mode-card__art { left: 0; top: 0; width: 100%; height: 100%; aspect-ratio: auto; background: none; filter: none; }
+.mode-card--battles .mode-card__art::before, .mode-card--battles .mode-card__art::after { content: ''; position: absolute; left: calc((100 - 56.2 * var(--k) + var(--dx)) * 1cqw); top: calc((-10.8 * var(--k) + var(--dy)) * 1cqw); width: calc(75.7 * var(--k) * 1cqw); height: calc(75.7 * var(--k) * 1cqw); background: center / contain no-repeat; filter: var(--shadow-mode-knife); }
+.mode-card--battles .mode-card__art::before { background-image: var(--art-mode-battles-knife-blue); rotate: -30deg; }
+.mode-card--battles .mode-card__art::after { background-image: var(--art-mode-battles-knife-red); rotate: 30deg; transform: scaleX(-1); }
+/* the words at the top left over the colour */
+.mode-card__name, .mode-card__line { position: relative; z-index: 2; }
+.mode-card__name { display: flex; align-items: center; gap: var(--space-2); margin: 0; color: var(--color-text-hi); font-size: min(var(--size-l), 9.6cqw); font-weight: 900; letter-spacing: var(--tracking-mode-name); line-height: 1.05; text-shadow: var(--shadow-mode-name); text-transform: uppercase; white-space: nowrap; }
+.mode-card__line { max-width: var(--pw, 42cqw); margin: var(--space-1-5) 0 var(--space-2); color: var(--color-text-hi); font-size: var(--size-chip); line-height: 1.3; text-shadow: var(--shadow-mode-line); }
+/* the act across the foot, stopping at the art: the filled button at its medium height, or the plate that says the mode is not launched */
+.mode-card__act, .mode-card__later { position: relative; z-index: 3; align-self: flex-start; display: flex; justify-content: center; align-items: center; box-sizing: border-box; width: max-content; min-width: 56cqw; max-width: 100%; min-height: var(--size-button-m); margin: auto 0 0; padding: 0 var(--size-button-s-pad); border-radius: var(--radius-button); }
+.mode-card__act { line-height: 1.4; text-align: center; }
+.mode-card__later { background: var(--color-mode-later); box-shadow: var(--shadow-mode-later); -webkit-backdrop-filter: blur(var(--blur-mode-later)); backdrop-filter: blur(var(--blur-mode-later)); color: var(--color-text-hi); font-size: max(var(--size-unit), min(var(--size-xs), 4.6cqw)); font-weight: 700; letter-spacing: var(--tracking-tight); line-height: 1.3; text-shadow: var(--shadow-mode-line); text-transform: uppercase; white-space: nowrap; }
+@container (max-width: 159px) { .mode-card__later { padding: 0 var(--space-2); letter-spacing: 0; } } /* a stacked card under 160px: the plate spans it, so its sides come from the padding, not the tracking */
+/* stacked: the art in the top right breaking the top edge, the words under it across the card */
+.mode-card--stack { --dy: -6; aspect-ratio: auto; padding: var(--space-3); }
+.mode-card--stack::before { -webkit-mask: linear-gradient(180deg, #000 28%, transparent 62%); mask: linear-gradient(180deg, #000 28%, transparent 62%); }
+.mode-card--stack::after { --rx: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx) + var(--ow) * var(--k) / 2) * 1cqw); --ry: calc((var(--ot) * var(--k) + var(--dy) + var(--ow) * var(--k) / 2) * 1cqw);
+  -webkit-mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), #000 calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), #000 calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); }
+.mode-card--stack .mode-card__name { margin-top: 46cqw; font-size: min(var(--size-title), 12.5cqw); }
+.mode-card--stack .mode-card__line { max-width: none; margin: var(--space-1) 0 var(--mode-line-foot); }
+.mode-card--stack .mode-card__act, .mode-card--stack .mode-card__later { align-self: stretch; width: auto; }
+.mode-card--stack .mode-card__later { font-size: max(var(--size-unit), min(var(--size-xs), 7.6cqw)); }
+@keyframes mode-card-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 calc(-1 * var(--space-1)); } }
+@keyframes mode-card-burst { from { opacity: .18; } to { opacity: .3; } }
+@keyframes mode-card-strike-l { 0% { rotate: -30deg; translate: 0 0; } 45% { rotate: -40deg; translate: -3cqw -1cqw; } 75% { rotate: -25deg; translate: 1cqw 0; } 100% { rotate: -33deg; translate: -1cqw -1cqw; } }
+@keyframes mode-card-strike-r { 0% { rotate: 30deg; translate: 0 0; } 45% { rotate: 40deg; translate: 3cqw -1cqw; } 75% { rotate: 25deg; translate: -1cqw 0; } 100% { rotate: 33deg; translate: 1cqw -1cqw; } }
+@media (hover: hover) {
+  .mode-card:hover { filter: brightness(1.08); }
+  .mode-card:hover::before { filter: brightness(1.3) saturate(1.15); }
+  .mode-card:hover .mode-card__art { scale: 1.08; rotate: -4deg; translate: 0 calc(-1 * var(--space-1-5)); animation-play-state: paused; }
+  .mode-card--battles:hover .mode-card__art { scale: none; rotate: none; translate: none; }
+  .mode-card--battles:hover .mode-card__art::before { animation: mode-card-strike-l var(--motion-mode-strike) var(--motion-ease-pop) forwards; }
+  .mode-card--battles:hover .mode-card__art::after { animation: mode-card-strike-r var(--motion-mode-strike) var(--motion-ease-pop) forwards; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mode-card, .mode-card::before, .mode-card::after, .mode-card__art, .mode-card__art::before, .mode-card__art::after { animation: none; transition: none; }
+  .mode-card:hover .mode-card__art { scale: none; rotate: none; translate: none; }
+  .mode-card--battles:hover .mode-card__art::before, .mode-card--battles:hover .mode-card__art::after { animation: none; }
+}
+
+/* OUTCOME CARD. What came out of a round, Z7 of win-lab.html on W7's card: its published chance over the skin, the skin large in its tier's
+   ring, the gun with its wear and the skin, the value in coins with the coin, and its multiple of the open's price on a tab at the foot,
+   green when the item is worth more than the open. A band of light crosses it once as it lands (.is-on). Two to five in a row are the smaller
+   --batch, each with its own Sell under it. From design/v4/case-stage.css (data-card w7, data-prize z7), case-page.css and case-win.js. */
+/* its own geometry, read inside .outcome only, D-231 */
+.outcome {
+  --outcome-foot: 40px; /* v4 case-stage.css: z6/z7 .v4c-won-card padding-bottom, the room the multiple's tab stands in. Outcome card */
+  --outcome-dot: .45em; /* v4 case-stage.css: z7 .v4c-won-wear::before margin, the dot between the gun and its wear, in the line's own em. Outcome card */
+  --outcome-name: 22px; /* v4 case-stage.css: x3/y/z .v4c-won-name b, the won skin's name. Outcome card */
+  --outcome-w: 300px; /* v4 case-stage.css: x3/y/z .v4c-won-card width. Outcome card */
+  --outcome-h: 330px; /* v4 case-stage.css: x3/y/z .v4c-won-card height. Outcome card */
+  --outcome-art-s: 220px; /* v4 case-page.css: .v4c-frame[data-phase="won"][data-count="1"] .v4c-won-art width at 599px. Outcome card */
+  --outcome-batch-w: 220px; /* v4 case-stage.css: x3/y/z :not([data-count="1"]) .v4c-won-card width, min(220px, 92%). Outcome card, two to five */
+  --outcome-batch-h: 270px; /* v4 case-stage.css: x3/y/z :not([data-count="1"]) .v4c-won-card height. Outcome card, two to five */
+  --outcome-batch-h-s: 190px; /* v4 case-stage.css: x3/y/z :not([data-count="1"]) .v4c-won-card height at 599px. Outcome card, two to five */
+  --outcome-batch-art-s: 76px; /* v4 case-stage.css: [data-prize] :not([data-count="1"]) .v4c-won-art height at 599px (its width is --size-card-art-s). Outcome card, two to five */
+  --outcome-x-tab: 92px; /* v4 case-stage.css: z6/z7 .v4c-won-x min-width, the multiple's tab. Outcome card */
+  --outcome-x-tab-s: 76px; /* v4 case-stage.css: z6/z7 :not([data-count="1"]) .v4c-won-x min-width. Outcome card, two to five */
+}
+.outcome { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: var(--color-text); font-size: var(--size-text); line-height: 1.2; text-align: center; }
+.outcome__card { position: relative; display: grid; grid-template: 'odds odds' auto 'art art' 1fr 'name name' auto 'v v' auto / 1fr auto; align-items: center; gap: var(--space-1) var(--space-2-5);
+  box-sizing: border-box; width: var(--outcome-w); max-width: 100%; height: var(--outcome-h); padding: var(--space-4) var(--space-4-25) var(--outcome-foot); border-radius: var(--radius-m); overflow: hidden; text-align: left;
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 18%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 12%, var(--color-card-deep)), var(--color-card-deep) 60%);
+  box-shadow: var(--shadow-edge), 0 0 var(--blur-outcome) color-mix(in srgb, var(--tier) 22%, transparent), var(--shadow-outcome); }
+.outcome__card::before { content: ''; position: absolute; z-index: 2; left: 50%; top: 0; width: var(--size-tier-bar-w); height: var(--size-tier-bar); margin-left: calc(var(--size-tier-bar-w) / -2); border-radius: 0 0 var(--radius-xs) var(--radius-xs); background: var(--tier); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--tier); }
+.outcome__card::after { content: ''; position: absolute; inset: -30%; z-index: 2; pointer-events: none; opacity: 0; transform: translateX(-60%);
+  background: linear-gradient(115deg, transparent 42%, var(--color-foil) 49%, color-mix(in srgb, var(--tier) 55%, var(--color-text-hi)) 51%, transparent 58%); }
+.outcome.is-on .outcome__card::after { animation: outcome-foil 1.4s ease-in-out .7s; }
+@keyframes outcome-foil { 0% { opacity: 0; transform: translateX(-60%); } 15% { opacity: 1; } 60% { opacity: 1; transform: translateX(60%); } 61%, 100% { opacity: 0; transform: translateX(60%); } }
+.outcome__odds { grid-area: odds; justify-self: center; align-self: start; display: flex; flex-direction: column; align-items: center; color: var(--color-text-soft); font-size: var(--size-badge-text); font-weight: 700; letter-spacing: var(--tracking-label); text-align: center; text-transform: uppercase; white-space: nowrap; }
+.outcome__odds > b { order: 2; color: color-mix(in srgb, var(--tier) 70%, var(--color-text-hi)); font-size: var(--size-s); font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: 0; text-transform: none; }
+.outcome__art { grid-area: art; width: 100%; height: 100%; min-height: 0; }
+.outcome__art .outcome__plate { height: 67%; }
+.outcome__art .outcome__ring { height: 88%; }
+.outcome__art > img { position: absolute; inset: 0; z-index: 1; transform: scale(1.12); filter: var(--shadow-skin-prize); }
+.outcome__name { grid-area: name; justify-self: stretch; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0; line-height: 1.15; text-align: center; }
+.outcome__w { max-width: 100%; overflow: hidden; color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; }
+.outcome__wear { color: var(--color-text-hi); }
+.outcome__wear::before { content: '\00B7'; margin: 0 var(--outcome-dot); color: var(--color-text-soft); }
+.outcome__s { max-width: 100%; overflow: hidden; color: var(--color-text-hi); font-size: var(--outcome-name); font-weight: 900; line-height: 1.05; white-space: nowrap; text-overflow: ellipsis; }
+.outcome__v { grid-area: v; justify-self: center; margin-top: var(--space-1); }
+.outcome__v .fig__v { font-size: var(--size-stat); line-height: 1.1; }
+.outcome__v .icon--coin { font-size: var(--outcome-name); }
+.outcome__x { position: absolute; z-index: 3; left: 50%; bottom: 0; translate: -50%; box-sizing: border-box; min-width: var(--outcome-x-tab); padding: var(--space-1-75) var(--space-5) var(--space-1-5); border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background: var(--color-tab); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-track); color: var(--color-text-soft); font-size: var(--size-s); font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); text-align: center; white-space: nowrap; }
+.outcome__x.is-up { background: var(--color-up-tab); box-shadow: var(--shadow-up-tab); color: var(--color-up); }
+.outcome__sell { margin-top: var(--size-edge); }
+/* two to five in a row: a smaller card, the chance over it, the multiple's tab smaller, its own Sell under it */
+.outcome--batch .outcome__card { width: min(var(--outcome-batch-w), 92%); height: var(--outcome-batch-h); padding: var(--space-3) var(--space-3) var(--outcome-foot); }
+.outcome--batch .outcome__w { font-size: var(--size-badge-text); }
+.outcome--batch .outcome__s { font-size: var(--size-text); }
+.outcome--batch .outcome__v .fig__v { gap: var(--space-1-5); font-size: var(--outcome-name); }
+.outcome--batch .outcome__v .icon--coin { font-size: var(--size-text); }
+.outcome--batch .outcome__x { min-width: var(--outcome-x-tab-s); padding: calc(var(--space-1) + var(--size-hairline)) var(--space-4-25) var(--space-1); font-size: var(--size-xs); }
+@media (max-width: 599px) {
+  .outcome:not(.outcome--batch) .outcome__art { justify-self: center; width: var(--outcome-art-s); }
+  .outcome--batch .outcome__card { height: var(--outcome-batch-h-s); padding: var(--space-3) var(--space-2) calc(var(--outcome-foot) - var(--space-3)); }
+  .outcome--batch .outcome__odds { display: none; }
+  .outcome--batch .outcome__art { width: var(--size-card-art-s); height: var(--outcome-batch-art-s); }
+  .outcome--batch .outcome__name { min-width: 0; max-width: 100%; overflow: hidden; }
+  .outcome--batch .outcome__s { font-size: var(--size-xs); line-height: 1.1; white-space: normal; overflow: visible; text-overflow: clip; text-wrap: balance; }
+  .outcome--batch .outcome__v .fig__v { gap: var(--space-1); font-size: var(--size-xs); }
+  .outcome--batch .outcome__v .icon--coin { font-size: var(--size-xs); }
+  .outcome--batch .outcome__x { min-width: 0; padding: calc(var(--space-1) - var(--size-hairline)) var(--space-3) var(--size-edge); font-size: var(--size-unit); }
+}
+@media (prefers-reduced-motion: reduce) { .outcome.is-on .outcome__card::after { animation: none; } }
+
+/* POPOVER MENU. A control that opens a panel of choices over the page and closes on Escape, a press outside or its close. The trigger carries
+   aria-expanded; the panel follows the trigger in the markup and shows while it is true. Two variants:
+   --account, the avatar pill in the header that opens the account's menu: who, the ID with Copy, My items, four destinations, Responsible
+   play and Sign out; under 900px the menu rises from the bottom as a sheet with its own close and a dimmed page. From design/v4/account-home.css.
+   --lang, the language control at the foot of the page that opens nine languages, one live and eight that say so in a line under them
+   (D-41, D-42); the list opens upward. From design/v4/footer-home.css and the language rules kit.css part 3 still holds for Home v4. */
+/* its own geometry, read inside .popover only, D-231 */
+.popover {
+  --popover-copy-line: 1.6px; /* v4 account-home.css: .am3-copy-i::before and ::after border, the two squares of Copy. Popover menu */
+  --popover-avatar: 64px; /* v4 account-home.css: .am3-ava, the account at the head of its menu. Popover menu */
+  --popover-plate: 46px; /* v4 account-home.css: .ac2-btn height, the avatar pill that pulls 3px out of the 40px row. Popover menu */
+  --popover-menu: 340px; /* v4 account-home.css: .am3 width. Popover menu, account */
+  --popover-lang-menu: 320px; /* kit.css part 3: .wf-lang-wrap.is-open .wf-lang-pop width, as Home v4 draws it. Popover menu, language */
+  --popover-id-plate: 30px; /* v4 account-home.css: .am3-id height. Popover menu */
+  --popover-copy: 24px; /* v4 account-home.css: .am3-copy height. Popover menu */
+  --popover-copy-icon: 11px; /* v4 account-home.css: .am3-copy-i, two squares 7px apart. Popover menu */
+  --popover-copy-square: 7px; /* v4 account-home.css: .am3-copy-i::before and ::after. Popover menu */
+  --popover-tile: 76px; /* v4 account-home.css: .am3-t min-height. Popover menu */
+  --popover-tile-items: 92px; /* v4 account-home.css: .am3-t.is-items min-height. Popover menu */
+  --popover-tile-rp: 48px; /* v4 account-home.css: .am3-t.is-rp min-height. Popover menu */
+  --popover-case-w: 184px; /* v4 account-home.css: .am3-case width, the case rising behind My items. Popover menu */
+  --popover-case-h: 120px; /* v4 account-home.css: .am3-case height. Popover menu */
+  --popover-story-icon: 26px; /* v4 account-home.css: .am-ic--story, the box on My items. Popover menu */
+  --popover-caret: 5px; /* v4 footer-home.css: .wf-rail-lang::after border-top, the language control's caret. Popover menu, language */
+  --popover-handle: 40px; /* v4 account-home.css: .am3::before width at 899px, the sheet's handle. Popover menu, account on a phone */
+}
+.popover { position: relative; display: inline-flex; }
+.popover__panel { display: none; }
+.popover__trigger[aria-expanded="true"] ~ .popover__panel { display: block; }
+.popover__trigger { display: inline-flex; align-items: center; justify-content: center; border: 0; font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.popover__trigger:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+.popover__scrim { display: none; }
+
+/* the account: the pill */
+.popover--account .popover__trigger { gap: calc(var(--space-2) + var(--size-hairline)); height: var(--popover-plate); margin-block: calc(-1 * (var(--popover-plate) - var(--size-button-m)) / 2); box-sizing: border-box; padding: 0 var(--space-3) 0 var(--space-1-75); border-radius: var(--radius-card);
+  background: var(--color-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-text); line-height: 1.2; white-space: nowrap; transition: box-shadow .2s; }
+.popover--account .popover__trigger[aria-expanded="true"] { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
+.popover__name { font-size: var(--size-label); font-weight: 700; }
+.popover__chev { width: var(--space-2); height: var(--space-2); box-sizing: border-box; margin: calc(-1 * var(--space-1)) var(--size-edge) 0 0; border: solid var(--color-text-soft); border-width: 0 var(--size-edge) var(--size-edge) 0; rotate: 45deg; transition: rotate .2s, margin .2s; }
+[aria-expanded="true"] > .popover__chev { rotate: 225deg; margin-top: var(--space-1); }
+/* the account: the menu */
+.popover--account .popover__panel { position: absolute; z-index: 10; top: calc(100% + var(--space-2-5)); right: 0; width: var(--popover-menu); box-sizing: border-box; padding: var(--space-3); border-radius: var(--radius-m);
+  background: var(--gradient-menu); box-shadow: var(--shadow-edge), var(--shadow-menu); color: var(--color-text); font-size: var(--size-text); line-height: 1.2; text-align: left; }
+.popover__x { display: none; }
+.popover__head { display: flex; align-items: center; gap: var(--space-3-5); padding: var(--space-1) var(--space-1) var(--space-3-5); }
+.popover__head .avatar { width: var(--popover-avatar); height: var(--popover-avatar); box-shadow: var(--shadow-avatar-l); }
+.popover__who { display: grid; gap: var(--space-1-75); min-width: 0; }
+.popover__who > b { overflow: hidden; font-size: var(--size-lead); font-weight: 900; white-space: nowrap; text-overflow: ellipsis; }
+.popover__id { display: flex; align-items: center; gap: var(--space-2); height: var(--popover-id-plate); box-sizing: border-box; padding: 0 calc(var(--space-1) - var(--size-hairline)) 0 var(--space-2-5); border-radius: var(--radius-s); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+.popover__id-v { color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); white-space: nowrap; }
+.popover__copy { display: inline-flex; align-items: center; justify-content: center; gap: calc(var(--space-1) + var(--size-hairline)); height: var(--popover-copy); margin-left: auto; padding: 0 var(--space-2); border: 0; border-radius: var(--radius-s); background: var(--color-wash); color: var(--color-text-hi);
+  font-family: inherit; font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-snug); line-height: 1.2; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: background-color .2s, color .2s; }
+.popover__copy-i { position: relative; width: var(--popover-copy-icon); height: var(--popover-copy-icon); }
+.popover__copy-i::before, .popover__copy-i::after { content: ''; position: absolute; box-sizing: border-box; width: var(--popover-copy-square); height: var(--popover-copy-square); border: var(--popover-copy-line) solid currentColor; border-radius: calc(var(--radius-xs) / 2); } /* a glyph's corner, not a component's: half the smallest step, v4's 2px, so the squares stay squares */
+.popover__copy-i::before { left: 0; top: 0; opacity: .6; }
+.popover__copy-i::after { right: 0; bottom: 0; }
+@media (hover: hover) { .popover__copy:hover { background: var(--gradient-button-stripes), var(--color-pink); } }
+.popover__copy:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+.popover__copy.is-done { background: var(--color-done-wash); color: var(--color-done); }
+.popover__copy.is-done .popover__copy-i::before { opacity: 0; }
+.popover__copy.is-done .popover__copy-i::after { width: var(--space-1); height: var(--space-2); right: var(--size-edge); bottom: var(--size-edge); border-width: 0 var(--size-edge) var(--size-edge) 0; border-radius: 0; rotate: 45deg; }
+.popover__copy.is-fail { height: auto; padding: var(--space-1) var(--space-2); background: var(--color-fail-wash); color: var(--color-fail); white-space: normal; text-transform: none; letter-spacing: 0; }
+.popover__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.popover__tile { position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: var(--space-2-5); box-sizing: border-box; min-height: var(--popover-tile); padding: var(--space-3);
+  border-radius: var(--radius-card); background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.2; text-decoration: none; transition: background-color .2s; }
+.popover__tile .icon { font-size: var(--size-title); }
+.popover__tile:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); background: var(--gradient-button-stripes), var(--gradient-mode-cases); box-shadow: none; }
+.popover__tile--items { grid-column: 1 / -1; min-height: var(--popover-tile-items); justify-content: flex-end; background: var(--gradient-button-stripes), var(--gradient-mode-cases); box-shadow: var(--shadow-tile-lit-soft); font-size: var(--size-s); font-weight: 900; letter-spacing: var(--tracking-tile); text-transform: uppercase; }
+.popover__tile--items .icon { font-size: var(--popover-story-icon); }
+.popover__case { position: absolute; z-index: -1; right: calc(-1 * (var(--space-5) - var(--size-edge))); top: calc(-1 * var(--space-2-5)); width: var(--popover-case-w); height: var(--popover-case-h); object-fit: contain; pointer-events: none; transition: translate .25s cubic-bezier(.2, .7, .2, 1); }
+.popover__tile--rp { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: var(--space-3); min-height: var(--popover-tile-rp); background: var(--gradient-stripes-m), var(--gradient-mode-battles); box-shadow: var(--shadow-tile-lit-soft); }
+.popover__out { display: flex; align-items: center; justify-content: center; gap: var(--space-2-5); min-height: var(--size-button-m); margin-top: var(--space-2); padding: 0 var(--space-3); border-radius: var(--radius-s); color: var(--color-text-muted); font-size: var(--size-label); font-weight: 700; line-height: 1.2; text-decoration: none; transition: color .2s, background-color .2s; }
+.popover__out .icon { font-size: var(--size-title); }
+.popover__out:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); color: var(--color-error); background: var(--color-error-wash); }
+@media (hover: hover) {
+  .popover__tile:hover { background: var(--gradient-button-stripes), var(--gradient-mode-cases); box-shadow: none; }
+  .popover__tile--items:hover, .popover__tile--rp:hover { filter: brightness(1.08); }
+  .popover__tile--items:hover .popover__case { translate: calc(-1 * var(--space-1)) calc(-1 * var(--size-edge)); }
+  .popover__tile--rp:hover { background: var(--gradient-stripes-m), var(--gradient-mode-battles); box-shadow: var(--shadow-tile-lit-soft); }
+  .popover__out:hover { color: var(--color-error); background: var(--color-error-wash); }
+}
+@media (max-width: 899px) {
+  /* the menu rises from the bottom as a sheet over a dimmed page, with a handle and its own close */
+  .popover--account { position: static; }
+  .popover--account .popover__panel { position: fixed; z-index: 61; inset: auto 0 0 0; width: auto; max-height: 88vh; overflow-y: auto; padding: var(--space-2) var(--space-3) var(--space-4); border-radius: var(--radius-l) var(--radius-l) 0 0; animation: popover-rise .28s cubic-bezier(.2, .7, .2, 1); }
+  .popover--account .popover__panel::before { content: ''; display: block; width: var(--popover-handle); height: var(--space-1); margin: 0 auto var(--space-2-5); border-radius: var(--radius-xs); background: var(--color-handle); }
+  .popover--account .popover__x { display: grid; position: absolute; top: var(--space-3); right: var(--space-3); z-index: 1; width: var(--size-button-m); min-height: var(--size-button-m); }
+  .popover--account .popover__trigger[aria-expanded="true"] ~ .popover__scrim { display: block; position: fixed; inset: 0; z-index: 60; background: var(--color-scrim-sheet); }
+}
+@media (max-width: 599px) { .popover--account .popover__trigger { padding: 0 var(--space-1-75); } .popover--account :is(.popover__name, .popover__chev) { display: none; } }
+@keyframes popover-rise { from { translate: 0 var(--space-5); opacity: 0; } }
+
+/* the language: the tile with the flag and the code, its caret; the list of nine opens upward, two to a row */
+.popover--lang .popover__trigger { gap: var(--space-2); min-height: var(--size-tile); padding: 0 var(--space-4); border-radius: var(--radius-tile); background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-text-soft); font-size: var(--size-label); font-weight: 700; line-height: 1.2; white-space: nowrap; }
+.popover--lang .popover__trigger::after { content: ''; display: inline-block; margin-left: var(--space-1-5); border-style: solid; border-width: var(--popover-caret) var(--space-1) 0; border-color: var(--color-text-muted) transparent transparent; }
+.popover__flag { flex: 0 0 var(--size-check); width: var(--size-check); height: var(--size-check); border-radius: 50%; background: var(--flag) center / contain no-repeat; }
+.popover__flag--gb { --flag: var(--art-flag-gb); } .popover__flag--de { --flag: var(--art-flag-de); } .popover__flag--cn { --flag: var(--art-flag-cn); }
+.popover__flag--fr { --flag: var(--art-flag-fr); } .popover__flag--pl { --flag: var(--art-flag-pl); } .popover__flag--tr { --flag: var(--art-flag-tr); }
+.popover__flag--pt { --flag: var(--art-flag-pt); } .popover__flag--es { --flag: var(--art-flag-es); } .popover__flag--ua { --flag: var(--art-flag-ua); }
+.popover--lang .popover__trigger[aria-expanded="true"] ~ .popover__panel { display: flex; }
+.popover--lang .popover__panel { position: absolute; z-index: 10; bottom: calc(100% + var(--space-2)); right: 0; flex-direction: column; gap: var(--space-2); box-sizing: border-box; width: var(--popover-lang-menu); max-width: calc(100vw - 2 * var(--space-4)); padding: var(--space-4);
+  border: var(--size-hairline) solid var(--color-line); border-radius: var(--radius-m); background: var(--color-card-2); box-shadow: var(--shadow-panel); color: var(--color-text); font-size: var(--size-xs); line-height: 1.2; text-align: left; }
+.popover__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--size-edge); }
+.popover__opt { display: flex; align-items: center; justify-content: flex-start; gap: var(--space-2); min-height: var(--size-button-m); padding: 0 var(--space-2); border: 0; border-radius: var(--radius-s); background: none; color: var(--color-text);
+  font-family: inherit; font-size: var(--size-label); font-weight: 500; line-height: 1.2; text-align: left; white-space: nowrap; cursor: pointer; }
+.popover__opt[aria-current="true"] { background: color-mix(in srgb, var(--color-pink) 16%, transparent); color: var(--color-text-hi); }
+.popover__code { flex: 0 0 auto; margin-left: auto; color: var(--color-text-muted); font-size: var(--size-chip); font-weight: 700; }
+.popover__opt[aria-current="true"] .popover__code { color: var(--color-pink); }
+.popover__opt:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--size-edge)); }
+@media (hover: hover) { .popover__opt:hover { background: var(--color-card); color: var(--color-text-hi); } .popover__opt[aria-current="true"]:hover { background: color-mix(in srgb, var(--color-pink) 16%, transparent); } }
+.popover__note { margin: var(--space-2) var(--space-3) var(--space-1); color: var(--color-text-muted); font-size: var(--size-chip); line-height: 1.2; }
+@media (max-width: 359px) { .popover__code { display: none; } }
+@media (prefers-reduced-motion: reduce) { .popover--account .popover__panel { animation: none; } .popover__trigger, .popover__chev, .popover__copy, .popover__tile, .popover__case, .popover__out { transition: none; } }
+
+/* RECENT DROP CARD. One best drop of this case: the value first, the skin in its tier's ring, the gun and the skin, the moment it dropped; the
+   whole card is the link to that round. Under the pointer or on focus the skin falls back and who won it and when stands over it; with no
+   pointer the moment stays at the foot. From design/v4/case-blocks.css Best drops D (.v4d-w7) and case-body.css. */
+/* its own geometry, read inside .recent-drop only, D-231 */
+.recent-drop {
+  --recent-drop-who-top: 46px; /* v4 case-blocks.css: .v4d-who inset top, the winner's veil starts under the value. Recent drop card */
+  --recent-drop-avatar: 52px; /* v4 case-blocks.css: .v4d-av, the winner over a best drop. Recent drop card */
+}
+.recent-drop { position: relative; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; height: 100%; padding: var(--space-4) var(--space-3) var(--space-4-25); border-radius: var(--radius-m); overflow: hidden;
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 18%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 10%, var(--color-card-deep)), var(--color-card-deep) 60%);
+  box-shadow: var(--shadow-tile-edge), var(--shadow-card); color: var(--color-text-hi); font-size: var(--size-text); line-height: 1.2; text-align: center; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.recent-drop::after { content: ''; position: absolute; left: 50%; bottom: 0; width: var(--size-tier-bar-w); height: var(--size-tier-bar); margin-left: calc(var(--size-tier-bar-w) / -2); border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--tier); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--tier); }
+.recent-drop:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+.recent-drop__art { width: 100%; height: var(--size-card-art); margin: var(--space-2-5) 0 var(--space-2); }
+.recent-drop__w { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.recent-drop__s { display: block; max-width: 100%; overflow: hidden; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; white-space: nowrap; text-overflow: ellipsis; }
+.recent-drop__t { margin-top: auto; white-space: nowrap; padding-top: var(--space-2); color: var(--color-text-soft); font-size: var(--size-unit); opacity: .85; font-variant-numeric: tabular-nums; }
+.recent-drop__who { position: absolute; inset: var(--recent-drop-who-top) 0 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1); padding: 0 var(--space-2-5) var(--space-3-5); opacity: 0;
+  background: radial-gradient(60% 50% at 50% 46%, color-mix(in srgb, var(--tier) 22%, transparent), transparent 70%); transition: opacity .2s; }
+.recent-drop__who .avatar { width: var(--recent-drop-avatar); height: var(--recent-drop-avatar); margin-bottom: var(--space-1); box-shadow: 0 0 0 var(--size-edge) var(--tier), 0 0 var(--blur-winner-ring) color-mix(in srgb, var(--tier) 45%, transparent); }
+.recent-drop__wn { display: block; max-width: 100%; overflow: hidden; color: var(--color-text-hi); font-size: var(--size-s); font-weight: 900; white-space: nowrap; text-overflow: ellipsis; }
+.recent-drop__who .recent-drop__t { margin: 0; padding: 0; }
+.recent-drop__art, .recent-drop__w, .recent-drop__s { transition: opacity .2s; }
+@media (hover: hover) {
+  .recent-drop:hover { transform: translateY(calc(-1 * var(--size-lift))); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--tier) 55%, transparent), var(--shadow-card-hover), 0 0 var(--blur-card-hover) color-mix(in srgb, var(--tier) 22%, transparent); }
+  .recent-drop:is(:hover, :focus-visible) .recent-drop__who { opacity: 1; }
+  .recent-drop:is(:hover, :focus-visible) .recent-drop__art { opacity: .14; }
+  .recent-drop:is(:hover, :focus-visible) :is(.recent-drop__w, .recent-drop__s) { opacity: 0; }
+}
+@media (hover: none) { .recent-drop__who { position: static; opacity: 1; margin-top: auto; padding: var(--space-2) 0 0; background: none; } .recent-drop__who .avatar, .recent-drop__wn { display: none; } }
+@media (max-width: 599px) { .recent-drop { padding: var(--space-3-5) var(--space-2-5) var(--space-4); } .recent-drop__v .fig__v { font-size: var(--size-m); } .recent-drop__s { font-size: var(--size-label); } .recent-drop__art { height: var(--size-card-art-s); } }
+@media (prefers-reduced-motion: reduce) { .recent-drop, .recent-drop__art > img, .recent-drop__who, .recent-drop__art, .recent-drop__w, .recent-drop__s { transition: none; } }
+
+/* SECTION HEAD. A section's title on a striped tile in a mode colour with the section's mark, then a 2px line in that colour fading out,
+   from 900px; a sub line under it, or beside it from 1200px. --l is Featured cases' larger title on Home. The colour is a modifier, the mark
+   is an .icon inside the tile. From design/v4/heading-home.css and case-blocks.css on kit.css part 2 .wf-sec-head and theme.css. */
+/* its own geometry, read inside .sec-head only, D-231 */
+.sec-head {
+  --sec-head-tile-s: 34px; /* heading-home.css and case-blocks.css @max-width 599 h2::before, the section tile on a phone */
+  --sec-head-icon-s: 18px; /* heading-home.css and case-blocks.css @max-width 599 h2::after, the section mark on a phone */
+  --sec-head-line: 96px; /* kit.css part 2 .wf-sec-head grid and ::after min-width, the shortest a section's line runs */
+}
+.sec-head { --sec-g: var(--gradient-mode-cases); --sec-c: var(--color-pink); margin-bottom: var(--space-4); }
+.sec-head--upgrade { --sec-g: var(--gradient-mode-upgrade); --sec-c: var(--color-head-upgrade); }
+.sec-head--battles { --sec-g: var(--gradient-mode-battles); --sec-c: var(--color-head-battles); }
+.sec-head--showdowns { --sec-g: var(--gradient-mode-showdowns); --sec-c: var(--color-head-showdowns); }
+.sec-head__title { position: relative; display: flex; align-items: center; gap: var(--space-3-5); margin: 0; color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; letter-spacing: 0; line-height: 1.4; text-transform: uppercase; }
+.sec-head--l .sec-head__title { font-size: var(--size-head-l); }
+.sec-head__tile { display: grid; place-items: center; flex: 0 0 var(--size-tile); height: var(--size-tile); border-radius: var(--radius-tile); background: var(--gradient-stripes), var(--sec-g); box-shadow: var(--shadow-tile-lit); color: var(--color-text-hi); }
+.sec-head__tile > .icon { font-size: var(--size-tile-icon); }
+.sec-head__sub { max-width: var(--size-measure); margin: 0; color: var(--color-text-muted); font-size: var(--size-text); line-height: 1.4; }
+.sec-head__sub .link--arrow { font-size: inherit; letter-spacing: normal; } /* the onward link at the sub line's size, theme.css .v4-go: the size stays its place's */
+@media (max-width: 599px) {
+  .sec-head__tile { flex-basis: var(--sec-head-tile-s); height: var(--sec-head-tile-s); border-radius: var(--radius-s); } /* v4 drew 10px, the ladder's 8, D-228 */
+  .sec-head__tile > .icon { font-size: var(--sec-head-icon-s); }
+}
+@media (min-width: 900px) {
+  .sec-head { display: grid; grid-template-columns: auto minmax(var(--sec-head-line), 1fr); align-items: center; gap: var(--space-1) var(--space-4); }
+  .sec-head::after { content: ''; grid-area: 1 / 2; align-self: center; min-width: var(--sec-head-line); height: var(--size-edge); background: linear-gradient(90deg, var(--sec-c), transparent); }
+  .sec-head__title { grid-column: 1; min-width: 0; }
+  .sec-head__sub { grid-area: 2 / 1 / auto / -1; min-width: 0; }
+}
+@media (min-width: 1200px) {
+  .sec-head:has(.sec-head__sub) { grid-template-columns: auto auto minmax(var(--sec-head-line), 1fr); }
+  .sec-head:has(.sec-head__sub) .sec-head__sub { grid-area: 1 / 2; }
+  .sec-head:has(.sec-head__sub)::after { grid-area: 1 / 3; }
+}
+
+/* WITHDRAW ITEM. The item on its way out: its picture, the gun, the skin and the wear, its value now with when that was read, and the Steam
+   account it goes to. The card is the same on every state of the clock; the state is said by the notice above it.
+   Grey only so far, wireframes/withdraw-clock.html, withdraw-offer-expired.html, withdraw-restricted.html, withdraw-not-eligible.html,
+   withdraw-steam-degraded.html; the look is the case screen's drop card as a phone lays it, the picture left and the words right, design/v4/
+   case-body.css row F under 600px. Contains Media slot (.media--skin), Figure, Key-value line. */
+.withdraw-item { --item-tier: var(--color-rarity-5); --art: calc(var(--size-drop-v4) + var(--space-2)); position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: var(--art) minmax(0, 1fr); align-items: center; gap: var(--space-4); padding: var(--space-4); border-radius: var(--radius-m);
+  background: radial-gradient(40% 60% at 0% 100%, color-mix(in srgb, var(--item-tier) 16%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--item-tier) 10%, var(--color-card)), var(--color-card) 60%);
+  box-shadow: var(--shadow-tile-edge), var(--shadow-card); }
+.withdraw-item::after { content: ''; position: absolute; left: calc(var(--space-4) + var(--art) / 2); bottom: 0; width: var(--size-tap); height: calc(var(--size-edge) + var(--size-hairline)); translate: -50% 0; border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--item-tier); box-shadow: 0 0 var(--space-3) var(--size-hairline) var(--item-tier); }
+.withdraw-item__art { position: relative; display: block; height: var(--art); }
+.withdraw-item__art::before, .withdraw-item__art::after { content: ''; position: absolute; left: 50%; top: 50%; height: 86%; aspect-ratio: 136 / 118; translate: -50% -50%; }
+.withdraw-item__art::before { background: color-mix(in srgb, var(--item-tier) 22%, var(--color-card)); -webkit-mask: var(--shape-hex-fill) center / contain no-repeat; mask: var(--shape-hex-fill) center / contain no-repeat; }
+.withdraw-item__art::after { background: linear-gradient(135deg, color-mix(in srgb, var(--item-tier) 62%, var(--color-text-hi)), var(--item-tier) 50%, color-mix(in srgb, var(--item-tier) 72%, var(--color-ground))); -webkit-mask: var(--shape-hex-inner) center / contain no-repeat; mask: var(--shape-hex-inner) center / contain no-repeat; }
+.withdraw-item__art > .media { position: absolute; inset: 0; z-index: 1; }
+.withdraw-item__art > .media > img { filter: var(--shadow-skin-drop); }
+.withdraw-item__b { display: grid; justify-items: start; gap: var(--space-1); min-width: 0; }
+.withdraw-item__w { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.3; text-transform: uppercase; }
+.withdraw-item__s { max-width: 100%; overflow: hidden; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+.withdraw-item__wear { color: color-mix(in srgb, var(--item-tier) 35%, var(--color-text-hi)); font-size: var(--size-unit); line-height: 1.3; }
+.withdraw-item__b > .fig { margin-top: var(--space-2); }
+.withdraw-item__b > .fig .fig__v { font-size: var(--size-title); }
+.withdraw-item__b > .kv { justify-self: stretch; margin-top: var(--space-2); padding-top: var(--space-2); border-top: var(--size-hairline) solid var(--color-line-soft); }
+@media (min-width: 600px) { .withdraw-item { --art: calc(var(--size-drop-v4) + var(--space-7)); gap: var(--space-5); padding: var(--space-4) var(--space-5); } .withdraw-item::after { left: calc(var(--space-5) + var(--art) / 2); } }

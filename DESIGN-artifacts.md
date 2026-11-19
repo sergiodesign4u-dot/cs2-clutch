@@ -521,3 +521,183 @@ One value moved on the way and is named rather than hidden: v4 drew the inner ha
 | ten more `--art-*` | banner plate wide, Daily ground, falling weapons far and near, footer agents two, tall plasma, crossed daggers, two daggers | loaded by Home and the case screen, measured from every request at 360 and 1440 |
 
 The badge's own size had drifted from its source, 11px words and 4px sides; it now reads the source's values.
+
+## 18. Stage 07 step 3, batch 2, the molecules, `D-231`
+
+The 22 molecules drew 274 values with no variable. The shared language, 173, is appended to `:root` under its own heading; each carries the v4 file and rule it was read from. The geometry one molecule reads is named at the head of that molecule's block in part 4.2, 116 local properties: Case tile 2, Daily ladder 18, Drop card 2, Event banner 28, Feed tile 27, Hero 2, Mode card 3, Outcome card 12, Popover menu 17, Recent drop card 2, Section head 3. The refusal line's two values are the founder's pick of v4's sign in refusal.
+
+| Name | Value | Origin | Components using it |
+|---|---|---|---|
+| `--space-hair` | `2px` | kit.css part 2 .wf-tile-link gap and theme.css .wf-tile-risk margin-block, case-tiles.css .wf-tile .wf-fav top and right: the smallest gap between stacked lines / a figure to its unit on a phone; v4 banner.css: .wf-event-cell span, margin-top | Case tile, Event banner |
+| `--space-thin` | `3px` | trust-badge.css .v4-trust-tiles gap and its svg inset, the Trustpilot star tiles / a cell's top and foot on a phone; v4 banner.css: .wf-event-cell, padding | Event banner, Hero |
+| `--space-1-5` | `6px` | case-tiles.css .wf-tile .wf-fav padding and its ::before inset, .v4-risk-tip padding, kit.css .wf-tile-cost::before margin-right: the coin to its price, a small plate's height padding / рішення користувача, D-209; a status chip's icon to its words; design/v4/daily-home.css: .dc-chip gap / the same on a phone, "more compact"; v4 banner.css: .wf-event-clock, padding / the step v4 draws between --space-1 and --space-2: theme.css .wf-feed-hit padding and .wf-feed-back gap, modes.css .wf-grid .wf-mode p margin / v4 case-page.css: .v4c-nav .wf-crumb ol gap; case-blocks.css: .v4d-p gap; case-body.css: row F tickets padding-top. Breadcrumb, Drop card, Recent drop card | Breadcrumb, Case tile, Daily ladder, Drop card, Event banner, Feed tile, Mode card, Outcome card, Popover menu |
+| `--space-1-75` | `7px` | v4 case-stage.css: z7 .v4c-won-x padding-top; account-home.css: .ac2-btn padding-left. Outcome card, Popover menu | Outcome card, Popover menu |
+| `--space-2-5` | `10px` | trust-badge.css .v4-trust gap and padding, .v4-trust-meta padding-left; case-tiles.css .v4-risk-tip padding and offset, .v4-fx bottom and translate / рішення користувача, D-209; the Daily head's row and box gaps, a chip's sides, the line under the cards; design/v4/daily-home.css: .dc-row, .dc-boxes, .dc-box, .dc-chip, .dc-say / the title's top on a phone; v4 banner.css: .wf-event .wf-event-name, top / the countdown plate's padding; v4 theme.css: .wf-event-clock, padding / v4 case-body.css: row F .wf-art-c margin-top; case-stage.css: z7 card column-gap; account-home.css: .am3 top offset, .am3-t gap. Drop card, Recent drop card, Outcome card, Popover menu | Case tile, Daily ladder, Drop card, Event banner, Hero, Outcome card, Popover menu, Recent drop card |
+| `--space-3-5` | `14px` | heading-home.css .wf-sec-head h2 gap, the section tile to its title; case-tiles.css .wf-tile:hover .wf-tile-price padding, the price plate's sides / рішення користувача, D-209; a Daily card's inset and the lead's distance under a wide head; design/v4/daily-home.css: .dc-card padding, .dc-head.has-title .dc-l / v4 case-body.css: row F .v4b-row padding-inline, th margin-bottom; account-home.css: .am3-head gap. Drop card, Popover menu | Case tile, Daily ladder, Drop card, Popover menu, Recent drop card, Section head |
+| `--space-4-25` | `18px` | v4 case-body.css: row F .v4b-row padding-bottom; case-blocks.css: .v4d-w7 a padding-bottom; case-stage.css: z7 card padding-inline. Drop card, Recent drop card, Outcome card | Drop card, Outcome card, Recent drop card |
+| `--space-5-5` | `28px` | рішення користувача, D-209; the Daily panel's inset; design/v4/daily-home.css: .dc padding / the title's and the countdown's top and the act's foot from 900px; v4 banner.css: .wf-event .wf-event-name, .wf-event-clock, .wf-event-go | Daily ladder, Event banner |
+| `--size-head-l` | `26px` | theme.css .wf-sec-head:has(+ .wf-grid .wf-tile) h2, the Featured cases title; trust-badge.css .v4-trust-score, the Trustpilot score / a countdown figure; v4 theme.css: .wf-event-cell b, font-size | Event banner, Hero, Section head |
+| `--size-lift` | `3px` | v4 case-blocks.css: .v4d-w7 a:hover translateY; case-body.css row F :hover, a card rising under the pointer. Drop card, Recent drop card | Drop card, Recent drop card |
+| `--size-tier-bar` | `3px` | v4 case-blocks.css: .v4d-w7 a::after height, the tier's short bar at the card's foot; case-body.css row F ::before, the line of the 100 000. Drop card, Recent drop card, Outcome card | Drop card, Outcome card, Recent drop card |
+| `--size-tier-bar-w` | `44px` | v4 case-blocks.css: .v4d-w7 a::after width. Drop card, Recent drop card, Outcome card | Drop card, Outcome card, Recent drop card |
+| `--size-ring-stroke` | `3.6px` | v4 case-blocks.css: .v4d-art .v4o-hex .hx-grad-d stroke-width, in the ring's own 136 by 118 units. Drop card, Recent drop card, Outcome card | Drop card, Outcome card, Recent drop card |
+| `--size-ring-glow-near` | `1.5px` | the ring's near light, cast up and left; case-blocks.css .v4d-art .v4o-hex filter, case-body.css row F, case-stage.css w5 and w7; made a variable at the merge, D-231 | Drop card, Outcome card, Recent drop card |
+| `--size-ring-glow-far` | `3px` | the ring's far light, cast up and left; the same rules; made a variable at the merge, D-231 | Drop card, Outcome card, Recent drop card |
+| `--size-card-art` | `112px` | v4 case-blocks.css: .v4d-art height; case-body.css: row F .wf-art-c height. Drop card, Recent drop card | Drop card, Recent drop card |
+| `--size-card-art-s` | `96px` | v4 case-blocks.css: .v4d-art height at 599px. Recent drop card | Outcome card, Recent drop card |
+| `--tracking-title` | `.02em` | theme.css .wf-hero--short h1, Home's H1 | Hero |
+| `--tracking-case-name` | `.04em` | theme.css .wf-tile-name, a case's name on its tile | Case tile |
+| `--tracking-score` | `-.01em` | trust-badge.css .v4-trust-score | Hero |
+| `--color-head-upgrade` | `#F0A21B` | case-blocks.css .wf-sec-head:has(#h2-recent) --hx-c, the line of a head in the Upgrade colour | Section head |
+| `--color-head-battles` | `#4A6BFF` | case-blocks.css .wf-sec-head:has(#h2-pays) --hx-c, the line of a head in the Case battles colour | Section head |
+| `--color-head-showdowns` | `#E5394F` | case-blocks.css .wf-sec-head:has(#h2-observed) --hx-c, the line of a head in the Showdowns colour | Section head |
+| `--color-trustpilot` | `#00B67A` | trust-badge.css .v4-trust-tiles i, Trustpilot's own green, kept so the mark is known at a glance | Hero |
+| `--color-trust-plate` | `rgba(12, 16, 44, .82)` | trust-badge.css a.v4-trust background, the badge's glass under its tint | Hero |
+| `--color-trust-off` | `rgba(150, 160, 215, .24)` | trust-badge.css .v4-trust-tiles i, the unfilled part of a star tile | Hero |
+| `--color-trust-rule` | `rgba(255, 255, 255, .16)` | trust-badge.css .v4-trust-meta border-left, the rule before the source | Hero |
+| `--color-fav-plate` | `rgba(11, 10, 34, .78)` | case-tiles.css .wf-tile .wf-fav::before, the favourite's dark pill over a tile | Case tile |
+| `--color-price-plate` | `rgba(11, 10, 34, .82)` | case-tiles.css .wf-tile:hover .wf-tile-price, the price's plate under the pointer | Case tile |
+| `--gradient-trust` | `linear-gradient(135deg, rgba(0, 182, 122, .16), rgba(101, 163, 255, .08) 45%, rgba(251, 63, 138, .12))` | trust-badge.css a.v4-trust, the tint over the badge's glass | Hero |
+| `--gradient-trust-edge` | `linear-gradient(120deg, var(--color-trustpilot), rgba(101, 163, 255, .5) 45%, var(--color-pink))` | trust-badge.css a.v4-trust::before, the lit edge | Hero |
+| `--gradient-trust-sweep` | `linear-gradient(105deg, transparent 23%, rgba(255, 255, 255, .22) 50%, transparent 77%)` | trust-badge.css .v4-trust::after, the light that crosses the badge | Hero |
+| `--gradient-case-gold` | `linear-gradient(120deg, #B57A06, #B4400F)` | case-tiles.css .wf-tile:has([data-art="case-gold"]) --tile-g, a gold case's card under the pointer | Case tile |
+| `--gradient-case-violet` | `linear-gradient(120deg, #8E2BC9, #3B1A8F)` | case-tiles.css .wf-tile:has([data-art="case-violet"]) --tile-g, a violet case's card under the pointer | Case tile |
+| `--gradient-fade-up` | `linear-gradient(to top, #000 30%, transparent 100%)` | case-tiles.css .v4-fx mask, the case's card fading out toward the case | Case tile |
+| `--shadow-tile-lit` | `inset 0 1px 0 rgba(255, 255, 255, .25)` | heading-home.css .wf-sec-head h2::before, the light along a striped tile's top edge / рішення користувача, D-209; the lit top edge of a striped tile: a tier card, the title's calendar tile; design/v4/daily-home.css: .dc-card, heading-home.css: .dc-t::before | Daily ladder, Section head |
+| `--shadow-edge-lit` | `inset 0 0 0 1px rgba(255, 255, 255, .1)` | case-tiles.css .wf-tile .wf-fav::before and trust-badge.css a.v4-trust, the hairline of a plate over art, brighter than --shadow-edge / рішення користувача, D-209; the hairline of a Daily head box, brighter than --shadow-edge's .07 because it sits on art; design/v4/daily-home.css: .dc-box box-shadow | Case tile, Daily ladder, Hero |
+| `--shadow-price-edge` | `inset 0 0 0 1px rgba(255, 255, 255, .14)` | case-tiles.css .wf-tile:hover .wf-tile-price, the price plate's hairline | Case tile |
+| `--shadow-trust` | `var(--shadow-edge-lit), 0 8px 24px rgba(6, 10, 30, .5)` | trust-badge.css a.v4-trust box-shadow | Hero |
+| `--shadow-trust-hover` | `inset 0 0 0 1px rgba(255, 255, 255, .16), 0 12px 30px rgba(0, 182, 122, .25)` | trust-badge.css a.v4-trust:hover box-shadow | Hero |
+| `--shadow-tip` | `0 8px 18px rgba(4, 6, 20, .5)` | case-tiles.css .v4-risk-tip, the risk tooltip's drop | Case tile |
+| `--shape-tip-tail` | `polygon(100% 0, 100% 100%, 0 50%)` | case-tiles.css .v4-risk-tip::after, the tooltip's tail | Case tile |
+| `--motion-ease-settle` | `cubic-bezier(.22, 1, .36, 1)` | case-tiles.css .v4-fx and .v4-risk-tip, trust-badge.css a.v4-trust: a move that arrives fast and settles / a long settle for the lean; v4 banner.css: .wf-event --scene-ease | Case tile, Event banner, Hero |
+| `--motion-ease-bounce` | `cubic-bezier(.3, 1.6, .5, 1)` | case-tiles.css .wf-tile .wf-fav-i and the bolts' strike: a pop that overshoots | Case tile |
+| `--motion-trust-sweep` | `7s` | trust-badge.css .v4-trust::after, one pass of the light and its rest | Hero |
+| `--motion-stagger` | `45ms` | trust-badge.css .v4-trust-tiles i, the delay from one star tile to the next | Hero |
+| `--motion-stagger-bolt` | `70ms` | case-tiles.css .wf-tile-risk:hover .v4-bolts i, the delay from one bolt to the next | Case tile |
+| `--color-daily-silver` | `#C9D2E3` | рішення користувача, D-209; Silver's hue, its light and its live edge; design/v4/daily-home.css: .dc-t1 --hue | Daily ladder |
+| `--color-plate-veil` | `rgba(11, 10, 34, .72)` | рішення користувача, D-209; the dark plate of a Daily head box; design/v4/daily-home.css: .dc-box background | Daily ladder |
+| `--color-daily-chip` | `rgba(6, 10, 30, .62)` | рішення користувача, D-209; a tier's status chip on its colour; design/v4/daily-home.css: .dc-chip background | Daily ladder |
+| `--shadow-tile-lit-hover` | `inset 0 1px 0 rgba(255, 255, 255, .3)` | the same edge under the pointer; design/v4/daily-home.css: .dc-card:hover | Daily ladder |
+| `--shadow-tile-lit-live` | `inset 0 1px 0 rgba(255, 255, 255, .4)` | the same edge on the card with the open control; design/v4/daily-home.css: .dc-card.is-hero | Daily ladder |
+| `--shadow-daily-lift` | `0 18px 30px rgba(6, 10, 30, .55)` | the card with the open control standing off the panel; design/v4/daily-home.css: .dc-card.is-hero | Daily ladder |
+| `--shadow-daily-lift-hover` | `0 18px 30px rgba(6, 10, 30, .6)` | a card lifted under the pointer; design/v4/daily-home.css: .dc-card:hover | Daily ladder |
+| `--shadow-daily-lift-live-hover` | `0 24px 36px rgba(6, 10, 30, .6)` | the live card lifted under the pointer; design/v4/daily-home.css: .dc-card.is-hero:hover | Daily ladder |
+| `--shadow-daily-name` | `0 2px 8px rgba(6, 10, 30, .4)` | a tier name's text shadow on its stripes; design/v4/daily-home.css: .dc-name | Daily ladder |
+| `--shadow-daily-skin` | `drop-shadow(0 6px 6px rgba(0, 0, 0, .65))` | a skin's shadow in a daily case, a filter; .65 where --shadow-skin-drop is .7; design/v4/daily-home.css: .dc-skin | Daily ladder |
+| `--gradient-daily-panel` | `linear-gradient(180deg, #16133C, #0D0C28)` | рішення користувача, D-209; the Daily panel's fill; design/v4/daily-home.css: .dc background | Daily ladder |
+| `--gradient-daily-fade` | `linear-gradient(90deg, transparent 18%, #000 64%)` | the mask that fades the warehouse ground out to the left; design/v4/daily-home.css: .dc::before | Daily ladder |
+| `--gradient-daily-fade-s` | `linear-gradient(180deg, #000 0, transparent 440px)` | the same, downward, on a phone; design/v4/daily-home.css: @container dc (max-width: 760px) .dc::before | Daily ladder |
+| `--gradient-daily-silver` | `linear-gradient(120deg, #7D88A8, #333C5A)` | рішення користувача, D-209; Silver's card; design/v4/daily-home.css: .dc-t1 --g1 --g2 | Daily ladder |
+| `--gradient-daily-guardian` | `linear-gradient(120deg, #8E2BC9, #41157A)` | рішення користувача, D-209; Guardian's card; design/v4/daily-home.css: .dc-t3 --g1 --g2 | Daily ladder |
+| `--gradient-daily-legend` | `linear-gradient(120deg, var(--color-pink), #8E1F5E)` | рішення користувача, D-209; Legend's card; design/v4/daily-home.css: .dc-t4 --g1 --g2 | Daily ladder |
+| `--gradient-daily-elite` | `linear-gradient(120deg, #B07806, var(--color-plate-r1-b))` | Elite's card; #B07806 holds ELITE in white at 3.3:1, stage 06 critique of 10 Nov 2026 row 7; design/v4/daily-home.css: .dc-t5 --g1 --g2 | Daily ladder |
+| `--tracking-tight` | `.03em` | the open control's label when it takes two lines on a phone card; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-card.is-hero .v4-btn / v4 modes.css .wf-mode > .wf-fig-missing: Not launched yet, tracked less so it fits a narrow plate | Daily ladder, Mode card |
+| `--shape-daily-rim` | `polygon(0 55%, 100% 55%, 100% 100%, 0 100%)` | a daily case's front wall, level at 55 % in every tier picture, cut so the skins lie in the tray; design/v4/daily-home.css: .dc-front | Daily ladder |
+| `--color-banner` | `#0B0F2A` | the night behind the scene before its pictures load; v4 banner.css: .wf-event, background | Event banner |
+| `--color-banner-clock-phone` | `rgba(6, 10, 30, .78)` | the countdown's plate on a phone, without the blur; v4 theme.css: .wf-event-clock, background | Event banner |
+| `--color-banner-cell` | `rgba(15, 14, 43, .9)` | a countdown cell, the card at 90 %; v4 theme.css: .wf-event-cell, background | Event banner |
+| `--color-banner-rule` | `rgba(101, 163, 255, .14)` | the line under the end date, the blue at 14 %; v4 theme.css: .wf-event-end, border-bottom | Event banner |
+| `--shadow-banner` | `0 14px 34px rgba(0, 0, 0, .4)` | the banner's drop as a block from 900px; v4 banner.css: .wf-main > .wf-event, box-shadow (its inset .06 hairline is --shadow-edge, D-228) | Event banner |
+| `--shadow-banner-clock` | `inset 0 0 0 1px rgba(101, 163, 255, .18), 0 10px 30px rgba(6, 10, 30, .5)` | the countdown's blue hairline and drop; v4 theme.css: .wf-event-clock, box-shadow | Event banner |
+| `--shadow-banner-title` | `drop-shadow(0 1px 2px rgba(6, 10, 30, .9)) drop-shadow(0 6px 18px rgba(6, 10, 30, .75))` | the title art's shadow on the sky, a filter; v4 theme.css: .wf-event .wf-event-name, filter | Event banner |
+| `--filter-banner-plate` | `brightness(1.08) saturate(1.1)` | the plate lit a step, "brighter as in B"; v4 banner.css: .wf-event::before, filter | Event banner |
+| `--filter-banner-flare` | `brightness(1.5)` | the case's light under the pointer or with the act focused; v4 banner.css: .wf-event:hover::after, filter | Event banner |
+| `--filter-banner-flare-still` | `brightness(1.15)` | the same flare, still, for reduced motion; v4 banner.css: @media (prefers-reduced-motion) .wf-event:hover::after | Event banner |
+| `--blur-banner-clock` | `6px` | the countdown plate's backdrop blur from 600px; v4 banner.css: .wf-event-clock, backdrop-filter | Event banner |
+| `--tracking-banner-unit-phone` | `.04em` | the unit's tracking on a phone, so Seconds fits 76px at 360; v4 banner.css: .wf-event-cell span, letter-spacing | Event banner |
+| `--gradient-banner-shade` | `linear-gradient(90deg, rgba(6, 10, 30, .5), rgba(6, 10, 30, .12) 30%, transparent 46%)` | the shade that keeps the title legible, from 600px; v4 banner.css: .wf-event::before | Event banner |
+| `--gradient-banner-shade-phone` | `linear-gradient(to bottom, rgba(6, 10, 30, .45), transparent 26%)` | the same under the phone's title; v4 banner.css: @media (max-width: 599px) .wf-event::before | Event banner |
+| `--gradient-banner-foot` | `linear-gradient(to top, var(--color-ground), transparent 14%)` | the plate melting into the page at its foot; v4 banner.css: .wf-event::before | Event banner |
+| `--gradient-banner-foot-phone` | `linear-gradient(to top, var(--color-ground) 16%, transparent 34%)` | the same on a phone, behind the countdown; v4 banner.css: @media (max-width: 599px) .wf-event::before | Event banner |
+| `--gradient-banner-hero-mask` | `linear-gradient(to top, transparent, #000 14%)` | the soldier's foot melting as the plate's; v4 banner.css: .wf-event .wf-banner-art::after, mask | Event banner |
+| `--gradient-banner-hero-mask-phone` | `linear-gradient(to top, transparent 22%, #000 36%)` | the same on a phone; v4 banner.css: @media (max-width: 599px) .wf-event .wf-banner-art::after, mask | Event banner |
+| `--gradient-banner-story-mask-phone` | `linear-gradient(to bottom, #000 68%, transparent)` | the phone story melting behind the countdown; v4 banner.css: @media (max-width: 599px) .v4-story, mask | Event banner |
+| `--gradient-banner-art-mask` | `radial-gradient(closest-side, #000 72%, transparent)` | the soldier and the aurora fading at the corners; kit.css part 3: [data-art^="case-"] on the banner's art, which Home v4 draws | Event banner |
+| `--gradient-banner-sweep` | `linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, .45) 50%, transparent 80%)` | the light crossing the act; v4 banner.css: .wf-event-go::after | Event banner |
+| `--gradient-banner-snow-near` | `radial-gradient(circle at 12% 18%, rgba(255, 255, 255, .95)  ... (525 characters, as in the sheet)` | falling snow, near; v4 banner.css: .wf-event --snow-near | Event banner |
+| `--gradient-banner-snow-far` | `radial-gradient(circle at 8% 31%, rgba(220, 230, 255, .7) 0  ... (520 characters, as in the sheet)` | falling snow, far; v4 banner.css: .wf-event --snow-far | Event banner |
+| `--motion-banner-pulse` | `3.2s` | the case's light pulsing; v4 banner.css: .wf-event::after, animation | Event banner |
+| `--motion-banner-pulse-fast` | `1.4s` | the pulse under the pointer; v4 banner.css: .wf-event:hover::after | Event banner |
+| `--motion-banner-snow-near` | `11s` | v4 banner.css: .wf-event::after, animation | Event banner |
+| `--motion-banner-snow-far` | `22s` | v4 banner.css: .wf-event .wf-banner-art::before, animation | Event banner |
+| `--motion-banner-sweep` | `4.5s` | the act's light, every few seconds; v4 banner.css: .wf-event-go::after | Event banner |
+| `--motion-banner-sweep-fast` | `.8s` | the act's light at once under the pointer; v4 banner.css: .wf-event-go:hover::after | Event banner |
+| `--motion-banner-lean` | `.9s` | the layers leaning apart; v4 banner.css: .wf-event::before, transition | Event banner |
+| `--motion-banner-fade` | `.6s` | the story fading in, the flare settling; v4 banner.css: .v4-story and .wf-event::after, transition | Event banner |
+| `--gradient-feed-plate` | `linear-gradient(to bottom, #191842, var(--color-card))` | v4 theme.css .wf-feed-i: the drop's plate, --color-card lifted a step at its top, comp B | Feed tile |
+| `--gradient-feed-back` | `linear-gradient(to bottom, #1D1B4A, #110F31)` | v4 theme.css .wf-feed-back: the back face's opaque navy | Feed tile |
+| `--shadow-feed-tile` | `0 6px 14px rgba(0, 0, 0, .35)` | v4 theme.css .wf-feed-i: the drop's shadow on the strip | Feed tile |
+| `--shadow-feed-skin` | `drop-shadow(0 6px 5px rgba(0, 0, 0, .75))` | a filter; v4 theme.css .wf-feed-hit .wf-feed-art: the skin's shadow over its ring | Feed tile |
+| `--shadow-feed-text` | `0 1px 2px rgba(0, 0, 0, .6)` | a text shadow; v4 theme.css .wf-feed-hit .wf-feed-w and .wf-feed-s: the names over the ring's light | Feed tile |
+| `--color-feed-ring-deep` | `#12001C` | v4 theme.css .wf-feed-hit::after: the dark the ring's colour is mixed into at its foot | Feed tile |
+| `--color-avatar-bot` | `#2B2A63` | v4 account-home.css .wf-feed-av.is-bot: a bot's empty avatar disc | Feed tile |
+| `--shadow-avatar-bot` | `inset 0 0 0 1px rgba(255, 255, 255, .18)` | v4 account-home.css .wf-feed-av.is-bot: its ring | Feed tile |
+| `--gradient-mode-cases-card` | `linear-gradient(120deg, var(--color-button), #8E2BC9)` | v4 theme.css .wf-mode:has([data-icon="box"]) --mode-fill: the Cases card starts on the button's pink, not --gradient-mode-cases's brand pink | Mode card |
+| `--gradient-mode-foot` | `linear-gradient(to top, rgba(8, 6, 30, .6), transparent 48%)` | v4 modes.css .wf-grid .wf-mode: comp A's cards darken towards the foot | Mode card |
+| `--shadow-mode-card` | `inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45)` | v4 theme.css .wf-mode: the card's lit top edge and its shadow | Mode card |
+| `--shadow-mode-art` | `drop-shadow(0 8px 10px rgba(6, 10, 30, .5))` | a filter; v4 modes.css .wf-grid .wf-mode .wf-mode-art: the floating object's shadow | Mode card |
+| `--shadow-mode-art-warm` | `drop-shadow(0 4px 8px rgba(90, 40, 0, .55))` | a filter; v4 modes.css, the Upgrade object: a warm shadow on the gold card | Mode card |
+| `--shadow-mode-knife` | `drop-shadow(0 6px 8px rgba(6, 10, 30, .55))` | a filter; v4 modes.css, Case battles' two knives | Mode card |
+| `--shadow-mode-name` | `0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5)` | a text shadow; v4 modes.css .wf-grid .wf-mode h3 | Mode card |
+| `--shadow-mode-line` | `0 1px 6px rgba(6, 10, 30, .5)` | a text shadow; v4 modes.css .wf-grid .wf-mode p | Mode card |
+| `--color-mode-later` | `rgba(66, 74, 128, .6)` | v4 modes.css .wf-mode > .wf-fig-missing: the Not launched plate, a pale glass over the art | Mode card |
+| `--shadow-mode-later` | `inset 0 0 0 1px rgba(255, 255, 255, .16), 0 6px 16px rgba(6, 10, 30, .3)` | the same plate's edge and shadow | Mode card |
+| `--blur-mode-later` | `8px` | the same plate's backdrop blur | Mode card |
+| `--tracking-mode-name` | `.01em` | v4 theme.css .wf-grid .wf-mode h3: a mode's name | Mode card |
+| `--motion-mode-float` | `4.6s` | v4 modes.css v4-float: the object's breath | Mode card |
+| `--motion-mode-burst` | `5s` | v4 modes.css v4-burst: the rim copy's breath | Mode card |
+| `--motion-mode-strike` | `.7s` | v4 modes.css v4-strike-l and -r: the knives drawing apart under the pointer | Mode card |
+| `--blur-bolt` | `4px` | the light round a lit risk bolt under the pointer; рішення користувача, D-209, case-tiles.css .wf-tile:hover .v4-bolts i.is-on; made a variable at the merge, D-231 | Case tile |
+| `--blur-bolt-strike` | `6px` | the same light while the bolts strike; case-tiles.css .wf-tile-risk:hover .v4-bolts i.is-on; made a variable at the merge, D-231 | Case tile |
+| `--blur-tier-bar` | `10px` | the light a tier's foot bar casts, with a 1px spread: a live drop, a drop card, a best drop, the prize; theme.css .wf-feed-hit::after and .wf-feed-back::before, case-blocks.css .v4d-w7 a::after, case-body.css row F ::after, case-stage.css .v4c-won-card::before; made a variable at the merge, D-231 | Drop card, Feed tile, Outcome card, Recent drop card |
+| `--tracking-feed-sub` | `.4px` | a live drop's skin name; kit.css part 3 .wf-feed-hit .wf-feed-s, v4 theme.css live drops; made a variable at the merge, D-231 | Feed tile |
+| `--tracking-tile` | `.03em` | v4 account-home.css: .am3-t.is-items letter-spacing, My items in capitals. Popover menu | Popover menu |
+| `--tracking-snug` | `.04em` | v4 case-body.css: row F td::before at 599px, the label of Chance and Tickets on a phone. Drop card | Drop card, Popover menu |
+| `--color-rarity-4-lit` | `#8F63E6` | v4 case-body.css: .r4 --r-lit; case-blocks.css .v4d-w7 > li.r4; case-page.css .v4c-won.r4: Restricted lit on a dark card, rarity step 4 read too dark there. Drop card, Recent drop card, Outcome card | Drop card, Outcome card, Recent drop card |
+| `--color-rarity-5-lit` | `#4F6BFF` | v4 case-body.css: .r5 --r-lit; case-blocks.css .v4d-w7 > li.r5; case-page.css .v4c-won.r5: Mil-Spec lit. Drop card, Recent drop card, Outcome card | Drop card, Outcome card, Recent drop card |
+| `--color-card-deep` | `#0D0C2C` | v4 case-blocks.css: .v4d-w7 a background, the stage's own card W7; case-body.css row F; case-stage.css z7 card. Drop card, Recent drop card, Outcome card | Drop card, Outcome card, Recent drop card |
+| `--color-ring-deep` | `#12001C` | v4 case-blocks.css: .v4d-art .hs3, the foot of the ring's gradient. Drop card, Recent drop card, Outcome card | Drop card, Outcome card, Recent drop card |
+| `--color-track` | `rgba(255, 255, 255, .08)` | v4 case-body.css: row F ::before, the 100 000 behind the item's stretch; case-stage.css z7 .v4c-won-x inset edge. Drop card, Outcome card | Drop card, Outcome card |
+| `--color-foil` | `rgba(255, 255, 255, .45)` | v4 case-stage.css: .v4c-won-card::after, the band of light that crosses the prize once. Outcome card | Outcome card |
+| `--color-tab` | `#1A1940` | v4 case-stage.css: z .v4c-won-x background, the multiple's tab. Outcome card | Outcome card |
+| `--color-up-tab` | `#0F2E33` | v4 case-stage.css: z .v4c-won-x.is-up background, the tab of an item worth more than the open. Outcome card | Outcome card |
+| `--color-wash` | `rgba(255, 255, 255, .07)` | v4 account-home.css: .am3-copy background. Popover menu | Popover menu |
+| `--color-done` | `#7BE8A0` | v4 account-home.css: .am3-copy.is-done color, Copied. Popover menu | Popover menu |
+| `--color-done-wash` | `rgba(51, 204, 102, .18)` | v4 account-home.css: .am3-copy.is-done background. Popover menu | Popover menu |
+| `--color-fail` | `#FF8FA3` | v4 account-home.css: .am3-copy.is-fail color, Not copied. Popover menu | Popover menu |
+| `--color-fail-wash` | `rgba(209, 39, 62, .2)` | v4 account-home.css: .am3-copy.is-fail background. Popover menu | Popover menu |
+| `--color-error-wash` | `rgba(255, 77, 106, .08)` | v4 account-home.css: .am3-out:hover background, under Sign out. Popover menu | Popover menu |
+| `--color-scrim-sheet` | `rgba(3, 5, 16, .6)` | v4 account-home.css: .v4-ac-scrim at 899px, the page dimmed under the sheet. Popover menu, account on a phone | Popover menu |
+| `--color-handle` | `rgba(255, 255, 255, .25)` | v4 account-home.css: .am3::before at 899px, the sheet's handle. Popover menu, account on a phone | Popover menu |
+| `--shadow-card` | `0 10px 22px rgba(3, 3, 16, .45)` | v4 case-blocks.css: .v4d-w7 a, under the stage's own card; case-body.css row F. Drop card, Recent drop card / an item card lifted off the ground; design/v4/case-body.css .wf-drops[data-v="f"] .v4b-row, What is in this case | Drop card, Empty state, Item card, Recent drop card, Withdraw item |
+| `--shadow-card-hover` | `0 14px 28px rgba(3, 3, 16, .55)` | v4 case-blocks.css: .v4d-w7 a:hover. Drop card, Recent drop card | Drop card, Recent drop card |
+| `--shadow-outcome` | `0 24px 40px rgba(3, 3, 16, .55)` | v4 case-stage.css: w7 .v4c-won-card, under the prize. Outcome card | Outcome card |
+| `--shadow-skin-card` | `drop-shadow(0 8px 6px rgba(0, 0, 0, .7))` | v4 case-blocks.css: .v4d-img filter; case-body.css row F .v4b-img. Drop card, Recent drop card | Drop card |
+| `--shadow-skin-prize` | `drop-shadow(0 14px 12px rgba(0, 0, 0, .7))` | v4 case-stage.css: .v4c-won-art img filter. Outcome card | Outcome card |
+| `--shadow-up-tab` | `inset 0 0 0 1px rgba(53, 224, 138, .35), 0 0 14px rgba(53, 224, 138, .22)` | v4 case-stage.css: z .v4c-won-x.is-up. Outcome card | Outcome card |
+| `--shadow-menu` | `0 24px 48px rgba(0, 0, 0, .5)` | v4 account-home.css: .am3, under the account menu. Popover menu, account | Popover menu |
+| `--shadow-avatar-l` | `0 0 0 2px rgba(255, 255, 255, .85), 0 6px 14px rgba(6, 10, 30, .45)` | v4 account-home.css: .am3-ava. Popover menu | Popover menu |
+| `--shadow-tile-lit-soft` | `inset 0 1px 0 rgba(255, 255, 255, .2)` | v4 account-home.css: .am3-t.is-items and .is-rp, the light along a lit tile's top. Popover menu | Popover menu |
+| `--gradient-menu` | `linear-gradient(180deg, #16133C, #0D0C28)` | v4 account-home.css: .am3 background. Popover menu, account | Popover menu |
+| `--gradient-stripes-m` | `repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px)` | v4 account-home.css: .am3-t.is-rp, the stripes on Responsible play, wider than --gradient-stripes. Popover menu | Popover menu |
+| `--art-flag-gb` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000 ... (893 characters, as in the sheet)` | a round flag beside a language, gb; carried from kit.css part 3 [data-flag="gb"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave | Popover menu |
+| `--art-flag-de` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000 ... (410 characters, as in the sheet)` | a round flag beside a language, de; carried from kit.css part 3 [data-flag="de"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave | Popover menu |
+| `--art-flag-cn` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000 ... (775 characters, as in the sheet)` | a round flag beside a language, cn; carried from kit.css part 3 [data-flag="cn"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave | Popover menu |
+| `--art-flag-fr` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000 ... (416 characters, as in the sheet)` | a round flag beside a language, fr; carried from kit.css part 3 [data-flag="fr"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave | Popover menu |
+| `--art-flag-pl` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000 ... (350 characters, as in the sheet)` | a round flag beside a language, pl; carried from kit.css part 3 [data-flag="pl"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave | Popover menu |
+| `--art-flag-tr` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000 ... (502 characters, as in the sheet)` | a round flag beside a language, tr; carried from kit.css part 3 [data-flag="tr"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave | Popover menu |
+| `--art-flag-pt` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000 ... (594 characters, as in the sheet)` | a round flag beside a language, pt; carried from kit.css part 3 [data-flag="pt"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave | Popover menu |
+| `--art-flag-es` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000 ... (2701 characters, as in the sheet)` | a round flag beside a language, es; carried from kit.css part 3 [data-flag="es"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave | Popover menu |
+| `--art-flag-ua` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000 ... (351 characters, as in the sheet)` | a round flag beside a language, ua; carried from kit.css part 3 [data-flag="ua"] --flag (D-205, circle-flags 2.7.0, MIT), so the popover keeps it when parts 2 and 3 leave | Popover menu |
+| `--blur-ring-glow-near` | `2px` | the near light's blur; the same rules; made a variable at the merge, D-231 | Drop card, Outcome card, Recent drop card |
+| `--blur-ring-glow-far` | `10px` | the far light's blur; the same rules; made a variable at the merge, D-231 | Drop card, Outcome card, Recent drop card |
+| `--blur-card-hover` | `22px` | a stage card's light in its tier under the pointer; case-blocks.css .v4d-w7 a:hover, case-body.css row F :hover; made a variable at the merge, D-231 | Drop card, Recent drop card |
+| `--blur-winner-ring` | `16px` | the light round the winner's avatar over a best drop; case-blocks.css .v4d-av; made a variable at the merge, D-231 | Recent drop card |
+| `--blur-outcome` | `40px` | the prize's light in its tier; case-stage.css w7 .v4c-won-card; made a variable at the merge, D-231 | Outcome card |
+| `--font-mono` | `ui-monospace, SFMono-Regular, Menlo, monospace` | a value read one character at a time: a seed, a hash, an id, an address; design/v4/case-page.css .v4c-hash code, the server seed hash under the case screen's open act | Copyable value |
+| `--gradient-plate` | `linear-gradient(180deg, #100F33, #0B0A26)` | the plate a bar of controls stands on; design/v4/case-stage.css .v4c-plate, the case screen's open bar | Category bar, Deposit dock |
+| `--shadow-plate-edge` | `inset 0 0 0 1px rgba(139, 124, 255, .16)` | the violet hairline round that plate; design/v4/case-stage.css .v4c-plate | Category bar, Deposit dock |
+| `--color-pink-edge` | `rgba(251, 63, 138, .45)` | the edge of a declaration that is made; design/v4/signin-home.css .sd-cbx.is-set | Field |
+| `--color-refuse` | `#FF8297` | the refusal line's words, a light error red; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why | Deposit dock, Empty state, Field, Item card, note--refuse (atom, 4.1) |
+| `--size-refuse-mark` | `18px` | the round "!" that leads a refusal line, in --color-error; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why::before | Deposit dock, Empty state, Field, Item card, note--refuse (atom, 4.1) |
