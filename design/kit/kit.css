@@ -592,6 +592,31 @@
   --color-ticker-chip: rgba(6, 10, 30, .82); /* v4 theme.css .wf-feed-head: the live chip's dark, with no edge. Ticker; рішення користувача, D-209 (v4) carried by D-232 */
   --shadow-ticker-chip: 0 4px 14px rgba(0, 0, 0, .4); /* v4 theme.css .wf-feed-head: the live chip's lift. Ticker; рішення користувача, D-209 (v4) carried by D-232 */
   --color-ticker-halo: color-mix(in srgb, var(--color-pink) 70%, transparent); /* v4 theme.css .wf-feed-lbl::after: the dot's halo. Ticker; рішення користувача, D-209 (v4) carried by D-232 */
+  /* Stage 07 step 5, Home in colour assembled from the kit, D-234: the language of Home's one-off blocks (part 4.4), carried from v4's sheets as they
+     stand. Each names its v4 file and rule. */
+  --icon-percent: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill-rule='evenodd'%3E%3Cpath d='M7 2.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 2.7a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM17 12.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 2.7a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8z'/%3E%3Cpath d='M18.3 2.6l2.6 2.6L5.7 21.4l-2.6-2.6z'/%3E%3C/g%3E%3C/svg%3E"); /* a published chance, drawn in the set's solid style for What opening a case here involves; v4 seo-home.css .sx-ic--pct; рішення користувача, D-209 (v4) carried by D-234 */
+  --gradient-spend-strip: linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%); /* the money strip of Before you spend, blue to violet to pink; v4 proof-home.css .x6-strip background; рішення користувача, D-209 (v4) carried by D-234 */
+  --gradient-spend-stub: linear-gradient(160deg, var(--color-pink), var(--color-button) 55%, #B8044E); /* the strip's striped pink stub under its title, holding 3.2:1 at the worst stripe; v4 proof-home.css .x6-stub; рішення користувача, D-209, critique of 10 Nov 2026 row 3, carried by D-234 */
+  --shadow-plate-deep: 0 14px 34px rgba(6, 10, 30, .55); /* the money strip's drop; v4 proof-home.css .x6-strip box-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-card-drop: 0 10px 30px rgba(6, 10, 30, .45); /* a checked round's card, its drop; v4 proof-home.css .x6-card box-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-stub-text: 0 2px 8px rgba(120, 10, 60, .35); /* the stub's title lifted off its pink; v4 proof-home.css .x6-stub h2 text-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-figure-text: 0 2px 10px rgba(6, 10, 30, .3); /* a large figure on a plate; v4 proof-home.css .x6-v text-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-word-text: 0 2px 8px rgba(6, 10, 30, .35); /* Every round, the word on the blue plate; v4 proof-home.css .x6-word text-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-plate-rule: rgba(255, 255, 255, .18); /* the rule between two panels of the money strip; v4 proof-home.css .x6-p + .x6-p::before; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-plate-say: rgba(255, 255, 255, .86); /* the line under a figure on the strip; v4 proof-home.css .x6-say; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-plate-ticket: rgba(255, 255, 255, .88); /* a ticket's line on a round card; v4 proof-home.css .x6-t; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-ruler: rgba(6, 10, 30, .38); /* the ruler of 100 000 under a ticket; v4 proof-home.css .x6-ruler; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-ruler-range: rgba(255, 255, 255, .62); /* the round's range on the ruler; v4 proof-home.css .x6-ruler i; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-ruler-mark: 0 0 0 2px rgba(6, 10, 30, .3); /* the ticket's mark standing off the range; v4 proof-home.css .x6-ruler b; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-plate-hover: rgba(255, 255, 255, .06); /* a strip panel under the pointer, and a dark fact tile's fill; v4 proof-home.css a.x6-p:hover and seo-home.css .sx-tile; рішення користувача, D-209 (v4) carried by D-234 */
+  --filter-case-lift: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); /* a case standing on a plate; v4 proof-home.css .x6-case .b and seo-home.css .sl-case .b; рішення користувача, D-209 (v4) carried by D-234 */
+  --filter-skin-lift: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); /* a skin lying in that case; v4 proof-home.css .x6-case .sk and seo-home.css .sl-case .sk; рішення користувача, D-209 (v4) carried by D-234 */
+  --filter-card-skin: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); /* a skin rising off a round's card; v4 proof-home.css .x6-skin; рішення користувача, D-209 (v4) carried by D-234 */
+  --filter-card-hover: brightness(1.08); /* a round's card under the pointer; v4 proof-home.css .x6-card:hover; рішення користувача, D-209 (v4) carried by D-234 */
+  --gradient-involves-stage: linear-gradient(150deg, #8E2BC9, #3B1A8F); /* the plate Nightfall stands on, the case tile's violet; v4 seo-home.css .v4-seo --c1 --c2 and .sx-stage; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-tile-lit-soft: inset 0 1px 0 rgba(255, 255, 255, .22); /* that plate's lit top edge, a step under --shadow-tile-lit; v4 seo-home.css .sx-stage; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-edge-bright: inset 0 0 0 1px rgba(255, 255, 255, .12); /* a dark pill's edge over the plate; v4 seo-home.css .sl-pill; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-rule-faint: rgba(255, 255, 255, .08); /* the hairline over each part of About Clutch; v4 faq-home.css .ab-i border-top; the same value as --color-track, a pair for stage 08; рішення користувача, D-209 (v4) carried by D-234 */
 }
 
 /* the live drop tile on a phone, founder of 4 Nov 2026: "лайв фид в раза два меньше по высоте"; D-209; from design/v4/theme.css */
@@ -2042,6 +2067,7 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .icon--sound { --i: var(--icon-sound); } .icon--mute { --i: var(--icon-mute); } .icon--gift { --i: var(--icon-gift); } .icon--dollar { --i: var(--icon-dollar); }
 .icon--swap { --i: var(--icon-swap); } .icon--diamond { --i: var(--icon-diamond); } .icon--pistol { --i: var(--icon-pistol); } .icon--heart { --i: var(--icon-heart); }
 .icon--crown { --i: var(--icon-crown); } .icon--bolt { --i: var(--icon-bolt); } .icon--question { --i: var(--icon-question); } .icon--steam { --i: var(--icon-steam); }
+.icon--percent { --i: var(--icon-percent); } /* a published chance, D-234 */
 .icon--google { --i: var(--icon-google); } .icon--discord { --i: var(--icon-discord); } .icon--x { --i: var(--icon-x); } .icon--facebook { --i: var(--icon-facebook); }
 .icon--youtube { --i: var(--icon-youtube); } .icon--instagram { --i: var(--icon-instagram); } .icon--tiktok { --i: var(--icon-tiktok); } .icon--telegram { --i: var(--icon-telegram); }
 .icon--coin { background: var(--art-coin) center / contain no-repeat; -webkit-mask: none; mask: none; }
@@ -3394,12 +3420,13 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   --sec-head-tile-s: 34px; /* heading-home.css and case-blocks.css @max-width 599 h2::before, the section tile on a phone */
   --sec-head-icon-s: 18px; /* heading-home.css and case-blocks.css @max-width 599 h2::after, the section mark on a phone */
   --sec-head-line: 96px; /* kit.css part 2 .wf-sec-head grid and ::after min-width, the shortest a section's line runs */
+  --sec-head-l-s: 21px; /* faq-home.css .hz-head h2 and seo-home.css .sx-h h2 under 600 and 560px, the large head on a phone; Featured cases drew 26, D-234 takes 21 */
 }
 .sec-head { --sec-g: var(--gradient-mode-cases); --sec-c: var(--color-pink); margin-bottom: var(--space-4); }
 .sec-head--upgrade { --sec-g: var(--gradient-mode-upgrade); --sec-c: var(--color-head-upgrade); }
 .sec-head--battles { --sec-g: var(--gradient-mode-battles); --sec-c: var(--color-head-battles); }
 .sec-head--showdowns { --sec-g: var(--gradient-mode-showdowns); --sec-c: var(--color-head-showdowns); }
-.sec-head__title { position: relative; display: flex; align-items: center; gap: var(--space-3-5); margin: 0; color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; letter-spacing: 0; line-height: 1.4; text-transform: uppercase; }
+.sec-head__title { position: relative; display: flex; align-items: center; gap: var(--space-3-5); margin: 0; color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; letter-spacing: 0; line-height: 1.1; text-transform: uppercase; } /* 1.1 as every head v4 drew, faq-home.css .hz-head h2 and seo-home.css .sx-h h2; the grey's 1.4 showed only where a title wraps, D-234 */
 .sec-head--l .sec-head__title { font-size: var(--size-head-l); }
 .sec-head__tile { display: grid; place-items: center; flex: 0 0 var(--size-tile); height: var(--size-tile); border-radius: var(--radius-tile); background: var(--gradient-stripes), var(--sec-g); box-shadow: var(--shadow-tile-lit); color: var(--color-text-hi); }
 .sec-head__tile > .icon { font-size: var(--size-tile-icon); }
@@ -3408,6 +3435,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 @media (max-width: 599px) {
   .sec-head__tile { flex-basis: var(--sec-head-tile-s); height: var(--sec-head-tile-s); border-radius: var(--radius-s); } /* v4 drew 10px, the ladder's 8, D-228 */
   .sec-head__tile > .icon { font-size: var(--sec-head-icon-s); }
+  .sec-head--l .sec-head__title { font-size: var(--sec-head-l-s); } /* one large head on a phone, D-234: 21px as three of v4's four drew it */
 }
 @media (min-width: 900px) {
   .sec-head { display: grid; grid-template-columns: auto minmax(var(--sec-head-line), 1fr); align-items: center; gap: var(--space-1) var(--space-4); }
@@ -4579,7 +4607,234 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   --dialog-layer-z: 81; /* kit.css part 2 .wf-dlg-wrap z-index, the scrim at 80 under it in the grey; технічне рішення */
 }
 .dialog__layer { position: fixed; inset: 0; z-index: var(--dialog-layer-z); display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: var(--space-5); overflow-y: auto; background: var(--color-scrim); } /* .wf-dlg-scrim and .wf-dlg-wrap in one: the ground at 72 % */
+.dialog__layer[hidden] { display: none; } /* a layer waits hidden until a data-layer opens it, kit.js, D-234 */
 @media (max-width: 599px) { .dialog__layer { align-items: stretch; padding: 0; } .dialog__layer > .dialog { min-height: 100%; } }
+
+/* =====================================================================================================================================
+   PART 4.4, ONE-OFF BLOCKS, stage 07 step 5, D-234. A block that stands on one IA node only (inventory.md, "One-off") is not a component,
+   and its markup stays on its screen; but no screen carries a style of its own, so its look lives here, named for its block, built from
+   the kit's atoms and molecules and the language in :root. Home's four, carried from v4's sheets as they stand and compared beside Home
+   v4: Before you spend (proof-home.css), What opening a case here involves (seo-home.css), Questions and answers and About Clutch
+   (faq-home.css; their heads are the kit's Section head, their questions the kit's Disclosure).
+   ===================================================================================================================================== */
+
+/* BEFORE YOU SPEND, Home: the money strip, a pink stub and three figures, then the Every round plate beside two checked rounds. It lays
+   itself out by its own width, container spend: the stub becomes a bar under 820px, the figures fold under 576px and stack under 480px.
+   Carried from v4 proof-home.css (.x6, founder decisions of 2 and 4 Nov 2026, "этот варик близок к тому что я хочу"). Contains Button,
+   Icon (the coin). */
+.spend { container: spend / inline-size; }
+.spend__in {
+  --spend-stub: clamp(132px, 14.4cqw, 170px); /* proof-home.css .x6 --stub, the stub's column */
+  --spend-fig: clamp(40px, 4.4cqw, 52px); /* .x6 --fig, a figure's size */
+  --spend-pad: clamp(14px, 1.86cqw, 22px); /* .x6 --pad, a panel's padding */
+  --spend-rtp: calc((100cqw - var(--spend-stub)) * 1.6 / 3.6); /* .x6 --rtp, the RTP panel's width, from the strip's columns */
+  --spend-case-h: clamp(84px, calc(var(--spend-rtp) * .36), 178px); /* .x6 --case-h, Ironbound's height, a share of its panel */
+  --spend-min: clamp(160px, 16.6cqw, 196px); /* .x6-p min-height */
+  --spend-card-min: clamp(170px, 16cqw, 188px); /* .x6-card min-height */
+  --spend-row-gap: clamp(30px, 3cqw, 40px); /* .x6-row margin-top beside the strip, founder of 2 Nov 2026 */
+  position: relative; color: var(--color-text-hi); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; text-align: left; /* the grey body's 16px at 1.2, which v4's block inherited */
+}
+@container spend (max-width: 819px) { .spend__in { --spend-stub: 0px; --spend-rtp: calc(100cqw * 1.25 / 3.1); --spend-fig: 38px; --spend-row-gap: var(--space-3); } } /* .x6 FOLD 1: --fig 38px so "94.2 %" clears the case, founder of 4 Nov 2026 */
+@container spend (max-width: 575px) { .spend__in { --spend-rtp: 100cqw; --spend-case-h: clamp(84px, calc(var(--spend-rtp) * .3), 170px); } }
+@container spend (max-width: 479px) { .spend__in { --spend-case-h: 112px; } }
+.spend a { color: inherit; text-decoration: none; }
+.spend a:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--space-thin)); }
+.spend small { font-size: .56em; font-weight: 700; }
+.spend code { font-family: var(--font-mono); font-size: var(--size-chip); letter-spacing: var(--tracking-link); overflow-wrap: anywhere; }
+.spend__nw { white-space: nowrap; }
+.spend__nw > svg { display: inline; width: var(--space-3-5); height: var(--space-3-5); margin-left: var(--space-1-5); vertical-align: calc(-1 * var(--space-hair)); transition: translate .2s var(--motion-ease-pop); }
+.spend__vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.spend__strip { position: relative; display: grid; grid-template-columns: var(--spend-stub) minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr); border-radius: var(--radius-card);
+  background: var(--gradient-spend-strip); box-shadow: var(--shadow-tile-lit), var(--shadow-plate-deep); }
+.spend__stub { display: flex; flex-direction: column; justify-content: center; gap: var(--space-3-5); padding: var(--spend-pad); border-radius: var(--radius-card) 0 0 var(--radius-card);
+  background: var(--gradient-button-stripes), var(--gradient-spend-stub); }
+.spend__stub svg { width: 30px; height: 34px; fill: var(--color-text-hi); } /* the shield, proof-home.css .x6-stub svg */
+.spend__stub .spend__tick { stroke: var(--color-pink); }
+.spend__title { margin: 0; font-size: clamp(20px, 2.2cqw, 26px); font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: var(--shadow-stub-text); }
+.spend__p { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: var(--spend-min); padding: var(--spend-pad); transition: background-color .2s; }
+.spend__p + .spend__p::before { content: ''; position: absolute; left: 0; top: var(--spend-pad); bottom: var(--spend-pad); width: 1px; background: var(--color-plate-rule); }
+.spend__p:last-child { border-radius: 0 var(--radius-card) var(--radius-card) 0; }
+.spend__k { position: relative; display: block; font-size: clamp(11px, 1.02cqw, 12px); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.25; text-transform: uppercase; color: var(--color-text-hi); }
+.spend__v { position: relative; display: block; margin-top: var(--space-2); font-size: var(--spend-fig); font-weight: 900; line-height: 1; letter-spacing: -.01em; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: var(--shadow-figure-text); }
+.spend__p--fee .spend__v { color: var(--color-money); }
+.spend__say { position: relative; display: block; margin-top: var(--space-2); color: var(--color-plate-say); font-size: clamp(13px, 1.2cqw, 14px); line-height: 1.4; }
+.spend__money { color: var(--color-money); font-weight: 700; white-space: nowrap; }
+.spend__money > .icon { margin-right: var(--space-1); vertical-align: calc(-1 * var(--space-hair)); }
+.spend__go { position: relative; display: block; margin-top: auto; padding-top: var(--space-3-5); color: var(--color-text-hi); font-size: clamp(12px, 1.1cqw, 13px); font-weight: 700; letter-spacing: var(--tracking-link); white-space: nowrap; }
+
+/* Ironbound beside the RTP, its height a share of the panel's own width */
+.spend__p--rtp { isolation: isolate; clip-path: inset(-90px 0 0 0); overflow-x: clip; }
+.spend__p--rtp > .spend__k, .spend__p--rtp > .spend__v { max-width: 48%; }
+.spend__p--rtp > .spend__say { max-width: 44%; }
+.spend__case { position: absolute; z-index: 0; right: -3%; bottom: -8px; height: var(--spend-case-h); aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--motion-ease-pop); }
+.spend__case-b, .spend__case-f { position: absolute; inset: 0; background: var(--art-case-ironbound) center / 100% auto no-repeat; }
+.spend__case-b { filter: var(--filter-case-lift); }
+.spend__case-f { z-index: 2; clip-path: var(--shape-case-rim); }
+.spend__case-sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: var(--filter-skin-lift); transition: transform .45s var(--motion-ease-pop); }
+
+/* the second ticket: the Every round plate in the provably fair blue, then two round cards */
+.spend__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1.35fr); gap: var(--space-3); margin-top: var(--spend-row-gap); }
+.spend__plate { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: var(--spend-pad); border-radius: var(--radius-card);
+  background: var(--gradient-button-stripes), var(--gradient-fair); box-shadow: var(--shadow-tile-lit), var(--shadow-fair); }
+.spend__fig { display: block; }
+.spend__word { display: block; margin-top: var(--space-1-5); font-size: clamp(26px, 3cqw, 36px); font-weight: 900; line-height: 1; white-space: nowrap; text-shadow: var(--shadow-word-text); }
+.spend__hash { box-sizing: border-box; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: var(--space-2-5); width: 100%; margin: var(--space-3) 0 var(--space-3-5);
+  padding: 9px var(--space-3); border-radius: var(--radius-s); background: var(--color-hash-well); box-shadow: var(--shadow-edge-lit); } /* Check in the hash's box, founder of 11 Nov 2026 */
+.spend__hash-t { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.spend__hash-t code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.spend__ok { display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--color-green); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; }
+.spend__ok svg { width: var(--space-3-5); height: var(--space-3-5); fill: var(--color-green); }
+.spend__hash > .button { flex: none; margin: 0; }
+.spend__card { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: var(--spend-card-min); padding: var(--spend-pad);
+  border-radius: var(--radius-card); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: var(--shadow-tile-lit), var(--shadow-card-drop);
+  clip-path: inset(-100px 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); overflow-x: clip; transition: filter .2s; } /* --r1 --r2: the round's rarity plate, --color-plate-r*-a/b, set on the card */
+.spend__card > :not(.spend__skin) { position: relative; z-index: 1; }
+.spend__skin { position: absolute; z-index: 0; right: -3%; top: calc(-1 * clamp(36px, 4.6cqw, 54px)); width: 50%; height: auto; transform: rotate(-12deg); filter: var(--filter-card-skin); transition: transform .45s var(--motion-ease-pop); }
+.spend__r { font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-hi); }
+.spend__w { margin-top: var(--space-1-5); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-snug); text-transform: uppercase; color: var(--color-text-hi); }
+.spend__s { max-width: 54%; font-size: clamp(18px, 1.9cqw, 22px); font-weight: 900; line-height: 1.1; }
+.spend__from { margin-top: var(--space-1); font-size: var(--size-chip); color: var(--color-text-hi); }
+.spend__t { display: block; margin-top: var(--space-3); font-size: var(--size-chip); color: var(--color-plate-ticket); }
+.spend__t b { color: var(--color-text-hi); font-weight: 900; }
+.spend__ruler { position: relative; display: block; width: 100%; height: var(--space-1-5); margin-top: var(--space-1-5); border-radius: var(--space-thin); background: var(--color-ruler); }
+.spend__ruler i { position: absolute; top: 0; bottom: 0; left: calc(var(--a) * 1%); width: max(4px, calc((var(--b) - var(--a)) * 1%)); border-radius: var(--space-thin); background: var(--color-ruler-range); }
+.spend__ruler b { position: absolute; top: calc(-1 * var(--space-1)); left: calc(var(--t) * 1%); width: var(--space-thin); height: var(--space-3-5); margin-left: -1.5px; border-radius: var(--space-hair); background: var(--color-text-hi); box-shadow: var(--shadow-ruler-mark); }
+.spend__cgo { margin-top: auto; padding-top: var(--space-3-5); color: var(--color-text-hi); font-size: var(--size-xs); font-weight: 700; }
+@media (hover: hover) {
+  a.spend__p:hover { background-color: var(--color-plate-hover); }
+  .spend__p--rtp:hover .spend__case { transform: scale(1.04); }
+  .spend__p--rtp:hover .spend__case-sk { transform: translate(-50%, -66%) rotate(-12deg) scale(1.06); }
+  .spend__card:hover { filter: var(--filter-card-hover); }
+  .spend__card:hover .spend__skin { transform: translateY(-6px) rotate(-16deg) scale(1.05); }
+  .spend__card:hover .spend__skin--whole { transform: translateY(-6px) rotate(-10deg) scale(1.03); }
+  a.spend__p:hover .spend__go svg, .spend__card:hover .spend__cgo svg { translate: var(--space-thin) 0; }
+}
+@media (prefers-reduced-motion: reduce) { .spend__case, .spend__case-sk, .spend__card, .spend__skin, .spend__nw > svg { transition: none; } }
+@container spend (max-width: 819px) {
+  .spend__strip { grid-template-columns: minmax(0, 1.25fr) minmax(188px, 1fr) minmax(158px, .85fr); }
+  .spend__stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: var(--space-2-5); padding: var(--space-3) var(--spend-pad); border-radius: var(--radius-card) var(--radius-card) 0 0; }
+  .spend__stub svg { width: 22px; height: 25px; }
+  .spend__title { font-size: var(--size-title); }
+  .spend__p--rtp { border-radius: 0 0 0 var(--radius-card); }
+  .spend__p:last-child { border-radius: 0 0 var(--radius-card) 0; }
+  .spend__case { bottom: calc(var(--spend-pad) + var(--space-5)); } /* a narrow RTP panel: the case stands on the link's line */
+  .spend__row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: clamp(46px, 9cqw, 54px); }
+  .spend__plate { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--space-2-5) var(--space-4); }
+  .spend__fig { max-width: 190px; }
+  .spend__hash { flex: 1 1 170px; width: auto; margin: 0; }
+}
+@container spend (max-width: 575px) {
+  .spend__strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .spend__p--rtp { grid-column: 1 / -1; border-radius: 0; min-height: 0; }
+  .spend__p--rtp > .spend__say { max-width: 50%; }
+  .spend__p--rtp + .spend__p { border-radius: 0 0 0 var(--radius-card); }
+  .spend__p--rtp + .spend__p::before { left: var(--spend-pad); right: var(--spend-pad); top: 0; bottom: auto; width: auto; height: 1px; }
+  .spend__p--fee::after { content: ''; position: absolute; left: var(--spend-pad); right: var(--spend-pad); top: 0; height: 1px; background: var(--color-plate-rule); }
+}
+@container spend (max-width: 479px) {
+  .spend__strip { grid-template-columns: minmax(0, 1fr); }
+  .spend__p--rtp + .spend__p { border-radius: 0; }
+  .spend__p--fee { border-radius: 0 0 var(--radius-card) var(--radius-card); }
+  .spend__p--fee::before { left: var(--spend-pad); right: var(--spend-pad); top: 0; bottom: auto; width: auto; height: 1px; }
+  .spend__p { min-height: 0; }
+  .spend__p--fee::after { content: none; }
+  .spend__case { bottom: 34px; }
+  .spend__row { grid-template-columns: minmax(0, 1fr); row-gap: 48px; }
+  .spend__plate { flex-direction: column; align-items: flex-start; }
+  .spend__fig { max-width: none; }
+  .spend__hash { flex: none; width: 100%; margin: var(--space-3) 0 var(--space-3-5); }
+  .spend__card { min-height: 0; }
+  .spend__skin { top: -44px; width: 54%; }
+}
+/* the two skins placed by hand, after the folds as v4 placed them, so they hold at every width, founder of 2 Nov 2026 */
+.spend__skin--low { top: calc(-1 * clamp(14px, 2cqw, 26px)); } /* the Glock a little lower, founder of 2 Nov 2026 */
+.spend__skin--whole { right: 4%; top: calc(-1 * clamp(24px, 3cqw, 36px)); width: 58%; transform: rotate(-8deg); } /* the AK larger and whole inside the card, founder of 2 Nov 2026 */
+@container spend (max-width: 479px) { .spend__skin--low { right: 3%; } } /* on a phone the Glock stays inside the screen */
+
+/* WHAT OPENING A CASE HERE INVOLVES, Home's SEO block: the paragraph whole under its heading, Nightfall on its striped plate beside it with
+   three quotes. Two columns, even under 1000px of its own width, one under 720px, the quotes stacked inside the plate under 560px.
+   Carried from v4 seo-home.css (R1, founder of 2 Nov 2026, "давай r1 поставим на главную"; the case's size, founder of 4 Nov 2026).
+   Contains Section head, Button, Text link, Icon. */
+.involves { container: involves / inline-size; color: var(--color-text-hi); font-size: var(--size-text); line-height: 1.2; } /* the grey body's 16px at 1.2, inherited in v4 */
+.involves__in {
+  --involves-pad: var(--space-5-5); /* seo-home.css .sx padding */
+  --involves-stage-h: 380px; /* .sx-stage min-height */
+  --involves-art: min(96%, 480px); /* .sx-art width */
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); grid-template-rows: auto 1fr; grid-template-areas: "h s" "t s"; column-gap: var(--space-6);
+  padding: var(--involves-pad); border-radius: var(--radius-m); background: var(--gradient-daily-panel); box-shadow: var(--shadow-edge); } /* the same dark ground as the Daily panel */
+.involves__head { grid-area: h; margin: 0; }
+.involves__text { grid-area: t; min-width: 0; }
+.involves__p { max-width: 60ch; text-wrap: pretty; margin: var(--space-4-25) 0 0; color: var(--color-text-lead); font-size: var(--size-lead); line-height: 1.65; }
+.involves__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3-5) var(--space-5-5); margin-top: calc(var(--space-5) + var(--space-hair)); }
+.involves__acts .link { padding: var(--space-3) 0; margin: calc(-1 * var(--space-3)) 0; } /* the link's press grows to 40px and gives the room back, 4 Nov 2026 */
+.involves__stage { grid-area: s; position: relative; isolation: isolate; min-width: 0; min-height: var(--involves-stage-h); border-radius: var(--radius-card);
+  background: var(--gradient-button-stripes), var(--gradient-involves-stage); box-shadow: var(--shadow-tile-lit-soft); overflow: hidden; }
+.involves__case { position: absolute; left: 50%; bottom: 0; width: var(--involves-art); aspect-ratio: 3 / 2; translate: calc(-50% + 6.8%) 0; pointer-events: none; } /* the body sits at 43.2% of its picture, case-tiles.css */
+.involves__case-b, .involves__case-f { position: absolute; inset: 0; background: var(--art-case-nightfall) center / 100% auto no-repeat; }
+.involves__case-b { filter: var(--filter-case-lift); }
+.involves__case-f { z-index: 2; clip-path: var(--shape-case-rim); }
+.involves__case-sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: var(--filter-skin-lift); }
+.involves__pin { position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: var(--space-1-75); box-sizing: border-box; min-height: 30px; padding: 0 var(--space-3); border-radius: var(--radius-button);
+  background: var(--color-plate-veil); box-shadow: var(--shadow-edge-bright); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; }
+.involves__pin > .icon { font-size: 15px; color: var(--color-pink); }
+.involves__pin--ok > .icon { color: var(--color-green); }
+.involves__pin--1 { left: var(--space-4); top: var(--space-4-25); }
+.involves__pin--2 { right: var(--space-4); top: var(--space-4-25); }
+.involves__pin--3 { left: var(--space-4); bottom: var(--space-4-25); }
+@container involves (max-width: 1000px) {
+  .involves__in { --involves-stage-h: 340px; column-gap: var(--space-5); }
+  .involves__p { font-size: var(--size-text); }
+}
+@container involves (min-width: 721px) and (max-width: 1000px) {
+  .involves__in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .involves__pin--2 { left: var(--space-4); right: auto; top: 54px; }
+}
+@container involves (max-width: 720px) {
+  .involves__in { --involves-stage-h: 300px; --involves-art: min(96%, 380px); grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-template-areas: "h" "t" "s"; row-gap: calc(var(--space-5) - var(--space-hair)); }
+  .involves__p { margin-top: 0; }
+}
+@container involves (max-width: 560px) {
+  .involves__in { --involves-pad: var(--space-4-25); --involves-stage-h: 0px; --involves-art: min(100%, 380px); }
+  .involves__p { font-size: var(--size-text); }
+  .involves__stage { display: flex; flex-direction: column; padding-bottom: var(--space-3-5); }
+  .involves__case { position: relative; left: auto; bottom: auto; align-self: center; width: var(--involves-art); translate: 6.8% 0; margin: var(--space-1-5) 0; }
+  .involves__pins { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-1-5); padding: 0 var(--space-3-5); }
+  .involves__pin { position: static; white-space: normal; }
+}
+
+/* QUESTIONS AND ANSWERS, Home: a lead and Support on the left, the questions on the right, one column under 900px of its own width. The
+   questions are the kit's Disclosure, one open at a time by their shared name. Carried from v4 faq-home.css (.fq). Contains Section head,
+   Disclosure, Button, Text link. */
+.faq { container: faq / inline-size; color: var(--color-text-hi); font-size: var(--size-text); line-height: 1.2; } /* the grey body's 16px at 1.2, inherited in v4 */
+.faq__in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-6); align-items: start; }
+.faq__lead p { margin: 0; max-width: 40ch; color: var(--color-text-soft); font-size: var(--size-text); line-height: 1.55; }
+.faq__lead .button { margin-top: calc(var(--space-4) + var(--space-1)); }
+.faq__list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2-5); }
+.faq__list .link { display: inline-block; margin: 0 0 calc(-1 * var(--space-3)); padding: var(--space-3) 0; } /* an answer's link, its press grown to 40px, 4 Nov 2026 */
+@container faq (max-width: 900px) {
+  .faq__in { grid-template-columns: minmax(0, 1fr); gap: calc(var(--space-4) + var(--space-1)); }
+  .faq__lead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3-5) var(--space-5); }
+  .faq__lead p { max-width: 60ch; }
+  .faq__lead .button { margin-top: 0; }
+}
+@container faq (max-width: 600px) { .faq__lead p { font-size: var(--size-s); } }
+
+/* ABOUT CLUTCH, Home: a lead, then four short parts under H3s in two columns, parted by hairlines; one column under 600px of its own width.
+   Carried from v4 faq-home.css (.ab). Contains Section head, Icon. */
+.about { container: about / inline-size; color: var(--color-text-hi); font-size: var(--size-text); line-height: 1.2; } /* the grey body's 16px at 1.2, inherited in v4 */
+.about__lead { margin: 0; max-width: 65ch; text-wrap: pretty; color: var(--color-text-lead); font-size: var(--size-lead); line-height: 1.65; }
+.about__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 calc(var(--space-6) + var(--space-2)); margin-top: var(--space-5); }
+.about__i { padding: calc(var(--space-4) + var(--space-1)) 0; border-top: 1px solid var(--color-rule-faint); }
+.about__h { display: flex; align-items: center; gap: var(--space-2-5); margin: 0; font-size: var(--size-m); font-weight: 900; line-height: 1.25; }
+.about__h > .icon { font-size: calc(var(--space-4) + var(--space-1)); color: var(--color-pink); }
+.about__i p { margin: var(--space-2) 0 0; max-width: 60ch; color: var(--color-text-soft); font-size: var(--size-s); line-height: 1.6; }
+@container about (max-width: 600px) {
+  .about__lead { font-size: var(--size-s); }
+  .about__grid { grid-template-columns: minmax(0, 1fr); }
+  .about__i { padding: var(--space-4) 0; }
+}
+
 
 /* THE SHELL'S PAGE LAYOUT, D-232. Where the organisms stand on a page, nothing of their look: the header across the top, the rail beside the
    page from the header's top, the live drops under the header, the screen's slot, the footer; as Home v4 lays them out (kit.css part 2, the
@@ -4604,3 +4859,30 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   .shell { padding-bottom: var(--size-bar); }
   .shell__main { padding: var(--space-4); }
 }
+
+/* THE SCREEN'S COLUMN AND RHYTHM, D-234: how a screen's blocks stand in the slot, as Home v4 stands them (v4 theme.css "ONE SPACING FOR THE
+   FRAME" and the column rule of 1 Nov 2026, banner.css "THE BANNER AS A BLOCK", the .wf-sec padding of kit.css part 2). From 900px the
+   banner is a block with the header strip's 8px and 12px, and every other block stands clear of the column's edges, 32px and from 1200px
+   56px, centred past 1560px; under 900px the banner runs edge to edge. A block stands 32px under the one above; the hero 24px under the
+   banner and the ways to play straight on the hero; a panel with its own title, Daily cases and Before you spend, 48px; the closing
+   sections, What opening a case here involves, Questions and answers and About Clutch, 64px. */
+.shell__main { overflow-x: clip; /* a case's art may reach past a tile at the column's edge and never past the page, v4 theme.css .wf-main */
+  --shell-gutter: var(--space-6); /* v4 theme.css --v4-gutter, 32px from 900px */
+  --shell-column: 1560px; } /* v4 theme.css .wf-main > :not(.wf-event), the widest column, centred past it; the case head lines up with it (--case-head-page) */
+.shell__main > * + * { margin-top: var(--space-6); }
+.shell__main > .banner + .hero { margin-top: var(--space-5); }
+.shell__main > .hero + * { margin-top: 0; }
+.shell__main > :is(.daily, [data-when], .spend) { margin-top: calc(var(--space-6) + var(--space-4)); }
+.shell__main > :is(.involves, .faq, .about) { margin-top: calc(2 * var(--space-6)); }
+@media (min-width: 900px) {
+  .shell__main { padding-inline: 0; }
+  .shell__main > * { margin-inline: max(var(--shell-gutter), (100% - var(--shell-column)) / 2); }
+  .shell__main > .banner { margin-inline: var(--space-2) var(--space-3); }
+  .shell__main > .banner:first-child { margin-top: calc(var(--space-2) - var(--space-6)); } /* 8px under the live drops, as they sit 8px under the header */
+}
+@media (min-width: 1200px) { .shell__main { --shell-gutter: var(--space-7); } } /* 56px, v4 theme.css --v4-gutter from 1200px */
+@media (max-width: 899px) {
+  .shell__main > .banner { margin-inline: calc(-1 * var(--space-4)); }
+  .shell__main > .banner:first-child { margin-top: calc(-1 * var(--space-4)); }
+}
+[data-when][hidden] { display: none; } /* a block of one state only, guest or account, shown by kit.js on ?account, D-234 */

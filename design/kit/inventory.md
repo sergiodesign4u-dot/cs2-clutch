@@ -15,7 +15,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 5. **Inside level 3** the organisms that hold no other organism come first, then those that do, so a part always loads before its whole.
 6. **The level is computed, not chosen.** The script recomputes every level from the "Contains" column and fails on a mismatch. Four rows moved on that check while this file was drawn: Status notice rose to 3 (it holds a Copyable value); Daily ladder, Withdraw item and Deposit dock fell to 2 (they hold only atoms).
 
-**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms. 28 one-offs stay out of the kit. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
+**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms. 28 one-offs stay out of the kit, 32 since `D-234` added Home's four closing blocks. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
 
 ## The table
 
@@ -107,8 +107,14 @@ Order: first the organisms that hold no other organism, then Payment panel (hold
 
 On one IA node only. Their markup stays on the screen they belong to until a second screen needs them; the parts they are built from are already in the table.
 
+**Added at stage 07 step 5, `D-234`.** Home's four closing blocks are the grey's figures, prose and questions (Figure, Prose, Disclosure, Section head above), but v4 drew each as one composed block of Home alone, so in colour they are one-offs too. A one-off keeps its markup on its screen and its look in `kit.css` part 4.4, since no screen carries a style of its own; the kit page shows them in its section One-off blocks.
+
 | Block | Node | Read from | Note |
 |---|---|---|---|
+| Before you spend | 1.0 | `wf-figs` (v4 `x6`) | the money strip and the Every round plate beside two checked rounds; `.spend`, kit.css 4.4, D-234 |
+| What opening a case here involves | 1.0 | `wf-prose` (v4 `sx`) | the paragraph beside Nightfall on its plate; `.involves`, kit.css 4.4, D-234 |
+| Questions and answers | 1.0 | `wf-faq` on Home (v4 `fq`) | its questions are kit Disclosures; `.faq`, kit.css 4.4, D-234 |
+| About Clutch | 1.0 | `wf-prose` (v4 `ab`) | a lead and four parts under heads; `.about`, kit.css 4.4, D-234 |
 | System page block | 0.3 | `wf-sys` | code, heading, two ways out, reference |
 | Toast | 0.3 | `wf-copied` | Copied; node 0.5 owns toasts and no other page draws one |
 | Cookie consent | 0.4 | `wf-ck` | its own layer with category rows; its toggles are kit Checkboxes |

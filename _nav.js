@@ -110,8 +110,8 @@ window.NAV = [
           { label: 'Home, direction C', pageLabel: 'Home v2 C',    page: 'design/v2-c/index.html',    done: true }
       ]},
       { subhead: 'Concept v1', items: [
-          { label: 'Home',           pageLabel: 'Home v1',           page: 'design/index.html',         done: true },
-          { label: 'Home, signed in', pageLabel: 'Home v1 signed in', page: 'design/index-account.html', done: true }
+          { label: 'Home',           pageLabel: 'Home v1',           page: 'design/archive/index-d2.html',       done: true },
+          { label: 'Home, signed in', pageLabel: 'Home v1 signed in', page: 'design/archive/index-account-d2.html', done: true }
       ]}
   ]},
 

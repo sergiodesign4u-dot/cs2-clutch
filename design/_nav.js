@@ -22,12 +22,12 @@
 
 window.DESIGN_NAV = {
   screens: [
-    { node: '1.0', name: 'Home', page: 'design/v4/index.html',
-      about: 'The first screen and every block under it in colour, assembled from the founder\'s picks, D-209, and checked in stage 06 step 8, D-215 to D-221.',
+    { node: '1.0', name: 'Home', page: 'design/index.html',
+      about: 'The first screen and every block under it in colour, assembled from the kit since D-234: the shell, the kit\'s components and Home\'s four one-off blocks, compared beside Home v4, the founder\'s picks of D-209 checked in stage 06 step 8.',
       labsOf: ['design/v4/index.html'],
       states: [
-        { node: '1.0', label: 'Guest',     file: 'v4/index.html',         grey: 'index.html' },
-        { node: '1.1', label: 'Signed in', file: 'v4/index.html?account', grey: 'index-account.html' }
+        { node: '1.0', label: 'Guest',     file: 'index.html',         grey: 'index.html' },
+        { node: '1.1', label: 'Signed in', file: 'index.html?account', grey: 'index-account.html' }
       ] },
     { node: '3.3', name: 'Case screen', page: 'design/v4/case.html',
       about: 'The case, the open and the outcome on one page, D-213 and D-214. The open and the outcome are what pressing Open does; ?land= decides what lands.',

@@ -824,3 +824,39 @@ The 21 organisms follow the rule of `D-231`. The shared language they drew with 
 | `--icon-pulse` | outline: a person and a tick by stroke (online) | filled: a person, a tick in a disc | the same |
 
 Section 13's row for these three is done. `D-200` had brought the counters back to outline people as the baseline draws them; `D-227` and `D-233` end that, and every icon in the product is filled.
+
+## 21. Stage 07 step 5, Home in colour from the kit, `D-234`
+
+**What moved.** Home, `design/index.html`, is assembled from the kit alone, and what Home v4 drew outside the kit's components came in with it. Its four closing blocks are one-offs of node 1.0 and their look is `kit.css` part 4.4 (`.spend`, `.involves`, `.faq`, `.about`), carried from v4's `proof-home.css`, `seo-home.css` and `faq-home.css`; where a screen's blocks stand in the slot is the shell's layout, carried from v4 `theme.css` and `banner.css`; the shell's behaviour is `design/kit/kit.js`. The language those blocks need is 23 new variables in `:root`, each with its v4 file and rule:
+
+| Variable | Value | Origin |
+|---|---|---|
+| `--icon-percent` | `an inline SVG mask, the percent sign` | a published chance, drawn in the set's solid style for What opening a case here involves; v4 seo-home.css .sx-ic--pct; рішення користувача, D-209 (v4) carried by D-234 |
+| `--gradient-spend-strip` | `linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%)` | the money strip of Before you spend, blue to violet to pink; v4 proof-home.css .x6-strip background; рішення користувача, D-209 (v4) carried by D-234 |
+| `--gradient-spend-stub` | `linear-gradient(160deg, var(--color-pink), var(--color-button) 55%, #B8044E)` | the strip's striped pink stub under its title, holding 3.2:1 at the worst stripe; v4 proof-home.css .x6-stub; рішення користувача, D-209, critique of 10 Nov 2026 row 3, carried by D-234 |
+| `--shadow-plate-deep` | `0 14px 34px rgba(6, 10, 30, .55)` | the money strip's drop; v4 proof-home.css .x6-strip box-shadow; рішення користувача, D-209 (v4) carried by D-234 |
+| `--shadow-card-drop` | `0 10px 30px rgba(6, 10, 30, .45)` | a checked round's card, its drop; v4 proof-home.css .x6-card box-shadow; рішення користувача, D-209 (v4) carried by D-234 |
+| `--shadow-stub-text` | `0 2px 8px rgba(120, 10, 60, .35)` | the stub's title lifted off its pink; v4 proof-home.css .x6-stub h2 text-shadow; рішення користувача, D-209 (v4) carried by D-234 |
+| `--shadow-figure-text` | `0 2px 10px rgba(6, 10, 30, .3)` | a large figure on a plate; v4 proof-home.css .x6-v text-shadow; рішення користувача, D-209 (v4) carried by D-234 |
+| `--shadow-word-text` | `0 2px 8px rgba(6, 10, 30, .35)` | Every round, the word on the blue plate; v4 proof-home.css .x6-word text-shadow; рішення користувача, D-209 (v4) carried by D-234 |
+| `--color-plate-rule` | `rgba(255, 255, 255, .18)` | the rule between two panels of the money strip; v4 proof-home.css .x6-p + .x6-p::before; рішення користувача, D-209 (v4) carried by D-234 |
+| `--color-plate-say` | `rgba(255, 255, 255, .86)` | the line under a figure on the strip; v4 proof-home.css .x6-say; рішення користувача, D-209 (v4) carried by D-234 |
+| `--color-plate-ticket` | `rgba(255, 255, 255, .88)` | a ticket's line on a round card; v4 proof-home.css .x6-t; рішення користувача, D-209 (v4) carried by D-234 |
+| `--color-ruler` | `rgba(6, 10, 30, .38)` | the ruler of 100 000 under a ticket; v4 proof-home.css .x6-ruler; рішення користувача, D-209 (v4) carried by D-234 |
+| `--color-ruler-range` | `rgba(255, 255, 255, .62)` | the round's range on the ruler; v4 proof-home.css .x6-ruler i; рішення користувача, D-209 (v4) carried by D-234 |
+| `--shadow-ruler-mark` | `0 0 0 2px rgba(6, 10, 30, .3)` | the ticket's mark standing off the range; v4 proof-home.css .x6-ruler b; рішення користувача, D-209 (v4) carried by D-234 |
+| `--color-plate-hover` | `rgba(255, 255, 255, .06)` | a strip panel under the pointer, and a dark fact tile's fill; v4 proof-home.css a.x6-p:hover and seo-home.css .sx-tile; рішення користувача, D-209 (v4) carried by D-234 |
+| `--filter-case-lift` | `drop-shadow(0 10px 14px rgba(6, 10, 30, .55))` | a case standing on a plate; v4 proof-home.css .x6-case .b and seo-home.css .sl-case .b; рішення користувача, D-209 (v4) carried by D-234 |
+| `--filter-skin-lift` | `drop-shadow(0 10px 10px rgba(0, 0, 0, .6))` | a skin lying in that case; v4 proof-home.css .x6-case .sk and seo-home.css .sl-case .sk; рішення користувача, D-209 (v4) carried by D-234 |
+| `--filter-card-skin` | `drop-shadow(0 10px 10px rgba(6, 10, 30, .55))` | a skin rising off a round's card; v4 proof-home.css .x6-skin; рішення користувача, D-209 (v4) carried by D-234 |
+| `--filter-card-hover` | `brightness(1.08)` | a round's card under the pointer; v4 proof-home.css .x6-card:hover; рішення користувача, D-209 (v4) carried by D-234 |
+| `--gradient-involves-stage` | `linear-gradient(150deg, #8E2BC9, #3B1A8F)` | the plate Nightfall stands on, the case tile's violet; v4 seo-home.css .v4-seo --c1 --c2 and .sx-stage; рішення користувача, D-209 (v4) carried by D-234 |
+| `--shadow-tile-lit-soft` | `inset 0 1px 0 rgba(255, 255, 255, .22)` | that plate's lit top edge, a step under --shadow-tile-lit; v4 seo-home.css .sx-stage; рішення користувача, D-209 (v4) carried by D-234 |
+| `--shadow-edge-bright` | `inset 0 0 0 1px rgba(255, 255, 255, .12)` | a dark pill's edge over the plate; v4 seo-home.css .sl-pill; рішення користувача, D-209 (v4) carried by D-234 |
+| `--color-rule-faint` | `rgba(255, 255, 255, .08)` | the hairline over each part of About Clutch; v4 faq-home.css .ab-i border-top; the same value as --color-track, a pair for stage 08; рішення користувача, D-209 (v4) carried by D-234 |
+
+**Local properties.** `.spend__in` 8 (`--spend-*`, the strip's columns, figure, padding and the case's height, all scaling with the block), `.involves__in` 3 (`--involves-*`), `.shell__main` 2 (`--shell-gutter` 32px and 56px from 1200px, `--shell-column` 1560px, v4 `theme.css` `.wf-main > :not(.wf-event)`), `.sec-head` 1 (`--sec-head-l-s`).
+
+**Values changed, variable, value, why.**
+- `.sec-head__title` line-height, 1.4 to 1.1: every head v4 drew in colour sets 1.1 (`faq-home.css` `.hz-head h2`, `seo-home.css` `.sx-h h2`); the grey's 1.4 showed only where a title wraps, and the large heads of Home's closing sections wrap on a phone.
+- `--sec-head-l-s`, new, 21px: the large head on a phone. v4 drew it 21px on three heads and 26px on Featured cases; one head takes one size, so Featured cases' head is 21px on a phone now, 5px smaller than v4.
