@@ -262,7 +262,7 @@
   --size-badge: 16px; /* рішення користувача, D-209; a badge's height; account-home.css */
   --size-avatar-s: 16px; /* рішення користувача, D-209; the ticker's avatar; v4 theme */
   --size-avatar-m: 32px; /* рішення користувача, D-209; the header's avatar; account-home.css */
-  --size-close: 36px; /* рішення користувача, D-209; the close button; buttons.css */
+  --size-close: 40px; /* 40px, carried from v4 signin-home.css close button; founder pick D-232, was 36; рішення користувача, D-232 */
   --size-row: 64px; /* рішення користувача, D-209; a FAQ row's height on a desktop; faq-home.css */
   --size-mark: 28px; /* рішення користувача, D-209; the plus and minus mark of a FAQ row; faq-home.css */
   --size-check: 20px; /* підібрано під характер; a checkbox or radio box; the fav glyph's size, case-tiles.css, so a box reads as one size with the icons */
@@ -528,6 +528,70 @@
   /* the refusal line, the atom .note--refuse of part 4.1, decision 4 of D-231 */
   --color-refuse: #FF8297; /* the refusal line's words, a light error red; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why; рішення користувача, D-209 (v4) carried by D-231 */
   --size-refuse-mark: 18px; /* the round "!" that leads a refusal line, in --color-error; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why::before; рішення користувача, D-209 (v4) carried by D-231 */
+
+  /* ===== Stage 07 step 3 batch 3, the organisms' language, D-232 ===== */
+  /* the shell's: values two or more of Rail, Header, Footer and Bottom bar read, or a Figure modifier the footer needs */
+  --shadow-lift: 0 10px 26px rgba(0, 0, 0, .35); /* v4 theme.css: .wf-header::before and .wf-rail::before, the lift under the header strip, the rail's panel and the open drawer. Header, Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-shell: var(--shadow-tile-edge), var(--shadow-lift); /* v4 theme.css: .wf-header::before and .wf-rail::before, the strip's and the panel's hairline and lift. Header, Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-burger: #1A1945; /* v4 theme.css: .wf-rail .wf-rail-toggle and .wf-header .wf-menu, the burger tile. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-burger-hover: #241F58; /* the same, under the pointer and, on a phone, while the drawer it opens is open. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --size-burger-w: 20px; /* v4 theme.css: .wf-rail-toggle::after and .wf-menu::after, the burger's three lines, width. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --size-burger-h: 14px; /* the same, height: three 2px lines 4px apart. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-burger: linear-gradient(var(--color-text-hi) 0 var(--space-hair), transparent var(--space-hair) var(--space-1-5), var(--color-text-hi) var(--space-1-5) var(--space-2), transparent var(--space-2) var(--space-3), var(--color-text-hi) var(--space-3) var(--size-burger-h)); /* v4 theme.css: the same, the three lines. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --size-nav-mark: 24px; /* v4 rail-b1.css .wf-rail-item .wf-rail-ico and kit.css part 3 .wf-bar-i: a destination's mark in the rail and in the bottom bar. Rail, Bottom bar; рішення користувача, D-209 (v4) carried by D-232 */
+  --tracking-wide: .1em; /* v4 footer-home.css: .fl-col h3 and .ff-stat b + span, the footer's column heads and the counters' captions. Footer, Figure (--stat); рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-fig-stat: 0 0 22px rgba(251, 63, 138, .45); /* v4 footer-home.css: .ff-stat b, the pink light round a counter. Figure (--stat), read by Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  /* the case screen's and Home's shelves: Case head, Case stage, Commit block */
+  --color-stage: #100F33; /* v4 case-page.css: .v4c-stage[data-light="d"] background, the case block's ground behind the stage; the first stop of --gradient-plate; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-stage: 0 24px 60px rgba(2, 4, 16, .5); /* v4 case-page.css: .v4c-stage box-shadow, the case block's fall onto the page (its inset hairline is --shadow-edge, D-228); рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-case-name: 0 2px 0 rgba(0, 0, 0, .35); /* a text shadow; v4 case-stage.css: .v4c-title h1, the case's name over the stage; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-stage-band: linear-gradient(180deg, rgba(8, 7, 30, .35), rgba(8, 7, 30, .6)); /* v4 case-stage.css: .v4c-band background, the band the nine run through; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-stage-edge: linear-gradient(90deg, transparent, rgba(139, 124, 255, .55) 30%, rgba(251, 63, 138, .55) 50%, rgba(139, 124, 255, .55) 70%, transparent); /* v4 case-stage.css: .v4c-band::before and ::after, the line along the band's top and foot; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-stage-cell: linear-gradient(180deg, transparent, rgba(139, 124, 255, .45) 25%, rgba(251, 63, 138, .5) 50%, rgba(139, 124, 255, .45) 75%, transparent); /* v4 case-stage.css: .v4c-cells i, the line between two cases' cells; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-pointer-deep: #2A0018; /* v4 case-stage.css: .v4c-ptr-a .h-s3, the deep end the pointer's pink runs to at its tip; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-case-stage: drop-shadow(0 24px 22px rgba(0, 0, 0, .75)) drop-shadow(0 0 40px rgba(6, 5, 24, .9)); /* a filter; v4 case-stage.css: .v4c-top[data-v="m"] .v4c-box img, the case standing over the band; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-price-chip: rgba(46, 4, 26, .45); /* v4 case-stage.css: .v4c-go-price background, the price riding at the end of the open act and the sum at the end of Sell all; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-skull-off-plate: #1D1B4A; /* v4 case-stage.css: .v4c-plate .v4c-risk --color-skull-off, an unlit bolt on the commit plate, the plate's own navy and not a grey; рішення користувача, D-209 (v4) carried by D-232 */
+  --motion-ease-unfold: cubic-bezier(.2, 1, .3, 1); /* v4 case-stage.css: .v4c-band transition, the band unfolding a beat after the columns close; рішення користувача, D-209 (v4) carried by D-232 */
+  --motion-ease-fold: cubic-bezier(.5, 0, .75, 0); /* v4 case-stage.css: .v4c-frame:not([data-count="1"]) .v4c-band and .v4c-col transitions, a fold that starts slow and shuts fast; рішення користувача, D-209 (v4) carried by D-232 */
+  --motion-ease-open: cubic-bezier(.2, 1.1, .3, 1); /* v4 case-stage.css: .v4c-frame[data-count] .v4c-col:nth-child scale, a column opening from the middle with a little give; рішення користувача, D-209 (v4) carried by D-232 */
+  /* money, sign in and trust: Proof block, Verify form, Status notice, Sign-in block, Dialog */
+  --gradient-fair: linear-gradient(160deg, var(--color-fair), #1F55C9 58%, #24359E); /* v4 proof-home.css: .x6-plate background under its stripes, the provably fair blue of Every round on Home. Proof block; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-fair: 0 14px 34px rgba(6, 10, 30, .5); /* v4 proof-home.css: .x6-plate box-shadow, the drop under the Every round plate (its lit top edge is --shadow-tile-lit). Proof block; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-hash-well: rgba(6, 10, 30, .6); /* v4 proof-home.css: .x6-hash background, the dark well a hash and "Recomputed: matches" sit in on the blue plate. Proof block, Verify form; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-dialog: 0 30px 60px rgba(0, 0, 0, .45); /* v4 signin-home.css: .sd at 760px of dialog and up, the drop under the dialog card (its .06 inner hairline is --shadow-edge, D-228). Dialog; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-note-plate: rgba(6, 8, 24, .7); /* v4 signin-home.css: .sd-note background, the dark foot plate of the sign in dialog, "the footer strip's dark ground". Sign-in block, Status notice; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-stripes-s: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 6px, transparent 6px 12px); /* v4 signin-home.css: .sd-note .is-guard .sd-note-i, the stripes of a 30px tile, the small step of --gradient-stripes. Sign-in block, Status notice; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-steam: linear-gradient(140deg, #2A475E, #171D25); /* v4 signin-home.css: .sd-note .is-steam .sd-note-i, Steam's own dark blue under its mark. Sign-in block; рішення користувача, D-209 (v4) carried by D-232 */
+  /* one organism's colours, shadows, gradients and tracking, declared at the head of its block in the fragments and moved here at the merge:
+     the language lives in :root and only the geometry one component reads stays in its block, D-231 point 1 */
+  --gradient-rail-giveaways: linear-gradient(120deg, #2C7FD6, var(--color-plate-r5-b)); /* v4 rail-b1.css :has([data-icon="diamond"]): Giveaways' fill. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-rail-peek: drop-shadow(0 4px 5px rgba(6, 10, 30, .5)); /* v4 rail-b1.css .wf-rail-item::after: the object's shadow. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-rail-chip: 0 10px 24px rgba(4, 6, 20, .45); /* v4 rail-b1.css: every closed chip's lift. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-rail-chip-sub: rgba(255, 255, 255, .78); /* v4 rail-b1.css: "Not launched yet" on a chip. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-rail-tile-chip: #08091B; /* v4 rail-b1.css: the sound and language chips, the footer strip's dark made solid. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-rail-drawer: inset calc(-1 * var(--size-hairline)) 0 0 rgba(255, 255, 255, .05); /* v4 theme.css @media (max-width: 899px) .wf-rail: the drawer's hairline on the side that faces the page. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-header-light: radial-gradient(34% 130% at 50% 0%, rgba(251, 63, 138, .36), transparent 72%); /* v4 theme.css .wf-header::before: --color-pink's light falling from the strip's top onto the logo. Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-header-edge: linear-gradient(90deg, transparent, #FF6FA8 50%, transparent); /* v4 theme.css .wf-row::before: the pink edge, --color-pink lifted a step. Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-header-edge: 0 0 10px rgba(251, 63, 138, .6); /* v4 theme.css .wf-row::before: the pink edge's light. Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-header-fall: drop-shadow(0 0 4px rgba(251, 63, 138, .6)); /* v4 theme.css .v4-fall i: the weapons' pink glow. Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-footer-light: radial-gradient(50% 100% at 50% 100%, rgba(74, 107, 255, .26), rgba(74, 107, 255, .1) 45%, transparent 100%); /* v4 footer-home.css #wf-footer.v4-foot .ft-h::before: the blue light rising off the block's top. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-footer-lift: 0 20px 40px rgba(4, 6, 20, .5); /* v4 footer-home.css .ft-h: the block's lift. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-footer-band: radial-gradient(50% 120% at 50% 0%, rgba(74, 107, 255, .2), transparent 70%); /* v4 footer-home.css .ff-band: the blue falling into the counters' band. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-footer-fade: linear-gradient(90deg, transparent, rgba(5, 6, 20, .85) 22%, rgba(5, 6, 20, .85) 78%, transparent); /* v4 footer-home.css .ff-band::before and .ff-foot::before: the dark ground fading to both sides. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-edge-blue: linear-gradient(90deg, transparent, var(--color-head-battles) 50%, transparent); /* v4 footer-home.css .ff-band > .ff-stats::before: the band's top line. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-footer-plate: var(--shadow-tile-lit), 0 10px 24px rgba(6, 10, 30, .4); /* v4 footer-home.css .fl-plate: a trust plate's lit top (--shadow-tile-lit) and lift. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-footer-fair: linear-gradient(140deg, var(--color-fair), #1F55C9 60%, #24359E); /* v4 footer-home.css .fl-plate.is-pf: Every round's blue. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-footer-pt: rgba(6, 10, 30, .35); /* v4 footer-home.css .fl-pt: the target's tile. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-footer-age: #B4142E; /* v4 footer-home.css .ff-18: 18+ in red on white. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-footer-age: 0 4px 10px rgba(60, 0, 10, .35); /* v4 footer-home.css .ff-18: its shadow. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --tracking-footer-age: -.02em; /* v4 footer-home.css .ff-18: 18+ set tight. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-footer-pay: rgba(215, 215, 240, .8); /* v4 footer-home.css .fe-pay li: the marks' one muted tone. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-footer-pay-hover: rgba(255, 255, 255, .08); /* v4 footer-home.css .fh-pay:hover: a card under the pointer. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-footer-pay: 0 8px 16px rgba(4, 6, 20, .45); /* v4 footer-home.css .fh-pay:hover: a payment card's lift under the pointer. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-ticker-chip: rgba(6, 10, 30, .82); /* v4 theme.css .wf-feed-head: the live chip's dark, with no edge. Ticker; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-ticker-chip: 0 4px 14px rgba(0, 0, 0, .4); /* v4 theme.css .wf-feed-head: the live chip's lift. Ticker; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-ticker-halo: color-mix(in srgb, var(--color-pink) 70%, transparent); /* v4 theme.css .wf-feed-lbl::after: the dot's halo. Ticker; рішення користувача, D-209 (v4) carried by D-232 */
 }
 
 /* the live drop tile on a phone, founder of 4 Nov 2026: "лайв фид в раза два меньше по высоте"; D-209; from design/v4/theme.css */
@@ -1915,6 +1979,7 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .button--l { min-height: var(--size-button-l); padding: 0 var(--size-button-l-pad); font-size: var(--size-text); }
 .button--m { min-height: var(--size-button-m); padding: 0 var(--size-button-m-pad); font-size: var(--size-xs); }
 .button--s { min-height: var(--size-button-s); padding: 0 var(--size-button-s-pad); font-size: var(--size-chip); }
+.button--s:not(.button--arrow, .button--close)::after { content: ''; position: absolute; inset: calc((var(--size-button-s) - var(--size-tap)) / 2); } /* технічне рішення, D-232: press area 44px as v4 gave Add funds (account-home.css .ac2-dep::after, inset -6px); transparent, nothing is drawn; the arrow and the close keep their own ::after */
 .button--primary { background-color: var(--color-button); background-image: var(--gradient-button-sheen), var(--gradient-button-stripes); background-size: 300% 100%, auto; background-position: 100% 0, 0 0; background-repeat: no-repeat, repeat; transition: background-color .2s, box-shadow .2s; }
 .button--ghost { background-color: var(--color-button-ghost); background-image: var(--gradient-button-sheen); background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat; box-shadow: inset 0 0 0 var(--size-edge) var(--color-button); transition: background-color .2s, box-shadow .2s; }
 @media (hover: hover) {
@@ -1937,6 +2002,35 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .button--arrow::after { content: '\2192'; font-weight: 900; }
 .button__pin { position: absolute; top: calc(-1 * var(--space-2)); right: calc(-1 * var(--space-2)); }
 @media (prefers-reduced-motion: reduce) { .button, .button::before, .button::after { transition: none !important; } .button--primary:hover, .button--primary:focus-visible { background-position: 100% 0, 0 0; } .button--ghost:hover, .button--ghost:focus-visible { background-position: 100% 0; } }
+/* modifier needed by .rail, D-232: the icon tile stretched across its cell, as the open rail's sound tile, v4 theme.css .wf-rail .wf-rail-snd */
+.button--fill { width: 100%; }
+/* modifier needed by .header, D-232: under 600px the label folds away and the button is a square of its height, its words kept for a
+   screen reader; Add funds on a phone, v4 account-home.css @media (max-width: 599px) .ac2-dep */
+@media (max-width: 599px) {
+  .button--fold { width: var(--size-button-s); padding: 0; }
+  .button--fold.button--m { width: var(--size-button-m); } .button--fold.button--l { width: var(--size-button-l); }
+  .button--fold .button__label { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+/* modifier needed by .commit, D-232: the price rides in the act, the coins in a chip at its end (case-stage.css .v4c-go, .v4c-go-price);
+   the open act carries the total and Sell all the sum of what is left. Busy, the act says Rolling with three dots (case-page.css .v4c-roll) */
+.button--priced {
+  --button-price-h: 36px; /* v4 case-stage.css: .v4c-go-price min-height, the chip inside a large button; рішення користувача, D-209 (v4) carried by D-232 */
+  --button-price-coin: 20px; /* v4 case-stage.css: .v4c-go-price img, the coin in the chip; рішення користувача, D-209 (v4) carried by D-232 */
+  --button-dot: 5px; /* v4 case-page.css: .v4c-roll i, a dot after Rolling; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.button--priced { gap: var(--space-3-5); padding-right: var(--space-2); }
+.button__price { display: inline-flex; align-items: center; gap: var(--space-1-5); box-sizing: border-box; min-height: var(--button-price-h); padding: 0 var(--space-3) 0 var(--space-2); border-radius: var(--radius-button); background: var(--color-price-chip); color: var(--color-money); font-size: var(--size-lead); font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); }
+.button__price > .icon--coin { width: var(--button-price-coin); height: var(--button-price-coin); }
+.button--priced[aria-busy="true"] { justify-content: center; padding-right: var(--space-4-25); }
+.button__dots { display: inline-flex; align-items: baseline; }
+.button__dots > i { width: var(--button-dot); height: var(--button-dot); margin-left: var(--space-1); border-radius: 50%; background: currentColor; animation: button-dot 1.2s ease-in-out infinite; }
+.button__dots > i:first-child { margin-left: var(--space-1-5); }
+.button__dots > i:nth-child(2) { animation-delay: .2s; } .button__dots > i:nth-child(3) { animation-delay: .4s; }
+@keyframes button-dot { 0%, 70%, 100% { opacity: .25; } 35% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .button__dots > i { animation: none; opacity: .7; } }
+/* modifier needed by .signin, D-232: a provider's name in its own case, as v4's three provider buttons set it, signin-home.css
+   .sd-provs .v4-btn (14px, no capitals, .02em, 8px sides); the mark before it is the button's own .button__icon */
+.button--name { padding-inline: var(--space-2); font-size: var(--size-label); letter-spacing: var(--tracking-link); text-transform: none; }
 
 /* ICON. A glyph drawn as a mask in the colour of the text around it, D-191; one style, filled, D-227. It takes the size of its text. */
 .icon { display: inline-block; flex: none; width: 1em; height: 1em; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; vertical-align: -.125em; }
@@ -1962,6 +2056,22 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .fig__c { color: var(--color-text-muted); font-size: var(--size-unit); }
 a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
 .fig--missing .fig__v { color: var(--color-text-muted); font-weight: 700; }
+/* modifier needed by .footer, D-232: a counter, its figure large in pink with its light and its caption in small spaced capitals; the size is
+   the container's, set by the footer on --fig-stat-v, --fig-stat-c and --fig-stat-gap. v4 footer-home.css .ff-stat b and b + span */
+.fig--stat { gap: var(--fig-stat-gap, var(--space-1-5)); }
+.fig--stat .fig__v { color: var(--color-pink); font-size: var(--fig-stat-v, var(--size-xl)); text-shadow: var(--shadow-fig-stat); }
+.fig--stat .fig__c { color: var(--color-text-soft); font-size: var(--fig-stat-c, var(--size-chip)); font-weight: 700; letter-spacing: var(--tracking-wide); line-height: 1.2; text-transform: uppercase; }
+/* modifier needed by .commit, D-232: a money figure standing beside an act, larger, its caption soft (case-page.css .v4c-cost, .v4c-net) */
+.fig--l {
+  --fig-l: 22px; /* v4 case-page.css: .v4c-cost b and .v4c-net b, a money figure standing beside an act (the guest's price, the net of an open); on the modifier, not in :root: one component reads it, D-231 point 1; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.fig--l { gap: var(--space-hair); }
+.fig--l .fig__v { gap: var(--space-1-5); font-size: var(--fig-l); line-height: 1.2; }
+.fig--l .fig__v > .icon--coin { font-size: var(--size-title); }
+.fig--l .fig__c { color: var(--color-text-soft); font-size: var(--size-chip); }
+.fig--end { align-items: flex-end; text-align: right; }
+@media (max-width: 899px) { .fig--end { align-items: center; text-align: center; } }
+@media (max-width: 599px) { .fig--end { align-items: flex-start; text-align: left; } .fig--end .fig__v { font-size: var(--size-m); } }
 
 /* BADGE. Short text in a pill: a count or a bonus pinned to a control, a ribbon on a tile, a status. From the 5 % badge, account-home.css. */
 .badge { display: inline-grid; place-items: center; height: var(--size-badge); padding: 0 var(--size-badge-pad); border-radius: var(--radius-s); background: var(--color-money); color: var(--color-badge-ink); font-size: var(--size-badge-text); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1; text-transform: uppercase; white-space: nowrap; }
@@ -1969,14 +2079,34 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .badge--status { background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-text-soft); }
 .badge--count { background: var(--color-button); color: var(--color-text-hi); }
 .badge--good { background: var(--color-green); color: var(--color-ground); }
+/* modifier needed by .proof, D-232: a round whose recomputation does not match is our failure, in the red of the refusal's mark
+   (--color-error, .note--refuse::before) with the ground's dark ink, as .badge--good is green with it; one badge shape, the colour only
+   (D-230). The failure wash of Not copied was tried first and read at 3.5:1 on the blue plate; this reads 6.1:1 */
+.badge--bad { background: var(--color-error); color: var(--color-ground); }
 
 /* AVATAR. The Steam picture in a circle with a hairline ring; the ticker's is the small one. From account-home.css and the ticker. */
 .avatar { display: block; flex: none; width: var(--size-avatar-m); height: var(--size-avatar-m); border-radius: 50%; background: var(--color-raised); box-shadow: var(--shadow-avatar); object-fit: cover; }
 .avatar--s { width: var(--size-avatar-s); height: var(--size-avatar-s); box-shadow: var(--shadow-avatar-s); }
+/* modifier needed by .account-head, D-232: the account's picture at the head of its page, 64px in the white ring the account menu draws,
+   v4 account-home.css .am3-ava */
+.avatar--l {
+  --avatar-l: 64px; /* v4 account-home.css: .am3-ava, the account at the head of its menu; on the modifier, not in :root: one component reads it, D-231 point 1; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.avatar--l { width: var(--avatar-l); height: var(--avatar-l); box-shadow: var(--shadow-avatar-l); }
 
 /* LOGO. The mark in the rail and the footer; its asset is stage 06's, concept/assets/logo. */
 .logo { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-text-hi); text-decoration: none; }
 .logo__mark { display: block; height: var(--size-tile); aspect-ratio: 3.74; background: var(--art-logo) left center / contain no-repeat; } /* the mark is the logo art, v4's logo2-10 */
+/* modifier needed by .rail, D-232: the logo on the header strip and at the drawer's top, 142 by 38, v4 theme.css .wf-rail .wf-logo-mark */
+.logo--s {
+  --logo-s: 38px; /* v4 theme.css: .wf-rail .wf-logo-mark, 142 by 38, the logo on the header strip and at the drawer's top; on the modifier, not in :root: one component reads it, D-231 point 1; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.logo--s .logo__mark { height: var(--logo-s); }
+/* modifier needed by .footer, D-232: the logo in the footer, 46px tall, v4 footer-home.css .fl-logo */
+.logo--l {
+  --logo-l: 46px; /* v4 footer-home.css: .fl-logo, 168 by 46, the logo in the footer; on the modifier, not in :root: one component reads it, D-231 point 1; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.logo--l .logo__mark { height: var(--logo-l); }
 
 /* MEDIA SLOT. One framed image area with its aspect; a skin floats with no plate, case and mode art fills. */
 .media { position: relative; display: block; overflow: hidden; border-radius: var(--radius-card); background: var(--color-card-2); }
@@ -2021,6 +2151,10 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .fav[aria-pressed="true"] { color: var(--color-pink); box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
 .fav:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
 @media (prefers-reduced-motion: reduce) { .fav .icon { transition: none; } }
+/* modifier needed by .case-head, D-232: the favourite as a square of the medium height with the heart alone, its word for a screen reader
+   (case-page.css .v4c-flanks .wf-fav-case.v4c-fav) */
+.fav--square { justify-content: center; width: var(--size-button-m); min-height: var(--size-button-m); padding: 0; border-radius: var(--radius-button); background: var(--color-tile-veil); }
+.fav__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* NOTE LINE. One small line that qualifies a block; the refusal beside a control says what is missing, D-58; the stamp says as of when. */
 .note { margin: 0; color: var(--color-text-muted); font-size: var(--size-chip); line-height: 1.5; }
@@ -2030,6 +2164,10 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .note--refuse :is(b, strong) { font-weight: 700; }
 .note--refuse::before { content: '!'; position: absolute; left: 0; top: var(--size-hairline); display: grid; place-items: center; width: var(--size-refuse-mark); height: var(--size-refuse-mark); border-radius: 50%; background: var(--color-error); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 900; line-height: 1; }
 .note--stamp { font-variant-numeric: tabular-nums; }
+/* modifier needed by .case-head and .data-table, D-232: the line in the soft grey (the case's one line, the drop table's stamp, case-page.css
+   .v4c-title .wf-case-line and case-body.css .wf-stamp), and the line at the label's size (the case's one line) */
+.note--soft { color: var(--color-text-soft); }
+.note--label { font-size: var(--size-label); line-height: 1.2; }
 
 /* PROSE. The page's own text, the SEO layer among it; a measure of 68ch. From the Home SEO block, seo-home.css. */
 .prose { max-width: var(--size-measure); color: var(--color-text-lead); font-size: var(--size-lead); line-height: 1.65; }
@@ -2132,6 +2270,13 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .crumb--back li:not(:nth-last-child(2)) { display: none; }
 .crumb--back li + li::before { content: none; }
 .crumb--back li:nth-last-child(2) a::before { content: '\2039'; margin-right: var(--space-1-5); font-size: var(--size-text); line-height: 0; }
+/* modifier needed by .case-head, D-232: the trail that cuts to its parent with the back mark (.crumb--back) under 900px, case-page.css
+   @media (max-width: 899px) .v4c-nav .wf-crumb */
+@media (max-width: 899px) {
+  .crumb--fit li:not(:nth-last-child(2)) { display: none; }
+  .crumb--fit li + li::before { content: none; }
+  .crumb--fit li:nth-last-child(2) a::before { content: '\2039'; margin-right: var(--space-1-5); font-size: var(--size-text); line-height: 0; }
+}
 
 /* CASE TILE. A case as Home draws it, no plate at rest: the case with its skin (.media--case), its name, its risk as four bolts, its price in
    gold with the coin. Under the pointer or keyboard focus the tile takes its own card in its case's colour, fading out toward the case so the
@@ -2537,6 +2682,20 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .drop-card--row .kv__k { font-size: var(--size-micro); letter-spacing: var(--tracking-snug); }
 @container drop-card (max-width: 160px) { .drop-card--row .drop-card__t .kv__k { flex-basis: auto; } }
 @media (prefers-reduced-motion: reduce) { .drop-card, .drop-card__art > img { transition: none; } }
+/* modifier needed by .data-table, D-232: the card that takes its row form (.drop-card--row) where the table gives it the whole width,
+   under 600px; the same values as --row, from design/v4/case-body.css row F @media (max-width: 599px) */
+@media (max-width: 599px) {
+  .drop-card--fit { grid-template-columns: var(--drop-card-row-art) minmax(0, 1fr); grid-template-rows: auto 1fr auto auto; grid-template-areas: 'v name' 'art name' 'art ch' 'art t'; column-gap: var(--space-3-5);
+    padding: var(--space-3) var(--space-3-5) var(--space-3-5); text-align: left; }
+  .drop-card--fit::after { left: calc(var(--space-3-5) + var(--drop-card-row-art) / 2); }
+  .drop-card--fit .drop-card__v .fig__v { font-size: var(--size-m); }
+  .drop-card--fit .drop-card__art { align-self: start; height: var(--drop-card-row-art-h); margin: var(--space-1-5) 0 0; }
+  .drop-card--fit .drop-card__name { align-items: flex-start; margin: var(--size-edge) 0 var(--space-2-5); }
+  .drop-card--fit .drop-card__s { font-size: var(--size-label); }
+  .drop-card--fit .kv { flex-wrap: nowrap; gap: var(--space-1-5); font-size: var(--size-chip); }
+  .drop-card--fit .drop-card__t { font-size: var(--size-chip); }
+  .drop-card--fit .kv__k { font-size: var(--size-micro); letter-spacing: var(--tracking-snug); }
+}
 
 /* EMPTY STATE. A heading that says what is not here, the sentence that says what would put it here, and the way on. Variants: nothing yet
    (a list, a ledger, a shelf), nothing matches (the ways to widen, each with its act, and the count of the whole), not available (taken down
@@ -2732,6 +2891,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
   .feed-tile { --feed-bar: 28px; --feed-hex-w: 45px; --feed-hex-h: 39px; --feed-hex-top: 11.5px; --feed-ring-w: 78px; --feed-ring-h: 70px; --feed-ring-top: -3.8px; --feed-skin: 44px; --feed-skin-above: 2px; --feed-skin-below: 3px; --feed-pad-top: 4px; --feed-pad-side: 3px; --feed-pad-foot: 6px; --feed-name: 11px; --feed-sub: 11px; --feed-sub-gap: 1px; --feed-back-pad-top: 6px; --feed-back-pad-side: 6px; --feed-back-pad-foot: 8px; --feed-back-gap: 4px; --feed-case-w: 60px; --feed-case-h: 34px; }
 }
 .feed-tile { --rarity: var(--color-rarity-6); position: relative; display: block; box-sizing: border-box; flex: none; width: var(--size-drop-v4); border-radius: var(--radius-s); background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--rarity) 38%, transparent), transparent), var(--gradient-feed-plate); box-shadow: var(--shadow-feed-tile); color: var(--color-text); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.feed-tile { min-width: min-content; } /* D-232: a drop grows to fit its names as v4's does (theme.css .wf-feed-i: flex-basis --size-drop-v4, flex-shrink 0, the names unbroken), never cut short by the ellipsis; the width above is its least */
 .feed-tile--gold { --rarity: var(--color-rarity-1); } .feed-tile--covert { --rarity: var(--color-rarity-2); } .feed-tile--classified { --rarity: var(--color-rarity-3); }
 .feed-tile--restricted { --rarity: var(--color-rarity-4); } .feed-tile--milspec { --rarity: var(--color-rarity-5); } .feed-tile--industrial { --rarity: var(--color-rarity-6); } .feed-tile--consumer { --rarity: var(--color-rarity-7); }
 /* the rarity bar on the foot, its light rising into the plate */
@@ -2800,7 +2960,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 /* a declaration: the row is the press, a label round the kit's checkbox atom (.field--declare.check), the founder's pick of D-229, so the box
    is 20px with a 4px corner and takes the button colour when ticked, D-231; the row takes the pink edge once its box is ticked; the refusal is
    the note line under the rows (D-58), and the row it names takes the error edge */
-.field--declare { display: flex; align-items: center; gap: var(--space-3); min-height: calc(var(--size-tap) + var(--space-1)); box-sizing: border-box; padding: var(--space-2) var(--space-3); border-radius: var(--radius-card); background: var(--color-tile); box-shadow: var(--shadow-edge); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; cursor: pointer; transition: box-shadow .2s, background-color .2s, color .2s; }
+.field--declare { display: flex; align-items: center; gap: var(--space-3); min-height: calc(var(--size-tap) + var(--space-1)); box-sizing: border-box; padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-card); background: var(--color-tile); box-shadow: var(--shadow-edge); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; cursor: pointer; transition: box-shadow .2s, background-color .2s, color .2s; } /* D-232: 10px above and below, v4 signin-home.css .sd-cbx padding 10px 12px; it drew 8 */
 .field--declare:has(> input:checked) { color: var(--color-text-hi); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-pink-edge); }
 .field--declare.is-missing { box-shadow: inset 0 0 0 var(--size-edge) var(--color-error); animation: field-nudge .32s ease-out; }
 .field__s { flex: 1; min-width: 0; }
@@ -2809,6 +2969,11 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 @media (hover: hover) { .field__s a:hover { text-decoration: underline; } }
 @keyframes field-nudge { 25% { translate: calc(-1 * var(--space-1)) 0; } 55% { translate: var(--space-1) 0; } 80% { translate: calc(-1 * var(--size-edge)) 0; } }
 @media (prefers-reduced-motion: reduce) { .field--declare { transition: none; } .field--declare.is-missing { animation: none; } }
+/* modifier needed by .signin, D-232: the declaration row where the sign in dialog has its two columns, signin-home.css @container dlg
+   (min-width: 760px) .sd--e .sd-cbx: 58px tall, 12px and 16px of padding, the sentence at 15px */
+@container dialog (min-width: 760px) {
+  .field--declare.field--roomy { min-height: calc(var(--size-tap) + var(--space-3-5)); padding: var(--space-3) var(--space-4); font-size: var(--size-s); }
+}
 
 /* FILTER CHIP. A filter in force, said in words, and the cross that takes it off; Clear all beside the group is a small ghost button.
    Grey only so far, wireframes/catalogue-filtered.html, catalogue-empty.html; the look is Home's fact pins on the picture of What opening a
@@ -2972,6 +3137,18 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   .mode-card, .mode-card::before, .mode-card::after, .mode-card__art, .mode-card__art::before, .mode-card__art::after { animation: none; transition: none; }
   .mode-card:hover .mode-card__art { scale: none; rotate: none; translate: none; }
   .mode-card--battles:hover .mode-card__art::before, .mode-card--battles:hover .mode-card__art::after { animation: none; }
+}
+/* modifier needed by .mode-row, D-232: the fitted card takes the stacked form (.mode-card--stack) wherever the row is narrow, by the
+   row's own width, and the side form elsewhere; the same values as --stack, from design/v4/modes.css @container modes */
+@container mode-row (max-width: 515px) or ((min-width: 624px) and (max-width: 991px)) {
+  .mode-card--fit { --dy: -6; aspect-ratio: auto; padding: var(--space-3); }
+  .mode-card--fit::before { -webkit-mask: linear-gradient(180deg, #000 28%, transparent 62%); mask: linear-gradient(180deg, #000 28%, transparent 62%); }
+  .mode-card--fit::after { --rx: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx) + var(--ow) * var(--k) / 2) * 1cqw); --ry: calc((var(--ot) * var(--k) + var(--dy) + var(--ow) * var(--k) / 2) * 1cqw);
+    -webkit-mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), #000 calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), #000 calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); }
+  .mode-card--fit .mode-card__name { margin-top: 46cqw; font-size: min(var(--size-title), 12.5cqw); }
+  .mode-card--fit .mode-card__line { max-width: none; margin: var(--space-1) 0 var(--mode-line-foot); }
+  .mode-card--fit .mode-card__act, .mode-card--fit .mode-card__later { align-self: stretch; width: auto; }
+  .mode-card--fit .mode-card__later { font-size: max(var(--size-unit), min(var(--size-xs), 7.6cqw)); }
 }
 
 /* OUTCOME CARD. What came out of a round, Z7 of win-lab.html on W7's card: its published chance over the skin, the skin large in its tier's
@@ -3154,6 +3331,27 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .popover__note { margin: var(--space-2) var(--space-3) var(--space-1); color: var(--color-text-muted); font-size: var(--size-chip); line-height: 1.2; }
 @media (max-width: 359px) { .popover__code { display: none; } }
 @media (prefers-reduced-motion: reduce) { .popover--account .popover__panel { animation: none; } .popover__trigger, .popover__chev, .popover__copy, .popover__tile, .popover__case, .popover__out { transition: none; } }
+/* modifier needed by .rail, D-232: the language control fills its cell, its content centred, and its list opens up from its start, as
+   the open rail and the drawer draw it; in a cell under 60px wide (the closed rail) it is the flag alone on a square tile and its list opens
+   beside it. v4 theme.css and rail-b1.css .wf-rail-lang, kit.css part 3 .wf-lang-pop. Its cell is a size container (.rail__amb-i) */
+.popover--fit { display: flex; }
+.popover--fit .popover__trigger { flex: 1 1 auto; justify-content: center; }
+.popover--fit .popover__panel { left: 0; right: auto; }
+@container (max-width: 59px) {
+  .popover--fit .popover__trigger { width: var(--size-tile); padding: 0; gap: 0; }
+  .popover--fit .popover__trigger > :not(.popover__flag), .popover--fit .popover__trigger::after { display: none; }
+  .popover--fit .popover__trigger > .popover__flag { flex-basis: var(--size-tile-icon); width: var(--size-tile-icon); height: var(--size-tile-icon); }
+  .popover--fit .popover__panel { left: calc(100% + var(--space-4)); bottom: 0; }
+}
+/* under 900px, in the drawer: the list rises from the bottom as the account menu's phone sheet (.popover--account above), its handle on top and
+   the page and the drawer dimmed by the popover's own scrim, so the drawer's edge never clips it; a press on the scrim or Escape closes it, D-232 */
+@media (max-width: 899px) {
+  .popover--fit { position: static; }
+  .popover--fit .popover__panel { position: fixed; z-index: 61; inset: auto 0 0 0; width: auto; max-width: none; max-height: 88vh; overflow-y: auto; padding: var(--space-2) var(--space-3) var(--space-4); border: 0; border-radius: var(--radius-l) var(--radius-l) 0 0; background: var(--gradient-menu); box-shadow: var(--shadow-edge), var(--shadow-menu); animation: popover-rise .28s cubic-bezier(.2, .7, .2, 1); }
+  .popover--fit .popover__panel::before { content: ''; display: block; flex: none; width: var(--popover-handle); height: var(--space-1); margin: 0 auto var(--space-2-5); border-radius: var(--radius-xs); background: var(--color-handle); }
+  .popover--fit .popover__trigger[aria-expanded="true"] ~ .popover__scrim { display: block; position: fixed; inset: 0; z-index: 60; background: var(--color-scrim-sheet); }
+}
+@media (prefers-reduced-motion: reduce) { .popover--fit .popover__panel { animation: none; } }
 
 /* RECENT DROP CARD. One best drop of this case: the value first, the skin in its tier's ring, the gun and the skin, the moment it dropped; the
    whole card is the link to that round. Under the pointer or on focus the skin falls back and who won it and when stands over it; with no
@@ -3246,3 +3444,1163 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .withdraw-item__b > .fig .fig__v { font-size: var(--size-title); }
 .withdraw-item__b > .kv { justify-self: stretch; margin-top: var(--space-2); padding-top: var(--space-2); border-top: var(--size-hairline) solid var(--color-line-soft); }
 @media (min-width: 600px) { .withdraw-item { --art: calc(var(--size-drop-v4) + var(--space-7)); gap: var(--space-5); padding: var(--space-4) var(--space-5); } .withdraw-item::after { left: calc(var(--space-5) + var(--art) / 2); } }
+
+/* ----- 4.3 Organisms, batch 3, D-232 ----- */
+/* Read from v4's code and the grey screens by three passes and merged on 19 Nov 2026, D-232: in the order of design/kit/inventory.md "Level 3",
+   an organism after every organism it holds (Payment panel holds Status notice, Case head holds Case stage, Dialog holds Sign-in block and Payment
+   panel). The language they share is in :root above; the geometry one organism reads is declared at the head of its own block, on its root class,
+   and read inside it only. Where an organism needs another form of a component it holds, that form is a modifier in that component's own block
+   above, under a line naming the organism, so one component's rules stay together. */
+
+/* ACCOUNT HEAD. Who this account is, over the four account pages: the breadcrumb, the Steam picture, the name, the ID a person reads out to
+   support and the Steam account the items go to (or the line that says none is linked, D-150), the money pair with Add funds, and the four
+   tabs, the current one not a link (D-58). GREY ONLY SO FAR, wireframes/account*.html and history*.html (wf-ah). Built from its nearest
+   relative in colour, D-229 point 4: the head of the account's menu in the header (design/v4/account-home.css .am3-head: the 64px avatar in
+   its white ring, the name at 17px heavy, the ID in soft figures), set on the header strip's plate (theme.css .wf-header::before, the menu's
+   gradient with the strip's hairline and lift) with the header's money plate (.ac2-plate) and its Add funds. The grey's artwork band stays
+   the plate: v4 draws no picture for it. */
+/* its own geometry, read inside .account-head only */
+.account-head {
+  --account-head-pad: var(--space-4); /* the account menu's 12px padding stepped up a rung for a page band, as the header strip pads its row; 24px from 900px */
+}
+.account-head { position: relative; isolation: isolate; display: grid; gap: var(--space-3); padding: var(--account-head-pad); border-radius: var(--radius-m); background: var(--gradient-menu); box-shadow: var(--shadow-shell); color: var(--color-text-hi); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.account-head__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); }
+.account-head__who { display: flex; align-items: center; gap: var(--space-3-5); min-width: 0; }
+.account-head__names { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-1-75); min-width: 0; }
+.account-head__name { margin: 0; overflow: hidden; font-size: var(--size-lead); font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
+.account-head__id { margin: 0; color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); white-space: nowrap; }
+.account-head__steam { display: inline-flex; width: fit-content; max-width: 100%; overflow: hidden; color: inherit; text-decoration: none; } /* with no Steam account linked, the line is the missing figure, still the way to Settings */
+.account-head__steam:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+@media (hover: hover) { .account-head__steam:hover { text-decoration: underline; text-underline-offset: var(--space-thin); } }
+.account-head__money { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-left: auto; }
+.account-head__figs { display: flex; align-items: center; gap: var(--space-4); box-sizing: border-box; min-height: var(--size-button-m); padding: var(--space-1-75) var(--space-3); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+@media (min-width: 900px) { .account-head { --account-head-pad: var(--space-5); } }
+@media (max-width: 599px) { .account-head__money { width: 100%; margin-left: 0; } }
+
+/* BOTTOM BAR. The phone's shortcut bar, a subset of the rail (CLAUDE.md "Baseline"): Home and Cases in both states, a mark over a small
+   capital name, the current one white with its mark in pink. Fixed to the window's foot under 900px; from 900px the rail carries them.
+   From kit.css parts 2 and 3 (.wf-bar), as Home v4 and the case screen draw it. */
+.bottom-bar { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-around; box-sizing: border-box; height: var(--size-bar); border-top: var(--size-hairline) solid var(--color-line-soft); background: var(--color-ticker); font-family: var(--font-family); }
+.bottom-bar__i { display: flex; flex-direction: column; align-items: center; gap: var(--space-thin); padding: var(--space-1) var(--space-2); color: var(--color-text-muted); font-size: var(--size-chip); font-weight: 500; line-height: 1.2; text-decoration: none; text-transform: uppercase; -webkit-tap-highlight-color: transparent; }
+.bottom-bar__mark { display: block; width: var(--size-nav-mark); height: var(--size-nav-mark); font-size: var(--size-nav-mark); line-height: 1; }
+.bottom-bar__mark .icon { vertical-align: top; }
+.bottom-bar__i[aria-current="page"] { color: var(--color-text-hi); }
+.bottom-bar__i[aria-current="page"] .bottom-bar__mark { color: var(--color-pink); }
+.bottom-bar__i:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--size-edge)); border-radius: var(--radius-s); }
+@media (hover: hover) { .bottom-bar__i:not([aria-current="page"]):hover { color: var(--color-text-hi); } }
+@media (min-width: 900px) { .bottom-bar { display: none; } }
+
+/* CASE GRID. A shelf of cases on Home: the section's head, the cases as Home draws them, the act that leads to the whole catalogue. The shelf lays
+   its tiles out by its own width (two, three or five a row) and centres a short last row. Carried from design/v4/index.html, Featured cases,
+   on kit.css parts 2 and 3 .wf-sec, .wf-grid:has(> .wf-tile), .wf-sec-foot, and case-tiles.css .wf-grid:has(> .wf-tile). Contains Section head
+   (.sec-head) and Case tile (.case-tile); the foot's act is a Button. */
+.case-grid {
+  --case-grid-all-w: 140px; /* v4 kit.css part 3: .wf-sec-foot .wf-btn min-width, All cases never narrower than this; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.case-grid { display: block; min-width: 0; color: var(--color-text); font-size: var(--size-text); line-height: 1.2; }
+.case-grid__list { container: case-grid / inline-size; display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+.case-grid__cell { display: grid; flex: 0 0 calc((100% - var(--space-4)) / 2); min-width: 0; } /* one cell per case; the tile is the cell's one grid item and fills it both ways, so a row's tiles stand one height */
+@container case-grid (min-width: 480px) { .case-grid__cell { flex-basis: calc((100% - 2 * var(--space-4)) / 3); } }
+@container case-grid (min-width: 720px) { .case-grid__cell { flex-basis: calc((100% - 4 * var(--space-4)) / 5); } }
+.case-grid__foot { display: flex; justify-content: center; margin-top: var(--space-5); }
+.case-grid__all { min-width: var(--case-grid-all-w); }
+
+/* CASE STAGE. Where the case stands, the open runs and the prize lands, one region in three phases that never unmounts (case.md section 0). At rest the
+   case stands large over a band the nine run through, dim, fading to nothing at both ends, a pointer over the band and one under it; two to
+   five cases part the stage into as many cells, the band folds shut and a column opens behind each case. The open (data-phase="open") hides
+   the cases, lights the runs at full strength, closes the pointers in and draws the line the runs stop on. The outcome (data-phase="won")
+   puts the prizes in the cells, the Outcome card one per case, on a light of the best tier. Row M of design/v4/case-stage.css with card W7
+   and prize Z7, case-page.css (.v4c-frame, .v4c-rest, .v4c-win) and case-open.css (.v4o-card). The count is data-count, 1 to 5; the best
+   tier of a landing is --tier on the stage (.case-stage--r1 to --r7). The stage's ground is the case head's: it stands inside .case-head.
+   Contains Media slot (.media--case, the case at rest), Outcome card (.outcome, the prize) and Button (the prize's Sell). The run's own
+   card, .case-stage__card, is the stage's: value, skin in its tier's ring, gun and skin, a bar at its foot, as the live drop's card. */
+.case-stage {
+  --stage-h: 340px; /* v4 case-stage.css: .v4c-top[data-v="m"] .v4c-stage .v4c-frame[data-count], one height for the stage whatever the count and the phase; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-inset: 22px; /* v4 case-page.css: .v4c-frame margin 0 22px, the stage's inset from the block's edge; the band runs back out through it; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-reach: 103px; /* v4 case-stage.css: .v4c-top[data-v="m"] .v4c-frame --bh, half the band: where the pointers stop and the run's line ends; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-band-h: 206px; /* v4 case-stage.css: .v4c-band height, the band the nine run through; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-band-fade: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent); /* a mask; v4 case-stage.css: .v4c-band, the band fading to nothing at both ends; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-band-fade-run: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); /* a mask; v4 case-stage.css: .v4c-band[data-spin], the band opened wider while it runs; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-col-fade: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent); /* a mask; v4 case-stage.css: .v4c-col, a column fading at its top and foot; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-card-w: 146px; /* v4 case-stage.css: .v4c-band .v4o-card width, a card in the band; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-card-h: 170px; /* v4 case-stage.css: .v4c-band .v4o-card height; its ratio is the column card's aspect too; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-col-w: 168px; /* v4 case-stage.css: .v4c-col width min(168px, ...), the widest a column grows; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-col-room: 18px; /* v4 case-stage.css: .v4c-col .v4o-card width calc(100% - 18px), the air either side of a column's cards; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case: 420px; /* v4 case-stage.css: .v4c-top[data-v="m"] .v4c-box width, one case at rest; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case-2: 330px; /* v4 case-stage.css: .v4c-frame[data-count="2"] .v4c-box, each of two; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case-3: 290px; /* v4 case-stage.css: .v4c-frame[data-count="3"] .v4c-box; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case-4: 250px; /* v4 case-stage.css: .v4c-frame[data-count="4"] .v4c-box; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case-5: 220px; /* v4 case-stage.css: .v4c-frame[data-count="5"] .v4c-box; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-w: 38px; /* v4 case-stage.css: .v4c-ptr-a width, a pointer; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-h: 32px; /* v4 case-stage.css: .v4c-ptr-a height; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-glow: 150px; /* v4 case-stage.css: .v4c-ptr-a::after width, the light where a pointer's tip meets the band; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-in: 30px; /* v4 case-stage.css: .v4c-frame:not([data-count="1"])[data-spin] .v4c-ptr-a.is-a left, a side pointer stepped in over the columns while they run; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-line-in: 26px; /* v4 case-stage.css: .v4c-frame:not([data-count="1"]) .v4c-ptr-line left and right, the line across the columns stopping short of the edges; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-flood-h: 220px; /* v4 case-stage.css: .v4c-top[data-v="m"] .v4c-flood height, the light the prizes land on; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-card-bar: 36px; /* v4 case-stage.css: .v4o-card::after width (cards N to W7), the tier's bar at a run card's foot; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-card-price: clamp(12px, 13cqw, 20px); /* v4 case-stage.css: .v4o-price font-size, a run card's value by the card's own width; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-tip: 13px; /* v4 case-stage.css: .v4c-ptr-a::after top calc(100% - 13px), where the pointer's tip stands in its own drawing, so the light sits at the tip; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-won-glow: 34px; /* v4 case-stage.css: :is(.v4c-band, .v4c-col)[data-spin="land"] .v4o-card.is-won box-shadow, the light round the card a run lands on; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-ease-flood: cubic-bezier(.2, .8, .3, 1); /* v4 case-stage.css: .v4c-win.is-on .v4c-flood animation, the prizes' light running out along the band's axis; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-drop: drop-shadow(0 4px 8px color-mix(in srgb, var(--pointer) 45%, transparent)); /* a filter; v4 case-stage.css: .v4c-ptr:not(.is-gem) .v4c-ptr-a svg, a pointer's soft light in its own pink (--pointer is declared on the stage beside it); рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-charge: 0; /* v4 case-stage.css: .v4c-frame --v4o-charge, 0 at rest and through the run, raised to 1 by the page's script as a run slows onto its landing (with .case-stage--rN, the landing tier): how far the pointers' pink has turned to that tier; рішення користувача, D-209 (v4) carried by D-232 */
+}
+@media (max-width: 899px) { .case-stage { --stage-inset: var(--space-2-5); --stage-band-h: 170px; --stage-case: 320px; --stage-card-w: 120px; --stage-card-h: 136px; } } /* v4 case-page.css .v4c-frame margin 0 10px; case-stage.css @media (max-width: 899px) .v4c-band, .v4c-band .v4o-card, .v4c-box; рішення користувача, D-209 (v4) carried by D-232 */
+@media (min-width: 600px) and (max-width: 899px) { .case-stage { --stage-reach: 85px; } } /* v4 case-stage.css @media (max-width: 899px) and (min-width: 600px) .v4c-frame --bh; рішення користувача, D-209 (v4) carried by D-232 */
+@media (max-width: 599px) {
+  .case-stage { --stage-h: 250px; --stage-reach: 70px; --stage-band-h: 140px; --stage-case: 260px; --stage-card-w: 96px; --stage-card-h: 112px; --stage-mark-w: 28px; --stage-mark-h: 24px;
+    --stage-band-fade: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); --stage-col-room: var(--space-2);
+    --stage-won-1: 348px; --stage-won-3: 320px; --stage-won-5: 520px; } /* v4 case-stage.css @media (max-width: 599px): the frame 250px and, at the outcome, 348 for one prize (its foot tab ran 10px under), 320 for two or three, 520 for four or five in two rows; the band 140, its fade 15 to 85 %; the pointers 28 by 24; a column's cards 8px narrower; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.case-stage[data-count="1"] { --count: 1; } .case-stage[data-count="2"] { --count: 2; } .case-stage[data-count="3"] { --count: 3; }
+.case-stage[data-count="4"] { --count: 4; } .case-stage[data-count="5"] { --count: 5; }
+.case-stage--r1 { --tier: var(--color-rarity-1); } .case-stage--r2 { --tier: var(--color-rarity-2); } .case-stage--r3 { --tier: var(--color-rarity-3); }
+.case-stage--r4 { --tier: var(--color-rarity-4-lit); } .case-stage--r5 { --tier: var(--color-rarity-5-lit); } .case-stage--r6 { --tier: var(--color-rarity-6); } .case-stage--r7 { --tier: var(--color-rarity-7); }
+.case-stage { --pointer: color-mix(in srgb, var(--tier, var(--color-button)) calc(var(--stage-charge) * 100%), var(--color-button)); --hot: color-mix(in srgb, var(--tier, var(--color-pink)) calc(var(--stage-charge) * 100%), var(--color-pink));
+  position: relative; z-index: 3; display: grid; place-items: center; height: var(--stage-h); margin: 0 var(--stage-inset); }
+.case-stage > * { grid-area: 1 / 1; }
+@media (max-width: 599px) {
+  .case-stage[data-phase="won"][data-count="1"] { height: var(--stage-won-1); }
+  .case-stage[data-phase="won"]:is([data-count="2"], [data-count="3"]) { height: var(--stage-won-3); }
+  .case-stage[data-phase="won"]:is([data-count="4"], [data-count="5"]) { height: var(--stage-won-5); }
+}
+
+/* the band: one case. It folds shut along its middle for two to five and unfolds a beat after the columns close */
+.case-stage__band { position: absolute; left: calc(-1 * var(--stage-inset)); right: calc(-1 * var(--stage-inset)); top: 50%; z-index: 1; height: var(--stage-band-h); translate: 0 -50%; overflow: hidden; pointer-events: none;
+  background: var(--gradient-stage-band); -webkit-mask: var(--stage-band-fade); mask: var(--stage-band-fade); transition: opacity .3s .1s, scale .4s var(--motion-ease-unfold) .1s; }
+.case-stage__band::before, .case-stage__band::after { content: ''; position: absolute; left: 0; right: 0; height: var(--size-hairline); background: var(--gradient-stage-edge); }
+.case-stage__band::before { top: 0; } .case-stage__band::after { bottom: 0; }
+.case-stage:not([data-count="1"]) .case-stage__band { opacity: 0; scale: 1 0; transition: opacity .2s, scale .24s var(--motion-ease-fold); }
+.case-stage__run { position: absolute; left: 0; top: 50%; display: flex; gap: var(--space-3); width: max-content; translate: 0 -50%; animation: case-stage-band 60s linear infinite; }
+@keyframes case-stage-band { to { transform: translateX(calc(-50% - var(--space-1-5))); } } /* half the run and half its gap: the second copy of the nine takes the first one's place */
+.case-stage__band .case-stage__card { flex: none; width: var(--stage-card-w); height: var(--stage-card-h); }
+
+/* the columns: two to five, one behind each case, centred in its cell, the cards upright and drifting up; they open one after another */
+.case-stage__cols { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.case-stage__col { position: absolute; top: calc(-1 * var(--space-2)); bottom: calc(-1 * var(--space-2)); left: calc((var(--k, 0) + .5) / var(--count, 1) * 100%); width: min(var(--stage-col-w), calc(100% / var(--count, 1) * .84)); translate: -50% 0;
+  overflow: hidden; opacity: 0; scale: 1 0; visibility: hidden; -webkit-mask: var(--stage-col-fade); mask: var(--stage-col-fade);
+  transition: opacity .2s, scale .22s var(--motion-ease-fold), left .48s var(--motion-ease-settle), width .48s var(--motion-ease-settle), visibility 0s .24s; }
+.case-stage__col:nth-child(2) { --k: 1; } .case-stage__col:nth-child(3) { --k: 2; } .case-stage__col:nth-child(4) { --k: 3; } .case-stage__col:nth-child(5) { --k: 4; }
+.case-stage[data-count="2"] .case-stage__col:nth-child(-n+2), .case-stage[data-count="3"] .case-stage__col:nth-child(-n+3),
+.case-stage[data-count="4"] .case-stage__col:nth-child(-n+4), .case-stage[data-count="5"] .case-stage__col:nth-child(-n+5) { opacity: 1; scale: 1 1; visibility: visible;
+  transition: opacity .25s calc(.18s + var(--k, 0) * 60ms), scale .46s var(--motion-ease-open) calc(.18s + var(--k, 0) * 60ms), left .48s var(--motion-ease-settle), width .48s var(--motion-ease-settle), visibility 0s; }
+.case-stage__col-run { position: absolute; left: 0; right: 0; top: 0; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); animation: case-stage-col 46s linear infinite; animation-delay: calc(var(--k, 0) * -9s); }
+@keyframes case-stage-col { to { transform: translateY(calc(-50% - var(--space-1-5))); } }
+.case-stage__col .case-stage__card { flex: none; width: calc(100% - var(--stage-col-room)); height: auto; aspect-ratio: 146 / 170; } /* the band card's own ratio, --stage-card-w to --stage-card-h */
+@media (max-width: 599px) { .case-stage__col .case-stage__card-name { display: none; } }
+
+/* the run's card: the stage's own, W7 of card-lab.html: value large on top, the skin in its tier's ring lit from the top left round a gradient
+   fill, gun and skin, a short bar of the tier at its foot. The tier is a modifier, --r1 rarest to --r7 */
+.case-stage__card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; box-sizing: border-box; padding: 0 var(--space-2-5) var(--space-3-5); border-radius: var(--radius-card); overflow: hidden; container-type: inline-size; opacity: .8; filter: saturate(.85);
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 18%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 10%, var(--color-card-deep)), var(--color-card-deep) 60%);
+  box-shadow: var(--shadow-tile-edge), var(--shadow-card); color: var(--color-text); font-size: var(--size-text); line-height: 1.2; text-align: center; } /* v4 drew 14px corners, the ladder's 12, D-228 */
+.case-stage__card--r1 { --tier: var(--color-rarity-1); } .case-stage__card--r2 { --tier: var(--color-rarity-2); } .case-stage__card--r3 { --tier: var(--color-rarity-3); }
+.case-stage__card--r4 { --tier: var(--color-rarity-4-lit); } .case-stage__card--r5 { --tier: var(--color-rarity-5-lit); } .case-stage__card--r6 { --tier: var(--color-rarity-6); } .case-stage__card--r7 { --tier: var(--color-rarity-7); }
+.case-stage__card::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: var(--stage-card-bar); height: var(--size-tier-bar); margin-left: calc(var(--stage-card-bar) / -2); border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--tier); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--tier); }
+.case-stage__card-v { position: absolute; z-index: 2; top: 7%; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: .3em; color: var(--color-money); font-size: var(--stage-card-price); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.case-stage__card-v > .icon--coin { width: 1em; height: 1em; }
+.case-stage__card-plate { position: absolute; left: 50%; top: 27.5%; height: 38%; aspect-ratio: 136 / 118; translate: -50% 0; background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--tier) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+/* the ring's light, both glows already blurred inside one mask, case-stage.css .v4o-glow (the performance pass of 10 Nov 2026) */
+.case-stage__card-glow { position: absolute; left: 50%; top: 13.03%; height: 66.95%; aspect-ratio: 176 / 158; translate: -50% 0; pointer-events: none; background: var(--tier); -webkit-mask: var(--shape-hex-glow) center / 100% 100% no-repeat; mask: var(--shape-hex-glow) center / 100% 100% no-repeat; }
+@container (max-width: 110px) { .case-stage__card-glow { top: 10.88%; height: 56.24%; } }
+.case-stage__card-ring { position: absolute; left: 50%; top: 21.5%; display: block; height: 50%; width: auto; aspect-ratio: 136 / 118; translate: -50% 0; overflow: visible; pointer-events: none; }
+.case-stage__card-ring path { fill: none; stroke-width: var(--size-ring-stroke); stroke-linejoin: round; stroke-linecap: round; }
+.case-stage__card-ring stop:nth-of-type(1) { stop-color: color-mix(in srgb, var(--tier) 62%, var(--color-text-hi)); }
+.case-stage__card-ring stop:nth-of-type(2) { stop-color: color-mix(in srgb, var(--tier) 92%, var(--color-text-hi)); }
+.case-stage__card-ring stop:nth-of-type(3) { stop-color: color-mix(in srgb, var(--tier) 72%, var(--color-ring-deep)); }
+.case-stage__card > img { position: absolute; z-index: 1; left: 0; top: 25%; width: 100%; height: 43%; object-fit: contain; transform: scale(1.12); filter: var(--shadow-skin-card); }
+/* a name wider than the card runs on centred and is cut by the card, never ended with an ellipsis: v4 case-stage.css .v4o-name span */
+.case-stage__card-name { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; width: 100%; line-height: 1.15; }
+.case-stage__card-w { overflow: hidden; color: var(--color-text-soft); font-size: var(--size-badge-text); font-weight: 700; letter-spacing: var(--tracking-label); text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.case-stage__card-s { overflow: hidden; color: var(--color-text-hi); font-size: var(--size-s); font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
+
+/* the pointers: a parted triangle over the band and one under it, in the primary button's pink, bobbing toward the case at rest; for two to
+   five both turn a quarter and stand at the stage's two sides. Markup: two .case-stage__mark, each holding the triangle's svg */
+.case-stage__ptr { position: absolute; inset: 0; z-index: 4; pointer-events: none; transition: opacity .3s; }
+.case-stage__mark { position: absolute; left: 50%; width: var(--stage-mark-w); height: var(--stage-mark-h); translate: -50% -50%; transition: left .5s var(--motion-ease-settle), top .5s var(--motion-ease-settle), rotate .5s var(--motion-ease-settle); }
+.case-stage__mark--a { top: var(--space-4); rotate: 0deg; }
+.case-stage__mark--b { top: calc(100% - var(--space-4)); rotate: 180deg; }
+.case-stage__mark svg { display: block; width: 100%; height: 100%; overflow: visible; animation: case-stage-bob 1.8s ease-in-out infinite; filter: var(--stage-mark-drop); }
+.case-stage__mark .is-s1 { stop-color: color-mix(in srgb, var(--pointer) 72%, var(--color-text-hi)); }
+.case-stage__mark .is-s2 { stop-color: var(--pointer); }
+.case-stage__mark .is-s3 { stop-color: color-mix(in srgb, var(--pointer) 78%, var(--color-pointer-deep)); }
+.case-stage__mark .is-fill { stroke: none; }
+.case-stage__mark .is-edge { fill: none; stroke: color-mix(in srgb, var(--pointer) 40%, var(--color-text-hi)); stroke-width: .7; stroke-linejoin: round; opacity: .45; }
+.case-stage__mark .is-top { fill: none; stroke: var(--color-text-hi); stroke-width: .9; stroke-linecap: round; opacity: .45; }
+.case-stage__mark::after { content: ''; position: absolute; left: 50%; top: calc(100% - var(--stage-mark-tip)); width: var(--stage-mark-glow); height: var(--size-edge); translate: -50% 0; border-radius: var(--radius-xs); opacity: 0;
+  background: linear-gradient(90deg, transparent, var(--pointer), transparent); box-shadow: 0 0 var(--space-2) var(--pointer); transition: opacity .3s; } /* v4 drew a 2px corner, the ladder's 4, D-228 */
+@keyframes case-stage-bob { 50% { transform: translateY(var(--space-1)); } }
+.case-stage:not([data-count="1"]) .case-stage__mark--a { left: var(--space-3); top: 50%; rotate: -90deg; }
+.case-stage:not([data-count="1"]) .case-stage__mark--b { left: calc(100% - var(--space-3)); top: 50%; rotate: 90deg; }
+@media (max-width: 599px) { .case-stage:not([data-count="1"]) .case-stage__mark--a { left: 0; } .case-stage:not([data-count="1"]) .case-stage__mark--b { left: 100%; } }
+/* the line the run stops on: upright through the band for one, across the columns for two to five, case.md 7.2b; only while it runs */
+.case-stage__line { position: absolute; left: 50%; top: calc(50% - var(--stage-reach)); bottom: calc(50% - var(--stage-reach)); width: var(--size-edge); translate: -50% 0; opacity: 0;
+  background: linear-gradient(180deg, transparent, var(--hot) 22%, var(--hot) 78%, transparent); transition: opacity .3s; }
+.case-stage:not([data-count="1"]) .case-stage__line { left: var(--stage-line-in); right: var(--stage-line-in); top: 50%; bottom: auto; width: auto; height: var(--size-edge); translate: 0 -50%;
+  background: linear-gradient(90deg, transparent, var(--hot) 10%, var(--hot) 90%, transparent); }
+
+/* the cells: the lines between two to five cases, drawn out from the band's middle */
+.case-stage__cells { position: absolute; inset: 0; z-index: 1; pointer-events: none; transition: opacity .3s; }
+.case-stage__cells > i { position: absolute; top: 6%; bottom: 6%; left: calc(var(--k, 1) / var(--count, 1) * 100%); width: var(--size-hairline); opacity: 0; transform: scaleY(0); background: var(--gradient-stage-cell);
+  transition: left .48s var(--motion-ease-settle), transform .42s var(--motion-ease-settle) .08s, opacity .25s .08s; }
+.case-stage__cells > i:nth-child(2) { --k: 2; } .case-stage__cells > i:nth-child(3) { --k: 3; } .case-stage__cells > i:nth-child(4) { --k: 4; }
+.case-stage[data-count="2"] .case-stage__cells > i:nth-child(-n+1), .case-stage[data-count="3"] .case-stage__cells > i:nth-child(-n+2),
+.case-stage[data-count="4"] .case-stage__cells > i:nth-child(-n+3), .case-stage[data-count="5"] .case-stage__cells > i:nth-child(-n+4) { opacity: 1; transform: scaleY(1); }
+.case-stage[data-phase] .case-stage__cells { opacity: 0; }
+.case-stage[data-phase="open"] .case-stage__cells { opacity: 1; }
+
+/* the cases at rest: one cell per case, each case centred in its cell */
+.case-stage__rest { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(var(--count, 1), minmax(0, 1fr)); justify-items: center; align-items: center; width: 100%; height: 100%; transition: opacity .35s, transform .45s; }
+.case-stage__case { display: block; width: var(--stage-case); max-width: 92%; filter: var(--shadow-case-stage); }
+.case-stage[data-count="2"] .case-stage__case { width: var(--stage-case-2); } .case-stage[data-count="3"] .case-stage__case { width: var(--stage-case-3); }
+.case-stage[data-count="4"] .case-stage__case { width: var(--stage-case-4); } .case-stage[data-count="5"] .case-stage__case { width: var(--stage-case-5); }
+@media (max-width: 899px) { .case-stage:not([data-count="1"]) .case-stage__rest { column-gap: var(--space-1); } } /* v4 case-page.css @media (max-width: 899px) .v4c-frame[data-count]:not([data-count="1"]) .v4c-rest gap */
+.case-stage[data-phase] .case-stage__rest { opacity: 0; pointer-events: none; } /* the open sends the cases off (the page's script lunges each to the middle and bursts it); they stay in the frame unseen */
+
+/* the open: every card at full strength while the runs move, the band opened wider, its edges and the pointers lit, the pointers closed in */
+.case-stage[data-phase="open"] .case-stage__card { opacity: 1; filter: none; transition: opacity .35s, filter .35s, transform .25s, box-shadow .3s; }
+.case-stage[data-phase="open"] .case-stage__band { -webkit-mask: var(--stage-band-fade-run); mask: var(--stage-band-fade-run); }
+.case-stage[data-phase="open"] .case-stage__band::before, .case-stage[data-phase="open"] .case-stage__band::after { background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--hot) 70%, transparent) 30%, var(--hot) 50%, color-mix(in srgb, var(--hot) 70%, transparent) 70%, transparent); }
+.case-stage[data-phase="open"][data-count="1"] .case-stage__mark--a { top: calc(50% - var(--stage-reach) - var(--space-1-5)); }
+.case-stage[data-phase="open"][data-count="1"] .case-stage__mark--b { top: calc(50% + var(--stage-reach) + var(--space-1-5)); }
+.case-stage[data-phase="open"]:not([data-count="1"]) .case-stage__mark--a { left: var(--stage-mark-in); }
+.case-stage[data-phase="open"]:not([data-count="1"]) .case-stage__mark--b { left: calc(100% - var(--stage-mark-in)); }
+.case-stage[data-phase="open"] .case-stage__mark svg { animation: none; }
+.case-stage[data-phase="open"] .case-stage__mark::after { opacity: .9; }
+.case-stage[data-phase="open"] .case-stage__line { opacity: .8; }
+/* the card the run lands on lifts, the rest step back; on the outcome its copy in the run goes the instant the prize takes off */
+.case-stage__card.is-won { position: relative; z-index: 1; opacity: 1; filter: brightness(1.15); transform: scale(1.08); box-shadow: inset 0 0 0 var(--size-edge) var(--tier), 0 0 var(--stage-won-glow) color-mix(in srgb, var(--tier) 65%, transparent); }
+
+/* the outcome: the runs and the pointers go, the prizes stand in the cells on a light of the best tier */
+.case-stage[data-phase="won"] :is(.case-stage__band, .case-stage__cols, .case-stage__ptr) { opacity: 0; }
+.case-stage__win { position: relative; display: grid; place-items: center; align-self: stretch; box-sizing: border-box; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
+.case-stage[data-phase="won"] .case-stage__win { opacity: 1; pointer-events: auto; }
+.case-stage__flood { position: absolute; left: 0; right: 0; top: 50%; height: var(--stage-flood-h); translate: 0 -50%; opacity: 0; scale: 0 1; pointer-events: none;
+  background: radial-gradient(50% 50% at 50% 50%, color-mix(in srgb, var(--tier) 45%, transparent), color-mix(in srgb, var(--tier) 12%, transparent) 60%, transparent 75%); }
+.case-stage[data-phase="won"] .case-stage__flood { animation: case-stage-flood .8s var(--stage-ease-flood) .1s forwards; }
+@keyframes case-stage-flood { to { opacity: 1; scale: 1 1; } }
+.case-stage__row { position: relative; display: grid; grid-template-columns: repeat(var(--count, 1), minmax(0, 1fr)); justify-items: stretch; align-items: center; width: 100%; height: 100%; }
+@media (max-width: 599px) {
+  .case-stage:not([data-count="1"]) .case-stage__row { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: var(--space-2-5); align-content: center; }
+  .case-stage[data-count="2"] .case-stage__row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.case-stage__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  .case-stage__run { animation: none; translate: -25% -50%; }
+  .case-stage__col-run { animation: none; translate: 0 -20%; }
+  .case-stage__mark, .case-stage__mark svg { transition: none; animation: none; }
+  .case-stage__band, .case-stage__col, .case-stage__cells > i, .case-stage__rest, .case-stage__card { transition: none; }
+  .case-stage[data-phase="won"] .case-stage__flood { animation: none; opacity: 1; scale: 1 1; }
+}
+
+/* COMMIT BLOCK. Where money is spent: the count, the act with the total riding in it, the case's risk as four bolts and its band; under the plate, the
+   balance after the open, the coin's peg and the route to RTP and expected value (D-28), and the server seed hash before the act. The act
+   carries the total and never the unit (D-31). States: guest (the price as a figure beside Sign in, no count and no hash), funded (the count,
+   Open n cases with the total), two and five chosen (the total and the hashes follow the count), short (the act stays live and the refusal
+   is said under it with Add funds, D-58), open (the act busy, Rolling, the line says the results were fixed first), outcome (what came out:
+   the net of the open, a gain only, the round's facts, Sell all and Open again, where it is saved, the routes to check and share),
+   interrupted (the outcome led by the line that says the reveal did not finish and the result is already yours), degraded (the guest's form,
+   the expected value said to be below), no counter (the guest's form unchanged). Carried from design/v4/case-stage.css (.v4c-plate, row M)
+   and case-page.css (.v4c-commit, .v4c-act, .v4c-cost, .v4c-line, .v4c-hash, .v4c-after, .v4c-net, .v4c-inst, .v4c-acts, .v4c-saved,
+   .v4c-links, .v4c-rounds) as case-page.js draws them. Interrupted, degraded and no counter are grey only (wireframes/case-interrupted.html,
+   case-degraded.html, case-nocounter.html) and are built from the nearest state v4 draws, D-229 point 4: interrupted from the outcome,
+   degraded and no counter from the guest. Contains Figure, Segmented control, Button, Copyable value, Text link and Note line. */
+.commit {
+  --commit-col-gap: 20px; /* v4 case-stage.css: .v4c-plate @media (min-width: 900px) column-gap, the count, the act and the risk apart on the plate; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-act-w: 220px; /* v4 case-page.css: html body .v4c-go min-width, the open act never narrower; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-bolt: 28px; /* v4 case-stage.css: .v4c-plate .v4c-risk .v4-bolts i, a bolt on the plate, larger than the tile's 20; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-bolts-w: 128px; /* v4 case-stage.css: .v4c-plate .wf-risk.v4c-risk .v4-bolts width, the four bolts' row; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-bolts-h: 30px; /* v4 case-stage.css: .v4c-plate .wf-risk.v4c-risk height; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-rounds-w: 760px; /* v4 case-page.css: .v4c-rounds max-width, the round details of a batch; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-rounds-indent: 20px; /* v4 case-page.css: .v4c-rounds ol padding-left, the numbers of the round list; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-act-pad-s: 18px; /* v4 case-stage.css: @media (max-width: 599px) html body .v4c-go, .v4c-sell padding-left, the act's label start on a phone, its price at the other end; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.commit { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: stretch; gap: var(--space-2-5); box-sizing: border-box; width: 100%; margin: var(--space-3-5) 0 0; padding: 0; color: var(--color-text); font-size: var(--size-text); line-height: 1.2; text-align: center; }
+.commit > :not(.commit__plate) { align-self: center; }
+.commit[data-state="outcome"], .commit[data-state="interrupted"] { gap: var(--space-3); padding: 0 var(--space-4); }
+@media (max-width: 899px) { .commit { width: auto; margin-inline: var(--space-4); } } /* the stage runs edge to edge under 900px and the commit keeps the content edge, v4 case-stage.css @media (max-width: 899px) .v4c-commit, .v4c-after */
+.commit__plate { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-3-5); border-radius: var(--radius-m); background: var(--gradient-plate); box-shadow: var(--shadow-plate-edge); } /* v4 drew 18px corners, the ladder's 16, D-228 */
+@media (min-width: 900px) {
+  .commit__plate { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: var(--commit-col-gap); }
+  .commit__count { grid-column: 1; justify-self: start; }
+  .commit__act { grid-column: 2; }
+  .commit__risk { grid-column: 3; justify-self: end; } /* v4 asked 10px off the right in .v4c-plate > .v4c-risk and its margin: 0 won; the bolts stand on the padding */
+}
+@media (max-width: 599px) { .commit__plate { padding: var(--space-3); } }
+.commit__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* the act: the open, or for a guest Sign in with the price as a figure beside it */
+.commit__act { display: flex; align-items: center; gap: var(--space-4); }
+.commit__go { min-width: var(--commit-act-w); }
+@media (max-width: 899px) { .commit__act { flex-direction: column; gap: var(--space-2); } }
+@media (max-width: 599px) {
+  .commit__act { flex-direction: row; width: 100%; gap: var(--space-3); }
+  .commit__go { flex: 1 1 auto; min-width: 0; }
+  :is(.commit__go, .commit__wide).button--priced:not([aria-busy="true"]) { justify-content: space-between; padding-left: var(--commit-act-pad-s); } /* the label at the start, the price or the sum at the end, as v4 .v4c-go and .v4c-sell */
+}
+/* the risk, larger: four bolts of 28px lit in the band's colour, its word beside them; "Risk" for a screen reader */
+.commit__risk { --rc: var(--color-text-muted); display: flex; flex: none; align-items: center; gap: var(--space-2); height: var(--commit-bolts-h); }
+.commit__risk[data-risk="low"] { --rc: var(--color-risk-low); } .commit__risk[data-risk="medium"] { --rc: var(--color-risk-mid); }
+.commit__risk[data-risk="high"] { --rc: var(--color-risk-high); } .commit__risk[data-risk="extreme"] { --rc: var(--color-risk-extreme); }
+.commit__bolts { display: flex; flex: none; align-items: center; justify-content: center; gap: var(--space-1); width: var(--commit-bolts-w); height: var(--commit-bolts-h); font-size: var(--commit-bolt); }
+.commit__bolts > .icon { display: block; color: var(--color-skull-off-plate); vertical-align: 0; }
+.commit__bolts > .icon.is-on { color: var(--rc); }
+.commit__band { order: 2; color: var(--color-text-soft); font-size: var(--size-xs); font-weight: 700; white-space: nowrap; }
+/* under the plate: the money line with the peg, D-28, and the hash before the act */
+.commit__line { margin: 0; color: var(--color-text-soft); font-size: var(--size-xs); line-height: 1.2; } /* no measure: v4 wraps it at 68ch through a page-wide p rule, and the Text link's .02em would push even the one-open line over it */
+.commit__line > .note--refuse { display: inline-block; text-align: left; }
+/* the outcome: the net of the open, a gain only (no figure for a loss or an even open), the round's facts, the two acts, where it is saved */
+.commit__net { align-items: center; gap: var(--space-hair); text-align: center; }
+.commit__inst, .commit__saved { max-width: var(--size-measure); margin: 0; color: var(--color-text-soft); font-size: var(--size-xs); line-height: 1.2; }
+.commit__inst b { color: var(--color-text-hi); font-variant-numeric: tabular-nums; }
+.commit__saved strong { font-weight: 700; }
+.commit__acts { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2-5); }
+@media (max-width: 599px) { .commit__acts { flex-direction: column; width: 100%; } .commit__wide { width: 100%; } }
+.commit__links { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-1-5) var(--space-4-25); margin: 0; }
+.commit__rounds { max-width: var(--commit-rounds-w); color: var(--color-text-soft); font-size: var(--size-xs); text-align: left; }
+.commit__rounds > summary { color: var(--color-text-hi); font-weight: 700; text-align: center; cursor: pointer; }
+.commit__rounds > summary:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.commit__rounds p { margin: var(--space-2) 0 var(--space-1); }
+.commit__rounds ol { margin: 0; padding-left: var(--commit-rounds-indent); }
+.commit__rounds li { margin: var(--space-thin) 0; }
+.commit__rounds b { color: var(--color-text-hi); }
+
+/* DATA TABLE. Figures in rows that can be checked. Two variants. The drop table (--drops, D-125): what is in this case, by tier, each item a Drop card,
+   laid as a grid of cards and, under 600px, one card a row in its row form; the tiers are the table's groups, named for a screen reader, the
+   stamp under it says as of when. Carried from design/v4/case-body.css row F (.wf-drops[data-v="f"]) and case-blocks.js table(). The ledger
+   (--ledger): a history or a settlement, one row per event, its state with the reason beside it (never in a tooltip), a row whose proof does
+   not check out marked mismatched; under 600px each row is a card of label and value lines. Grey only so far, wireframes/history-*.html and
+   withdraw.html (.wf-settle); built from the drop table's language, D-229 point 4: the drop card's dark ground and corner, its small capital
+   keys and heavy tabular figures, the copyable value's mono for references, the refusal line for the mismatch. States: rows, empty (the
+   table gives way to an Empty state), a row marked mismatched (data-state="mismatch"). Contains Drop card, Figure, Text link, Badge,
+   Note line and Empty state. */
+.data-table {
+  --data-table-card: 176px; /* v4 case-body.css: .wf-drops[data-v="f"] grid-template-columns minmax(176px, 1fr), the narrowest a drop card stands in the grid; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.data-table { min-width: 0; color: var(--color-text); font-size: var(--size-text); line-height: 1.2; }
+.data-table__t { width: 100%; margin: 0; border: 0; border-collapse: separate; border-spacing: 0; color: var(--color-text); font-size: var(--size-label); line-height: 1.3; }
+.data-table__t :where(td, th) { padding: 0; border: 0; font-weight: inherit; text-align: inherit; vertical-align: middle; } /* the table's own cells, the browser's padding and bold headings off */
+.data-table__cap, .data-table--drops .data-table__head { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.data-table__stamp { margin-top: var(--space-3-5); }
+/* the drop table: a grid of drop cards; the tier heads stay in the markup and name each group for a screen reader */
+.data-table--drops .data-table__t { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--data-table-card), 1fr)); gap: var(--space-3); }
+.data-table--drops .data-table__group { display: contents; }
+.data-table--drops .data-table__tier { display: none; }
+@media (max-width: 599px) { .data-table--drops .data-table__t { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); } }
+/* the ledger: the keys over the columns, each row a band of the drop card's ground, figures right */
+.data-table--ledger .data-table__t { border-spacing: 0 var(--space-2); }
+.data-table--ledger .data-table__head th { padding: 0 var(--space-3) var(--space-1); color: var(--color-text-soft); font-size: var(--size-badge-text); font-weight: 700; letter-spacing: var(--tracking-label); text-align: left; text-transform: uppercase; white-space: nowrap; }
+.data-table--ledger .data-table__head th.data-table__num { text-align: right; }
+.data-table--ledger :where(tbody td) { padding: var(--space-3); background: var(--color-card-deep); box-shadow: inset 0 var(--size-hairline) 0 var(--color-track), inset 0 calc(-1 * var(--size-hairline)) 0 var(--color-track); color: var(--color-text-soft); vertical-align: top; }
+.data-table--ledger :where(tbody td:first-child) { border-radius: var(--radius-m) 0 0 var(--radius-m); box-shadow: inset var(--size-hairline) var(--size-hairline) 0 var(--color-track), inset 0 calc(-1 * var(--size-hairline)) 0 var(--color-track); }
+.data-table--ledger :where(tbody td:last-child) { border-radius: 0 var(--radius-m) var(--radius-m) 0; box-shadow: inset calc(-1 * var(--size-hairline)) var(--size-hairline) 0 var(--color-track), inset 0 calc(-1 * var(--size-hairline)) 0 var(--color-track); }
+.data-table__num { color: var(--color-text-hi); font-weight: 900; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.data-table__num.is-money { color: var(--color-money); }
+.data-table__ref { color: var(--color-text-hi); font-family: var(--font-mono); font-size: var(--size-chip); font-weight: 500; overflow-wrap: anywhere; }
+.data-table__when { color: var(--color-text-hi); font-family: var(--font-mono); font-size: var(--size-chip); font-weight: 500; white-space: nowrap; } /* a moment, read as the references are and never broken */
+.data-table__state { display: grid; justify-items: start; gap: var(--space-1); color: var(--color-text-hi); font-weight: 700; }
+.data-table__why { color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 400; line-height: 1.45; }
+/* a row whose proof does not check out: its band in the error wash with the down edge, the refusal line with the reason and the way on */
+.data-table--ledger tbody tr[data-state="mismatch"] td { background: linear-gradient(var(--color-error-wash), var(--color-error-wash)), var(--color-card-deep); box-shadow: inset 0 var(--size-hairline) 0 var(--color-down), inset 0 calc(-1 * var(--size-hairline)) 0 var(--color-down); }
+.data-table--ledger tbody tr[data-state="mismatch"] td:first-child { box-shadow: inset var(--size-hairline) var(--size-hairline) 0 var(--color-down), inset 0 calc(-1 * var(--size-hairline)) 0 var(--color-down); }
+.data-table--ledger tbody tr[data-state="mismatch"] td:last-child { box-shadow: inset calc(-1 * var(--size-hairline)) var(--size-hairline) 0 var(--color-down), inset 0 calc(-1 * var(--size-hairline)) 0 var(--color-down); }
+@media (max-width: 599px) {
+  .data-table--ledger .data-table__t, .data-table--ledger tbody, .data-table--ledger tr, .data-table--ledger td { display: block; }
+  .data-table--ledger .data-table__head { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .data-table--ledger tbody tr { display: grid; gap: var(--space-2); margin-bottom: var(--space-2); padding: var(--space-3) var(--space-3-5); border-radius: var(--radius-m); background: var(--color-card-deep); box-shadow: var(--shadow-tile-edge), var(--shadow-card); }
+  .data-table--ledger tbody tr[data-state="mismatch"] { background: linear-gradient(var(--color-error-wash), var(--color-error-wash)), var(--color-card-deep); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-down), var(--shadow-card); }
+  .data-table--ledger tbody td, .data-table--ledger tbody td:first-child, .data-table--ledger tbody td:last-child,
+  .data-table--ledger tbody tr[data-state="mismatch"] td, .data-table--ledger tbody tr[data-state="mismatch"] td:first-child, .data-table--ledger tbody tr[data-state="mismatch"] td:last-child { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-end; gap: var(--space-1) var(--space-2); padding: 0; border-radius: 0; background: none; box-shadow: none; text-align: right; }
+  .data-table--ledger tbody td::before { content: attr(data-l); flex: none; margin-right: auto; color: var(--color-text-soft); font-family: var(--font-family); font-size: var(--size-micro); font-weight: 700; letter-spacing: var(--tracking-snug); text-transform: uppercase; }
+  .data-table--ledger .data-table__state { flex: 1 1 100%; justify-items: start; text-align: left; } /* a state and its reason take the card's width under their key */
+}
+
+/* FOOTER. The foot of every page as one block set off the rail: the counters on a dark band between a blue and a pink line, a large soft blue
+   light rising off its top; the brand with the operator's line, Need help and Support, the social squares; three columns of links (Play over
+   Platform, Cases, Company) with two operators standing at the right on the strip; the strip with the two trust plates, Play responsibly and
+   Every round, and the payment cards; then the age and market lines and the language, and the fine print. Its own width decides its layout
+   (a container, as v4's: two columns under 1000px, one under 560px). From design/v4/footer-home.css (variant I), footer-home.js and the
+   language control kit.css part 3 holds. Corners 20px and 14px moved to 24px and 12px, 10px to 8px, D-228. */
+/* its own geometry, read inside .footer only */
+.footer {
+  --footer-light-h: 220px; /* the same, its height; 140px under 900px */
+  --footer-light-inset: 6%; /* the same, from the block's sides; 0 under 900px */
+  --footer-band-pad: 36px 28px 32px; /* .ff-band: padding; 26px 14px 22px under 560px */
+  --footer-pad: 28px; /* .fe-mid, .ff-strip, .ff-foot: the block's inner side, 28px */
+  --footer-stat-tile: min(58px, 4.4cqw); /* .ff-stat .fl-tile: a counter's tile; 50px under 1000px, 36px under 560px */
+  --footer-stat-v: min(38px, 2.6cqw); /* .ff-stat b: a counter's figure; 30px under 1000px, 21px under 560px */
+  --footer-stat-c: 12px; /* .ff-stat b + span: its caption; 11px under 560px */
+  --footer-stat-gap: var(--space-1-5); /* .ff-stat > span:last-child: gap 6px between figure and caption; 4px under 560px */
+  --footer-stats-row-phone: 20px; /* .ff-stats under 560px: gap 20px 8px, the counters two by two */
+  --footer-live: 7px; /* .ff-stat.is-live b + span::before: the green dot of Online now */
+  --footer-mid-min: 300px; /* .fe-mid: min-height 300px, room for the operators */
+  --footer-mid-pad-top: 34px; /* .fe-mid: padding-top */
+  --footer-agents-w: 24%; /* .ft-h .fe-agents: the operators' width, and the room the columns leave them; 28% under 1000px */
+  --footer-agents-right: 3%; /* the same, from the block's right */
+  --footer-agents-rise: 40px; /* .fe-agents: height calc(100% + 40px), their heads over the band's line */
+  --footer-brand-min: 220px; /* .fe-mid: grid minmax(220px, 1fr), the brand column's floor */
+  --footer-cols-ratio: 1.7fr; /* .fe-mid: the columns' share */
+  --footer-ident: 13px; /* .fl-ident: the operator's line */
+  --footer-col-gap: 14px; /* .fe-gap: the gap between Play and Platform; 20px with a coarse pointer */
+  --footer-cookie-h: var(--size-tap); /* v4 footer-home.css .fl-linklike: Cookie settings, a button that reads as a link, 44px tall as kit.css part 2's button floor; the column keeps that room, D-232 */
+  --footer-link: 15px; /* .fl-col a and .fl-linklike, and Need help */
+  --footer-plate: 72px; /* .fl-plate: a trust plate's height, and the payment cards' two rows beside it */
+  --footer-plate-room: 44px; /* .fl-plate: padding-right 44px, room for its arrow */
+  --footer-plate-mark: 46px; /* .ff-18 and .fl-pt: the disc and the tile on a plate */
+  --footer-plate-icon: 26px; /* .fl-pt .fl-ri: the target on Every round */
+  --footer-arrow: 10px; /* .fl-go: the plate's arrow */
+  --footer-arrow-line: 2.5px; /* the same, its stroke */
+  --footer-arrow-right: 18px; /* the same, from the plate's right */
+  --footer-pay-w: 66px; /* .ft-i .fe-pay li: a payment card, 66 by 33, two rows and their gap as tall as the plates */
+  --footer-pay-h: 33px; /* the same; 40px with a coarse pointer under 1000px */
+  --footer-pay-mark: 17px; /* .ft-i .fh-pay svg: the provider's mark */
+  --footer-foot-pad: 26px 28px 24px; /* .ff-foot: padding; 20px 14px under 560px */
+  --footer-legal: 12.5px; /* .ff-legal p: the age and market lines */
+  --footer-legal-basis: 420px; /* .ft-i .ff-legal: flex-basis */
+  --footer-agents-phone-w: 46%; /* .ft-h .fe-agents under 560px: beside Company, their feet on the strip */
+  --footer-agents-phone-h: 280px; /* the same */
+  --footer-agents-phone-drop: -34px; /* the same, bottom: their legs behind the strip */
+  container: footer / inline-size;
+}
+.footer { padding: 0 var(--space-3) var(--space-2) var(--space-2); color: var(--color-text); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.footer__block { position: relative; isolation: isolate; border-radius: var(--radius-l); background: var(--gradient-panel); color: var(--color-text-hi); box-shadow: var(--shadow-edge), var(--shadow-footer-lift); }
+.footer__block::before { content: ''; position: absolute; z-index: -1; left: var(--footer-light-inset); right: var(--footer-light-inset); bottom: 100%; height: var(--footer-light-h); background: var(--gradient-footer-light); pointer-events: none; }
+/* the counters' band */
+.footer__band { position: relative; isolation: isolate; padding: var(--footer-band-pad); background: var(--gradient-footer-band); }
+.footer__band::before, .footer__end::before { content: ''; position: absolute; z-index: -1; inset: 0; background: var(--gradient-footer-fade); }
+.footer__band::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: var(--space-hair); background: var(--gradient-edge-pink); }
+.footer__stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); }
+.footer__stats::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: var(--space-hair); background: var(--gradient-edge-blue); }
+.footer__stat { --fig-stat-v: var(--footer-stat-v); --fig-stat-c: var(--footer-stat-c); --fig-stat-gap: var(--footer-stat-gap); display: flex; color: inherit; text-decoration: none; align-items: center; justify-content: center; gap: var(--space-3-5); min-width: 0; }
+.footer__stat:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--space-1); border-radius: var(--radius-card); }
+.footer__tile { display: grid; place-items: center; flex: 0 0 auto; width: var(--footer-stat-tile); height: var(--footer-stat-tile); border-radius: var(--radius-card); background: var(--gradient-stripes), var(--gradient-mode-cases); box-shadow: var(--shadow-tile-lit); color: var(--color-text-hi); font-size: calc(var(--footer-stat-tile) * .56); transition: translate .25s cubic-bezier(.2, .7, .2, 1), rotate .25s cubic-bezier(.2, .7, .2, 1); }
+.footer__stat:nth-child(2) .footer__tile { background: var(--gradient-stripes), var(--gradient-mode-upgrade); }
+.footer__stat:nth-child(3) .footer__tile { background: var(--gradient-stripes), var(--gradient-mode-battles); }
+.footer__stat:nth-child(4) .footer__tile { background: var(--gradient-stripes), var(--gradient-mode-showdowns); }
+.footer__live { display: inline-block; width: var(--footer-live); height: var(--footer-live); margin-right: var(--space-1-5); border-radius: 50%; background: var(--color-green); vertical-align: var(--size-hairline); animation: footer-live 2s ease-in-out infinite; }
+@keyframes footer-live { 50% { opacity: .35; } }
+.footer__stat:focus-visible .footer__tile { translate: 0 calc(-1 * var(--size-lift)); rotate: -6deg; }
+@media (hover: hover) { .footer__stat:hover .footer__tile { translate: 0 calc(-1 * var(--size-lift)); rotate: -6deg; } }
+/* the middle: the brand, three columns, the operators at the right on the strip */
+.footer__mid { position: relative; display: grid; grid-template-columns: minmax(var(--footer-brand-min), 1fr) minmax(0, var(--footer-cols-ratio)); gap: var(--space-6); min-height: var(--footer-mid-min); box-sizing: border-box;
+  padding: var(--footer-mid-pad-top) calc(var(--footer-pad) + var(--footer-agents-w)) 0 var(--footer-pad); }
+.footer__brand { display: grid; align-content: start; gap: var(--space-4); container: footer-brand / inline-size; }
+.footer__ident { margin: 0; color: var(--color-text-muted); font-size: var(--footer-ident); line-height: 1.45; }
+.footer__help { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2-5) var(--space-4); }
+.footer__help > span { font-size: var(--footer-link); font-weight: 900; text-transform: uppercase; }
+.footer__social { display: grid; grid-template-columns: repeat(7, max-content); justify-content: start; gap: var(--space-2); }
+@container footer-brand (max-width: 341px) { .footer__social { grid-template-columns: repeat(4, max-content); } }
+.footer__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+.footer__col { display: grid; align-content: start; gap: var(--space-3); }
+.footer__col-h { margin: 0 0 var(--space-1); color: var(--color-text-muted); font-size: var(--size-chip); font-weight: 900; letter-spacing: var(--tracking-wide); line-height: 1.5; text-transform: uppercase; }
+.footer__gap { height: var(--footer-col-gap); }
+.footer__link { width: fit-content; color: var(--color-text-hi); font-size: var(--footer-link); line-height: 1.3; text-decoration: none; }
+/* Cookie settings: a button that reads as a link, underlined; v4 draws it 44px tall, kit.css part 2's button floor, and the column keeps that room */
+.footer__link--button { display: flex; align-items: center; min-height: var(--footer-cookie-h); padding: 0; border: 0; background: none; font-family: inherit; line-height: 1.2; text-decoration: underline; text-underline-offset: var(--space-thin); white-space: nowrap; cursor: pointer; }
+.footer__link:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+@media (hover: hover) { .footer a.footer__link:hover { color: var(--color-pink); } }
+.footer__agents { position: absolute; right: var(--footer-agents-right); bottom: 0; width: var(--footer-agents-w); height: calc(100% + var(--footer-agents-rise)); background: var(--art-footer-agents-2) right bottom / contain no-repeat; pointer-events: none; }
+/* the strip: the two trust plates and the payment cards on a dark ground */
+.footer__strip { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); margin: 0 var(--footer-pad); padding: var(--space-3-5); border-radius: var(--radius-m); background: var(--color-note-plate); box-shadow: var(--shadow-tile-edge); }
+.footer__plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: var(--space-3); }
+.footer__plate { position: relative; display: flex; align-items: center; gap: var(--space-3-5); box-sizing: border-box; min-height: var(--footer-plate); padding: var(--space-3) var(--footer-plate-room) var(--space-3) var(--space-3-5); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-footer-plate); color: inherit; text-decoration: none; transition: translate .2s, filter .2s; }
+.footer__plate--age { background: var(--gradient-stripes-m), var(--gradient-mode-showdowns); }
+.footer__plate--fair { background: var(--gradient-stripes-m), var(--gradient-footer-fair); }
+.footer__age { display: grid; place-items: center; flex: 0 0 auto; width: var(--footer-plate-mark); height: var(--footer-plate-mark); border-radius: 50%; background: var(--color-text-hi); box-shadow: var(--shadow-footer-age); color: var(--color-footer-age); font-size: var(--size-s); font-weight: 900; letter-spacing: var(--tracking-footer-age); }
+.footer__pt { display: grid; place-items: center; flex: 0 0 auto; width: var(--footer-plate-mark); height: var(--footer-plate-mark); border-radius: var(--radius-card); background: var(--color-footer-pt); box-shadow: var(--shadow-avatar-bot); color: var(--color-text-hi); font-size: var(--footer-plate-icon); }
+.footer__ptx { display: grid; gap: var(--space-thin); min-width: 0; }
+.footer__ptx > b { font-size: var(--size-text); font-weight: 900; letter-spacing: var(--tracking-title); text-transform: uppercase; }
+.footer__ptx > span { font-size: var(--size-xs); }
+.footer__go { position: absolute; right: var(--footer-arrow-right); top: 50%; width: var(--footer-arrow); height: var(--footer-arrow); margin-top: calc(var(--footer-arrow) / -2); box-sizing: border-box; border-top: var(--footer-arrow-line) solid var(--color-text-hi); border-right: var(--footer-arrow-line) solid var(--color-text-hi); rotate: 45deg; transition: translate .2s; }
+.footer__plate:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+@media (hover: hover) { .footer__plate:hover { translate: 0 calc(-1 * var(--space-hair)); filter: brightness(1.08); } .footer__plate:hover .footer__go { translate: var(--space-thin) calc(-1 * var(--space-thin)); } }
+.footer__pay { display: grid; grid-template-columns: repeat(3, var(--footer-pay-w)); gap: var(--space-1-5); margin: 0; padding: 0; list-style: none; }
+.footer__pay > li { display: grid; width: var(--footer-pay-w); height: var(--footer-pay-h); border-radius: var(--radius-tile); background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-footer-pay); }
+.footer__pay a { display: grid; place-items: center; border-radius: inherit; color: inherit; text-decoration: none; transition: translate .2s cubic-bezier(.2, .7, .2, 1), color .2s, background-color .2s, box-shadow .2s; }
+.footer__pay svg { width: auto; height: var(--footer-pay-mark); max-width: 100%; }
+.footer__pay a:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); color: var(--color-text-hi); }
+@media (hover: hover) { .footer__pay a:hover { translate: 0 calc(-1 * var(--space-hair)); color: var(--color-text-hi); background-color: var(--color-footer-pay-hover); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-pink), var(--shadow-footer-pay); } }
+/* the foot: the age and market lines and the language on one row, the fine print under them, on a band like the counters' */
+.footer__end { position: relative; z-index: 2; isolation: isolate; display: grid; justify-items: center; gap: var(--space-4-25); margin-top: var(--footer-pad); padding: var(--footer-foot-pad); text-align: center; }
+.footer__end::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: var(--space-hair); background: var(--gradient-edge-pink); }
+.footer__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3-5) var(--space-5); width: 100%; }
+.footer__legal { flex: 1 1 var(--footer-legal-basis); text-align: left; }
+.footer__legal > p { margin: 0; color: var(--color-text-muted); font-size: var(--footer-legal); line-height: 1.5; }
+.footer__legal > p + p { margin-top: var(--space-1); }
+.footer__lang { position: relative; z-index: 3; flex: 0 0 auto; }
+.footer__fine { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-1-5) var(--space-5-5); color: var(--color-text-muted); font-size: var(--size-chip); letter-spacing: var(--tracking-snug); text-transform: uppercase; }
+/* narrower: the footer's own width decides */
+@container footer (max-width: 1000px) {
+  .footer__block { --footer-stat-tile: 50px; --footer-stat-v: 30px; --footer-agents-w: 28%; } /* a container cannot query itself: the block inside it takes the values */
+  .footer__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-4); }
+  .footer__stat { justify-content: flex-start; }
+  .footer__mid { grid-template-columns: minmax(0, 1fr); }
+  .footer__agents { height: 70%; }
+  .footer__strip { grid-template-columns: minmax(0, 1fr); }
+  .footer__pay { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .footer__pay > li { width: auto; }
+}
+@container footer (max-width: 560px) {
+  .footer__block { --footer-stat-tile: 36px; --footer-stat-v: 21px; --footer-stat-c: 11px; --footer-stat-gap: var(--space-1); --footer-band-pad: 26px 14px 22px; --footer-foot-pad: 20px 14px; }
+  .footer__stats { gap: var(--footer-stats-row-phone) var(--space-2); }
+  .footer__stat { flex-direction: column; align-items: center; justify-content: flex-start; gap: var(--space-2); text-align: center; }
+  .footer__stat .fig { align-items: center; }
+  .footer__tile { border-radius: var(--radius-s); }
+  .footer__mid { min-height: 0; padding: var(--space-5) var(--space-4) calc(var(--space-6) + var(--space-1)); }
+  .footer__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer__social { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, var(--size-tile)); gap: var(--space-1-5); }
+  .footer__agents { right: var(--space-1); bottom: var(--footer-agents-phone-drop); width: var(--footer-agents-phone-w); height: var(--footer-agents-phone-h); }
+  .footer__strip { margin: 0 var(--space-2); padding: var(--space-2-5); }
+  .footer__plates { grid-template-columns: minmax(0, 1fr); }
+  .footer__pay { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer__row { justify-content: center; }
+  .footer__legal { text-align: center; }
+}
+@media (max-width: 899px) {
+  .footer { --footer-light-inset: 0; --footer-light-h: 140px; padding: 0 0 var(--space-4); }
+  .footer__block { border-radius: 0; box-shadow: none; }
+}
+/* presses on a touch screen: each link a 40px row, the payment cards 40px tall where they leave the plates' side */
+@media (pointer: coarse) {
+  .footer__block { --footer-col-gap: 20px; }
+  .footer__col { gap: 0; }
+  .footer__link { display: flex; align-items: center; min-height: var(--size-button-m); }
+  @container footer (max-width: 1000px) { .footer__pay > li { height: var(--size-button-m); } }
+}
+@media (prefers-reduced-motion: reduce) { .footer__live { animation: none; } .footer__tile, .footer__plate, .footer__go, .footer__pay a { transition: none; } }
+
+/* HEADER. The strip across the top that owns the money and the account and holds no destination (CLAUDE.md "Baseline"): a rounded strip on the
+   page's ground with the pink light falling from its top onto the logo the rail stands there, a pink edge over the logo, and weapons falling in
+   the light (idle.js's still frame, the near and the far tile). Guest: Sign in. Signed in: the money pair on its plate, the balance in gold
+   and the value of items held under it, each its own route, never summed (D-28), Add funds with its bonus, then the account's pill that opens
+   its menu (.popover--account). From 900px its left keeps the room the rail's toggle stands in; under 900px the burger that opens the drawer
+   leads it, the strip has no light and nothing falls, and Add funds and the pill fold to their marks under 600px. From design/v4/theme.css,
+   account-home.css, buttons.css and kit.css parts 2 and 3. */
+/* its own geometry, read inside .header only */
+.header {
+  --header-room: calc(var(--space-3) + var(--space-2) + var(--size-tile) + var(--space-3-5)); /* v4 theme.css @media (min-width: 900px) .wf-header: padding-left 76px, the room the rail's toggle stands in */
+  --header-plate: 46px; /* v4 account-home.css .ac2-plate: the money plate, as tall as the account's pill, pulling 3px out of the 40px row */
+  --header-fig-hit: 5px; /* v4 account-home.css .ac-fig: padding-block 5px with margin-block -5px, each figure a 24px press */
+  --header-edge-inset: 28%; /* v4 theme.css .wf-header .wf-row::before: left 28% right 28%, the pink edge only over the logo */
+  --header-fall-mask: radial-gradient(42% 160% at 50% 0%, #000 20%, transparent 100%); /* v4 theme.css .v4-fall: the weapons fall in the light only */
+  --header-fall-near: 230px; /* v4 theme.css .v4-fall .n: the near tile, 760 by 230, one tile a loop */
+  --header-fall-near-w: 760px; /* the same, width */
+  --header-fall-far: 180px; /* v4 theme.css .v4-fall .f: the far tile, 600 by 180 */
+  --header-fall-far-w: 600px; /* the same, width */
+  --header-fall-far-x: 120px; /* the same, its offset, 120px 40px */
+  --header-fall-far-y: 40px; /* the same */
+  --header-fall-loop: 9s; /* v4 theme.css: both tiles fall one tile in 9s */
+}
+.header { position: sticky; z-index: 30; top: 0; isolation: isolate; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); box-sizing: border-box; min-height: var(--size-header);
+  padding: var(--space-3-5) var(--space-5-5) var(--space-1-5) var(--header-room); background: var(--color-ground); color: var(--color-text); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.header::before { content: ''; position: absolute; z-index: -1; inset: var(--space-2) var(--space-3) 0; border-radius: var(--radius-m); background: var(--gradient-header-light), var(--gradient-menu); box-shadow: var(--shadow-shell); pointer-events: none; }
+.header::after { content: ''; position: absolute; z-index: 1; top: var(--space-2); left: var(--header-edge-inset); right: var(--header-edge-inset); height: var(--space-hair); background: var(--gradient-header-edge); box-shadow: var(--shadow-header-edge); pointer-events: none; }
+.header__fall { position: absolute; z-index: -1; inset: var(--space-2) var(--space-3) 0; overflow: hidden; border-radius: var(--radius-m); pointer-events: none; -webkit-mask: var(--header-fall-mask); mask: var(--header-fall-mask); }
+.header__fall > i { position: absolute; top: 0; left: 0; right: 0; filter: var(--shadow-header-fall); will-change: transform; }
+.header__fall-near { height: calc(100% + var(--header-fall-near)); background: var(--art-fall-near) 0 0 / var(--header-fall-near-w) var(--header-fall-near); animation: header-fall-near var(--header-fall-loop) linear infinite; }
+.header__fall-far { height: calc(100% + var(--header-fall-far)); background: var(--art-fall-far) var(--header-fall-far-x) var(--header-fall-far-y) / var(--header-fall-far-w) var(--header-fall-far); animation: header-fall-far var(--header-fall-loop) linear infinite; }
+@keyframes header-fall-near { from { transform: translateY(calc(-1 * var(--header-fall-near))); } to { transform: translateY(0); } }
+@keyframes header-fall-far { from { transform: translateY(calc(-1 * var(--header-fall-far))); } to { transform: translateY(0); } }
+/* the burger that opens the drawer, under 900px; from 900px the rail's own toggle stands in the room on the left */
+.header__menu { display: none; }
+/* the end: the money and the account, or Sign in */
+.header__end { display: flex; align-items: center; gap: var(--space-2-5); margin-left: auto; }
+.header__money { display: flex; align-items: center; gap: var(--space-3); box-sizing: border-box; height: var(--header-plate); margin-block: calc((var(--size-button-m) - var(--header-plate)) / 2); padding: 0 var(--space-1-75) 0 var(--space-3); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+.header__figs { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-hair); }
+.header__fig { display: flex; margin-block: calc(-1 * var(--header-fig-hit)); padding-block: var(--header-fig-hit); color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.header__fig:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.header__plus { display: block; flex: none; width: var(--space-3); height: var(--space-3); border-radius: calc(var(--radius-xs) / 4); /* a glyph's corner, v4's 1px */
+  background: linear-gradient(var(--color-text-hi), var(--color-text-hi)) center / 100% var(--space-thin) no-repeat, linear-gradient(var(--color-text-hi), var(--color-text-hi)) center / var(--space-thin) 100% no-repeat; }
+@media (max-width: 899px) {
+  .header { position: relative; z-index: auto; padding: var(--space-3) var(--space-4) var(--space-1); }
+  .header::before { inset: var(--space-2) var(--space-2) 0; background: var(--gradient-menu); box-shadow: var(--shadow-tile-edge); }
+  .header::after, .header__fall { display: none; }
+  .header__menu { display: flex; flex: none; align-items: center; justify-content: center; width: var(--size-tile); height: var(--size-tile); margin: calc(-1 * var(--size-hairline)) 0; padding: 0; border: 0; border-radius: var(--radius-tile); background: var(--color-burger); box-shadow: var(--shadow-edge); cursor: pointer; transition: background-color .2s; -webkit-tap-highlight-color: transparent; }
+  .header__menu::after { content: ''; display: block; width: var(--size-burger-w); height: var(--size-burger-h); margin: auto; border-radius: calc(var(--radius-xs) / 4); background: var(--gradient-burger); }
+  .header__menu[aria-expanded="true"] { background: var(--color-burger-hover); }
+  .header__end, .header__money { gap: var(--space-2); }
+  .header__money { padding-left: var(--space-2-5); }
+  /* the header's layer rises over the page while the account's sheet is open, under the rail's drawer */
+  .header:has(.popover__trigger[aria-expanded="true"]) { z-index: 61; }
+}
+.header__menu:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+@media (hover: hover) and (max-width: 899px) { .header__menu:hover { background: var(--color-burger-hover); } }
+@media (prefers-reduced-motion: reduce) { .header__fall > i { animation: none; } .header__menu { transition: none; } }
+
+/* ITEM GRID. A shelf of item cards: My items with its title and the sort keys, a public profile with its title alone. From 600px as many cards
+   to a row as fit at the drop card's own width.
+   On a phone every shelf stands one card to a row, My items as the grey draws it (.wf-grid--inv) and a public shelf too, the founder's pick of
+   D-232 over the grey's two (.wf-itemgrid); on a public shelf the card carries no tick and no acts.
+   Grey only so far, wireframes/account.html (My items) and player.html (public profile); the look is the case screen's What is in this case,
+   the drop cards on a grid of 176px and up, 12px apart, design/v4/case-body.css row F; the sort is the count switch, .seg. Contains Item card,
+   Segmented control. */
+.item-grid {
+  --igrid-min: 176px; /* v4 case-body.css .wf-drops[data-v="f"]: the drop card's smallest width on the grid */
+}
+.item-grid { display: grid; gap: var(--space-4); min-width: 0; }
+.item-grid__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-4); }
+.item-grid__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.item-grid__sort { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+.item-grid__l { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; } /* the bar's label, .catbar__l */
+.item-grid__list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2); margin: 0; padding: 0; list-style: none; } /* one to a row on a phone, wireframes/_wf.css .wf-grid--inv; 8px apart, case-body.css row F on a phone */
+@media (min-width: 600px) { .item-grid__list { grid-template-columns: repeat(auto-fill, minmax(var(--igrid-min), 1fr)); gap: var(--space-3); } }
+
+/* LIMITS PANEL. Responsible play's own block: one line that says what is set, what is in force now as stated moments (never a countdown, no
+   elapsed time, no streak, no score: a limit never acquires completion mechanics, CLAUDE.md "Product substance"), what a limit can close and
+   what it never closes, the four limits as rows with their words left and their control right, each with which way it moves and when, and
+   help that is not ours. Every act is the quiet ghost: the page refuses a lead to one control (node 6.1 section 2, microcopy 6.1-61).
+   Grey only so far, wireframes/responsible.html, responsible-in-force.html, responsible-excluded.html, responsible-guest.html; the look is
+   Home's questions, a row on the row gradient with its hairline and the sunken well an open answer sits in, design/v4/faq-home.css (as the
+   kit's .field--row and .disclosure__body). Contains Field (row), Text field, Select, Key-value line, Button, Note line, Text link. */
+.limits {
+  --limits-measure: 720px; /* wireframes/_wf.css .wf-rp: the page's one readable measure; технічне рішення */
+  --limits-amount: 128px; /* the amount box in a limit's row, wide enough for 10 000.00; технічне рішення */
+  --limits-period: 136px; /* the period select beside it, wide enough for "per month" and its caret; технічне рішення */
+}
+.limits { display: grid; gap: var(--space-5); min-width: 0; max-width: var(--limits-measure); }
+.limits__say { margin: 0; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.5; }
+.limits__say.is-said { color: var(--color-text-hi); font-weight: 700; } /* a limit is in force: the line is said, wireframes/_wf.css .wf-rp-say.is-said */
+.limits__force { display: grid; justify-items: start; gap: var(--space-3); min-width: 0; padding: var(--space-4) var(--space-5); border-radius: var(--radius-card); background: var(--gradient-row); box-shadow: var(--shadow-edge); } /* the question row's plate, faq-home.css */
+.limits__force > * { max-width: 100%; }
+.limits__force-h { margin: 0; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.limits__list { display: grid; justify-self: stretch; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
+.limits__item { display: grid; gap: var(--space-hair); padding: var(--space-3) var(--space-4); border-radius: var(--radius-s); background: var(--color-well); } /* each limit in force in the well an open answer sits in, .disclosure__body */
+.limits__n { color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.4; }
+.limits__e { color: var(--color-text-hi); font-size: var(--size-label); font-variant-numeric: tabular-nums; line-height: 1.4; } /* a stated moment at the text's own size, not a figure: nothing to watch run down */
+.limits__closes { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+@media (min-width: 600px) { .limits__closes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.limits__close { display: grid; align-content: start; gap: var(--space-1); padding: var(--space-4); border-radius: var(--radius-card); background: var(--color-well); box-shadow: var(--shadow-edge); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.5; }
+.limits__close :is(b, strong) { color: var(--color-text-hi); font-weight: 700; }
+.limits__k { color: var(--color-text-muted); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.3; text-transform: uppercase; } /* the key of a key-value line at the label's size */
+.limits__rows { display: grid; gap: var(--space-2); }
+.limits__ctl { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); max-width: 100%; }
+.limits__amount { flex: 1 1 var(--limits-amount); min-width: 0; max-width: var(--limits-amount); }
+.limits__period { flex: 1 1 var(--limits-period); min-width: 0; max-width: var(--limits-period); }
+.limits__help { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-4); }
+.limits__help > .limits__close { flex: 1 1 calc(5 * var(--size-tap)); }
+
+/* MODE ROW. The four ways to play on Home, one live and three not launched (D-197, D-27). The row reads its own width, not the window's: four side
+   cards from 992px of row, four stacked from 624 to 991, two side from 516 to 623, two stacked under 516. Carried from design/v4/modes.css
+   (.wf-sec:has(> .wf-grid.wf-modes), .wf-grid.wf-modes) on kit.css part 2 .wf-grid. Contains Mode card (.mode-card) in its fitted form,
+   .mode-card--fit below, which takes the stacked form wherever this row asks for it. Markup: section > h2 (for a screen reader) + the grid. */
+.mode-row {
+  --mode-row-gap: 40px; /* v4 modes.css: .wf-grid.wf-modes row-gap, 40px from one row of side cards to the next, room for what breaks their top edge; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.mode-row { container: mode-row / inline-size; min-width: 0; color: var(--color-text); font-size: var(--size-text); line-height: 1.2; }
+.mode-row__h { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.mode-row__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: var(--mode-row-gap) var(--space-4); margin-top: var(--space-4); padding-top: var(--space-5); }
+@media (min-width: 900px) { .mode-row__grid { padding-top: var(--space-3); } }
+@container mode-row (min-width: 624px) { .mode-row__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@container mode-row (max-width: 515px) { .mode-row__grid { column-gap: var(--space-3); } }
+@container mode-row (max-width: 515px) or ((min-width: 624px) and (max-width: 991px)) { .mode-row__grid { row-gap: var(--space-6); padding-top: var(--space-5-5); } }
+
+/* PROOF BLOCK. The round and how to check it, on its public page: its title and its state, the seeds in a dark well with Copy, the client seed,
+   the nonce, the result and its ticket range, the one line that says what the proof does and does not cover, and the act. States: settled,
+   matched, mismatched (our failure, said so, the two results both printed), no proof (predates the ledger), failed (the source cannot be read
+   this minute). No state draws a verified mark: the state is a badge in words (wireframes/fair.html, 0.14).
+   Grey only so far, wireframes/result.html, result-checked.html, result-mismatched.html, result-noproof.html, result.html?round=glockfn;
+   the look is Home's Every round plate: the provably fair blue under the buttons' stripes, its key in white capitals, the hash in a dark well,
+   design/v4/proof-home.css .x6-plate and .x6-hash. Contains Badge, Copyable value, Key-value line, Button. */
+.proof {
+  --proof-pad: 22px; /* v4 proof-home.css .x6: --pad at its widest, clamp(14px, 1.86cqw, 22px); 14px on a phone */
+  --proof-well-y: 9px; /* v4 proof-home.css .x6-hash: the well's padding, top and bottom */
+}
+@media (max-width: 599px) { .proof { --proof-pad: var(--space-3-5); } }
+.proof { display: grid; gap: var(--space-3); min-width: 0; box-sizing: border-box; padding: var(--proof-pad); border-radius: var(--radius-card); background: var(--gradient-button-stripes), var(--gradient-fair); box-shadow: var(--shadow-tile-lit), var(--shadow-fair); color: var(--color-text-hi); }
+.proof__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-3); }
+.proof__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.25; text-transform: uppercase; } /* .x6-k, the plate's key in full white */
+.proof__fields { display: grid; gap: var(--space-3); min-width: 0; padding: var(--proof-well-y) var(--space-3); border-radius: var(--radius-s); background: var(--color-hash-well); box-shadow: var(--shadow-edge-lit); } /* .x6-hash: 8px corner, the .1 hairline */
+.proof__scope { margin: 0; max-width: var(--size-measure); color: var(--color-text-lead); font-size: var(--size-label); line-height: 1.4; } /* .x6-say, white at .86 to .9 */
+.proof__scope a { color: var(--color-text-hi); font-weight: 700; text-decoration: underline; } /* on the blue plate the link is white, as .x6-go is */
+.proof__scope a:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.proof__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+
+/* RAIL. The full height left carrier, CLAUDE.md "Baseline": the logo, the destinations and its own toggle on the seam. Cases is the one live
+   row; the eight not launched are grey under one heading and say so in each row for a screen reader (D-197). Open, a row is a mark and its name
+   on a 48px line, its card the mode card's fill under the stripes, lit where it is the current page and under the pointer, a mode's object
+   rising out of its top. Closed (from 900px), the panel is the marks alone and a row's name comes out beside it as a chip in its fill. Under
+   900px it is the drawer the header's burger opens. At its foot, the sound and the language as two tiles, then Social. From design/v4/theme.css,
+   rail-b1.css, rail-icons.css (the marks' rest) and kit.css parts 2 and 3. States: .is-closed (from 900px), .is-overlay (open over the page with
+   the page dimmed, a product column of 1440 or less), .is-open (the drawer under 900px); the current row carries aria-current="page".
+   Inputs the page may set: --rail-logo-x, where the logo stands on the header strip, by default the middle of the nearest container or the
+   window (v4: the product column's middle, _nav.js --wf-body-x); --rail-page-x, the product column's left edge, where the overlay opens. */
+/* its own geometry, read inside .rail only */
+.rail {
+  --rail-w-closed: calc(var(--size-rail-collapsed) - var(--rail-edge)); /* v4 kit.css part 2 .is-rail-collapsed .wf-screen-body: the closed column, 70px, less the rail's 12px off the window */
+  --rail-edge: var(--space-3); /* v4 theme.css .wf-rail: margin 0 0 0 12px, the panel 12px off the window's edge */
+  --rail-panel-top: calc(var(--size-header) + var(--space-2)); /* v4 theme.css .wf-rail::before: inset 72px 0 8px, the panel starts under the header strip */
+  --rail-strip-mid: calc(var(--rail-panel-top) / 2); /* v4 theme.css .wf-rail-logo top 36px and .wf-rail-toggle top 15px: the header strip's middle, 8px down and 56px tall */
+  --rail-row: 48px; /* v4 rail-b1.css .wf-rail-item: min-height 48px, a row */
+  --rail-row-min: 34px; /* v4 rail-b1.css: a row gives up height down to 34px before the foot leaves a short window */
+  --rail-rest: 274px; /* the same: everything in the open rail that is not a row */
+  --rail-row-min-short: 30px; /* v4 rail-b1.css @media (max-height: 600px): a row's floor in a window under 600px tall */
+  --rail-rest-short: 240px; /* the same: what is not a row once the heading has gone */
+  --rail-row-start: 20px; /* v4 rail-b1.css .wf-rail-item: padding 0 16px 0 20px, the marks' left edge */
+  --rail-sec: 28px; /* v4 rail-b1.css .v4-rail-sec: min-height 28px, the "Not launched yet" heading */
+  --rail-peek: 56px; /* v4 rail-b1.css .wf-rail-item::after: a mode's object rising out of its card */
+  --rail-peek-right: 18px; /* the same, from the row's right */
+  --rail-peek-cases: 72px; /* v4 rail-b1.css :has([data-icon="box"])::after: this week's case on the Cases row, founder of 3 Nov 2026 */
+  --rail-chip-w: 150px; /* v4 rail-b1.css closed .wf-rail-lbl: min-width 150px, a row's name as a chip beside the closed panel */
+  --rail-chip-room: 72px; /* the same, padding-right 72px where a mode's object stands in the chip */
+  --rail-chip-peek: 58px; /* the same ::before: the object in the chip */
+  --rail-chip-peek-cases: 76px; /* the same, the case on the Cases chip */
+  --rail-chip-sub: 10px; /* v4 rail-b1.css closed .wf-rail-lbl[data-chip]::after: "Not launched yet" under a chip's name */
+  --rail-tile-chip-gap: var(--space-3); /* v4 rail-b1.css: the sound and language chips start 12px from their tile, 4px off the panel's edge */
+  --rail-social: 18px; /* v4 rail-b1.css .wf-rail-soc-row .wf-rail-ico: the social marks */
+  --rail-social-start: 20px; /* v4 rail-b1.css .wf-rail-soc-h and -row: the social heading and row on the marks' left edge */
+  --rail-social-end: 18px; /* the same, the row's right */
+  --rail-drawer-w: 280px; /* v4 kit.css part 2 @media (max-width: 899px) .wf-rail: the drawer's width */
+  --rail-drawer-max: 86vw; /* the same, its cap on a narrow phone */
+  --rail-drawer-rest: 342px; /* v4 rail-b1.css @media (max-width: 899px): what is not a row in the drawer */
+  --rail-chip-hide: inset(-60px 100% -10px 0); /* v4 rail-b1.css: a closed chip at rest, wiped back into its tile; its object may rise 60px over it */
+  --rail-chip-show: inset(-60px -10px -10px 0); /* the same, wiped out beside the panel under the pointer and for the keyboard */
+}
+/* the rows' fills and the objects that rise out of them, by destination; with none named a row takes the Cases pink */
+.rail__item { --rail-fill: var(--gradient-mode-cases); --rail-peek-art: none; }
+.rail__item--cases { --rail-peek-art: var(--art-case-coldfront); }
+.rail__item--battles { --rail-fill: var(--gradient-mode-battles); --rail-peek-art: var(--art-mode-battles-crossed); }
+.rail__item--showdowns { --rail-fill: var(--gradient-mode-showdowns); --rail-peek-art: var(--art-mode-showdowns); }
+.rail__item--upgrade { --rail-fill: var(--gradient-case-gold); --rail-peek-art: var(--art-mode-upgrade); }
+.rail__item--giveaways { --rail-fill: var(--gradient-rail-giveaways); }
+.rail__item--wins, .rail__item--affiliate { --rail-fill: var(--gradient-case-gold); }
+.rail__item--exchange { --rail-fill: var(--gradient-mode-battles); }
+
+.rail { position: relative; display: flex; flex-direction: column; box-sizing: border-box; color: var(--color-text); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+/* the logo: the link home, the logo atom at the strip's size */
+.rail__logo { z-index: 2; }
+/* a row */
+.rail__item { position: relative; isolation: isolate; display: flex; align-items: center; gap: var(--space-3); box-sizing: border-box; min-height: var(--rail-row); margin: 0 0 var(--space-hair); padding: 0 var(--space-4) 0 var(--rail-row-start);
+  color: var(--color-text-muted); font-size: var(--size-label); font-weight: 500; letter-spacing: var(--tracking-mode-name); line-height: 1.2; text-decoration: none; text-transform: uppercase; transition: color .16s; }
+.rail__item:not(.rail__item--later) { margin-top: var(--space-4); color: var(--color-text-hi); font-weight: 900; }
+.rail__item::before { content: ''; position: absolute; z-index: -1; inset: var(--space-hair) var(--space-2); border-radius: var(--radius-card); background: var(--gradient-stripes), var(--rail-fill); opacity: 0; pointer-events: none; transition: opacity .16s, filter .16s; }
+.rail__item::after { content: ''; position: absolute; z-index: 0; right: var(--rail-peek-right); bottom: var(--space-hair); width: var(--rail-peek); height: var(--rail-peek); background: var(--rail-peek-art) center bottom / contain no-repeat;
+  filter: var(--shadow-rail-peek); opacity: 0; transform: translateY(var(--space-2)) scale(.8); transform-origin: 50% 100%; pointer-events: none; transition: opacity .16s, transform .24s var(--motion-ease-settle); }
+.rail__item--cases::after { right: var(--space-3); bottom: var(--space-1); width: var(--rail-peek-cases); height: var(--rail-peek-cases); }
+.rail__mark { display: grid; place-items: center; flex: 0 0 var(--size-nav-mark); width: var(--size-nav-mark); height: var(--size-nav-mark); font-size: var(--size-nav-mark); }
+.rail__label { position: relative; z-index: 1; flex: 1 1 auto; min-width: 0; }
+.rail__soon, .rail__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* the current page: its card lit and its object standing on it */
+.rail__item[aria-current="page"]::before { opacity: 1; }
+.rail__item[aria-current="page"]::after { opacity: 1; transform: none; }
+/* under the pointer and for the keyboard: a live row takes its card and its object, a row not launched turns white on its card */
+.rail__item:focus-visible { outline: var(--size-edge) solid var(--color-blue); outline-offset: calc(-1 * var(--size-edge)); }
+.rail__item:not(.rail__item--later):focus-visible::before { opacity: 1; filter: brightness(1.08); }
+.rail__item:not(.rail__item--later):focus-visible::after { opacity: 1; transform: translateY(calc(-1 * var(--size-lift))) rotate(-3deg) scale(1.06); }
+@media (hover: hover) {
+  .rail__item:not(.rail__item--later):hover::before { opacity: 1; filter: brightness(1.08); }
+  .rail__item:not(.rail__item--later):hover::after { opacity: 1; transform: translateY(calc(-1 * var(--size-lift))) rotate(-3deg) scale(1.06); }
+  .rail__item--later:hover { z-index: 2; color: var(--color-text-hi); font-weight: 700; }
+  .rail__item--later:hover::before, .rail__item--later:hover::after { opacity: 1; }
+  .rail__item--later:hover::after { transform: none; }
+}
+/* the sentence, once, over the eight */
+.rail__sec { display: flex; align-items: center; gap: var(--space-2-5); min-height: var(--rail-sec); margin: var(--space-1) 0 var(--space-hair); padding: 0 var(--space-4) 0 var(--rail-row-start); color: var(--color-text-muted); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.rail__sec::after { content: ''; flex: 1 1 auto; height: var(--size-hairline); background: var(--color-track); }
+/* the foot: under a hairline, the sound and the language as two tiles, then Social on the marks' left edge */
+.rail__foot { display: flex; flex-direction: column; gap: var(--space-4); margin-top: auto; padding: var(--space-2-5) 0 var(--space-2); box-shadow: inset 0 var(--size-hairline) 0 var(--color-track); }
+.rail__amb { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); margin: 0 var(--space-2); }
+.rail__amb-i { position: relative; display: grid; container-type: inline-size; }
+.rail__social-h { display: block; margin: var(--space-3) var(--space-3) var(--space-2) var(--rail-social-start); color: var(--color-text-muted); font-size: var(--size-chip); font-weight: 500; }
+.rail__social-row { display: flex; justify-content: space-between; margin: 0 var(--rail-social-end) 0 var(--rail-social-start); color: color-mix(in srgb, var(--color-text-muted) 60%, var(--color-ticker)); font-size: var(--rail-social); line-height: 1; }
+.rail__social-row .icon { opacity: .8; }
+/* the toggle, a burger tile, and the dimmed page under the open rail */
+.rail__toggle { display: none; }
+.rail__scrim { display: none; position: fixed; z-index: -2; inset: 0; background: var(--color-scrim); }
+
+/* from 900px: the rail stands beside the page from the header's top, its panel drawn from under the strip down, its toggle and logo on the strip */
+@media (min-width: 900px) {
+  .rail { position: sticky; z-index: 35; top: 0; width: var(--size-rail); height: min(100vh, 100%); margin-left: var(--rail-edge); padding: calc(var(--rail-panel-top) + var(--space-3)) 0 var(--space-4); }
+  .rail::before { content: ''; position: absolute; z-index: -1; inset: var(--rail-panel-top) 0 var(--space-2); border-radius: var(--radius-m); background: var(--gradient-panel); box-shadow: var(--shadow-shell); pointer-events: none; }
+  .rail__logo { position: absolute; top: var(--rail-strip-mid); left: var(--rail-logo-x, calc(50cqw - var(--rail-edge))); translate: -50% -50%; }
+  .rail__item { min-height: clamp(var(--rail-row-min), calc((100dvh - var(--rail-rest)) / 9 - var(--space-hair)), var(--rail-row)); }
+  .rail__toggle { display: block; position: absolute; z-index: 3; top: calc(var(--rail-strip-mid) - var(--size-tile) / 2); left: var(--space-2); width: var(--size-tile); height: var(--size-tile); padding: 0; border: 0; border-radius: var(--radius-tile);
+    background: var(--color-burger); box-shadow: var(--shadow-edge); cursor: pointer; transition: background-color .2s; }
+  .rail__toggle::after { content: ''; position: absolute; inset: 0; width: var(--size-burger-w); height: var(--size-burger-h); margin: auto; border-radius: calc(var(--radius-xs) / 4); background: var(--gradient-burger); } /* a glyph's corner, v4's 1px, as the popover's copy glyph keeps its 2px */
+  .rail__toggle:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+  .rail.is-overlay { position: fixed; z-index: 70; left: var(--rail-page-x, 0px); }
+  .rail.is-overlay .rail__scrim { display: block; }
+  /* CLOSED: the cards as tiles with the mark in their middle; a name comes out as a chip in the row's fill beside the panel */
+  .rail.is-closed { width: var(--rail-w-closed); }
+  .rail.is-closed .rail__item { justify-content: center; gap: 0; padding: 0; }
+  .rail.is-closed .rail__item::after { content: none; }
+  .rail.is-closed .rail__sec { justify-content: center; padding: 0 var(--space-3-5); }
+  .rail.is-closed .rail__sec > span { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .rail.is-closed .rail__label { position: absolute; z-index: 60; left: calc(100% + var(--space-1)); top: 50%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; box-sizing: border-box; min-width: var(--rail-chip-w); min-height: var(--size-tap);
+    padding: var(--space-1-75) var(--space-3-5); border-radius: var(--radius-card); background: var(--gradient-stripes), var(--rail-fill); box-shadow: var(--shadow-rail-chip); color: var(--color-text-hi); font-size: var(--size-xs); font-weight: 900; letter-spacing: var(--tracking-snug); line-height: 1.2; white-space: nowrap;
+    opacity: 0; translate: 0 -50%; clip-path: var(--rail-chip-hide); pointer-events: none; transition: opacity .12s, clip-path .26s var(--motion-ease-settle); }
+  .rail.is-closed .rail__label > .rail__soon { position: static; display: block; width: auto; height: auto; margin-top: var(--space-hair); overflow: visible; clip-path: none; color: var(--color-rail-chip-sub); font-size: var(--rail-chip-sub); font-weight: 700; letter-spacing: var(--tracking-caps); }
+  .rail.is-closed :is(.rail__item--cases, .rail__item--battles, .rail__item--showdowns, .rail__item--upgrade) > .rail__label { padding-right: var(--rail-chip-room); }
+  .rail.is-closed :is(.rail__item--cases, .rail__item--battles, .rail__item--showdowns, .rail__item--upgrade) > .rail__label::before { content: ''; position: absolute; right: var(--space-2); bottom: var(--space-hair); width: var(--rail-chip-peek); height: var(--rail-chip-peek); background: var(--rail-peek-art) center bottom / contain no-repeat; filter: var(--shadow-rail-peek); }
+  .rail.is-closed .rail__item--cases > .rail__label::before { right: 0; width: var(--rail-chip-peek-cases); }
+  .rail.is-closed .rail__item:focus-visible > .rail__label { opacity: 1; clip-path: var(--rail-chip-show); }
+  .rail.is-closed .rail__amb { grid-template-columns: minmax(0, 1fr); }
+  .rail.is-closed .rail__social { display: none; }
+  /* the sound and the language name themselves beside their tile, on the strip's dark */
+  .rail.is-closed .rail__amb-i[data-lbl]::after { content: attr(data-lbl); position: absolute; z-index: 60; left: calc(100% + var(--rail-tile-chip-gap)); top: 50%; display: flex; align-items: center; box-sizing: border-box; min-height: var(--size-tap); padding: 0 var(--space-4); border-radius: var(--radius-card);
+    background: var(--color-rail-tile-chip); box-shadow: var(--shadow-tile-edge), var(--shadow-rail-chip); color: var(--color-text-hi); font-size: var(--size-xs); font-weight: 900; letter-spacing: var(--tracking-snug); line-height: 1.2; text-transform: uppercase; white-space: nowrap;
+    opacity: 0; translate: 0 -50%; clip-path: var(--rail-chip-hide); pointer-events: none; transition: opacity .12s, clip-path .26s var(--motion-ease-settle); }
+  .rail.is-closed .rail__amb-i:has(:focus-visible)::after { opacity: 1; clip-path: var(--rail-chip-show); }
+  @media (hover: hover) {
+    .rail__toggle:hover { background: var(--color-burger-hover); }
+    .rail.is-closed .rail__item:hover > .rail__label, .rail.is-closed .rail__amb-i:hover::after { opacity: 1; clip-path: var(--rail-chip-show); }
+  }
+}
+@media (min-width: 900px) and (max-height: 600px) {
+  .rail__sec { display: none; }
+  .rail__item { min-height: clamp(var(--rail-row-min-short), calc((100dvh - var(--rail-rest-short)) / 9 - var(--space-hair)), var(--rail-row)); }
+}
+/* under 900px: the drawer the header's burger opens, one column that scrolls when a short phone cannot hold it; its logo leads it */
+@media (max-width: 899px) {
+  .rail { position: fixed; z-index: 70; inset: 0 auto 0 0; width: var(--rail-drawer-w); max-width: var(--rail-drawer-max); gap: var(--space-2); padding: 0 0 var(--space-3); overflow-y: auto; translate: -100% 0; transition: translate .2s; }
+  .rail::before { content: ''; position: fixed; z-index: -1; inset: 0 auto 0 0; width: var(--rail-drawer-w); max-width: var(--rail-drawer-max); border-radius: 0 var(--radius-m) var(--radius-m) 0; background: var(--gradient-panel); box-shadow: var(--shadow-rail-drawer); pointer-events: none; }
+  .rail.is-open { translate: none; }
+  .rail.is-open::before { box-shadow: var(--shadow-rail-drawer), var(--shadow-lift); }
+  .rail.is-open .rail__scrim { display: block; }
+  .rail__logo { flex: none; box-sizing: border-box; min-height: var(--size-header); padding: var(--space-2) var(--rail-row-start) 0; }
+  .rail__item { min-height: clamp(var(--size-tap), calc((100dvh - var(--rail-drawer-rest)) / 9 - var(--space-hair)), var(--rail-row)); }
+}
+.rail__logo:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+@media (prefers-reduced-motion: reduce) { .rail, .rail__item, .rail__item::before, .rail__item::after, .rail__label, .rail__toggle, .rail__amb-i::after { transition: none; } }
+
+/* RECENT DROPS. The best drops of this case by value, a strip of cards that scrolls sideways and snaps, each card the link to its round; the section's
+   head names the order and leads to what usually drops. Carried from design/v4/case-blocks.css Best drops D (.v4d-w7) and case-body.css.
+   Contains Section head (.sec-head) and Recent drop card (.recent-drop). */
+.recent-drops {
+  --recent-drops-col: 150px; /* v4 case-blocks.css: .v4d-w7 grid-auto-columns minmax(150px, 1fr), the narrowest card in the strip; рішення користувача, D-209 (v4) carried by D-232 */
+  --recent-drops-col-s: 140px; /* v4 case-blocks.css: @media (max-width: 599px) .v4d-w7 grid-auto-columns, a card on a phone, the next one cut by the edge; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.recent-drops { display: flow-root; min-width: 0; color: var(--color-text); font-size: var(--size-text); line-height: 1.2; }
+.recent-drops__strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(var(--recent-drops-col), 1fr); gap: var(--space-3); margin: calc(-1 * var(--space-1-5)) calc(-1 * var(--space-1)) calc(-1 * var(--space-3-5)); padding: var(--space-1-5) var(--space-1) var(--space-3-5);
+  list-style: none; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--space-1); scrollbar-width: none; } /* the negative margin gives back the room the cards' lift and light need, so they are not cut by the scroller */
+.recent-drops__strip::-webkit-scrollbar { display: none; }
+.recent-drops__cell { display: grid; min-width: 0; scroll-snap-align: start; } /* one cell per card; the card is its one grid item and fills it */
+.recent-drops__strip:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-m); }
+@media (max-width: 599px) { .recent-drops__strip { grid-auto-columns: var(--recent-drops-col-s); gap: var(--space-2-5); } }
+
+/* STATUS NOTICE. What happened to a payment, a withdrawal or a sign in, said in words with what still holds: a mark, the state as a heading,
+   the sentences, and where the grey has them the steps with whom each waits on, the as-of stamp, the reference and the acts. Variants:
+   --progress (crediting, a limit raise pending), --stopped (declined, paused), --failed (Steam refused, with a reference). The mark is the
+   state; the words say the rest, so a state is never said by colour alone.
+   Grey only so far, wireframes/deposit-crediting.html, deposit-declined.html, withdraw-restricted.html, signin-steam-refused.html (and 14 more
+   pages, inventory.md); the look is the sign in dialog's foot plate, a dark plate with a 30px mark tile beside each line, the guard line in
+   white, design/v4/signin-home.css .sd-note. Contains Status steps, Key-value line, Figure, Copyable value, Note line, Button. */
+.notice {
+  --notice-mark: 30px; /* v4 signin-home.css .sd-note-i: the mark tile beside a line of the foot plate */
+}
+.notice { display: flex; align-items: flex-start; gap: var(--space-3); min-width: 0; box-sizing: border-box; padding: var(--space-3-5); border-radius: var(--radius-card); background: var(--color-note-plate); box-shadow: var(--shadow-edge); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.5; } /* .sd-note: 14px of padding, its 14px corner on the ladder's 12 (D-228) */
+.notice__mark { flex: none; display: grid; place-items: center; width: var(--notice-mark); height: var(--notice-mark); border-radius: var(--radius-s); background: var(--color-wash); color: var(--color-text-soft); font-size: var(--size-text); font-weight: 900; line-height: 1; } /* .sd-note-i: the plain tile, its 9px corner on the ladder's 8; the glyph is an .icon at the tile's text size */
+/* --stopped is the base: the plain tile with its soft glyph; the class stays in the markup so the state is named */
+.notice--progress .notice__mark { background: var(--gradient-stripes-s), var(--gradient-mode-battles); color: var(--color-text-hi); } /* .sd-note .is-guard .sd-note-i: the guard line's striped blue tile */
+.notice--failed .notice__mark { background: var(--color-fail-wash); color: var(--color-fail); } /* the one failure pair v4 draws, Not copied, account-home.css .am3-copy.is-fail */
+.notice__body { display: grid; flex: 1 1 auto; justify-items: start; gap: var(--space-2); min-width: 0; }
+.notice__body > * { max-width: 100%; }
+.notice__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; } /* the heading of a mark-and-words card on the case screen, case-blocks.css .v4i-h */
+.notice__p { margin: 0; max-width: var(--size-measure); }
+.notice__p :is(b, strong) { color: var(--color-text-hi); font-weight: 700; } /* .sd-note b */
+.notice__body > .steps, .notice__body > .copy-value, .notice__body > .kv { justify-self: stretch; }
+.notice__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-1); }
+
+/* TICKER. The live drops strip under the header: the drops newest first in one row of feed tiles (.feed-tile) running the strip's whole width,
+   a new one swinging in at the front, and a chip in its top right corner, Live drops with its pulsing dot. Running, the pause shows on hover
+   and focus in the dot's place; paused (.is-held), the chip carries Resume, a play mark, and no new drop arrives. Reduced motion starts it
+   paused and stills the arrival. From design/v4/theme.css (live drops, comp B), rare.css and kit.css parts 2 and 3. */
+/* its own geometry, read inside .ticker only */
+.ticker {
+  --ticker-chip-inset: 16px; /* v4 theme.css .wf-feed-head: top 16px right 16px, the chip inset off the cards' corner; 10px under 600px */
+  --ticker-chip: 28px; /* the same, min-height */
+  --ticker-dot: 8px; /* kit.css part 3 .wf-feed-lbl::before: the live dot */
+  --ticker-pause: 18px; /* kit.css part 3 .wf-feed-pause: the round pause and play */
+  --ticker-pause-hit: -11px; /* v4 rare.css .wf-feed-pause::before: inset -11px, a 40px press */
+  --ticker-pause-bar: 2px; /* kit.css part 3 .wf-feed-pause::after: the two bars and their gap */
+  --ticker-pause-w: 6px; /* the same, the pause mark's width */
+  --ticker-pause-h: 8px; /* the same, its height */
+  --ticker-play: 4px; /* the same [aria-pressed="true"]: the play triangle's half height */
+  --ticker-play-w: 6px; /* the same, its width */
+  --ticker-pulse: 1.6s; /* the same, the halo's loop */
+  --ticker-gap: 6px; /* v4 theme.css .wf-feed-run: gap 6px between drops */
+  --ticker-start: var(--space-2); /* v4 theme.css .wf-feed-run: padding-left 8px from 900px; 16px under 900px */
+  --ticker-arrive: .9s; /* v4 theme.css .wf-feed-i.is-new: a new drop's swing */
+}
+.ticker { position: relative; box-sizing: border-box; min-height: var(--size-ticker); padding-block: var(--space-2) 0; background: var(--color-ground); color: var(--color-text); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.ticker__head { position: absolute; z-index: 3; top: var(--ticker-chip-inset); right: var(--ticker-chip-inset); display: flex; align-items: center; gap: var(--space-1-5); box-sizing: border-box; min-height: var(--ticker-chip); padding: 0 var(--space-3) 0 var(--space-2); border-radius: var(--radius-pill);
+  background: var(--color-ticker-chip); -webkit-backdrop-filter: blur(var(--blur-banner-clock)); backdrop-filter: blur(var(--blur-banner-clock)); box-shadow: var(--shadow-ticker-chip); }
+.ticker__lbl { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: var(--space-1-5); padding-left: var(--space-hair); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
+.ticker__lbl::before { content: ''; width: var(--ticker-dot); height: var(--ticker-dot); border-radius: 50%; background: var(--color-pink); }
+.ticker__lbl::after { content: ''; position: absolute; z-index: -1; left: var(--space-hair); top: 50%; width: var(--ticker-dot); height: var(--ticker-dot); margin-top: calc(var(--ticker-dot) / -2); border-radius: 50%; background: var(--color-ticker-halo); pointer-events: none; animation: ticker-live var(--ticker-pulse) ease-out infinite; }
+@keyframes ticker-live { from { transform: scale(1); opacity: 1; } to { transform: scale(2); opacity: 0; } }
+/* the pause, and once paused the play: a pink round in the dot's place */
+.ticker__pause { position: relative; display: inline-flex; flex: 0 0 var(--ticker-pause); align-items: center; justify-content: center; width: var(--ticker-pause); height: var(--ticker-pause); padding: 0; border: 0; border-radius: 50%; background: var(--color-pink); color: transparent; font-size: 0; cursor: pointer; }
+.ticker__pause::before { content: ''; position: absolute; inset: var(--ticker-pause-hit); }
+.ticker__pause::after { content: ''; flex: 0 0 auto; width: var(--ticker-pause-w); height: var(--ticker-pause-h); background: linear-gradient(90deg, var(--color-text-hi) 0 var(--ticker-pause-bar), transparent var(--ticker-pause-bar) calc(2 * var(--ticker-pause-bar)), var(--color-text-hi) calc(2 * var(--ticker-pause-bar))); }
+.ticker__pause[aria-pressed="true"]::after { width: 0; height: 0; margin-left: var(--space-hair); background: none; border-style: solid; border-width: var(--ticker-play) 0 var(--ticker-play) var(--ticker-play-w); border-color: transparent transparent transparent var(--color-text-hi); }
+.ticker__pause:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+/* the dot shows while the strip runs and nothing is aimed at it; the pause takes its place on hover, on focus and while held */
+.ticker:is(:hover, :focus-within, .is-held) .ticker__lbl::before, .ticker:is(:hover, :focus-within, .is-held) .ticker__lbl::after { display: none; }
+@media (hover: hover) {
+  .ticker:not(:hover):not(:focus-within):not(.is-held) .ticker__pause { position: absolute; width: var(--size-hairline); height: var(--size-hairline); margin: calc(-1 * var(--size-hairline)); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .ticker__pause:hover { filter: brightness(1.1); }
+}
+@media (hover: none) { .ticker__lbl::before, .ticker__lbl::after { display: none; } }
+/* the run: the drops in one row, clipped at the strip's ends */
+.ticker__clip { overflow-x: clip; overflow-y: visible; }
+.ticker__run { display: flex; gap: var(--ticker-gap); width: max-content; margin: 0; padding: 0 0 0 var(--ticker-start); list-style: none; }
+.ticker__i { display: flex; flex: none; }
+.ticker__i.is-new { transform-origin: 0 50%; animation: ticker-arrive var(--ticker-arrive) cubic-bezier(.22, .8, .3, 1); }
+@keyframes ticker-arrive {
+  0% { opacity: 0; transform: perspective(700px) translateX(-24px) rotateY(75deg); }
+  45% { opacity: .7; transform: perspective(700px) translateX(0) rotateY(28deg); }
+  78% { opacity: 1; transform: perspective(700px) rotateY(-6deg); }
+  100% { opacity: 1; transform: none; } }
+@media (max-width: 899px) { .ticker { --ticker-start: var(--space-4); padding-block: var(--space-2); } }
+@media (max-width: 599px) { .ticker { --ticker-chip-inset: 10px; min-height: 0; padding-block: var(--space-1-5); } }
+@media (prefers-reduced-motion: reduce) { .ticker__lbl::after { animation: none; opacity: 0; } .ticker__i.is-new { animation: none; } }
+
+/* VERIFY FORM. Paste a round and recompute it: the server seed hash and the server seed as text areas, the client seed and the nonce, the act,
+   and the one area the recomputation replaces. States: empty, prefilled, malformed (each field that failed says why under itself; nothing
+   typed is cleared), matched (both results printed, agreed), failed (the two results side by side, the fault named as ours, one report act
+   with the round attached and a reference), unavailable (no proof yet, the seed has not rotated). No state draws a verified mark.
+   Grey only so far, wireframes/fair.html, fair-prefilled.html, fair-malformed.html, fair-matched.html, fair-proof-failed.html,
+   fair-unavailable.html; the look is the one form v4 draws, the sign in dialog: its plate and its fields on the dark tile, design/v4/
+   signin-home.css .sd; the result sits in Home's hash well with its green "Recomputed: matches", design/v4/proof-home.css .x6-hash and
+   .x6-ok. Contains Field (with Text area and Text field), Button, Key-value line, Copyable value, Note line. */
+.verify {
+  --verify-ok: 14px; /* v4 proof-home.css .x6-ok svg: the green disc before "Recomputed: matches" */
+}
+.verify { display: grid; gap: var(--space-4); min-width: 0; box-sizing: border-box; padding: var(--space-5); border-radius: var(--radius-m); background: var(--gradient-menu); box-shadow: var(--shadow-edge); } /* .sd: the dialog's plate, its 18px corner on the ladder's 16 */
+@media (max-width: 599px) { .verify { padding: var(--space-4); } }
+.verify__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+.verify__out { display: grid; gap: var(--space-3); min-width: 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-s); background: var(--color-hash-well); box-shadow: var(--shadow-edge-lit); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.5; } /* .x6-hash, its padding grown from 9 and 12 to 12 and 16 for three lines instead of two */
+.verify__out:empty { display: none; }
+.verify__say { margin: 0; color: var(--color-text-hi); font-weight: 700; }
+.verify__ok { position: relative; display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--color-green); font-size: var(--size-chip); font-weight: 700; line-height: 1.2; } /* .x6-ok */
+.verify__ok::before { content: '\2713'; flex: none; display: grid; place-items: center; width: var(--verify-ok); height: var(--verify-ok); border-radius: 50%; background: var(--color-green); color: var(--color-ground); font-size: var(--size-micro); font-weight: 900; line-height: 1; } /* the green disc with the ground's dark tick, .x6-ok's svg */
+.verify__vs { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+@media (min-width: 600px) { .verify__vs { grid-template-columns: repeat(2, minmax(0, 1fr)); } } /* two values side by side, never one value with a mark; stacked on a phone (wireframes/_wf.css .wf-vpair) */
+.verify__v { display: grid; gap: var(--space-1); min-width: 0; padding: var(--space-2) var(--space-3); border-radius: var(--radius-s); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); } /* each result in the hash's own chip, case-page.css .v4c-hash code */
+.verify__k { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; } /* the hash's key, .v4c-hash-l */
+.verify__n { color: var(--color-text-hi); font-family: var(--font-mono); font-size: var(--size-m); font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.3; overflow-wrap: anywhere; }
+
+/* PAYMENT PANEL. Add funds after the method is chosen: the bonus line, the code and the country, a notice where one stands, the chosen method
+   with Change, then the route's form beside the dock that says what arrives, at the peg, what is charged and the one act that pays.
+   Routes and states: card, crypto, crypto with no wallet yet, gift cards, skins, declined (the notice, the form kept, Try again), a limit raise
+   pending (the notice with the moment it takes effect, the form inside the limit in force). Two columns from 900px, the dock sticky beside the
+   form; under 900px the dock follows the form. The gift card list, the provider tiles and the skin list are one-offs (inventory.md) and
+   stand in the route's slot as their screen draws them.
+   Grey only so far, wireframes/deposit-card.html, deposit-crypto.html, deposit-crypto-nowallet.html, deposit-giftcards.html,
+   deposit-skins.html, deposit-declined.html, deposit-ceiling-pending.html; the look is the case screen's open bar beside its money line
+   (as .dock), and the header's money plate with its 5 % bonus badge, design/v4/case-stage.css .v4c-plate and account-home.css .ac2-plate.
+   Contains Chosen method, Amount field, Field, Copyable value, Deposit dock, Status notice, Disclosure, Segmented control, Radio, Note line. */
+.pay-panel {
+  --pay-dock: 320px; /* wireframes/_wf.css .wf-fund-grid: the dock's column from 900px */
+  --pay-head: 260px; /* wireframes/_wf.css .wf-pay-head > *: the code and the country each take at least this, so the pair stacks on a phone */
+}
+.pay-panel { display: grid; gap: var(--space-5); min-width: 0; }
+.pay-panel__offer { display: flex; align-items: center; gap: var(--space-3); min-width: 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; } /* the header's money plate, .ac2-plate */
+.pay-panel__offer p { margin: 0; min-width: 0; }
+.pay-panel__offer :is(b, strong) { color: var(--color-text-hi); }
+.pay-panel__head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-4); }
+.pay-panel__head > * { flex: 1 1 var(--pay-head); }
+.pay-panel__code { display: flex; align-items: center; gap: var(--space-2); }
+.pay-panel__code-in { flex: 1 1 auto; min-width: 0; }
+.pay-panel__body { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5); align-items: start; }
+.pay-panel__form { display: grid; align-content: start; gap: var(--space-5); min-width: 0; }
+.pay-panel__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.4; }
+.pay-panel__h span { color: var(--color-text-soft); font-weight: 400; }
+.pay-panel__group { display: grid; gap: var(--space-2); min-width: 0; }
+.pay-panel__provs { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.pay-panel__prov { display: inline-flex; align-items: center; min-height: var(--size-tap); box-sizing: border-box; padding: 0 var(--space-4) 0 var(--space-3); border-radius: var(--radius-card); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); transition: box-shadow .2s; } /* a count option, .seg__opt, holding the kit's radio */
+.pay-panel__prov:has(input:checked) { box-shadow: inset 0 0 0 var(--size-hairline) var(--color-pink-edge); } /* chosen: the edge of a made declaration, .field--declare */
+@media (hover: hover) { .pay-panel__prov:hover:not(:has(input:checked)) { box-shadow: inset 0 0 0 var(--size-hairline) var(--color-button); } }
+.pay-panel__facts { display: grid; gap: var(--space-1-5); margin: 0; padding: 0; list-style: none; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.45; }
+.pay-panel__facts :is(b, strong) { color: var(--color-text-hi); font-weight: 700; font-variant-numeric: tabular-nums; }
+.pay-panel__side { min-width: 0; }
+@media (min-width: 900px) {
+  .pay-panel__body { grid-template-columns: minmax(0, 1fr) var(--pay-dock); gap: var(--space-6); }
+  .pay-panel__side { position: sticky; top: var(--space-4); }
+}
+@media (prefers-reduced-motion: reduce) { .pay-panel__prov { transition: none; } }
+
+/* CASE HEAD. The case block's head and the ground the stage stands on: the breadcrumb and How it works at the left, the case's name with its one line
+   in the middle, the favourite at the right; under 900px the crumb cuts to its parent with How it works beside it, and the name and the
+   favourite share a row. The block keeps the Home banner's insets on a wide screen and runs edge to edge with no corner under 900px.
+   Carried from design/v4/case-page.css (.v4c-stage, .v4c-head, .v4c-nav, .v4c-title, .v4c-flanks, .v4c-fav) and case-stage.css (row M).
+   Contains Breadcrumb (.crumb, in its fitted form), Text link, Favourite toggle (.fav, in its square form), Note line and Case stage. */
+.case-head {
+  --case-head-name: clamp(30px, 4vw, 46px); /* v4 case-page.css: .v4c-title h1 font-size, the case's name, the page's H1; рішення користувача, D-209 (v4) carried by D-232 */
+  --case-head-inset-l: 48px; /* v4 case-stage.css: @media (min-width: 1200px) .v4c-head padding-left max(48px, ...), the crumb on the content edge below; рішення користувача, D-209 (v4) carried by D-232 */
+  --case-head-page: 1560px; /* v4 theme.css: .wf-main > :not(.wf-event) margin-inline max(gutter, (100% - 1560px) / 2), the page's widest column, which the crumb lines up with; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.case-head { position: relative; isolation: isolate; overflow: hidden; padding-bottom: var(--space-4-25); border-radius: var(--radius-l); background: var(--color-stage); box-shadow: var(--shadow-edge), var(--shadow-stage); color: var(--color-text); font-size: var(--size-text); line-height: 1.2; } /* v4 drew 20px corners, the ladder's 24, D-228 */
+@media (max-width: 899px) { .case-head { border-radius: 0; box-shadow: none; } }
+.case-head__head { position: relative; z-index: 3; display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; gap: var(--space-3); padding: var(--space-4) var(--space-5) 0; }
+@media (min-width: 1200px) { .case-head__head { padding-left: max(var(--case-head-inset-l), (100% - var(--case-head-page)) / 2); } }
+.case-head__nav { display: flex; flex-direction: column; gap: var(--space-1-5); }
+.case-head__how { margin: 0; }
+.case-head__title { min-width: 0; text-align: center; }
+.case-head__name { margin: 0; color: var(--color-text-hi); font-size: var(--case-head-name); font-weight: 900; letter-spacing: var(--tracking-mode-name); line-height: 1; text-shadow: var(--shadow-case-name); text-transform: uppercase; }
+.case-head__line { margin: var(--space-2) 0 0; }
+.case-head__flank { display: flex; justify-content: flex-end; align-items: center; gap: var(--space-3); }
+@media (max-width: 899px) {
+  .case-head__head { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'nav nav' 'title fav'; align-items: center; row-gap: var(--space-2-5); padding: var(--space-3-5) var(--space-3-5) var(--space-2-5); text-align: left; }
+  .case-head__nav { grid-area: nav; flex-direction: row; justify-content: space-between; align-items: center; }
+  .case-head__title { grid-area: title; text-align: left; }
+  .case-head__flank { grid-area: fav; }
+}
+@media (max-width: 599px) { .case-head__line { margin-top: var(--space-1); } }
+
+/* SIGN-IN BLOCK. The two declarations, each its own row and its own act (D-26), the refusal under them (D-58), Sign in with Steam, the three
+   other providers, and the foot plate that answers the fear and says what Steam is needed for. No press is disabled: a press with a
+   declaration missing marks that row, names it in the refusal and takes the keyboard to it (signin-home.js wire). States: consent not given,
+   one of two given, given, asked (refused with both missing), Steam refused and Steam unavailable (the notice in place of the providers, the
+   declarations kept in view). The declarations are the kit's declaration row with the kit's one checkbox (D-231 point 2), not v4's 24px pink
+   box; the refusal is the kit's line (D-231 point 3).
+   Carried over from v4's sign in dialog, design/v4/signin-home.css .sd--e .sd-body (Operators round 2, founder of 3 Nov 2026); its two failure
+   states v4 leaves grey (signin-home.js: "left as they are drawn"), so they take the grey's order, wireframes/signin-steam-refused.html and
+   signin-steam-unavailable.html, and the kit's Status notice. Contains Field (declaration), Checkbox, Note line, Button, Icon, Status notice. */
+.signin {
+  --signin-tile: 30px; /* v4 signin-home.css .sd-note-i: a tile on the foot plate */
+  --signin-go-above: var(--space-4); /* v4 signin-home.css .sd--e .sd-steam margin-top; 22px where the dialog has two columns */
+  --signin-or-above: var(--space-4-25); /* v4 signin-home.css .sd--e .sd-or margin-top; 24px where the dialog has two columns */
+  --signin-or-below: var(--space-3); /* the same, margin-bottom; 16px where the dialog has two columns */
+  --signin-note-above: var(--space-5); /* v4 signin-home.css .sd-note margin-top; auto where the dialog has two columns, so the plate sits at its foot */
+  --signin-go-above-wide: 22px; /* v4 signin-home.css @container dlg (min-width: 760px) .sd--e .sd-steam margin-top */
+  --signin-or-above-wide: var(--space-5); /* the same, .sd--e .sd-or margin-top */
+}
+.signin { display: flex; flex-direction: column; min-width: 0; }
+.signin__consent { display: grid; gap: var(--space-2); }
+.signin__why { margin-top: var(--space-3); } /* .sd--e.is-asked .sd-why margin-top */
+.signin__why:empty { display: none; } /* .sd--e .sd-why: the form breathes, no standing line until there is a refusal */
+.signin__go { margin-top: var(--signin-go-above); }
+.signin__go > .button { width: 100%; } /* the act across the column, as .dock__act > .button */
+.signin__or { display: flex; align-items: center; gap: var(--space-3); margin: var(--signin-or-above) 0 var(--signin-or-below); color: var(--color-text-muted); font-size: var(--size-xs); line-height: 1.2; }
+.signin__or::before, .signin__or::after { content: ''; flex: 1; height: var(--size-hairline); background: var(--color-line-soft); }
+.signin__provs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+.signin__note { display: grid; gap: var(--space-2-5); margin-top: var(--signin-note-above); padding: var(--space-3-5); border-radius: var(--radius-card); background: var(--color-note-plate); box-shadow: var(--shadow-edge); } /* .sd-note, its 14px corner on the ladder's 12 */
+.signin__line { display: flex; align-items: center; gap: var(--space-3); margin: 0; color: var(--color-text-muted); font-size: var(--size-xs); line-height: 1.4; }
+.signin__line b { color: var(--color-text-hi); }
+.signin__line--guard { color: var(--color-text-hi); font-weight: 700; }
+.signin__tile { flex: none; display: grid; place-items: center; width: var(--signin-tile); height: var(--signin-tile); border-radius: var(--radius-s); background: var(--color-wash); color: var(--color-text-soft); font-size: var(--size-text); } /* .sd-note-i: 9px corner on the ladder's 8; the glyph inset 7px is a 16px icon */
+.signin__tile--guard { background: var(--gradient-stripes-s), var(--gradient-mode-battles); color: var(--color-text-hi); }
+.signin__tile--steam { background: var(--gradient-steam); color: var(--color-text-hi); font-size: var(--size-m); } /* inset 6px: an 18px glyph */
+.signin__fail { margin-bottom: var(--space-4); } /* a failure stands where the providers were, above the declarations it keeps in view */
+.signin__away { display: grid; gap: var(--space-2); margin-top: var(--space-5); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.5; } /* the page form only: keep looking around without an account */
+.signin__away-h { margin: 0; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.signin__away p { margin: 0; }
+@container dialog (min-width: 760px) {
+  .signin { --signin-go-above: var(--signin-go-above-wide); --signin-or-above: var(--signin-or-above-wide); --signin-or-below: var(--space-4); flex: 1 1 auto; } /* signin-home.css @container dlg (min-width: 760px) .sd--e */
+  .signin__consent { gap: var(--space-2-5); }
+  .signin__provs { margin-bottom: var(--space-5); }
+  .signin__note { margin-top: auto; }
+}
+
+/* DIALOG. One layer over the page with a close, a heading and its content; the page behind is dimmed by the scrim and inert. Ways out: the
+   close, a press on the scrim, Escape (wireframes/_wf.css, the modal contract of 0.1 section 6). On open the focus goes to the close and runs
+   through the content in the order of the markup; on close it returns to the control that opened it (wireframes/_nav.js and
+   signin-home.js do this; the kit draws it). Variants: --signin (2.4, the art column with its title, the three lines Home already shows and
+   the Operators art, then the Sign-in block), --plain (the geo gate 2.1 and 2.2, blocked, staged, not launched, unavailable, which has no
+   close: its acts are its ways out; confirm a limit 6.2; cash out 5.1), --pay (Add funds 4.1, the Payment panel). At 360 it is a sheet from
+   edge to edge; from 600px a card on the ground's rounded corner with its drop; the sign in dialog takes its two columns where it has 760px.
+   Carried over from v4's sign in dialog, design/v4/signin-home.css .sd and .sd--e, and its host in the same file (.wf-auth-host .wf-dlg-wrap,
+   the scrim of kit.css part 2 .wf-dlg-scrim); the plain and the pay forms are its single column at 520px and at the grey's 940px
+   (wireframes/_wf.css .wf-dlg--plain, .wf-dlg--pay). Contains Button, Icon, Sign-in block, Payment panel, Field, Key-value line, Tabs,
+   Copyable value, Note line. */
+.dialog {
+  --dialog-w: 900px; /* v4 signin-home.css .sd max-width: the sign in dialog in two columns */
+  --dialog-w-card: 520px; /* v4 signin-home.css .wf-auth-host .wf-dlg.sd from 600px while its host is under 760px: the one-column card; the plain dialog's width, wireframes/_wf.css .wf-dlg--plain */
+  --dialog-w-pay: 940px; /* wireframes/_wf.css .wf-dlg--pay from 600px: Add funds holds the form and the dock side by side; технічне рішення carried from the grey */
+  --dialog-art-w: 400px; /* v4 signin-home.css .sd--e: the art column, grid-template-columns minmax(0, 400px) */
+  --dialog-min-h: 600px; /* v4 signin-home.css .sd--e min-height in two columns */
+  --dialog-art-h: 168px; /* v4 signin-home.css .sd--e .sd-art min-height: the art band over the sheet on a phone */
+  --dialog-art-title: 58%; /* v4 signin-home.css .sd--e .sd-art-h max-width on a phone; 340px in two columns */
+  --dialog-art-pad-top: 22px; /* v4 signin-home.css .sd--e .sd-art-h padding, top; 34px in two columns */
+  --dialog-art-pad-side: var(--space-4); /* the same, sides; 30px in two columns */
+  --dialog-agents-out: -36px; /* v4 signin-home.css .sd--e .sd-agents right on a phone: the operators run off the band's edge */
+  --dialog-agents-wide: -30px; /* v4 signin-home.css .sd--e .sd-agents in two columns: left, and 60px wider than the column */
+  --dialog-proofs-top: 190px; /* v4 signin-home.css .sd--e > .sd-proofs margin-top in two columns, under the art title */
+  --dialog-proof-tile: 34px; /* v4 signin-home.css .sd-pf-i: the tile of a line Home already shows */
+  --dialog-pad-top: 20px; /* v4 signin-home.css .sd--e .sd-body padding, top on a phone; 34px in two columns */
+  --dialog-pad-side: var(--space-4); /* the same, sides; 36px in two columns */
+  --dialog-pad-foot: var(--space-4); /* the same, foot; 28px in two columns */
+  --dialog-close-top: var(--space-2); /* v4 signin-home.css .sd--e .sd-close top on a phone; 32px (--space-6) in two columns */
+  --dialog-close-side: var(--space-2); /* the same, right; 26px in two columns */
+  --dialog-head-clear: 48px; /* v4 signin-home.css .sd--e .sd-h padding-right in two columns: the heading clears the close at the end of its line */
+  --dialog-art-title-wide: 340px; /* v4 signin-home.css .sd--e .sd-art-h max-width in two columns */
+  --dialog-art-pad-top-wide: 34px; /* the same, padding top in two columns; the body's top too, so the two headings share a top */
+  --dialog-art-side-wide: 30px; /* the same, padding sides in two columns; the side padding of the three lines under it, .sd--e > .sd-proofs */
+  --dialog-pad-side-wide: 36px; /* v4 signin-home.css .sd--e .sd-body padding, sides in two columns */
+  --dialog-close-side-wide: 26px; /* v4 signin-home.css .sd--e .sd-close right in two columns */
+}
+.dialog { container: dialog / inline-size; position: relative; isolation: isolate; box-sizing: border-box; width: 100%; max-width: var(--dialog-w); margin: auto; overflow: hidden; background: var(--gradient-menu); box-shadow: var(--shadow-edge); color: var(--color-text-hi); text-align: left; } /* .sd: the panel gradient and its .06 hairline (--shadow-edge, D-228) */
+.dialog[hidden] { display: none; }
+.dialog--plain { max-width: var(--dialog-w-card); }
+.dialog--pay { max-width: var(--dialog-w-pay); }
+@media (min-width: 600px) { .dialog { border-radius: var(--radius-m); box-shadow: var(--shadow-edge), var(--shadow-dialog); } } /* a card from 600px, its 18px corner on the ladder's 16 */
+@media (min-width: 600px) and (max-width: 807px) { .dialog--signin { max-width: var(--dialog-w-card); } } /* signin-home.css: one column as a 520px card until its host holds 760px, a window of 808px */
+
+/* the close: the kit's close button, placed */
+.dialog__close { position: absolute; z-index: 5; top: var(--dialog-close-top); right: var(--dialog-close-side); }
+
+/* the art band, sign in only */
+.dialog__art { position: relative; overflow: hidden; min-height: var(--dialog-art-h); background: var(--gradient-button-stripes), var(--gradient-mode-battles); } /* the Battles blue panel, signin-home.js PANEL */
+.dialog__art-h { position: relative; z-index: 1; max-width: var(--dialog-art-title); box-sizing: border-box; margin: 0; padding: var(--dialog-art-pad-top) var(--dialog-art-pad-side); color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; line-height: 1.12; text-transform: uppercase; }
+.dialog__agents { position: absolute; right: var(--dialog-agents-out); bottom: 0; width: auto; height: 100%; }
+.dialog__proofs { display: none; gap: var(--space-2); margin: 0; padding: 0; list-style: none; } /* the three lines Home already shows; only where the art is a column */
+.dialog__proof { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-card); background: var(--color-price-plate); box-shadow: var(--shadow-edge); } /* .sd-pf: rgba(11, 10, 34, .82), its .08 hairline as --shadow-edge */
+.dialog__proof-tile { flex: none; display: grid; place-items: center; width: var(--dialog-proof-tile); height: var(--dialog-proof-tile); border-radius: var(--radius-s); background: var(--gradient-button-stripes), var(--color-pink); color: var(--color-text-hi); font-size: var(--size-m); } /* .sd-pf-i: 10px corner on the ladder's 8; inset 8px, an 18px glyph */
+.dialog__proof-t { display: grid; min-width: 0; font-size: var(--size-label); line-height: 1.3; }
+.dialog__proof-t b { font-weight: 700; }
+.dialog__proof-s { color: var(--color-text-soft); font-size: var(--size-xs); }
+
+/* the body */
+.dialog__body { position: relative; z-index: 1; display: grid; align-content: start; gap: var(--space-4); min-width: 0; box-sizing: border-box; padding: var(--dialog-pad-top) var(--dialog-pad-side) var(--dialog-pad-foot); }
+.dialog--signin .dialog__body { display: block; }
+.dialog__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-l); font-weight: 900; line-height: 1.1; text-transform: uppercase; } /* .sd-h */
+.dialog--signin .dialog__h { margin-bottom: var(--space-4); }
+.dialog:not(.dialog--signin):has(> .dialog__close) .dialog__h { padding-right: var(--dialog-head-clear); } /* the heading clears the close at the end of its line */
+.dialog__p { margin: 0; max-width: var(--size-measure); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.5; } /* wireframes/_wf.css .wf-dlg-sub and .wf-gate-p, the dialog's own sentences */
+.dialog__p :is(b, strong) { color: var(--color-text-hi); font-weight: 700; }
+.dialog__open { margin: 0; color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.5; } /* what still works, said last before the acts */
+.dialog__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-1); }
+
+/* the sign in dialog in two columns, where it has 760px: signin-home.css @container dlg (min-width: 760px) .sd--e */
+@container dialog (min-width: 760px) {
+  .dialog--signin .dialog__art { position: absolute; top: 0; bottom: 0; left: 0; width: var(--dialog-art-w); min-height: 0; }
+  .dialog--signin .dialog__art-h { --dialog-art-title: var(--dialog-art-title-wide); --dialog-art-pad-top: var(--dialog-art-pad-top-wide); --dialog-art-pad-side: var(--dialog-art-side-wide); padding-bottom: 0; font-size: var(--size-stat); }
+  .dialog--signin .dialog__agents { right: auto; left: var(--dialog-agents-wide); width: calc(100% - 2 * var(--dialog-agents-wide)); height: auto; }
+  .dialog--signin .dialog__proofs { position: absolute; z-index: 2; top: var(--dialog-proofs-top); left: 0; display: grid; width: var(--dialog-art-w); box-sizing: border-box; padding: 0 var(--dialog-art-side-wide); }
+  .dialog--signin .dialog__body { --dialog-pad-top: var(--dialog-art-pad-top-wide); --dialog-pad-side: var(--dialog-pad-side-wide); --dialog-pad-foot: var(--space-5-5); display: flex; flex-direction: column; gap: 0; min-height: var(--dialog-min-h); margin-left: var(--dialog-art-w); }
+  .dialog--signin .dialog__h { margin-bottom: var(--space-5-5); padding-right: var(--dialog-head-clear); font-size: var(--size-stat); line-height: 1.12; }
+  .dialog--signin .dialog__close { --dialog-close-top: var(--space-6); --dialog-close-side: var(--dialog-close-side-wide); }
+}
+
+/* the layer: the scrim and the frame that centres the dialog; at 360 the sheet takes the window */
+.dialog__layer {
+  --dialog-layer-z: 81; /* kit.css part 2 .wf-dlg-wrap z-index, the scrim at 80 under it in the grey; технічне рішення */
+}
+.dialog__layer { position: fixed; inset: 0; z-index: var(--dialog-layer-z); display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: var(--space-5); overflow-y: auto; background: var(--color-scrim); } /* .wf-dlg-scrim and .wf-dlg-wrap in one: the ground at 72 % */
+@media (max-width: 599px) { .dialog__layer { align-items: stretch; padding: 0; } .dialog__layer > .dialog { min-height: 100%; } }
+
+/* THE SHELL'S PAGE LAYOUT, D-232. Where the organisms stand on a page, nothing of their look: the header across the top, the rail beside the
+   page from the header's top, the live drops under the header, the screen's slot, the footer; as Home v4 lays them out (kit.css part 2, the
+   grey screen body, and v4 theme.css). design/kit/shell.html carries it as markup; a screen copy keeps body.page and .shell and fills #screen.
+   The page keeps clear of the design pipeline's own panel by --nav-w (_nav.css), 0 where that panel is absent. */
+.page { margin: 0; background: var(--color-ground); color: var(--color-text); font-family: var(--font-family); font-size: var(--size-s); line-height: 1.55; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.shell { min-height: 100vh; }
+.shell__main { min-width: 0; padding: var(--space-6) var(--space-3) var(--space-6) var(--space-2); }
+.shell > .footer { margin-top: var(--space-7); }
+@media (min-width: 900px) {
+  .shell { --rail-page-x: var(--nav-w, 0px); --rail-logo-x: calc((100vw - var(--nav-w, 0px)) / 2 - var(--space-3));
+    display: grid; grid-template-columns: var(--size-rail-collapsed) minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; grid-template-areas: "header header" "rail feed" "rail main" "rail footer"; margin-left: var(--nav-w, 0px); }
+  .shell.is-wide { grid-template-columns: calc(var(--size-rail) + var(--space-3)) minmax(0, 1fr); }
+  .shell > .rail { grid-row: 1 / -1; grid-column: 1; }
+  .shell > .header { grid-row: 1; grid-column: 1 / -1; }
+  .shell > .ticker { grid-area: feed; min-width: 0; }
+  .shell > .shell__main { grid-area: main; }
+  .shell > .footer { grid-area: footer; margin-top: calc(var(--space-7) + var(--space-5)); }
+}
+@media (max-width: 899px) {
+  .page:has(> #sidebar) .shell { padding-top: var(--space-6); } /* the design pipeline panel's strip, 32px, scrolls away at the page's top */
+  .shell { padding-bottom: var(--size-bar); }
+  .shell__main { padding: var(--space-4); }
+}

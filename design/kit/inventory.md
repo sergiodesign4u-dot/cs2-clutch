@@ -77,7 +77,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 
 ### Level 3, organisms
 
-Order: first the organisms that hold no other organism, then Case head (holds Case stage) and Sign-in block (holds Status notice), then Dialog (holds Sign-in block and Payment panel). A part always stands above its whole.
+Order: first the organisms that hold no other organism, then Payment panel (holds Status notice), Case head (holds Case stage) and Sign-in block (holds Status notice), then Dialog (holds Sign-in block and Payment panel). A part always stands above its whole. Corrected at batch 3, `D-232`: the grey draws a Status notice inside the payment panel for declined and ceiling pending, so Payment panel moved below Status notice; its level stays 3. Two cells corrected by the same walk: the Rail holds no Badge (v4 draws a heading and a chip line), and the Ticker's pause is its own part, an 18px round mark outside the button family.
 
 | Component | Level | Variants | Screens (IA nodes) | States drawn in grey | Photo | Contains | Read from |
 |---|---|---|---|---|---|---|---|
@@ -92,13 +92,13 @@ Order: first the organisms that hold no other organism, then Case head (holds Ca
 | Item grid | 3 | one form | 3: 5.1, 5.9, 7.3 | one state; on 6 pages | skins | Item card, Segmented control | `wf-itemgrid`, `wf-grid--inv` |
 | Limits panel | 3 | one form | 2: 6.1, 6.3 | one state; on 4 pages | no | Field, Key-value line, Button, Note line | `wf-rp` |
 | Mode row | 3 | one form | 2: 1.0, 1.1 | one state; on 2 pages | mode art | Mode card | `wf-modes` |
-| Payment panel | 3 | one form | 3: 4.1, 4.3, 4.5 | card, crypto, crypto with no wallet, gift cards, skins, declined, ceiling pending; on 9 pages | provider marks | Chosen method, Amount field, Field, Copyable value, Deposit dock | `wf-pay-lay` |
 | Proof block | 3 | one form | 4: 1.2, 1.3, 1.4, 7.1 | settled, matched, mismatched, no proof, failed; on 11 pages | no | Copyable value, Key-value line, Badge, Button | `wf-proof-fields` |
-| Rail | 3 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | open, closed, LATER rows marked Not launched (D-197); on 132 pages | no | Logo, Icon, Badge, Button, Popover menu | `wf-rail` |
+| Rail | 3 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | open, closed, LATER rows marked Not launched (D-197); on 132 pages | no | Logo, Icon, Button, Popover menu | `wf-rail` |
 | Recent drops | 3 | one form | 4: 3.3, 3.5, 3.6, 3.7 | one state; on 13 pages | skins | Recent drop card | `wf-recent` |
 | Status notice | 3 | in progress (crediting), stopped (declined, restricted), failed with a reference (Steam refused) | 14: 0.10, 2.5, 2.6, 4.2, 4.3, 4.4, 4.5, 5.4, 5.5, 5.6, and 4 more | in progress, stopped, failed with a reference; on 22 pages | no | Key-value line, Figure, Button, Copyable value | `wf-notice`, `wf-fail` |
-| Ticker | 3 | one form | 34: 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.4, 2.5, 2.6, and 24 more | running, paused (Resume); on 104 pages | skins | Feed tile, Button | `wf-feed` |
+| Ticker | 3 | one form | 34: 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.4, 2.5, 2.6, and 24 more | running, paused (Resume); on 104 pages | skins | Feed tile | `wf-feed` |
 | Verify form | 3 | one form | 3: 1.2, 1.3, 1.4 | empty, prefilled, malformed, matched, failed, unavailable; on 6 pages | no | Field, Copyable value, Button | `wf-verify` |
+| Payment panel | 3 | one form | 3: 4.1, 4.3, 4.5 | card, crypto, crypto with no wallet, gift cards, skins, declined, ceiling pending; on 9 pages | provider marks | Chosen method, Amount field, Field, Copyable value, Deposit dock, Status notice | `wf-pay-lay` |
 | Case head | 3 | one form | 4: 3.3, 3.5, 3.6, 3.7 | one state; on 13 pages | case art | Favourite toggle, Note line, Case stage | `wf-case` |
 | Sign-in block | 3 | one form | 3: 2.4, 2.5, 2.6 | consent not given, one of two given, given, Steam refused, Steam unavailable; on 7 pages | no | Field, Button, Status notice | `wf-auth-blk` |
 | Dialog | 3 | geo gate (2.1, 2.2), sign in (2.4), deposit (4.1), cash out (5.1), confirm a limit (6.2) | 6: 2.1, 2.2, 2.4, 4.1, 5.1, 6.2 | one page per state of its layer: gate blocked, staged, not launched, unavailable; sign in; deposit; cash out; confirm; on 9 pages | art slot on two | Button, Sign-in block, Payment panel, Field, Copyable value | `wf-dlg` |
