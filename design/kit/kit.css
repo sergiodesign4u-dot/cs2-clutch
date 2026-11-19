@@ -311,11 +311,7 @@
   --color-case-violet: #A35CFF; /* Nightfall's light behind its skin; рішення користувача, D-209, theme.css, the case tile's --case */
   --shadow-skin-drop: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); /* a skin's shadow on the case it lies in, a filter; рішення користувача, D-209, theme.css, the case tile's skin */
   --shape-case-rim: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); /* the case's front below its rim, cut so the skin lies inside the tray; рішення користувача, D-209, case-tiles.css and proof-home.css */
-  --art-case-ironbound-base: url(../v4/art/cases-v2/ironbound.webp); /* the case with no details, the base new covers are drawn from; рішення користувача, D-230: "кейс базовий которий виглядит как текущие только без украшательств"; round 2 of the cases, 2 Nov 2026 */
-  --art-case-warsteel-base: url(../v4/art/cases-v2/warsteel.webp); /* рішення користувача, D-230, as above */
-  --art-case-coldfront-base: url(../v4/art/cases-v2/coldfront-a.webp); /* рішення користувача, D-230, as above; Coldfront's plain cut is its "a" */
-  --art-case-nightfall-base: url(../v4/art/cases-v2/nightfall.webp); /* рішення користувача, D-230, as above */
-  --art-case-emberforge-base: url(../v4/art/cases-v2/emberforge.webp); /* рішення користувача, D-230, as above */
+  --art-case-base: url(../v4/art/cases-v2/base-welcome.webp); /* the one base case: the founder's Welcome case, whose form, angle and open tray every custom cover of cases-v2 was generated from (decisions.md, 2 Nov 2026, "built on the founder's Welcome case"); рішення користувача, D-230: "где то був кейс 1 шт как базовий ми использовали его как форму ракурс и так далее для генераций кейсов кастомних"; brought back from _archive as a 900px webp */
   /* the pictures Home and the case screen load that D-229 had not carried, measured on 19 Nov 2026 from every request at 360 and 1440, scrolled and hovered */
   --art-banner-plate-wide: url(../v4/art/banner-plate-wide.webp); /* the banner's plate at a wide window; рішення користувача, D-209, banner.css */
   --art-daily-ground: url(../v4/art/daily-bg.webp); /* the Daily cases panel's ground; рішення користувача, D-209, daily-home.css */

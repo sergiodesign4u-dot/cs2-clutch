@@ -517,7 +517,7 @@ One value moved on the way and is named rather than hidden: v4 drew the inner ha
 | `--color-case-violet` | #A35CFF | Nightfall's light behind its skin, the case tile's `--case`, `theme.css` |
 | `--shadow-skin-drop` | drop-shadow(0 6px 6px rgba(0, 0, 0, .7)) | the skin's shadow on its case, `theme.css` |
 | `--shape-case-rim` | polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%) | the cover's front cut at the rim, `case-tiles.css` and `proof-home.css` |
-| `--art-case-<name>-base`, five | `cases-v2/<name>.webp`, Coldfront `coldfront-a.webp` | the base cases with no details, founder's pick of 19 Nov 2026 |
+| `--art-case-base` | `cases-v2/base-welcome.webp`, the founder's Welcome case at 900px | the one base case every custom cover was generated from, founder of 19 Nov 2026; replaced the same day a first reading of five round 2 covers the founder had dropped |
 | ten more `--art-*` | banner plate wide, Daily ground, falling weapons far and near, footer agents two, tall plasma, crossed daggers, two daggers | loaded by Home and the case screen, measured from every request at 360 and 1440 |
 
 The badge's own size had drifted from its source, 11px words and 4px sides; it now reads the source's values.
