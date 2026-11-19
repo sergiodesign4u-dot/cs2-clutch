@@ -278,13 +278,13 @@
       var idle = el('div', 'v4c-idle'), tr = el('div', 'v4c-idle-run');
       var seq = [6, 4, 2, 0, 8, -1, 7, 1, 3, 5, 6];
       seq.forEach(function (k) {
-        if (k < 0) { tr.appendChild(el('span', 'v4c-idle-slot', '<img src="art/cases-v2/ironbound-c.webp" alt="">')); return; }
+        if (k < 0) { tr.appendChild(el('span', 'v4c-idle-slot', '<img src="../visuals/cases/ironbound-c.webp" alt="">')); return; }
         var x = O.items[k]; tr.appendChild(el('span', 'v4o-card ' + x.r, '<span class="v4o-plate"></span><img class="v4o-img" src="' + x.art + '" alt=""><span class="v4o-name"><b>' + x.w + '</b><span>' + x.s + '</span></span>'));
       });
       idle.appendChild(tr); idle.appendChild(el('span', 'v4c-idle-mark'));
       rest.appendChild(idle); return;
     }
-    for (var i = 0; i < count; i++) rest.appendChild(el('span', 'v4c-box', '<img src="art/cases-v2/ironbound-c.webp" alt="">'));
+    for (var i = 0; i < count; i++) rest.appendChild(el('span', 'v4c-box', '<img src="../visuals/cases/ironbound-c.webp" alt="">'));
   }
   /* row M: the count deals the cases. The ones already there glide to their new cells; each new one is dealt out from behind the last case
      that stood, scaling up as it travels to its cell; the ones no longer wanted slide back under the last case left and go. Founder of
@@ -305,7 +305,7 @@
       var op = (b.offsetParent || rest).getBoundingClientRect();
       b.style.left = (r.left - op.left) + 'px'; b.style.top = (r.top - op.top) + 'px'; b.style.margin = '0';
     });
-    for (var i = keep.length; i < count; i++) keep.push(rest.appendChild(el('span', 'v4c-box', '<img src="art/cases-v2/ironbound-c.webp" alt="">')));
+    for (var i = keep.length; i < count; i++) keep.push(rest.appendChild(el('span', 'v4c-box', '<img src="../visuals/cases/ironbound-c.webp" alt="">')));
     keep.forEach(function (b, i) { b.style.zIndex = String(10 - i); });
     var anim = !O.still && first.length && keep[0].animate;
     if (!anim) { drop.forEach(function (b) { b.remove(); }); return; }

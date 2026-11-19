@@ -24,10 +24,10 @@
   :root body .wf-rail .wf-rail-item:has([data-icon="target"]) { --g: linear-gradient(120deg, var(--color-rarity-2), #7A0F22); }
   :root body .wf-rail .wf-rail-item:is(:has([data-icon="arrow-up"]), :has([data-icon="cup"]), :has([data-icon="dollar"])) { --g: linear-gradient(120deg, #B57A06, #B4400F); }
   :root body .wf-rail .wf-rail-item:has([data-icon="diamond"]) { --g: linear-gradient(120deg, #2C7FD6, #1B2A8F); }
-  :root body .wf-rail .wf-rail-item:has([data-icon="box"]) { --peek: url(art/cases-v2/coldfront-c.webp); }
-  :root body .wf-rail .wf-rail-item:has([data-icon="battle"]) { --peek: url(art/mode-battles-crossed.webp); }
-  :root body .wf-rail .wf-rail-item:has([data-icon="target"]) { --peek: url(art/mode-showdowns-obj4.webp); }
-  :root body .wf-rail .wf-rail-item:has([data-icon="arrow-up"]) { --peek: url(art/mode-upgrade-obj4.webp); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="box"]) { --peek: url(../visuals/cases/coldfront-c.webp); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="battle"]) { --peek: url(../visuals/modes/mode-battles-crossed.webp); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="target"]) { --peek: url(../visuals/modes/mode-showdowns-obj4.webp); }
+  :root body .wf-rail .wf-rail-item:has([data-icon="arrow-up"]) { --peek: url(../visuals/modes/mode-upgrade-obj4.webp); }
 
   /* a row */
   :root body .wf-rail .wf-rail-item { position: relative; isolation: isolate; display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-height: 48px; height: auto; margin: 0 0 2px; padding: 0 16px 0 20px;

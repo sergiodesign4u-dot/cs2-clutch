@@ -493,7 +493,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* ======================================================================================================================
    ROUND 4, founder of 2 Nov 2026 on round 3: "визуально нравится A2, но хотелось бы что-то вроде AD, только список скинов там
    некрасиво выглядит, давай улучшим". A2's strip (.tk) is the base; the checked rounds join it as cards (.rc, A4) or turning in its
-   last panel (.tt, A5). Ironbound is the approved new case, art/cases-v2/ironbound-c.webp. Money is gold #FFC44D, founder of
+   last panel (.tt, A5). Ironbound is the approved new case, ../visuals/cases/ironbound-c.webp. Money is gold #FFC44D, founder of
    2 Nov 2026. Stripes are the buttons' alone, so the stub, a heading plate nothing presses, keeps its pink and loses them.
    ====================================================================================================================== */
 .pl-page { --money: #FFC44D; }
@@ -507,7 +507,7 @@ body.pl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* Ironbound, the new case: its back, the skin over its tray, its front cut along the tray's rim over the skin (the cases lab's layers);
    the case sits low on the panel's right with its foot in the bottom edge, the drop rises out of it and breaks the strip's top edge */
 .tk-case2 { position: absolute; z-index: 0; right: -3%; bottom: -8px; height: 168px; aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--motion-ease-pop); }
-.tk-case2 .b, .tk-case2 .f { position: absolute; inset: 0; background: url(art/cases-v2/ironbound-c.webp) center / 100% auto no-repeat; }
+.tk-case2 .b, .tk-case2 .f { position: absolute; inset: 0; background: url(../visuals/cases/ironbound-c.webp) center / 100% auto no-repeat; }
 .tk-case2 .b { filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); }
 .tk-case2 .f { z-index: 2; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
 .tk-case2 .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); transition: transform .45s var(--motion-ease-pop); }

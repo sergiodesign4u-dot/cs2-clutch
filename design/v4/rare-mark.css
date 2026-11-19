@@ -20,8 +20,8 @@
 /* B and C */
 .rm-loop { overflow: hidden; background-repeat: no-repeat; background-size: 2400% 100%; animation: rm-step var(--d, 1s) steps(24, jump-none) infinite; }
 @keyframes rm-step { from { background-position: 0 0; } to { background-position: 100% 0; } }
-.rm-bolt { z-index: 4; background-image: url(art/fx/bolt-24.webp); --d: 1s; }
-.rm-fire { z-index: 0; opacity: .9; background-image: url(art/fx/plasma-24.webp); --d: 1.2s; }
+.rm-bolt { z-index: 4; background-image: url(../visuals/fx/bolt-24.webp); --d: 1s; }
+.rm-fire { z-index: 0; opacity: .9; background-image: url(../visuals/fx/plasma-24.webp); --d: 1.2s; }
 
 /* on a W7 card of the band and the reel: the ring where case-stage.css draws the hexagon */
 .v4o-card > .rm-ring { left: 50%; top: 21.5%; height: 50%; aspect-ratio: 136 / 118; translate: -50% 0; }
@@ -35,7 +35,7 @@
 .wf-feed-i > .rm-bolt { inset: -8px; }
 .wf-feed-i > .rm-fire { inset: 0; border-radius: inherit; }
 /* C on a live drop burns outside the tile, founder of 10 Nov 2026: "в лайф дропах можно сделать снаружи, если это не влияет критично на
-   скорость". It is the same kind of picture, 24 frames of Home's plasma drawn once (art/fx/plasma-tall-24.webp), in the box the live flame
+   скорость". It is the same kind of picture, 24 frames of Home's plasma drawn once (../visuals/fx/plasma-tall-24.webp), in the box the live flame
    had (rare.css .v4-rare-fire): 28 % wider than the tile and rising 100px over it, behind the tile's own ground so it shows only round it.
    Measured on rare-marks-lab.html, outside costs what inside does: the picture is a little larger, nothing is drawn while it plays. The tile
    lends its ground to a layer under it so the flame can pass behind; rare.css lifts a live one over the sticky header at the page's top.
@@ -45,7 +45,7 @@
 .wf-feed-i.rm-c:not(.rm-in):not(.v4-rare)::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
   background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--r, var(--color-rarity-6)) 38%, transparent), transparent), linear-gradient(to bottom, #191842, var(--color-card)); }
 .wf-feed-i.rm-c:not(.rm-in) > .rm-fire { inset: auto; top: -100px; left: -14%; width: 128%; height: calc(60% + 100px); z-index: -2; border-radius: 0; opacity: 1;
-  background-image: url(art/fx/plasma-tall-24.webp); }
+  background-image: url(../visuals/fx/plasma-tall-24.webp); }
 @media (max-width: 599px) { .wf-feed-hit > .rm-ring { top: 5px; width: 60px; height: 52px; margin-left: -30px; } .wf-feed-i > .rm-bolt { inset: -6px; } }
 
 /* on an item card of What is in this case (table F), only while it is hovered or holds focus, founder of 10 Nov 2026: "давай тут при ховере
@@ -65,6 +65,6 @@
 .wf-drops[data-v="f"] .v4b-row.rm-c:is(:hover, :focus-within) > .rm-ground { display: block; }
 .wf-sec:has(> .wf-tablewrap .wf-drops[data-v="f"] .rm-c) > .wf-sec-head { position: relative; z-index: 1; } /* the section's heading stays over the flame */
 .wf-drops[data-v="f"] .v4b-row.rm-c > .rm-fire { inset: auto; top: -150px; left: -8%; width: 116%; height: 240px; /* the picture's flame body stands in its upper two thirds: 150 of 240px over the card */ z-index: -2; border-radius: 0; opacity: 1;
-  background-image: url(art/fx/plasma-tall-24.webp); }
+  background-image: url(../visuals/fx/plasma-tall-24.webp); }
 
 @media (prefers-reduced-motion: reduce) { .rm-ring i, .rm-loop { animation: none; } }

@@ -164,7 +164,7 @@
   --art-case-coldfront: url(../concept/assets/home/cover-coldfront.webp); /* the Coldfront cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
   --art-case-nightfall: url(../concept/assets/home/cover-nightfall.webp); /* the Nightfall cover in the case grid; Codex image generation, D-194: a variation of a baseline case at the founder's ask, its lettering and marks replaced by our emblem; D-193 drew our own */
   --art-case-emberforge: url(../concept/assets/home/cover-emberforge.webp); /* the Emberforge cover in the case grid, the fifth; Codex image generation, D-198: drawn in the family of the four covers at the founder's ask for five on a wide screen */
-  --art-ground: url(../concept/assets/home/ground.webp); /* the page ground at the top of the page, two operators in the dark; Codex image generation, D-196: a variation of the baseline ground at the founder's mark that ours read lighter */
+  --art-ground: url(../visuals/brand/ground.webp); /* the page ground at the top of the page, two operators in the dark; Codex image generation, D-196: a variation of the baseline ground at the founder's mark that ours read lighter */
   --color-footer-base: #030214; /* the strip under the footer, the copyright row; наявний бренд, walk of the baseline site on 22 Oct 2026, computed style, copyright-wrapper, D-196 */
 
   /* Motion of the event banner, D-194: the founder asked for a banner that moves as the baseline video does; motion is ours, not inherited, CLAUDE.md "Baseline" */

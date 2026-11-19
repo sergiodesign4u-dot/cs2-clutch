@@ -27,7 +27,7 @@
   function ava(name) {
     var n = AVA[name];
     if (!n) { n = 0; for (var i = 0; i < String(name).length; i++) n = (n * 31 + String(name).charCodeAt(i)) % 997; n = [1, 2, 3, 4, 6][n % 5]; }
-    return 'art/avatars/a' + n + '.webp';
+    return '../visuals/avatars/a' + n + '.webp';
   }
   window.V4Ava = ava;
 
@@ -71,7 +71,7 @@
               '<div class="am3-id"><span class="am3-id-v">ID ' + esc(who.id) + '</span><button class="am3-copy" type="button" data-copy="' + esc(who.id) + '"><span class="am3-copy-i" aria-hidden="true"></span><span class="am3-copy-t" aria-live="polite">Copy</span></button></div>' +
             '</div></div>' +
           '<nav class="am3-grid" aria-label="Account">' +
-            '<a class="am3-t is-items v4-ri-host" href="' + B + 'account.html"><span class="am-ic am-ic--story" aria-hidden="true">' + (window.V4RailIcons ? window.V4RailIcons.svg('box') : '') + '</span><span class="am-t">My items</span><img class="am3-case" src="art/cases-v2/coldfront-c.webp" alt="" loading="lazy"></a>' +
+            '<a class="am3-t is-items v4-ri-host" href="' + B + 'account.html"><span class="am-ic am-ic--story" aria-hidden="true">' + (window.V4RailIcons ? window.V4RailIcons.svg('box') : '') + '</span><span class="am-t">My items</span><img class="am3-case" src="../visuals/cases/coldfront-c.webp" alt="" loading="lazy"></a>' +
             ROWS.map(function (r) { return '<a class="am3-t" href="' + B + r[1] + '">' + ic(r[2]) + '<span class="am-t">' + r[0] + '</span></a>'; }).join('') +
             '<a class="am3-t is-rp" href="' + B + 'responsible.html">' + ic('shield') + '<span class="am-t">Responsible play</span></a>' +
           '</nav>' +

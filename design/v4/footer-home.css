@@ -74,7 +74,7 @@
 @media (hover: hover) { .fl-plate:hover { translate: 0 -2px; filter: brightness(1.08); } .fl-plate:hover .fl-go { translate: 3px -3px; } }
 
 /* the case breaking out over the footer's top right corner, Nightfall */
-.fl-case { position: absolute; z-index: 2; right: 2%; top: -62px; width: min(26%, 300px); aspect-ratio: 3 / 2; background: url(art/cases-v2/nightfall-c.webp) center / contain no-repeat; filter: drop-shadow(0 14px 18px rgba(4, 6, 20, .6)); pointer-events: none; }
+.fl-case { position: absolute; z-index: 2; right: 2%; top: -62px; width: min(26%, 300px); aspect-ratio: 3 / 2; background: url(../visuals/cases/nightfall-c.webp) center / contain no-repeat; filter: drop-shadow(0 14px 18px rgba(4, 6, 20, .6)); pointer-events: none; }
 
 /* ---------------------------------------------------------------- D: a block, a trust row on top, a dark strip at the foot */
 .ft-d, .ft-a { margin: 0 8px; padding: 28px; border-radius: 20px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 20px 40px rgba(4, 6, 20, .5); }
@@ -171,7 +171,7 @@
 .fe-mid { position: relative; display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 1.7fr); gap: 32px; padding: 34px 28px 0; padding-right: calc(28px + 30%); min-height: 300px; }
 .fe-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .fe-gap { height: 14px; }
-.fe-agents { position: absolute; right: 12px; bottom: 0; width: 34%; height: calc(100% + 40px); background: url(art/footer-agents.webp) right bottom / contain no-repeat; pointer-events: none; }
+.fe-agents { position: absolute; right: 12px; bottom: 0; width: 34%; height: calc(100% + 40px); background: url(../visuals/brand/footer-agents.webp) right bottom / contain no-repeat; pointer-events: none; }
 /* the strip: the two trust plates and the language, the age and market lines under them, on a dark ground */
 .fe-strip { position: relative; z-index: 1; margin: 0 28px; padding: 18px; border-radius: 16px; background: rgba(6, 8, 24, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
 .fe-strip-top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
@@ -280,7 +280,7 @@
 /* the block's rounded corners come back; the bands inside it keep their fade to the sides */
 .ft-h { margin: 0 8px; border-radius: 20px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 20px 40px rgba(4, 6, 20, .5); }
 /* two operators back to back, narrower than the three, so the columns keep their room */
-.ft-h .fe-agents { width: 24%; right: 3%; background-image: url(art/footer-agents-2.webp), url(art/footer-agents.webp); background-size: contain, 0 0; }
+.ft-h .fe-agents { width: 24%; right: 3%; background-image: url(../visuals/brand/footer-agents-2.webp), url(../visuals/brand/footer-agents.webp); background-size: contain, 0 0; }
 .ft-h .fe-mid { padding-right: calc(28px + 24%); }
 /* the foot: payment cards at the left end and the language at the right end of one row; the texts stay on the centre line */
 .fh-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; width: 100%; }

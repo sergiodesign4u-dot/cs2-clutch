@@ -383,11 +383,11 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* the case each tier gives, by colour, from the approved art, cases-v2: steel, ice, violet, bronze, fire. No stripes on a band: stripes
    are the buttons', founder of 2 Nov 2026, so the one striped thing in the block is the one that can be pressed. Money is gold #FFC44D */
 .r32 { --money: #FFC44D; box-sizing: border-box; padding: 28px; border-radius: 16px; background: linear-gradient(180deg, #16133C, #0D0C28); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
-.u1 { --hue: #C9D2E3; --g1: #8C98B8; --g2: #3E4866; --case: url(art/cases-v2/ironbound-c.webp); --skin: url(../concept/assets/skins/p250-sand-dune.png); }
-.u2 { --hue: #65A3FF; --g1: #3E7BEA; --g2: #1B3A8F; --case: url(art/cases-v2/coldfront-c.webp); --skin: url(../concept/assets/skins/glock-18-water-elemental.png); }
-.u3 { --hue: #A35CFF; --g1: #8E2BC9; --g2: #41157A; --case: url(art/cases-v2/nightfall-c.webp); --skin: url(../concept/assets/skins/m4a1-s-hyper-beast.png); }
-.u4 { --hue: #E0A35A; --g1: #C27C2C; --g2: #6E3B14; --case: url(art/cases-v2/warsteel-c.webp); --skin: url(../concept/assets/skins/ak-47-gold-arabesque.png); }
-.u5 { --hue: #FF6A2B; --g1: #F0521E; --g2: #8E1A0C; --case: url(art/cases-v2/emberforge-c.webp); --skin: url(../concept/assets/skins/karambit-tiger-tooth.png); }
+.u1 { --hue: #C9D2E3; --g1: #8C98B8; --g2: #3E4866; --case: url(../visuals/cases/ironbound-c.webp); --skin: url(../concept/assets/skins/p250-sand-dune.png); }
+.u2 { --hue: #65A3FF; --g1: #3E7BEA; --g2: #1B3A8F; --case: url(../visuals/cases/coldfront-c.webp); --skin: url(../concept/assets/skins/glock-18-water-elemental.png); }
+.u3 { --hue: #A35CFF; --g1: #8E2BC9; --g2: #41157A; --case: url(../visuals/cases/nightfall-c.webp); --skin: url(../concept/assets/skins/m4a1-s-hyper-beast.png); }
+.u4 { --hue: #E0A35A; --g1: #C27C2C; --g2: #6E3B14; --case: url(../visuals/cases/warsteel-c.webp); --skin: url(../concept/assets/skins/ak-47-gold-arabesque.png); }
+.u5 { --hue: #FF6A2B; --g1: #F0521E; --g2: #8E1A0C; --case: url(../visuals/cases/emberforge-c.webp); --skin: url(../concept/assets/skins/karambit-tiger-tooth.png); }
 
 /* the v2 case: the case, a real skin over its tray, the case's front cut along its rim, as cases-lab.css draws it */
 .dl-art2 { position: relative; display: block; aspect-ratio: 3 / 2; }
@@ -629,11 +629,11 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* the background, approved option 1: a dim warehouse of cases on the panel's right, fading out to the left under the title, at 15% */
 .r8 { position: relative; isolation: isolate; }
 .r8::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: .15;
-  background: url(art/daily-bg.webp) right center / cover no-repeat;
+  background: url(../visuals/daily/daily-bg.webp) right center / cover no-repeat;
   -webkit-mask: linear-gradient(90deg, transparent 18%, #000 64%); mask: linear-gradient(90deg, transparent 18%, #000 64%); }
 @container dl (max-width: 760px) {
   /* a phone's panel is tall: the scene keeps its own proportion at the top and fades out downward instead */
-  .r8::before { background: url(art/daily-bg.webp) 82% 0 / auto 440px no-repeat; -webkit-mask: linear-gradient(180deg, #000 0, transparent 440px); mask: linear-gradient(180deg, #000 0, transparent 440px); }
+  .r8::before { background: url(../visuals/daily/daily-bg.webp) 82% 0 / auto 440px no-repeat; -webkit-mask: linear-gradient(180deg, #000 0, transparent 440px); mask: linear-gradient(180deg, #000 0, transparent 440px); }
 }
 /* each case's front rim, measured on its own 900x600 picture on a 5% grid: the left end wall's top edge, the front wall's top edge, the right end;
    everything under the line is drawn over the skin, so the skin sits inside the tray */
@@ -678,11 +678,11 @@ body.dl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* founder, 2 Nov 2026: the five cases faced different ways and barely differed. One base picture, four edits of it, keyed to 900x600 and
    aligned within 1px on the case body (measured against the base on three templates); the filling grows: Silver closed, Nova ajar with a few
    coins, Guardian open with a pile, Legend heaped with dust, Elite overflowing with a burst. The skins are our real pictures, 0 to 4 */
-.r9 .t1 { --case: url(art/daily-cases-v2/silver.webp); }
-.r9 .t2 { --case: url(art/daily-cases-v2/nova.webp); }
-.r9 .t3 { --case: url(art/daily-cases-v2/guardian.webp); }
-.r9 .t4 { --case: url(art/daily-cases-v2/legend.webp); }
-.r9 .t5 { --case: url(art/daily-cases-v2/elite.webp); }
+.r9 .t1 { --case: url(../visuals/daily/silver.webp); }
+.r9 .t2 { --case: url(../visuals/daily/nova.webp); }
+.r9 .t3 { --case: url(../visuals/daily/guardian.webp); }
+.r9 .t4 { --case: url(../visuals/daily/legend.webp); }
+.r9 .t5 { --case: url(../visuals/daily/elite.webp); }
 .r9 .dl-art9 > span { position: absolute; display: block; }
 .r9 .c9 { inset: 0; background: var(--case) center / 100% auto no-repeat; }
 /* the case is shot almost head on, so its front wall's top edge runs level at 55% on every picture: under it, the case is drawn over the skins */

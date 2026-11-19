@@ -434,7 +434,7 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | Style | filled everywhere, section 7 | 30 icons already filled; 5 line glyphs stay lines, as their own filled sets draw them: `--icon-send`, `--icon-swap`, `--icon-history`, `--icon-rail`, `--icon-battle` |
 | `--icon-close` | Solar close-circle-bold in place of close-circle-linear | step 3, in `design/kit/kit.css`, one variable changed with its origin |
 | `--icon-diamond` | the filled mdi twin of diamond-stone | step 3, the same way |
-| `--icon-target`, `--icon-users`, `--icon-pulse` | redrawn as filled marks after the baseline's same jobs, their motion kept | step 4 at the latest, with the visuals |
+| `--icon-target`, `--icon-users`, `--icon-pulse` | redrawn as filled marks after the baseline's same jobs, their motion kept | step 4 at the latest, with the visuals; done at step 4, `D-233`, section 20 |
 
 ## 14. Stage 07 step 3, the move into the kit
 
@@ -765,3 +765,62 @@ The 21 organisms follow the rule of `D-231`. The shared language they drew with 
 | `--color-ticker-chip` | `rgba(6, 10, 30, .82)` | v4 theme.css .wf-feed-head: the live chip's dark, with no edge. Ticker; рішення користувача, D-209 (v4) carried by D-232 | Ticker |
 | `--shadow-ticker-chip` | `0 4px 14px rgba(0, 0, 0, .4)` | v4 theme.css .wf-feed-head: the live chip's lift. Ticker; рішення користувача, D-209 (v4) carried by D-232 | Ticker |
 | `--color-ticker-halo` | `color-mix(in srgb, var(--color-pink) 70%, transparent)` | v4 theme.css .wf-feed-lbl::after: the dot's halo. Ticker; рішення користувача, D-209 (v4) carried by D-232 | Ticker |
+
+## 20. Stage 07 step 4, the visuals and the last three icons, `D-233`
+
+**Where the pictures went.** The 42 files of the product's own image set moved by `git mv` into `design/visuals/`, a folder per component; the `--art-*` variables in `design/kit/kit.css` that name them changed their path only, and so did every page, sheet and script that cites them. No picture changed. The set, its colourway and every prompt are in `design/visuals/README.md`. The rows of this file above keep the path a value had when it was decided; this table maps it.
+
+| Was | Is |
+|---|---|
+| `design/v4/art/cases-v2/ironbound-c.webp` | `design/visuals/cases/ironbound-c.webp` |
+| `design/v4/art/cases-v2/warsteel-c.webp` | `design/visuals/cases/warsteel-c.webp` |
+| `design/v4/art/cases-v2/coldfront-c.webp` | `design/visuals/cases/coldfront-c.webp` |
+| `design/v4/art/cases-v2/nightfall-c.webp` | `design/visuals/cases/nightfall-c.webp` |
+| `design/v4/art/cases-v2/emberforge-c.webp` | `design/visuals/cases/emberforge-c.webp` |
+| `design/v4/art/cases-v2/base.webp` | `design/visuals/cases/base.webp` |
+| `design/v4/art/daily-cases-v2/silver.webp` | `design/visuals/daily/silver.webp` |
+| `design/v4/art/daily-cases-v2/nova.webp` | `design/visuals/daily/nova.webp` |
+| `design/v4/art/daily-cases-v2/guardian.webp` | `design/visuals/daily/guardian.webp` |
+| `design/v4/art/daily-cases-v2/legend.webp` | `design/visuals/daily/legend.webp` |
+| `design/v4/art/daily-cases-v2/elite.webp` | `design/visuals/daily/elite.webp` |
+| `design/v4/art/daily-bg.webp` | `design/visuals/daily/daily-bg.webp` |
+| `design/v4/art/mode-cases-obj4.webp` | `design/visuals/modes/mode-cases-obj4.webp` |
+| `design/v4/art/mode-cases-burst4.webp` | `design/visuals/modes/mode-cases-burst4.webp` |
+| `design/v4/art/mode-battles-clash.webp` | `design/visuals/modes/mode-battles-clash.webp` |
+| `design/v4/art/mode-battles-knife-blue.webp` | `design/visuals/modes/mode-battles-knife-blue.webp` |
+| `design/v4/art/mode-battles-knife-red.webp` | `design/visuals/modes/mode-battles-knife-red.webp` |
+| `design/v4/art/mode-battles-crossed.webp` | `design/visuals/modes/mode-battles-crossed.webp` |
+| `design/v4/art/mode-showdowns-obj4.webp` | `design/visuals/modes/mode-showdowns-obj4.webp` |
+| `design/v4/art/mode-showdowns-burst4.webp` | `design/visuals/modes/mode-showdowns-burst4.webp` |
+| `design/v4/art/mode-upgrade-obj4.webp` | `design/visuals/modes/mode-upgrade-obj4.webp` |
+| `design/v4/art/mode-upgrade-burst4.webp` | `design/visuals/modes/mode-upgrade-burst4.webp` |
+| `design/v4/art/banner-plate.webp` | `design/visuals/banner/banner-plate.webp` |
+| `design/v4/art/banner-plate-wide.webp` | `design/visuals/banner/banner-plate-wide.webp` |
+| `design/v4/art/banner-aurora.webp` | `design/visuals/banner/banner-aurora.webp` |
+| `design/v4/art/banner-glow.webp` | `design/visuals/banner/banner-glow.webp` |
+| `design/v4/art/banner-hero.webp` | `design/visuals/banner/banner-hero.webp` |
+| `design/v4/art/banner-title-d.webp` | `design/visuals/banner/banner-title-d.webp` |
+| `design/v4/art/footer-agents.webp` | `design/visuals/brand/footer-agents.webp` |
+| `design/v4/art/footer-agents-2.webp` | `design/visuals/brand/footer-agents-2.webp` |
+| `design/concept/assets/home/ground.webp` | `design/visuals/brand/ground.webp` |
+| `design/v4/art/fall-far.webp` | `design/visuals/brand/fall-far.webp` |
+| `design/v4/art/fall-near.webp` | `design/visuals/brand/fall-near.webp` |
+| `design/v4/art/fx/bolt-24.webp` | `design/visuals/fx/bolt-24.webp` |
+| `design/v4/art/fx/plasma-24.webp` | `design/visuals/fx/plasma-24.webp` |
+| `design/v4/art/fx/plasma-tall-24.webp` | `design/visuals/fx/plasma-tall-24.webp` |
+| `design/v4/art/avatars/a1.webp` | `design/visuals/avatars/a1.webp` |
+| `design/v4/art/avatars/a2.webp` | `design/visuals/avatars/a2.webp` |
+| `design/v4/art/avatars/a3.webp` | `design/visuals/avatars/a3.webp` |
+| `design/v4/art/avatars/a4.webp` | `design/visuals/avatars/a4.webp` |
+| `design/v4/art/avatars/a5.webp` | `design/visuals/avatars/a5.webp` |
+| `design/v4/art/avatars/a6.webp` | `design/visuals/avatars/a6.webp` |
+
+**The three icons.** Variable, value, why, each in `kit.css` and drawn the same in `design/v4/rail-icons.js`:
+
+| Variable | Was | Is | Why |
+|---|---|---|---|
+| `--icon-target` | outline: a ring and an inner ring by stroke, four ticks | filled: a ring, four ticks, a centre disc | `D-227` point 6, the founder's pick A of step 4 |
+| `--icon-users` | outline: two people by stroke, the one behind a crescent | filled: two people, the one behind cut clear of the one in front | the same |
+| `--icon-pulse` | outline: a person and a tick by stroke (online) | filled: a person, a tick in a disc | the same |
+
+Section 13's row for these three is done. `D-200` had brought the counters back to outline people as the baseline draws them; `D-227` and `D-233` end that, and every icon in the product is filled.

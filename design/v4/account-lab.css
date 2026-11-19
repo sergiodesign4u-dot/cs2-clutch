@@ -133,7 +133,7 @@ body.ax-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .am--c .am-row { flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 10px; min-height: 76px; padding: 12px; background: #0B0A22; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
 .am--c .am-row:hover, .am--c .am-row:focus-visible { background: var(--gradient-button-stripes), var(--gradient-mode-cases); box-shadow: none; }
 .am--c .am-row.is-items { grid-column: 1 / -1; position: relative; overflow: hidden; min-height: 88px; justify-content: flex-end; background: var(--gradient-button-stripes), var(--gradient-mode-cases); box-shadow: none; text-transform: uppercase; font-size: 15px; font-weight: 900; }
-.am--c .am-row.is-items::after { content: ''; position: absolute; right: -24px; top: -8px; width: 170px; height: 112px; background: url(art/cases-v2/coldfront-c.webp) center / contain no-repeat; pointer-events: none; }
+.am--c .am-row.is-items::after { content: ''; position: absolute; right: -24px; top: -8px; width: 170px; height: 112px; background: url(../visuals/cases/coldfront-c.webp) center / contain no-repeat; pointer-events: none; }
 .am--c .am-row.is-items > * { position: relative; z-index: 1; }
 .am--c .am-row.is-items .am-ic--story { width: 26px; height: 26px; }
 .am--c .am-row.is-rp { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; min-height: 48px; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px), var(--gradient-mode-battles); box-shadow: none; }

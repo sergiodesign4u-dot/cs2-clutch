@@ -58,7 +58,7 @@
 .x6-rtp > .x6-k, .x6-rtp > .x6-v { max-width: 48%; }
 .x6-rtp > .x6-say { max-width: 44%; }
 .x6-case { position: absolute; z-index: 0; right: -3%; bottom: -8px; height: var(--case-h); aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--motion-ease-pop); }
-.x6-case .b, .x6-case .f { position: absolute; inset: 0; background: url(art/cases-v2/ironbound-c.webp) center / 100% auto no-repeat; }
+.x6-case .b, .x6-case .f { position: absolute; inset: 0; background: url(../visuals/cases/ironbound-c.webp) center / 100% auto no-repeat; }
 .x6-case .b { filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); }
 .x6-case .f { z-index: 2; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
 .x6-case .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); transition: transform .45s var(--motion-ease-pop); }

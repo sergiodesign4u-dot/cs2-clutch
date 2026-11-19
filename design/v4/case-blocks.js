@@ -156,7 +156,7 @@
       // founder of 10 Nov 2026: "данные кейса должны быть как и картинка": the case in the strip, its name and the skin rising out of it are
       // this page's own, read from its H1 and its item table (the most valuable item), never Home's Ironbound typed in again
       var K = ((document.getElementById('h1') || {}).firstChild || {}).textContent || 'Ironbound'; K = K.trim();
-      var art = 'art/cases-v2/' + K.toLowerCase() + '-c.webp', top = Object.keys(IT).sort(function (a, b) { return IT[b].v - IT[a].v; })[0] || 'AK-47 Redline';
+      var art = '../visuals/cases/' + K.toLowerCase() + '-c.webp', top = Object.keys(IT).sort(function (a, b) { return IT[b].v - IT[a].v; })[0] || 'AK-47 Redline';
       var bg = ' style="background-image: url(' + art + ')"';
       var caseArt = '<span class="x6-case" aria-hidden="true"><span class="b"' + bg + '></span><img class="sk" src="' + SKINS + top.toLowerCase().replace(/★\s*/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.png" alt="" width="512" height="384"><span class="f"' + bg + '></span></span>';
       var p = function (cls, k, v, say, link) {
@@ -341,7 +341,7 @@
     if (V.how === 'd') {
       var top = Object.keys(IT).sort(function (a, b) { return IT[b].v - IT[a].v; })[0];
       var art = document.createElement('div'); art.className = 'v4h-art'; art.setAttribute('aria-hidden', 'true');
-      art.innerHTML = '<img class="v4h-case" src="art/cases-v2/' + K.toLowerCase() + '-c.webp" alt=""><img class="v4h-sk" src="' + SKINS + sl(top) + '.png" alt="">';
+      art.innerHTML = '<img class="v4h-case" src="../visuals/cases/' + K.toLowerCase() + '-c.webp" alt=""><img class="v4h-sk" src="' + SKINS + sl(top) + '.png" alt="">';
       sec.appendChild(art);
     }
     if (V.how === 'c' || V.how === 'e') {

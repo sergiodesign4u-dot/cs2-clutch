@@ -18,18 +18,18 @@
 /* round 3 of the cases, founder of 2 Nov 2026 "да": one case under every name, different details, cases-v2/*-c. Each picture is one layer
    with no world behind it; the skin lies across the tray between the picture and a copy of it cut at the rim, as on cases-lab.html */
 .wf-tile:has([data-art]) { --v4-world: none; --v4-rim: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
-.wf-tile:has([data-art="case-blue"]) { --v4-case: url(art/cases-v2/ironbound-c.webp); }
-.wf-tile:has([data-art="case-gold"]) { --v4-case: url(art/cases-v2/warsteel-c.webp); }
-.wf-tile:has([data-art="case-pink"]) { --v4-case: url(art/cases-v2/coldfront-c.webp); }
-.wf-tile:has([data-art="case-violet"]) { --v4-case: url(art/cases-v2/nightfall-c.webp); }
-.wf-tile:has([data-art="case-ember"]) { --v4-case: url(art/cases-v2/emberforge-c.webp); }
+.wf-tile:has([data-art="case-blue"]) { --v4-case: url(../visuals/cases/ironbound-c.webp); }
+.wf-tile:has([data-art="case-gold"]) { --v4-case: url(../visuals/cases/warsteel-c.webp); }
+.wf-tile:has([data-art="case-pink"]) { --v4-case: url(../visuals/cases/coldfront-c.webp); }
+.wf-tile:has([data-art="case-violet"]) { --v4-case: url(../visuals/cases/nightfall-c.webp); }
+.wf-tile:has([data-art="case-ember"]) { --v4-case: url(../visuals/cases/emberforge-c.webp); }
 /* the same cases on the back of a Live drops card, the side its pointer turns up with the case the drop came from, founder of 2 Nov 2026:
    "при ховере би поставить обновленние кейси"; _theme.css still points that side at the v1 pictures through --cover; a url in a custom property resolves against the sheet that uses it, so the picture is set here directly */
-.wf-feed-back .wf-feed-art[data-art="case-blue"] { background-image: url(art/cases-v2/ironbound-c.webp); }
-.wf-feed-back .wf-feed-art[data-art="case-gold"] { background-image: url(art/cases-v2/warsteel-c.webp); }
-.wf-feed-back .wf-feed-art[data-art="case-pink"] { background-image: url(art/cases-v2/coldfront-c.webp); }
-.wf-feed-back .wf-feed-art[data-art="case-violet"] { background-image: url(art/cases-v2/nightfall-c.webp); }
-.wf-feed-back .wf-feed-art[data-art="case-ember"] { background-image: url(art/cases-v2/emberforge-c.webp); }
+.wf-feed-back .wf-feed-art[data-art="case-blue"] { background-image: url(../visuals/cases/ironbound-c.webp); }
+.wf-feed-back .wf-feed-art[data-art="case-gold"] { background-image: url(../visuals/cases/warsteel-c.webp); }
+.wf-feed-back .wf-feed-art[data-art="case-pink"] { background-image: url(../visuals/cases/coldfront-c.webp); }
+.wf-feed-back .wf-feed-art[data-art="case-violet"] { background-image: url(../visuals/cases/nightfall-c.webp); }
+.wf-feed-back .wf-feed-art[data-art="case-ember"] { background-image: url(../visuals/cases/emberforge-c.webp); }
 
 /* money is gold var(--color-money) everywhere, the coin's own gold, founder of 2 Nov 2026 */
 /* --color-money lives in design/_theme.css since the stage 06 critique of 10 Nov 2026, row 16 */

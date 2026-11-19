@@ -25,7 +25,7 @@
 .wf-event::before { inset: 0; z-index: -3;
   background: linear-gradient(90deg, rgba(6, 10, 30, .5), rgba(6, 10, 30, .12) 30%, transparent 46%),
     linear-gradient(to top, var(--color-ground), transparent 14%),
-    var(--plate, url(art/banner-plate.webp)) var(--plate-pos, var(--scene-pos)) / var(--plate-size, var(--scene-size)) no-repeat;
+    var(--plate, url(../visuals/banner/banner-plate.webp)) var(--plate-pos, var(--scene-pos)) / var(--plate-size, var(--scene-size)) no-repeat;
   animation: v4-plate 26s ease-in-out infinite alternate; transition: translate .9s var(--scene-ease); }
 
 /* layer 2, the aurora and the far snow, added to the sky */
@@ -33,20 +33,20 @@
 /* v1 drew its own case and operator in these two boxes; they are reset to the banner's whole frame */
 .wf-event .wf-banner-art::before, .wf-event .wf-banner-art::after { width: auto; height: auto; aspect-ratio: auto; filter: none; transform-origin: 50% 50%; }
 .wf-event .wf-banner-art::before { content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none; mix-blend-mode: normal;
-  background: var(--snow-far), url(art/banner-aurora.webp) var(--scene-pos) / var(--scene-size) no-repeat;
+  background: var(--snow-far), url(../visuals/banner/banner-aurora.webp) var(--scene-pos) / var(--scene-size) no-repeat;
   background-size: 230px 230px, 230px 230px, 230px 230px, 340px 340px, 340px 340px, 340px 340px, var(--scene-size);
   transform-origin: 60% 0;
   animation: v4-aurora 9s ease-in-out infinite alternate, v4-snow-far 22s linear infinite; }
 
 /* layer 3, the soldier and the case; the foot melts into the page as the plate does */
 .wf-event .wf-banner-art::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: url(art/banner-hero.webp) var(--scene-pos) / var(--scene-size) no-repeat;
+  background: url(../visuals/banner/banner-hero.webp) var(--scene-pos) / var(--scene-size) no-repeat;
   -webkit-mask: linear-gradient(to top, transparent, #000 14%); mask: linear-gradient(to top, transparent, #000 14%);
   animation: v4-hero 14s ease-in-out infinite alternate; transition: translate .9s var(--scene-ease); }
 
 /* layer 4, the light and the near snow, added over everything: the case pulses */
 .wf-event::after { inset: 0; z-index: 0; opacity: 1; pointer-events: none; mix-blend-mode: normal;
-  background: var(--snow-near), url(art/banner-glow.webp) var(--scene-pos) / var(--scene-size) no-repeat;
+  background: var(--snow-near), url(../visuals/banner/banner-glow.webp) var(--scene-pos) / var(--scene-size) no-repeat;
   background-size: 300px 300px, 300px 300px, 300px 300px, 420px 420px, 420px 420px, 420px 420px, var(--scene-size);
   animation: v4-pulse 3.2s ease-in-out infinite, v4-snow-near 11s linear infinite; transition: filter .6s var(--scene-ease); }
 
@@ -97,7 +97,7 @@
   .wf-event .wf-banner-art { height: var(--ph-h); }
   .wf-event::before { inset: 0; background: linear-gradient(to bottom, rgba(6, 10, 30, .45), transparent 26%),
       linear-gradient(to top, var(--color-ground) 16%, transparent 34%),
-      url(art/banner-plate.webp) var(--scene-pos) / var(--scene-size) no-repeat; }
+      url(../visuals/banner/banner-plate.webp) var(--scene-pos) / var(--scene-size) no-repeat; }
   .wf-event .wf-banner-art::after { inset: 0; -webkit-mask: linear-gradient(to top, transparent 22%, #000 36%); mask: linear-gradient(to top, transparent 22%, #000 36%); }
   .wf-event .wf-event-name { width: min(320px, 88%); top: 10px; } /* was 220px, founder: "текст Coldfront можно сделать больше" */
   .wf-event-clock { top: auto; bottom: 64px; gap: 4px; padding: 6px; } /* founder: "таймер какой-то более компактный для мобилки" */
@@ -114,7 +114,7 @@
    "что то огромное просто". The scene's offsets are the desktop's below, so the case keeps its place in the banner's middle */
 @media (min-width: 600px) and (max-width: 899px) {
   .wf-event { --scene-size: auto 480px; --scene-pos: right calc(45% + 214px) top -50px;
-    --plate: url(art/banner-plate-wide.webp); --plate-size: max(100%, 1315px) auto; --plate-pos: right min(45% + 86px, 0px) top -50px; }
+    --plate: url(../visuals/banner/banner-plate-wide.webp); --plate-size: max(100%, 1315px) auto; --plate-pos: right min(45% + 86px, 0px) top -50px; }
   .wf-event .wf-banner-art { height: 340px; }
   .wf-event .wf-event-name { width: min(300px, 100% - 396px); top: 24px; left: var(--space-4); } /* 396 = the countdown 332 and three 16px insets; 204 at 600 */
   .wf-event-clock { top: 24px; bottom: auto; left: auto; right: var(--space-4); grid-template-columns: repeat(4, 72px); background: rgba(6, 10, 30, .72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
@@ -140,7 +140,7 @@
   /* the plate never leaves the banner's edges, founder of 1 Nov 2026: "она не натянута у меня до конца". The 45 % offset walked it off the
      right edge on any banner wider than 1124px, so the offset stops at the edge, and past 1315px wide, its width at 480px high, the plate grows with the banner */
   .wf-event { --scene-size: auto 480px; --scene-pos: right calc(45% + 214px) top -50px;
-    --plate: url(art/banner-plate-wide.webp); --plate-size: max(100%, 1315px) auto; --plate-pos: right min(45% + 86px, 0px) top -50px; }
+    --plate: url(../visuals/banner/banner-plate-wide.webp); --plate-size: max(100%, 1315px) auto; --plate-pos: right min(45% + 86px, 0px) top -50px; }
   .wf-event .wf-banner-art { height: 360px; }
   .wf-event .wf-event-name { width: min(500px, 100% - 420px); top: 28px; } /* 500 by 206, the title's 1100 by 454; narrower where the countdown needs the room */
   .wf-event-clock { top: 28px; }

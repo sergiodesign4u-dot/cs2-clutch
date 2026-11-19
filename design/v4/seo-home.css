@@ -5,7 +5,7 @@
  * Classes carry the sx prefix: the first draft named the block .r2, which is also the ticker's rarity class in _theme.css, and its grid and
  * panel landed on every red drop in Live drops, emptying those cards. */
 
-.v4-seo { --case: url(art/cases-v2/nightfall-c.webp); --c1: #8E2BC9; --c2: #3B1A8F; }
+.v4-seo { --case: url(../visuals/cases/nightfall-c.webp); --c1: #8E2BC9; --c2: #3B1A8F; }
 .wf-main > .v4-seo { margin-top: var(--space-6); }
 /* Home's sections set a soft grey for their text; the block's words, button and link stay white, as in the lab */
 .v4-seo-frame { container: sl / inline-size; color: var(--color-text-hi); }
@@ -20,7 +20,7 @@
 .sl-pill { display: inline-flex; align-items: center; gap: 7px; box-sizing: border-box; min-height: 30px; padding: 0 12px; border-radius: var(--radius-button, 10px);
   background: rgba(11, 10, 34, .72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); color: var(--color-text-hi); font-size: 12px; font-weight: 700; white-space: nowrap; }
 .sl-case { position: absolute; aspect-ratio: 3 / 2; pointer-events: none; }
-.sl-case .b, .sl-case .f { position: absolute; inset: 0; background: url(art/cases-v2/ironbound-c.webp) center / 100% auto no-repeat; }
+.sl-case .b, .sl-case .f { position: absolute; inset: 0; background: url(../visuals/cases/ironbound-c.webp) center / 100% auto no-repeat; }
 .sl-case .b { filter: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); }
 .sl-case .f { z-index: 2; clip-path: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); }
 .sl-case .sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); }

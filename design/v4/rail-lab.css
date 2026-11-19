@@ -53,16 +53,16 @@ body.rl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .rl-rail .is-later:is(:hover, :focus-visible, .is-h) .wf-rail-ico { color: var(--color-text-hi); }
 .rl-rail .is-later::after { content: ''; position: absolute; right: 12px; bottom: 2px; width: 56px; height: 56px; background: var(--peek, none) center bottom / contain no-repeat; opacity: 0; transform: translateY(8px) scale(.8); transform-origin: 50% 100%; transition: opacity .16s, transform .24s cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
 .rl-rail .is-later:is(:hover, :focus-visible, .is-h)::after { opacity: 1; transform: none; }
-[data-m="battle"] { --peek: url(art/mode-battles-crossed.webp); } /* round 4: the mode card's two crossed daggers, composed from its two knives */
-[data-m="box"] { --peek: url(art/cases-v2/coldfront-c.webp); }
-[data-m="target"] { --peek: url(art/mode-showdowns-obj4.webp); }
-[data-m="arrow-up"] { --peek: url(art/mode-upgrade-obj4.webp); }
+[data-m="battle"] { --peek: url(../visuals/modes/mode-battles-crossed.webp); } /* round 4: the mode card's two crossed daggers, composed from its two knives */
+[data-m="box"] { --peek: url(../visuals/cases/coldfront-c.webp); }
+[data-m="target"] { --peek: url(../visuals/modes/mode-showdowns-obj4.webp); }
+[data-m="arrow-up"] { --peek: url(../visuals/modes/mode-upgrade-obj4.webp); }
 
 /* B1, THE HELD CARD: the chosen row keeps its card, the mode card's pink with the button's stripes, and this week's case looks in from the right */
 [data-v="b1"] .is-live::before { opacity: 1; } /* the card of its mode; stripes on every card since round 5 */
 [data-v="b1"] .is-live .wf-rail-ico { color: var(--color-text-hi); }
 /* this week's case stands on the card's floor and rises out of its top edge, as the Showdowns helmet does under the pointer */
-[data-v="b1"] .is-live::after { content: ''; position: absolute; right: 10px; bottom: 2px; width: 100px; height: 67px; background: url(art/cases-v2/coldfront-c.webp) center bottom / contain no-repeat; filter: drop-shadow(0 4px 5px rgba(6, 10, 30, .55)); transform-origin: 50% 100%; transition: transform .24s cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
+[data-v="b1"] .is-live::after { content: ''; position: absolute; right: 10px; bottom: 2px; width: 100px; height: 67px; background: url(../visuals/cases/coldfront-c.webp) center bottom / contain no-repeat; filter: drop-shadow(0 4px 5px rgba(6, 10, 30, .55)); transform-origin: 50% 100%; transition: transform .24s cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
 [data-v="b1"] .is-live:is(:hover, :focus-visible, .is-h)::after { transform: translateY(-3px) rotate(-3deg) scale(1.06); }
 [data-v="b1"] .is-live:is(:hover, :focus-visible, .is-h)::before { filter: brightness(1.08); }
 .rl-list--live { margin-top: 18px; } /* room for the case above its card */

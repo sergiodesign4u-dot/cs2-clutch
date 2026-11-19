@@ -180,7 +180,7 @@ body.rd-page { margin: 0; background: var(--color-ground); color: var(--color-te
 /* the stage: a header, the strip, the top of the banner, at v4's spacing */
 .rd-sim { position: relative; margin-top: 16px; padding: 8px 12px 0; border-radius: 14px; background: var(--color-ground); overflow: hidden; }
 .rd-sim-hdr { height: 56px; border-radius: 14px; background: linear-gradient(to bottom, #17153F, #0B0A22); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); } /* stands in for v4's header strip, 56px */
-.rd-sim-ban { height: 64px; border-radius: 14px 14px 0 0; background: url(art/banner-plate.webp) center 35% / cover; } /* the top of v4's banner */
+.rd-sim-ban { height: 64px; border-radius: 14px 14px 0 0; background: url(../visuals/banner/banner-plate.webp) center 35% / cover; } /* the top of v4's banner */
 .rd-sim-strip { position: relative; z-index: 2; margin: -2px 0; padding: 10px 0; overflow-x: clip; overflow-y: visible; } /* 10px of room round the cards, 8px of it before the header and the banner */
 .rd-sim-run { display: flex; gap: 6px; padding-left: 8px; }
 .rd-replay { position: absolute; z-index: 5; top: 18px; right: 24px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .2); background: rgba(6, 10, 30, .7); color: var(--color-text-hi); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }

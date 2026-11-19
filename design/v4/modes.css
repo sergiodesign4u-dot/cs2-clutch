@@ -6,13 +6,13 @@
 
 /* one line per card, unitless cqw (the card is a size container with 16px of padding, so 1cqw here is 1 % of the card less its padding, 2.51px on a 283px card), measured against comp A's row: --ol, --ot, --ow place the object's square frame; the burst shares
    that frame, grown by --bz about its centre; --mx, --my centre the rim copy's fade */
-.wf-mode:has([data-icon="box"]) { --mode-obj: url(art/mode-cases-obj4.webp); --mode-burst: url(art/mode-cases-burst4.webp); --fa: .3;
+.wf-mode:has([data-icon="box"]) { --mode-obj: url(../visuals/modes/mode-cases-obj4.webp); --mode-burst: url(../visuals/modes/mode-cases-burst4.webp); --fa: .3;
   --ol: 43.4; --ot: -7.2; --ow: 70; --bz: 1.35; --pw: 45cqw; --mx: 78%; --my: 50%; }
-.wf-mode:has([data-icon="battle"]) { --mode-burst: url(art/mode-battles-clash.webp); --fa: .3; --pw: 56cqw;
+.wf-mode:has([data-icon="battle"]) { --mode-burst: url(../visuals/modes/mode-battles-clash.webp); --fa: .3; --pw: 56cqw;
   --ol: 53; --ot: -7; --ow: 62; --bz: 1.3; --mx: 84%; --my: 44%; }
-.wf-mode:has([data-icon="target"]) { --mode-obj: url(art/mode-showdowns-obj4.webp); --mode-burst: url(art/mode-showdowns-burst4.webp); --fa: .3;
+.wf-mode:has([data-icon="target"]) { --mode-obj: url(../visuals/modes/mode-showdowns-obj4.webp); --mode-burst: url(../visuals/modes/mode-showdowns-burst4.webp); --fa: .3;
   --ol: 45.6; --ot: -8; --ow: 59; --bz: 1.35; --mx: 75%; --my: 38%; }
-.wf-mode:has([data-icon="arrow-up"]) { --mode-obj: url(art/mode-upgrade-obj4.webp); --mode-burst: url(art/mode-upgrade-burst4.webp); --fa: .3;
+.wf-mode:has([data-icon="arrow-up"]) { --mode-obj: url(../visuals/modes/mode-upgrade-obj4.webp); --mode-burst: url(../visuals/modes/mode-upgrade-burst4.webp); --fa: .3;
   --ol: 44; --ot: -6; --ow: 70; --bz: 1.3; --mx: 79%; --my: 44%; } /* its foot goes into the card's bottom edge, it does not hang */
 
 @media (max-width: 899px) { .wf-grid.wf-modes { padding-top: 24px; } }
@@ -46,8 +46,8 @@
 /* Case battles: two separate knives crossing, tips over the top edge, handles cut by the bottom one so they stand in the card; each is its own layer on the art's box, and under the pointer they draw apart and strike */
 .wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art { left: 0; top: 0; width: 100%; height: 100%; aspect-ratio: auto; background: none; filter: none; }
 .wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::before, .wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::after { content: ''; position: absolute; left: calc((100 - 56.2 * var(--k) + var(--dx)) * 1cqw); top: calc((-10.8 * var(--k) + var(--dy)) * 1cqw); width: calc(75.7 * var(--k) * 1cqw); height: calc(75.7 * var(--k) * 1cqw); background: center / contain no-repeat; filter: drop-shadow(0 6px 8px rgba(6, 10, 30, .55)); }
-.wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::before { background-image: url(art/mode-battles-knife-blue.webp); rotate: -30deg; }
-.wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::after { background-image: url(art/mode-battles-knife-red.webp); rotate: 30deg; }
+.wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::before { background-image: url(../visuals/modes/mode-battles-knife-blue.webp); rotate: -30deg; }
+.wf-grid .wf-mode:has([data-icon="battle"]) .wf-mode-art::after { background-image: url(../visuals/modes/mode-battles-knife-red.webp); rotate: 30deg; }
 @keyframes v4-strike-l { 0% { rotate: -30deg; translate: 0 0; } 45% { rotate: -40deg; translate: -3cqw -1cqw; } 75% { rotate: -25deg; translate: 1cqw 0; } 100% { rotate: -33deg; translate: -1cqw -1cqw; } }
 @keyframes v4-strike-r { 0% { rotate: 30deg; translate: 0 0; } 45% { rotate: 40deg; translate: 3cqw -1cqw; } 75% { rotate: 25deg; translate: -1cqw 0; } 100% { rotate: 33deg; translate: 1cqw -1cqw; } }
 @keyframes v4-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4px; } }

@@ -25,7 +25,7 @@
     var W = o.base || '../../wireframes/', id = o.id || 'v4si', go = o.go || 'index.html?account', miss = o.asked ? ' is-missing' : '';
     var btn = function (cls, n, label) { return '<a class="v4-btn ' + cls + '" href="' + go + '" data-auth-go><span class="sd-pv-i" ' + ic(n) + '></span>' + label + '</a>'; };
     return '<button class="sd-close sd-x" type="button" aria-label="Close" data-auth-dismiss="1"></button>' +
-      '<div class="sd-art" aria-hidden="true" style="background: ' + PANEL + '"><p class="sd-art-h">CS2 case opening with published odds</p><img class="sd-agents" src="art/footer-agents.webp" alt=""></div>' +
+      '<div class="sd-art" aria-hidden="true" style="background: ' + PANEL + '"><p class="sd-art-h">CS2 case opening with published odds</p><img class="sd-agents" src="../visuals/brand/footer-agents.webp" alt=""></div>' +
       '<ul class="sd-proofs"><li class="sd-pf"><span class="sd-pf-i" ' + ic('box') + '></span><span class="sd-pf-t"><b>Open a case, see every chance.</b></span></li>' +
         '<li class="sd-pf"><span class="sd-pf-i" ' + ic('shield') + '></span><span class="sd-pf-t"><b>Every round</b><span class="sd-pf-s">Checkable without an account</span></span></li>' +
         '<li class="sd-pf"><span class="sd-pf-i" ' + ic('steam') + '></span><span class="sd-pf-t"><b>Withdrawals go to Steam, commission free.</b></span></li></ul>' +
