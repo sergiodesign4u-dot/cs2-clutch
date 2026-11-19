@@ -503,3 +503,21 @@ One value moved on the way and is named rather than hidden: v4 drew the inner ha
 | Direction 2's art: the coin, the case covers, the daily cases, the mode art, the banner layers | left the kit; `--art-ground` stays, the one old picture v4 shows | the twelve loads render the same with each group set to none |
 | v4's own art | 26 variables at the end of `:root`, from `design/v4/art/`: the coin with the bolt, the logo, the five cases, the five daily tiers, the four modes and their bursts, the banner's five layers, two rare effects | the showcase draws them |
 | New values the atoms needed to match Home v4 | `--size-lead` 17px, `--color-text-lead`, `--color-well`, `--color-tile-veil`, `--tracking-link`, `--gradient-edge-pink`; `--color-edge-open` of section 15 left, v4 does not draw it | the side by side of each coloured atom with its original |
+
+
+## 17. Stage 07 step 3, the founder's review of the atoms, `D-230`
+
+**Date:** 19 November 2026. Variable, value, why; every value is read from the v4 sheet named.
+
+| Variable | Value | Why, from |
+|---|---|---|
+| `--size-badge-text` | 10px | the 5 % bonus badge, the one badge v4 draws, `account-home.css`; every badge variant takes its shape |
+| `--size-badge-pad` | 5px | the same badge |
+| `--size-tile-icon` | 22px | the sound and the flag on the closed rail, `theme.css` |
+| `--color-case-violet` | #A35CFF | Nightfall's light behind its skin, the case tile's `--case`, `theme.css` |
+| `--shadow-skin-drop` | drop-shadow(0 6px 6px rgba(0, 0, 0, .7)) | the skin's shadow on its case, `theme.css` |
+| `--shape-case-rim` | polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%) | the cover's front cut at the rim, `case-tiles.css` and `proof-home.css` |
+| `--art-case-<name>-base`, five | `cases-v2/<name>.webp`, Coldfront `coldfront-a.webp` | the base cases with no details, founder's pick of 19 Nov 2026 |
+| ten more `--art-*` | banner plate wide, Daily ground, falling weapons far and near, footer agents two, tall plasma, crossed daggers, two daggers | loaded by Home and the case screen, measured from every request at 360 and 1440 |
+
+The badge's own size had drifted from its source, 11px words and 4px sides; it now reads the source's values.

@@ -7228,3 +7228,21 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** Keeping both languages in one sheet until step 5. Deleting direction 2's values outright, which would have left the record pages unstyled.
 
 **The cost.** The kit's rules still carry the carried structure and direction 2's visual layer, parts 2 and 3, because Home v4 and the case screen still render through them; they leave when the screens move onto the kit's classes at step 5. One lab, `how-lab.html`, frames a variant of the case screen's How it works block that was not chosen and drew direction 2's banner case; that picture is gone from it.
+
+
+## D-230. Stage 07 step 3: the founder's review of the atoms, one badge, the sound tile, the cases as Home draws them
+
+**Date:** 2026-11-19. **Stage:** 07. **Decided by:** the founder, on the kit page after `D-229`: better and more believable, but trouble with the badges, the sound icon "looks suspiciously wrong", the media slot unclear, "I would at least take the base cases and the finished custom cases, so as not to lose them on the way", and the video banner unclear; then, showing Home's Featured cases, Daily cases and the case screen's case, "plus somewhere there should be a base case that looks like the current ones, only without the decorations" (translated).
+
+**What was found.** v4 draws one badge, the 5 % bonus on Add funds (16px, 8px corners, 10px heavy, 5px sides, `account-home.css`); the kit's count, status and ribbon variants were drawn without a model and differed in size, case and spacing, and the kit's own badge had drifted to 11px words and 4px sides. The icon in the square tile took the button's 12px instead of the 22px of the closed rail's sound. The media slot showed a case cover with no skin and one layer of the banner, while Home draws a case as three layers and the banner with a video over it. Every request Home and the case screen make at 360 and 1440, scrolled and hovered, showed ten more pictures v4 draws that `D-229` had not carried.
+
+**What was decided.**
+1. **One badge shape.** Every variant is v4's 5 % badge; a variant changes the colour only, every word in capitals at the buttons' tracking. Variable, value, why: `--size-badge-text` 10px and `--size-badge-pad` 5px, the bonus badge's own.
+2. **The icon tile's mark is 22px**, `--size-tile-icon`, the closed rail's sound and flag.
+3. **A case is drawn as Home draws it.** `.media--case`: the cover, the skin across the tray, a copy of the cover cut at the rim in front (`--shape-case-rim`, case-tiles.css and proof-home.css), the skin's shadow `--shadow-skin-drop` and its light in the case's colour (`--color-case-violet` added for Nightfall). With no skin inside, a daily case, the front copy is not drawn. The media slot also carries a video.
+4. **The base cases are kept as variables**: `--art-case-<name>-base`, the five round 2 covers with no details (`cases-v2/<name>.webp`, Coldfront's `-a`), so new covers are drawn from them and they are not lost.
+5. **The kit carries every picture Home and the case screen load**: ten more `--art-*`, the banner's wide plate, the Daily ground, the two falling weapon layers, the two footer agents, the tall plasma, the crossed daggers and the two daggers of Case battles. The banner's story video stays where `banner-story.js` chooses its cut; the showcase plays it.
+
+**Rejected.** Making the other kept art (the round 2 animals, the case lab, the old daily tiers, the mode lab, 66 brand rounds) variables: the product draws none of it, and it is step 4's material. Keeping invented badge looks beside v4's.
+
+**The cost.** `theme.css` still names round 1's covers (`art/cases/*-case` and `*-world`), overridden by `case-tiles.css` and never loaded; the old logo `concept/assets/logo/lockup-screen.svg` is still requested through part 2 of the kit. Both leave with parts 2 and 3 at step 5.

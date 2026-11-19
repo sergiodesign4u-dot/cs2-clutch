@@ -304,6 +304,30 @@
   --art-fx-bolt: url(../v4/art/fx/bolt-24.webp); /* a rare mark's current; рішення користувача, D-214, rare-mark.css */
   --art-fx-plasma: url(../v4/art/fx/plasma-24.webp); /* рішення користувача, D-214, rare-mark.css */
 
+  /* ===== The founder's review of the atoms, 19 Nov 2026, D-230: the badge, the sound tile and the case art as Home draws them ===== */
+  --size-badge-text: 10px; /* a badge's words; рішення користувача, D-209, account-home.css, the 5 % bonus badge on Add funds, the one badge v4 draws */
+  --size-badge-pad: 5px; /* a badge's sides; рішення користувача, D-209, account-home.css, the same badge */
+  --size-tile-icon: 22px; /* the mark on a square icon tile; рішення користувача, D-209, theme.css, the sound and the flag on the closed rail */
+  --color-case-violet: #A35CFF; /* Nightfall's light behind its skin; рішення користувача, D-209, theme.css, the case tile's --case */
+  --shadow-skin-drop: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); /* a skin's shadow on the case it lies in, a filter; рішення користувача, D-209, theme.css, the case tile's skin */
+  --shape-case-rim: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); /* the case's front below its rim, cut so the skin lies inside the tray; рішення користувача, D-209, case-tiles.css and proof-home.css */
+  --art-case-ironbound-base: url(../v4/art/cases-v2/ironbound.webp); /* the case with no details, the base new covers are drawn from; рішення користувача, D-230: "кейс базовий которий виглядит как текущие только без украшательств"; round 2 of the cases, 2 Nov 2026 */
+  --art-case-warsteel-base: url(../v4/art/cases-v2/warsteel.webp); /* рішення користувача, D-230, as above */
+  --art-case-coldfront-base: url(../v4/art/cases-v2/coldfront-a.webp); /* рішення користувача, D-230, as above; Coldfront's plain cut is its "a" */
+  --art-case-nightfall-base: url(../v4/art/cases-v2/nightfall.webp); /* рішення користувача, D-230, as above */
+  --art-case-emberforge-base: url(../v4/art/cases-v2/emberforge.webp); /* рішення користувача, D-230, as above */
+  /* the pictures Home and the case screen load that D-229 had not carried, measured on 19 Nov 2026 from every request at 360 and 1440, scrolled and hovered */
+  --art-banner-plate-wide: url(../v4/art/banner-plate-wide.webp); /* the banner's plate at a wide window; рішення користувача, D-209, banner.css */
+  --art-daily-ground: url(../v4/art/daily-bg.webp); /* the Daily cases panel's ground; рішення користувача, D-209, daily-home.css */
+  --art-fall-far: url(../v4/art/fall-far.webp); /* the weapons falling behind the header's logo, far layer; рішення користувача, D-209, theme.css */
+  --art-fall-near: url(../v4/art/fall-near.webp); /* the same, near layer; рішення користувача, D-209, theme.css */
+  --art-footer-agents: url(../v4/art/footer-agents.webp); /* the agents over the footer and the sign in dialog; рішення користувача, D-209, footer-home.css and signin-home.js */
+  --art-footer-agents-2: url(../v4/art/footer-agents-2.webp); /* рішення користувача, D-209, footer-home.css */
+  --art-fx-plasma-tall: url(../v4/art/fx/plasma-tall-24.webp); /* a rare mark's plasma on a tall card; рішення користувача, D-214, rare-mark.css */
+  --art-mode-battles-crossed: url(../v4/art/mode-battles-crossed.webp); /* Case battles' object coming out of the closed rail; рішення користувача, D-209, rail-b1.css */
+  --art-mode-battles-knife-blue: url(../v4/art/mode-battles-knife-blue.webp); /* a dagger of the Case battles card; рішення користувача, D-209, modes.css */
+  --art-mode-battles-knife-red: url(../v4/art/mode-battles-knife-red.webp); /* рішення користувача, D-209, modes.css */
+
   /* ===== Kept at the cleanup of stage 07 step 3, D-229: v4's own scripts and rules reach these, some only for a rarity, a hover or a risk the
      twelve measured loads did not draw (case-blocks.js builds the rarity plates by name), so they are the product's and stay ===== */
   --color-scrim: rgba(6, 10, 30, .72); /* the ground behind a dialog; the ground at 72 %; структура, wireframes/_wf.css, stage 04 drew it black at 66 % */
@@ -1726,6 +1750,7 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .button:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
 .button[aria-busy="true"] { background: var(--color-disabled); box-shadow: var(--shadow-edge); color: var(--color-text-soft); cursor: progress; }
 .button--icon { width: var(--size-tile); min-height: var(--size-tile); padding: 0; border-radius: var(--radius-tile); background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-text-soft); transition: background .2s, color .2s; }
+.button--icon .icon { font-size: var(--size-tile-icon); }
 @media (hover: hover) { .button--icon:hover { background: var(--gradient-button-stripes), var(--color-button-hover); color: var(--color-text-hi); } }
 .button--close { width: var(--size-close); min-height: var(--size-close); padding: 0; border-radius: var(--radius-s); background: var(--color-veil-soft); transition: color .15s; }
 .button--close::before, .button--close::after { content: ''; position: absolute; left: 50%; top: 50%; width: 50%; height: var(--size-edge); translate: -50% -50%; border-radius: var(--radius-xs); background: currentColor; rotate: 45deg; transition: rotate .2s; }
@@ -1762,8 +1787,9 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .fig--missing .fig__v { color: var(--color-text-muted); font-weight: 700; }
 
 /* BADGE. Short text in a pill: a count or a bonus pinned to a control, a ribbon on a tile, a status. From the 5 % badge, account-home.css. */
-.badge { display: inline-grid; place-items: center; height: var(--size-badge); padding: 0 var(--space-1); border-radius: var(--radius-s); background: var(--color-money); color: var(--color-badge-ink); font-size: var(--size-unit); font-weight: 900; line-height: 1; white-space: nowrap; }
-.badge--status { background: var(--color-tile); box-shadow: var(--shadow-edge); color: var(--color-text-soft); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.badge { display: inline-grid; place-items: center; height: var(--size-badge); padding: 0 var(--size-badge-pad); border-radius: var(--radius-s); background: var(--color-money); color: var(--color-badge-ink); font-size: var(--size-badge-text); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1; text-transform: uppercase; white-space: nowrap; }
+/* one shape for every badge, D-230: the variants change the colour only, never the size, the case or the spacing */
+.badge--status { background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-text-soft); }
 .badge--count { background: var(--color-button); color: var(--color-text-hi); }
 .badge--good { background: var(--color-green); color: var(--color-ground); }
 
@@ -1780,6 +1806,14 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .media > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .media--skin { background: none; overflow: visible; } .media--skin > img { object-fit: contain; }
 .media--square { aspect-ratio: 1; } .media--wide { aspect-ratio: 3 / 2; } .media--banner { aspect-ratio: 16 / 7; }
+.media > video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* A CASE AS HOME DRAWS IT, D-230: the picture, the skin across the tray, and a copy of the picture cut at the rim in front of the skin.
+   theme.css and case-tiles.css on the case tile, proof-home.css on What this case pays. The picture is --case-art, its light --case-glow;
+   with no skin inside (a daily case) the front copy is not drawn */
+.media--case { overflow: visible; aspect-ratio: 3 / 2; border-radius: 0; background: var(--case-art) center / 100% auto no-repeat; isolation: isolate; }
+.media--case::after { content: ''; position: absolute; inset: 0; z-index: 2; background: var(--case-art) center / 100% auto no-repeat; clip-path: var(--shape-case-rim); pointer-events: none; }
+.media--case:not(:has(> img))::after { content: none; }
+.media--case > img { position: absolute; z-index: 1; top: -4%; left: 20%; width: 62%; height: 70%; object-fit: contain; rotate: 7deg; filter: var(--shadow-skin-drop) drop-shadow(0 0 10px color-mix(in srgb, var(--case-glow, var(--color-pink)) 70%, transparent)); }
 
 /* TEXT LINK. The pink link that leads onward, with an arrow after it when it leaves the block. From the FAQ's "What this case pays", faq-home.css. */
 .link { color: var(--color-pink); font-weight: 700; letter-spacing: var(--tracking-link); text-decoration: none; transition: color .2s; }
