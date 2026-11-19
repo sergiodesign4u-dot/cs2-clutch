@@ -11,13 +11,10 @@ body.cl-page { margin: 0; background: var(--color-ground); color: var(--color-te
 .cl-dir h2 { margin: 0; font-size: 20px; font-weight: 900; }
 
 .cl-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; }
-.cl-row--one { grid-template-columns: minmax(0, 440px); }
 .cl-tile { display: flex; flex-direction: column; min-width: 0; text-align: center; }
 .cl-tile h3 { position: relative; z-index: 4; margin: 26px 0 8px; font-size: 16px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
 
 /* the sandwich; the box's rim runs in perspective, so the front copy is cut along it, measured on the picture */
-.cl-case { position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 3 / 2; border-radius: 14px; background: var(--pic) center / cover no-repeat; }
-.cl-case::after { content: ''; position: absolute; z-index: 2; inset: 0; background: inherit; clip-path: polygon(0 48%, 12.6% 47.9%, 78.1% 52.3%, 87.9% 57.3%, 100% 58%, 100% 100%, 0 100%); pointer-events: none; }
 .cl-skin { position: absolute; z-index: 1; left: 47%; top: 34%; width: 72%; height: auto; transform: translate(-50%, -50%) rotate(7deg);
   filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .7)) drop-shadow(0 0 14px var(--lit, transparent)); transition: transform .4s cubic-bezier(.22, 1, .36, 1); }
 
