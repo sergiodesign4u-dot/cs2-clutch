@@ -81,7 +81,7 @@ Order: first the organisms that hold no other organism, then Payment panel (hold
 
 | Component | Level | Variants | Screens (IA nodes) | States drawn in grey | Photo | Contains | Read from |
 |---|---|---|---|---|---|---|---|
-| Account head | 3 | one form | 6: 5.1, 5.2, 5.9, 5.10, 5.11, 7.3 | with a Steam account, with none linked (missing figure); on 28 pages | Steam avatar | Breadcrumb, Avatar, Figure, Button, Tabs | `wf-ah` |
+| Account head | 3 | one form | 6: 5.1, 5.2, 5.9, 5.10, 5.11, 7.3 | with a Steam account, with none linked (missing figure); on 28 pages | Steam avatar; the footer's operators over the band from 1200px, D-240 | Breadcrumb, Avatar, Figure, Button, Badge, Tabs | `wf-ah` |
 | Bottom bar | 3 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 132 pages | no | Icon | `wf-bar` |
 | Case grid | 3 | one form | 3: 1.0, 1.1, 3.1 | one state; on 8 pages | case art | Section head, Case tile | `wf-grid--shelf` |
 | Case stage | 3 | one form | 4: 3.3, 3.5, 3.6, 3.7 | at rest, the open with one, two and five rolls, the outcome; on 13 pages | case art, skins | Media slot, Outcome card, Button | `wf-stage-frame` |
@@ -128,6 +128,8 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 
 **Added at stage 07 step 5, `D-239`.** My items is the Account head, the Section head, the Item grid, the Item card, the Empty state and the Dialog already in the table, and two blocks of its own, the Selection bar and the Cash out form, one-offs of 5.1 built in `kit.css` part 4.4. No component is added and none removed, and no level moves. The kit gains forms of what it has: Button its disabled look, drawn only for Exchange, a founder decision with its reason on the card; Key-value line its missing value; Item card its value missing (the degraded state) and its receipt after a sale or a cash out in the session, the sold band it already drew for the ledger; Account head the screen's H1 for a screen reader; Item grid a row of cards ending on one line. The cash out Dialog takes the Select menu for its saved addresses and the Cash out form for its sum. The kit still grows on the fourth screen, by forms rather than by components.
 
+**Changed at My items' gate, `D-240`.** No component is added and none removed, and no level moves. The Account head is redrawn in its own rules as a band with its money on one dark plate and its tabs on the plate under it, Add funds carrying the header's 5% pin (Badge, a level 1 atom, so the head stays at 3); the Section head shows a Badge beside its title; a third one-off of 5.1, the Steam state, takes the grey's sub line's chip and link; the Selection bar loses its pink edge.
+
 **Motion carried at stage 07 step 5, `D-235`.** No component is added: the motion v4 Home was approved with enters as forms of components already in the table. Icon gains its story form, the rail's marks, the footer's counters and its round plate drawn in parts to play under the pointer; Feed tile gains the rare marks by chance, A, B and C, and the rare drop in three tiers; Ticker paces its arrivals as v4 does; Disclosure slides, Favourite toggle bursts, Event banner counts down. Their look is in `kit.css` beside each component, their behaviour in `design/kit/motion.js`, and the kit page shows them in its section Motion.
 | System page block | 0.3 | `wf-sys` | code, heading, two ways out, reference |
 | Toast | 0.3 | `wf-copied` | Copied; node 0.5 owns toasts and no other page draws one |
@@ -149,7 +151,8 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 | What still works | 4.2 | `wf-open-list` | the ways a stop leaves open, each a Text link with its line; `.works`, kit.css 4.4, D-237 |
 | This deposit | 4.4 | `wf-total` | the record of a payment on its way, Key-value lines on the dock's plate; `.record`, kit.css 4.4, D-237 |
 | Cash out form | 5.1 | `wf-co-lay` | inside the cash out dialog; what goes out on the dock's plate, `.cashout`, kit.css 4.4, D-239 |
-| Selection bar | 5.1 | `wf-invbar` | counts what is ticked, four acts; sticky on the account head's plate, `.selbar`, kit.css 4.4, D-239 |
+| Selection bar | 5.1 | `wf-invbar` | counts what is ticked, four acts; sticky on the account head's plate, `.selbar`, kit.css 4.4, D-239; no edge while something is ticked, its sum lit, D-240 |
+| Steam state | 5.1 | none, the grey's sub line `Steam connected · Settings` | the Steam account's state at the inventory head's end, Steam's dark blue, a live green dot, the way to Settings; `.steam-state`, kit.css 4.4, D-240 |
 | Offer list | 5.3 | `wf-offs` | Steam offers to pick from, with filters |
 | Selected skin | 5.3 | `wf-selskin` |   |
 | History filters | 5.9 | `wf-hfilters` |   |

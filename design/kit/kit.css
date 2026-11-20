@@ -3824,24 +3824,58 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    its white ring, the name at 17px heavy, the ID in soft figures), set on the header strip's plate (theme.css .wf-header::before, the menu's
    gradient with the strip's hairline and lift) with the header's money plate (.ac2-plate) and its Add funds. The grey's artwork band stays
    the plate: v4 draws no picture for it. */
+/* AFTER ITS GATE, D-240: the founder at My items' gate, "слишком просто и скучно" (too plain and dull). The head became a band: the Cases
+   mode's pink to violet under the kit's stripes (the Cases card on Home, --gradient-mode-cases-card), the footer's operators rising over its
+   right end from 1200px (--art-footer-agents, as the Xbox profile's own picture stands over its band, refero d58b8e8d), the picture at 88px from 600px (the menu's 64 on a phone),
+   the ID and the Steam account as chips on the dark plate over art, the money pair at a price's size, the balance lit in the coin's gold, and
+   Add funds, the filled act carrying the header's 5% pin, on one dark plate as the header's money plate holds them, and the tabs on the bar plate under the band, each with its mark. */
 /* its own geometry, read inside .account-head only */
 .account-head {
   --account-head-pad: var(--space-4); /* the account menu's 12px padding stepped up a rung for a page band, as the header strip pads its row; 24px from 900px */
+  --account-head-avatar: 88px; /* the picture on the account's own band, D-240: the menu's 64 (.avatar--l) a step up so it holds the band's height beside a 26px name; технічне рішення */
+  --account-head-art: 240px; /* the operators' width at the band's right from 1200px, D-240: at 3:2 they stand 160px, the band's height and the rise over it; технічне рішення */
+  --account-head-rise: var(--space-6); /* how far the operators stand over the band's top, into the breadcrumb's row, D-240 */
 }
-.account-head { position: relative; isolation: isolate; display: grid; gap: var(--space-3); padding: var(--account-head-pad); border-radius: var(--radius-m); background: var(--gradient-menu); box-shadow: var(--shadow-shell); color: var(--color-text-hi); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
-.account-head__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); }
-.account-head__who { display: flex; align-items: center; gap: var(--space-3-5); min-width: 0; }
-.account-head__names { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-1-75); min-width: 0; }
-.account-head__name { margin: 0; overflow: hidden; font-size: var(--size-lead); font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
-.account-head__id { margin: 0; color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); white-space: nowrap; }
-.account-head__steam { display: inline-flex; width: fit-content; max-width: 100%; overflow: hidden; color: inherit; text-decoration: none; } /* with no Steam account linked, the line is the missing figure, still the way to Settings */
-.account-head__steam:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.account-head { position: relative; display: grid; color: var(--color-text-hi); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.account-head > .crumb { margin-bottom: var(--space-3); }
+.account-head__row { position: relative; isolation: isolate; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-5); padding: var(--account-head-pad); border-radius: var(--radius-l) var(--radius-l) 0 0; background: var(--gradient-stripes), var(--gradient-mode-cases-card); box-shadow: var(--shadow-tile-lit); }
+.account-head__row:last-child { border-radius: var(--radius-l); }
+.account-head__who { display: flex; align-items: center; gap: var(--space-4); min-width: 0; }
+.account-head__names { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-width: 0; }
+.account-head__name { flex-basis: 100%; margin: 0 0 var(--space-1); overflow: hidden; font-size: var(--size-head-l); font-weight: 900; line-height: 1.1; text-overflow: ellipsis; text-shadow: var(--shadow-figure-text); white-space: nowrap; }
+.account-head__id { display: inline-flex; align-items: center; gap: var(--space-1-5); max-width: 100%; box-sizing: border-box; min-height: var(--size-button-s); margin: 0; padding: 0 var(--space-2-5); overflow: hidden; border-radius: var(--radius-s); background: var(--color-veil); color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); white-space: nowrap; }
+.account-head__id > .icon { flex: none; color: var(--color-text-hi); font-size: var(--size-text); }
+.account-head__id .link { color: var(--color-text-hi); }
+.account-head__steam { width: fit-content; color: inherit; text-decoration: none; } /* with no Steam account linked, the chip is the missing figure, still the way to Settings */
+.account-head__steam:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
 .account-head__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* the screen's H1 for a screen reader where the head is the screen's own head, My items (wireframes/account.html h1.wf-vh), D-239 */
 @media (hover: hover) { .account-head__steam:hover { text-decoration: underline; text-underline-offset: var(--space-thin); } }
-.account-head__money { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-left: auto; }
-.account-head__figs { display: flex; align-items: center; gap: var(--space-4); box-sizing: border-box; min-height: var(--size-button-m); padding: var(--space-1-75) var(--space-3); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+.account-head__money { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); margin-left: auto; padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); } /* the header's money plate (.header__money) at the band's scale: the pair and Add funds on one dark plate, so the pink act stands on dark, not on the band's pink */
+.account-head__figs { display: flex; gap: var(--space-4); }
+.account-head__figs > .fig { justify-content: center; gap: var(--space-1-5); min-width: 0; }
+.account-head__figs > .fig + .fig { padding-left: var(--space-4); border-left: var(--size-hairline) solid var(--color-line-soft); }
+.account-head__figs .fig__v { color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; }
+.account-head__figs .fig--money .fig__v { color: var(--color-money); text-shadow: 0 0 var(--space-5) color-mix(in srgb, var(--color-money) 55%, transparent), var(--shadow-figure-text); } /* lit as .pay-panel__offer-v */
+.account-head__figs .fig__c { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.account-head__add { align-self: center; }
+/* the tabs on the bar plate under the band, each with its mark; the current one lit from its foot in pink */
+.account-head > .tabs { padding: 0 var(--account-head-pad); border-bottom: 0; border-radius: 0 0 var(--radius-l) var(--radius-l); background: var(--gradient-plate); box-shadow: var(--shadow-edge), var(--shadow-shell); }
+.account-head > .tabs .tabs__t > .icon { font-size: var(--size-m); }
+.account-head > .tabs .tabs__t[aria-current="page"] { background: linear-gradient(to top, color-mix(in srgb, var(--color-pink) 22%, transparent), transparent); }
+.account-head > .tabs .tabs__t[aria-current="page"] > .icon { color: var(--color-pink); }
+@media (min-width: 600px) { .account-head__who > .avatar { width: var(--account-head-avatar); height: var(--account-head-avatar); } }
 @media (min-width: 900px) { .account-head { --account-head-pad: var(--space-5); } }
-@media (max-width: 599px) { .account-head__money { width: 100%; margin-left: 0; } }
+@media (min-width: 1200px) {
+  .account-head__row { padding-right: calc(var(--account-head-art) + var(--space-4)); }
+  .account-head__row::after { content: ''; position: absolute; z-index: -1; right: var(--space-3); bottom: 0; width: var(--account-head-art); height: calc(100% + var(--account-head-rise)); background: var(--art-footer-agents) center bottom / contain no-repeat; pointer-events: none; }
+}
+@media (max-width: 599px) {
+  .account-head__name { font-size: var(--size-title); }
+  .account-head__money { width: 100%; margin-left: 0; }
+  .account-head__figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); flex-basis: 100%; }
+  .account-head__money { padding: var(--space-3); }
+  .account-head__add { flex-basis: 100%; }
+}
 
 /* BOTTOM BAR. The phone's shortcut bar, a subset of the rail (CLAUDE.md "Baseline"): Home and Cases in both states, a mark over a small
    capital name, the current one white with its mark in pink. Fixed to the window's foot under 900px; from 900px the rail carries them.
@@ -5503,7 +5537,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 
 /* THE SELECTION BAR: what is ticked, counted and summed, and the four ways out of an inventory, kept on screen while the grid scrolls under
    it, the baseline's sticky bar (research/docs/baseline-account.md section 2) and the grey's (D-85, D-128). With nothing ticked it counts and
-   sums everything held and its acts answer "Tick an item first."; with something ticked it takes a ticked card's pressed pink edge and its
+   sums everything held and its acts answer "Tick an item first."; with something ticked (no edge of its own: the founder at its gate, D-240) its
    sum lights as the 5 % of the bonus strip is lit. On the account head's plate, the account menu's gradient and the shell's lift. Under
    600px the four acts stand in one row, a mark over a short word, the full name kept for a screen reader (D-119); from 600px the names.
    Contains Figure, Button. */
@@ -5511,7 +5545,6 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   --selbar-gap: var(--space-2); /* the bar's offset from the window's foot and from the bottom bar, the header strip's 8px; технічне рішення */
 }
 .selbar { position: sticky; z-index: 20; bottom: calc(var(--size-bar) + var(--selbar-gap)); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); box-sizing: border-box; padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5); border-radius: var(--radius-m); background: var(--gradient-menu); box-shadow: var(--shadow-shell); transition: box-shadow .2s; }
-.selbar.is-picking { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink), var(--shadow-shell); } /* something ticked: the pressed edge of a ticked .item-card */
 .selbar__sum { display: grid; gap: var(--space-1); min-width: 0; }
 .selbar__n { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
 .selbar__sum > .fig .fig__v { font-size: var(--size-title); font-weight: 900; transition: text-shadow .2s; }
@@ -5542,6 +5575,33 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .cashout__calc { display: grid; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
 .cashout__h { margin: 0 0 var(--space-1); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 900; line-height: 1.2; text-transform: uppercase; }
 .cashout__calc > .kv--total .kv__v { color: var(--color-money); }
+
+/* THE INVENTORY'S HEAD, D-240, after the founder's "слишком просто и скучно" at My items' gate: the Section head with the count of what is
+   held on a pink badge beside its title, the hint under it, and the Steam state as a card at the line's end, where the grey wrote a chip, a
+   link and the hint on one line with dots: Steam's own dark blue (--gradient-steam, the sign in block's Steam note), its mark on a dark
+   round, "Steam connected" in the gain's green with a live dot breathing as the drops ticker's does, and the way to Settings under it.
+   Contains Section head, Badge, Link. */
+.sec-head__title > .badge { align-self: center; height: var(--space-5); padding: 0 var(--space-2); font-size: var(--size-chip); } /* the count of a section's things beside its title */
+.steam-state {
+  --steam-state-pulse: 1.6s; /* the live dot's halo loop, the drops ticker's --ticker-pulse; рішення користувача, D-209 (v4) carried by D-240 */
+}
+.steam-state { display: inline-flex; align-items: center; gap: var(--space-3); width: fit-content; box-sizing: border-box; margin-top: var(--space-3); padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2); border-radius: var(--radius-card); background: var(--gradient-steam); box-shadow: var(--shadow-edge), var(--shadow-tile-lit); }
+.steam-state__mark { display: grid; flex: none; place-items: center; width: var(--size-tile); height: var(--size-tile); border-radius: 50%; background: var(--color-veil); color: var(--color-text-hi); }
+.steam-state__mark > .icon { font-size: var(--size-tile-icon); }
+.steam-state__t { display: grid; gap: var(--space-1); }
+.steam-state__on { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-green); font-size: var(--size-chip); font-weight: 900; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.steam-state__on::before { content: ''; flex: none; width: var(--space-2); height: var(--space-2); border-radius: 50%; background: var(--color-green); }
+.steam-state__on::after { content: ''; position: absolute; z-index: -1; left: 0; top: 50%; width: var(--space-2); height: var(--space-2); margin-top: calc(var(--space-2) / -2); border-radius: 50%; background: color-mix(in srgb, var(--color-green) 60%, transparent); animation: ticker-live var(--steam-state-pulse) ease-out infinite; pointer-events: none; } /* the drops ticker's live dot, .ticker__lbl::after, in the gain's green */
+.steam-state .link { color: var(--color-text-hi); font-size: var(--size-text); }
+@media (min-width: 900px) {
+  .sec-head:has(> .steam-state) { grid-template-columns: auto minmax(var(--sec-head-line), 1fr) auto; }
+  .sec-head > .steam-state { grid-area: 1 / 3; margin-top: 0; }
+}
+@media (min-width: 1200px) {
+  .sec-head:has(> .steam-state):has(.sec-head__sub) { grid-template-columns: auto auto minmax(var(--sec-head-line), 1fr) auto; }
+  .sec-head:has(.sec-head__sub) > .steam-state { grid-area: 1 / 4; }
+}
+@media (prefers-reduced-motion: reduce) { .steam-state__on::after { animation: none; opacity: 0; } }
 
 
 /* THE SHELL'S PAGE LAYOUT, D-232. Where the organisms stand on a page, nothing of their look: the header across the top, the rail beside the

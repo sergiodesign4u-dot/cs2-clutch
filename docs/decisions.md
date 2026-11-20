@@ -7452,3 +7452,25 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **The cost.** A fifth script for stage 08 to split. The network table's fees and rates are samples in `items.js`, as the coins' are in `pay.js` (`D-124`). The deposit layer rides on each My items page, about 16 KB. The cash out page departs from its grey in what stands behind the layer.
 
 **Waits for its gate.** The founder walks My items, every state, at 1440 and 360.
+
+
+## D-240. Stage 07 step 5: My items after its gate, the head and the inventory's head made live, the Selection bar without its edge
+
+**Date:** 2026-11-20. **Stage:** 07. **Decided by:** the founder at My items' gate, with three screenshots: the Account head and the inventory's head, "слишком просто и скучно" (too plain and dull), and the Selection bar with something ticked, "а тут не надо выделять бордером" (and here no border is needed). My items stays at its gate; this is its correction round.
+
+**What was built.**
+1. **The Account head is a band.** The breadcrumb stands on the page; under it the band in the Cases mode's pink to violet under the kit's stripes (`--gradient-mode-cases-card`, the Cases card on Home), with the footer's operators (`--art-footer-agents`) standing at its right end and rising 32px over its top from 1200px, as a gaming profile's own picture stands over its band (Xbox's profile page, Refero screen d58b8e8d, 82e84ebe). The picture is 88px from 600px; the name 26px heavy over two chips on the dark plate, the ID and the Steam account with Steam's mark. The money pair and Add funds stand on one dark plate as the header's money plate holds them: each figure at a price's size, the balance lit in the coin's gold, Add funds the filled act carrying the header's 5% pin, so the pink act stands on dark and not on the band's pink. The four tabs sit on the bar plate under the band, each with its mark, the current one lit from its foot. On a phone the figures share a row and Add funds takes the plate's width. Every account page gets this head, since it is the kit's.
+2. **The inventory's head carries the count and the Steam state.** Its title has the count of what is held on a pink badge (6, then what is left after a sale or a cash out, `items.js`); the hint stands as its sub line; the Steam state became a card at the line's end, on Steam's own dark blue (`--gradient-steam`, the sign in block's Steam note), Steam's mark on a dark round, "Steam connected" in the gain's green with a live dot breathing as the drops ticker's does, still for reduced motion, and Settings under it. The grey's chip, link and hint on one line between dots are gone.
+3. **The Selection bar keeps no edge while something is ticked.** Its lit sum is the one sign left.
+
+**Words.** The grey's text is kept. The line "Steam connected · Settings · Select an item for its options" is now three places with no dots; the count beside Inventory is new and is a figure, not a word; the head's Add funds gains the header's spoken label, "Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours", as the header's own carries.
+
+**What the kit gained.** No component, no root variable (540), no level moved. The Account head is rewritten in its own rules, gaining `__add` and the `--steam` chip, with two more local properties, `--account-head-avatar` 88px and `--account-head-art` 240px, and its rise `--account-head-rise` on the 32px step; the Section head shows a badge beside its title; part 4.4 gains a third one-off, the Steam state (`.steam-state`, its loop `--steam-state-pulse` 1.6s, the ticker's), shown among the one-off blocks, read from `account.html`; the Selection bar loses its pink edge. The showcase draws the Account head's three instances in the new form.
+
+**Measured.** Every page in colour at 1440 and 360: no horizontal scroll, no error of its own. Walked in a browser, 44 checks passed: the 41 of `D-239` with the head's Add funds opening the deposit layer from its new place, the ticked bar carrying no pink in its shadow, and the inventory's count reading 4 after the cash out and 0 when nothing is held.
+
+**Rejected.** Add funds on the band itself: pink on pink, it lost its weight; it stands on the dark plate. The money figures on separate plates: two plates and a button read as three things; one plate reads as the header's money. A count on the My items tab: it would repeat the badge two lines lower. A copy button on the ID: a new act no grey draws.
+
+**The cost.** The footer's operators appear a third time, after the footer and the sign in dialog. The band's pink is the loudest surface on the account pages, louder than the screen's acts; principle 4 asks for electric and never heavy, and the founder judges it at the gate.
+
+**Waits for its gate.** The founder walks My items again, every state, at 1440 and 360.

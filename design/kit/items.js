@@ -50,8 +50,9 @@
         b = src.filter(function (i) { return blind(cardOf(i)); }).length;
     nOut.textContent = src.length + (src.length === 1 ? ' item' : ' items') + (b ? ', ' + b + ' not readable' : '');
     vOut.textContent = f2(sum);
-    bar.classList.toggle('is-picking', ticked.length > 0);
+    bar.classList.toggle('is-picking', ticked.length > 0); /* lights the sum; no edge since D-240 */
     if (none) none.hidden = !ticked.length;
+    d.querySelectorAll('[data-held-n]').forEach(function (e) { e.textContent = picks().length; }); /* the inventory head's count, D-240 */
   }
   list.addEventListener('change', function (e) { if (e.target.matches('.item-card__top input')) { tell(''); paint(); } });
 

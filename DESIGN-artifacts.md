@@ -946,3 +946,16 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Values changed, variable, value, why.** None. Rules added to the shell's page layout, no value changed: the Account head stands first in the slot as the case head stands, 8px under the live drops with the banner's insets; the line under the grid and the Selection bar stand 16px apart.
 
 **Images.** One skin picture, `design/concept/assets/skins/usp-s-cortex.png`, cited by the My items pages: USP-S Cortex, which the grey's inventory holds and no earlier screen drew, downloaded on 20 November 2026 from the Steam CDN with its link read from the public dataset `github.com/ByMykel/CSGO-API`, `public/api/en/skins.json`, as the other skins were (`design/concept/docs/concept.md`, "Skins are the real items, never generated"). Steam's own item picture, not ours.
+
+
+## 27. Stage 07 step 5, My items after its gate, `D-240`
+
+**Variables added to `:root`.** None: the root holds 540. The head's band reads values already in the kit: the Cases card's pink to violet (`--gradient-mode-cases-card`) under the kit's stripes (`--gradient-stripes`) and a striped tile's lit top edge (`--shadow-tile-lit`); the footer's operators (`--art-footer-agents`); the dark plate over art (`--color-veil`, `--shadow-edge`) for the chips and the money plate; the bar plate (`--gradient-plate`) under the tabs; the coin's gold lit as the bonus strip's (`--color-money` through `color-mix`, `--shadow-figure-text`). The Steam state reads Steam's dark blue (`--gradient-steam`) and the gain's green (`--color-green`), its dot breathing on the ticker's `ticker-live`.
+
+**Local properties.** `--account-head-avatar` 88px, the menu's 64 a step up for the band, technical; `--account-head-art` 240px, the operators' width from 1200px, technical; `--account-head-rise` 32px (`--space-6`), how far they stand over the band; `--steam-state-pulse` 1.6s, the drops ticker's `--ticker-pulse`.
+
+**Values changed, variable, value, why.** None. Removed: the Selection bar's pink inset edge while something is ticked, the founder at the gate, "а тут не надо выделять бордером" (here no border is needed).
+
+**Contrast.** The name, white 26px heavy, on the band's pink start `#DF055C` under a 9 % white stripe, the lightest pixel `#E21C6B`: 4.55:1, over the 3:1 large text needs. The green "Steam connected", 12px heavy, on Steam's `#2A475E`, its lighter end: 4.6:1. The chips, the figures and Add funds stand on the dark plate, not on the band.
+
+**Images.** None added.
