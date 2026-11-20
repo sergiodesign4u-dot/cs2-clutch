@@ -10,7 +10,9 @@
    3. THE FAVOURITE'S BURST (case-tiles.js).
    4. THE DISCLOSURE SLIDING open and shut (faq-home.css), one open at a time in a group.
    5. THE EVENT COUNTDOWN ticking to its published end every second (wireframes/_nav.js tickEvents), stopping at zero.
-   6. A BLOCK OFF THE SCREEN PAUSES ITS LOOPS (idle.js), and the banner's story with it. */
+   6. A BLOCK OFF THE SCREEN PAUSES ITS LOOPS (idle.js), and the banner's story with it.
+   7. THE TICKET RULER of How this case works playing once it is in view (case-blocks.js play), D-236; and the rare marks of part 2 on the
+      case screen's cards, a run's card and an item of What is in this case, D-236. */
 (function () {
   var d = document, still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -88,7 +90,7 @@
   function tier(ch) { ch = parseFloat(ch); return !(ch > 0) ? null : ch <= 1 ? 'c' : ch <= 2.5 ? 'b' : ch <= 5 ? 'a' : null; }
   function mark(tile) {
     if (!tile || !tile.classList) return null;
-    var hit = tile.querySelector('.feed-tile__hit'), t = tier(tile.getAttribute('data-chance'));
+    var hit = tile.querySelector('.feed-tile__hit, .drop-card__art'), t = tier(tile.getAttribute('data-chance')); /* the ring goes where the host draws its hexagon: a live drop's hit, an item's art (D-236), else the card itself */
     [tile, hit].forEach(function (h) { if (h) [].slice.call(h.children).forEach(function (n) { if (n.classList.contains('rare-mark')) n.remove(); }); });
     tile.classList.remove('is-mark-a', 'is-mark-b', 'is-mark-c');
     if (!t) return null;
@@ -209,8 +211,31 @@
   }, { rootMargin: '120px 0px' }) : null;
   function idle(r) { if (io) r.querySelectorAll('.shell__main > *, .mode-card, .footer').forEach(function (n) { if (!n._idle) { n._idle = true; io.observe(n); } }); }
 
+  /* 7. THE TICKET RULER (How this case works, D-236, v4 case-blocks.js play): once the ruler is half in view the pin runs to the round's
+     ticket, the other items step back, and after 1.3s the ticket's number counts up from 1 over 0.9s; kit.css times the rest. For less motion
+     it stands at its end at once */
+  function rulers(r) {
+    r.querySelectorAll('.ruler').forEach(function (v) {
+      var n = v.querySelector('.ruler__n'); if (!n || v._ruler) return; v._ruler = true;
+      if (still) { v.classList.add('is-on', 'is-still'); return; }
+      var to = +n.getAttribute('data-to'), fin = n.innerHTML;
+      function go() {
+        v.classList.add('is-on');
+        setTimeout(function () {
+          var t0 = performance.now(), D = 900;
+          (function step(now) { var k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 3);
+            n.textContent = String(Math.max(1, Math.round(to * e))).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            if (k < 1) requestAnimationFrame(step); else n.innerHTML = fin; })(t0);
+        }, 1300);
+      }
+      if (!('IntersectionObserver' in window)) return go();
+      var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { o.disconnect(); go(); } }, { threshold: .45 });
+      o.observe(v);
+    });
+  }
+
   function start() {
-    stories(d); d.querySelectorAll('.feed-tile[data-chance]').forEach(mark); groups(d); idle(d); tick(); setInterval(tick, 1000);
+    stories(d); d.querySelectorAll('.feed-tile[data-chance], .case-stage__card[data-chance], .drop-card[data-chance]').forEach(mark); rulers(d); groups(d); idle(d); tick(); setInterval(tick, 1000);
     var again = d.getElementById('m-rare-hit'); /* the kit page's demo: land the three rare drops again */
     if (again) again.addEventListener('click', function () { d.querySelectorAll('#m-rare .feed-tile--rare').forEach(function (t) { t.classList.remove('is-live', 'is-calm'); land(t); }); });
   }

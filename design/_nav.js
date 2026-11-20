@@ -29,15 +29,19 @@ window.DESIGN_NAV = {
         { node: '1.0', label: 'Guest',     file: 'index.html',         grey: 'index.html' },
         { node: '1.1', label: 'Signed in', file: 'index.html?account', grey: 'index-account.html' }
       ] },
-    { node: '3.3', name: 'Case screen', page: 'design/v4/case.html',
-      about: 'The case, the open and the outcome on one page, D-213 and D-214. The open and the outcome are what pressing Open does; ?land= decides what lands.',
+    { node: '3.3', name: 'Case screen', page: 'design/case.html',
+      about: 'The case, the open and the outcome on one page, assembled from the kit since D-236: the shell, the Case stage and the Commit block played by design/kit/stage.js, the kit\'s drop table and best drops, and the case\'s four one-off blocks, compared beside the case screen v4, the founder\'s picks of D-213 and D-214, its motion carried whole. Press Open signed in; ?land= decides what lands. The three states D-215 owed are pages of their own.',
       labsOf: ['design/v4/case.html', 'design/v4/open-lab.html', 'design/v4/win-lab.html'],
       states: [
-        { node: '3.3', label: 'Signed in, funded',               file: 'v4/case.html',          grey: 'case-account.html' },
-        { node: '3.3', label: 'Guest',                           file: 'v4/case.html?guest',    grey: 'case.html' },
-        { node: '3.5', label: 'Five at once, press Open',        file: 'v4/case.html?count=5',  grey: 'case-open-5.html' },
-        { node: '3.6', label: 'A gain, press Open: the knife',   file: 'v4/case.html?land=k',   grey: 'case-outcome.html' },
-        { node: '3.6', label: 'A loss, press Open: the P250',    file: 'v4/case.html?land=8',   grey: null }
+        { node: '3.3', label: 'Guest',                           file: 'case.html',                    grey: 'case.html' },
+        { node: '3.3', label: 'Signed in, funded',               file: 'case.html?account',            grey: 'case-account.html' },
+        { node: '3.3', label: 'Two at once',                     file: 'case.html?account&count=2',    grey: 'case-account-2.html' },
+        { node: '3.5', label: 'Five at once, press Open',        file: 'case.html?account&count=5',    grey: 'case-account-5.html' },
+        { node: '3.6', label: 'A gain, press Open: the knife',   file: 'case.html?account&land=k',     grey: 'case-outcome.html' },
+        { node: '3.6', label: 'A loss, press Open: the P250',    file: 'case.html?account&land=8',     grey: null },
+        { node: '3.3', label: 'Values degraded',                 file: 'case-degraded.html',           grey: 'case-degraded.html' },
+        { node: '3.3', label: 'No observed counter',             file: 'case-nocounter.html',          grey: 'case-nocounter.html' },
+        { node: '3.6', label: 'Reveal interrupted',              file: 'case-interrupted.html',        grey: 'case-interrupted.html' }
       ] }
   ]
 };

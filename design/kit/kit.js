@@ -2,7 +2,7 @@
    classes and states only, as kit.css is one sheet for their look. It was the shell's own inline script (D-232); a screen copy loads this
    file instead of carrying a copy of it.
 
-   Signed in with ?account, as v4: the header takes the template #shell-account, and any element marked data-when="guest" or
+   Signed in with ?account, as v4, or always on a page whose body says data-account: the header takes the template #shell-account, and any element marked data-when="guest" or
    data-when="account" shows in its state only. The rail: its toggle closes it to marks and opens it, over the page with the page dimmed
    where the product column is 1440px or less, beside the page where it is wider; under 900px the header's burger opens it as the drawer.
    A press on the dimmed page, Escape or a choice in the drawer closes it. The popovers open and close on their trigger, their close, their
@@ -12,8 +12,12 @@
    as signin-home.js did, D-58: a press with one missing is refused, the row is marked, the line names it, the keyboard goes to it. A
    favourite toggles signed in and asks a guest to sign in. */
 (function () {
-  var d = document, account = /[?&]account\b/.test(location.search);
+  var d = document, account = /[?&]account\b/.test(location.search) || d.body.hasAttribute('data-account'); /* a page drawn signed in only, case-interrupted.html, D-236 */
   d.querySelectorAll('[data-when]').forEach(function (n) { n.hidden = n.getAttribute('data-when') !== (account ? 'account' : 'guest'); });
+  /* signed in travels between the screens in colour, as the grey prototype's session carries it (D-152): with ?account, a link to another
+     screen of design/ keeps it, D-236. Links out of design/ and links that already ask for a state are left as they are */
+  if (/[?&]account\b/.test(location.search)) d.querySelectorAll('a[href]').forEach(function (a) {
+    var h = a.getAttribute('href'); if (/^[\w-]+\.html(#.*)?$/.test(h)) a.setAttribute('href', h.replace(/\.html/, '.html?account')); });
 
   var shell = d.querySelector('.shell');
   var rail = shell && shell.querySelector('.rail'), toggle = rail && rail.querySelector('.rail__toggle'), menu = shell && shell.querySelector('.header__menu');

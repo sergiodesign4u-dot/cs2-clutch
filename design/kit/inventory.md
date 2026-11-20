@@ -15,7 +15,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 5. **Inside level 3** the organisms that hold no other organism come first, then those that do, so a part always loads before its whole.
 6. **The level is computed, not chosen.** The script recomputes every level from the "Contains" column and fails on a mismatch. Four rows moved on that check while this file was drawn: Status notice rose to 3 (it holds a Copyable value); Daily ladder, Withdraw item and Deposit dock fell to 2 (they hold only atoms).
 
-**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms. 28 one-offs stay out of the kit, 32 since `D-234` added Home's four closing blocks. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
+**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms. 28 one-offs stay out of the kit, 32 since `D-234` added Home's four closing blocks, 36 since `D-236` added the case screen's four. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
 
 ## The table
 
@@ -115,6 +115,12 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 | What opening a case here involves | 1.0 | `wf-prose` (v4 `sx`) | the paragraph beside Nightfall on its plate; `.involves`, kit.css 4.4, D-234 |
 | Questions and answers | 1.0 | `wf-faq` on Home (v4 `fq`) | its questions are kit Disclosures; `.faq`, kit.css 4.4, D-234 |
 | About Clutch | 1.0 | `wf-prose` (v4 `ab`) | a lead and four parts under heads; `.about`, kit.css 4.4, D-234 |
+| Before you open | 3.3 | `wf-case-info` (v4 `v4i`, row D) | two plates, what a skin's price means and what must be true before opening; `.before`, kit.css 4.4, D-236 |
+| What this case pays | 3.3 | `wf-figs` (v4 `x6` with `v4p`, row B) | Home's money strip with four panels; `.spend--pays`, a form of Before you spend, kit.css 4.4, D-236 |
+| Published against observed | 3.3 | `wf-table` (v4 `v4o`, row D) | a row a tier, the published bar and the observed tick with its change; `.observed`, kit.css 4.4, D-236 |
+| How this case works | 3.3 | `wf-prose` (v4 `v4t`, `v4u`, row I) | the prose on its plate beside the ticket ruler; `.how`, `.ruler`, kit.css 4.4, D-236 |
+
+**Added at stage 07 step 5, `D-236`.** The case screen's four blocks under its stage are one-offs of node 3.3 for the reason Home's are: the grey drew them from figures, a table and prose, v4 drew each as one composed block of the case screen alone. What this case pays is Home's money strip with a fourth panel, so `.spend` is now drawn on two nodes, 1.0 and 3.3; by the rule above that makes it a component, and it stays in part 4.4 as a one-off with a form until stage 08 splits the kit, where it is named as the first one-off a second screen needed. What is in this case is the kit's Data table under a Section head and adds nothing. The Case stage and the Commit block gain their play, `design/kit/stage.js`, and no new component: the open, the outcome, the flash and the wave, the ring and the rare marks on a run's card are forms of the Case stage, Outcome card, Button (its busy light) and Drop card already in the table.
 
 **Motion carried at stage 07 step 5, `D-235`.** No component is added: the motion v4 Home was approved with enters as forms of components already in the table. Icon gains its story form, the rail's marks, the footer's counters and its round plate drawn in parts to play under the pointer; Feed tile gains the rare marks by chance, A, B and C, and the rare drop in three tiers; Ticker paces its arrivals as v4 does; Disclosure slides, Favourite toggle bursts, Event banner counts down. Their look is in `kit.css` beside each component, their behaviour in `design/kit/motion.js`, and the kit page shows them in its section Motion.
 | System page block | 0.3 | `wf-sys` | code, heading, two ways out, reference |
