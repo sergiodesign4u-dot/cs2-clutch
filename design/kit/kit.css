@@ -3374,9 +3374,17 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    case, design/v4/case-body.css row F: the tier's tint and foot bar, the skin in the tier's lit hexagon, the figure lines under a rule.
    Contains Media slot (.media--skin), Checkbox (.check), Button, Figure, Key-value line, Note line. The tier is --item-tier, set by the page
    from the rarity ladder, as --case-art is on .media--case. */
+/* AFTER MY ITEMS' SECOND GATE, D-241: the founder, "still boring, look at Behance gambling sites". Each card takes its rarity as the case
+   tiles and filter grids on Behance do (Jetskins redesign, behance.net/gallery/178657043, its skins filter: every card washed in its grade
+   from the foot; Lumpbox, behance.net/gallery/257303301: the grade's line on the card's edge): the grade washes up from the card's foot,
+   its line runs along the top edge, and the skin sits larger and turned on its hexagon, turning straighter and rising under the pointer. */
+.item-card {
+  --item-card-tilt: -10deg; /* the skin's turn on its card, D-241: the Jetskins grid lays its skins on a slant; технічне рішення */
+  --item-card-skin: 1.18; /* the skin's scale over its hexagon at rest, D-241: it overlaps the hexagon's points as a drop tile's skin does; технічне рішення */
+}
 .item-card { --item-tier: var(--color-rarity-5); position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; padding: var(--space-4) var(--space-3); border-radius: var(--radius-m); text-align: center;
-  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--item-tier) 16%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--item-tier) 10%, var(--color-card)), var(--color-card) 60%);
-  box-shadow: var(--shadow-tile-edge), var(--shadow-card); transition: translate .2s, box-shadow .2s; }
+  background: linear-gradient(to top, color-mix(in srgb, var(--item-tier) 42%, transparent), transparent 62%), linear-gradient(160deg, color-mix(in srgb, var(--item-tier) 14%, var(--color-card)), var(--color-card) 55%);
+  box-shadow: inset 0 var(--size-edge) 0 color-mix(in srgb, var(--item-tier) 80%, transparent), var(--shadow-tile-edge), var(--shadow-card); transition: translate .2s, box-shadow .2s; } /* D-241: the grade washed up from the foot, its line on the top edge */
 .item-card::after { content: ''; position: absolute; left: 50%; bottom: 0; width: var(--size-tap); height: calc(var(--size-edge) + var(--size-hairline)); translate: -50% 0; border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--item-tier); box-shadow: 0 0 var(--space-3) var(--size-hairline) var(--item-tier); }
 @media (hover: hover) { .item-card:hover { translate: 0 calc(-1 * (var(--size-edge) + var(--size-hairline))); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--item-tier) 55%, transparent), var(--shadow-card); } }
 .item-card:has(.item-card__top input:checked) { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink), var(--shadow-card); } /* selected: the pressed edge of .fav */
@@ -3390,8 +3398,9 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .item-card__art::before { background: color-mix(in srgb, var(--item-tier) 22%, var(--color-card)); -webkit-mask: var(--shape-hex-fill) center / contain no-repeat; mask: var(--shape-hex-fill) center / contain no-repeat; }
 .item-card__art::after { background: linear-gradient(135deg, color-mix(in srgb, var(--item-tier) 62%, var(--color-text-hi)), var(--item-tier) 50%, color-mix(in srgb, var(--item-tier) 72%, var(--color-ground))); -webkit-mask: var(--shape-hex-inner) center / contain no-repeat; mask: var(--shape-hex-inner) center / contain no-repeat; }
 .item-card__art > .media { position: absolute; inset: 0; z-index: 1; }
-.item-card__art > .media > img { filter: var(--shadow-skin-drop); transition: scale .2s; }
-@media (hover: hover) { .item-card:hover .item-card__art > .media > img { scale: 1.06; } }
+.item-card__art > .media > img { filter: var(--shadow-skin-drop); rotate: var(--item-card-tilt); scale: var(--item-card-skin); transition: scale .25s, rotate .25s, translate .25s; }
+@media (hover: hover) { .item-card:hover .item-card__art > .media > img { rotate: calc(var(--item-card-tilt) / 2.5); scale: calc(var(--item-card-skin) + .1); translate: 0 calc(-1 * var(--space-1)); } } /* the skin straightens and rises under the pointer, D-241 */
+@media (prefers-reduced-motion: reduce) { .item-card__art > .media > img { transition: none; } }
 .item-card__w { margin: 0; color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.3; text-transform: uppercase; }
 .item-card__s { margin: 0; overflow: hidden; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
 .item-card__wear { margin: 0; color: color-mix(in srgb, var(--item-tier) 35%, var(--color-text-hi)); font-size: var(--size-unit); line-height: 1.3; }
@@ -3829,12 +3838,25 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    right end from 1200px (--art-footer-agents, as the Xbox profile's own picture stands over its band, refero d58b8e8d), the picture at 88px from 600px (the menu's 64 on a phone),
    the ID and the Steam account as chips on the dark plate over art, the money pair at a price's size, the balance lit in the coin's gold, and
    Add funds, the filled act carrying the header's 5% pin, on one dark plate as the header's money plate holds them, and the tabs on the bar plate under the band, each with its mark. */
+/* AFTER ITS SECOND GATE, D-241: the founder, "better, but still boring; look at Behance gambling sites and make something fun". The
+   operators gave way, on My items, to the account's own most valuable item: the skin over the band's right end, larger than any card draws it,
+   turned and breathing as the Home's mode objects breathe (mode-card-float), breaking out over the band's top as they break out over their
+   cards, on its hexagon in its grade (the Item card's own), its name set huge and dark behind it across the band, and a chip under it saying
+   what it is: Highest value (the sort's own words), the gun and skin, its value. From the Jetskins redesign's showcase card (behance.net/gallery/
+   178657043: one skin large on a slant, its name in display capitals beside it) and the founder's own cs2-promo (one real skin as the hero,
+   huge type behind it). Read from the grid by items.js, so it follows a sale; with nothing readable held, or on a page with no grid, the
+   operators come back. From 1200px only: under it the band has no room beside the name, and the cards carry the grade. */
 /* its own geometry, read inside .account-head only */
 .account-head {
   --account-head-pad: var(--space-4); /* the account menu's 12px padding stepped up a rung for a page band, as the header strip pads its row; 24px from 900px */
   --account-head-avatar: 88px; /* the picture on the account's own band, D-240: the menu's 64 (.avatar--l) a step up so it holds the band's height beside a 26px name; технічне рішення */
   --account-head-art: 240px; /* the operators' width at the band's right from 1200px, D-240: at 3:2 they stand 160px, the band's height and the rise over it; технічне рішення */
   --account-head-rise: var(--space-6); /* how far the operators stand over the band's top, into the breadcrumb's row, D-240 */
+  --account-head-show: 420px; /* the most valuable item's place at the band's right from 1200px, D-241: the operators' 240 widened so an AWP lies whole; технічне рішення */
+  --account-head-skin: 360px; /* that item's skin, D-241: the widest a gun lies inside its place with the turn; технічне рішення */
+  --account-head-tilt: -14deg; /* its turn, D-241: the Jetskins showcase lays its skin on a slant; технічне рішення */
+  --account-head-hex: 150px; /* the hexagon it stands on, D-241: the Item card's hexagon at the band's scale; технічне рішення */
+  --account-head-word: 120px; /* its name behind it, D-241: display capitals as the Jetskins showcase and the founder's cs2-promo set them, the band's height less its padding; технічне рішення */
 }
 .account-head { position: relative; display: grid; color: var(--color-text-hi); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
 .account-head > .crumb { margin-bottom: var(--space-3); }
@@ -3868,7 +3890,23 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 @media (min-width: 1200px) {
   .account-head__row { padding-right: calc(var(--account-head-art) + var(--space-4)); }
   .account-head__row::after { content: ''; position: absolute; z-index: -1; right: var(--space-3); bottom: 0; width: var(--account-head-art); height: calc(100% + var(--account-head-rise)); background: var(--art-footer-agents) center bottom / contain no-repeat; pointer-events: none; }
+  /* D-241: the most valuable item held takes the operators' place */
+  .account-head__row:has(> .account-head__show:not([hidden])) { padding-right: calc(var(--account-head-show) + var(--space-2)); }
+  .account-head__row:has(> .account-head__show:not([hidden]))::after { content: none; }
+  .account-head__show { position: absolute; z-index: 0; top: calc(-1 * var(--account-head-rise)); right: 0; bottom: 0; width: var(--account-head-show); margin: 0; pointer-events: none; }
+  .account-head__word { position: absolute; z-index: -1; top: var(--account-head-rise); right: 0; bottom: 0; left: calc(-1 * var(--account-head-show)); display: flex; align-items: flex-end; justify-content: flex-end; overflow: hidden; padding-right: var(--space-6); color: color-mix(in srgb, var(--color-ground) 34%, transparent); font-size: var(--account-head-word); font-style: italic; font-weight: 900; letter-spacing: var(--tracking-score); line-height: .8; text-transform: uppercase; white-space: nowrap; -webkit-mask: linear-gradient(90deg, transparent, #000 50%); mask: linear-gradient(90deg, transparent, #000 50%); } /* .8: the capitals sit on the band's foot, cut by it as the cs2-promo's type is; a long name fades out before the money plate so it never reads through it */
+  .account-head__show::before, .account-head__show::after { content: ''; position: absolute; left: calc(50% - var(--account-head-hex) * 68 / 118); bottom: var(--space-6); height: var(--account-head-hex); aspect-ratio: 136 / 118; }
+  .account-head__show::before { background: color-mix(in srgb, var(--item-tier) 30%, var(--color-card)); -webkit-mask: var(--shape-hex-fill) center / contain no-repeat; mask: var(--shape-hex-fill) center / contain no-repeat; } /* the Item card's hexagon (.item-card__art), darker so it reads on the pink */
+  .account-head__show::after { background: linear-gradient(135deg, color-mix(in srgb, var(--item-tier) 62%, var(--color-text-hi)), var(--item-tier) 50%, color-mix(in srgb, var(--item-tier) 72%, var(--color-ground))); -webkit-mask: var(--shape-hex-inner) center / contain no-repeat; mask: var(--shape-hex-inner) center / contain no-repeat; }
+  .account-head__skin { position: absolute; z-index: 1; top: calc(-1 * var(--space-2)); left: calc(50% - var(--account-head-skin) / 2); width: var(--account-head-skin); border-radius: 0; rotate: var(--account-head-tilt); animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; }
+  .account-head__skin > img { height: auto; filter: var(--shadow-skin-prize); }
+  .account-head__cap { position: absolute; z-index: 2; right: var(--space-4); bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2); padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--color-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; } /* the ID chip's veil, a key, a name and a value as the Steam state reads */
+  .account-head__k { color: var(--color-text-soft); font-size: var(--size-unit); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+  .account-head__cap .fig__v { font-size: var(--size-chip); }
 }
+.account-head__show { display: none; } /* under 1200px the band has no room beside the name; the cards carry the grade there */
+@media (min-width: 1200px) { .account-head__show:not([hidden]) { display: block; } }
+@media (prefers-reduced-motion: reduce) { .account-head__skin { animation: none; } }
 @media (max-width: 599px) {
   .account-head__name { font-size: var(--size-title); }
   .account-head__money { width: 100%; margin-left: 0; }

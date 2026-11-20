@@ -60,7 +60,7 @@ window.DESIGN_NAV = {
         { node: '4.5', label: 'Payment declined',                 file: 'deposit-declined.html',        grey: 'deposit-declined.html' }
       ] },
     { node: '5.1', name: 'My items', page: 'design/account.html',
-      about: 'The inventory in colour since D-239, its head and the inventory head made live after the gate by D-240, assembled from the kit: the Account head, the Item grid and its cards, the Empty state and the cash out Dialog, the Selection bar a one-off of 5.1, played by design/kit/items.js. Tick items and the bar counts and sums them; sell, send to Steam or cash out; the sort keys reorder the grid. Drawn only in grey before, so built from its nearest relatives in colour.',
+      about: 'The inventory in colour since D-239, its head and the inventory head made live after the gate by D-240, its best item on the band and every card in its grade by D-241, assembled from the kit: the Account head, the Item grid and its cards, the Empty state and the cash out Dialog, the Selection bar a one-off of 5.1, played by design/kit/items.js. Tick items and the bar counts and sums them; sell, send to Steam or cash out; the sort keys reorder the grid. Drawn only in grey before, so built from its nearest relatives in colour.',
       labsOf: [],
       states: [
         { node: '5.1', label: 'Items held',              file: 'account.html',          grey: 'account.html' },

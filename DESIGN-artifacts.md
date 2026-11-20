@@ -959,3 +959,15 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Contrast.** The name, white 26px heavy, on the band's pink start `#DF055C` under a 9 % white stripe, the lightest pixel `#E21C6B`: 4.55:1, over the 3:1 large text needs. The green "Steam connected", 12px heavy, on Steam's `#2A475E`, its lighter end: 4.6:1. The chips, the figures and Add funds stand on the dark plate, not on the band.
 
 **Images.** None added.
+
+## 28. Stage 07 step 5, My items after its second gate, `D-241`
+
+**Variables added to `:root`.** None: the root holds 540. The item on the band reads values already in the kit: the prize skin's shadow (`--shadow-skin-prize`, the outcome card's), the mode objects' breath (`--motion-mode-float`, keyframes `mode-card-float`), the Item card's hexagon (`--shape-hex-fill`, `--shape-hex-inner`) and its grade (`--color-rarity-*` through `--item-tier`), the dark plate over art (`--color-veil`, `--shadow-edge`) for its chip, the coin's gold (`--color-money`) for its value, the score's tracking (`--tracking-score`) for its capitals. The cards read their grade the same way.
+
+**Local properties.** `--account-head-show` 420px, the item's place at the band's right from 1200px, the operators' 240 widened so an AWP lies whole, technical; `--account-head-skin` 360px, its skin, technical; `--account-head-tilt` -14deg, its turn, the Jetskins showcase card's slant, technical; `--account-head-hex` 150px, its hexagon, technical; `--account-head-word` 120px, its name in capitals behind it, the band's height less its padding, technical; `--item-card-tilt` -10deg, a card's skin turn, the Jetskins grid's slant, technical; `--item-card-skin` 1.18, a card's skin scale over its hexagon, technical.
+
+**Values changed, variable, value, why.** None in a variable. The Item card's face, inside its own rule: the grade's wash from the foot at 42 % (was a radial at 16 %) and a 160 degree tint at 14 % (was 100 degrees at 10 %), plus the grade's line at 80 % on its top edge, the founder at the gate: "все равно скучно" (still boring), with Behance's gambling grids as the reference (Jetskins, behance.net/gallery/178657043; Lumpbox, behance.net/gallery/257303301).
+
+**Contrast.** The chip's key, `--color-text-soft` 11px heavy capitals, on the veil over the band's lightest pixel `#E21C6B`, composited `#360C2A`: 10.8:1; its value in the coin's gold `#FFC44D` on the same: over 10:1. The capitals behind the item are decoration, `aria-hidden`, and carry no text a person must read.
+
+**Images.** None added. The item's picture is the card's own skin render (`design/concept/assets/skins/`).

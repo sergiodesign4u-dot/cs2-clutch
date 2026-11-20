@@ -7474,3 +7474,25 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **The cost.** The footer's operators appear a third time, after the footer and the sign in dialog. The band's pink is the loudest surface on the account pages, louder than the screen's acts; principle 4 asks for electric and never heavy, and the founder judges it at the gate.
 
 **Waits for its gate.** The founder walks My items again, every state, at 1440 and 360.
+
+## D-241. Stage 07 step 5: My items after its second gate, the most valuable item held on the band and every card in its grade
+
+**Date:** 2026-11-21. **Stage:** 07. **Decided by:** the founder at My items' gate again: "Да стало лучше но все равно скучно, посмотри на бехансе примери гамблинг сайтов и сделай что то прикольное" (yes, it got better but it is still boring; look at gambling site examples on Behance and make something fun). My items stays at its gate; this is its second correction round.
+
+**Where it came from.** Behance, opened in this session on 21 November 2026, search "cs2 case opening profile", "csgo gambling profile inventory" and "casino user profile page". What was read: the Jetskins redesign (behance.net/gallery/178657043), its personal cabinet with a showcase card of one skin, large on a slant, its name in display capitals beside it, and its skins filter grid where every card is washed in its grade from the foot; Lumpbox (behance.net/gallery/257303301), its battle cards with the grade's line on the card's edge; SkinBeast's profile (behance.net/gallery/239810777) and CSGOLuck (behance.net/gallery/239049851), a stat row and a welcome card with a level bar. Also the founder's own cs2-promo, named in their design DNA: one real skin as the hero, huge type behind it.
+
+**What was built.**
+1. **The most valuable item held stands on the band.** From 1200px, on My items, the operators give way to the account's own best item: its skin 360px wide over the band's right end, turned 14 degrees, breathing as the Home's mode objects breathe (`mode-card-float`, still for reduced motion) and breaking 32px out over the band's top as they break out over their cards, standing on its hexagon in its grade (the Item card's own), its skin name in 120px dark italic capitals across the band behind it, fading out before the money plate, and a chip under it: Highest value, the gun and skin, its value in gold. `items.js` reads it from the grid, so it follows a sale or a cash out to the next highest; the degraded page shows the highest value it can read (the M4A1-S Hyper Beast, the AWP's value being unreadable); with nothing readable held, and on the empty page, the operators come back. Under 1200px it is not drawn: beside the name there is no room, tried at 360 and rejected below.
+2. **Every card takes its grade.** The Item card washes its grade up from its foot and draws the grade's line along its top edge; the skin sits larger (1.18) and turned 10 degrees on its hexagon, straightening and rising under the pointer. A ticked card keeps its pink edge.
+
+**Words.** No new string. The chip's key is "Highest value", the sort's own words (`microcopy.md` 5.1-9); the gun, the skin and the value are the card's.
+
+**What the kit gained.** No component, no root variable (540), no level moved. The Account head gains `__show`, `__word`, `__skin`, `__cap` and `__k` with five local properties (`--account-head-show` 420px, `--account-head-skin` 360px, `--account-head-tilt` -14deg, `--account-head-hex` 150px, `--account-head-word` 120px), reusing `--shadow-skin-prize`, `--motion-mode-float` and `mode-card-float`; the Item card gains two local properties (`--item-card-tilt` -10deg, `--item-card-skin` 1.18) and its new wash and edge. The showcase's first Account head instance carries the item.
+
+**Measured.** Every page in colour at 1440 and 360: no horizontal scroll, no error of its own, the same 60 lines as before. Walked in a browser, 52 checks passed: the 44 of `D-240` and eight more, the item at rest (AWP Asiimov, 66.05, its grade), the operators gone beside it, the item after the cash out (M4A1-S Hyper Beast, 29.90), after a sale (Desert Eagle Blaze, 12.05), hidden with the operators back when nothing is held, the degraded page's highest readable value, and none on the empty page. The chip's soft key on its veil over the band's lightest pixel: 10.8:1.
+
+**Rejected.** The item at 360 rising over the band's corner into the breadcrumb's row: a small gun floating beside the crumbs read as stray decoration, not as the account's best item. A level bar, a wagered figure and a profit figure from SkinBeast and CSGOLuck: a status or a score is what the compliance constraint and the header's money rule forbid. Outline capitals for the name: an AI-look default; the reference sets them filled.
+
+**The cost.** The best item is a second showing of a card already on the grid two rows lower. The band now carries a moving object beside the money plate. On a phone the head is unchanged; the change there is the cards.
+
+**Waits for its gate.** The founder walks My items again, every state, at 1440 and 360.

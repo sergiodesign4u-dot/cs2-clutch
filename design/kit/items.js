@@ -53,6 +53,22 @@
     bar.classList.toggle('is-picking', ticked.length > 0); /* lights the sum; no edge since D-240 */
     if (none) none.hidden = !ticked.length;
     d.querySelectorAll('[data-held-n]').forEach(function (e) { e.textContent = picks().length; }); /* the inventory head's count, D-240 */
+    show();
+  }
+
+  /* the most valuable item held on the account head's band (D-241): read from the grid, so it follows a sale; none readable, it hides and
+     the operators return */
+  var sh = d.querySelector('[data-show]');
+  function show() {
+    if (!sh) return;
+    var best = picks().filter(function (i) { return !blind(cardOf(i)); }).sort(function (a, b) { return val(b) - val(a); })[0];
+    sh.hidden = !best; if (!best) return;
+    var c = cardOf(best), img = c.querySelector('.item-card__art img'), w = c.querySelector('.item-card__w').textContent, s = c.querySelector('.item-card__s').textContent;
+    sh.style.setProperty('--item-tier', c.style.getPropertyValue('--item-tier'));
+    sh.querySelector('[data-show-img]').setAttribute('src', img.getAttribute('src'));
+    sh.querySelector('[data-show-word]').textContent = s;
+    sh.querySelector('[data-show-name]').textContent = w + ' ' + s;
+    sh.querySelector('[data-show-v]').textContent = f2(val(best));
   }
   list.addEventListener('change', function (e) { if (e.target.matches('.item-card__top input')) { tell(''); paint(); } });
 
