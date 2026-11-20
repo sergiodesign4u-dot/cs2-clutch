@@ -142,3 +142,61 @@
 
 @media (prefers-reduced-motion: reduce) { .mx-tile__obj, .mx-b__skin { animation: none; } .mx-c__shelf img { transition: none; } }
 @media (max-width: 599px) { .mx-main { padding: var(--space-5) var(--space-3) var(--space-6); } .mx-stage { padding: var(--space-5) var(--space-3) var(--space-3); } }
+
+/* =====================================================================================================================================
+   ROUND 2, B REFINED. The founder chose B, the hero stage, 21 Nov 2026: "давай вот этот вариант доработаем" (let's refine this one).
+   Three ways to stage its skin, each with a switch through grades and the nothing-held form. Shared: the skin is one object, a turned
+   picture with the outcome card's foil (outcome-foil, founder approved on the outcome) running across its own shape, breathing as the
+   mode objects do.
+   ===================================================================================================================================== */
+.mx-b--r2 { transition: background .4s; }
+.mx-b__obj { position: absolute; z-index: 1; left: -6%; top: -96px; width: 112%; aspect-ratio: 4 / 3; scale: var(--obj-k, 1); transform-origin: 60% 55%; animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; pointer-events: none; }
+.mx-b__obj > img { display: block; width: 100%; height: 100%; object-fit: contain; rotate: -12deg; filter: var(--shadow-skin-prize); }
+.mx-b__foil { position: absolute; inset: 0; overflow: hidden; rotate: -12deg; -webkit-mask: var(--skin) center / contain no-repeat; mask: var(--skin) center / contain no-repeat; }
+.mx-b__foil::after { content: ''; position: absolute; inset: -30%; opacity: 0; background: linear-gradient(115deg, transparent 42%, var(--color-foil) 49%, color-mix(in srgb, var(--item-tier) 55%, var(--color-text-hi)) 51%, transparent 58%); animation: outcome-foil 4.2s ease-in-out 1s infinite; } /* the outcome card's foil (kit.css .outcome__card::after), here on the skin's own shape and again every 4.2s */
+.mx-b__ops { position: absolute; right: 0; bottom: calc(-1 * var(--space-6)); width: 300px; height: calc(100% + var(--space-6) * 2); background: var(--art-footer-agents) center bottom / contain no-repeat; display: none; }
+.mx-b.is-empty { --item-tier: var(--color-pink); background: var(--gradient-stripes), var(--gradient-mode-cases-card); }
+.mx-b.is-empty .mx-b__hero::after, .mx-b.is-empty .mx-b__obj, .mx-b.is-empty .mx-b__word, .mx-b.is-empty .mx-b__cap, .mx-b.is-empty .mx-b__frame, .mx-b.is-empty .mx-b__label, .mx-b.is-empty .mx-b__cone { display: none; }
+.mx-b.is-empty .mx-b__ops { display: block; }
+
+/* B1, breaking out: no plinth; the skin is larger than the band and comes out over its top and its right end, as the mode objects come out
+   of their cards, with only a contact shadow under it */
+.mx-b--break .mx-b__obj { left: -14%; top: -140px; width: 118%; } /* a pistol fills its picture as a rifle does, so it is drawn at --obj-k (.62) to stand the size a pistol is */
+.mx-b--break .mx-b__hero::after { content: ''; position: absolute; z-index: 0; left: 12%; right: 6%; bottom: var(--space-4); height: var(--space-5); border-radius: 50%; background: color-mix(in srgb, var(--color-ground) 55%, transparent); filter: blur(var(--space-2)); }
+
+/* B2, the showcase card: the Jetskins card in the band's right half, a dark panel in its grade with the grade's line at its foot and the
+   gun and skin in display capitals beside an arrow; the skin comes out over the panel's top */
+.mx-b--frame .mx-b__word { display: none; }
+.mx-b--frame .mx-b__hero { margin: calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) 0; }
+.mx-b__frame { position: absolute; inset: 0; border-radius: var(--radius-m); background: linear-gradient(to top, color-mix(in srgb, var(--item-tier) 40%, transparent), transparent 75%), color-mix(in srgb, var(--color-ground) 62%, transparent); box-shadow: inset 0 calc(-1 * var(--size-edge)) 0 var(--item-tier), var(--shadow-edge); }
+.mx-b__label { position: absolute; z-index: 2; left: var(--space-5); bottom: var(--space-5); display: grid; gap: var(--space-1); }
+.mx-b__label b { display: flex; align-items: center; gap: var(--space-2); font-size: 40px; font-style: italic; font-weight: 900; letter-spacing: var(--tracking-score); line-height: .9; text-transform: uppercase; }
+.mx-b__label b > .icon { color: var(--item-tier); font-size: var(--size-l); rotate: 45deg; filter: brightness(1.4); }
+.mx-b--frame .mx-b__cap { right: var(--space-4); bottom: var(--space-5); }
+.mx-b--frame .mx-b__obj { left: 18%; top: -90px; width: 86%; }
+
+/* B3, the spotlight: a cone of light falls on the skin from above the band, and the floor under it takes its grade */
+.mx-b__cone { position: absolute; z-index: 0; left: 18%; right: 4%; top: calc(-1 * var(--space-6)); bottom: var(--space-5); background: linear-gradient(to bottom, color-mix(in srgb, var(--color-text-hi) 34%, transparent), color-mix(in srgb, var(--color-text-hi) 6%, transparent)); clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); }
+.mx-b__cone::after { content: ''; position: absolute; left: 0; right: 0; bottom: calc(-1 * var(--space-3)); height: var(--space-6); border-radius: 50%; background: color-mix(in srgb, var(--item-tier) 70%, var(--color-text-hi)); filter: blur(var(--space-3)); opacity: .55; }
+.mx-b--light .mx-b__obj { top: -110px; }
+
+@media (max-width: 899px) {
+  .mx-b__obj, .mx-b--break .mx-b__obj, .mx-b--light .mx-b__obj { left: calc(50% - 230px); top: -60px; width: 460px; }
+  .mx-b--frame .mx-b__hero { margin: var(--space-4) 0 0; min-height: 220px; }
+  .mx-b--frame .mx-b__obj { left: calc(50% - 190px); top: -56px; width: 380px; }
+  .mx-b__label b { font-size: var(--size-head-l); }
+  .mx-b__ops { width: 200px; }
+}
+@media (max-width: 599px) {
+  .mx-b__obj, .mx-b--break .mx-b__obj, .mx-b--light .mx-b__obj { left: calc(50% - 150px); top: -40px; width: 300px; }
+  .mx-b--frame .mx-b__obj { left: calc(50% - 140px); top: -40px; width: 280px; }
+  .mx-b--frame .mx-b__cap { left: var(--space-3); right: auto; bottom: var(--space-3); }
+  .mx-b--frame .mx-b__label { left: var(--space-3); bottom: calc(var(--space-6) + var(--space-3)); }
+}
+@media (prefers-reduced-motion: reduce) { .mx-b__obj { animation: none; } .mx-b__foil::after { animation: none; } }
+
+/* the switch under each stage: lab control only */
+.mx-pick { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+.mx-pick button { min-height: var(--size-button-s); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-s); background: var(--color-card); box-shadow: var(--shadow-edge); color: var(--color-text-soft); font: 700 var(--size-chip) var(--font-family); cursor: pointer; }
+.mx-pick button[aria-pressed="true"] { background: var(--color-pink); color: var(--color-text-hi); }
+.mx-round { margin: var(--space-7) 0 0; padding-top: var(--space-5); border-top: var(--size-hairline) solid var(--color-line-soft); color: var(--color-text-hi); font-size: var(--size-head-l); font-weight: 900; text-transform: uppercase; }
