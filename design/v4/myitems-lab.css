@@ -155,13 +155,14 @@
 .mx-b__foil { position: absolute; inset: 0; overflow: hidden; rotate: -12deg; -webkit-mask: var(--skin) center / contain no-repeat; mask: var(--skin) center / contain no-repeat; }
 .mx-b__foil::after { content: ''; position: absolute; inset: -30%; opacity: 0; background: linear-gradient(115deg, transparent 42%, var(--color-foil) 49%, color-mix(in srgb, var(--item-tier) 55%, var(--color-text-hi)) 51%, transparent 58%); animation: outcome-foil 4.2s ease-in-out 1s infinite; } /* the outcome card's foil (kit.css .outcome__card::after), here on the skin's own shape and again every 4.2s */
 .mx-b__ops { position: absolute; right: 0; bottom: calc(-1 * var(--space-6)); width: 300px; height: calc(100% + var(--space-6) * 2); background: var(--art-footer-agents) center bottom / contain no-repeat; display: none; }
+.mx-b--r2 .mx-b__cap { z-index: 3; } /* the price over the skin, never under it: the founder on round 2, "что бы цена была сверху" */
 .mx-b.is-empty { --item-tier: var(--color-pink); background: var(--gradient-stripes), var(--gradient-mode-cases-card); }
 .mx-b.is-empty .mx-b__hero::after, .mx-b.is-empty .mx-b__obj, .mx-b.is-empty .mx-b__word, .mx-b.is-empty .mx-b__cap, .mx-b.is-empty .mx-b__frame, .mx-b.is-empty .mx-b__label, .mx-b.is-empty .mx-b__cone { display: none; }
 .mx-b.is-empty .mx-b__ops { display: block; }
 
 /* B1, breaking out: no plinth; the skin is larger than the band and comes out over its top and its right end, as the mode objects come out
    of their cards, with only a contact shadow under it */
-.mx-b--break .mx-b__obj { left: -14%; top: -140px; width: 118%; } /* a pistol fills its picture as a rifle does, so it is drawn at --obj-k (.62) to stand the size a pistol is */
+.mx-b--break .mx-b__obj { left: 6%; top: -64px; width: 92%; } /* the founder on round 2: the gun smaller ("пушку надо будет меньше сделать"), still over the band's top */ /* a pistol fills its picture as a rifle does, so it is drawn at --obj-k (.62) to stand the size a pistol is */
 .mx-b--break .mx-b__hero::after { content: ''; position: absolute; z-index: 0; left: 12%; right: 6%; bottom: var(--space-4); height: var(--space-5); border-radius: 50%; background: color-mix(in srgb, var(--color-ground) 55%, transparent); filter: blur(var(--space-2)); }
 
 /* B2, the showcase card: the Jetskins card in the band's right half, a dark panel in its grade with the grade's line at its foot and the
@@ -181,14 +182,16 @@
 .mx-b--light .mx-b__obj { top: -110px; }
 
 @media (max-width: 899px) {
-  .mx-b__obj, .mx-b--break .mx-b__obj, .mx-b--light .mx-b__obj { left: calc(50% - 230px); top: -60px; width: 460px; }
+  .mx-b__obj, .mx-b--light .mx-b__obj { left: calc(50% - 230px); top: -60px; width: 460px; }
+  .mx-b--break .mx-b__obj { left: calc(50% - 190px); top: -48px; width: 380px; }
   .mx-b--frame .mx-b__hero { margin: var(--space-4) 0 0; min-height: 220px; }
   .mx-b--frame .mx-b__obj { left: calc(50% - 190px); top: -56px; width: 380px; }
   .mx-b__label b { font-size: var(--size-head-l); }
   .mx-b__ops { width: 200px; }
 }
 @media (max-width: 599px) {
-  .mx-b__obj, .mx-b--break .mx-b__obj, .mx-b--light .mx-b__obj { left: calc(50% - 150px); top: -40px; width: 300px; }
+  .mx-b__obj, .mx-b--light .mx-b__obj { left: calc(50% - 150px); top: -40px; width: 300px; }
+  .mx-b--break .mx-b__obj { left: calc(50% - 130px); top: -30px; width: 260px; }
   .mx-b--frame .mx-b__obj { left: calc(50% - 140px); top: -40px; width: 280px; }
   .mx-b--frame .mx-b__cap { left: var(--space-3); right: auto; bottom: var(--space-3); }
   .mx-b--frame .mx-b__label { left: var(--space-3); bottom: calc(var(--space-6) + var(--space-3)); }
