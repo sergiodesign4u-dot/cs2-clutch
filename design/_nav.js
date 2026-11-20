@@ -23,7 +23,7 @@
 window.DESIGN_NAV = {
   screens: [
     { node: '1.0', name: 'Home', page: 'design/index.html',
-      about: 'The first screen and every block under it in colour, assembled from the kit since D-234: the shell, the kit\'s components and Home\'s four one-off blocks, compared beside Home v4, the founder\'s picks of D-209 checked in stage 06 step 8.',
+      about: 'The first screen and every block under it in colour, assembled from the kit since D-234: the shell, the kit\'s components and Home\'s four one-off blocks, compared beside Home v4, the founder\'s picks of D-209 checked in stage 06 step 8; v4\'s motion carried with it by D-235. Accepted at its gate, 20 Nov 2026.',
       labsOf: ['design/v4/index.html'],
       states: [
         { node: '1.0', label: 'Guest',     file: 'index.html',         grey: 'index.html' },

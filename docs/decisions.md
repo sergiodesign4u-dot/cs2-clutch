@@ -7344,3 +7344,5 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** Leaving the motion to stage 11, as `D-234` did. Carrying v4's scripts onto the page: a page carries no behaviour of its own. Copying the rare drops' look onto Home alone: the case screen's drop cards wear the same marks, `D-214`, so they live on the tile. Carrying `rare-fx.js`, which draws nothing.
 
 **The cost.** The kit gains a second script, and stage 08 splits `motion.js` with the components it moves. The rare drops' chances and rows are samples in two places, the shell's template and the kit page. Stage 11 still owns the system of motion, its durations and curves as tokens and its inventory of moments; what is carried here is v4's motion as it was approved, not that system.
+
+**Accepted.** The founder walked Home again at its gate the same day: "да все ок" (yes, all fine). Home, `D-234` and `D-235`, is the first screen of the sample accepted; the case screen is next.
