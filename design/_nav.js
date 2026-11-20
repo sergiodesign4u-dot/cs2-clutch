@@ -44,7 +44,7 @@ window.DESIGN_NAV = {
         { node: '3.6', label: 'Reveal interrupted',              file: 'case-interrupted.html',        grey: 'case-interrupted.html' }
       ] },
     { node: '4.1', name: 'Deposit', page: 'design/deposit-dialog.html',
-      about: 'Add funds in colour since D-237, assembled from the kit: the Payment panel, the Status notice and the Dialog, the ways to pay and two blocks of its own as one-offs, played by design/kit/pay.js. Every Add funds now leads here: on Home and the case screen it opens this layer over the page, as the grey does; at its own addresses each route is a page, the method in ?m=. Drawn only in grey before, so built from its nearest relatives in colour. Corrected at its gate by D-238: the bonus as a strip, the Select menu for the country and the network, each way to pay its own mark, step 2 headed by Back and the chosen name, provider tiles, the dock with the rate on a chip and the terms over Pay.',
+      about: 'Add funds in colour since D-237, accepted at its gate on 20 Nov 2026 after D-238, assembled from the kit: the Payment panel, the Status notice and the Dialog, the ways to pay and two blocks of its own as one-offs, played by design/kit/pay.js. Every Add funds now leads here: on Home and the case screen it opens this layer over the page, as the grey does; at its own addresses each route is a page, the method in ?m=. Drawn only in grey before, so built from its nearest relatives in colour. Corrected at its gate by D-238: the bonus as a strip, the Select menu for the country and the network, each way to pay its own mark, step 2 headed by Back and the chosen name, provider tiles, the dock with the rate on a chip and the terms over Pay.',
       labsOf: [],
       states: [
         { node: '4.1', label: 'The dialog, over the case screen', file: 'deposit-dialog.html',          grey: 'deposit-dialog.html' },
@@ -58,6 +58,15 @@ window.DESIGN_NAV = {
         { node: '4.3', label: 'Limit raise pending',              file: 'deposit-ceiling-pending.html', grey: 'deposit-ceiling-pending.html' },
         { node: '4.4', label: 'Crediting, named timer',           file: 'deposit-crediting.html',       grey: 'deposit-crediting.html' },
         { node: '4.5', label: 'Payment declined',                 file: 'deposit-declined.html',        grey: 'deposit-declined.html' }
+      ] },
+    { node: '5.1', name: 'My items', page: 'design/account.html',
+      about: 'The inventory in colour since D-239, assembled from the kit: the Account head, the Item grid and its cards, the Empty state and the cash out Dialog, the Selection bar a one-off of 5.1, played by design/kit/items.js. Tick items and the bar counts and sums them; sell, send to Steam or cash out; the sort keys reorder the grid. Drawn only in grey before, so built from its nearest relatives in colour.',
+      labsOf: [],
+      states: [
+        { node: '5.1', label: 'Items held',              file: 'account.html',          grey: 'account.html' },
+        { node: '5.1', label: 'Values degraded',         file: 'account-degraded.html', grey: 'account-degraded.html' },
+        { node: '5.1', label: 'Cash out, the layer',     file: 'cashout-dialog.html',   grey: 'cashout-dialog.html' },
+        { node: '5.2', label: 'Inventory empty',         file: 'account-empty.html',    grey: 'account-empty.html' }
       ] }
   ]
 };

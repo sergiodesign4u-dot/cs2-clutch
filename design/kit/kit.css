@@ -2052,6 +2052,7 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .button--primary:active, .button--ghost:active { box-shadow: var(--shadow-button-press); transition-duration: .08s; }
 .button:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
 .button[aria-busy="true"] { background: var(--color-disabled); box-shadow: var(--shadow-edge); color: var(--color-text-soft); cursor: progress; }
+.button:disabled { background: var(--color-disabled); box-shadow: var(--shadow-edge); color: var(--color-text-muted); cursor: not-allowed; pointer-events: none; } /* drawn disabled only where a founder decision keeps a way out that is not here yet and its reason stands beside it: Exchange on My items, wireframes/account.html, node 5.1, D-239; everywhere else a control stays live and refuses, D-58. The busy wash, its words muted */
 .button--icon { width: var(--size-tile); min-height: var(--size-tile); padding: 0; border-radius: var(--radius-tile); background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-text-soft); transition: background .2s, color .2s; }
 .button--icon .icon { font-size: var(--size-tile-icon); }
 @media (hover: hover) { .button--icon:hover { background: var(--gradient-button-stripes), var(--color-button-hover); color: var(--color-text-hi); } }
@@ -2416,6 +2417,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .kv { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); font-size: var(--size-chip); }
 .kv__k { color: var(--color-text-muted); font-size: var(--size-micro); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
 .kv__v { color: var(--color-text-hi); font-weight: 900; font-variant-numeric: tabular-nums; text-align: right; }
+.kv__v--missing { color: var(--color-text-muted); font-weight: 700; } /* a value that cannot be read, or has no market, the Figure's missing form (D-124): None on sale, no copy on sale to buy; D-239 */
 .kv--total { padding-top: var(--space-2); border-top: var(--size-hairline) solid var(--color-line-soft); font-size: var(--size-label); }
 .kv--rule { justify-content: flex-start; } .kv--rule .kv__k { flex: 0 0 calc(2 * var(--size-tap)); } .kv--rule .kv__v { color: var(--color-text-soft); font-weight: 400; text-align: left; } /* which way a limit moves and when, Responsible play, wf-dir */
 
@@ -3834,6 +3836,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .account-head__id { margin: 0; color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); white-space: nowrap; }
 .account-head__steam { display: inline-flex; width: fit-content; max-width: 100%; overflow: hidden; color: inherit; text-decoration: none; } /* with no Steam account linked, the line is the missing figure, still the way to Settings */
 .account-head__steam:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.account-head__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* the screen's H1 for a screen reader where the head is the screen's own head, My items (wireframes/account.html h1.wf-vh), D-239 */
 @media (hover: hover) { .account-head__steam:hover { text-decoration: underline; text-underline-offset: var(--space-thin); } }
 .account-head__money { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-left: auto; }
 .account-head__figs { display: flex; align-items: center; gap: var(--space-4); box-sizing: border-box; min-height: var(--size-button-m); padding: var(--space-1-75) var(--space-3); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
@@ -4463,6 +4466,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .item-grid__sort { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
 .item-grid__l { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; } /* the bar's label, .catbar__l */
 .item-grid__list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2); margin: 0; padding: 0; list-style: none; } /* one to a row on a phone, wireframes/_wf.css .wf-grid--inv; 8px apart, case-body.css row F on a phone */
+.item-grid__list > li { display: grid; } /* a card fills its row's height, so a row of cards ends on one line whatever its facts wrap to; D-239 */
 @media (min-width: 600px) { .item-grid__list { grid-template-columns: repeat(auto-fill, minmax(var(--igrid-min), 1fr)); gap: var(--space-3); } }
 
 /* LIMITS PANEL. Responsible play's own block: one line that says what is set, what is in force now as stated moments (never a countdown, no
@@ -5490,6 +5494,55 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .record > .note { margin-top: var(--space-3); }
 .record__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); }
 
+/* =====================================================================================================================================
+   PART 4.4, My items' one-off blocks, stage 07 step 5, D-239: blocks of node 5.1 alone. My items was drawn only in grey, so each is built
+   from its nearest relative in colour (D-229 point 4), named in its head: the Selection bar (wireframes/_wf.css .wf-invbar) and the Cash
+   out form (.wf-co-lay, inside the Dialog). Everything else on My items is the kit's Account head, Section head, Item grid, Item card,
+   Empty state and Dialog.
+   ===================================================================================================================================== */
+
+/* THE SELECTION BAR: what is ticked, counted and summed, and the four ways out of an inventory, kept on screen while the grid scrolls under
+   it, the baseline's sticky bar (research/docs/baseline-account.md section 2) and the grey's (D-85, D-128). With nothing ticked it counts and
+   sums everything held and its acts answer "Tick an item first."; with something ticked it takes a ticked card's pressed pink edge and its
+   sum lights as the 5 % of the bonus strip is lit. On the account head's plate, the account menu's gradient and the shell's lift. Under
+   600px the four acts stand in one row, a mark over a short word, the full name kept for a screen reader (D-119); from 600px the names.
+   Contains Figure, Button. */
+.selbar {
+  --selbar-gap: var(--space-2); /* the bar's offset from the window's foot and from the bottom bar, the header strip's 8px; технічне рішення */
+}
+.selbar { position: sticky; z-index: 20; bottom: calc(var(--size-bar) + var(--selbar-gap)); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); box-sizing: border-box; padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5); border-radius: var(--radius-m); background: var(--gradient-menu); box-shadow: var(--shadow-shell); transition: box-shadow .2s; }
+.selbar.is-picking { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink), var(--shadow-shell); } /* something ticked: the pressed edge of a ticked .item-card */
+.selbar__sum { display: grid; gap: var(--space-1); min-width: 0; }
+.selbar__n { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
+.selbar__sum > .fig .fig__v { font-size: var(--size-title); font-weight: 900; transition: text-shadow .2s; }
+.selbar.is-picking .selbar__sum > .fig .fig__v { text-shadow: 0 0 var(--space-5) color-mix(in srgb, var(--color-money) 55%, transparent), var(--shadow-figure-text); } /* lit as .pay-panel__offer-v */
+.selbar__top { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-1) var(--space-4); }
+.selbar__pk { position: relative; padding: 0; border: 0; background: none; font-family: inherit; font-size: var(--size-chip); cursor: pointer; } /* Select all and Deselect all as Text links beside the count, so the four acts keep one row */
+.selbar__pk::after { content: ''; position: absolute; inset: calc(-1 * var(--space-2)) calc(-1 * var(--space-1)); } /* a press area past its words, as .button--s draws one; nothing is drawn */
+.selbar__pk[hidden] { display: none; }
+.selbar__acts { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-left: auto; }
+.selbar__a > .icon { font-size: var(--size-m); }
+.selbar__a > .icon--coin { width: 1em; height: 1em; }
+.selbar__s { display: none; }
+.selbar__say { flex-basis: 100%; }
+.selbar__say[hidden] { display: none; }
+@media (max-width: 599px) {
+  .selbar { gap: var(--space-2) var(--space-3); padding: var(--space-3); }
+  .selbar__acts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); flex-basis: 100%; margin-left: 0; }
+  .selbar__a { flex-direction: column; gap: var(--space-1); padding: var(--space-2) var(--space-1); font-size: var(--size-unit); letter-spacing: normal; } /* four short words in a quarter of 328px each: Exchange and Cash out fit at 11px without the label tracking */
+  .selbar__s { display: block; }
+  .selbar__f { display: none; }
+}
+@media (min-width: 900px) { .selbar { bottom: var(--selbar-gap); } }
+@media (prefers-reduced-motion: reduce) { .selbar, .selbar__sum > .fig .fig__v { transition: none; } }
+
+/* THE CASH OUT FORM: inside the Dialog, what goes out read from what is ticked on the grid and never typed (the grey's coPicked), the fee
+   and the smallest cash out of the network chosen, what arrives in coins at the peg and in the coin, under its title; on the Deposit dock's
+   plate and its lines (.dock, .record). Contains Key-value line. */
+.cashout__calc { display: grid; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+.cashout__h { margin: 0 0 var(--space-1); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 900; line-height: 1.2; text-transform: uppercase; }
+.cashout__calc > .kv--total .kv__v { color: var(--color-money); }
+
 
 /* THE SHELL'S PAGE LAYOUT, D-232. Where the organisms stand on a page, nothing of their look: the header across the top, the rail beside the
    page from the header's top, the live drops under the header, the screen's slot, the footer; as Home v4 lays them out (kit.css part 2, the
@@ -5540,12 +5593,15 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    title, What still works and This deposit, 48px under the notice, as Home's panels with their own titles */
 .shell__main > .sec-head + * { margin-top: 0; }
 .shell__main > :is(.works, .record) { margin-top: calc(var(--space-6) + var(--space-4)); }
+/* My items, D-239: the account head first, standing as the case head stands; the inventory's head 32px under it; the line under the grid
+   and the selection bar 16px apart, the bar following the line it qualifies */
+.shell__main > :is(.item-grid, .empty) + .note, .shell__main > .note + .selbar { margin-top: var(--space-4); }
 @media (min-width: 900px) {
   .shell__main { padding-inline: 0; }
   .shell__main > .commit { width: auto; } /* the commit stands in the slot with the case head's insets, not across its full width */
   .shell__main > * { margin-inline: max(var(--shell-gutter), (100% - var(--shell-column)) / 2); }
-  .shell__main > :is(.banner, .case-head, .commit) { margin-inline: var(--space-2) var(--space-3); }
-  .shell__main > :is(.banner, .case-head):first-child { margin-top: calc(var(--space-2) - var(--space-6)); } /* 8px under the live drops, as they sit 8px under the header */
+  .shell__main > :is(.banner, .case-head, .commit, .account-head) { margin-inline: var(--space-2) var(--space-3); }
+  .shell__main > :is(.banner, .case-head, .account-head):first-child { margin-top: calc(var(--space-2) - var(--space-6)); } /* 8px under the live drops, as they sit 8px under the header */
 }
 @media (min-width: 1200px) { .shell__main { --shell-gutter: var(--space-7); } } /* 56px, v4 theme.css --v4-gutter from 1200px */
 @media (max-width: 899px) {

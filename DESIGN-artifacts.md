@@ -936,3 +936,13 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Values changed, variable, value, why.** None.
 
 **Images.** 34 marks of the ways to pay in `design/kit/marks/`, each cited by the Deposit pages and the deposit layer: 16 from datatrans/payment-logos (CC BY-SA 4.0, Visa and Mastercard sharing one), four simple-icons glyphs (CC0) set on a plate, eight coins from cryptocurrency-icons (CC0), and six plates with a glyph of the method's kind drawn for `D-238`. The marks belong to their owners.
+
+## 26. Stage 07 step 5, My items in colour from the kit, `D-239`
+
+**Variables added to `:root`.** None: the root holds 540, as after `D-238`. My items reads the language already in the kit: the account menu's gradient (`--gradient-menu`) and the shell's lift (`--shadow-shell`) for the Selection bar's plate, a ticked card's pressed pink edge (`--color-pink` at `--size-edge`) for the bar while something is ticked, its sum lit as the bonus strip's 5 % (`--color-money` through `color-mix`, `--shadow-figure-text`), the dock's plate (`--color-veil`, `--shadow-edge`) for the Cash out form, the busy wash (`--color-disabled`) for the one button drawn disabled, Exchange.
+
+**Local properties.** `--selbar-gap` 8px, the Selection bar's offset from the window's foot and from the bottom bar, the header strip's 8px, technical.
+
+**Values changed, variable, value, why.** None. Rules added to the shell's page layout, no value changed: the Account head stands first in the slot as the case head stands, 8px under the live drops with the banner's insets; the line under the grid and the Selection bar stand 16px apart.
+
+**Images.** One skin picture, `design/concept/assets/skins/usp-s-cortex.png`, cited by the My items pages: USP-S Cortex, which the grey's inventory holds and no earlier screen drew, downloaded on 20 November 2026 from the Steam CDN with its link read from the public dataset `github.com/ByMykel/CSGO-API`, `public/api/en/skins.json`, as the other skins were (`design/concept/docs/concept.md`, "Skins are the real items, never generated"). Steam's own item picture, not ours.
