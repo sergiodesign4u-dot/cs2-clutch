@@ -2606,14 +2606,21 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
   .catbar__run { flex: 1 1 auto; }
 }
 
-/* CHOSEN METHOD. The way to pay picked at step 1, its family over its name, and Change, which goes back to the list.
-   Grey only so far, wireframes/deposit-card.html; the look is the header's money plate with Add funds beside the balance,
-   design/v4/account-home.css .ac2-plate. Contains Button. */
-.chosen { display: flex; align-items: center; gap: var(--space-3); min-height: calc(var(--size-tap) + var(--size-edge)); box-sizing: border-box; padding: var(--space-1) var(--space-2) var(--space-1) var(--space-3); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+/* CHOSEN METHOD. The head of a route at step 2: Back to the ways to pay, the method's mark and its name under its family, the founder's
+   correction of 20 Nov 2026 (D-238, a back button and the chosen name in the head); the bonus, the code and the country stay at step 1.
+   On a route's page the name is the H1. Back is the icon button (.button--icon) with a chevron drawn in its borders, as the Select menu's
+   caret is; the name is the large Section head's title, the family over it as a field's label.
+   Grey: wireframes/deposit-card.html .wf-chosen, which drew the family, the name and Change. Contains Button, Method mark. */
+.chosen { --methods-mark: 40px; } /* the mark beside the chosen name at the method tile's size, .methods; D-238 */
+.chosen { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
+.chosen__back { flex: none; }
+.chosen__back::before { content: ''; width: var(--space-2-5); height: var(--space-2-5); margin-left: var(--space-1); border: solid currentColor; border-width: 0 0 var(--size-edge) var(--size-edge); rotate: 45deg; }
+.chosen__mark { flex: none; display: grid; place-items: center; height: var(--methods-mark); }
+.chosen__mark > img { display: block; width: auto; height: var(--methods-mark); max-width: 100%; border-radius: var(--radius-xs); object-fit: contain; }
 .chosen__t { display: grid; gap: var(--space-1); min-width: 0; margin: 0; }
-.chosen__k { color: var(--color-text-muted); font-size: var(--size-unit); line-height: 1.2; }
-.chosen__v { overflow: hidden; color: var(--color-text-hi); font-size: var(--size-label); font-weight: 900; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
-.chosen > .button { flex: none; margin-left: auto; }
+.chosen__k { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.chosen__v { margin: 0; color: var(--color-text-hi); font-size: var(--size-head-l); font-weight: 900; line-height: 1.1; text-transform: uppercase; overflow-wrap: anywhere; } /* the large Section head's title, .sec-head--l */
+@media (max-width: 599px) { .chosen { --methods-mark: var(--space-6); } .chosen__v { font-size: var(--size-title); } } /* on a phone the mark steps down to 32px so the name keeps its room */
 
 /* COPYABLE VALUE. A key over a value read one character at a time, and Copy; once copied, a green line says so. Variants: a seed or a hash
    (the value wraps whole, never cut), the one-line strip under the open act, an id (ticket, reference), a wallet address with its QR.
@@ -2825,16 +2832,27 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 }
 @container daily (min-width: 761px) { .daily__name { font-size: min(var(--size-l), 2.5cqw); } }
 
-/* DEPOSIT DOCK. What arrives, in coins at the peg, what is charged, and the one act that pays; the refusal is said above the act, D-58.
+/* DEPOSIT DOCK. What arrives, in coins at the peg, what is charged, the declaration and the one act that pays; the refusal is said above the
+   act, D-58. What arrives is the figure plus the bonus, the bonus in the gain's green, the peg on a chip at the head's right and the cap
+   under them in gold, the founder's correction of 20 Nov 2026 with the baseline's own panel as the reference (D-238, the rate set apart);
+   the terms declaration stands over the act it gates. A crypto route carries the rate on the chip and the act: the person sends what they
+   send. The skins route's chip counts the skins.
    Grey only so far, wireframes/deposit-card.html, deposit-skins.html, deposit-crypto.html; the look is the case screen's open bar with the
    money line under it, design/v4/case-stage.css .v4c-plate and case-page.css .v4c-line, and the header's gold balance, account-home.css.
-   Contains Figure, Key-value line, Note line, Button. A crypto route carries the act alone: the person sends what they send. */
+   Contains Figure, Key-value line, Field (declaration), Note line, Button. */
 .dock { display: grid; gap: var(--space-4); min-width: 0; padding: var(--space-5); border-radius: var(--radius-m); background: var(--gradient-plate); box-shadow: var(--shadow-plate-edge); }
-.dock__recv { padding-bottom: var(--space-4); border-bottom: var(--size-hairline) solid var(--color-line-soft); }
-.dock__recv .fig__v { font-size: var(--size-l); } /* --size-l is a figure in a panel, weight 900 */
+.dock__recv { display: grid; gap: var(--space-3); padding-bottom: var(--space-4); border-bottom: var(--size-hairline) solid var(--color-line-soft); }
+.dock__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.dock__k { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; line-height: 1.2; }
+.dock__rate { display: inline-flex; align-items: center; gap: var(--space-1-5); padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--color-well); box-shadow: var(--shadow-edge); color: var(--color-money); font-size: var(--size-chip); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1.2; white-space: nowrap; } /* the peg on a chip, the baseline's Rate plate, research/docs/baseline-account.md 5b.2 */
+.dock__sum { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1-5) var(--space-2-5); margin: 0; }
+.dock__sum .fig__v, .dock__bonus-v { font-size: var(--size-head-l); } /* the figure and its bonus at one size, as the baseline's panel sets them */
+.dock__plus { color: var(--color-text-muted); font-size: var(--size-title); font-weight: 900; line-height: 1; }
+.dock__bonus-v { display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--color-up); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.dock__bonus-v small { align-self: flex-end; margin-left: var(--space-hair); font-size: var(--size-label); font-weight: 700; }
+.dock__cap { margin: 0; color: var(--color-money); font-size: var(--size-chip); line-height: 1.4; }
 .dock__total { display: grid; gap: var(--space-3); }
-.dock__bonus { display: grid; gap: var(--space-1); padding: var(--space-3); border-radius: var(--radius-card); background: var(--color-well); box-shadow: var(--shadow-edge); }
-.dock__bonus-v { color: var(--color-up); font-size: var(--size-text); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.dock__declare { min-height: 0; padding: var(--space-2-5) var(--space-3); font-size: var(--size-chip); } /* the declaration in the dock: the same row at the dock's width, its words at the chip's size */
 .dock__act > .button { width: 100%; }
 
 /* THE STAGE'S OWN CARD, shared by Drop card, Recent drop card and Outcome card: the tier's colour, the skin in its tier's ring lit from the top
@@ -3652,6 +3670,27 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .popover__note { margin: var(--space-2) var(--space-3) var(--space-1); color: var(--color-text-muted); font-size: var(--size-chip); line-height: 1.2; }
 @media (max-width: 359px) { .popover__code { display: none; } }
 @media (prefers-reduced-motion: reduce) { .popover--account .popover__panel { animation: none; } .popover__trigger, .popover__chev, .popover__copy, .popover__tile, .popover__case, .popover__out { transition: none; } }
+/* modifier needed by Deposit, D-238: --select, the Select menu. A field's choice from a short list drawn by the kit in place of the
+   browser's own list, the founder's correction of 20 Nov 2026: the trigger is the Select's field with its caret and the value (a flag where
+   the choice is a country), the list drops under it at the field's width, one option to a row, the chosen one in the pink wash with a
+   tick. The trigger carries aria-haspopup="listbox", the options role="option" and aria-selected; kit.js sets the choice, closes the list,
+   gives the keyboard back to the trigger and tells the page (an event "pick" on the .popover). Read by Payment panel: country, network. */
+.popover--select { display: flex; width: 100%; }
+.popover--select .popover__trigger { position: relative; flex: 1 1 auto; justify-content: flex-start; gap: var(--space-2-5); min-width: 0; min-height: var(--size-button-m); box-sizing: border-box; padding: 0 var(--space-6) 0 var(--space-3);
+  border-radius: var(--radius-button); background: var(--color-tile); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 500; line-height: 1.2; text-align: left; } /* the Select's field, .select */
+.popover--select .popover__trigger::after { content: ''; position: absolute; top: 50%; right: var(--space-4); width: var(--space-2); height: var(--space-2); margin-top: calc(-1 * var(--space-1) - var(--space-hair)); border: solid var(--color-text-soft); border-width: 0 var(--size-edge) var(--size-edge) 0; rotate: 45deg; transition: rotate .2s var(--motion-ease-settle), margin .2s; }
+.popover--select .popover__trigger[aria-expanded="true"] { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
+.popover--select .popover__trigger[aria-expanded="true"]::after { rotate: 225deg; margin-top: 0; }
+.popover--select .popover__val { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.popover--select .popover__panel { position: absolute; z-index: 20; top: calc(100% + var(--space-1-5)); left: 0; right: 0; box-sizing: border-box; max-height: calc(6 * var(--size-button-m) + 2 * var(--space-1-5)); overflow-y: auto; padding: var(--space-1-5);
+  border: var(--size-hairline) solid var(--color-line); border-radius: var(--radius-card); background: var(--color-card-2); box-shadow: var(--shadow-panel); animation: popover-drop .18s var(--motion-ease-settle); } /* the language list's panel, dropping under its field */
+.popover--select .popover__list { grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; }
+.popover--select .popover__opt { width: 100%; padding: 0 var(--space-3); white-space: normal; }
+.popover__opt[aria-selected="true"] { background: color-mix(in srgb, var(--color-pink) 16%, transparent); color: var(--color-text-hi); } /* chosen, as the language's current option */
+.popover__opt[aria-selected="true"]::after { content: ''; flex: none; width: var(--space-1-5); height: var(--space-3); margin: 0 var(--space-1) var(--space-hair) auto; border: solid var(--color-pink); border-width: 0 var(--size-edge) var(--size-edge) 0; rotate: 45deg; }
+@media (hover: hover) { .popover__opt[aria-selected="true"]:hover { background: color-mix(in srgb, var(--color-pink) 16%, transparent); } }
+@keyframes popover-drop { from { translate: 0 calc(-1 * var(--space-1)); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .popover--select .popover__panel { animation: none; } .popover--select .popover__trigger::after { transition: none; } }
 /* modifier needed by .rail, D-232: the language control fills its cell, its content centred, and its list opens up from its start, as
    the open rail and the drawer draw it; in a cell under 60px wide (the closed rail) it is the flag alone on a square tile and its list opens
    beside it. v4 theme.css and rail-b1.css .wf-rail-lang, kit.css part 3 .wf-lang-pop. Its cell is a size container (.rail__amb-i) */
@@ -4790,11 +4829,30 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .pay-panel {
   --pay-dock: 320px; /* wireframes/_wf.css .wf-fund-grid: the dock's column from 900px */
   --pay-head: 260px; /* wireframes/_wf.css .wf-pay-head > *: the code and the country each take at least this, so the pair stacks on a phone */
+  --pay-offer: 96px; /* the bonus strip's height, a banner cut to a strip, the founder's correction of 20 Nov 2026 (D-238); технічне рішення */
+  --pay-offer-art: 168px; /* the coins' room at the strip's right, three of the brand's coin 6; технічне рішення, D-238 */
+  --pay-offer-art-phone: 96px; /* the same on a phone, so the words keep 232px at 360; технічне рішення, D-238 */
+  --pay-prov: 136px; /* a provider tile's least width, two to a row at 360 (2 by 136 and the 12px gap in 296); технічне рішення, D-238 */
+  --pay-prov-wide: 180px; /* the same from 600px, three to the form's row at 1440, near the reference's tile; технічне рішення, D-238 */
+  --pay-prov-h: 104px; /* a provider tile's height, the baseline's SELECT PROVIDER tile of the founder's reference of 20 Nov 2026 read at the panel's scale; D-238 */
 }
 .pay-panel { display: grid; gap: var(--space-5); min-width: 0; }
-.pay-panel__offer { display: flex; align-items: center; gap: var(--space-3); min-width: 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; } /* the header's money plate, .ac2-plate */
-.pay-panel__offer p { margin: 0; min-width: 0; }
-.pay-panel__offer :is(b, strong) { color: var(--color-text-hi); }
+.pay-panel__offer { position: relative; overflow: hidden; isolation: isolate; display: flex; align-items: center; gap: var(--space-4); min-width: 0; min-height: var(--pay-offer); box-sizing: border-box; padding: var(--space-3) var(--pay-offer-art) var(--space-3) var(--space-5);
+  border-radius: var(--radius-card); background: var(--gradient-button-stripes), var(--gradient-spend-strip); box-shadow: var(--shadow-tile-lit), var(--shadow-plate-deep); color: var(--color-plate-say); font-size: var(--size-label); line-height: 1.4; } /* Before you spend's money strip, .spend__strip, at a strip of a banner's height, D-238 */
+.pay-panel__offer::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: var(--gradient-trust-sweep); transform: translateX(-110%); animation: hero-trust-sweep var(--motion-banner-sweep) ease-in-out infinite; } /* the light that crosses the trust badge, .hero__trust, at the banner act's pace */
+.pay-panel__offer-v { flex: none; color: var(--color-money); font-size: var(--size-xl); font-weight: 900; line-height: 1; text-shadow: 0 0 var(--space-5) color-mix(in srgb, var(--color-money) 55%, transparent), var(--shadow-figure-text); } /* the 5 % at the screen title's size in the coin's gold, lit as a counter is lit (--shadow-fig-stat) */
+.pay-panel__offer p { display: grid; gap: var(--space-1); margin: 0; min-width: 0; }
+.pay-panel__offer strong { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.2; text-transform: uppercase; text-shadow: var(--shadow-stub-text); }
+.pay-panel__offer-art { position: absolute; z-index: -1; top: 0; right: 0; bottom: 0; width: var(--pay-offer-art); pointer-events: none; }
+.pay-panel__offer-art > i { position: absolute; aspect-ratio: 1; background: var(--art-coin) center / contain no-repeat; filter: drop-shadow(0 var(--space-1) var(--space-3) color-mix(in srgb, var(--color-money) 45%, transparent)); animation: offer-coin var(--motion-float) ease-in-out infinite alternate; }
+.pay-panel__offer-art > i:nth-child(1) { width: 52%; top: 18%; right: 34%; rotate: -14deg; }
+.pay-panel__offer-art > i:nth-child(2) { width: 34%; top: 8%; right: 10%; rotate: 18deg; animation-delay: -2s; opacity: .9; }
+.pay-panel__offer-art > i:nth-child(3) { width: 24%; bottom: 8%; right: 12%; rotate: 32deg; animation-delay: -4s; opacity: .75; }
+@keyframes offer-coin { from { translate: 0 var(--space-1); } to { translate: 0 calc(-1 * var(--space-1-5)); } }
+@media (max-width: 599px) {
+  .pay-panel__offer { align-items: flex-start; flex-direction: column; gap: var(--space-2); padding: var(--space-4) var(--pay-offer-art-phone) var(--space-4) var(--space-4); }
+  .pay-panel__offer-art { width: var(--pay-offer-art-phone); }
+}
 .pay-panel__head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-4); }
 .pay-panel__head > * { flex: 1 1 var(--pay-head); }
 .pay-panel__code { display: flex; align-items: center; gap: var(--space-2); }
@@ -4804,18 +4862,26 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .pay-panel__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.4; }
 .pay-panel__h span { color: var(--color-text-soft); font-weight: 400; }
 .pay-panel__group { display: grid; gap: var(--space-2); min-width: 0; }
-.pay-panel__provs { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-.pay-panel__prov { display: inline-flex; align-items: center; min-height: var(--size-tap); box-sizing: border-box; padding: 0 var(--space-4) 0 var(--space-3); border-radius: var(--radius-card); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); transition: box-shadow .2s; } /* a count option, .seg__opt, holding the kit's radio */
-.pay-panel__prov:has(input:checked) { box-shadow: inset 0 0 0 var(--size-hairline) var(--color-pink-edge); } /* chosen: the edge of a made declaration, .field--declare */
-@media (hover: hover) { .pay-panel__prov:hover:not(:has(input:checked)) { box-shadow: inset 0 0 0 var(--size-hairline) var(--color-button); } }
+.pay-panel__provs { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--pay-prov), 1fr)); gap: var(--space-3); }
+.pay-panel__prov { position: relative; display: grid; justify-items: center; align-content: center; gap: var(--space-2); min-height: var(--pay-prov-h); box-sizing: border-box; padding: var(--space-4) var(--space-3) var(--space-3);
+  border-radius: var(--radius-card); background: var(--gradient-stripes), var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-soft); cursor: pointer; transition: box-shadow .2s, translate .2s var(--motion-ease-settle); } /* a provider's tile, the baseline's SELECT PROVIDER tiles of the founder's reference (D-238) drawn with the kit's stripes */
+.pay-panel__prov > .radio { position: absolute; top: var(--space-2-5); right: var(--space-2-5); }
+.pay-panel__prov-mark { display: grid; place-items: center; width: var(--size-tile); height: var(--size-tile); border-radius: 50%; background: var(--color-veil); box-shadow: var(--shadow-tile-lit), var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; line-height: 1; } /* a sample provider's mark: its letter in a ring, until real providers are named (D-124) */
+.pay-panel__prov-n { color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.2; }
+.pay-panel__prov:has(input:checked) { background: var(--gradient-button-stripes), var(--gradient-mode-cases); box-shadow: var(--shadow-tile-lit), var(--shadow-plate-deep); color: var(--color-text-hi); } /* chosen: lit in the Cases mode's pink to violet, as the reference's chosen tile is lit in its brand */
+.pay-panel__prov .radio > input:checked { box-shadow: inset 0 0 0 var(--size-edge) var(--color-text-hi); }
+.pay-panel__prov .radio > input:checked::after { background: var(--color-text-hi); }
+.pay-panel__prov:has(input:focus-visible) { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+@media (hover: hover) { .pay-panel__prov:hover:not(:has(input:checked)) { translate: 0 calc(-1 * var(--size-lift)); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-button); } }
 .pay-panel__facts { display: grid; gap: var(--space-1-5); margin: 0; padding: 0; list-style: none; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.45; }
 .pay-panel__facts :is(b, strong) { color: var(--color-text-hi); font-weight: 700; font-variant-numeric: tabular-nums; }
 .pay-panel__side { min-width: 0; }
+@media (min-width: 600px) { .pay-panel__provs { grid-template-columns: repeat(auto-fill, minmax(var(--pay-prov-wide), 1fr)); } }
 @media (min-width: 900px) {
   .pay-panel__body { grid-template-columns: minmax(0, 1fr) var(--pay-dock); gap: var(--space-6); }
   .pay-panel__side { position: sticky; top: var(--space-4); }
 }
-@media (prefers-reduced-motion: reduce) { .pay-panel__prov { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .pay-panel__prov { transition: none; } .pay-panel__offer::after, .pay-panel__offer-art > i { animation: none; } }
 /* modifiers needed by Deposit, D-237. A column of a route's rows, the gift card sellers or the skins to pick, 12px apart, as the grey's
    wf-stack and wf-skindep stand them (the showcase had drawn them with its own layout helpers, which no screen loads); a seller's
    denominations in a row that wraps, as the Amount field's presets; a route's pane, its chosen method over its form, and the list of ways to
@@ -5381,19 +5447,24 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    still works (4.2) and This deposit (4.4). Everything else on Deposit is the kit's Payment panel, Status notice and Section head.
    ===================================================================================================================================== */
 
-/* THE WAYS TO PAY: a group's methods under its Section head, as many tiles to a row as fit at 124px or more, each a method's name on a tile
-   and its mark on the corner (No fee, Instant) as a Badge. One-off of 4.1, wireframes/_wf.css .wf-pay-g and .wf-pay-t; the tile is the
-   Payment panel's provider option (.pay-panel__prov) as a link, its edge in the button's colour under the pointer, at a FAQ row's height.
-   The grey's logo slot is not drawn: a third party's mark is not an icon of the language (DESIGN-artifacts.md, Provider marks), and which
-   methods ship is a sample (D-124). Contains Section head, Badge. */
+/* THE WAYS TO PAY: a group's methods under its Section head, as many tiles to a row as fit at 124px or more, each the method's mark over its
+   name, and its mark of service on the corner (No fee, Instant) as a Badge. One-off of 4.1, wireframes/_wf.css .wf-pay-g and .wf-pay-t,
+   whose logo slot over the name the founder's correction of 20 Nov 2026 fills (D-238): a payment badge as the payment world draws it, a
+   white plate at half its 120 by 80, and a coin in its colour for crypto (design/kit/marks/, their sources and licences in D-238; six
+   with no mark anywhere carry a plate with their kind's glyph). The tile is the Payment panel's provider option as a link, lifted with
+   its edge in the button's colour under the pointer. Contains Section head, Badge. */
 .methods {
   --methods-tile: 124px; /* wireframes/_wf.css .wf-pay-g grid-template-columns minmax(124px, 1fr): the narrowest tile; технічне рішення carried from the grey */
+  --methods-mark: 40px; /* a method's mark, half the 80px of its source's plate, so a badge reads at its own proportion; технічне рішення, D-238 */
 }
 .methods { min-width: 0; }
 .methods__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--methods-tile), 1fr)); gap: var(--space-2); }
-.methods__t { position: relative; display: grid; place-items: center; min-height: var(--size-row); box-sizing: border-box; padding: var(--space-3) var(--space-2); border-radius: var(--radius-card); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.25; text-align: center; text-decoration: none; transition: box-shadow .2s; }
+.methods__t { position: relative; display: grid; justify-items: center; align-content: center; gap: var(--space-2-5); min-height: calc(var(--size-row) + var(--size-tap)); box-sizing: border-box; padding: var(--space-4) var(--space-2) var(--space-3); border-radius: var(--radius-card); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.25; text-align: center; text-decoration: none; transition: box-shadow .2s, translate .2s var(--motion-ease-settle); }
+.methods__mark { display: grid; place-items: center; height: var(--methods-mark); max-width: 100%; }
+.methods__mark > img { display: block; width: auto; height: var(--methods-mark); max-width: 100%; border-radius: var(--radius-xs); object-fit: contain; }
+.methods__mark--skin > img, .chosen__mark--skin > img { height: calc(1.5 * var(--methods-mark)); margin: calc(-.25 * var(--methods-mark)) 0; } /* a skin's picture stands in its transparent square: drawn half again as tall so the rifle reads at the plates' size */
 .methods__t:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
-@media (hover: hover) { .methods__t:hover { box-shadow: inset 0 0 0 var(--size-hairline) var(--color-button); } }
+@media (hover: hover) { .methods__t:hover { translate: 0 calc(-1 * var(--size-lift)); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-button); } }
 .methods__t > .badge { position: absolute; top: calc(-1 * var(--space-2)); left: var(--space-2); } /* the grey's ribbon on the corner, D-129 */
 .methods > .sec-head { margin-bottom: var(--space-5); } /* room for the ribbons of the first row */
 @media (prefers-reduced-motion: reduce) { .methods__t { transition: none; } }

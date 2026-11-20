@@ -10,8 +10,10 @@
    $5.00 minimum, over the limit in force (data-ceiling), no email it can reach. Apply code and the country answer in a line under them.
    The skins route sums what is ticked; Redeem refuses an empty or short code; the network select moves the address; Copy copies;
    Cancel the raise cancels it. Crediting reads the address for what was paid and by which route, and says whom the wait is on.
-   In the deposit layer (#deposit-layer, opened by kit.js) a method's tile shows its route in place and Change goes back to the list, as
-   the grey's dialog does (D-100); at an address the tile and Change are links. */
+   In the deposit layer (#deposit-layer, opened by kit.js) a method's tile shows its route in place and Back goes to the list, as the
+   grey's dialog does (D-100); at an address the tile and Back are links. D-238, the founder's corrections of 20 Nov 2026: a route's head is
+   Back, the method's mark and its name (the layer's Add funds steps aside while a route shows); the dock shows the figure plus the bonus;
+   the country and the network are the kit's Select menu, heard by its "pick" (kit.js). */
 (function () {
   var d = document;
   function q(k) { var m = new RegExp('[?&]' + k + '=([^&#]*)').exec(location.search); return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : null; }
@@ -43,6 +45,22 @@
   function unsay(at) { var id = at.getAttribute('data-say-for'), p = id && at.parentNode.querySelector(':scope > [data-said="' + id + '"]'); if (p) p.hidden = true; }
   function figV(fig, text) { var v = fig && fig.querySelector('.fig__v'); if (!v) return; var t = v.lastChild; if (t && t.nodeType === 3) t.textContent = text; else v.appendChild(d.createTextNode(text)); }
   function method(pane) { var c = pane.querySelector('.chosen__v'); return c ? c.textContent : ''; }
+  /* the figure of a money line whose text sits after its coin mark, a Bonus word after it (.dock__bonus-v) */
+  function numAt(el, text) { if (!el) return; for (var k = el.firstChild; k; k = k.nextSibling) if (k.nodeType === 3 && k.textContent.trim()) { k.textContent = text; return; } el.insertBefore(d.createTextNode(text), el.querySelector('small')); }
+  function slug(n) { return n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  /* the chosen method's head: its name, and its mark where one is given */
+  function choose(pane, name, src) {
+    var c = pane.querySelector('.chosen__v'); if (c) c.textContent = name;
+    var i = pane.querySelector('.chosen__mark img'); if (i && src) i.setAttribute('src', src);
+  }
+  /* a Select menu set without a press: the stored country on arrival, a coin's networks */
+  function setSel(pop, index) {
+    var all = pop.querySelectorAll('.popover__opt'), o = all[index] || all[0]; if (!o) return;
+    [].forEach.call(all, function (n) { n.setAttribute('aria-selected', String(n === o)); });
+    var v = pop.querySelector('.popover__val'); if (v) v.textContent = o.textContent.trim();
+    var f = pop.querySelector('.popover__trigger .popover__flag'), of = o.querySelector('.popover__flag'); if (f && of) f.className = of.className;
+  }
+  function selIndex(pop) { var all = [].slice.call(pop.querySelectorAll('.popover__opt')); return Math.max(0, all.indexOf(pop.querySelector('.popover__opt[aria-selected="true"]'))); }
 
   function kindOf(pane) {
     if (pane.hasAttribute('data-pay-route')) return pane.getAttribute('data-pay-route');
@@ -62,8 +80,8 @@
     function clean(v) { v = String(v).replace(/,/g, '.').replace(/[^0-9.]/g, ''); var i = v.indexOf('.'); return i > -1 ? v.slice(0, i + 1) + v.slice(i + 1).replace(/\./g, '') : v; }
     function paint() {
       var a = parseFloat(amt.value) || 0, b = Math.min(a * rate, cap);
-      figV(pane.querySelector('.dock__recv .fig'), money(a + b));
-      var bv = pane.querySelector('.dock__bonus-v'); if (bv) bv.textContent = '+' + money(b) + ' coins';
+      figV(pane.querySelector('.dock__sum .fig'), money(a));
+      numAt(pane.querySelector('.dock__bonus-v'), money(b));
       var tv = pane.querySelector('.dock__total .kv--total .kv__v'); if (tv) tv.textContent = '$' + money(a);
       if (!label) go.textContent = 'Pay $' + money(a);
       presets.forEach(function (o) { o.setAttribute('aria-pressed', String(amt.value !== '' && parseFloat(o.textContent.replace(/[^0-9.]/g, '')) === a)); });
@@ -89,23 +107,27 @@
 
   /* the crypto route, mountCryptoNet: the coin's network, its address and Copy, the rate and the minimum; Done goes to crediting */
   function coin(pane, name) {
-    var C = COINS[name], sel = pane.querySelector('.pay-panel__form select'); if (!C || !sel) return;
-    sel.innerHTML = C.nets.map(function (x) { return '<option>' + x[0] + '</option>'; }).join('');
+    var C = COINS[name], sel = pane.querySelector('.pay-panel__form .popover--select'); if (!C || !sel) return;
+    sel.querySelector('.popover__list').innerHTML = C.nets.map(function (x, i) { return '<li role="none"><button class="popover__opt" type="button" role="option" aria-selected="' + (i === 0) + '">' + x[0] + '</button></li>'; }).join('');
+    setSel(sel, 0);
     net(pane, name);
-    var f = pane.querySelectorAll('.pay-panel__facts li');
-    if (f[0]) f[0].innerHTML = 'Rate <strong>1 ' + C.tick + ' = ' + C.rate + ' coins</strong>, read 09:31';
-    if (f[2]) f[2].innerHTML = 'Minimum <strong>' + C.min + ' ' + C.tick + '</strong>. Less than that is lost';
+    var r = pane.querySelector('.dock__rate'); if (r) r.textContent = '1 ' + C.tick + ' = ' + C.rate + ' coins';
+    [].forEach.call(pane.querySelectorAll('.pay-panel__facts li'), function (li) {
+      var t = li.textContent;
+      if (/^Rate /.test(t)) li.innerHTML = 'Rate <strong>1 ' + C.tick + ' = ' + C.rate + ' coins</strong>, read 09:31';
+      if (/^Minimum /.test(t)) li.innerHTML = 'Minimum <strong>' + C.min + ' ' + C.tick + '</strong>. Less than that is lost';
+    });
     var done = pane.querySelector('.dock__act .button'); if (done) done.setAttribute('href', 'deposit-crediting.html?m=' + encodeURIComponent(name));
   }
   function net(pane, name) {
-    var C = COINS[name] || COINS.Bitcoin, sel = pane.querySelector('.pay-panel__form select'), x = C.nets[sel.selectedIndex] || C.nets[0];
-    var note = sel.parentNode.querySelector('.note'); if (note) note.textContent = 'Send on ' + x[0] + ' only. Coins sent on another network are lost.';
+    var C = COINS[name] || COINS.Bitcoin, sel = pane.querySelector('.pay-panel__form .popover--select'), x = C.nets[sel ? selIndex(sel) : 0] || C.nets[0];
+    var note = sel && sel.parentNode.querySelector(':scope > .note'); if (note) note.textContent = 'Send on ' + x[0] + ' only. Coins sent on another network are lost.';
     var v = pane.querySelector('.copy-value__v'); if (v) v.textContent = x[1];
     var s = pane.querySelector('.copy-value__said'); if (s) s.textContent = '';
   }
   function crypto(pane) {
-    var sel = pane.querySelector('.pay-panel__form select');
-    if (sel) sel.addEventListener('change', function () { net(pane, method(pane)); });
+    var sel = pane.querySelector('.pay-panel__form .popover--select');
+    if (sel) sel.addEventListener('pick', function () { net(pane, method(pane)); });
   }
 
   /* the gift card route: Redeem refuses an empty or short code, round 14 */
@@ -129,8 +151,9 @@
     function paint() {
       var on = picks.filter(function (i) { return i.checked; }), sum = on.reduce(function (a, i) { return a + val(i); }, 0), b = Math.min(sum * rate, cap);
       var k = on.length + (on.length === 1 ? ' skin' : ' skins');
-      figV(pane.querySelector('.dock__recv .fig'), money(sum + b));
-      var c = pane.querySelectorAll('.dock__recv .fig__c'); if (c[1]) c[1].textContent = k + ', ' + money(sum) + ' plus ' + money(b) + ' bonus';
+      figV(pane.querySelector('.dock__sum .fig'), money(sum));
+      numAt(pane.querySelector('.dock__bonus-v'), money(b));
+      var c = pane.querySelector('.dock__rate'); if (c) c.textContent = k;
       go.textContent = on.length ? 'Add ' + k : 'Pick a skin';
       go.setAttribute('href', 'deposit-crediting.html?a=' + money(sum + b) + '&m=' + encodeURIComponent('CS2 skins'));
       if (on.length) unsay(act);
@@ -147,10 +170,11 @@
       say(ap.parentNode, inp && inp.value.trim() ? 'Nothing applied: no promo or partner code has been issued yet, so there is none to recognise.'
                                                  : 'Nothing to apply: the field is empty. A code is optional and the bonus does not need one.');
     });
-    var cty = panel.querySelector('.pay-panel__head select');
+    var cty = panel.querySelector('.pay-panel__head .popover--select');
     if (cty) {
-      try { var was = sessionStorage.getItem('wf-country'); if (was && [].some.call(cty.options, function (o) { return o.text === was; })) cty.value = was; } catch (e) {}
-      cty.addEventListener('change', function () { try { sessionStorage.setItem('wf-country', cty.value); } catch (e) {} say(cty, 'Saved. Settings shows the same country.'); });
+      try { var was = sessionStorage.getItem('wf-country'), all = [].map.call(cty.querySelectorAll('.popover__opt'), function (o) { return o.textContent.trim(); });
+        if (was && all.indexOf(was) > -1) setSel(cty, all.indexOf(was)); } catch (e) {}
+      cty.addEventListener('pick', function (e) { try { sessionStorage.setItem('wf-country', e.detail.value); } catch (x) {} say(cty, 'Saved. Settings shows the same country.'); });
     }
     var cr = panel.querySelector('.notice__acts .button');
     if (cr && /Cancel the raise/.test(cr.textContent)) cr.addEventListener('click', function () {
@@ -183,34 +207,36 @@
     if (!pane || !m) return;
     var k = kindOf(pane), isCoin = Object.prototype.hasOwnProperty.call(COINS, m);
     if ((k === 'crypto') !== isCoin) return;
-    var c = pane.querySelector('.chosen__v'); if (c) c.textContent = m;
+    choose(pane, m, k === 'skins' ? null : 'kit/marks/' + slug(m) + '.svg');
     if (k === 'crypto' && pane.querySelector('.copy-value__v')) coin(pane, m);
   });
 
   /* the layer: a tile shows its route in place, Change goes back to the list; opening it starts at the list */
   var layer = d.getElementById('deposit-layer');
   if (layer) {
-    var panel = layer.querySelector('.pay-panel'), pick = panel.querySelector('.pay-panel__pick');
+    var panel = layer.querySelector('.pay-panel'), pick = panel.querySelector('.pay-panel__pick'), h = layer.querySelector('.dialog__h');
     wire(panel);
-    var show = function (kind, name) {
-      pick.hidden = !!kind;
+    var show = function (kind, name, src) {
+      pick.hidden = !!kind; if (h) h.hidden = !!kind; /* a route's head names the method; Add funds stays the dialog's name for a screen reader */
+      [].forEach.call(panel.querySelectorAll(':scope > .pay-panel__offer, :scope > .pay-panel__head'), function (n) { n.hidden = !!kind; });
       panel.querySelectorAll('.pay-panel__route').forEach(function (p) {
         var on = p.getAttribute('data-pay-route') === kind; p.hidden = !on;
         if (!on) return;
-        var c = p.querySelector('.chosen__v'); if (c) c.textContent = name;
+        choose(p, name, kind === 'skins' ? null : src);
         if (kind === 'crypto') coin(p, name);
       });
-      var f = kind ? panel.querySelector('.pay-panel__route:not([hidden]) .chosen .button') : pick.querySelector('.methods__t');
+      var f = kind ? panel.querySelector('.pay-panel__route:not([hidden]) .chosen__back') : pick.querySelector('.methods__t');
       if (f) f.focus({ preventScroll: true });
+      layer.querySelector('.dialog').scrollTop = 0;
     };
     layer.addEventListener('click', function (e) {
       var t = e.target.closest('.methods__t[data-pay-kind]');
-      if (t) { e.preventDefault(); show(t.getAttribute('data-pay-kind'), t.getAttribute('data-pay-method')); return; }
-      if (e.target.closest('.chosen .button')) { e.preventDefault(); show(null); }
+      if (t) { e.preventDefault(); var im = t.querySelector('.methods__mark img'); show(t.getAttribute('data-pay-kind'), t.getAttribute('data-pay-method'), im && im.getAttribute('src')); return; }
+      if (e.target.closest('.chosen__back')) { e.preventDefault(); show(null); }
     });
     d.addEventListener('click', function (e) {
       if (!e.target.closest('[data-layer="deposit-layer"]')) return;
-      pick.hidden = false; panel.querySelectorAll('.pay-panel__route').forEach(function (p) { p.hidden = true; });
+      show(null);
     }, true);
   }
 

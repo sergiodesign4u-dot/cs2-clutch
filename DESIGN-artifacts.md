@@ -204,7 +204,7 @@ The case screen's stage frame, `--wf-frame-h`, enters with that screen at step 7
 | Colour | text white or body grey at rest, pink when active | `піксель плейта, зона 7` and zone 8, the tabs | A3 |
 | Count and behaviour | many, and interactive; an icon sits in a circle only where the circle is the control | `рішення користувача`, `D-183` point 1 | A1 |
 | Carrier | `--icon-<name>` in `design/_theme.css`, a Solar SVG drawn as a CSS mask, so an icon takes the colour of the text around it | `D-191`: the grey renderer draws a placeholder and the copy may not add markup | A2 |
-| Provider marks | Steam, Google, Discord and X in their own marks, `simple-icons`, on their own sign in buttons only; a third party's mark is not an icon of the language | `D-191`, after the critique found the Steam button empty, the category's best known scam | A5 |
+| Provider marks | Steam, Google, Discord and X in their own marks, `simple-icons`, on their own sign in buttons only; since `D-238` a way to pay also shows its own mark on its own tile and on its route's head (`design/kit/marks/`); a third party's mark is not an icon of the language | `D-191`, after the critique found the Steam button empty, the category's best known scam | A5 |
 
 ---
 
@@ -926,3 +926,13 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Local properties.** `--methods-tile` 124px, `wireframes/_wf.css` `.wf-pay-g` `minmax(124px, 1fr)`, the narrowest tile, technical, carried from the grey; `--record-w` 520px, the one-column card's width (`.dialog` `--dialog-w-card`), technical.
 
 **Values changed, variable, value, why.** None. Rules added to the shell's page layout, no value changed: a Section head standing alone in the slot takes its content 16px under it (the head's own margin), and What still works and This deposit stand 48px under the notice, as Home's panels with their own titles.
+
+## 25. Stage 07 step 5, Deposit after its gate, `D-238`
+
+**Variables added to `:root`.** None: the root holds 540, as after `D-237`. The founder's corrections read the language already in the kit: Before you spend's money strip (`--gradient-spend-strip`, `--gradient-button-stripes`, `--shadow-tile-lit`, `--shadow-plate-deep`) for the bonus strip, with the trust badge's light (`--gradient-trust-sweep`, its keyframes) at the banner act's pace (`--motion-banner-sweep`), the coin (`--art-coin`) floating at `--motion-float`, the 5 % in `--color-money` at `--size-xl` lit by a `color-mix` of the money colour; the language list's panel (`--color-card-2`, `--shadow-panel`, the pink wash) for the Select menu; the Cases mode's gradient (`--gradient-mode-cases`) for a chosen provider tile; the gain's green (`--color-up`) for the bonus and `--color-well` for the rate chip.
+
+**Local properties.** `--methods-mark` 40px, half the 80px of a mark's source plate, technical; `--pay-offer` 96px, the strip's height, the founder's "a strip the size of a banner", technical; `--pay-offer-art` 168px and `--pay-offer-art-phone` 96px, the coins' room, technical; `--pay-prov` 136px, two provider tiles to a row at 360, technical; `--pay-prov-wide` 180px, three to the form's row from 600px, technical; `--pay-prov-h` 104px, the provider tile's height read from the founder's reference, technical.
+
+**Values changed, variable, value, why.** None.
+
+**Images.** 34 marks of the ways to pay in `design/kit/marks/`, each cited by the Deposit pages and the deposit layer: 16 from datatrans/payment-logos (CC BY-SA 4.0, Visa and Mastercard sharing one), four simple-icons glyphs (CC0) set on a plate, eight coins from cryptocurrency-icons (CC0), and six plates with a glyph of the method's kind drawn for `D-238`. The marks belong to their owners.

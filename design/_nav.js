@@ -44,7 +44,7 @@ window.DESIGN_NAV = {
         { node: '3.6', label: 'Reveal interrupted',              file: 'case-interrupted.html',        grey: 'case-interrupted.html' }
       ] },
     { node: '4.1', name: 'Deposit', page: 'design/deposit-dialog.html',
-      about: 'Add funds in colour since D-237, assembled from the kit: the Payment panel, the Status notice and the Dialog, the ways to pay and two blocks of its own as one-offs, played by design/kit/pay.js. Every Add funds now leads here: on Home and the case screen it opens this layer over the page, as the grey does; at its own addresses each route is a page, the method in ?m=. Drawn only in grey before, so built from its nearest relatives in colour.',
+      about: 'Add funds in colour since D-237, assembled from the kit: the Payment panel, the Status notice and the Dialog, the ways to pay and two blocks of its own as one-offs, played by design/kit/pay.js. Every Add funds now leads here: on Home and the case screen it opens this layer over the page, as the grey does; at its own addresses each route is a page, the method in ?m=. Drawn only in grey before, so built from its nearest relatives in colour. Corrected at its gate by D-238: the bonus as a strip, the Select menu for the country and the network, each way to pay its own mark, step 2 headed by Back and the chosen name, provider tiles, the dock with the rate on a chip and the terms over Pay.',
       labsOf: [],
       states: [
         { node: '4.1', label: 'The dialog, over the case screen', file: 'deposit-dialog.html',          grey: 'deposit-dialog.html' },

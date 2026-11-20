@@ -15,7 +15,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 5. **Inside level 3** the organisms that hold no other organism come first, then those that do, so a part always loads before its whole.
 6. **The level is computed, not chosen.** The script recomputes every level from the "Contains" column and fails on a mismatch. Four rows moved on that check while this file was drawn: Status notice rose to 3 (it holds a Copyable value); Daily ladder, Withdraw item and Deposit dock fell to 2 (they hold only atoms).
 
-**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms. 28 one-offs stay out of the kit, 32 since `D-234` added Home's four closing blocks, 36 since `D-236` added the case screen's four, 38 since `D-237` added the two of Deposit the walk of the grey had missed. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
+**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms; 21 molecules and 22 organisms since `D-238`, the Deposit dock rising a level when the terms declaration, a Field, moved into it. 28 one-offs stay out of the kit, 32 since `D-234` added Home's four closing blocks, 36 since `D-236` added the case screen's four, 38 since `D-237` added the two of Deposit the walk of the grey had missed. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
 
 ## The table
 
@@ -40,7 +40,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 | Radio (form control) | 1 | see the control census | 4: 4.1, 4.3, 4.5, 5.3 | one state; on 5 pages | no | nothing from the kit | `input[radio]` |
 | Range (form control) | 1 | see the control census | 2: 3.1, 5.3 | one state; on 3 pages | no | nothing from the kit | `input[range]` |
 | Segmented control | 1 | the count switch 1 to 5, the sort keys | 2: 3.3, 5.1 | one chosen; on 5 pages | no | nothing from the kit | `wf-count-b`, `wf-sortk` |
-| Select (form control) | 1 | see the control census | 10: 0.10, 3.1, 4.1, 4.3, 4.5, 5.1, 5.3, 5.11, 6.1, 6.3 | chosen value; on 24 pages | no | nothing from the kit | `select` |
+| Select (form control) | 1 | see the control census; in colour the kit draws a short list as Popover menu --select, D-238 | 10: 0.10, 3.1, 4.1, 4.3, 4.5, 5.1, 5.3, 5.11, 6.1, 6.3 | chosen value; on 24 pages | no | nothing from the kit | `select` |
 | Status steps | 1 | one form | 6: 4.4, 5.3, 5.5, 5.6, 5.7, 5.8 | one state; on 6 pages | no | nothing from the kit | `wf-clock-list` |
 | Switch (form control) | 1 | see the control census | 1: 5.11 | one state; on 4 pages | no | nothing from the kit | `input[switch]` |
 | Tabs | 1 | account sections, history ledgers, message kinds, crypto networks | 6: 5.1, 5.2, 5.9, 5.10, 5.11, 7.3 | current, with a count; on 29 pages | no | nothing from the kit | `wf-atabs`, `wf-htabs`, `wf-msg-tabs`, `wf-co-nets` |
@@ -56,10 +56,10 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 | Breadcrumb | 2 | one form | 19: 0.9, 0.10, 1.2, 1.3, 1.4, 3.1, 3.2, 3.3, 3.5, 3.6, and 9 more | one state; on 74 pages | no | Text link | `wf-crumb` |
 | Case tile | 2 | one form | 3: 1.0, 1.1, 3.1 | rest, skeleton (catalogue-loading), favourite on; on 8 pages | yes, case art | Media slot, Favourite toggle, Figure | `wf-tile` |
 | Category bar | 2 | one form | 2: 3.1, 3.2 | one state; on 7 pages | no | Button, Badge | `wf-catbar` |
-| Chosen method | 2 | one form | 3: 4.1, 4.3, 4.5 | one state; on 7 pages | no | Button | `wf-chosen` |
+| Chosen method | 2 | one form: the route's head, Back, the method's mark, its family over its name, D-238 | 3: 4.1, 4.3, 4.5 | one state; on 7 pages | the method's mark, D-238 | Button | `wf-chosen` |
 | Copyable value | 2 | a seed or hash, a ticket or reference id, a wallet address with its QR | 8: 0.3, 0.10, 1.2, 1.3, 1.4, 3.5, 4.1, 7.1 | one state; on 22 pages | no | Button, Key-value line | `wf-fpair`, `wf-tid`, `wf-ref`, `wf-hash`, `wf-crypto` |
 | Daily ladder | 2 | one form | 3: 1.0, 1.1, 3.1 | tiers locked and reached, the open control live or refused; on 7 pages | tier art | Figure, Media slot, Button, Note line | `wf-panel` |
-| Deposit dock | 2 | one form | 3: 4.1, 4.3, 4.5 | one state; on 6 pages | no | Figure, Key-value line, Button, Note line | `wf-dock` |
+| Deposit dock | 3 | one form: the figure plus the bonus, the rate on a chip, the terms declaration over the act, D-238 | 3: 4.1, 4.3, 4.5 | one state; on 6 pages | no | Figure, Key-value line, Field, Button, Note line | `wf-dock` |
 | Drop card | 2 | one form | 4: 3.3, 3.5, 3.6, 3.7 | one state; on 13 pages | yes, skin | Media slot, Text link, Figure | `wf-d-weapon` |
 | Empty state | 2 | nothing yet, not available (taken down or never existed) | 7: 3.2, 5.2, 5.3, 5.9, 5.10, 7.2, 7.3 | nothing yet, not available; on 12 pages | no | Button, Text link | `wf-empty`, `wf-gone` |
 | Event banner | 2 | one form | 2: 1.0, 1.1 | one state; on 2 pages | yes, banner art | Media slot, Button | `wf-banner` |
@@ -70,7 +70,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 | Item card | 2 | my items (select in the band, acts on the face), ledger (status in the band, from and won, Check this round), public shelf | 3: 5.1, 5.9, 7.3 | selected, sending to Steam, sold, gone; on 6 pages | yes, skin | Media slot, Checkbox, Button, Figure | `wf-inv-card`, `wf-itemcard`, `wf-plr-card` |
 | Mode card | 2 | one form | 2: 1.0, 1.1 | one state; on 2 pages | yes, mode art | Media slot, Button, Badge | `wf-mode` |
 | Outcome card | 2 | one form | 2: 3.6, 3.7 | one state; on 4 pages | yes, skin | Media slot, Button | `wf-won-art` |
-| Popover menu | 2 | account (avatar trigger, destinations, Sign out), language (nine options, one live, D-42) | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | closed, open; on 133 pages | no | Button, Avatar, Text link | `wf-acct-wrap`, `wf-lang-wrap` |
+| Popover menu | 2 | account (avatar trigger, destinations, Sign out), language (nine options, one live, D-42), select (a field's choice from a short list, the country and the network, D-238) | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | closed, open; on 133 pages | no | Button, Avatar, Text link | `wf-acct-wrap`, `wf-lang-wrap` |
 | Recent drop card | 2 | one form | 4: 3.3, 3.5, 3.6, 3.7 | one state; on 13 pages | yes, skin | Media slot, Figure | `wf-r-art` |
 | Section head | 2 | one form | 24: 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 3.1, 3.2, 3.3, and 14 more | one state; on 59 pages | no | Text link | `wf-sec-head` |
 | Withdraw item | 2 | one form | 5: 5.3, 5.4, 5.5, 5.6, 5.8 | on the clock, offer expired, restricted, not eligible, Steam degraded; on 5 pages | skins | Media slot, Figure, Key-value line | `wf-held` |
@@ -98,7 +98,7 @@ Order: first the organisms that hold no other organism, then Payment panel (hold
 | Status notice | 3 | in progress (crediting), stopped (declined, restricted), failed with a reference (Steam refused) | 14: 0.10, 2.5, 2.6, 4.2, 4.3, 4.4, 4.5, 5.4, 5.5, 5.6, and 4 more | in progress, stopped, failed with a reference; on 22 pages | no | Key-value line, Figure, Button, Copyable value | `wf-notice`, `wf-fail` |
 | Ticker | 3 | one form | 34: 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.4, 2.5, 2.6, and 24 more | running, paused (Resume); on 104 pages | skins | Feed tile | `wf-feed` |
 | Verify form | 3 | one form | 3: 1.2, 1.3, 1.4 | empty, prefilled, malformed, matched, failed, unavailable; on 6 pages | no | Field, Copyable value, Button | `wf-verify` |
-| Payment panel | 3 | one form | 3: 4.1, 4.3, 4.5 | card, crypto, crypto with no wallet, gift cards, skins, declined, ceiling pending; on 9 pages | provider marks | Chosen method, Amount field, Field, Copyable value, Deposit dock, Status notice | `wf-pay-lay` |
+| Payment panel | 3 | one form: step 1 the bonus strip, the code and the country; step 2 the route's head, provider tiles, the form beside the dock, D-238 | 3: 4.1, 4.3, 4.5 | card, crypto, crypto with no wallet, gift cards, skins, declined, ceiling pending; on 9 pages | provider marks | Chosen method, Amount field, Field, Copyable value, Deposit dock, Status notice | `wf-pay-lay` |
 | Case head | 3 | one form | 4: 3.3, 3.5, 3.6, 3.7 | one state; on 13 pages | case art | Favourite toggle, Note line, Case stage | `wf-case` |
 | Sign-in block | 3 | one form | 3: 2.4, 2.5, 2.6 | consent not given, one of two given, given, Steam refused, Steam unavailable; on 7 pages | no | Field, Button, Status notice | `wf-auth-blk` |
 | Dialog | 3 | geo gate (2.1, 2.2), sign in (2.4), deposit (4.1), cash out (5.1), confirm a limit (6.2) | 6: 2.1, 2.2, 2.4, 4.1, 5.1, 6.2 | one page per state of its layer: gate blocked, staged, not launched, unavailable; sign in; deposit; cash out; confirm; on 9 pages | art slot on two | Button, Sign-in block, Payment panel, Field, Copyable value | `wf-dlg` |
@@ -124,6 +124,8 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 
 **Added at stage 07 step 5, `D-237`.** Deposit is the Payment panel, the Status notice, the Dialog and the Section head already in the table, and three blocks of its own. The ways to pay is the Provider tile row below, drawn as `.methods`; What still works (4.2) and This deposit (4.4) were missed by the walk of the grey, since `wf-open-list` and `wf-total` stand on one page each, and enter here. Gift cards and Skin deposit need no look of their own: their rows are kit Disclosures and Checkboxes in the Payment panel's list, an element the panel gains (`.pay-panel__list`, `.pay-panel__denoms`, with `.pay-panel__route` and `.pay-panel__pick` for the deposit layer). The screen's H1 is the Section head's large form. No component is added; the panel's behaviour is `design/kit/pay.js`.
 
+**Changed at Deposit's gate, `D-238`.** The founder's seven corrections enter the kit before the screen: Popover menu gains its third variant, `--select`, the Select menu that replaces the browser's list for the country and the network; Chosen method becomes the route's head (Back, the method's mark, the name) and the bonus strip, the code and the country stay at step 1; the Payment panel's offer becomes a strip of a banner's height and its provider option a lit tile; the Deposit dock shows the figure plus the bonus with the rate on a chip and takes the terms declaration over its act, a Field, so its level rises from 2 to 3 by the rule above (the Payment panel stays at 3, the cap). The ways to pay carry each method's mark over its name. No component is added and none removed.
+
 **Motion carried at stage 07 step 5, `D-235`.** No component is added: the motion v4 Home was approved with enters as forms of components already in the table. Icon gains its story form, the rail's marks, the footer's counters and its round plate drawn in parts to play under the pointer; Feed tile gains the rare marks by chance, A, B and C, and the rare drop in three tiers; Ticker paces its arrivals as v4 does; Disclosure slides, Favourite toggle bursts, Event banner counts down. Their look is in `kit.css` beside each component, their behaviour in `design/kit/motion.js`, and the kit page shows them in its section Motion.
 | System page block | 0.3 | `wf-sys` | code, heading, two ways out, reference |
 | Toast | 0.3 | `wf-copied` | Copied; node 0.5 owns toasts and no other page draws one |
@@ -140,7 +142,7 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 | Reveal lanes | 3.5 | `wf-lanes` | the open, one lane per roll |
 | Round detail popover | 3.6 | `wf-detail-wrap` | Round details on the batch outcome |
 | Gift cards | 4.1 | `wf-gift` | the sellers as kit Disclosures in the Payment panel's list, `.pay-panel__list`, D-237 |
-| Provider tile | 4.1 | `wf-pay-t` | the provider grid on the deposit page; the other deposit states show the Chosen method instead; the ways to pay, `.methods`, kit.css 4.4, D-237 |
+| Provider tile | 4.1 | `wf-pay-t` | the provider grid on the deposit page; the other deposit states show the Chosen method instead; the ways to pay, `.methods`, kit.css 4.4, D-237; each method's mark over its name, `design/kit/marks/`, D-238 |
 | Skin deposit | 4.1 | `wf-skindep` | deposit with skins; the skins as kit Checkbox rows in the Payment panel's list, `.pay-panel__list`, D-237 |
 | What still works | 4.2 | `wf-open-list` | the ways a stop leaves open, each a Text link with its line; `.works`, kit.css 4.4, D-237 |
 | This deposit | 4.4 | `wf-total` | the record of a payment on its way, Key-value lines on the dock's plate; `.record`, kit.css 4.4, D-237 |

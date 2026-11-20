@@ -6,7 +6,7 @@
    data-when="account" shows in its state only. The rail: its toggle closes it to marks and opens it, over the page with the page dimmed
    where the product column is 1440px or less, beside the page where it is wider; under 900px the header's burger opens it as the drawer.
    A press on the dimmed page, Escape or a choice in the drawer closes it. The popovers open and close on their trigger, their close, their
-   scrim, a press outside and Escape. The ticker pauses and resumes, starts paused for reduced motion, and while it runs a drop arrives at
+   scrim, a press outside and Escape; a Select menu's option is the choice it shows, and its list walks by the arrows (D-238). The ticker pauses and resumes, starts paused for reduced motion, and while it runs a drop arrives at
    the front, paced as v4's with a rare drop after four to six (D-235). The sound tile says on or off. A layer (.dialog__layer) opens on any data-layer naming it
    and closes on its close, a press on the scrim and Escape, giving the keyboard back where it came from. The sign in declarations behave
    as signin-home.js did, D-58: a press with one missing is refused, the row is marked, the line names it, the keyboard goes to it. A
@@ -41,6 +41,17 @@
   if (rail) { settle(); wide.addEventListener('change', settle); }
 
   function closePops(keep) { d.querySelectorAll('.popover__trigger[aria-expanded="true"]').forEach(function (t) { if (t !== keep) t.setAttribute('aria-expanded', 'false'); }); }
+  /* the Select menu (.popover--select, D-238): an option is the choice, shown on the trigger with its flag; the list closes, the keyboard goes
+     back to the trigger and the page hears "pick" with the value and its place in the list */
+  function opts(p) { return [].slice.call(p.querySelectorAll('.popover__opt')); }
+  function chosenOpt(p) { return p.querySelector('.popover__opt[aria-selected="true"]') || opts(p)[0]; }
+  function pick(o) {
+    var p = o.closest('.popover'), t = p.querySelector('.popover__trigger'), v = p.querySelector('.popover__val'), f = t.querySelector('.popover__flag'), of = o.querySelector('.popover__flag');
+    opts(p).forEach(function (n) { n.setAttribute('aria-selected', String(n === o)); });
+    if (v) v.textContent = o.textContent.trim(); if (f && of) f.className = of.className;
+    t.setAttribute('aria-expanded', 'false'); t.focus();
+    p.dispatchEvent(new CustomEvent('pick', { bubbles: true, detail: { value: o.textContent.trim(), index: opts(p).indexOf(o) } }));
+  }
   function sound(b, on) { var w = on ? 'Sound on' : 'Sound off', s = b.querySelector('.rail__sr'), i = b.querySelector('.icon'), c = b.closest('[data-lbl]');
     b.setAttribute('aria-pressed', String(on)); if (s) s.textContent = w; if (c) c.setAttribute('data-lbl', w); if (i) { i.classList.toggle('icon--sound', on); i.classList.toggle('icon--mute', !on); } }
   function copy(b) { var t = b.querySelector('.popover__copy-t'), v = (b.parentNode.querySelector('.popover__id-v') || {}).textContent || '';
@@ -120,7 +131,9 @@
     if (!rail) return;
     x = e.target.closest('.rail__toggle, .header__menu'); if (x) { setRail(!isOpen()); return; }
     if (e.target.closest('.rail__scrim')) { shut(); return; }
-    x = e.target.closest('.popover__trigger'); if (x) { closePops(x); x.setAttribute('aria-expanded', String(x.getAttribute('aria-expanded') !== 'true')); return; }
+    x = e.target.closest('.popover--select .popover__opt'); if (x) { pick(x); return; }
+    x = e.target.closest('.popover__trigger'); if (x) { closePops(x); var op = x.getAttribute('aria-expanded') !== 'true'; x.setAttribute('aria-expanded', String(op));
+      if (op && x.parentNode.classList.contains('popover--select') && e.detail === 0) chosenOpt(x.parentNode).focus(); return; }
     x = e.target.closest('.popover__scrim, .popover__x'); if (x) { var t = x.closest('.popover').querySelector('.popover__trigger'); t.setAttribute('aria-expanded', 'false'); t.focus(); return; }
     x = e.target.closest('.popover__copy'); if (x) { copy(x); return; }
     x = e.target.closest('.ticker__pause'); if (x) { hold(!ticker.classList.contains('is-held')); return; }
@@ -129,10 +142,16 @@
     if (e.target.closest('.rail a[href]') && rail.classList.contains('is-open')) setRail(false);
   });
   d.addEventListener('keydown', function (e) {
+    var sel = e.target.closest && e.target.closest('.popover--select');
+    if (sel && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) { /* the Select menu's list by the keyboard: down opens it at the choice, the arrows walk it */
+      e.preventDefault(); var t = sel.querySelector('.popover__trigger'), all = opts(sel);
+      if (t.getAttribute('aria-expanded') !== 'true') { closePops(t); t.setAttribute('aria-expanded', 'true'); chosenOpt(sel).focus(); return; }
+      var i = all.indexOf(e.target); all[Math.max(0, Math.min(all.length - 1, i < 0 ? 0 : i + (e.key === 'ArrowDown' ? 1 : -1)))].focus(); return;
+    }
     if (e.key !== 'Escape') return;
-    var l = d.querySelector('.dialog__layer:not([hidden])'); if (l) { closeLayer(l); return; }
-    var open = d.querySelector('.popover__trigger[aria-expanded="true"]');
-    if (open) { closePops(); open.focus(); return; }
+    var l = d.querySelector('.dialog__layer:not([hidden])'), open = d.querySelector('.popover__trigger[aria-expanded="true"]');
+    if (open && (!l || l.contains(open))) { closePops(); open.focus(); return; } /* a list open inside a layer closes before the layer */
+    if (l) { closeLayer(l); return; }
     if (rail && (rail.classList.contains('is-open') || rail.classList.contains('is-overlay'))) shut();
   });
 })();
