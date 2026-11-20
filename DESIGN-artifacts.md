@@ -918,3 +918,11 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Local properties.** Geometry a block reads only inside itself stays a literal beside its v4 rule in a comment: Before you open's 20 by 22px padding and 44px tile, the observed rows' 22px sides and 15px figures, the ruler's 64px head room, 18px corner and 112 by 88px item, How's 48px column gap, What this case pays' 32px dollar and its two container folds at 980 and 480px, the flash's 420px (260 under 900px) and the wave's 220px.
 
 **Values changed, variable, value, why.** None. Rules added to the shell's page layout, no value changed: the case head and the commit keep the banner's insets from 900px, the commit stands on the content edge under 900px and Before you open 12px inside it, the case screen's rhythm (commit 14px, Before you open 28px, What this case pays 48px, Published against observed 40px), and the live drops after the content on a page whose act is on its first screen (`D-126`).
+
+## 24. Stage 07 step 5, Deposit in colour from the kit, `D-237`
+
+**Variables added to `:root`.** None: the root holds 540, as after `D-236`. Deposit was drawn only in grey, so its blocks read the language already in the kit: the Payment panel's provider option (`--color-tile-veil`, `--shadow-edge`, its edge in `--color-button`) for the ways to pay, the Disclosure's row ground (`--gradient-row`) for What still works, the Deposit dock's plate (`--gradient-plate`, `--shadow-plate-edge`) for This deposit, `--size-row` for a method tile's height, `calc(5 * var(--size-tap))` for a still-works row, as the Field's row reads it.
+
+**Local properties.** `--methods-tile` 124px, `wireframes/_wf.css` `.wf-pay-g` `minmax(124px, 1fr)`, the narrowest tile, technical, carried from the grey; `--record-w` 520px, the one-column card's width (`.dialog` `--dialog-w-card`), technical.
+
+**Values changed, variable, value, why.** None. Rules added to the shell's page layout, no value changed: a Section head standing alone in the slot takes its content 16px under it (the head's own margin), and What still works and This deposit stand 48px under the notice, as Home's panels with their own titles.

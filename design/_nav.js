@@ -30,7 +30,7 @@ window.DESIGN_NAV = {
         { node: '1.1', label: 'Signed in', file: 'index.html?account', grey: 'index-account.html' }
       ] },
     { node: '3.3', name: 'Case screen', page: 'design/case.html',
-      about: 'The case, the open and the outcome on one page, assembled from the kit since D-236: the shell, the Case stage and the Commit block played by design/kit/stage.js, the kit\'s drop table and best drops, and the case\'s four one-off blocks, compared beside the case screen v4, the founder\'s picks of D-213 and D-214, its motion carried whole. Press Open signed in; ?land= decides what lands. The three states D-215 owed are pages of their own.',
+      about: 'The case, the open and the outcome on one page, assembled from the kit since D-236: the shell, the Case stage and the Commit block played by design/kit/stage.js, the kit\'s drop table and best drops, and the case\'s four one-off blocks, compared beside the case screen v4, the founder\'s picks of D-213 and D-214, its motion carried whole. Press Open signed in; ?land= decides what lands. The three states D-215 owed are pages of their own. Passed its gate on 20 Nov 2026.',
       labsOf: ['design/v4/case.html', 'design/v4/open-lab.html', 'design/v4/win-lab.html'],
       states: [
         { node: '3.3', label: 'Guest',                           file: 'case.html',                    grey: 'case.html' },
@@ -42,6 +42,22 @@ window.DESIGN_NAV = {
         { node: '3.3', label: 'Values degraded',                 file: 'case-degraded.html',           grey: 'case-degraded.html' },
         { node: '3.3', label: 'No observed counter',             file: 'case-nocounter.html',          grey: 'case-nocounter.html' },
         { node: '3.6', label: 'Reveal interrupted',              file: 'case-interrupted.html',        grey: 'case-interrupted.html' }
+      ] },
+    { node: '4.1', name: 'Deposit', page: 'design/deposit-dialog.html',
+      about: 'Add funds in colour since D-237, assembled from the kit: the Payment panel, the Status notice and the Dialog, the ways to pay and two blocks of its own as one-offs, played by design/kit/pay.js. Every Add funds now leads here: on Home and the case screen it opens this layer over the page, as the grey does; at its own addresses each route is a page, the method in ?m=. Drawn only in grey before, so built from its nearest relatives in colour.',
+      labsOf: [],
+      states: [
+        { node: '4.1', label: 'The dialog, over the case screen', file: 'deposit-dialog.html',          grey: 'deposit-dialog.html' },
+        { node: '4.1', label: 'Cold arrival at /deposit',         file: 'deposit.html',                 grey: 'deposit.html' },
+        { node: '4.1', label: 'Card and wallets',                 file: 'deposit-card.html',            grey: 'deposit-card.html' },
+        { node: '4.1', label: 'Crypto',                           file: 'deposit-crypto.html',          grey: 'deposit-crypto.html' },
+        { node: '4.1', label: 'Crypto, no address yet',           file: 'deposit-crypto-nowallet.html', grey: 'deposit-crypto-nowallet.html' },
+        { node: '4.1', label: 'Gift cards',                       file: 'deposit-giftcards.html',       grey: 'deposit-giftcards.html' },
+        { node: '4.1', label: 'CS2 skins',                        file: 'deposit-skins.html',           grey: 'deposit-skins.html' },
+        { node: '4.2', label: 'Deposit limit reached',            file: 'deposit-ceiling-reached.html', grey: 'deposit-ceiling-reached.html' },
+        { node: '4.3', label: 'Limit raise pending',              file: 'deposit-ceiling-pending.html', grey: 'deposit-ceiling-pending.html' },
+        { node: '4.4', label: 'Crediting, named timer',           file: 'deposit-crediting.html',       grey: 'deposit-crediting.html' },
+        { node: '4.5', label: 'Payment declined',                 file: 'deposit-declined.html',        grey: 'deposit-declined.html' }
       ] }
   ]
 };

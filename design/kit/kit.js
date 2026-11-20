@@ -111,7 +111,8 @@
   });
 
   d.addEventListener('click', function (e) {
-    var x = e.target.closest('[data-layer]'); if (x && d.getElementById(x.getAttribute('data-layer'))) { e.preventDefault(); openLayer(x.getAttribute('data-layer'), x); return; }
+    var x = e.target.closest('[data-layer]'), lid = x && (!account && x.hasAttribute('data-account-only') ? 'signin-layer' : x.getAttribute('data-layer')); /* a layer for an account asks a guest to sign in first, D-237 */
+    if (x && d.getElementById(lid)) { e.preventDefault(); openLayer(lid, x); return; }
     x = e.target.closest('.dialog__layer'); if (x && (e.target === x || e.target.closest('.dialog__close'))) { closeLayer(x); return; }
     x = e.target.closest('.fav'); if (x) { if (!account) { openLayer('signin-layer', x); return; }
       var on = x.getAttribute('aria-pressed') !== 'true', c = x.querySelector('.case-tile__count, .fav__count'); x.setAttribute('aria-pressed', String(on));

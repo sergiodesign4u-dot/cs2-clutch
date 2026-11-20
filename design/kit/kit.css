@@ -3708,7 +3708,8 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 @media (prefers-reduced-motion: reduce) { .recent-drop, .recent-drop__art > img, .recent-drop__who, .recent-drop__art, .recent-drop__w, .recent-drop__s { transition: none; } }
 
 /* SECTION HEAD. A section's title on a striped tile in a mode colour with the section's mark, then a 2px line in that colour fading out,
-   from 900px; a sub line under it, or beside it from 1200px. --l is Featured cases' larger title on Home. The colour is a modifier, the mark
+   from 900px; a sub line under it, or beside it from 1200px. --l is Featured cases' larger title on Home, and a screen's H1 where the screen
+   has no head block of its own (Deposit, D-237). The colour is a modifier, the mark
    is an .icon inside the tile. From design/v4/heading-home.css and case-blocks.css on kit.css part 2 .wf-sec-head and theme.css. */
 /* its own geometry, read inside .sec-head only, D-231 */
 .sec-head {
@@ -4815,6 +4816,15 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   .pay-panel__side { position: sticky; top: var(--space-4); }
 }
 @media (prefers-reduced-motion: reduce) { .pay-panel__prov { transition: none; } }
+/* modifiers needed by Deposit, D-237. A column of a route's rows, the gift card sellers or the skins to pick, 12px apart, as the grey's
+   wf-stack and wf-skindep stand them (the showcase had drawn them with its own layout helpers, which no screen loads); a seller's
+   denominations in a row that wraps, as the Amount field's presets; a route's pane, its chosen method over its form, and the list of ways to
+   pay, each standing as the panel's own rows do, 20px apart. The deposit layer holds the list and every route and shows one at a time
+   (design/kit/pay.js), so a pane it does not show waits hidden. */
+.pay-panel__list { display: grid; gap: var(--space-3); min-width: 0; }
+.pay-panel__denoms { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.pay-panel__route, .pay-panel__pick { display: grid; gap: var(--space-5); min-width: 0; }
+.pay-panel [hidden] { display: none; }
 
 /* CASE HEAD. The case block's head and the ground the stage stands on: the breadcrumb and How it works at the left, the case's name with its one line
    in the middle, the favourite at the right; under 900px the crumb cuts to its parent with How it works beside it, and the name and the
@@ -5365,6 +5375,51 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 }
 
 
+/* =====================================================================================================================================
+   PART 4.4, Deposit's one-off blocks, stage 07 step 5, D-237: blocks of nodes 4.1, 4.2 and 4.4 alone. Deposit was drawn only in grey, so
+   each is built from its nearest relative in colour (D-229 point 4), named in its head: The ways to pay (4.1, the provider tiles), What
+   still works (4.2) and This deposit (4.4). Everything else on Deposit is the kit's Payment panel, Status notice and Section head.
+   ===================================================================================================================================== */
+
+/* THE WAYS TO PAY: a group's methods under its Section head, as many tiles to a row as fit at 124px or more, each a method's name on a tile
+   and its mark on the corner (No fee, Instant) as a Badge. One-off of 4.1, wireframes/_wf.css .wf-pay-g and .wf-pay-t; the tile is the
+   Payment panel's provider option (.pay-panel__prov) as a link, its edge in the button's colour under the pointer, at a FAQ row's height.
+   The grey's logo slot is not drawn: a third party's mark is not an icon of the language (DESIGN-artifacts.md, Provider marks), and which
+   methods ship is a sample (D-124). Contains Section head, Badge. */
+.methods {
+  --methods-tile: 124px; /* wireframes/_wf.css .wf-pay-g grid-template-columns minmax(124px, 1fr): the narrowest tile; технічне рішення carried from the grey */
+}
+.methods { min-width: 0; }
+.methods__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--methods-tile), 1fr)); gap: var(--space-2); }
+.methods__t { position: relative; display: grid; place-items: center; min-height: var(--size-row); box-sizing: border-box; padding: var(--space-3) var(--space-2); border-radius: var(--radius-card); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.25; text-align: center; text-decoration: none; transition: box-shadow .2s; }
+.methods__t:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+@media (hover: hover) { .methods__t:hover { box-shadow: inset 0 0 0 var(--size-hairline) var(--color-button); } }
+.methods__t > .badge { position: absolute; top: calc(-1 * var(--space-2)); left: var(--space-2); } /* the grey's ribbon on the corner, D-129 */
+.methods > .sec-head { margin-bottom: var(--space-5); } /* room for the ribbons of the first row */
+@media (prefers-reduced-motion: reduce) { .methods__t { transition: none; } }
+
+/* WHAT STILL WORKS: what a stop leaves open, each a Text link with its line under it on a row of its own, as many to a row as fit at five
+   tap targets; the line under them says what does not lift the stop. One-off of 4.2, wireframes/deposit-ceiling-reached.html .wf-open-list;
+   the row is the Disclosure's and the Field's row ground (--gradient-row with its hairline). Contains Section head, Text link, Note line. */
+.works { min-width: 0; }
+.works__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(calc(5 * var(--size-tap)), 1fr)); gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
+.works__i { display: grid; align-content: start; gap: var(--space-1-5); padding: var(--space-4) var(--space-5); border-radius: var(--radius-card); background: var(--gradient-row); box-shadow: var(--shadow-edge); }
+.works__i > .link { font-size: var(--size-text); }
+.works__list + .note { max-width: var(--size-measure); margin-top: var(--space-4); }
+
+/* THIS DEPOSIT: the record of a payment on its way, its lines as Key-value lines with the one that decides a withdrawal last, the line that
+   says when to ask, and the ways on. One-off of 4.4, wireframes/deposit-crediting.html .wf-total; the lines stand on the Deposit dock's plate
+   (--gradient-plate, its edge) as its total does (.dock__total), at a card's width. Contains Section head, Key-value line, Note line, Button. */
+.record {
+  --record-w: 520px; /* .dialog --dialog-w-card, the one-column card: a record reads at a card's width, not across the column; технічне рішення */
+}
+.record { min-width: 0; }
+.record__lines { display: grid; gap: var(--space-3); max-width: var(--record-w); box-sizing: border-box; padding: var(--space-5); border-radius: var(--radius-m); background: var(--gradient-plate); box-shadow: var(--shadow-plate-edge); }
+.record__lines > .kv { font-size: var(--size-label); }
+.record > .note { margin-top: var(--space-3); }
+.record__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); }
+
+
 /* THE SHELL'S PAGE LAYOUT, D-232. Where the organisms stand on a page, nothing of their look: the header across the top, the rail beside the
    page from the header's top, the live drops under the header, the screen's slot, the footer; as Home v4 lays them out (kit.css part 2, the
    grey screen body, and v4 theme.css). design/kit/shell.html carries it as markup; a screen copy keeps body.page and .shell and fills #screen.
@@ -5410,6 +5465,10 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .shell__main > .before { margin-top: var(--space-5-5); }
 .shell__main > .spend--pays { margin-top: calc(var(--space-6) + var(--space-4)); }
 .shell__main > .observed { margin-top: calc(var(--space-6) + var(--space-2)); }
+/* Deposit, D-237: its H1 is a large Section head standing alone, its content 16px under it (the head's own margin); a section with its own
+   title, What still works and This deposit, 48px under the notice, as Home's panels with their own titles */
+.shell__main > .sec-head + * { margin-top: 0; }
+.shell__main > :is(.works, .record) { margin-top: calc(var(--space-6) + var(--space-4)); }
 @media (min-width: 900px) {
   .shell__main { padding-inline: 0; }
   .shell__main > .commit { width: auto; } /* the commit stands in the slot with the case head's insets, not across its full width */

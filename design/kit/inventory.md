@@ -15,7 +15,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 5. **Inside level 3** the organisms that hold no other organism come first, then those that do, so a part always loads before its whole.
 6. **The level is computed, not chosen.** The script recomputes every level from the "Contains" column and fails on a mismatch. Four rows moved on that check while this file was drawn: Status notice rose to 3 (it holds a Copyable value); Daily ladder, Withdraw item and Deposit dock fell to 2 (they hold only atoms).
 
-**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms. 28 one-offs stay out of the kit, 32 since `D-234` added Home's four closing blocks, 36 since `D-236` added the case screen's four. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
+**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms. 28 one-offs stay out of the kit, 32 since `D-234` added Home's four closing blocks, 36 since `D-236` added the case screen's four, 38 since `D-237` added the two of Deposit the walk of the grey had missed. Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
 
 ## The table
 
@@ -122,6 +122,8 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 
 **Added at stage 07 step 5, `D-236`.** The case screen's four blocks under its stage are one-offs of node 3.3 for the reason Home's are: the grey drew them from figures, a table and prose, v4 drew each as one composed block of the case screen alone. What this case pays is Home's money strip with a fourth panel, so `.spend` is now drawn on two nodes, 1.0 and 3.3; by the rule above that makes it a component, and it stays in part 4.4 as a one-off with a form until stage 08 splits the kit, where it is named as the first one-off a second screen needed. What is in this case is the kit's Data table under a Section head and adds nothing. The Case stage and the Commit block gain their play, `design/kit/stage.js`, and no new component: the open, the outcome, the flash and the wave, the ring and the rare marks on a run's card are forms of the Case stage, Outcome card, Button (its busy light) and Drop card already in the table.
 
+**Added at stage 07 step 5, `D-237`.** Deposit is the Payment panel, the Status notice, the Dialog and the Section head already in the table, and three blocks of its own. The ways to pay is the Provider tile row below, drawn as `.methods`; What still works (4.2) and This deposit (4.4) were missed by the walk of the grey, since `wf-open-list` and `wf-total` stand on one page each, and enter here. Gift cards and Skin deposit need no look of their own: their rows are kit Disclosures and Checkboxes in the Payment panel's list, an element the panel gains (`.pay-panel__list`, `.pay-panel__denoms`, with `.pay-panel__route` and `.pay-panel__pick` for the deposit layer). The screen's H1 is the Section head's large form. No component is added; the panel's behaviour is `design/kit/pay.js`.
+
 **Motion carried at stage 07 step 5, `D-235`.** No component is added: the motion v4 Home was approved with enters as forms of components already in the table. Icon gains its story form, the rail's marks, the footer's counters and its round plate drawn in parts to play under the pointer; Feed tile gains the rare marks by chance, A, B and C, and the rare drop in three tiers; Ticker paces its arrivals as v4 does; Disclosure slides, Favourite toggle bursts, Event banner counts down. Their look is in `kit.css` beside each component, their behaviour in `design/kit/motion.js`, and the kit page shows them in its section Motion.
 | System page block | 0.3 | `wf-sys` | code, heading, two ways out, reference |
 | Toast | 0.3 | `wf-copied` | Copied; node 0.5 owns toasts and no other page draws one |
@@ -137,9 +139,11 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 | Showcase | 3.3 | `wf-show` | phase 1 of the case screen |
 | Reveal lanes | 3.5 | `wf-lanes` | the open, one lane per roll |
 | Round detail popover | 3.6 | `wf-detail-wrap` | Round details on the batch outcome |
-| Gift cards | 4.1 | `wf-gift` |   |
-| Provider tile | 4.1 | `wf-pay-t` | the provider grid on the deposit page; the other deposit states show the Chosen method instead |
-| Skin deposit | 4.1 | `wf-skindep` | deposit with skins |
+| Gift cards | 4.1 | `wf-gift` | the sellers as kit Disclosures in the Payment panel's list, `.pay-panel__list`, D-237 |
+| Provider tile | 4.1 | `wf-pay-t` | the provider grid on the deposit page; the other deposit states show the Chosen method instead; the ways to pay, `.methods`, kit.css 4.4, D-237 |
+| Skin deposit | 4.1 | `wf-skindep` | deposit with skins; the skins as kit Checkbox rows in the Payment panel's list, `.pay-panel__list`, D-237 |
+| What still works | 4.2 | `wf-open-list` | the ways a stop leaves open, each a Text link with its line; `.works`, kit.css 4.4, D-237 |
+| This deposit | 4.4 | `wf-total` | the record of a payment on its way, Key-value lines on the dock's plate; `.record`, kit.css 4.4, D-237 |
 | Cash out form | 5.1 | `wf-co-lay` | inside the cash out dialog |
 | Selection bar | 5.1 | `wf-invbar` | counts what is ticked, four acts |
 | Offer list | 5.3 | `wf-offs` | Steam offers to pick from, with filters |

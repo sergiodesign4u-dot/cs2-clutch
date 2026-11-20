@@ -231,7 +231,7 @@
     commit.setAttribute('data-state', short ? 'short' : 'funded'); commit.setAttribute('aria-label', 'Open this case');
     commit.innerHTML = '<div class="commit__plate">' + seg() + '<div class="commit__act">' +
       priced(w, total, w + ' for ' + total.toFixed(2) + ' coins' + (short ? ', ' + (total - balance).toFixed(2) + ' coins short' : ''), short ? ' aria-describedby="commit-short"' : '') + '</div>' + riskHTML + '</div>' +
-      (short ? '<p class="commit__line"><span class="note note--refuse" id="commit-short">You have ' + coins(balance) + ', ' + coins(total - balance) + ' short. <a class="link" href="../wireframes/deposit.html">Add funds</a></span></p>' : '') +
+      (short ? '<p class="commit__line"><span class="note note--refuse" id="commit-short">You have ' + coins(balance) + ', ' + coins(total - balance) + ' short. <a class="link" href="deposit.html" data-layer="deposit-layer">Add funds</a></span></p>' : '') +
       '<p class="commit__line">' + (short ? '' : 'After this open, ' + coins(balance - total) + ' · ') + moneyLine() + '</p>' + hashes();
   }
   function setCount(n) {
