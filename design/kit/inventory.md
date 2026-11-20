@@ -115,6 +115,8 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 | What opening a case here involves | 1.0 | `wf-prose` (v4 `sx`) | the paragraph beside Nightfall on its plate; `.involves`, kit.css 4.4, D-234 |
 | Questions and answers | 1.0 | `wf-faq` on Home (v4 `fq`) | its questions are kit Disclosures; `.faq`, kit.css 4.4, D-234 |
 | About Clutch | 1.0 | `wf-prose` (v4 `ab`) | a lead and four parts under heads; `.about`, kit.css 4.4, D-234 |
+
+**Motion carried at stage 07 step 5, `D-235`.** No component is added: the motion v4 Home was approved with enters as forms of components already in the table. Icon gains its story form, the rail's marks, the footer's counters and its round plate drawn in parts to play under the pointer; Feed tile gains the rare marks by chance, A, B and C, and the rare drop in three tiers; Ticker paces its arrivals as v4 does; Disclosure slides, Favourite toggle bursts, Event banner counts down. Their look is in `kit.css` beside each component, their behaviour in `design/kit/motion.js`, and the kit page shows them in its section Motion.
 | System page block | 0.3 | `wf-sys` | code, heading, two ways out, reference |
 | Toast | 0.3 | `wf-copied` | Copied; node 0.5 owns toasts and no other page draws one |
 | Cookie consent | 0.4 | `wf-ck` | its own layer with category rows; its toggles are kit Checkboxes |

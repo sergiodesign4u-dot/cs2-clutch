@@ -7,7 +7,7 @@
    where the product column is 1440px or less, beside the page where it is wider; under 900px the header's burger opens it as the drawer.
    A press on the dimmed page, Escape or a choice in the drawer closes it. The popovers open and close on their trigger, their close, their
    scrim, a press outside and Escape. The ticker pauses and resumes, starts paused for reduced motion, and while it runs a drop arrives at
-   the front (the sample rows in turn, D-124). The sound tile says on or off. A layer (.dialog__layer) opens on any data-layer naming it
+   the front, paced as v4's with a rare drop after four to six (D-235). The sound tile says on or off. A layer (.dialog__layer) opens on any data-layer naming it
    and closes on its close, a press on the scrim and Escape, giving the keyboard back where it came from. The sign in declarations behave
    as signin-home.js did, D-58: a press with one missing is refused, the row is marked, the line names it, the keyboard goes to it. A
    favourite toggles signed in and asks a guest to sign in. */
@@ -43,15 +43,47 @@
     function said(w, ok) { t.textContent = w; b.classList.toggle('is-done', ok); b.classList.toggle('is-fail', !ok); clearTimeout(b._t); b._t = setTimeout(function () { t.textContent = 'Copy'; b.classList.remove('is-done', 'is-fail'); }, 2400); }
     try { navigator.clipboard.writeText(v.replace(/^ID\s+/, '')).then(function () { said('Copied', true); }, function () { said('Not copied, select it by hand', false); }); } catch (e) { said('Not copied, select it by hand', false); } }
 
+  /* the ticker, D-235 as v4 has it (wireframes/_nav.js arrive, rare.js pace, idle.js slide): a new drop arrives at the front and the row
+     slides one place to make room, the oldest leaving past the far edge, 24 kept. The arrivals replay the sample rows oldest first, D-124, in
+     runs of one to three close together (450 to 800ms), then a pause (1.6 to 3.8s); after four to six of them a held breath (2.6 to 3.5s)
+     and one of the three rare drops in turn (template.ticker__rare), which keeps the strip to itself for 4.2 to 5.4s, founder of 1 Nov 2026:
+     "4-5 обычных, а потом одна редкая ... темп сделать не прям такой одинаковый". Nothing arrives while the strip is held, pointed at or
+     holds focus. motion.js marks each arrival by its chance and lands a rare one */
   var ticker = shell && shell.querySelector('.ticker'), pause = ticker && ticker.querySelector('.ticker__pause'), run = ticker && ticker.querySelector('.ticker__run');
   function hold(on) { ticker.classList.toggle('is-held', on); pause.setAttribute('aria-pressed', String(on)); pause.textContent = on ? 'Resume' : 'Pause'; }
-  if (ticker) {
+  if (ticker && run) {
     hold(reduce);
-    setInterval(function () {
-      if (d.hidden || ticker.classList.contains('is-held') || ticker.matches(':hover') || ticker.contains(d.activeElement) || run.children.length < 2) return;
-      var li = run.lastElementChild; run.insertBefore(li, run.firstElementChild); li.classList.add('is-new');
-      li.addEventListener('animationend', function f() { li.classList.remove('is-new'); li.removeEventListener('animationend', f); });
-    }, 3000);
+    var KEEP = 24, SAMPLE = [].slice.call(run.children).map(function (n) { return n.cloneNode(true); }), next = SAMPLE.length - 1;
+    var tpl = ticker.querySelector('template.ticker__rare'), RARE = tpl ? [].slice.call(tpl.content.children) : [];
+    var left = 4 + Math.floor(Math.random() * 3), burst = 0, turn = 0;
+    function between(a, b) { return a + Math.random() * (b - a); }
+    function pace() {
+      if (RARE.length && left === 0) { left = 4 + Math.floor(Math.random() * 3); burst = 0; return { li: RARE[turn++ % RARE.length].cloneNode(true), rare: true, wait: between(4200, 5400) }; }
+      var li = SAMPLE[next].cloneNode(true); next = (next + SAMPLE.length - 1) % SAMPLE.length;
+      if (!RARE.length) return { li: li, wait: 3000 };
+      left--; if (burst <= 0) burst = 1 + Math.floor(Math.random() * 3); burst--;
+      return { li: li, wait: left === 0 ? between(2600, 3500) : (burst > 0 ? between(450, 800) : between(1600, 3800)) };
+    }
+    function slide(li) { /* each card slides on its own translate, added, so two arrivals close together add up; cards past the far edge stay still */
+      if (reduce || !li.animate) return;
+      var w = li.offsetWidth + (parseFloat(getComputedStyle(run).columnGap) || 0), edge = (run.parentElement || run).getBoundingClientRect().right;
+      var kf = [{ translate: (-w) + 'px 0' }, { translate: '0 0' }], o = { duration: 405, easing: 'cubic-bezier(.22, .8, .3, 1)', composite: 'add' };
+      [].forEach.call(run.children, function (c) { if (c.getBoundingClientRect().left - w > edge) return; try { c.animate(kf, o); } catch (e) { c.animate(kf, { duration: o.duration, easing: o.easing }); } });
+    }
+    function arrive() {
+      var wait = 3000;
+      if (SAMPLE.length && !(d.hidden || ticker.classList.contains('is-held') || ticker.matches(':hover') || ticker.contains(d.activeElement))) {
+        var p = pace(), li = p.li, tile = li.querySelector('.feed-tile'), M = window.KitMotion;
+        li.classList.add('is-new');
+        li.addEventListener('animationend', function f(e) { if (e.target === li) { li.classList.remove('is-new'); li.removeEventListener('animationend', f); } });
+        run.insertBefore(li, run.firstChild);
+        while (run.children.length > KEEP) run.removeChild(run.lastChild);
+        if (M) { M.mark(tile); if (p.rare) M.land(tile); }
+        slide(li); wait = p.wait;
+      }
+      setTimeout(arrive, wait);
+    }
+    setTimeout(arrive, 3000);
   }
 
   /* layers */

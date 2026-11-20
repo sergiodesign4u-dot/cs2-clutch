@@ -860,3 +860,29 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Values changed, variable, value, why.**
 - `.sec-head__title` line-height, 1.4 to 1.1: every head v4 drew in colour sets 1.1 (`faq-home.css` `.hz-head h2`, `seo-home.css` `.sx-h h2`); the grey's 1.4 showed only where a title wraps, and the large heads of Home's closing sections wrap on a phone.
 - `--sec-head-l-s`, new, 21px: the large head on a phone. v4 drew it 21px on three heads and 26px on Featured cases; one head takes one size, so Featured cases' head is 21px on a phone now, 5px smaller than v4.
+
+## 22. Stage 07 step 5, Home's motion carried into the kit, `D-235`
+
+**What moved.** The motion v4 Home was approved with, which `D-234` had left to stage 11, comes into the kit beside the component it moves, and `design/kit/motion.js` plays it: the Icon atom's story form (`.icon.is-story`, `.icon-story`, from `rail-icons.css` and `rail-icons.js`), the Feed tile's rare marks and rare drops (`.rare-mark`, `.feed-tile--rare`, from `rare-mark.css` and `rare.css`), the Disclosure's slide, the Favourite's burst, the footer's 18+ spin and the pause of loops off the screen (`.is-idle`, from `idle.js`). Keyframes keep their v4 offsets in the drawing's own units, a mark 24 across. 13 variables enter `:root`:
+
+| Variable | Value | Origin |
+|---|---|---|
+| `--color-rare-volt-light` | `#F2FBFF` | lightning's white core, the first of the volt tier's three; v4 rare.css .v4-rare-volt --rd-c1; рішення користувача, D-209 (v4) carried by D-235 |
+| `--color-rare-orbit-light` | `#FFF6CF` | the golden orbit's pale core; v4 rare.css .v4-rare-orbit --rd-c1; рішення користувача, D-209 (v4) carried by D-235 |
+| `--color-rare-orbit-deep` | `#FF9A1F` | its orange rim; v4 rare.css .v4-rare-orbit --rd-c3; рішення користувача, D-209 (v4) carried by D-235 |
+| `--color-rare-plasma-light` | `#FFE0F4` | plasma's pale core; v4 rare.css .v4-rare-plasma --rd-c1; рішення користувача, D-209 (v4) carried by D-235 |
+| `--color-rare-chance` | `#FFF8D6` | the top of a rare drop's chance figure, which fades to its tier; v4 rare.css .v4-rare-chance; рішення користувача, D-209 (v4) carried by D-235 |
+| `--color-crown-light` | `#FFE27A` | the crown's lit edge over the rarest drop; v4 rare.css .v4-rare-crown::before; рішення користувача, D-209 (v4) carried by D-235 |
+| `--color-crown-deep` | `#B87800` | its shaded foot; the same; рішення користувача, D-209 (v4) carried by D-235 |
+| `--shadow-rare-volt` | `inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 12px rgba(57, 85, 232, .4)` | a lightning drop's edge and glow, live or calmed; v4 rare.css .v4-rare-volt:is(.is-live, .is-calm)::before; рішення користувача, D-209 (v4) carried by D-235 |
+| `--shadow-rare-orbit` | `inset 0 0 0 1px rgba(246, 201, 21, .4), 0 0 12px rgba(246, 201, 21, .22)` | the golden orbit's; v4 rare.css .v4-rare-orbit:is(.is-live, .is-calm)::before; рішення користувача, D-209 (v4) carried by D-235 |
+| `--shadow-rare-plasma-glow` | `0 0 12px rgba(210, 43, 206, .45)` | plasma's glow, its edge the tile's own tier; v4 rare.css .v4-rare-plasma:is(.is-live, .is-calm)::before; рішення користувача, D-209 (v4) carried by D-235 |
+| `--filter-rare-skin` | `drop-shadow(0 6px 5px rgba(0, 0, 0, .75))` | a live rare drop's skin lifted off its plate; v4 rare.css .v4-rare.is-live .wf-feed-art; рішення користувача, D-209 (v4) carried by D-235 |
+| `--motion-disclosure` | `.4s` | an answer sliding open or shut; v4 faq-home.css .fq-a, grid-template-rows .4s; рішення користувача, D-209 (v4) carried by D-235 |
+| `--motion-ease-disclosure` | `cubic-bezier(.2, .7, .2, 1)` | the same, and the plus turning; v4 faq-home.css .fq-a and .fq-x::before; рішення користувача, D-209 (v4) carried by D-235 |
+
+**Read from the kit as it stood.** `--color-rare-zap` (#8FD3FF) is the volt tier's middle colour, `--color-rarity-1` the orbit's, `--color-rarity-3` the plasma's deep and `--color-rarity-5` the volt's deep, as v4 `rare.css` names the same values; `--motion-rail-icon` and `--motion-ease-rail-icon`, in `:root` since `D-231`, are the stories' pace; `--art-fx-bolt`, `--art-fx-plasma-tall` and `--shape-ring-mask`, in `:root` since `D-214`, are the marks' pictures and shape.
+
+**Local properties.** `.feed-tile` 14 geometry: the marks' ring, lightning and flame (`--mark-*`, the ring 78 by 68px 7px down, 60 by 52px and 5px on a phone; lightning 8px past the edge, 6px on a phone; the flame 100px over the tile and 14% past each side), the rare drop's chance figure, crown and wave (`--rare-*`), and the three tier colours each rare drop reads (`--rare-light`, `--rare-mid`, `--rare-deep`); the stories' light `--story-c` per mark; the equalizer's two bars as registered properties `--feed-eq-l` and `--feed-eq-r`.
+
+**Values changed, variable, value, why.** None. Two rules moved: the Disclosure's pink edges and its open mark leave `[open]` for a motion block where they fade in and turn; the open mark keeps its upright bar at height 0, so the plus can shrink to a minus.
