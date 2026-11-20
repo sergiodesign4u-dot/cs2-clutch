@@ -99,7 +99,8 @@ window.NAV = [
               { label: 'How this case works', pageLabel: 'How this case works v4', page: 'design/v4/how-lab.html', done: true }
           ]},
           { label: 'Case opening', pageLabel: 'Case opening v4', page: 'design/v4/open-lab.html', done: true },
-          { label: 'Case outcome', pageLabel: 'Case outcome v4', page: 'design/v4/win-lab.html', done: true }
+          { label: 'Case outcome', pageLabel: 'Case outcome v4', page: 'design/v4/win-lab.html', done: true },
+          { label: 'My items head', pageLabel: 'My items head v4', page: 'design/v4/myitems-lab.html', done: false }
       ]},
       { subhead: 'Concept v3', items: [
           { label: 'Home',        pageLabel: 'Home v3',            page: 'design/v3/index.html',      done: true }

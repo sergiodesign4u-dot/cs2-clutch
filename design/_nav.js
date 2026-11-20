@@ -61,7 +61,7 @@ window.DESIGN_NAV = {
       ] },
     { node: '5.1', name: 'My items', page: 'design/account.html',
       about: 'The inventory in colour since D-239, its head and the inventory head made live after the gate by D-240, its best item on the band and every card in its grade by D-241, assembled from the kit: the Account head, the Item grid and its cards, the Empty state and the cash out Dialog, the Selection bar a one-off of 5.1, played by design/kit/items.js. Tick items and the bar counts and sums them; sell, send to Steam or cash out; the sort keys reorder the grid. Drawn only in grey before, so built from its nearest relatives in colour.',
-      labsOf: [],
+      labsOf: ['design/v4/myitems-lab.html'],
       states: [
         { node: '5.1', label: 'Items held',              file: 'account.html',          grey: 'account.html' },
         { node: '5.1', label: 'Values degraded',         file: 'account-degraded.html', grey: 'account-degraded.html' },

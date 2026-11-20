@@ -1,0 +1,144 @@
+/* My items head, three directions after the founder's second look at its gate, 21 Nov 2026, after D-241. A lab: it reads the kit (kit.css) for
+   its values and atoms and composes the head three ways; nothing here reaches a screen until one is chosen and moved into the kit. */
+
+/* ---- the lab's own page ---- */
+.mx-main { box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: var(--space-6) var(--space-5) var(--space-7); color: var(--color-text); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.45; }
+@media (min-width: 900px) { .mx-main { margin-left: calc(var(--nav-w, 248px) + var(--space-5)); margin-right: var(--space-5); max-width: none; } } /* room for the project sidebar, as account-lab.css makes it */
+@media (max-width: 899px) { .mx-main { padding-top: 62px; } }
+.mx-stage { overflow-x: clip; } /* an object breaking out over a top may not widen the page */
+.mx-main h1 { margin: 0 0 var(--space-2); color: var(--color-text-hi); font-size: var(--size-head-l); font-weight: 900; text-transform: uppercase; }
+.mx-lead { max-width: 80ch; margin: 0 0 var(--space-3); color: var(--color-text-soft); }
+.mx-lead q { color: var(--color-text-hi); }
+.mx { margin-top: var(--space-7); }
+.mx-meta { max-width: 86ch; margin-bottom: var(--space-4); }
+.mx-meta h2 { display: flex; align-items: center; gap: var(--space-3); margin: 0 0 var(--space-2); color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; text-transform: uppercase; }
+.mx-meta p { margin: 0 0 var(--space-2); color: var(--color-text-soft); }
+.mx-meta .mx-ref, .mx-meta .mx-cost { color: var(--color-text-muted); font-size: var(--size-chip); }
+.mx-meta .mx-ref a { color: var(--color-text-soft); }
+.mx-tag { padding: var(--space-1) var(--space-2); border-radius: var(--radius-s); background: var(--color-pink); color: var(--color-text-hi); font-size: var(--size-unit); letter-spacing: var(--tracking-label); }
+.mx-stage { position: relative; box-sizing: border-box; padding: var(--space-6) var(--space-5) var(--space-5); border-radius: var(--radius-l); background: var(--color-ground); box-shadow: var(--shadow-edge); }
+.mx-stage > .crumb { margin-bottom: var(--space-3); }
+.mx-stage > .tabs { margin-top: var(--space-4); }
+
+/* the identity every direction keeps: the picture, the name, the ID and the Steam account */
+.mx-chip { display: inline-flex; align-items: center; gap: var(--space-1-5); box-sizing: border-box; min-height: var(--size-button-s); margin: 0; padding: 0 var(--space-2-5); border-radius: var(--radius-s); background: var(--color-veil); color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-link); white-space: nowrap; }
+.mx-chip > .icon { color: var(--color-text-hi); font-size: var(--size-text); }
+.mx-chip a { color: var(--color-text-hi); }
+.mx-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.mx-cap { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+
+/* =====================================================================================================================================
+   A. WALLET TILES. The head becomes the Home's mode cards: the identity on one line, then four saturated tiles, each a figure with its
+   object breaking out over its top (Behance: SkinBeast's profile stat row, Goated's rewards cards; the Home's own Ways to play).
+   ===================================================================================================================================== */
+.mx-a__who { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); }
+.mx-a__who > .avatar { width: 72px; height: 72px; }
+.mx-a__name { margin: 0 0 var(--space-1-5); color: var(--color-text-hi); font-size: var(--size-head-l); font-weight: 900; line-height: 1.1; }
+.mx-a__tiles { display: grid; grid-template-columns: minmax(0, 1.15fr) repeat(3, minmax(0, 1fr)); align-items: end; gap: var(--space-4); margin-top: var(--space-7); }
+.mx-a__who { align-self: center; }
+.mx-tile { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start; box-sizing: border-box; min-height: 200px; padding: var(--space-4); border-radius: var(--radius-l); background: var(--gradient-stripes), var(--tile-fill); box-shadow: var(--shadow-tile-lit), var(--shadow-card); color: var(--color-text-hi); }
+.mx-tile--gold { --tile-fill: var(--gradient-mode-upgrade); }
+.mx-tile--pink { --tile-fill: var(--gradient-mode-cases-card); }
+.mx-tile--blue { --tile-fill: var(--gradient-mode-battles); }
+.mx-tile--steam { --tile-fill: var(--gradient-steam); }
+.mx-tile__obj { position: absolute; z-index: -1; top: -46px; right: -10px; width: 62%; aspect-ratio: 1; background: var(--obj) center / contain no-repeat; filter: var(--shadow-mode-art); animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; pointer-events: none; }
+.mx-tile__obj--skin { top: -34px; right: -24px; width: 92%; aspect-ratio: 4 / 3; rotate: -16deg; filter: var(--shadow-skin-prize); }
+.mx-tile__obj--icon { top: -30px; right: var(--space-2); width: auto; aspect-ratio: auto; background: none; color: var(--color-text-hi); font-size: 76px; filter: var(--shadow-mode-art); }
+.mx-tile__obj--icon > .icon { display: block; }
+.mx-tile__v { display: flex; align-items: center; gap: var(--space-2); margin-top: auto; font-size: 34px; font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; text-shadow: var(--shadow-mode-name); }
+.mx-tile__v > .icon { font-size: var(--size-l); }
+.mx-tile__c { margin: var(--space-1-5) 0 var(--space-3); color: var(--color-text-hi); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-shadow: var(--shadow-mode-line); text-transform: uppercase; }
+.mx-tile__act { position: relative; align-self: stretch; }
+.mx-tile__line { display: flex; align-items: center; gap: var(--space-2); align-self: stretch; box-sizing: border-box; min-height: var(--size-button-m); padding: 0 var(--space-3); border-radius: var(--radius-s); background: var(--color-veil); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; overflow: hidden; }
+.mx-tile__line .fig__v { font-size: var(--size-chip); }
+.mx-tile__on { display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--color-green); font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.mx-tile__on::before { content: ''; width: var(--space-2); height: var(--space-2); border-radius: 50%; background: currentColor; }
+.mx-tile--steam .mx-tile__v { font-size: var(--size-title); }
+@media (max-width: 1099px) { .mx-a__tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: var(--space-7); } .mx-a__who { grid-column: 1 / -1; } }
+@media (max-width: 599px) {
+  .mx-a__tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-3); margin-top: var(--space-4); }
+  .mx-tile--steam { grid-column: 1 / -1; }
+  .mx-tile { min-height: 168px; padding: var(--space-3); }
+  .mx-tile__v { font-size: var(--size-title); }
+  .mx-tile__obj { top: -34px; }
+  .mx-tile__obj--skin { top: -26px; }
+  .mx-tile__obj--icon { font-size: 64px; }
+  .mx-tile__line { flex-wrap: wrap; gap: 0 var(--space-1-5); padding: var(--space-1-5) var(--space-2); font-size: var(--size-unit); white-space: normal; }
+  .mx-tile--steam { min-height: 0; }
+  .mx-tile--steam .mx-tile__v { margin-top: var(--space-2); }
+  .mx-a__name { font-size: var(--size-title); }
+}
+
+/* =====================================================================================================================================
+   B. HERO STAGE. The most valuable item held is the head: one skin as large as the band allows, on its grade, its name behind it in capitals
+   across the whole band, the account's name in heavy italic capitals at the left (Behance: Jetskins' showcase card; the founder's own
+   cs2-promo; CSGOLuck's welcome card).
+   ===================================================================================================================================== */
+.mx-b { --item-tier: var(--color-rarity-2); position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: end; min-height: 320px; box-sizing: border-box; padding: var(--space-6); border-radius: var(--radius-l); background: var(--gradient-stripes), linear-gradient(100deg, var(--color-card) 25%, color-mix(in srgb, var(--item-tier) 70%, var(--color-card)) 70%, color-mix(in srgb, var(--item-tier) 45%, var(--color-rarity-4))); box-shadow: var(--shadow-tile-lit), var(--shadow-card); color: var(--color-text-hi); }
+.mx-b__word { position: absolute; z-index: -1; inset: 0; overflow: hidden; display: flex; align-items: flex-end; justify-content: flex-end; padding-right: var(--space-5); border-radius: inherit; color: color-mix(in srgb, var(--color-ground) 38%, transparent); font-size: 230px; font-style: italic; font-weight: 900; letter-spacing: var(--tracking-score); line-height: .76; text-transform: uppercase; white-space: nowrap; }
+.mx-b__who { position: relative; z-index: 2; display: grid; gap: var(--space-3); }
+.mx-b__top { display: flex; align-items: center; gap: var(--space-3); }
+.mx-b__top > .avatar { width: 64px; height: 64px; }
+.mx-b__name { margin: 0; font-size: 56px; font-style: italic; font-weight: 900; letter-spacing: var(--tracking-score); line-height: .95; text-shadow: var(--shadow-figure-text); text-transform: uppercase; overflow-wrap: anywhere; }
+.mx-b__money { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); width: fit-content; margin-top: var(--space-2); padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+.mx-b__money .fig__v, .mx-c__money .fig__v { font-size: var(--size-title); font-weight: 900; }
+.mx-b__money .fig--money .fig__v, .mx-c__money .fig--money .fig__v { color: var(--color-money); }
+.mx-b__hero { position: relative; z-index: 1; align-self: stretch; min-height: 240px; margin: 0; }
+.mx-b__hex { position: absolute; left: 50%; bottom: var(--space-7); height: 170px; aspect-ratio: 136 / 118; translate: -50% 0; }
+.mx-b__hex::before, .mx-b__hex::after { content: ''; position: absolute; inset: 0; }
+.mx-b__hex::before { background: color-mix(in srgb, var(--item-tier) 30%, var(--color-card)); -webkit-mask: var(--shape-hex-fill) center / contain no-repeat; mask: var(--shape-hex-fill) center / contain no-repeat; }
+.mx-b__hex::after { background: linear-gradient(135deg, color-mix(in srgb, var(--item-tier) 62%, var(--color-text-hi)), var(--item-tier) 50%, color-mix(in srgb, var(--item-tier) 72%, var(--color-ground))); -webkit-mask: var(--shape-hex-inner) center / contain no-repeat; mask: var(--shape-hex-inner) center / contain no-repeat; }
+.mx-b__skin { position: absolute; left: -4%; top: -88px; width: 104%; rotate: -12deg; filter: var(--shadow-skin-prize); animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; }
+.mx-b__cap { position: absolute; right: 0; bottom: 0; display: flex; align-items: center; gap: var(--space-2); padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--color-veil); box-shadow: var(--shadow-edge); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; }
+.mx-b__cap .fig__v { font-size: var(--size-chip); }
+@media (max-width: 899px) {
+  .mx-b { grid-template-columns: 1fr; padding: 0 var(--space-4) var(--space-4); }
+  .mx-b__hero { order: -1; min-height: 210px; }
+  .mx-b__skin { top: -40px; left: calc(50% - 210px); width: 420px; } /* centred by left: the float animates translate */
+  .mx-b__hex { height: 120px; bottom: var(--space-6); }
+  .mx-b__word { align-items: flex-start; padding-top: var(--space-6); font-size: 120px; }
+  .mx-b__name { font-size: 34px; }
+}
+@media (max-width: 599px) {
+  .mx-b__skin { top: -24px; left: calc(50% - 150px); width: 300px; }
+  .mx-b__hero { min-height: 180px; }
+  .mx-b__hex { height: 100px; }
+  .mx-b__name { font-size: var(--size-head-l); }
+  .mx-b__cap { left: 0; right: auto; }
+  .mx-b__money { width: auto; }
+}
+
+/* =====================================================================================================================================
+   C. THE COLLECTION. The band keeps its pink, and everything held stands along its foot: every skin in a row, turned and overlapping, from
+   the most valuable down, over one bar of their value split by grade (Behance: Jetskins' wall of cases; Lumpbox's team value bar).
+   ===================================================================================================================================== */
+.mx-c { position: relative; isolation: isolate; box-sizing: border-box; padding: var(--space-5) var(--space-5) var(--space-4); border-radius: var(--radius-l); background: var(--gradient-stripes), var(--gradient-mode-cases-card); box-shadow: var(--shadow-tile-lit), var(--shadow-card); color: var(--color-text-hi); }
+.mx-c__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.mx-c__who { display: flex; align-items: center; gap: var(--space-4); min-width: 0; }
+.mx-c__who > .avatar { width: 88px; height: 88px; }
+.mx-c__name { margin: 0 0 var(--space-1-5); font-size: var(--size-head-l); font-weight: 900; line-height: 1.1; text-shadow: var(--shadow-figure-text); }
+.mx-c__money { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+.mx-c__shelf { display: flex; justify-content: center; margin: var(--space-5) 0 0; padding: 0 var(--space-5); list-style: none; }
+.mx-c__shelf li { position: relative; flex: 0 1 200px; min-width: 0; margin: 0 -16px; text-align: center; }
+.mx-c__shelf li:nth-child(1) { z-index: 6; } .mx-c__shelf li:nth-child(2) { z-index: 5; } .mx-c__shelf li:nth-child(3) { z-index: 4; }
+.mx-c__shelf li:nth-child(4) { z-index: 3; } .mx-c__shelf li:nth-child(5) { z-index: 2; } .mx-c__shelf li:nth-child(6) { z-index: 1; }
+.mx-c__shelf img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; rotate: -14deg; filter: var(--shadow-skin-drop); transition: translate .25s, rotate .25s, scale .25s; }
+.mx-c__shelf li:first-child img { scale: 1.25; }
+@media (hover: hover) { .mx-c__shelf li:hover img { translate: 0 calc(-1 * var(--space-2)); rotate: -6deg; scale: 1.15; } .mx-c__shelf li:first-child:hover img { scale: 1.35; } }
+.mx-c__v { display: inline-flex; margin-top: var(--space-1); padding: var(--space-1) var(--space-2); border-radius: var(--radius-s); background: var(--color-veil); box-shadow: inset 0 calc(-1 * var(--size-edge)) 0 var(--t); font-size: var(--size-unit); font-weight: 700; }
+.mx-c__v .fig__v { font-size: var(--size-unit); }
+.mx-c__bar { display: flex; gap: var(--size-edge); height: var(--space-2-5); margin-top: var(--space-4); overflow: hidden; border-radius: var(--radius-xs); background: var(--color-veil); }
+.mx-c__bar > span { flex: var(--v) 1 0; background: var(--t); box-shadow: var(--shadow-tile-lit); }
+.mx-c__legend { display: flex; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-2); }
+@media (max-width: 599px) {
+  .mx-c { padding: var(--space-4) var(--space-3) var(--space-3); }
+  .mx-c__who > .avatar { width: 64px; height: 64px; }
+  .mx-c__name { font-size: var(--size-title); }
+  .mx-c__money { width: 100%; box-sizing: border-box; }
+  .mx-c__shelf { justify-content: flex-start; margin-top: var(--space-4); }
+  .mx-c__shelf li { flex: 0 0 36%; margin: 0 -5%; }
+  .mx-c__shelf li:nth-child(n+5) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) { .mx-tile__obj, .mx-b__skin { animation: none; } .mx-c__shelf img { transition: none; } }
+@media (max-width: 599px) { .mx-main { padding: var(--space-5) var(--space-3) var(--space-6); } .mx-stage { padding: var(--space-5) var(--space-3) var(--space-3); } }
