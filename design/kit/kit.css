@@ -3846,17 +3846,28 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    178657043: one skin large on a slant, its name in display capitals beside it) and the founder's own cs2-promo (one real skin as the hero,
    huge type behind it). Read from the grid by items.js, so it follows a sale; with nothing readable held, or on a page with no grid, the
    operators come back. From 1200px only: under it the band has no room beside the name, and the cards carry the grade. */
+/* AFTER ITS THIRD LOOK, D-242: the founder on D-241, "what is the idea? visually nothing changed; let's make variants", chose B of three
+   (design/v4/myitems-lab.html), refined it three ways, picked B1, "breaking out", then asked for the gun smaller, the price over it and less
+   room over the band, and said "переносим B1" (carry B1 over). On My items the head takes its stage form, .account-head--stage: the band is
+   the best item's own, dark at the left and in its grade at the right; the name stands in heavy italic capitals over the money plate; the
+   skin, with no plinth, comes out over the band's top as the Home's mode objects come out of their cards, breathing as they do, a soft
+   contact shadow under it and the outcome card's foil running across its own shape every few seconds; its name in capitals behind it across
+   the band; the chip saying Highest value over it. At every width now, not only from 1200px: on a phone the skin comes first. With nothing
+   readable held the band is the Cases pink again and the operators stand where the skin stood. Replaces D-241's place, hexagon and word. */
 /* its own geometry, read inside .account-head only */
 .account-head {
   --account-head-pad: var(--space-4); /* the account menu's 12px padding stepped up a rung for a page band, as the header strip pads its row; 24px from 900px */
   --account-head-avatar: 88px; /* the picture on the account's own band, D-240: the menu's 64 (.avatar--l) a step up so it holds the band's height beside a 26px name; технічне рішення */
   --account-head-art: 240px; /* the operators' width at the band's right from 1200px, D-240: at 3:2 they stand 160px, the band's height and the rise over it; технічне рішення */
   --account-head-rise: var(--space-6); /* how far the operators stand over the band's top, into the breadcrumb's row, D-240 */
-  --account-head-show: 420px; /* the most valuable item's place at the band's right from 1200px, D-241: the operators' 240 widened so an AWP lies whole; технічне рішення */
-  --account-head-skin: 360px; /* that item's skin, D-241: the widest a gun lies inside its place with the turn; технічне рішення */
-  --account-head-tilt: -14deg; /* its turn, D-241: the Jetskins showcase lays its skin on a slant; технічне рішення */
-  --account-head-hex: 150px; /* the hexagon it stands on, D-241: the Item card's hexagon at the band's scale; технічне рішення */
-  --account-head-word: 120px; /* its name behind it, D-241: display capitals as the Jetskins showcase and the founder's cs2-promo set them, the band's height less its padding; технічне рішення */
+  /* the stage form's, D-242: each the founder's pick B1 as drawn in design/v4/myitems-lab.html, read only under .account-head--stage */
+  --account-head-skin: 92%; /* the skin's box across its cell, D-242: B1 after the founder's "пушку надо будет меньше сделать" (the gun smaller), from 112%; 380px under 900px, 260px under 600px */
+  --account-head-lift: 72px; /* how far that box stands over the band's top, D-242: B1 after the founder's "отступ можно сделать меньше" (less room over it); 48px under 900px, 30px under 600px */
+  --account-head-tilt: -12deg; /* the skin's turn, D-242: B1, the Jetskins showcase's slant (D-241's -14 eased so a long rifle stays inside its cell) */
+  --account-head-short: .62; /* a pistol's skin against a rifle's, D-242: a pistol fills its picture as a rifle does, so it is drawn at this to stand the size a pistol is; B1's switch */
+  --account-head-hero: 240px; /* the skin's cell at its least, D-242: B1; 210px under 900px, 180px under 600px */
+  --account-head-word: 230px; /* the skin's name behind it, D-242: B1's display capitals, the cs2-promo's huge type behind its one skin; 120px under 900px */
+  --account-head-title: 56px; /* the account's name on the stage, D-242: B1's heavy italic capitals over the money plate; 34px under 1200px (B1's own under 900px), --size-head-l under 600px */
 }
 .account-head { position: relative; display: grid; color: var(--color-text-hi); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
 .account-head > .crumb { margin-bottom: var(--space-3); }
@@ -3890,23 +3901,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 @media (min-width: 1200px) {
   .account-head__row { padding-right: calc(var(--account-head-art) + var(--space-4)); }
   .account-head__row::after { content: ''; position: absolute; z-index: -1; right: var(--space-3); bottom: 0; width: var(--account-head-art); height: calc(100% + var(--account-head-rise)); background: var(--art-footer-agents) center bottom / contain no-repeat; pointer-events: none; }
-  /* D-241: the most valuable item held takes the operators' place */
-  .account-head__row:has(> .account-head__show:not([hidden])) { padding-right: calc(var(--account-head-show) + var(--space-2)); }
-  .account-head__row:has(> .account-head__show:not([hidden]))::after { content: none; }
-  .account-head__show { position: absolute; z-index: 0; top: calc(-1 * var(--account-head-rise)); right: 0; bottom: 0; width: var(--account-head-show); margin: 0; pointer-events: none; }
-  .account-head__word { position: absolute; z-index: -1; top: var(--account-head-rise); right: 0; bottom: 0; left: calc(-1 * var(--account-head-show)); display: flex; align-items: flex-end; justify-content: flex-end; overflow: hidden; padding-right: var(--space-6); color: color-mix(in srgb, var(--color-ground) 34%, transparent); font-size: var(--account-head-word); font-style: italic; font-weight: 900; letter-spacing: var(--tracking-score); line-height: .8; text-transform: uppercase; white-space: nowrap; -webkit-mask: linear-gradient(90deg, transparent, #000 50%); mask: linear-gradient(90deg, transparent, #000 50%); } /* .8: the capitals sit on the band's foot, cut by it as the cs2-promo's type is; a long name fades out before the money plate so it never reads through it */
-  .account-head__show::before, .account-head__show::after { content: ''; position: absolute; left: calc(50% - var(--account-head-hex) * 68 / 118); bottom: var(--space-6); height: var(--account-head-hex); aspect-ratio: 136 / 118; }
-  .account-head__show::before { background: color-mix(in srgb, var(--item-tier) 30%, var(--color-card)); -webkit-mask: var(--shape-hex-fill) center / contain no-repeat; mask: var(--shape-hex-fill) center / contain no-repeat; } /* the Item card's hexagon (.item-card__art), darker so it reads on the pink */
-  .account-head__show::after { background: linear-gradient(135deg, color-mix(in srgb, var(--item-tier) 62%, var(--color-text-hi)), var(--item-tier) 50%, color-mix(in srgb, var(--item-tier) 72%, var(--color-ground))); -webkit-mask: var(--shape-hex-inner) center / contain no-repeat; mask: var(--shape-hex-inner) center / contain no-repeat; }
-  .account-head__skin { position: absolute; z-index: 1; top: calc(-1 * var(--space-2)); left: calc(50% - var(--account-head-skin) / 2); width: var(--account-head-skin); border-radius: 0; rotate: var(--account-head-tilt); animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; }
-  .account-head__skin > img { height: auto; filter: var(--shadow-skin-prize); }
-  .account-head__cap { position: absolute; z-index: 2; right: var(--space-4); bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2); padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--color-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; } /* the ID chip's veil, a key, a name and a value as the Steam state reads */
-  .account-head__k { color: var(--color-text-soft); font-size: var(--size-unit); letter-spacing: var(--tracking-label); text-transform: uppercase; }
-  .account-head__cap .fig__v { font-size: var(--size-chip); }
 }
-.account-head__show { display: none; } /* under 1200px the band has no room beside the name; the cards carry the grade there */
-@media (min-width: 1200px) { .account-head__show:not([hidden]) { display: block; } }
-@media (prefers-reduced-motion: reduce) { .account-head__skin { animation: none; } }
 @media (max-width: 599px) {
   .account-head__name { font-size: var(--size-title); }
   .account-head__money { width: 100%; margin-left: 0; }
@@ -3914,6 +3909,45 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   .account-head__money { padding: var(--space-3); }
   .account-head__add { flex-basis: 100%; }
 }
+
+/* THE STAGE FORM, D-242: on My items, the founder's pick B1 (design/v4/myitems-lab.html, round 2) */
+.account-head--stage .account-head__who > .avatar { width: var(--avatar-l); height: var(--avatar-l); } /* B1 keeps the menu's 64 (.avatar--l) beside the chips, the name below them */
+.account-head--stage > .account-head__row { --item-tier: var(--color-rarity-5); display: grid; grid-template: "who show" 1fr "money show" auto / minmax(0, 1fr) minmax(0, 1.1fr); align-items: end; gap: var(--space-3) 0; padding: var(--space-5) var(--space-6) var(--space-6); background: var(--gradient-stripes), linear-gradient(100deg, var(--color-card) 25%, color-mix(in srgb, var(--item-tier) 70%, var(--color-card)) 70%, color-mix(in srgb, var(--item-tier) 45%, var(--color-rarity-4))); transition: background .4s; } /* dark at the left under the name, the best item's grade at the right under it; the grade's change after a sale eases */
+.account-head--stage > .account-head__row::after { content: none; }
+.account-head--stage .account-head__who { grid-area: who; position: relative; z-index: 2; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-3); }
+.account-head--stage .account-head__name { grid-column: 1 / -1; margin: 0; overflow: visible; font-size: var(--account-head-title); font-style: italic; letter-spacing: var(--tracking-score); line-height: .95; text-transform: uppercase; white-space: normal; overflow-wrap: anywhere; }
+.account-head--stage .account-head__money { grid-area: money; position: relative; z-index: 2; width: fit-content; max-width: 100%; box-sizing: border-box; margin: var(--space-2) 0 0; }
+.account-head__word { position: absolute; z-index: -1; inset: 0; display: flex; align-items: flex-end; justify-content: flex-end; overflow: hidden; padding-right: var(--space-5); border-radius: inherit; color: color-mix(in srgb, var(--color-ground) 38%, transparent); font-size: var(--account-head-word); font-style: italic; font-weight: 900; letter-spacing: var(--tracking-score); line-height: .76; text-transform: uppercase; white-space: nowrap; pointer-events: none; } /* .76: the capitals sit on the band's foot, cut by it as the cs2-promo's type is */
+.account-head__show { grid-area: show; position: relative; z-index: 1; align-self: stretch; min-height: var(--account-head-hero); margin: 0; }
+.account-head__show[hidden] { display: none; }
+.account-head__show::before { content: ''; position: absolute; left: 12%; right: 6%; bottom: var(--space-4); height: var(--space-5); border-radius: 50%; background: color-mix(in srgb, var(--color-ground) 55%, transparent); filter: blur(var(--space-2)); } /* the contact shadow under the skin: no plinth */
+.account-head__skin { position: absolute; z-index: 1; left: 6%; top: calc(-1 * var(--account-head-lift)); width: var(--account-head-skin); aspect-ratio: 4 / 3; transform-origin: 60% 55%; animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; pointer-events: none; } /* breathing as the mode objects breathe; placed by left, since the float animates translate */
+.account-head__skin.is-short { scale: var(--account-head-short); }
+.account-head__skin > img { display: block; width: 100%; height: 100%; object-fit: contain; rotate: var(--account-head-tilt); filter: var(--shadow-skin-prize); }
+.account-head__foil { position: absolute; inset: 0; overflow: hidden; rotate: var(--account-head-tilt); -webkit-mask: var(--skin) center / contain no-repeat; mask: var(--skin) center / contain no-repeat; }
+.account-head__foil::after { content: ''; position: absolute; inset: -30%; opacity: 0; background: linear-gradient(115deg, transparent 42%, var(--color-foil) 49%, color-mix(in srgb, var(--item-tier) 55%, var(--color-text-hi)) 51%, transparent 58%); animation: outcome-foil 4.2s ease-in-out 1s infinite; } /* the outcome card's foil (.outcome__card::after), on the skin's own shape and again every 4.2s */
+.account-head__cap { position: absolute; z-index: 3; right: 0; bottom: 0; display: flex; align-items: center; gap: var(--space-2); padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--color-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; } /* over the skin, never under it: the founder, "что бы цена была сверху" (the price on top) */
+.account-head__k { color: var(--color-text-soft); font-size: var(--size-unit); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.account-head__cap .fig__v { font-size: var(--size-chip); }
+/* nothing readable held: the Cases pink again, the operators where the skin stood */
+.account-head--stage > .account-head__row:not(:has(> .account-head__show:not([hidden]))) { background: var(--gradient-stripes), var(--gradient-mode-cases-card); }
+.account-head--stage > .account-head__row:not(:has(> .account-head__show:not([hidden]))) > .account-head__word { display: none; }
+.account-head--stage > .account-head__row:not(:has(> .account-head__show:not([hidden])))::after { content: ''; grid-area: show; align-self: stretch; min-height: var(--account-head-hero); margin-bottom: calc(-1 * var(--space-6)); background: var(--art-footer-agents) right bottom / min(300px, 100%) auto no-repeat; pointer-events: none; } /* B1's 300px of operators, standing on the band's foot */
+@media (max-width: 1199px) { .account-head--stage { --account-head-title: 34px; } } /* under 1200px the name's column is too narrow for 56px capitals: NIGHTJAR_CS broke in two at 1024 */
+@media (max-width: 899px) {
+  .account-head--stage { --account-head-skin: 380px; --account-head-lift: 48px; --account-head-hero: 210px; --account-head-word: 120px; }
+  .account-head--stage > .account-head__row { grid-template: "show" auto "who" auto "money" auto / minmax(0, 1fr); padding: 0 var(--account-head-pad) var(--account-head-pad); }
+  .account-head--stage .account-head__show { align-self: auto; }
+  .account-head__skin { left: calc(50% - var(--account-head-skin) / 2); }
+  .account-head__word { align-items: flex-start; padding-top: var(--space-6); }
+  .account-head--stage > .account-head__row:not(:has(> .account-head__show:not([hidden])))::after { align-self: auto; margin-bottom: 0; background-size: min(200px, 100%) auto; }
+}
+@media (max-width: 599px) {
+  .account-head--stage { --account-head-skin: 260px; --account-head-lift: 30px; --account-head-hero: 180px; --account-head-title: var(--size-head-l); }
+  .account-head--stage .account-head__money { width: auto; } /* the plate takes the band's width on a phone, as the plain form's does */
+  .account-head__cap { left: 0; right: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .account-head__skin, .account-head__foil::after { animation: none; } }
 
 /* BOTTOM BAR. The phone's shortcut bar, a subset of the rail (CLAUDE.md "Baseline"): Home and Cases in both states, a mark over a small
    capital name, the current one white with its mark in pink. Fixed to the window's foot under 900px; from 900px the rail carries them.

@@ -7496,3 +7496,29 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **The cost.** The best item is a second showing of a card already on the grid two rows lower. The band now carries a moving object beside the money plate. On a phone the head is unchanged; the change there is the cards.
 
 **Waits for its gate.** The founder walks My items again, every state, at 1440 and 360.
+
+
+## D-242. Stage 07 step 5: My items' head takes the founder's pick B1, the best item's stage
+
+**Date.** 2026-11-21. **By.** The founder, over four looks at the head's lab (`design/v4/myitems-lab.html`). On `D-241`: "а в чем идея? добавить топ скин? но визуально ничего не изменилось ... давай делать вариантики" (what is the idea, add a top skin? visually nothing changed; let's make variants). Of three directions they chose B, the hero stage: "давай вот этот вариант доработаем" (let's refine this one). Of its three refinements B1, breaking out, then: "пушку надо будет меньше сделать и типа что бы цена была сверху" (the gun should be smaller, and the price on top), "сам блок сверху отступ можно сделать меньше" (less room over the block), and "Переносим B1" (carry B1 over).
+
+**What was carried.** On My items the Account head takes a stage form, `.account-head--stage`, as B1 was drawn in the lab:
+1. **The band is the best item's.** Dark at the left under the account's name, in the item's grade at the right (the lab's 100 degree gradient over the kit's stripes). With nothing readable held it is the Cases pink of `D-240` again, and the footer's operators, 300px, stand where the skin stood.
+2. **The name over the money.** The picture at the menu's 64px beside the ID and Steam chips, the account's name under them in 56px heavy italic capitals (34px under 1200px, `--size-head-l` under 600px), the money plate under the name.
+3. **The skin breaks out.** No plinth and no hexagon: the skin, turned 12 degrees, in a box 92% of its cell, rises 72px over the band's top, breathing as the Home's mode objects breathe, a soft contact shadow under it, and the outcome card's foil (`outcome-foil`) runs across its own shape every 4.2 seconds. A pistol is drawn at .62 of a rifle, so a Desert Eagle stands the size a pistol is. Its skin name in 230px dark capitals behind it across the band (120px under 900px).
+4. **The price over the skin.** The chip, Highest value, the gun and skin, its value, stands over the skin, never under it.
+5. **At every width.** Under 900px the skin comes first, 380px wide (260px under 600px), then the name and the money. `D-241` drew it from 1200px only.
+
+**Behaviour.** `items.js` reads the best readable item from the grid as before, and now also sets the band's grade, the skin's foil mask (an absolute URL: a `url()` in a custom property resolves where `kit.css` reads it, not where the page sets it) and the pistol's short form. Found on the way and fixed: selling everything held could print -0.00 as the value held; `f2()` now rounds as `pay.js` does and never shows a negative zero.
+
+**Words.** No new string.
+
+**What the kit gained.** No component, no root variable (540), no level moved. The Account head's `D-241` place, hexagon and word rules give way to the stage form: the modifier `--stage` and the elements `__word`, `__show`, `__skin`, `__foil`, `__cap`, `__k`. Local properties, variable, value, why: `--account-head-skin` 360px to 92% (380px, 260px), the founder's "the gun smaller"; `--account-head-tilt` -14deg to -12deg, B1's; `--account-head-word` 120px to 230px (120px under 900px), B1's; new `--account-head-lift` 72px (48px, 30px), the founder's "less room over it"; new `--account-head-short` .62; new `--account-head-hero` 240px (210px, 180px); new `--account-head-title` 56px (34px, `--size-head-l`). `--account-head-show` and `--account-head-hex` are gone with what read them. The showcase's first Account head instance takes the stage form.
+
+**Measured.** In `DESIGN-artifacts.md` section 29 and the step's report: every page in colour at 1440 and 360 without horizontal scroll, My items walked in a browser, 53 checks.
+
+**Rejected.** B2, the showcase card (a panel inside a band, the name twice) and B3, the spotlight (a lighting device nothing else uses, the kind that read as AI in round v2). The 56px name between 900 and 1199px: at 1024 NIGHTJAR_CS broke in two.
+
+**The cost.** The head is taller on a phone, about 465px with the skin first, so the inventory starts lower. The band's colour now changes from account to account and after a sale. The skin rises 72px into the breadcrumb's row on the right. `D-241`'s rejection of a skin at 360 is reversed by the founder's pick: in B1 the skin at 360 is the head's own first block, not a small gun beside the crumbs.
+
+**Waits for its gate.** The founder walks My items again, every state, at 1440 and 360.

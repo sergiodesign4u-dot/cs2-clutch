@@ -18,7 +18,7 @@
     { name: 'Litecoin', tick: 'LTC', chain: 'Litecoin', fee: 0.05, rate: 84.20, dp: 6, min: 2, re: /^(ltc1[0-9a-z]{25,60}|[LM][1-9A-HJ-NP-Za-km-z]{26,33})$/, saved: '' },
     { name: 'Tether', tick: 'USDT', chain: 'Tron (TRC-20)', fee: 1.00, rate: 1, dp: 2, min: 5, re: /^T[1-9A-HJ-NP-Za-km-z]{33}$/, saved: '' }
   ];
-  function f2(n) { return n.toFixed(2); }
+  function f2(n) { return (Math.round(n * 100) / 100 || 0).toFixed(2); } /* rounded as pay.js rounds, and never -0.00: selling everything held left a float's -0.00 on the head, found at D-242 */
   function sp(s) { return s.replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
   function an(n) { return /^[AEIOU]/.test(n) ? 'an ' : 'a '; }
   function picks() { return [].slice.call(list.querySelectorAll('.item-card__top input[type="checkbox"]')).filter(function (i) { return !i.disabled; }); }
@@ -57,16 +57,20 @@
   }
 
   /* the most valuable item held on the account head's band (D-241): read from the grid, so it follows a sale; none readable, it hides and
-     the operators return */
-  var sh = d.querySelector('[data-show]');
+     the operators return. Since D-242 (the stage form, the founder's B1) the band itself takes its grade, its name stands behind it across the
+     band, its foil follows its shape, and a pistol is drawn short (kit.css --account-head-short) */
+  var sh = d.querySelector('[data-show]'), band = sh && sh.parentNode, shSkin = sh && sh.querySelector('[data-show-skin]'),
+      PISTOL = /^(Glock-18|USP-S|P2000|P250|Five-SeveN|Tec-9|CZ75-Auto|Desert Eagle|Dual Berettas|R8 Revolver)$/;
   function show() {
     if (!sh) return;
     var best = picks().filter(function (i) { return !blind(cardOf(i)); }).sort(function (a, b) { return val(b) - val(a); })[0];
     sh.hidden = !best; if (!best) return;
-    var c = cardOf(best), img = c.querySelector('.item-card__art img'), w = c.querySelector('.item-card__w').textContent, s = c.querySelector('.item-card__s').textContent;
-    sh.style.setProperty('--item-tier', c.style.getPropertyValue('--item-tier'));
-    sh.querySelector('[data-show-img]').setAttribute('src', img.getAttribute('src'));
-    sh.querySelector('[data-show-word]').textContent = s;
+    var c = cardOf(best), img = c.querySelector('.item-card__art img'), w = c.querySelector('.item-card__w').textContent, s = c.querySelector('.item-card__s').textContent,
+        src = img.getAttribute('src');
+    band.style.setProperty('--item-tier', c.style.getPropertyValue('--item-tier'));
+    sh.querySelector('[data-show-img]').setAttribute('src', src);
+    if (shSkin) { shSkin.style.setProperty('--skin', 'url("' + img.src + '")'); /* absolute: a url() in a custom property resolves where kit.css reads it */ shSkin.classList.toggle('is-short', PISTOL.test(w)); }
+    band.querySelector('[data-show-word]').textContent = s;
     sh.querySelector('[data-show-name]').textContent = w + ' ' + s;
     sh.querySelector('[data-show-v]').textContent = f2(val(best));
   }

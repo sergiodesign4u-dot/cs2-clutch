@@ -971,3 +971,16 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Contrast.** The chip's key, `--color-text-soft` 11px heavy capitals, on the veil over the band's lightest pixel `#E21C6B`, composited `#360C2A`: 10.8:1; its value in the coin's gold `#FFC44D` on the same: over 10:1. The capitals behind the item are decoration, `aria-hidden`, and carry no text a person must read.
 
 **Images.** None added. The item's picture is the card's own skin render (`design/concept/assets/skins/`).
+
+
+## 29. Stage 07 step 5, My items' head after the founder's pick B1, `D-242`
+
+**Variables added to `:root`.** None: the root holds 540. The stage reads values already in the kit: the stripes (`--gradient-stripes`), the card (`--color-card`), the grades (`--color-rarity-1..7` through `--item-tier`), the Cases band (`--gradient-mode-cases-card`), the operators (`--art-footer-agents`), the prize skin's shadow (`--shadow-skin-prize`), the mode objects' breath (`--motion-mode-float`, `mode-card-float`), the outcome card's foil (`--color-foil`, `outcome-foil`), the veil and its edge.
+
+**Local properties, variable, value, why.** All under `.account-head`, read by `.account-head--stage` only, each the founder's pick B1 as drawn in `design/v4/myitems-lab.html`. `--account-head-skin` 360px to 92% of its cell, 380px under 900px, 260px under 600px: the founder, "the gun smaller". `--account-head-lift` 72px, 48px, 30px, new: how far the skin's box rises over the band's top, the founder, "less room over the block". `--account-head-tilt` -14deg to -12deg: B1's slant. `--account-head-short` .62, new: a pistol against a rifle, B1's switch. `--account-head-hero` 240px, 210px, 180px, new: the skin's cell at its least. `--account-head-word` 120px to 230px, 120px under 900px: B1's capitals. `--account-head-title` 56px, 34px under 1200px, `--size-head-l` under 600px, new: the name on the stage; 34px from 900 to 1199px because at 1024 the 56px name broke in two, technical. Removed with what read them: `--account-head-show`, `--account-head-hex`.
+
+**Values in a rule.** The stage's band, `linear-gradient(100deg, --color-card 25%, the grade 70% into the card at 70%, the grade 45% into rarity 4)`, the lab's own. The operators in the empty stage at 300px (200px under 900px), the lab's own.
+
+**Contrast.** The account's name, white, over the lightest pixel under it with its text and shadow hidden: 10.2:1 at 1440 and 5.9:1 at 360 on the held page, 9.5:1 and 5.2:1 on the degraded page (large text, 3:1 required). The chip's key on its veil at 360: 12.0:1. The capitals behind the skin are decoration, `aria-hidden`.
+
+**Images.** None added.
