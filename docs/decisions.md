@@ -7522,3 +7522,25 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **The cost.** The head is taller on a phone, about 465px with the skin first, so the inventory starts lower. The band's colour now changes from account to account and after a sale. The skin rises 72px into the breadcrumb's row on the right. `D-241`'s rejection of a skin at 360 is reversed by the founder's pick: in B1 the skin at 360 is the head's own first block, not a small gun beside the crumbs.
 
 **Waits for its gate.** The founder walks My items again, every state, at 1440 and 360.
+
+
+## D-243. Stage 07 step 5: My items' smaller acts, the Steam state on one line, Share this round as a link, the sort small
+
+**Date.** 2026-11-21. **By.** The founder, looking at My items after `D-242`: "что мне еще не нравится: огромная кнопка settings, а тут share this round, и то что оно с чекбоксом не выровнено, как-то странно выглядит, и не сильно ли много занимает место под сортировку, огромные такие кнопки" (what else I do not like: a huge Settings button; and here Share this round, not aligned with the checkbox, looks odd; and does the sort not take too much room, such huge buttons).
+
+**What changed.**
+1. **The Steam state on one line.** The card at the inventory head's end drops to the small button's height, 44px in all: the Steam mark on a 32px round (`--size-button-s`, its glyph at `--size-text`), "Steam connected" with its live dot and Settings side by side, Settings a Text link at a chip's size (`--size-chip`, was `--size-text`). Was 58px tall, Settings at 16px under the state.
+2. **Share this round is a Text link.** On the Item card it was a small ghost button with a pink outline beside the tick, top aligned, so the 32px button and the 20px tick sat on different centres. It is now a Text link with its arrow (`link link--arrow`, the pink at the kit's link size), on one centred line with the tick; it still shows with the acts, on hover, focus or a tick (`D-128`). The card's one outlined act is Sell for coins again.
+3. **The sort is small.** The Segmented control gains a small form, `.seg--s`: the small button's height (32px, was 44px), its side padding and its label (`--size-chip` in capitals, was 15px), its press area kept at 44px. The Item grid's sort uses it; the count switch beside Open keeps the large form.
+
+**Words.** No new string.
+
+**What the kit gained.** No component, no root variable (540), no level moved. The Segmented control gains the modifier `--s`; the Item card gains the element `__share`; the Steam state's own rules change in place.
+
+**Contrast.** Over the lightest pixel under each label with its text hidden: Share this round, the pink on the card's veil, 5.7:1; Settings on Steam's blue, 14.4:1; a sort key unpressed, 16.9:1, pressed on the pink stripes, 4.5:1.
+
+**Rejected.** Share as an icon button: the kit holds no share glyph, and the string names the round (microcopy 5.1-12). The sort as plain text tabs: the control would stop reading as a choice with one chosen.
+
+**The cost.** The share is quieter than it was, pink text rather than an outlined button.
+
+**Waits for its gate.** With `D-242`, the founder walks My items again.

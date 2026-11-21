@@ -2412,6 +2412,10 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .seg__opt { display: inline-grid; place-items: center; min-width: var(--size-tap); min-height: var(--size-tap); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-button); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-family: inherit; font-size: var(--size-s); font-weight: 900; font-variant-numeric: tabular-nums; cursor: pointer; }
 .seg__opt[aria-pressed="true"] { background: var(--gradient-button-stripes), var(--color-button); box-shadow: var(--shadow-button); }
 .seg__opt:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+/* modifier needed by .item-grid, D-243: the founder at My items, "огромные такие кнопки" (such huge buttons) on the sort. The sort is a quiet
+   key beside a list, not the count switch beside Open: the small button's height and label (.button--s), its press area kept at 44px */
+.seg--s .seg__opt { position: relative; min-height: var(--size-button-s); padding: 0 var(--size-button-s-pad); font-size: var(--size-chip); letter-spacing: var(--tracking-link); text-transform: uppercase; }
+.seg--s .seg__opt::after { content: ''; position: absolute; inset: calc((var(--size-button-s) - var(--size-tap)) / 2) 0; } /* nothing is drawn, as .button--s */
 
 /* KEY-VALUE LINE. A key in small caps and its value; the facts of a drop row (Chance, Tickets), a total, a record. From case-blocks.css. */
 .kv { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); font-size: var(--size-chip); }
@@ -3388,8 +3392,8 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .item-card::after { content: ''; position: absolute; left: 50%; bottom: 0; width: var(--size-tap); height: calc(var(--size-edge) + var(--size-hairline)); translate: -50% 0; border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--item-tier); box-shadow: 0 0 var(--space-3) var(--size-hairline) var(--item-tier); }
 @media (hover: hover) { .item-card:hover { translate: 0 calc(-1 * (var(--size-edge) + var(--size-hairline))); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--item-tier) 55%, transparent), var(--shadow-card); } }
 .item-card:has(.item-card__top input:checked) { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink), var(--shadow-card); } /* selected: the pressed edge of .fav */
-.item-card__top { position: relative; z-index: 3; display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-2); min-height: var(--size-button-s); }
-.item-card__top > .button { visibility: hidden; } /* Share this round shows with the acts, D-128 */
+.item-card__top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); min-height: var(--size-button-s); } /* centred on one line, D-243: the founder, the tick and the share "не выровнено, странно выглядит" (not aligned, looks odd) */
+.item-card__share { display: inline-flex; align-items: center; min-height: var(--size-button-s); visibility: hidden; } /* Share this round shows with the acts, D-128; since D-243 a Text link with its arrow, not a ghost button beside the tick, so the card's one outlined act stays Sell */
 .item-card__band { display: block; margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-3)) var(--space-1); padding: var(--space-2) var(--space-3); border-bottom: var(--size-hairline) solid var(--color-line-soft); color: var(--color-text-muted); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.4; min-height: 2.8em; text-transform: uppercase; } /* two lines kept on every band, so a wrapped one and a short one sit alike (the grey's rule) */
 .item-card.is-sending .item-card__band { color: var(--color-pink); }
 .item-card.is-sold .item-card__band, .item-card.is-gone .item-card__band { color: var(--color-text-hi); border-bottom-color: var(--color-line); }
@@ -3414,9 +3418,9 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .item-card__acts > .button { width: 100%; padding-inline: var(--space-1); }
 .item-card__acts > .note { text-align: center; }
 .item-card:focus-within .item-card__acts, .item-card:has(.item-card__top input:checked) .item-card__acts,
-.item-card:focus-within .item-card__top > .button, .item-card:has(.item-card__top input:checked) .item-card__top > .button,
+.item-card:focus-within .item-card__share, .item-card:has(.item-card__top input:checked) .item-card__share,
 .item-card:focus-within .item-card__out, .item-card:has(.item-card__top input:checked) .item-card__out { visibility: visible; }
-@media (hover: hover) { .item-card:hover .item-card__acts, .item-card:hover .item-card__top > .button, .item-card:hover .item-card__out { visibility: visible; } }
+@media (hover: hover) { .item-card:hover .item-card__acts, .item-card:hover .item-card__share, .item-card:hover .item-card__out { visibility: visible; } }
 @media (prefers-reduced-motion: reduce) { .item-card, .item-card__art > .media > img { transition: none; } .item-card:hover { translate: none; } }
 
 /* MODE CARD. One way to play on Home: its colour, its art breaking the card's top edge, the name, one line, and the act across the foot. Live,
@@ -5653,18 +5657,20 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    link and the hint on one line with dots: Steam's own dark blue (--gradient-steam, the sign in block's Steam note), its mark on a dark
    round, "Steam connected" in the gain's green with a live dot breathing as the drops ticker's does, and the way to Settings under it.
    Contains Section head, Badge, Link. */
+/* D-243: the founder, "огромная кнопка settings" (a huge Settings button). The card goes to one line, the small button's height: the mark at
+   32px, the state and the way to Settings side by side, Settings a Text link at a chip's size. */
 .sec-head__title > .badge { align-self: center; height: var(--space-5); padding: 0 var(--space-2); font-size: var(--size-chip); } /* the count of a section's things beside its title */
 .steam-state {
   --steam-state-pulse: 1.6s; /* the live dot's halo loop, the drops ticker's --ticker-pulse; рішення користувача, D-209 (v4) carried by D-240 */
 }
-.steam-state { display: inline-flex; align-items: center; gap: var(--space-3); width: fit-content; box-sizing: border-box; margin-top: var(--space-3); padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2); border-radius: var(--radius-card); background: var(--gradient-steam); box-shadow: var(--shadow-edge), var(--shadow-tile-lit); }
-.steam-state__mark { display: grid; flex: none; place-items: center; width: var(--size-tile); height: var(--size-tile); border-radius: 50%; background: var(--color-veil); color: var(--color-text-hi); }
-.steam-state__mark > .icon { font-size: var(--size-tile-icon); }
-.steam-state__t { display: grid; gap: var(--space-1); }
+.steam-state { display: inline-flex; align-items: center; gap: var(--space-3); width: fit-content; box-sizing: border-box; margin-top: var(--space-3); padding: var(--space-1-5) var(--space-4) var(--space-1-5) var(--space-1-5); border-radius: var(--radius-card); background: var(--gradient-steam); box-shadow: var(--shadow-edge), var(--shadow-tile-lit); }
+.steam-state__mark { display: grid; flex: none; place-items: center; width: var(--size-button-s); height: var(--size-button-s); border-radius: 50%; background: var(--color-veil); color: var(--color-text-hi); }
+.steam-state__mark > .icon { font-size: var(--size-text); }
+.steam-state__t { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-4); }
 .steam-state__on { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-green); font-size: var(--size-chip); font-weight: 900; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
 .steam-state__on::before { content: ''; flex: none; width: var(--space-2); height: var(--space-2); border-radius: 50%; background: var(--color-green); }
 .steam-state__on::after { content: ''; position: absolute; z-index: -1; left: 0; top: 50%; width: var(--space-2); height: var(--space-2); margin-top: calc(var(--space-2) / -2); border-radius: 50%; background: color-mix(in srgb, var(--color-green) 60%, transparent); animation: ticker-live var(--steam-state-pulse) ease-out infinite; pointer-events: none; } /* the drops ticker's live dot, .ticker__lbl::after, in the gain's green */
-.steam-state .link { color: var(--color-text-hi); font-size: var(--size-text); }
+.steam-state .link { color: var(--color-text-hi); font-size: var(--size-chip); }
 @media (min-width: 900px) {
   .sec-head:has(> .steam-state) { grid-template-columns: auto minmax(var(--sec-head-line), 1fr) auto; }
   .sec-head > .steam-state { grid-area: 1 / 3; margin-top: 0; }

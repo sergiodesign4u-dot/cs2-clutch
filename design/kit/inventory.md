@@ -39,7 +39,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 | Prose | 1 | one form | 8: 1.0, 1.1, 3.1, 3.2, 3.3, 3.5, 3.6, 3.7 | one state; on 22 pages | no | nothing from the kit | `wf-prose` |
 | Radio (form control) | 1 | see the control census | 4: 4.1, 4.3, 4.5, 5.3 | one state; on 5 pages | no | nothing from the kit | `input[radio]` |
 | Range (form control) | 1 | see the control census | 2: 3.1, 5.3 | one state; on 3 pages | no | nothing from the kit | `input[range]` |
-| Segmented control | 1 | the count switch 1 to 5, the sort keys | 2: 3.3, 5.1 | one chosen; on 5 pages | no | nothing from the kit | `wf-count-b`, `wf-sortk` |
+| Segmented control | 1 | the count switch 1 to 5, the sort keys; small (the sort, D-243) | 2: 3.3, 5.1 | one chosen; on 5 pages | no | nothing from the kit | `wf-count-b`, `wf-sortk` |
 | Select (form control) | 1 | see the control census; in colour the kit draws a short list as Popover menu --select, D-238 | 10: 0.10, 3.1, 4.1, 4.3, 4.5, 5.1, 5.3, 5.11, 6.1, 6.3 | chosen value; on 24 pages | no | nothing from the kit | `select` |
 | Status steps | 1 | one form | 6: 4.4, 5.3, 5.5, 5.6, 5.7, 5.8 | one state; on 6 pages | no | nothing from the kit | `wf-clock-list` |
 | Switch (form control) | 1 | see the control census | 1: 5.11 | one state; on 4 pages | no | nothing from the kit | `input[switch]` |
@@ -156,7 +156,7 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 | This deposit | 4.4 | `wf-total` | the record of a payment on its way, Key-value lines on the dock's plate; `.record`, kit.css 4.4, D-237 |
 | Cash out form | 5.1 | `wf-co-lay` | inside the cash out dialog; what goes out on the dock's plate, `.cashout`, kit.css 4.4, D-239 |
 | Selection bar | 5.1 | `wf-invbar` | counts what is ticked, four acts; sticky on the account head's plate, `.selbar`, kit.css 4.4, D-239; no edge while something is ticked, its sum lit, D-240 |
-| Steam state | 5.1 | none, the grey's sub line `Steam connected · Settings` | the Steam account's state at the inventory head's end, Steam's dark blue, a live green dot, the way to Settings; `.steam-state`, kit.css 4.4, D-240 |
+| Steam state | 5.1 | none, the grey's sub line `Steam connected · Settings` | the Steam account's state at the inventory head's end, Steam's dark blue, a live green dot, the way to Settings; `.steam-state`, kit.css 4.4, D-240; on one 44px line, Settings at a chip's size, D-243 |
 | Offer list | 5.3 | `wf-offs` | Steam offers to pick from, with filters |
 | Selected skin | 5.3 | `wf-selskin` |   |
 | History filters | 5.9 | `wf-hfilters` |   |

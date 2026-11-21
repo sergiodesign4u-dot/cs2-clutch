@@ -984,3 +984,14 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Contrast.** The account's name, white, over the lightest pixel under it with its text and shadow hidden: 10.2:1 at 1440 and 5.9:1 at 360 on the held page, 9.5:1 and 5.2:1 on the degraded page (large text, 3:1 required). The chip's key on its veil at 360: 12.0:1. The capitals behind the skin are decoration, `aria-hidden`.
 
 **Images.** None added.
+
+
+## 30. Stage 07 step 5, My items' smaller acts, `D-243`
+
+**Variables added to `:root`.** None: the root holds 540. Every value is the kit's own: the small button's height (`--size-button-s`), side padding (`--size-button-s-pad`) and label (`--size-chip`), the press area (`--size-tap`), `--size-text` for the Steam glyph, `--space-1-5` for the Steam card's padding.
+
+**Values changed in a rule, variable, value, why.** The founder: "a huge Settings button", "such huge buttons". `.steam-state__mark` from `--size-tile` 42px to `--size-button-s` 32px, its glyph from `--size-tile-icon` 22px to `--size-text` 16px; `.steam-state` padding from `--space-2` to `--space-1-5`; `.steam-state .link` from `--size-text` 16px to `--size-chip` 12px; the state and the link side by side. `.seg--s .seg__opt`, new: `--size-button-s` high (the large form 44px), `--size-chip` in capitals (the large form `--size-s` 15px). `.item-card__share`, new: the Text link with its arrow; `.item-card__top` centred (was top aligned), the founder: "not aligned with the checkbox".
+
+**Contrast.** Share this round 5.7:1, Settings 14.4:1, a sort key 16.9:1 unpressed and 4.5:1 pressed, each over the lightest pixel under it.
+
+**Images.** None added.
