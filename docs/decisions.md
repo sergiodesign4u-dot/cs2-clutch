@@ -7544,3 +7544,22 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **The cost.** The share is quieter than it was, pink text rather than an outlined button.
 
 **Waits for its gate.** With `D-242`, the founder walks My items again.
+
+
+## D-244. Stage 07 step 5: Share this round on an item card is the share glyph alone
+
+**Date.** 2026-11-21. **By.** The founder, on `D-243`'s Text link beside the tick: "давай тут просто иконку share поставим" (let's just put a share icon here).
+
+**What changed.** On the Item card, Share this round is the share glyph alone: a 32px box (`--size-button-s`) at the top right, the glyph at the tick's size (`--size-check`, 20px), its edge on the card's padding as the tick's is (12px each side), its centre on the tick's line (0px apart). The colours are the icon button's: `--color-text-soft` at rest, `--color-text-hi` on the tile (`--color-tile`) under the pointer; a focus ring as the tick's. Its press area stays 44px. It still shows with the acts, on hover, focus or a tick (`D-128`). The words stay its name, `aria-label` and `title`, so a screen reader and a pointer's tooltip both say "Share this round".
+
+**Words.** No new string. Microcopy 5.1-12 keeps "Share this round" as the glyph's name, no longer printed.
+
+**What the kit gained.** One root variable, `--icon-share` (541): solar:share-bold, the set every glyph comes from since `D-193` and `D-227`, and its class `.icon--share`. No component, no level moved; the Item card's `__share` element changes in place.
+
+**Contrast.** The glyph is a non-text mark (3:1 required): 12.4:1 over the lightest pixel under it on the card's veil, measured on three cards.
+
+**Reversed.** `D-243` rejected an icon button because the kit held no share glyph; the founder's pick adds one.
+
+**The cost.** The act is no longer read without hovering it or a screen reader: a person who does not know the glyph sees no words. The glyph is the one every platform uses for sharing.
+
+**Waits for its gate.** With `D-242` and `D-243`, the founder walks My items again.

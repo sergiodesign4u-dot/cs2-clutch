@@ -989,7 +989,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.1-9 | main | Highest value | button | page | account-degraded, account |  | kept |
 | 5.1-10 | main | Some current values cannot be read right now. The items themselves are unaffected and nothing you hold has been lost. | text | page | account-degraded |  | Some values cannot be read right now, and that is on us. Your items are all here and nothing is lost. (Principle 5 and the T8 addition: what happened, whose side the fault is on, and that nothing is lost) |
 | 5.1-11 | main | Select {d} {d} | field label | page | account-degraded, account |  | kept |
-| 5.1-12 | main | Share | button (link) | page | account-degraded, account |  | Share this round (A line that shares a result names the round, Emotional Job 2) |
+| 5.1-12 | main | Share | button (link) | page | account-degraded, account |  | Share this round (A line that shares a result names the round, Emotional Job 2; since D-244 the share glyph's accessible name and tooltip, not printed) |
 | 5.1-13 | main | Sell for coins | button | page | account-degraded, account | S1 | kept |
 | 5.1-14 | main | Send to Steam | button (link) | `WF_STR.sendToSteam`, page | 15 pages, 5 screens | C1 | kept |
 | 5.1-15 | main | Exchange | button | page | account-degraded, account |  | kept |

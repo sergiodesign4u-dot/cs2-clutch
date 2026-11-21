@@ -995,3 +995,14 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Contrast.** Share this round 5.7:1, Settings 14.4:1, a sort key 16.9:1 unpressed and 4.5:1 pressed, each over the lightest pixel under it.
 
 **Images.** None added.
+
+
+## 31. Stage 07 step 5, Share this round as a glyph, `D-244`
+
+**Variables added to `:root`.** One, the root now holds 541: `--icon-share`, solar:share-bold, the glyph set of `D-193` and `D-227`; рішення користувача, the founder: "just put a share icon here".
+
+**Values changed in a rule, variable, value, why.** `.item-card__share` from the Text link of `D-243` to a box of `--size-button-s` (32px) with the glyph at `--size-check` (20px), the tick's size so the two marks read as one size; `margin-right` of half their difference so the glyph's edge stands on the card's padding as the tick's does; `--radius-s`; `--color-text-soft` at rest and `--color-tile` under `--color-text-hi` on hover, the icon button's (`.button--icon`) own; a focus ring as the tick's; a 44px press area (`--size-tap`).
+
+**Contrast.** The glyph, a non-text mark, 12.4:1 over the lightest pixel under it on the card's veil (3:1 required).
+
+**Images.** None added.
