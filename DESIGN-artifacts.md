@@ -1006,3 +1006,14 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Contrast.** The glyph, a non-text mark, 12.4:1 over the lightest pixel under it on the card's veil (3:1 required).
 
 **Images.** None added.
+
+
+## 32. Stage 07 step 5, Provably fair in colour, `D-245`
+
+**Variables added to `:root`.** None: the root holds 541. Every value is the kit's own: the provably fair blue and its drop (`--gradient-fair`, `--shadow-fair`) under the buttons' stripes (`--gradient-button-stripes`) and the lit top edge (`--shadow-tile-lit`), the Proof block's plate; its hash well (`--color-hash-well`, `--shadow-edge-lit`); the screen title (`--size-xl`, 26px `--size-head-l` under 600px); the lead (`--size-lead`); the card (`--color-card`, `--shadow-edge`); How this case works' plate (`--color-mode-light` over `--color-card`); the mono face (`--font-mono`); the spacing ladder.
+
+**Values in a rule, why.** `.fair-head .crumb a` and `.fair-head__sub` take `--color-text-hi`: on the blue's lightest stripe the crumb's `--color-text-soft` measured 3.4:1 and `--color-text-lead` 4.3:1. `.fair-check` columns 3fr and 2fr: the form wider than what it is made of. The page's blocks 48px apart (`--space-6` plus `--space-4`), as the case screen's pays block.
+
+**Contrast.** Over the lightest pixel under each text: crumb 4.9:1, lead 5.0:1, H1 5.0:1, the made-of head 5.0:1 on the blue; keys 10.5:1 and list 10.8:1 in the well; the mismatch line 12.0:1; the code chips 14.0:1; a refusal 7.9:1; the Read the algorithm button 4.9:1.
+
+**Images.** None added.

@@ -29,6 +29,17 @@ window.DESIGN_NAV = {
         { node: '1.0', label: 'Guest',     file: 'index.html',         grey: 'index.html' },
         { node: '1.1', label: 'Signed in', file: 'index.html?account', grey: 'index-account.html' }
       ] },
+    { node: '1.2', name: 'Provably fair', page: 'design/fair.html',
+      about: 'The public page that says what a proof proves and what it does not, then lets anyone recompute a round, in colour since D-245, assembled from the kit: the Verify form in its six states, the case screen ruler in How a round is fixed, and four one-off blocks of 1.2 on the provably fair blue of the Proof block, played by design/kit/fair.js. No verified mark in any state. Waits for its gate.',
+      labsOf: [],
+      states: [
+        { node: '1.2', label: 'The verifier idle',            file: 'fair.html',             grey: 'fair.html' },
+        { node: '1.2', label: 'Prefilled, nothing computed',  file: 'fair-prefilled.html',   grey: 'fair-prefilled.html' },
+        { node: '1.2', label: 'Checked and matched',          file: 'fair-matched.html',     grey: 'fair-matched.html' },
+        { node: '1.2', label: 'Proof not available yet',      file: 'fair-unavailable.html', grey: 'fair-unavailable.html' },
+        { node: '1.3', label: 'Malformed round',              file: 'fair-malformed.html',   grey: 'fair-malformed.html' },
+        { node: '1.4', label: 'Our own proof failed',         file: 'fair-proof-failed.html', grey: 'fair-proof-failed.html' }
+      ] },
     { node: '3.3', name: 'Case screen', page: 'design/case.html',
       about: 'The case, the open and the outcome on one page, assembled from the kit since D-236: the shell, the Case stage and the Commit block played by design/kit/stage.js, the kit\'s drop table and best drops, and the case\'s four one-off blocks, compared beside the case screen v4, the founder\'s picks of D-213 and D-214, its motion carried whole. Press Open signed in; ?land= decides what lands. The three states D-215 owed are pages of their own. Passed its gate on 20 Nov 2026.',
       labsOf: ['design/v4/case.html', 'design/v4/open-lab.html', 'design/v4/win-lab.html'],
@@ -60,7 +71,7 @@ window.DESIGN_NAV = {
         { node: '4.5', label: 'Payment declined',                 file: 'deposit-declined.html',        grey: 'deposit-declined.html' }
       ] },
     { node: '5.1', name: 'My items', page: 'design/account.html',
-      about: 'The inventory in colour since D-239, its head and the inventory head made live after the gate by D-240, its best item on the band and every card in its grade by D-241, its head a stage for the best item by D-242 (B1, picked by the founder in the lab), assembled from the kit: the Account head, the Item grid and its cards, the Empty state and the cash out Dialog, the Selection bar a one-off of 5.1, played by design/kit/items.js. Tick items and the bar counts and sums them; sell, send to Steam or cash out; the sort keys reorder the grid. Drawn only in grey before, so built from its nearest relatives in colour.',
+      about: 'The inventory in colour since D-239, its head and the inventory head made live after the gate by D-240, its best item on the band and every card in its grade by D-241, its head a stage for the best item by D-242 (B1, picked by the founder in the lab), assembled from the kit: the Account head, the Item grid and its cards, the Empty state and the cash out Dialog, the Selection bar a one-off of 5.1, played by design/kit/items.js. Tick items and the bar counts and sums them; sell, send to Steam or cash out; the sort keys reorder the grid. Drawn only in grey before, so built from its nearest relatives in colour. Accepted at its gate, 21 Nov 2026.',
       labsOf: ['design/v4/myitems-lab.html'],
       states: [
         { node: '5.1', label: 'Items held',              file: 'account.html',          grey: 'account.html' },

@@ -330,13 +330,13 @@
       ? '<p class="commit__inst">As of ' + when() + ' · Float <b>' + rs[0].float + '</b> · Pattern <b>' + rs[0].pattern + '</b> · <a class="link" href="steam://rungame/730">Inspect in game</a></p>' +
         '<p class="commit__inst">Value <b>' + rs[0].v.toFixed(2) + '</b> coins · a copy on sale <b>' + rs[0].copy.toFixed(2) + '</b> coins, read ' + when() + '</p>'
       : '<details class="commit__rounds"><summary>Round details, ' + n + ' rounds</summary><p>Every round, in the order of the row above, which is the order of the reels.</p><ol>' +
-        rs.map(function (x) { return '<li>' + esc(x.w + ' ' + x.s) + ' · Float <b>' + x.float + '</b> · Pattern <b>' + x.pattern + '</b> · <a class="link" href="../wireframes/fair-prefilled.html' + round(x) + '">Check this round</a> · <a class="link" href="steam://rungame/730">Inspect in game</a></li>'; }).join('') + '</ol></details>';
+        rs.map(function (x) { return '<li>' + esc(x.w + ' ' + x.s) + ' · Float <b>' + x.float + '</b> · Pattern <b>' + x.pattern + '</b> · <a class="link" href="fair-prefilled.html' + round(x) + '">Check this round</a> · <a class="link" href="steam://rungame/730">Inspect in game</a></li>'; }).join('') + '</ol></details>';
     commit.setAttribute('data-state', 'outcome'); commit.setAttribute('aria-label', 'What you got');
     commit.innerHTML = '<div class="fig fig--money fig--l commit__net">' + (net > 0 ? '<span class="fig__v">+<span class="icon icon--coin" aria-hidden="true"></span>' + net.toFixed(2) + '<span class="commit__sr"> coins</span></span>' : '') +
       '<span class="fig__c">Spent ' + coins(spent) + ' · items worth ' + coins(got) + '</span></div>' + facts +
       '<div class="commit__acts"><button class="button button--primary button--l button--priced commit__wide" type="button" data-sell></button><button class="button button--ghost button--l commit__wide" type="button" data-again>Open again</button></div>' +
-      '<p class="commit__saved">' + (n > 1 ? 'All ' + n + ' saved' : 'Saved') + ' to <a class="link" href="../wireframes/account.html">My items</a>, where ' + (n > 1 ? 'they' : 'it') + ' can be sent to Steam. <strong>Selling cannot be undone.</strong></p>' +
-      '<p class="commit__links"><a class="link link--arrow" href="../wireframes/' + (n > 1 ? 'fair.html#check' : 'fair-prefilled.html' + round(rs[0])) + '">' + (n > 1 ? 'Check each of the ' + n + ' rounds' : 'Check this round') + '</a>' +
+      '<p class="commit__saved">' + (n > 1 ? 'All ' + n + ' saved' : 'Saved') + ' to <a class="link" href="account.html">My items</a>, where ' + (n > 1 ? 'they' : 'it') + ' can be sent to Steam. <strong>Selling cannot be undone.</strong></p>' +
+      '<p class="commit__links"><a class="link link--arrow" href="' + (n > 1 ? 'fair.html#check' : 'fair-prefilled.html' + round(rs[0])) + '">' + (n > 1 ? 'Check each of the ' + n + ' rounds' : 'Check this round') + '</a>' +
       '<a class="link link--arrow" href="../wireframes/result.html' + round(best) + '">' + (n > 1 ? 'Share a round' : 'Share this round') + '</a>' +
       '<a class="link link--arrow" href="https://steamcommunity.com/market/" rel="external nofollow">See it on the Steam Market</a></p>';
     busy = false; wire();

@@ -7563,3 +7563,29 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **The cost.** The act is no longer read without hovering it or a screen reader: a person who does not know the glyph sees no words. The glyph is the one every platform uses for sharing.
 
 **Waits for its gate.** With `D-242` and `D-243`, the founder walks My items again.
+
+
+## D-245. Stage 07 step 5: Provably fair in colour, assembled from the kit
+
+**Date:** 2026-11-21. **Stage:** 07. **Decided by:** the founder, accepting My items at its gate after `D-242` to `D-244`: "да отлично давай след страницу" (yes, great, on to the next page). Provably fair is the next screen of `D-234`'s order.
+
+**What was built.**
+1. **Six coloured copies of node 1.2's grey pages under their own names**: `design/fair.html` (the verifier idle), `fair-prefilled.html`, `fair-matched.html`, `fair-unavailable.html`, `fair-malformed.html` (1.3) and `fair-proof-failed.html` (1.4), a guest's, as the grey draws them: an account changes nothing on this page. Assembled from the kit: the shell of `design/kit/shell.html`; the Verify form from the showcase's six instances, one per state; the ruler of the case screen's How this case works (the AK-47's round 417, the round this page's samples use) beside the four steps of How a round is fixed; Section heads, the status Badge, Text links and the Disclosure. The words and figures are the grey pages', every line of them (checked line by line; one sentence of 1.4 is split where the kit puts the reference in a Copyable value).
+2. **The page's head on the provably fair blue.** The Proof block's plate (Home's Every round, `--gradient-fair` under the buttons' stripes): the crumb, the H1 at the screen title's size, "This page is public" and the two ways on, beside what a proof proves and what it does not, each in the plate's hash well, the second with where that is answered. What a round proof is made of stands on the same plate beside the Verify form, so a person reads what each field is while filling it; on a phone the grey's order holds, what it is made of, the form, the mismatch line.
+3. **No verified mark in any state**, the node's first rule (`0.14`). The kit's matched form carries Home's green "Recomputed: matches"; on this page it is left out, as the grey's matched state leaves it: the recomputation and its inputs, plainly. Checked on all six pages: no tick, no "verified", no good Badge.
+4. **Every control answers, D-58, through a sixth kit script, `design/kit/fair.js`**, which carries what `wireframes/_nav.js` does for node 1.2: a round in the address fills the four fields and computes nothing; Recompute says what is wrong under each field that failed, all at once, nothing typed cleared, the focus on the first; a hash of no round says so; a field that differs from the round of that hash is named under itself and nothing is recomputed from a mix of two rounds; four that agree land on the matched state for that round with its own ticket and range; the unavailable and the failed pages answer as their state. Copy copies the reference on 1.4.
+5. **Every link to the grey Provably fair now leads to its colour copy**: the footer's two, Home's answer, and the case screen's Check this round and Check each of the rounds after an open (`design/kit/stage.js`). Found on the way and fixed there too: the outcome's "Saved to My items" still led to the grey My items; it leads to `account.html`.
+6. **Found on the way: the grey's 1.4 line contradicted its own page.** "Recomputed again: 30 211. It still does not match 417" stood under "Settled result, ours: 79 124", the ticket of the round the page is about (`mp9n`); 417 is the AK-47's. The line now says 79 124; `microcopy.md` R50 is corrected in place.
+7. **The registry** `design/_nav.js` lists Provably fair with six states; My items is marked accepted.
+
+**What the kit gained.** No component, no root variable (541), no level moved.
+- **Four one-offs of 1.2 in `kit.css` part 4.4**: the page's head (`.fair-head`, `.fair-scope`), What a round proof is made of (`.fair-made`), If your check does not match ours (`.fair-miss`) and the algorithm (`.fair-algo`, on How this case works' prose plate), with the steps' list (`.fair-steps`) and the check's grid (`.fair-check`). The kit page shows the four, read from `design/fair.html`.
+- **A sixth script**, `design/kit/fair.js`.
+
+**Contrast.** Over the lightest pixel under each text, stripes included: on the blue band the crumb 4.9:1 and the lead line 5.0:1 in full white (the lead's 90% white measured 4.3:1 and the crumb's soft grey under it, so both take full white), the H1 5.0:1, the made-of head 5.0:1; in the hash well the keys 10.5:1 and the list 10.8:1; the mismatch line 12.0:1; the code chips 14.0:1; a refusal 7.9:1.
+
+**Rejected.** The fair head as a plain Section head over the grey's two cells: the page that is the brand's claim would read as a form. A green tick on the matched state: the node forbids it. A new picture for the head: the ruler already shows what a round is, a number on published ranges.
+
+**The cost.** A sixth script for stage 08 to split. How this case works is now read by two nodes, 3.3 and 1.2; by the one-off table's own rule it should leave it for the kit's components, and that move, a level and a showcase entry, is owed and named here rather than done on the side. The proof's rounds are samples (`D-124`), as the grey's are. The deposit layer rides on each page, as on Home.
+
+**Waits for its gate.** The founder walks Provably fair, every state, at 1440 and 360.
