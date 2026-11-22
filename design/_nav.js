@@ -52,6 +52,16 @@ window.DESIGN_NAV = {
         { node: '3.1', label: 'Degraded',           file: 'catalogue-degraded.html', grey: 'catalogue-degraded.html' },
         { node: '3.2', label: 'Nothing matches',    file: 'catalogue-empty.html',    grey: 'catalogue-empty.html' }
       ] },
+    { node: '6.1', name: 'Responsible play', page: 'design/responsible.html',
+      about: 'The four limits a person sets over their own spending and time, in colour since D-248, assembled from the kit: the Limits panel with its periods as Select menus and every press answered under its row, the confirmation of a self exclusion, the head on the account menu\'s Responsible play blue, played by design/kit/rp.js. No ticker, no bonus, no countdown. Waits for its gate.',
+      labsOf: [],
+      states: [
+        { node: '6.1', label: 'Guest',                       file: 'responsible.html',            grey: 'responsible-guest.html' },
+        { node: '6.1', label: 'Signed in, nothing set',      file: 'responsible.html?account',    grey: 'responsible.html' },
+        { node: '6.2', label: 'Self exclusion confirmation', file: 'responsible-confirm.html',    grey: 'responsible-confirm.html' },
+        { node: '6.3', label: 'A limit in force',            file: 'responsible-in-force.html',   grey: 'responsible-in-force.html' },
+        { node: '6.3', label: 'Self excluded',               file: 'responsible-excluded.html',   grey: 'responsible-excluded.html' }
+      ] },
     { node: '3.3', name: 'Case screen', page: 'design/case.html',
       about: 'The case, the open and the outcome on one page, assembled from the kit since D-236: the shell, the Case stage and the Commit block played by design/kit/stage.js, the kit\'s drop table and best drops, and the case\'s four one-off blocks, compared beside the case screen v4, the founder\'s picks of D-213 and D-214, its motion carried whole. Press Open signed in; ?land= decides what lands. The three states D-215 owed are pages of their own. Passed its gate on 20 Nov 2026.',
       labsOf: ['design/v4/case.html', 'design/v4/open-lab.html', 'design/v4/win-lab.html'],

@@ -4627,6 +4627,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   --limits-measure: 720px; /* wireframes/_wf.css .wf-rp: the page's one readable measure; технічне рішення */
   --limits-amount: 128px; /* the amount box in a limit's row, wide enough for 10 000.00; технічне рішення */
   --limits-period: 136px; /* the period select beside it, wide enough for "per month" and its caret; технічне рішення */
+  --limits-act: 184px; /* a limit's act, as wide as the widest of the four, Start a cool down, so the four acts stand as one column (D-248); технічне рішення */
 }
 .limits { display: grid; gap: var(--space-5); min-width: 0; max-width: var(--limits-measure); }
 .limits__say { margin: 0; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.5; }
@@ -4644,9 +4645,27 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .limits__close :is(b, strong) { color: var(--color-text-hi); font-weight: 700; }
 .limits__k { color: var(--color-text-muted); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.3; text-transform: uppercase; } /* the key of a key-value line at the label's size */
 .limits__rows { display: grid; gap: var(--space-2); }
+.limits__rows .field__k { margin: 0; } /* a limit's name is the page's h3, as wireframes/responsible.html draws it (D-248) */
 .limits__ctl { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); max-width: 100%; }
 .limits__amount { flex: 1 1 var(--limits-amount); min-width: 0; max-width: var(--limits-amount); }
 .limits__period { flex: 1 1 var(--limits-period); min-width: 0; max-width: var(--limits-period); }
+.limits__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* the period's name, the select's aria-label in the grey, heard before its value (D-248) */
+.limits__answer { flex: 1 1 100%; } /* the answer to a press, under its row's words and control: wireframes/_nav.js mountRp answer(), D-137 (D-248) */
+.limits__answer:not(.note--refuse) { color: var(--color-text-hi); font-size: var(--size-label); } /* a saved limit is said at the row's size; a refusal is the Note line's */
+@media (min-width: 600px) { /* the amount, the period and the act on one line, ending on the row's right edge, each in a column of its own width, so the four rows' periods and acts stand under each other (D-248) */
+  .limits__ctl { flex-wrap: nowrap; justify-content: flex-end; }
+  .limits__amount { flex: 0 0 var(--limits-amount); width: var(--limits-amount); }
+  .limits__period { flex: 0 0 var(--limits-period); width: var(--limits-period); }
+  .limits__ctl > .button { flex: 0 0 auto; min-width: var(--limits-act); }
+  .limits__rows .field__t { flex-basis: calc(4 * var(--size-tap)); } /* the words give 44px so the deposit limit's three controls stay beside them in the 720px measure */
+}
+@media (max-width: 599px) { /* node 6.1 section 7: the amount full width under its label, the period beside the act, never squeezed */
+  .limits .field__c { flex: 1 1 100%; }
+  .limits__ctl { flex: 1 1 auto; }
+  .limits__amount { flex-basis: 100%; max-width: none; }
+  .limits__period { flex: 1 1 var(--limits-period); max-width: none; }
+  .limits__ctl > .button { flex: 1 1 auto; } /* a period and its act share a line where both fit, and the act takes the next line whole where they do not, so 24 hours is never cut */
+}
 .limits__help { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-4); }
 .limits__help > .limits__close { flex: 1 1 calc(5 * var(--size-tap)); }
 
@@ -5967,3 +5986,35 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .risk-marks { display: inline-flex; flex: none; color: var(--color-skull-off); font-size: var(--size-check); }
 .risk-marks[data-risk="low"] { --rc: var(--color-risk-low); } .risk-marks[data-risk="medium"] { --rc: var(--color-risk-mid); } .risk-marks[data-risk="high"] { --rc: var(--color-risk-high); }
 .risk-marks > .icon.is-on { color: var(--rc); }
+
+/* =====================================================================================================================================
+   PART 4.4, Responsible play's one-off blocks, stage 07 step 5, D-248: blocks of nodes 6.1, 6.2 and 6.3 alone. The page was drawn only in
+   grey (wireframes/responsible.html and its four states), so its head is built from its nearest relative in colour (D-229 point 4): the
+   account menu's Responsible play tile, the striped blue with the shield (.popover__tile--rp), as a band, holding the crumb, the one H1
+   and the page's status line. No picture and no mood: node 6.1 section 2 refuses a card that argues for a limit, so the band carries words
+   only. Under it the kit's Limits panel at its one readable measure (node 6.1 section 7: never a dashboard at width), its parts under the
+   kit's Section heads in the same blue; the confirmation is the kit's Dialog.
+   ===================================================================================================================================== */
+
+/* THE PAGE'S HEAD: the crumb, the H1 with the menu tile's shield, and the line that says what is set */
+.rp-head { display: grid; justify-items: start; gap: var(--space-3); min-width: 0; box-sizing: border-box; padding: var(--space-5) var(--space-6) var(--space-6); border-radius: var(--radius-m); background: var(--gradient-stripes-m), var(--gradient-mode-battles); box-shadow: var(--shadow-tile-lit-soft); color: var(--color-text-hi); } /* the account menu's Responsible play tile, .popover__tile--rp, v4 account-home.css .am3-t.is-rp */
+.rp-head .crumb a, .rp-head .crumb [aria-current] { color: var(--color-text-hi); } /* on the blue's lightest stripe the crumb's soft grey would not hold 4.5:1, as on Provably fair's head (D-245) */
+.rp-head__h { display: flex; align-items: center; gap: var(--space-3); margin: var(--space-1) 0 0; color: var(--color-text-hi); font-size: var(--size-xl); font-weight: 900; letter-spacing: var(--tracking-score); line-height: 1.05; text-transform: uppercase; overflow-wrap: anywhere; } /* the screen title, --size-xl 900 (D-187), in capitals as every head of the kit */
+.rp-head__h > .icon { flex: none; font-size: .8em; } /* the menu tile's shield at the title's cap height */
+.rp-head > .limits__say { max-width: var(--size-measure); color: var(--color-text-hi); font-size: var(--size-text); } /* the Limits panel's status line, said under the H1 as the grey says it, white on the blue */
+.rp-head > .limits__say .link { color: var(--color-text-hi); text-decoration: underline; } /* Sign in on the blue: the pink would not hold 4.5:1 there */
+@media (max-width: 599px) {
+  .rp-head { padding: var(--space-4) var(--space-4) var(--space-5); }
+  .rp-head__h { font-size: var(--size-head-l); }
+}
+@media (min-width: 900px) {
+  .shell__main > .rp-head { margin-inline: var(--space-2) var(--space-3); } /* a band, as the Account head and Provably fair's head stand */
+  .shell__main > .rp-head:first-child { margin-top: calc(var(--space-2) - var(--space-6)); }
+  .shell__main > .rp-head + .limits { margin-inline-start: var(--space-2); } /* the panel's edge under the band's */
+}
+
+/* THE PANEL'S PARTS under their Section heads: what these tools do, what a limit closes, the four limits, help that is not ours */
+.shell__main > .limits { gap: var(--space-6); }
+.rp-sec { display: grid; gap: var(--space-4); min-width: 0; }
+.rp-sec > .prose { font-size: var(--size-text); } /* two plain lines, at the text's size: a statement, not a lead that argues */
+.rp-sec > .prose > p { margin: 0; } .rp-sec > .prose > p + p { margin-top: var(--space-3); }

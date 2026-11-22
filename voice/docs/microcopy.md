@@ -1439,6 +1439,8 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 6.1-60 | main | Deposit limit {n} per week | text | `WF_STR.depositLimit`, page | responsible-in-force | C4 C5 C11 | kept |
 | 6.1-61 | main | Nothing is set yet. | text | page | responsible |  | No limits are set. (Glossary C5 names what is not set; principle 5, one plain line. No 'yet' and no lead to one control: node 6.1 section 2 refuses a primary call to action, and the T4 rule gives a limit no completion or progress words) |
 
+**Added at stage 07 step 5, `D-248`, and not rewritten.** The coloured Responsible play says five lines the grey draws in its pages' `data-rp-refuse` attributes and in `mountRp`, which neither this table nor section 3 holds; they are carried verbatim from `wireframes/responsible-guest.html`, `responsible-excluded.html` and `wireframes/_nav.js`, and wait for the voice pass that owns them: "Nothing was set: a limit belongs to an account and there is no account signed in. Everything on this page reads without one." "Nothing was set: enter an amount first." "Nothing was set: a limit has to be more than 0." "Nothing changed: the self exclusion already closes everything a cool down would, until it ends." "Nothing changed here: a self exclusion that is running cannot be lifted or shortened. Support can lengthen it." The in-force line under What is in force now is 5.9-32's Now.
+
 ### `7.1` Public result
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |

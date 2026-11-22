@@ -7634,3 +7634,25 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Assumed, for the founder to see.** The shelf stays four a row from 640px of shelf, so Emberforge starts a second row of Featured alone, at 1440 and at 360. The other way, five a row for every section, leaves Community and Classic a gap at the right and shrinks every tile; it was rejected under `D-246` and is not reopened without the founder.
 
 **The cost.** The grey catalogue holds twelve and the coloured one thirteen: a divergence named here, since `wireframes/` is frozen. Emberforge's tile opens a page that draws Ironbound, the debt Home's five tiles already carry.
+
+## D-248. Stage 07 step 5: Responsible play in colour, assembled from the kit
+
+**Date:** 2026-11-23. **Stage:** 07, step 5. **Decided by:** the founder's go of `D-247`, "1. да 2. да" ("1. yes 2. yes"), the catalogue accepted and the next screen begun as the order of `D-234` sets it.
+
+**What was decided.**
+1. **Four coloured pages for node 6.1's five grey ones.** `wireframes/responsible-guest.html` and `responsible.html` are one page in colour, `design/responsible.html`, a guest's and with `?account` an account's with nothing set, as Home is one page for both. `responsible-in-force.html` and `responsible-excluded.html` (6.3) and `responsible-confirm.html` (6.2) keep their names.
+2. **Kit first.** The Limits panel's four periods were the browser's own select, which the founder turned down on Deposit (`D-238`): they are now the Select menu, each named for a screen reader as the grey named it. A press is answered under its own row, a saved limit in the row's white, a refusal as the Note line's refusal. The periods and the acts stand in columns of one width, so the four rows end on one edge. A limit's name is the page's h3, as the grey draws it. **The confirmation's two acts are now of equal weight,** both the quiet ghost: node 6.1 section 4 asks for "two controls of equal weight", and the kit had drawn Start self exclusion as the primary.
+3. **The page's head is the account menu's Responsible play tile as a band,** the striped blue with the shield, holding the crumb, the one H1 and the status line, and nothing else: no picture, for section 2 refuses a card that argues for a limit. Under it the Limits panel at its 720px measure, never a dashboard at width (section 7), its parts under the kit's Section heads in the same blue.
+4. **What the page refuses, kept in colour.** No ticker, no bonus on Add funds on any 6.1 page; under a boundary Add funds and the balance lead to what is in force, named "Adding funds is closed for now. Your limits". No countdown, no progress, no congratulation, no primary act.
+5. **`design/kit/rp.js`, the eighth kit script,** plays the grey's `mountRp`: a guest's every press refused with its reason and nothing dimmed; tightening applies now and loosening waits 24 hours; a running cool down only extends; a self exclusion is never lifted, shortened or doubled, and under it a limit can only be tightened; Self exclude opens 6.2 for the period chosen, focus held inside and given back on Escape, the close and Cancel; what the session set travels to the page a cool down or an exclusion lands on, and a state opened by its own address keeps its sample (`D-152`).
+6. **Every link to the grey Responsible play in a coloured screen now leads here,** the deposit layer's Set one and Your limits included, which the link rewrite had missed because the layer is added after it; a page drawn signed in keeps the account on the way.
+
+**Assumed, for the founder to see.**
+- The head in the account menu tile's blue, not the footer's red Play responsibly plate: the tile is the page's own way in, the plate is the age line.
+- The Section heads' glyphs, a question, the shield and two people, and their blue.
+- The panel stands at the left under a full band, the right side of a wide window left empty, by section 7.
+- Five lines the grey says and `microcopy.md` holds no row for are carried verbatim; the table carries a note.
+
+**The cost.** An eighth script. The kit's sample of the excluded state held a 40.00 deposit limit its own list did not show; the page takes the grey's empty field. The other coloured screens do not yet read a boundary: a cool down started here closes nothing on the case screen or Deposit in colour.
+
+**Waits for its gate.** The founder walks the five states at 1440 and 360.

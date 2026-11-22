@@ -90,7 +90,7 @@ Order: first the organisms that hold no other organism, then Payment panel (hold
 | Footer | 3 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 133 pages | brand art slot | Figure, Disclosure, Logo, Text link, Popover menu | `wf-footer` |
 | Header | 3 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | guest (Sign in), signed in (money pair, Add funds, account); on 132 pages | no | Button, Figure, Popover menu | `wf-header` |
 | Item grid | 3 | one form | 3: 5.1, 5.9, 7.3 | one state; on 6 pages | skins | Item card, Segmented control | `wf-itemgrid`, `wf-grid--inv` |
-| Limits panel | 3 | one form | 2: 6.1, 6.3 | one state; on 4 pages | no | Field, Key-value line, Button, Note line | `wf-rp` |
+| Limits panel | 3 | one form; a period is the Select menu and a press is answered under its row (D-248) | 2: 6.1, 6.3 | nothing set, a limit in force, self excluded, a guest (every press refused with its reason); on 4 pages | no | Field, Key-value line, Button, Note line, Popover menu | `wf-rp` |
 | Mode row | 3 | one form | 2: 1.0, 1.1 | one state; on 2 pages | mode art | Mode card | `wf-modes` |
 | Proof block | 3 | one form | 4: 1.2, 1.3, 1.4, 7.1 | settled, matched, mismatched, no proof, failed; on 11 pages | no | Copyable value, Key-value line, Badge, Button | `wf-proof-fields` |
 | Rail | 3 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | open, closed, LATER rows marked Not launched (D-197); on 132 pages | no | Logo, Icon, Button, Popover menu | `wf-rail` |
@@ -152,6 +152,7 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 | Skeleton | 3.1 | `wf-skel-line` | catalogue-loading only; drawn as the Case tile's busy favourite count, D-246 |
 | The catalogue's head | 3.1, 3.2 | `wf-crumb` with the H1 | the crumb and the one H1 on the Cases card's band, its object at the end; `.shelf-head`, kit.css 4.4, D-246 |
 | Filters in force | 3.1, 3.2 | `wf-chips` with `wf-count-line` | the Filter chips, Clear all and the count, two states of one screen; `.shelf-state`, kit.css 4.4, D-246 |
+| Responsible play's head | 6.1, 6.3 | `wf-crumb` with the H1 and `wf-rp-say` | the crumb, the one H1 with the shield and the status line on the account menu's Responsible play blue, words only; `.rp-head`, kit.css 4.4, D-248 |
 | Showcase | 3.3 | `wf-show` | phase 1 of the case screen |
 | Reveal lanes | 3.5 | `wf-lanes` | the open, one lane per roll |
 | Round detail popover | 3.6 | `wf-detail-wrap` | Round details on the batch outcome |

@@ -1033,3 +1033,15 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Images.** Eight covers, 900x600, 77 to 120 KB, generated 22 November 2026 by Codex `gpt-5.6-terra` at medium effort.
 
 **Widths said beside their basis, variable, value, why.** `.sec-head__tile` (`--size-tile`, `--sec-head-tile-s`), `.daily__heading::before` (`--daily-mark`, `--daily-mark-s`) and `.before__tile` (44px, 38px) gain `width` at the value their `flex-basis` already had: Safari measures an auto column by the width alone. No value changed.
+
+## 34. Stage 07 step 5, Responsible play in colour, `D-248`
+
+**Variables added to `:root`: none; the root holds 551.**
+
+**Local properties.** `--limits-act` 184px, technical: a limit's act as wide as the widest of the four, Start a cool down, so the four acts stand as one column.
+
+**Values changed in a rule, variable, value, why.** `.limits__ctl` from wrapping to one line from 600px, ending on the row's right edge: Save fell under the amount in the 720px measure. `.limits__amount` and `.limits__period` say their width beside their basis there (Safari, `D-246`). `.limits__rows .field__t` basis from five tap targets to four, so the deposit limit's three controls stay beside its words. Under 600px the amount takes its line whole and a period shares the next with its act, or gives the act a line of its own: 24 hours was cut to "24 ho...". The confirmation's Start self exclusion from `--primary` to `--ghost`, node 6.1 section 4.
+
+**Values in a rule.** The head reads the account menu tile's own: `--gradient-stripes-m` over `--gradient-mode-battles`, `--shadow-tile-lit-soft`. The Section heads take `sec-head--battles`.
+
+**Contrast.** Over the lightest pixel under each text, the lower of 1440 and 360: the crumb 4.96:1, its current page 5.06:1, the H1 5.12:1, the status line 5.06:1, Gambling Therapy 5.82:1, the panel's keys 6.74:1, the notes in What is in force now 6.87:1, every other text above 11:1.
