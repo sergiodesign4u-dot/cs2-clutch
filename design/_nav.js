@@ -41,7 +41,7 @@ window.DESIGN_NAV = {
         { node: '1.4', label: 'Our own proof failed',         file: 'fair-proof-failed.html', grey: 'fair-proof-failed.html' }
       ] },
     { node: '3.1', name: 'Case catalogue', page: 'design/catalogue.html',
-      about: 'The whole shelf in colour since D-246, assembled from the kit: the sticky category bar with Search and Filters, the Daily ladder, twelve cases in three sections of four, eight of their covers new, and the filter drawer, played by design/kit/catalogue.js. Waits for its gate.',
+      about: 'The whole shelf in colour since D-246, assembled from the kit: the sticky category bar with Search and Filters, the Daily ladder, thirteen cases in three sections, Emberforge joining Featured by D-247, eight of the covers new, and the filter drawer, played by design/kit/catalogue.js. Accepted by the founder on 23 November 2026.',
       labsOf: [],
       states: [
         { node: '3.1', label: 'Guest, unfiltered',  file: 'catalogue.html',          grey: 'catalogue.html' },

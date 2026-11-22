@@ -7621,3 +7621,16 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Waits for its gate.** The founder walks the seven states at 1440 and 360.
 
 **Added the same day, found at the live acceptance.** In Safari's engine 161 of the 288 section and Daily heads measured on every coloured screen at 1440, 1024 and 360 came out short: the tile named its flex basis and no width, so the head wrapped, and on the catalogue its line ran into its sub line. The tile, the Daily ladder's mark and Before you open's tile now say their width as well. None of the 288 differs from Chrome's now, and nothing moved in Chrome.
+
+## D-247. Stage 07 step 5: Emberforge joins the shelf, and the catalogue is accepted
+
+**Date:** 2026-11-23. **Stage:** 07, step 5. **Decided by:** the founder, answering the two questions of the catalogue's gate, whether Emberforge joins the shelf and whether the catalogue is accepted: "1. да 2. да" ("1. yes 2. yes").
+
+**What was decided.**
+1. **The catalogue is accepted** at its gate, seven states, as `D-246` built it.
+2. **Emberforge is the fifth case of Featured, and the shelf holds thirteen.** Its figures are Home's, all samples by `D-124` and `D-198`: Medium, 7.50 coins, 452 favourites, the ember glow, a Desert Eagle Blaze in its tray, its cover the one Home already shows. The empty state now says the shelf holds 13 cases, and Show n cases starts at 13; both are counted from the shelf's one declaration in the builder, not typed.
+3. **Its tile opens the case screen in colour,** as on Home: the grey's register of cases has no Emberforge, so `../wireframes/case.html?case=emberforge` would open Ironbound under the grey's name for it.
+
+**Assumed, for the founder to see.** The shelf stays four a row from 640px of shelf, so Emberforge starts a second row of Featured alone, at 1440 and at 360. The other way, five a row for every section, leaves Community and Classic a gap at the right and shrinks every tile; it was rejected under `D-246` and is not reopened without the founder.
+
+**The cost.** The grey catalogue holds twelve and the coloured one thirteen: a divergence named here, since `wireframes/` is frozen. Emberforge's tile opens a page that draws Ironbound, the debt Home's five tiles already carry.
