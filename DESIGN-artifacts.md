@@ -1031,3 +1031,5 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Contrast.** Over the lightest pixel under each text, the lower of 1440 and 360: crumb 4.56:1, H1 4.58:1, its second line 4.59:1, the current chip 4.53:1, Show n cases 4.53:1, the badge 4.87:1, the empty state's note 6.95:1, a section's line 7.39:1, the count and a figure not available 12.53:1.
 
 **Images.** Eight covers, 900x600, 77 to 120 KB, generated 22 November 2026 by Codex `gpt-5.6-terra` at medium effort.
+
+**Widths said beside their basis, variable, value, why.** `.sec-head__tile` (`--size-tile`, `--sec-head-tile-s`), `.daily__heading::before` (`--daily-mark`, `--daily-mark-s`) and `.before__tile` (44px, 38px) gain `width` at the value their `flex-basis` already had: Safari measures an auto column by the width alone. No value changed.

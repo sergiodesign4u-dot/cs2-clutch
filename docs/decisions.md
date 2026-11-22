@@ -7619,3 +7619,5 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **The cost.** A seventh script and eight more images. On a phone the first case stands under the whole Daily panel, the order `D-68` set. `How this case works` is still owed to the components (`D-245`).
 
 **Waits for its gate.** The founder walks the seven states at 1440 and 360.
+
+**Added the same day, found at the live acceptance.** In Safari's engine 161 of the 288 section and Daily heads measured on every coloured screen at 1440, 1024 and 360 came out short: the tile named its flex basis and no width, so the head wrapped, and on the catalogue its line ran into its sub line. The tile, the Daily ladder's mark and Before you open's tile now say their width as well. None of the 288 differs from Chrome's now, and nothing moved in Chrome.

@@ -2715,7 +2715,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .daily__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--daily-space-4-5); }
 .daily__title { flex: 1 1 var(--daily-title); min-width: 0; }
 .daily__heading { position: relative; display: flex; align-items: center; gap: var(--space-4); margin: 0; color: var(--color-text-hi); font-size: var(--daily-heading); font-weight: 900; line-height: 1; text-transform: uppercase; }
-.daily__heading::before { content: ''; flex: 0 0 var(--daily-mark); height: var(--daily-mark); border-radius: var(--radius-card); background: var(--gradient-stripes), var(--gradient-mode-upgrade); box-shadow: var(--shadow-tile-lit); }
+.daily__heading::before { content: ''; flex: 0 0 var(--daily-mark); width: var(--daily-mark); height: var(--daily-mark); border-radius: var(--radius-card); background: var(--gradient-stripes), var(--gradient-mode-upgrade); box-shadow: var(--shadow-tile-lit); }
 .daily__heading::after { content: ''; position: absolute; left: calc((var(--daily-mark) - var(--size-l)) / 2); top: 50%; width: var(--size-l); height: var(--size-l); margin-top: calc(var(--size-l) / -2); background: var(--color-text-hi); -webkit-mask: var(--icon-calendar) center / contain no-repeat; mask: var(--icon-calendar) center / contain no-repeat; }
 .daily__lead { max-width: var(--size-measure); margin: var(--space-2) 0 0; color: var(--color-text-soft); font-size: var(--size-s); line-height: 1.4; }
 .daily__note { max-width: var(--size-measure); margin: var(--space-2-5) 0 0; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; } /* a limit in force: no wager is shown */
@@ -2805,7 +2805,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
   .daily__panel { padding: var(--daily-space-4-5) var(--space-4); }
   .daily__panel::before { background: var(--art-daily-ground) 82% 0 / auto var(--daily-ground-s) no-repeat; -webkit-mask: var(--gradient-daily-fade-s); mask: var(--gradient-daily-fade-s); }
   .daily__heading { gap: var(--space-3); font-size: var(--daily-heading-s); }
-  .daily__heading::before { flex-basis: var(--daily-mark-s); height: var(--daily-mark-s); border-radius: var(--radius-s); }
+  .daily__heading::before { flex-basis: var(--daily-mark-s); width: var(--daily-mark-s); height: var(--daily-mark-s); border-radius: var(--radius-s); }
   .daily__heading::after { left: calc((var(--daily-mark-s) - var(--size-title)) / 2); width: var(--size-title); height: var(--size-title); margin-top: calc(var(--size-title) / -2); }
   .daily__head--titled .daily__title { flex-basis: 100%; }
   .daily__row, .daily__boxes { width: 100%; }
@@ -3807,12 +3807,14 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .sec-head--showdowns { --sec-g: var(--gradient-mode-showdowns); --sec-c: var(--color-head-showdowns); }
 .sec-head__title { position: relative; display: flex; align-items: center; gap: var(--space-3-5); margin: 0; color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; letter-spacing: 0; line-height: 1.1; text-transform: uppercase; } /* 1.1 as every head v4 drew, faq-home.css .hz-head h2 and seo-home.css .sx-h h2; the grey's 1.4 showed only where a title wraps, D-234 */
 .sec-head--l .sec-head__title { font-size: var(--size-head-l); }
-.sec-head__tile { display: grid; place-items: center; flex: 0 0 var(--size-tile); height: var(--size-tile); border-radius: var(--radius-tile); background: var(--gradient-stripes), var(--sec-g); box-shadow: var(--shadow-tile-lit); color: var(--color-text-hi); }
+/* a tile says its width beside its basis: Safari measures an auto column by the width alone, so a head came out short by the tile less
+   its glyph, wrapped, and ran under its line, D-246. The same on the Daily ladder's mark and Before you open's tile */
+.sec-head__tile { display: grid; place-items: center; flex: 0 0 var(--size-tile); width: var(--size-tile); height: var(--size-tile); border-radius: var(--radius-tile); background: var(--gradient-stripes), var(--sec-g); box-shadow: var(--shadow-tile-lit); color: var(--color-text-hi); }
 .sec-head__tile > .icon { font-size: var(--size-tile-icon); }
 .sec-head__sub { max-width: var(--size-measure); margin: 0; color: var(--color-text-muted); font-size: var(--size-text); line-height: 1.4; }
 .sec-head__sub .link--arrow { font-size: inherit; letter-spacing: normal; } /* the onward link at the sub line's size, theme.css .v4-go: the size stays its place's */
 @media (max-width: 599px) {
-  .sec-head__tile { flex-basis: var(--sec-head-tile-s); height: var(--sec-head-tile-s); border-radius: var(--radius-s); } /* v4 drew 10px, the ladder's 8, D-228 */
+  .sec-head__tile { flex-basis: var(--sec-head-tile-s); width: var(--sec-head-tile-s); height: var(--sec-head-tile-s); border-radius: var(--radius-s); } /* v4 drew 10px, the ladder's 8, D-228 */
   .sec-head__tile > .icon { font-size: var(--sec-head-icon-s); }
   .sec-head--l .sec-head__title { font-size: var(--sec-head-l-s); } /* one large head on a phone, D-234: 21px as three of v4's four drew it */
 }
@@ -5443,13 +5445,13 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   background: radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--before-c) 14%, transparent), transparent 55%), var(--gradient-before-plate); box-shadow: var(--shadow-before-plate);
   color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.55; } /* 20px 22px: v4 .wf-case-info[data-v="d"] > p padding */
 .before__p--steam { --before-g: var(--gradient-mode-battles); --before-c: var(--color-head-steam); }
-.before__tile { display: grid; place-items: center; flex: 0 0 44px; height: 44px; border-radius: var(--radius-tile); background: var(--gradient-stripes), var(--before-g);
+.before__tile { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; border-radius: var(--radius-tile); background: var(--gradient-stripes), var(--before-g);
   box-shadow: var(--shadow-tile-lit), 0 6px 16px color-mix(in srgb, var(--before-c) 30%, transparent); color: var(--color-text-hi); font-size: var(--size-tile-icon); } /* 44px: v4 .v4i-ic */
 .before__body { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
 .before__h { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
 .before__go { align-self: flex-start; margin-top: var(--space-2); }
 @media (max-width: 759px) { .before { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 599px) { .before__p { gap: var(--space-3); padding: var(--space-4); } .before__tile { flex-basis: 38px; height: 38px; font-size: var(--size-m); } }
+@media (max-width: 599px) { .before__p { gap: var(--space-3); padding: var(--space-4); } .before__tile { flex-basis: 38px; width: 38px; height: 38px; font-size: var(--size-m); } }
 
 /* WHAT THIS CASE PAYS: Home's money strip (.spend above) with the stub's dollar and title and four panels, the tested RTP beside the case,
    the expected value, the chance to get the price back, the value against a real copy; two panels a row under 980px of its own width, one
