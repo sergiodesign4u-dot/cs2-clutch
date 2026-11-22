@@ -31,7 +31,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 | Favourite toggle | 1 | corner mark on a case tile with its count, labelled control on the case head | 7: 1.0, 1.1, 3.1, 3.3, 3.5, 3.6, 3.7 | off, on, with its count; on 21 pages | no | nothing from the kit | `wf-fav`, `wf-fav-case` |
 | Figure | 1 | plain, a link (whole figure clickable), missing (Not available) | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | value, missing (Not available, D-124); on 133 pages | no | nothing from the kit | `wf-fig` |
 | File picker (form control) | 1 | see the control census | 1: 0.10 | one state; on 1 pages | no | nothing from the kit | `input[file]` |
-| Icon | 1 | destination mark (rail, bottom bar), figure mark, unit mark (the coin), act mark (the share on an item card, D-244) | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 133 pages | no, a glyph | nothing from the kit | `wf-icon`, `wf-rail-ico`, `wf-fig-ico`, `wf-cfg-ico`, `wf-bar-i`, `wf-actb-i`, and 3 more |
+| Icon | 1 | destination mark (rail, bottom bar), figure mark, unit mark (the coin), act mark (the share on an item card, D-244; Search and Filters on the category bar, D-246) | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 133 pages | no, a glyph | nothing from the kit | `wf-icon`, `wf-rail-ico`, `wf-fig-ico`, `wf-cfg-ico`, `wf-bar-i`, `wf-actb-i`, and 3 more |
 | Key-value line | 1 | a total line (sum), a fact line, a record line, a rule line (Extend: Immediately, on Responsible play) | 18: 0.3, 0.4, 0.9, 0.10, 1.2, 1.3, 1.4, 4.1, 4.3, 4.4, and 8 more | value, missing (None on sale, D-239); on 39 pages | no | nothing from the kit | `wf-tl`, `wf-closes-k`, `wf-docid`, `wf-ck-rec-k`, `wf-attr`, `wf-roll-k`, and 2 more |
 | Logo | 1 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 133 pages | no, the logo asset | nothing from the kit | `wf-logo-mark` |
 | Media slot | 1 | skin image, case art, mode art, banner art, provider mark, brand art | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 133 pages | yes | nothing from the kit | `wf-ah-art`, `wf-art-c`, `wf-banner-art`, `wf-bonus-art`, `wf-case-art`, `wf-dlg-art`, and 18 more |
@@ -54,8 +54,8 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 |---|---|---|---|---|---|---|---|
 | Amount field | 2 | one form | 3: 4.1, 4.3, 4.5 | one state; on 3 pages | no | Text field, Button | `wf-amt` |
 | Breadcrumb | 2 | one form | 19: 0.9, 0.10, 1.2, 1.3, 1.4, 3.1, 3.2, 3.3, 3.5, 3.6, and 9 more | one state; on 74 pages | no | Text link | `wf-crumb` |
-| Case tile | 2 | one form | 3: 1.0, 1.1, 3.1 | rest, skeleton (catalogue-loading), favourite on; on 8 pages | yes, case art | Media slot, Favourite toggle, Figure | `wf-tile` |
-| Category bar | 2 | one form | 2: 3.1, 3.2 | one state; on 7 pages | no | Button, Badge | `wf-catbar` |
+| Case tile | 2 | one form | 3: 1.0, 1.1, 3.1 | rest, skeleton (catalogue-loading), favourite on, risk or price not available, favourite count not available or being read (D-246); on 8 pages | yes, case art | Media slot, Favourite toggle, Figure | `wf-tile` |
+| Category bar | 2 | one form, one sticky row at every width (D-246) | 2: 3.1, 3.2 | one state; on 7 pages | no | Button, Icon, Badge | `wf-catbar` |
 | Chosen method | 2 | one form: the route's head, Back, the method's mark, its family over its name, D-238 | 3: 4.1, 4.3, 4.5 | one state; on 7 pages | the method's mark, D-238 | Button | `wf-chosen` |
 | Copyable value | 2 | a seed or hash, a ticket or reference id, a wallet address with its QR | 8: 0.3, 0.10, 1.2, 1.3, 1.4, 3.5, 4.1, 7.1 | one state; on 22 pages | no | Button, Key-value line | `wf-fpair`, `wf-tid`, `wf-ref`, `wf-hash`, `wf-crypto` |
 | Daily ladder | 2 | one form | 3: 1.0, 1.1, 3.1 | tiers locked and reached, the open control live or refused; on 7 pages | tier art | Figure, Media slot, Button, Note line | `wf-panel` |
@@ -83,7 +83,7 @@ Order: first the organisms that hold no other organism, then Payment panel (hold
 |---|---|---|---|---|---|---|---|
 | Account head | 3 | one form | 6: 5.1, 5.2, 5.9, 5.10, 5.11, 7.3 | with a Steam account, with none linked (missing figure); on 28 pages | Steam avatar; the footer's operators over the band from 1200px, D-240; on My items the most valuable item held in their place, D-241; on My items its stage form, the founder's B1, the band in the item's grade and the skin breaking out over it at every width, D-242 | Breadcrumb, Avatar, Figure, Button, Badge, Tabs | `wf-ah` |
 | Bottom bar | 3 | one form | 42: 0.3, 0.4, 0.9, 0.10, 1.0, 1.1, 1.2, 1.3, 1.4, 2.1, and 32 more | one state; on 132 pages | no | Icon | `wf-bar` |
-| Case grid | 3 | one form | 3: 1.0, 1.1, 3.1 | one state; on 8 pages | case art | Section head, Case tile | `wf-grid--shelf` |
+| Case grid | 3 | Home's five to a row; the shelf form, four to a row, two on a phone (D-246) | 3: 1.0, 1.1, 3.1 | one state; on 8 pages | case art | Section head, Case tile | `wf-grid--shelf` |
 | Case stage | 3 | one form | 4: 3.3, 3.5, 3.6, 3.7 | at rest, the open with one, two and five rolls, the outcome; on 13 pages | case art, skins | Media slot, Outcome card, Button | `wf-stage-frame` |
 | Commit block | 3 | one form | 4: 3.3, 3.5, 3.6, 3.7 | guest, funded, two and five chosen, open, outcome, interrupted, degraded, no counter; on 13 pages | no | Figure, Segmented control, Button, Copyable value, Text link | `wf-commit` |
 | Data table | 3 | a ledger (history, settlement), the drop table (case contents by tier, D-125) | 8: 3.3, 3.5, 3.6, 3.7, 5.3, 5.5, 5.8, 5.9 | rows, empty, a row marked mismatched; on 24 pages | skins in the drop table | Drop card, Figure, Text link, Badge | `wf-table` |
@@ -146,10 +146,12 @@ On one IA node only. Their markup stays on the screen they belong to until a sec
 | Support form | 0.10 | `wf-form` | its fields are kit Fields |
 | Support topics | 0.10 | `wf-faq` | its questions are kit Disclosures |
 | Ticket card | 0.10 | `wf-tick` |   |
-| Filter drawer | 3.1 | `wf-drawer` | mobile filters with steppers, risk pips, a range; the range and selects are in the kit |
-| Number stepper | 3.1 | `wf-stepper` | inside the filter drawer only |
-| Risk pips | 3.1 | `wf-pips` | inside the filter drawer only |
-| Skeleton | 3.1 | `wf-skel-line` | catalogue-loading only |
+| Filter drawer | 3.1 | `wf-drawer` | the Dialog at the right edge, the whole window on a phone, with steppers, risk marks, a range; `.filter-drawer`, kit.css 4.4, D-246; the range and selects are in the kit |
+| Number stepper | 3.1 | `wf-stepper` | inside the filter drawer only; `.stepper`, kit.css 4.4, D-246 |
+| Risk pips | 3.1 | `wf-pips` | inside the filter drawer only; the tile's four bolts, `.risk-marks`, kit.css 4.4, D-246 |
+| Skeleton | 3.1 | `wf-skel-line` | catalogue-loading only; drawn as the Case tile's busy favourite count, D-246 |
+| The catalogue's head | 3.1, 3.2 | `wf-crumb` with the H1 | the crumb and the one H1 on the Cases card's band, its object at the end; `.shelf-head`, kit.css 4.4, D-246 |
+| Filters in force | 3.1, 3.2 | `wf-chips` with `wf-count-line` | the Filter chips, Clear all and the count, two states of one screen; `.shelf-state`, kit.css 4.4, D-246 |
 | Showcase | 3.3 | `wf-show` | phase 1 of the case screen |
 | Reveal lanes | 3.5 | `wf-lanes` | the open, one lane per roll |
 | Round detail popover | 3.6 | `wf-detail-wrap` | Round details on the batch outcome |

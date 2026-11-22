@@ -1017,3 +1017,17 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Contrast.** Over the lightest pixel under each text: crumb 4.9:1, lead 5.0:1, H1 5.0:1, the made-of head 5.0:1 on the blue; keys 10.5:1 and list 10.8:1 in the well; the mismatch line 12.0:1; the code chips 14.0:1; a refusal 7.9:1; the Read the algorithm button 4.9:1.
 
 **Images.** None added.
+
+## 33. Stage 07 step 5, the case catalogue in colour, `D-246`
+
+**Variables added to `:root`, ten; the root holds 551.** `--icon-search`, solar:magnifer-bold with its lens cut out (at 20px the solid glyph read as a dot), and `--icon-filter`, solar:filter-bold, both filled as `D-227` asks. `--art-case-emberline`, `-saltmarsh`, `-blacklight`, `-riftwork`, `-deadbolt`, `-overcast`, `-tinderbox`, `-halfmoon`, the eight covers, each a case's theme on itself (`design/visuals/README.md`, the colourway).
+
+**Local properties.** `--shelf-head-art` 250px and `--shelf-head-art-s` 124px, the Cases card's object on the head's band, technical: the H1 keeps its width at 360. `--filter-drawer-w` 420px, technical: the grey drew 360, two steppers with 44px presses want 420.
+
+**Values changed in a rule, variable, value, why.** `.catbar` from two rows to one under 600px, its padding 12px to 8px there: it sticks, and stood 124px tall, now 60px. Its acts to a 44px square under 1200px, for the label, four chips and two worded acts do not fit the 706px column at 1024. `.case-grid--shelf` four to a row from 640px of shelf and two under it: the sections hold four.
+
+**Values in a rule.** The head reads the Cases card's own: `--gradient-mode-cases-card`, `--art-mode-cases`, `--shadow-mode-card`, `--shadow-mode-art`, `--motion-mode-float`. The stuck bar lays `--color-ground` under `--gradient-plate`, so nothing scrolls through it.
+
+**Contrast.** Over the lightest pixel under each text, the lower of 1440 and 360: crumb 4.56:1, H1 4.58:1, its second line 4.59:1, the current chip 4.53:1, Show n cases 4.53:1, the badge 4.87:1, the empty state's note 6.95:1, a section's line 7.39:1, the count and a figure not available 12.53:1.
+
+**Images.** Eight covers, 900x600, 77 to 120 KB, generated 22 November 2026 by Codex `gpt-5.6-terra` at medium effort.

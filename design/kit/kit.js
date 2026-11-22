@@ -10,7 +10,7 @@
    the front, paced as v4's with a rare drop after four to six (D-235). The sound tile says on or off. A layer (.dialog__layer) opens on any data-layer naming it
    and closes on its close, a press on the scrim and Escape, giving the keyboard back where it came from. The sign in declarations behave
    as signin-home.js did, D-58: a press with one missing is refused, the row is marked, the line names it, the keyboard goes to it. A
-   favourite toggles signed in and asks a guest to sign in. */
+   favourite toggles signed in and asks a guest to sign in. The Daily ladder's open control opens its tier (D-246). */
 (function () {
   var d = document, account = /[?&]account\b/.test(location.search) || d.body.hasAttribute('data-account'); /* a page drawn signed in only, case-interrupted.html, D-236 */
   d.querySelectorAll('[data-when]').forEach(function (n) { n.hidden = n.getAttribute('data-when') !== (account ? 'account' : 'guest'); });
@@ -101,6 +101,15 @@
     setTimeout(arrive, 3000);
   }
 
+  /* the Daily ladder's one open control, as v4's daily-home.js answered it (D-220): the tier reads Opened today and the line says where the
+     reveal runs; it was left dead when Home was assembled, found and fixed at D-246 */
+  function openTier(b) {
+    var li = b.closest('.daily__tier'), panel = li.closest('.daily'), name = li.querySelector('.daily__name').textContent, done = panel.querySelector('.daily__chip--opened'), say = panel.querySelector('.daily__say');
+    if (done) b.replaceWith(done.cloneNode(true)); else b.remove();
+    li.classList.remove('is-live');
+    if (say) { say.textContent = name + ' case opened. The reveal runs on the case screen.'; say.tabIndex = -1; say.focus({ preventScroll: true }); }
+  }
+
   /* layers */
   var back = null;
   function openLayer(id, from) { var l = d.getElementById(id); if (!l) return; back = from || d.activeElement; l.hidden = false; d.documentElement.classList.add('has-layer');
@@ -125,6 +134,7 @@
     var x = e.target.closest('[data-layer]'), lid = x && (!account && x.hasAttribute('data-account-only') ? 'signin-layer' : x.getAttribute('data-layer')); /* a layer for an account asks a guest to sign in first, D-237 */
     if (x && d.getElementById(lid)) { e.preventDefault(); openLayer(lid, x); return; }
     x = e.target.closest('.dialog__layer'); if (x && (e.target === x || e.target.closest('.dialog__close'))) { closeLayer(x); return; }
+    x = e.target.closest('.daily__tier.is-live > .button'); if (x) { openTier(x); return; }
     x = e.target.closest('.fav'); if (x) { if (!account) { openLayer('signin-layer', x); return; }
       var on = x.getAttribute('aria-pressed') !== 'true', c = x.querySelector('.case-tile__count, .fav__count'); x.setAttribute('aria-pressed', String(on));
       if (c) { var n = parseInt(c.textContent.replace(/\D/g, ''), 10) || 0; c.textContent = String(n + (on ? 1 : -1)); } return; }

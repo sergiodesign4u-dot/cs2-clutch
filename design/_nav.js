@@ -30,7 +30,7 @@ window.DESIGN_NAV = {
         { node: '1.1', label: 'Signed in', file: 'index.html?account', grey: 'index-account.html' }
       ] },
     { node: '1.2', name: 'Provably fair', page: 'design/fair.html',
-      about: 'The public page that says what a proof proves and what it does not, then lets anyone recompute a round, in colour since D-245, assembled from the kit: the Verify form in its six states, the case screen ruler in How a round is fixed, and four one-off blocks of 1.2 on the provably fair blue of the Proof block, played by design/kit/fair.js. No verified mark in any state. Waits for its gate.',
+      about: 'The public page that says what a proof proves and what it does not, then lets anyone recompute a round, in colour since D-245, assembled from the kit: the Verify form in its six states, the case screen ruler in How a round is fixed, and four one-off blocks of 1.2 on the provably fair blue of the Proof block, played by design/kit/fair.js. No verified mark in any state. Accepted at its gate, 22 Nov 2026.',
       labsOf: [],
       states: [
         { node: '1.2', label: 'The verifier idle',            file: 'fair.html',             grey: 'fair.html' },
@@ -39,6 +39,18 @@ window.DESIGN_NAV = {
         { node: '1.2', label: 'Proof not available yet',      file: 'fair-unavailable.html', grey: 'fair-unavailable.html' },
         { node: '1.3', label: 'Malformed round',              file: 'fair-malformed.html',   grey: 'fair-malformed.html' },
         { node: '1.4', label: 'Our own proof failed',         file: 'fair-proof-failed.html', grey: 'fair-proof-failed.html' }
+      ] },
+    { node: '3.1', name: 'Case catalogue', page: 'design/catalogue.html',
+      about: 'The whole shelf in colour since D-246, assembled from the kit: the sticky category bar with Search and Filters, the Daily ladder, twelve cases in three sections of four, eight of their covers new, and the filter drawer, played by design/kit/catalogue.js. Waits for its gate.',
+      labsOf: [],
+      states: [
+        { node: '3.1', label: 'Guest, unfiltered',  file: 'catalogue.html',          grey: 'catalogue.html' },
+        { node: '3.1', label: 'Account',            file: 'catalogue-account.html',  grey: 'catalogue-account.html' },
+        { node: '3.1', label: 'Filter drawer open', file: 'catalogue-filter.html',   grey: 'catalogue-filter.html' },
+        { node: '3.1', label: 'Filtered',           file: 'catalogue-filtered.html', grey: 'catalogue-filtered.html' },
+        { node: '3.1', label: 'Loading',            file: 'catalogue-loading.html',  grey: 'catalogue-loading.html' },
+        { node: '3.1', label: 'Degraded',           file: 'catalogue-degraded.html', grey: 'catalogue-degraded.html' },
+        { node: '3.2', label: 'Nothing matches',    file: 'catalogue-empty.html',    grey: 'catalogue-empty.html' }
       ] },
     { node: '3.3', name: 'Case screen', page: 'design/case.html',
       about: 'The case, the open and the outcome on one page, assembled from the kit since D-236: the shell, the Case stage and the Commit block played by design/kit/stage.js, the kit\'s drop table and best drops, and the case\'s four one-off blocks, compared beside the case screen v4, the founder\'s picks of D-213 and D-214, its motion carried whole. Press Open signed in; ?land= decides what lands. The three states D-215 owed are pages of their own. Passed its gate on 20 Nov 2026.',

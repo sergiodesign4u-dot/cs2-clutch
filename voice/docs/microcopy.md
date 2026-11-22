@@ -732,7 +732,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 3.1-7 | main | Classic | link | `WF_STR.classic` | catalogue-account, catalogue-degraded, catalogue-filter, catalogue-loading, catalogue |  | kept |
 | 3.1-8 | main | Search | button | `WF_STR.search` | all 7 of `3.1` |  | kept |
 | 3.1-9 | main | Filters | button | `WF_STR.filters`, page | all 7 of `3.1` |  | kept |
-| 3.1-10 | main | Wager to climb. The tier decides which free case you get | text | `WF_STR.dailySub` | catalogue-account, catalogue-degraded, catalogue-filter, catalogue-loading, catalogue | N1 N2 P | Wager to climb. Your tier decides which daily case you get. |
+| 3.1-10 | main | Wager to climb. The tier decides which free case you get | text | `WF_STR.dailySub` | catalogue-account, catalogue-degraded, catalogue-filter, catalogue-loading, catalogue | N1 N2 P | Wager to climb. Your tier decides which daily case you get. **Not drawn in colour, `D-246`: `D-220` retired the climb, and the catalogue's Daily panel is Home's, with its line. The grey keeps it, frozen.** |
 | 3.1-11 | main | Available now: {n} cases | button | `_nav.js dailyLadder` | index-account; catalogue-account |  | Open daily case |
 | 3.1-12 | main | Our pick of the shelf | text | `WF_STR.featuredSub` | catalogue-account, catalogue-degraded, catalogue-filter, catalogue-filtered, catalogue-loading, catalogue |  | kept |
 | 3.1-13 | main | Cases our players put together | text | `WF_STR.communitySub` | catalogue-account, catalogue-degraded, catalogue-filter, catalogue-loading, catalogue |  | kept |

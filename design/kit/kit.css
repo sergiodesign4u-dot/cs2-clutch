@@ -150,6 +150,8 @@
   --icon-history: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M5.07868 5.06891C8.87402 1.27893 15.0437 1.31923 18.8622 5.13778C22.6824 8.95797 22.7211 15.1313 18.9262 18.9262C15.1312 22.7211 8.95793 22.6824 5.13774 18.8622C2.87389 16.5984 1.93904 13.5099 2.34047 10.5812C2.39672 10.1708 2.775 9.88377 3.18537 9.94002C3.59575 9.99627 3.88282 10.3745 3.82658 10.7849C3.4866 13.2652 4.27782 15.881 6.1984 17.8016C9.44288 21.0461 14.6664 21.0646 17.8655 17.8655C21.0646 14.6664 21.046 9.44292 17.8015 6.19844C14.5587 2.95561 9.33889 2.93539 6.13935 6.12957L6.88705 6.13333C7.30126 6.13541 7.63535 6.47288 7.63327 6.88709C7.63119 7.3013 7.29372 7.63539 6.87951 7.63331L4.33396 7.62052C3.92269 7.61845 3.58981 7.28556 3.58774 6.8743L3.57495 4.32874C3.57286 3.91454 3.90696 3.57707 4.32117 3.57498C4.73538 3.5729 5.07285 3.907 5.07493 4.32121L5.07868 5.06891ZM11.9999 7.24992C12.4141 7.24992 12.7499 7.58571 12.7499 7.99992V11.6893L15.0302 13.9696C15.3231 14.2625 15.3231 14.7374 15.0302 15.0302C14.7373 15.3231 14.2624 15.3231 13.9696 15.0302L11.2499 12.3106V7.99992C11.2499 7.58571 11.5857 7.24992 11.9999 7.24992Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:history-bold, D-193 */
   --icon-send: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M5.46967 17.4697C5.17678 17.7626 5.17678 18.2374 5.46967 18.5303C5.76256 18.8232 6.23744 18.8232 6.53033 18.5303L13.5 11.5607L17.4697 15.5303C17.6842 15.7448 18.0068 15.809 18.287 15.6929C18.5673 15.5768 18.75 15.3033 18.75 15V6C18.75 5.58579 18.4142 5.25 18 5.25L9 5.25C8.69665 5.25 8.42318 5.43273 8.30709 5.71299C8.19101 5.99324 8.25517 6.31583 8.46967 6.53033L12.4393 10.5L5.46967 17.4697Z%22/%3E%3C/svg%3E"); /* solar:arrow-right-up-bold, D-193 */
   --icon-share: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M17 2.25C18.7949 2.25 20.25 3.70507 20.25 5.5C20.25 7.29493 18.7949 8.75 17 8.75C16.1304 8.75 15.343 8.40587 14.7598 7.84961C13.1933 8.8679 11.6271 9.88698 10.0605 10.9053C10.1829 11.2474 10.25 11.6158 10.25 12C10.25 12.3843 10.182 12.7525 10.0596 13.0947C11.6262 14.1131 13.1931 15.1311 14.7598 16.1494C15.343 15.5934 16.1306 15.25 17 15.25C18.7949 15.25 20.25 16.7051 20.25 18.5C20.25 20.2949 18.7949 21.75 17 21.75C15.2051 21.75 13.75 20.2949 13.75 18.5C13.75 18.1158 13.8171 17.7474 13.9395 17.4053C12.3728 16.387 10.8059 15.3688 9.23926 14.3506C8.65611 14.9063 7.86912 15.25 7 15.25C5.20507 15.25 3.75 13.7949 3.75 12C3.75 10.2051 5.20507 8.75 7 8.75C7.86887 8.75 8.65616 9.09301 9.23926 9.64844C10.8059 8.63012 12.3728 7.61206 13.9395 6.59375C13.8173 6.25189 13.75 5.88385 13.75 5.5C13.75 3.70507 15.2051 2.25 17 2.25Z%22/%3E%3C/svg%3E"); /* solar:share-bold, the set of D-193 and D-227; рішення користувача, D-244, "просто иконку share поставим" (just put a share icon) on the item card */
+  --icon-search: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M11.5 2C16.7467 2 21 6.25329 21 11.5C21 13.8541 20.1417 16.0064 18.7236 17.666C18.7315 17.6732 18.7404 17.6799 18.748 17.6875L22.5303 21.4697C22.8228 21.7626 22.8228 22.2384 22.5303 22.5312C22.2375 22.8236 21.7625 22.8237 21.4697 22.5312L17.6875 18.748C17.6797 18.7403 17.6724 18.7317 17.665 18.7236C16.0055 20.1414 13.8538 21 11.5 21C6.25329 21 2 16.7467 2 11.5C2 6.25329 6.25329 2 11.5 2ZM11.5 5.5a6 6 0 1 0 0 12a6 6 0 1 0 0-12Z%22/%3E%3C/svg%3E"); /* Search on the category bar; solar:magnifer-bold with its lens cut out, for at 20px the solid glyph read as a dot with no lens, filled as every icon is (D-227, D-233); технічне рішення, D-246 */
+  --icon-filter: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M19 3H5C3.58579 3 2.87868 3 2.43934 3.4122C2 3.8244 2 4.48782 2 5.81466V6.50448C2 7.54232 2 8.06124 2.2596 8.49142C2.5192 8.9216 2.99347 9.18858 3.94202 9.72255L6.85504 11.3624C7.49146 11.7206 7.80967 11.8998 8.03751 12.0976C8.51199 12.5095 8.80408 12.9935 8.93644 13.5872C9 13.8722 9 14.2058 9 14.8729L9 17.5424C9 18.452 9 18.9067 9.25192 19.2613C9.50385 19.6158 9.95128 19.7907 10.8462 20.1406C12.7248 20.875 13.6641 21.2422 14.3321 20.8244C15 20.4066 15 19.4519 15 17.5424V14.8729C15 14.2058 15 13.8722 15.0636 13.5872C15.1959 12.9935 15.488 12.5095 15.9625 12.0976C16.1903 11.8998 16.5085 11.7206 17.145 11.3624L20.058 9.72255C21.0065 9.18858 21.4808 8.9216 21.7404 8.49142C22 8.06124 22 7.54232 22 6.50448V5.81466C22 4.48782 22 3.8244 21.5607 3.4122C21.1213 3 20.4142 3 19 3Z%22/%3E%3C/svg%3E"); /* Filters on the category bar; solar:filter-bold; технічне рішення, D-246 */
   --icon-settings: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M14.2788 2.15224C13.9085 2 13.439 2 12.5 2C11.561 2 11.0915 2 10.7212 2.15224C10.2274 2.35523 9.83509 2.74458 9.63056 3.23463C9.53719 3.45834 9.50065 3.7185 9.48635 4.09799C9.46534 4.65568 9.17716 5.17189 8.69017 5.45093C8.20318 5.72996 7.60864 5.71954 7.11149 5.45876C6.77318 5.2813 6.52789 5.18262 6.28599 5.15102C5.75609 5.08178 5.22018 5.22429 4.79616 5.5472C4.47814 5.78938 4.24339 6.1929 3.7739 6.99993C3.30441 7.80697 3.06967 8.21048 3.01735 8.60491C2.94758 9.1308 3.09118 9.66266 3.41655 10.0835C3.56506 10.2756 3.77377 10.437 4.0977 10.639C4.57391 10.936 4.88032 11.4419 4.88029 12C4.88026 12.5581 4.57386 13.0639 4.0977 13.3608C3.77372 13.5629 3.56497 13.7244 3.41645 13.9165C3.09108 14.3373 2.94749 14.8691 3.01725 15.395C3.06957 15.7894 3.30432 16.193 3.7738 17C4.24329 17.807 4.47804 18.2106 4.79606 18.4527C5.22008 18.7756 5.75599 18.9181 6.28589 18.8489C6.52778 18.8173 6.77305 18.7186 7.11133 18.5412C7.60852 18.2804 8.2031 18.27 8.69012 18.549C9.17714 18.8281 9.46533 19.3443 9.48635 19.9021C9.50065 20.2815 9.53719 20.5417 9.63056 20.7654C9.83509 21.2554 10.2274 21.6448 10.7212 21.8478C11.0915 22 11.561 22 12.5 22C13.439 22 13.9085 22 14.2788 21.8478C14.7726 21.6448 15.1649 21.2554 15.3694 20.7654C15.4628 20.5417 15.4994 20.2815 15.5137 19.902C15.5347 19.3443 15.8228 18.8281 16.3098 18.549C16.7968 18.2699 17.3914 18.2804 17.8886 18.5412C18.2269 18.7186 18.4721 18.8172 18.714 18.8488C19.2439 18.9181 19.7798 18.7756 20.2038 18.4527C20.5219 18.2105 20.7566 17.807 21.2261 16.9999C21.6956 16.1929 21.9303 15.7894 21.9827 15.395C22.0524 14.8691 21.9088 14.3372 21.5835 13.9164C21.4349 13.7243 21.2262 13.5628 20.9022 13.3608C20.4261 13.0639 20.1197 12.558 20.1197 11.9999C20.1197 11.4418 20.4261 10.9361 20.9022 10.6392C21.2263 10.4371 21.435 10.2757 21.5836 10.0835C21.9089 9.66273 22.0525 9.13087 21.9828 8.60497C21.9304 8.21055 21.6957 7.80703 21.2262 7C20.7567 6.19297 20.522 5.78945 20.2039 5.54727C19.7799 5.22436 19.244 5.08185 18.7141 5.15109C18.4722 5.18269 18.2269 5.28136 17.8887 5.4588C17.3915 5.71959 16.7969 5.73002 16.3099 5.45096C15.8229 5.17191 15.5347 4.65566 15.5136 4.09794C15.4993 3.71848 15.4628 3.45833 15.3694 3.23463C15.1649 2.74458 14.7726 2.35523 14.2788 2.15224ZM12.5 15C14.1695 15 15.5228 13.6569 15.5228 12C15.5228 10.3431 14.1695 9 12.5 9C10.8305 9 9.47716 10.3431 9.47716 12C9.47716 13.6569 10.8305 15 12.5 15Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:settings-bold, D-193 */
   --icon-shield: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M3.37752 5.08241C3 5.62028 3 7.21907 3 10.4167V11.9914C3 17.6294 7.23896 20.3655 9.89856 21.5273C10.62 21.8424 10.9807 22 12 22C13.0193 22 13.38 21.8424 14.1014 21.5273C16.761 20.3655 21 17.6294 21 11.9914V10.4167C21 7.21907 21 5.62028 20.6225 5.08241C20.245 4.54454 18.7417 4.02996 15.7351 3.00079L15.1623 2.80472C13.595 2.26824 12.8114 2 12 2C11.1886 2 10.405 2.26824 8.83772 2.80472L8.26491 3.00079C5.25832 4.02996 3.75503 4.54454 3.37752 5.08241ZM15.0595 10.4995C15.3353 10.1905 15.3085 9.71642 14.9995 9.44055C14.6905 9.16467 14.2164 9.19151 13.9405 9.50049L10.9286 12.8739L10.0595 11.9005C9.78358 11.5915 9.30947 11.5647 9.00049 11.8405C8.69151 12.1164 8.66467 12.5905 8.94055 12.8995L10.3691 14.4995C10.5114 14.6589 10.7149 14.75 10.9286 14.75C11.1422 14.75 11.3457 14.6589 11.488 14.4995L15.0595 10.4995Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:shield-check-bold, D-193 */
   --icon-out: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath fill-rule=%22evenodd%22 d=%22M16.125 12C16.125 11.5858 15.7892 11.25 15.375 11.25L4.40244 11.25L6.36309 9.56944C6.67759 9.29988 6.71401 8.8264 6.44444 8.51191C6.17488 8.19741 5.7014 8.16099 5.38691 8.43056L1.88691 11.4306C1.72067 11.573 1.625 11.7811 1.625 12C1.625 12.2189 1.72067 12.427 1.88691 12.5694L5.38691 15.5694C5.7014 15.839 6.17488 15.8026 6.44444 15.4881C6.71401 15.1736 6.67759 14.7001 6.36309 14.4306L4.40244 12.75L15.375 12.75C15.7892 12.75 16.125 12.4142 16.125 12Z%22 clip-rule=%22evenodd%22/%3E%3Cpath d=%22M9.375 8C9.375 8.70219 9.375 9.05329 9.54351 9.3055C9.61648 9.41471 9.71025 9.50848 9.81946 9.58145C10.0717 9.74996 10.4228 9.74996 11.125 9.74996L15.375 9.74996C16.6176 9.74996 17.625 10.7573 17.625 12C17.625 13.2426 16.6176 14.25 15.375 14.25L11.125 14.25C10.4228 14.25 10.0716 14.25 9.8194 14.4185C9.71023 14.4915 9.6165 14.5852 9.54355 14.6944C9.375 14.9466 9.375 15.2977 9.375 16C9.375 18.8284 9.375 20.2426 10.2537 21.1213C11.1324 22 12.5464 22 15.3748 22L16.3748 22C19.2032 22 20.6174 22 21.4961 21.1213C22.3748 20.2426 22.3748 18.8284 22.3748 16L22.3748 8C22.3748 5.17158 22.3748 3.75736 21.4961 2.87868C20.6174 2 19.2032 2 16.3748 2L15.3748 2C12.5464 2 11.1324 2 10.2537 2.87868C9.375 3.75736 9.375 5.17157 9.375 8Z%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:logout-2-bold, D-193 */
@@ -285,6 +287,14 @@
   --art-case-coldfront: url(../visuals/cases/coldfront-c.webp); /* rішення користувача, D-209, case-tiles.css */
   --art-case-nightfall: url(../visuals/cases/nightfall-c.webp); /* rішення користувача, D-209, case-tiles.css */
   --art-case-emberforge: url(../visuals/cases/emberforge-c.webp); /* rішення користувача, D-209, case-tiles.css */
+  --art-case-emberline: url(../visuals/cases/emberline-c.webp); /* a cover on the catalogue, generated 22 Nov 2026 by Codex gpt-5.6-terra from the base case (D-230, design/visuals/README.md); технічне рішення, D-246 */
+  --art-case-saltmarsh: url(../visuals/cases/saltmarsh-c.webp); /* a cover on the catalogue, generated 22 Nov 2026 by Codex gpt-5.6-terra from the base case (D-230, design/visuals/README.md); технічне рішення, D-246 */
+  --art-case-blacklight: url(../visuals/cases/blacklight-c.webp); /* a cover on the catalogue, generated 22 Nov 2026 by Codex gpt-5.6-terra from the base case (D-230, design/visuals/README.md); технічне рішення, D-246 */
+  --art-case-riftwork: url(../visuals/cases/riftwork-c.webp); /* a cover on the catalogue, generated 22 Nov 2026 by Codex gpt-5.6-terra from the base case (D-230, design/visuals/README.md); технічне рішення, D-246 */
+  --art-case-deadbolt: url(../visuals/cases/deadbolt-c.webp); /* a cover on the catalogue, generated 22 Nov 2026 by Codex gpt-5.6-terra from the base case (D-230, design/visuals/README.md); технічне рішення, D-246 */
+  --art-case-overcast: url(../visuals/cases/overcast-c.webp); /* a cover on the catalogue, generated 22 Nov 2026 by Codex gpt-5.6-terra from the base case (D-230, design/visuals/README.md); технічне рішення, D-246 */
+  --art-case-tinderbox: url(../visuals/cases/tinderbox-c.webp); /* a cover on the catalogue, generated 22 Nov 2026 by Codex gpt-5.6-terra from the base case (D-230, design/visuals/README.md); технічне рішення, D-246 */
+  --art-case-halfmoon: url(../visuals/cases/halfmoon-c.webp); /* a cover on the catalogue, generated 22 Nov 2026 by Codex gpt-5.6-terra from the base case (D-230, design/visuals/README.md); технічне рішення, D-246 */
   --art-daily-silver: url(../visuals/daily/silver.webp); /* a daily tier's case; rішення користувача, D-209, daily-home.js */
   --art-daily-nova: url(../visuals/daily/nova.webp); /* rішення користувача, D-209, daily-home.js */
   --art-daily-guardian: url(../visuals/daily/guardian.webp); /* rішення користувача, D-209, daily-home.js */
@@ -2113,6 +2123,7 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .icon--crown { --i: var(--icon-crown); } .icon--bolt { --i: var(--icon-bolt); } .icon--question { --i: var(--icon-question); } .icon--steam { --i: var(--icon-steam); }
 .icon--percent { --i: var(--icon-percent); } /* a published chance, D-234 */
 .icon--share { --i: var(--icon-share); } /* Share this round on an item card, D-244 */
+.icon--search { --i: var(--icon-search); } .icon--filter { --i: var(--icon-filter); } /* the category bar, D-246 */
 .icon--google { --i: var(--icon-google); } .icon--discord { --i: var(--icon-discord); } .icon--x { --i: var(--icon-x); } .icon--facebook { --i: var(--icon-facebook); }
 .icon--youtube { --i: var(--icon-youtube); } .icon--instagram { --i: var(--icon-instagram); } .icon--tiktok { --i: var(--icon-tiktok); } .icon--telegram { --i: var(--icon-telegram); }
 .icon--coin { background: var(--art-coin) center / contain no-repeat; -webkit-mask: none; mask: none; }
@@ -2585,6 +2596,11 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .case-tile:has(.case-tile__risk:hover) { z-index: 2; transition: z-index 0s; } /* the tile whose bolts are hovered rises over its neighbours, so its tooltip is not covered */
 .case-tile .case-tile__fav:focus-visible { opacity: 1; }
 /* busy: the loading skeleton */
+.case-tile__risk.is-missing { width: auto; max-width: 100%; height: auto; min-height: var(--case-tile-risk); color: var(--color-text-soft); font-size: var(--size-chip); line-height: var(--case-tile-risk); } /* a figure whose source fails says so in words, never a zero and never a default band, 0.11 rule 3, D-246 */
+.case-tile__cost.is-missing { color: var(--color-text-soft); font-size: var(--size-chip); font-weight: 700; }
+.case-tile__gone { position: absolute; z-index: 2; top: var(--space-2); left: var(--space-1); right: var(--space-1); margin: 0; color: var(--color-text-soft); font-size: var(--size-unit); line-height: 1.2; text-align: right; pointer-events: none; } /* the favourite count's source failed */
+.case-tile .case-tile__fav[aria-busy="true"] { opacity: 1; cursor: default; } /* the count alone is being read, catalogue-loading (D-133) */
+.case-tile__fav[aria-busy="true"] > .case-tile__count { width: 2.4em; height: 1em; border-radius: var(--radius-xs); background: var(--color-disabled); }
 .case-tile[aria-busy="true"] :is(.case-tile__name, .case-tile__cost) { border-radius: var(--radius-xs); background: var(--color-disabled); color: transparent; }
 .case-tile[aria-busy="true"] .case-tile__risk { border-radius: var(--radius-xs); background: var(--color-disabled); }
 .case-tile[aria-busy="true"] :is(.case-tile__bolts, .case-tile__tip, .case-tile__cost > .icon) { visibility: hidden; }
@@ -2599,20 +2615,28 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 
 /* CATEGORY BAR. The shelf's sections as a run of options, one current, and the two acts on the shelf, Search and Filters with its count.
    Grey only so far, wireframes/catalogue.html; the look is the case screen's open bar, a plate with the count switch at one end and the
-   acts at the other, design/v4/case-stage.css .v4c-plate. Contains Segmented control (.seg__opt as a link), Button, Badge. On a phone the
-   plate stacks as the open bar does: the run on its own row, the acts under it. */
-.catbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3); border-radius: var(--radius-m); background: var(--gradient-plate); box-shadow: var(--shadow-plate-edge); }
+   acts at the other, design/v4/case-stage.css .v4c-plate. Contains Segmented control (.seg__opt as a link), Button, Icon, Badge. One row at
+   every width since D-246: it sticks, and stacked as the open bar it took 124px of a 640px window; the baseline keeps the two acts and lets
+   the chips give way (research/docs/baseline.md 10.2, node 3.1 section 9). So the run scrolls, fading where more waits, and the acts are
+   their glyphs until 1200px, their words from there. */
+.catbar { display: flex; align-items: center; gap: var(--space-2); box-sizing: border-box; min-width: 0; padding: var(--space-2); border-radius: var(--radius-m); background: var(--gradient-plate); box-shadow: var(--shadow-plate-edge); }
 .catbar__l { display: none; flex: none; color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
-.catbar__run { display: flex; flex: 1 1 100%; gap: var(--space-2); min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.catbar__run { position: relative; display: flex; flex: 1 1 auto; gap: var(--space-2); min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.catbar__run.is-more { -webkit-mask: linear-gradient(90deg, #000 calc(100% - var(--space-6)), transparent); mask: linear-gradient(90deg, #000 calc(100% - var(--space-6)), transparent); } /* more sections wait past the edge */
 .catbar__run::-webkit-scrollbar { display: none; }
 .catbar__run > .seg__opt { flex: none; text-decoration: none; white-space: nowrap; }
+.catbar__run > .seg__opt:focus-visible { outline-offset: calc(-1 * var(--size-edge) - var(--space-hair)); } /* a scroller cuts an outer ring */
 .catbar__run > .seg__opt[aria-current="true"] { background: var(--gradient-button-stripes), var(--color-button); box-shadow: var(--shadow-button); } /* the current section is the chosen option, .seg__opt[aria-pressed="true"] */
 .catbar__acts { display: flex; flex: none; gap: var(--space-2); margin-left: auto; }
-@media (min-width: 600px) {
-  .catbar { flex-wrap: nowrap; padding: var(--space-3) var(--space-4); }
-  .catbar__l { display: block; }
-  .catbar__run { flex: 1 1 auto; }
+.catbar__acts > .button { min-height: var(--size-tap); }
+.catbar__acts > .button > .icon { font-size: var(--size-tile-icon); }
+@media (min-width: 600px) { .catbar { gap: var(--space-3); padding: var(--space-3); } }
+@media (max-width: 1199px) {
+  .catbar__acts > .button { width: var(--size-tap); padding: 0; }
+  .catbar__acts .button__label { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
+@media (min-width: 1200px) { .catbar { padding: var(--space-3) var(--space-4); } .catbar__l { display: block; } }
+.catbar [hidden] { display: none; } /* a section a filter emptied takes its chip, and with no section left the run and its label go (D-58) */
 
 /* CHOSEN METHOD. The head of a route at step 2: Back to the ways to pay, the method's mark and its name under its family, the founder's
    correction of 20 Nov 2026 (D-238, a back button and the chosen name in the head); the bonus, the code and the country stay at step 1.
@@ -3983,6 +4007,12 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .case-grid__cell { display: grid; flex: 0 0 calc((100% - var(--space-4)) / 2); min-width: 0; } /* one cell per case; the tile is the cell's one grid item and fills it both ways, so a row's tiles stand one height */
 @container case-grid (min-width: 480px) { .case-grid__cell { flex-basis: calc((100% - 2 * var(--space-4)) / 3); } }
 @container case-grid (min-width: 720px) { .case-grid__cell { flex-basis: calc((100% - 4 * var(--space-4)) / 5); } }
+.case-grid[hidden], .case-grid__cell[hidden] { display: none; }
+/* the whole shelf, node 3.1: a section of four stands four to a row and two under that, never three over one; what a filter leaves starts
+   where the section's head starts, D-246 */
+.case-grid--shelf > .case-grid__list { justify-content: flex-start; row-gap: var(--space-5); }
+@container case-grid (min-width: 0) { .case-grid--shelf .case-grid__cell { flex-basis: calc((100% - var(--space-4)) / 2); } }
+@container case-grid (min-width: 640px) { .case-grid--shelf .case-grid__cell { flex-basis: calc((100% - 3 * var(--space-4)) / 4); } }
 .case-grid__foot { display: flex; justify-content: center; margin-top: var(--space-5); }
 .case-grid__all { min-width: var(--case-grid-all-w); }
 
@@ -5841,3 +5871,97 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 
 /* QUESTIONS: the kit's Disclosure, one open at a time by their shared name */
 .fair-q__list { display: grid; gap: var(--space-2-5); }
+
+/* =====================================================================================================================================
+   PART 4.4, the case catalogue's one-off blocks, stage 07 step 5, D-246: blocks of nodes 3.1 and 3.2 alone. The catalogue was drawn only
+   in grey (wireframes/catalogue.html and its six states), so each is built from its nearest relative in colour (D-229 point 4): the page's
+   head is Home's Cases card as a band, its fill, its object and that object's breath; the filters in force are the kit's Filter chips
+   over a count; the filter drawer is the kit's Dialog standing at the right edge, holding the Field, Range, Checkbox and Select menu, with
+   the Number stepper and the risk marks drawn as the tile's bolts. The bar is the kit's Category bar, the shelves the kit's Case grid.
+   ===================================================================================================================================== */
+
+/* THE PAGE'S HEAD: the crumb and the one H1, nothing more (D-127), its first words the title and the rest under them, the mode's object
+   breathing at the band's end */
+.shelf-head {
+  --shelf-head-art: 250px; /* the Cases card's object at the band's end, the card draws it at about 70% of itself; технічне рішення */
+  --shelf-head-art-s: 124px; /* the same under 600px, the H1 keeping 200px of a 360px window; технічне рішення */
+}
+.shelf-head { position: relative; isolation: isolate; overflow: hidden; display: grid; align-content: center; gap: var(--space-4); box-sizing: border-box; min-width: 0; min-height: calc(var(--shelf-head-art) * .72); padding: var(--space-5) calc(var(--shelf-head-art) + var(--space-4)) var(--space-5) var(--space-6); border-radius: var(--radius-m); background: var(--gradient-button-stripes), var(--gradient-mode-cases-card); box-shadow: var(--shadow-mode-card); color: var(--color-text-hi); }
+.shelf-head .crumb a { color: var(--color-text-hi); }
+.shelf-head__h { display: grid; gap: var(--space-2); margin: 0; color: var(--color-text-hi); font-weight: 900; text-transform: uppercase; }
+.shelf-head__h-1 { font-size: var(--size-xl); letter-spacing: var(--tracking-score); line-height: 1.02; }
+.shelf-head__h-2 { font-size: var(--size-title); line-height: 1.15; text-wrap: balance; }
+.shelf-head__art { position: absolute; z-index: -1; top: 50%; right: var(--space-4); width: var(--shelf-head-art); height: var(--shelf-head-art); margin-top: calc(var(--shelf-head-art) / -2); background: var(--art-mode-cases) center / contain no-repeat; filter: var(--shadow-mode-art); animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; pointer-events: none; }
+@media (max-width: 599px) {
+  .shelf-head { min-height: 0; gap: var(--space-3); padding: var(--space-4) calc(var(--shelf-head-art-s) - var(--space-2)) var(--space-4) var(--space-4); }
+  .shelf-head__h { gap: var(--space-1-5); }
+  .shelf-head__h-1 { font-size: var(--size-head-l); }
+  .shelf-head__h-2 { font-size: var(--size-chip); }
+  .shelf-head__art { right: calc(-1 * var(--space-2)); width: var(--shelf-head-art-s); height: var(--shelf-head-art-s); margin-top: calc(var(--shelf-head-art-s) / -2); }
+}
+@media (prefers-reduced-motion: reduce) { .shelf-head__art { animation: none; } }
+
+/* WHERE THE BAR STICKS AND WHERE THE BLOCKS STAND: under the header strip from 900px, at the window's top under that, where the header
+   scrolls away; a section jumped to stands clear of it. A stuck bar has the ground under its translucent plate */
+.shell__main > .catbar { position: sticky; z-index: 25; top: 0; margin-top: var(--space-4); background: var(--gradient-plate), var(--color-ground); }
+.shelf-sec, .shelf-state { scroll-margin-top: calc(var(--size-tap) + 2 * var(--space-3) + var(--space-4)); }
+.shell__main > .shelf-sec[hidden], .shell__main > .shelf-state[hidden], .shell__main > .empty[hidden] { display: none; }
+.shell__main > .catbar ~ .shelf-sec { margin-top: calc(var(--space-6) + var(--space-4)); }
+.shell__main > .catbar ~ .shelf-sec--daily { margin-top: var(--space-5); }
+.shell__main > .shelf-state:not([hidden]) ~ .shelf-sec { margin-top: var(--space-6); }
+.shell__main > .shelf-about { margin-top: calc(2 * var(--space-6)); }
+@media (min-width: 900px) {
+  .shell__main > .catbar { top: var(--size-header); }
+  .shelf-sec, .shelf-state { scroll-margin-top: calc(var(--size-header) + var(--size-tap) + 2 * var(--space-3) + var(--space-5)); }
+  .shell__main > .shelf-head { margin-inline: var(--space-2) var(--space-3); } /* a band, as the Account head and the case head stand */
+  .shell__main > .shelf-head:first-child { margin-top: calc(var(--space-2) - var(--space-6)); }
+}
+
+/* WHAT IS IN FORCE: the chips, Clear all and the count; the chips wrap and a cross is never cut (node 3.1 section 9) */
+.shell__main > .shelf-state { margin-top: var(--space-3); }
+.shelf-state { display: grid; gap: var(--space-2); min-width: 0; }
+.shelf-state__chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-width: 0; }
+.shelf-state__chips[hidden], .shelf-state__n[hidden] { display: none; }
+.shelf-state__n { margin: 0; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; }
+@media (max-width: 599px) {
+  .shelf-state__chips .chip, .shelf-state__chips > .button { min-height: var(--size-tap); }
+  .shelf-state__chips .chip > .button--close { width: var(--size-tap); min-height: var(--size-tap); }
+}
+
+/* THE FILTER DRAWER: the Dialog at the right edge, the whole window on a phone; its head and its one act stay while the controls scroll */
+.filter-drawer {
+  --filter-drawer-w: 420px; /* wireframes/_wf.css .wf-drawer drew 360px; two steppers with a 44px press each side want 420; технічне рішення */
+}
+.dialog__layer:has(> .filter-drawer) { justify-content: flex-end; align-items: stretch; padding: 0; overflow: hidden; }
+.dialog.filter-drawer { display: flex; flex-direction: column; max-width: var(--filter-drawer-w); height: 100%; min-height: 0; margin: 0; border-radius: 0; }
+.filter-drawer__head { display: flex; flex: none; align-items: center; gap: var(--space-3); padding: var(--space-3-5) var(--space-4) var(--space-3-5) var(--space-5); border-bottom: var(--size-hairline) solid var(--color-line-soft); }
+.filter-drawer__h { flex: 1; min-width: 0; margin: 0; color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; line-height: 1.1; text-transform: uppercase; }
+.filter-drawer__head > .dialog__close { position: relative; top: auto; right: auto; }
+.filter-drawer__body { display: grid; flex: 1 1 auto; align-content: start; gap: var(--space-5); min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-5); }
+.filter-drawer__set { display: grid; gap: var(--space-2); min-width: 0; margin: 0; padding: 0; border: 0; }
+.filter-drawer__set > .range { height: var(--size-tap); }
+.filter-drawer__steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.filter-drawer .check { align-items: center; min-height: var(--size-tap); }
+.filter-drawer .popover--select .popover__panel { top: auto; bottom: calc(100% + var(--space-1-5)); } /* the two lists stand at the drawer's foot, so they open upward */
+.filter-drawer__foot { flex: none; padding: var(--space-3) var(--space-5) var(--space-4); border-top: var(--size-hairline) solid var(--color-line-soft); }
+.filter-drawer__foot > .button { width: 100%; }
+@media (max-width: 599px) {
+  .dialog__layer > .dialog.filter-drawer { max-width: none; min-height: 0; }
+  .filter-drawer__head { padding-left: var(--space-4); }
+  .filter-drawer__head > .button--s { min-height: var(--size-tap); }
+  .filter-drawer__body { padding: var(--space-4); }
+  .filter-drawer__foot { padding-inline: var(--space-4); }
+}
+
+/* NUMBER STEPPER, inside the drawer alone: a figure that can be typed, a step either side of it */
+.stepper { display: grid; grid-template-columns: var(--size-tap) minmax(0, 1fr) var(--size-tap); border-radius: var(--radius-button); background: var(--color-tile); box-shadow: var(--shadow-edge); }
+.stepper:focus-within { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
+.stepper__b { min-height: var(--size-tap); padding: 0; border: 0; border-radius: var(--radius-button); background: none; color: var(--color-text-hi); font: 900 var(--size-text) / 1 var(--font-family); cursor: pointer; }
+.stepper__b:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--size-edge)); }
+@media (hover: hover) { .stepper__b:hover { background: var(--color-tile-veil); } }
+.stepper > .input { min-width: 0; padding: 0; background: none; box-shadow: none; text-align: center; font-variant-numeric: tabular-nums; }
+
+/* RISK MARKS, inside the drawer alone: the tile's four bolts beside the word, never in its place (0.7 rule 5.5) */
+.risk-marks { display: inline-flex; flex: none; color: var(--color-skull-off); font-size: var(--size-check); }
+.risk-marks[data-risk="low"] { --rc: var(--color-risk-low); } .risk-marks[data-risk="medium"] { --rc: var(--color-risk-mid); } .risk-marks[data-risk="high"] { --rc: var(--color-risk-high); }
+.risk-marks > .icon.is-on { color: var(--rc); }
