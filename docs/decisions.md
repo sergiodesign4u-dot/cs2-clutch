@@ -7656,3 +7656,11 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **The cost.** An eighth script. The kit's sample of the excluded state held a 40.00 deposit limit its own list did not show; the page takes the grey's empty field. The other coloured screens do not yet read a boundary: a cool down started here closes nothing on the case screen or Deposit in colour.
 
 **Waits for its gate.** The founder walks the five states at 1440 and 360.
+
+## D-249. Stage 07 step 5: Responsible play's blocks in the middle of the column
+
+**Date:** 2026-11-23. **Stage:** 07, step 5. **Decided by:** the founder, looking at `D-248`: "я би центрировал би блоки" ("I would centre the blocks").
+
+**What was decided.** From 900px the Limits panel stands in the middle of the column at its 720px measure, and the head's crumb, H1 and status line start where the panel starts, the band itself still the column's full width. The head reads the panel's own `--limits-measure`, declared once for both. Under 900px nothing moves: the panel already fills the column.
+
+**What did not change.** One column, never a dashboard at width (node 6.1 section 7); every value of `D-248`.

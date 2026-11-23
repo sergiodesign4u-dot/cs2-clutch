@@ -4623,7 +4623,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    Grey only so far, wireframes/responsible.html, responsible-in-force.html, responsible-excluded.html, responsible-guest.html; the look is
    Home's questions, a row on the row gradient with its hairline and the sunken well an open answer sits in, design/v4/faq-home.css (as the
    kit's .field--row and .disclosure__body). Contains Field (row), Text field, Select, Key-value line, Button, Note line, Text link. */
-.limits {
+.limits, .rp-head { /* the head reads the panel's measure, so its words start where the panel starts (D-249) */
   --limits-measure: 720px; /* wireframes/_wf.css .wf-rp: the page's one readable measure; технічне рішення */
   --limits-amount: 128px; /* the amount box in a limit's row, wide enough for 10 000.00; технічне рішення */
   --limits-period: 136px; /* the period select beside it, wide enough for "per month" and its caret; технічне рішення */
@@ -6010,7 +6010,8 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 @media (min-width: 900px) {
   .shell__main > .rp-head { margin-inline: var(--space-2) var(--space-3); } /* a band, as the Account head and Provably fair's head stand */
   .shell__main > .rp-head:first-child { margin-top: calc(var(--space-2) - var(--space-6)); }
-  .shell__main > .rp-head + .limits { margin-inline-start: var(--space-2); } /* the panel's edge under the band's */
+  .shell__main > .rp-head + .limits { margin-inline: auto; } /* the panel in the middle of the column, the founder at D-249: "I would centre the blocks" */
+  .shell__main > .rp-head { padding-inline: max(var(--space-6), calc((100% - var(--limits-measure)) / 2)); } /* the crumb and the H1 start where the panel starts (D-249) */
 }
 
 /* THE PANEL'S PARTS under their Section heads: what these tools do, what a limit closes, the four limits, help that is not ours */

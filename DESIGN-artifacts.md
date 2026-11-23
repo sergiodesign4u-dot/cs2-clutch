@@ -1045,3 +1045,5 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Values in a rule.** The head reads the account menu tile's own: `--gradient-stripes-m` over `--gradient-mode-battles`, `--shadow-tile-lit-soft`. The Section heads take `sec-head--battles`.
 
 **Contrast.** Over the lightest pixel under each text, the lower of 1440 and 360: the crumb 4.96:1, its current page 5.06:1, the H1 5.12:1, the status line 5.06:1, Gambling Therapy 5.82:1, the panel's keys 6.74:1, the notes in What is in force now 6.87:1, every other text above 11:1.
+
+**Updated by `D-249`, variable, value, why.** From 900px `.rp-head + .limits` takes `margin-inline: auto` in place of 8px at its start, and `.rp-head` pads its sides to `max(32px, (100% - --limits-measure) / 2)`, so the founder's centred panel and the head's words share one edge. `--limits-measure` is now declared on `.limits, .rp-head`, one value read by both.
