@@ -6011,7 +6011,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   .shell__main > .rp-head { margin-inline: var(--space-2) var(--space-3); } /* a band, as the Account head and Provably fair's head stand */
   .shell__main > .rp-head:first-child { margin-top: calc(var(--space-2) - var(--space-6)); }
   .shell__main > .rp-head + .limits { margin-inline: auto; } /* the panel in the middle of the column, the founder at D-249: "I would centre the blocks" */
-  .shell__main > .rp-head { padding-inline: max(var(--space-6), calc((100% - var(--limits-measure)) / 2)); } /* the crumb and the H1 start where the panel starts (D-249) */
+  .shell__main > .rp-head { padding-inline: max(var(--space-6), calc((100% - var(--limits-measure)) / 2 - var(--space-2))); } /* the crumb and the H1 start where the panel starts (D-249): the band stands 8px in from the column's left and 12px from its right, so its middle is the column's less 2px and its words' edge 8px further in than the panel's without the last term */
 }
 
 /* THE PANEL'S PARTS under their Section heads: what these tools do, what a limit closes, the four limits, help that is not ours */
