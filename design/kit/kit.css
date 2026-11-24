@@ -218,6 +218,7 @@
 
   /* v4: Gradients, a kind of their own since D-224: a value that paints a surface and is neither a picture (--art-*) nor a percentage (--mix-*) */
   --gradient-mode-cases: linear-gradient(120deg, var(--color-pink), #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4; from theme.css as --v4-mode-cases */
+  --gradient-mode-cases-deep: linear-gradient(120deg, var(--color-button), #8E2BC9); /* the Cases mode's pink to violet starting from the filled button's deeper pink, for a white label on it: the brand pink holds white at 3.5:1, the button pink at 4.5:1 on its light stripe (the founder's pick A of 4 Nov 2026, --color-button); the chosen provider tile, stage 07 step 6, I1 */
   --gradient-mode-battles: linear-gradient(120deg, var(--color-rarity-5), #1B2A8F); /* blue; comp A, founder pick; from --color-rarity-5; from theme.css as --v4-mode-battles */
   --gradient-mode-showdowns: linear-gradient(120deg, var(--color-rarity-2), #7A0F22); /* red; comp A, founder pick; from --color-rarity-2; from theme.css as --v4-mode-showdowns */
   --gradient-mode-upgrade: linear-gradient(120deg, #9E6905, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it: #B57A06 held white 12px at 3.65:1, so the gold end went to #9E6905, 4.7:1, stage 06 critique of 10 Nov 2026, row 6; from theme.css as --v4-mode-upgrade */
@@ -536,6 +537,7 @@
   --gradient-plate: linear-gradient(180deg, #100F33, #0B0A26); /* the plate a bar of controls stands on; design/v4/case-stage.css .v4c-plate, the case screen's open bar; рішення користувача, D-209 (v4) carried by D-231 */
   --shadow-plate-edge: inset 0 0 0 1px rgba(139, 124, 255, .16); /* the violet hairline round that plate; design/v4/case-stage.css .v4c-plate; рішення користувача, D-209 (v4) carried by D-231 */
   --color-pink-edge: rgba(251, 63, 138, .45); /* the edge of a declaration that is made; design/v4/signin-home.css .sd-cbx.is-set; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-pink-on-dark: color-mix(in srgb, var(--color-pink) 40%, var(--color-text-hi)); /* the brand pink lightened for small type on a dark card: the pink itself holds 11px at 3.7:1 on the item card's navy; the item on its way to Steam, stage 07 step 6, I2 */
   /* the refusal line, the atom .note--refuse of part 4.1, decision 4 of D-231 */
   --color-refuse: #FF8297; /* the refusal line's words, a light error red; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why; рішення користувача, D-209 (v4) carried by D-231 */
   --size-refuse-mark: 18px; /* the round "!" that leads a refusal line, in --color-error; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why::before; рішення користувача, D-209 (v4) carried by D-231 */
@@ -2052,6 +2054,8 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .button--m { min-height: var(--size-button-m); padding: 0 var(--size-button-m-pad); font-size: var(--size-xs); }
 .button--s { min-height: var(--size-button-s); padding: 0 var(--size-button-s-pad); font-size: var(--size-chip); }
 .button--s:not(.button--arrow, .button--close)::after { content: ''; position: absolute; inset: calc((var(--size-button-s) - var(--size-tap)) / 2); } /* технічне рішення, D-232: press area 44px as v4 gave Add funds (account-home.css .ac2-dep::after, inset -6px); transparent, nothing is drawn; the arrow and the close keep their own ::after */
+.button--tap { min-height: var(--size-tap); } /* the 44px press at every width, for a row of acts a thumb works as a toolbar (the catalogue's bar, D-246); declared at stage 07 step 6, it was .catbar__acts > .button */
+@media (max-width: 599px) { .button--s-tap { min-height: var(--size-tap); } } /* the small button at the 44px floor on a phone, where it stands in a row of chips or a drawer's head (D-246); declared at stage 07 step 6, it was two contextual rules */
 .button--primary { background-color: var(--color-button); background-image: var(--gradient-button-sheen), var(--gradient-button-stripes); background-size: 300% 100%, auto; background-position: 100% 0, 0 0; background-repeat: no-repeat, repeat; transition: background-color .2s, box-shadow .2s; }
 .button--ghost { background-color: var(--color-button-ghost); background-image: var(--gradient-button-sheen); background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat; box-shadow: inset 0 0 0 var(--size-edge) var(--color-button); transition: background-color .2s, box-shadow .2s; }
 @media (hover: hover) {
@@ -2278,6 +2282,7 @@ body:where(:has(> .wf-screen-body)) { background: linear-gradient(to bottom, tra
 .fig { display: inline-flex; flex-direction: column; gap: var(--space-1); color: var(--color-text-muted); font-size: var(--size-chip); line-height: 1.2; }
 .fig__v { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
 .fig--money .fig__v { color: var(--color-money); }
+.fig--title .fig__v { font-size: var(--size-title); font-weight: 900; } /* a figure at a title's size (the selection's sum, D-239); declared at stage 07 step 6 */
 .fig--soft .fig__v { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; }
 .fig--up .fig__v { color: var(--color-up); } .fig--down .fig__v { color: var(--color-down); }
 .fig__c { color: var(--color-text-muted); font-size: var(--size-unit); }
@@ -2305,6 +2310,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 /* one shape for every badge, D-230: the variants change the colour only, never the size, the case or the spacing */
 .badge--status { background: var(--color-tile); box-shadow: var(--shadow-tile-edge); color: var(--color-text-soft); }
 .badge--count { background: var(--color-button); color: var(--color-text-hi); }
+.badge--l { align-self: center; height: var(--space-5); padding: 0 var(--space-2); font-size: var(--size-chip); } /* the count of a section's things beside its title; declared at stage 07 step 6, it was .sec-head__title > .badge */
 .badge--good { background: var(--color-green); color: var(--color-ground); }
 /* modifier needed by .proof, D-232: a round whose recomputation does not match is our failure, in the red of the refusal's mark
    (--color-error, .note--refuse::before) with the ground's dark ink, as .badge--good is green with it; one badge shape, the colour only
@@ -2356,6 +2362,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .link:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
 .link--arrow::after { content: ' \2192'; }
 .link--quiet { color: var(--color-text-soft); font-weight: 400; text-decoration: underline; }
+.link--hi { color: var(--color-text-hi); font-size: var(--size-chip); } /* a white link at a chip's size, on a plate of its own colour (Steam state, D-243); declared at stage 07 step 6, it was .steam-state .link */
 
 /* DISCLOSURE. A row that opens its panel, the plus turning to a minus; open, its edge takes the pink. From the FAQ, faq-home.css. Markup is
    details and summary, so it opens without a script. */
@@ -2417,6 +2424,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 /* PROSE. The page's own text, the SEO layer among it; a measure of 68ch. From the Home SEO block, seo-home.css. */
 .prose { max-width: var(--size-measure); color: var(--color-text-lead); font-size: var(--size-lead); line-height: 1.65; }
 .prose > * + * { margin-top: var(--space-4); }
+.prose--text { font-size: var(--size-text); } /* plain lines at the text's size: a statement, not a lead that argues (Responsible play, D-248); declared at stage 07 step 6 */
 .prose h2, .prose h3 { color: var(--color-text-hi); font-weight: 900; line-height: 1.2; }
 .prose a { color: var(--color-pink); }
 
@@ -2435,6 +2443,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .kv__k { color: var(--color-text-muted); font-size: var(--size-micro); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
 .kv__v { color: var(--color-text-hi); font-weight: 900; font-variant-numeric: tabular-nums; text-align: right; }
 .kv__v--missing { color: var(--color-text-muted); font-weight: 700; } /* a value that cannot be read, or has no market, the Figure's missing form (D-124): None on sale, no copy on sale to buy; D-239 */
+.kv--money .kv__v { color: var(--color-money); } /* a value that is money, in the money colour (the cash out's You receive, D-239); declared at stage 07 step 6, it was .cashout__calc > .kv--total .kv__v */
 .kv--total { padding-top: var(--space-2); border-top: var(--size-hairline) solid var(--color-line-soft); font-size: var(--size-label); }
 .kv--rule { justify-content: flex-start; } .kv--rule .kv__k { flex: 0 0 calc(2 * var(--size-tap)); } .kv--rule .kv__v { color: var(--color-text-soft); font-weight: 400; text-align: left; } /* which way a limit moves and when, Responsible play, wf-dir */
 
@@ -2458,6 +2467,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 /* FORM CONTROLS. Grey only so far; the pack takes them into the kit from one screen. The look is the language's: the tile's dark fill, the
    button's corner, a hairline at rest and the pink edge under focus, the button's heights. */
 .input, .select, .textarea { box-sizing: border-box; width: 100%; min-height: var(--size-button-m); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-button); background: var(--color-tile); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-family: inherit; font-size: var(--size-label); }
+.input.input--bare { min-width: 0; padding: 0; background: none; box-shadow: none; text-align: center; font-variant-numeric: tabular-nums; } /* a field with no plate of its own, inside a control that draws one (the number stepper, D-246); declared at stage 07 step 6 */
 .input--l, .select--l { min-height: var(--size-button-l); font-size: var(--size-text); }
 .textarea { min-height: calc(3 * var(--size-button-m)); padding: var(--space-3); line-height: 1.5; resize: vertical; }
 .input::placeholder, .textarea::placeholder { color: var(--color-text-muted); }
@@ -2484,6 +2494,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .switch > input:checked::after { translate: calc(var(--size-switch-w) - var(--size-switch-h)) 0; background: var(--color-text-hi); }
 .switch > input:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
 .range { --fill: 50%; width: 100%; height: var(--size-check); margin: 0; background: none; -webkit-appearance: none; appearance: none; cursor: pointer; } /* --fill is the share of the track lit, set by the page as the value moves */
+.range--tap { height: var(--size-tap); } /* the slider's press at the 44px floor (the filter drawer, D-246); declared at stage 07 step 6 */
 .range::-webkit-slider-runnable-track { height: var(--space-2); border-radius: var(--radius-pill); background: linear-gradient(var(--color-button), var(--color-button)) 0 0 / var(--fill) 100% no-repeat, var(--color-tile); box-shadow: var(--shadow-edge); }
 .range::-moz-range-track { height: var(--space-2); border-radius: var(--radius-pill); background: var(--color-tile); box-shadow: var(--shadow-edge); }
 .range::-moz-range-progress { height: var(--space-2); border-radius: var(--radius-pill); background: var(--color-button); }
@@ -2516,6 +2527,7 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 @media (hover: hover) { .crumb a:hover { color: var(--color-text-hi); } }
 .crumb a:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
 .crumb [aria-current] { color: var(--color-text-hi); }
+.crumb--lit a { color: var(--color-text-hi); } /* a crumb on a lit plate: on the blue's lightest stripe the soft grey falls to 3.4:1, full white holds 4.9:1, measured at D-245; Provably fair's, the catalogue's and Responsible play's heads; declared at stage 07 step 6, it was three contextual rules */
 /* cut to its parent: every step but the one above the page is hidden from sight, never from the markup; the back mark stands before it */
 .crumb--back li:not(:nth-last-child(2)) { display: none; }
 .crumb--back li + li::before { content: none; }
@@ -2628,7 +2640,6 @@ a.fig { color: inherit; text-decoration: none; } a.fig:focus-visible { outline: 
 .catbar__run > .seg__opt:focus-visible { outline-offset: calc(-1 * var(--size-edge) - var(--space-hair)); } /* a scroller cuts an outer ring */
 .catbar__run > .seg__opt[aria-current="true"] { background: var(--gradient-button-stripes), var(--color-button); box-shadow: var(--shadow-button); } /* the current section is the chosen option, .seg__opt[aria-pressed="true"] */
 .catbar__acts { display: flex; flex: none; gap: var(--space-2); margin-left: auto; }
-.catbar__acts > .button { min-height: var(--size-tap); }
 .catbar__acts > .button > .icon { font-size: var(--size-tile-icon); }
 @media (min-width: 600px) { .catbar { gap: var(--space-3); padding: var(--space-3); } }
 @media (max-width: 1199px) {
@@ -3351,7 +3362,8 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    case here involves, design/v4/seo-home.css (computed .sx-pin), with the dialog's cross of buttons.css as the remove. Contains Button. */
 .chip { display: inline-flex; align-items: center; gap: var(--space-1); max-width: 100%; min-height: var(--size-button-s); box-sizing: border-box; padding-left: var(--space-3); border-radius: var(--radius-card); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 700; line-height: 1.2; }
 .chip__t { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.chip > .button--close { flex: none; width: var(--size-button-s); min-height: var(--size-button-s); background: none; color: var(--color-text-soft); } /* the cross at the chip's own height */
+.chip > .chip__x { flex: none; width: var(--size-button-s); min-height: var(--size-button-s); background: none; color: var(--color-text-soft); } /* the chip's own cross, a close button at the chip's height; named .chip__x at stage 07 step 6 */
+@media (max-width: 599px) { .chip--tap { min-height: var(--size-tap); } .chip--tap > .chip__x { width: var(--size-tap); min-height: var(--size-tap); } } /* a chip and its cross at the 44px floor on a phone, the catalogue's filters in force (D-246); declared at stage 07 step 6 */
 
 /* HERO. Home's H1 in capitals and the Trustpilot line as a badge: a glass plate with a lit edge, five tiles filled to the score in Trustpilot's
    green, the score large, the source and the count stacked; a light crosses it every few seconds and under the pointer the tiles hop in turn.
@@ -3424,7 +3436,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 @media (hover: hover) { .item-card__share:hover { background: var(--color-tile); color: var(--color-text-hi); } }
 .item-card__share:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
 .item-card__band { display: block; margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-3)) var(--space-1); padding: var(--space-2) var(--space-3); border-bottom: var(--size-hairline) solid var(--color-line-soft); color: var(--color-text-muted); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.4; min-height: 2.8em; text-transform: uppercase; } /* two lines kept on every band, so a wrapped one and a short one sit alike (the grey's rule) */
-.item-card.is-sending .item-card__band { color: var(--color-pink); }
+.item-card.is-sending .item-card__band { color: var(--color-pink-on-dark); }
 .item-card.is-sold .item-card__band, .item-card.is-gone .item-card__band { color: var(--color-text-hi); border-bottom-color: var(--color-line); }
 .item-card__art { position: relative; display: block; height: calc(var(--size-drop-v4) + var(--space-2)); margin: var(--space-2) 0; }
 .item-card__art::before, .item-card__art::after { content: ''; position: absolute; left: 50%; top: 50%; height: 86%; aspect-ratio: 136 / 118; translate: -50% -50%; }
@@ -5038,7 +5050,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .pay-panel__prov > .radio { position: absolute; top: var(--space-2-5); right: var(--space-2-5); }
 .pay-panel__prov-mark { display: grid; place-items: center; width: var(--size-tile); height: var(--size-tile); border-radius: 50%; background: var(--color-veil); box-shadow: var(--shadow-tile-lit), var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; line-height: 1; } /* a sample provider's mark: its letter in a ring, until real providers are named (D-124) */
 .pay-panel__prov-n { color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.2; }
-.pay-panel__prov:has(input:checked) { background: var(--gradient-button-stripes), var(--gradient-mode-cases); box-shadow: var(--shadow-tile-lit), var(--shadow-plate-deep); color: var(--color-text-hi); } /* chosen: lit in the Cases mode's pink to violet, as the reference's chosen tile is lit in its brand */
+.pay-panel__prov:has(input:checked) { background: var(--gradient-button-stripes), var(--gradient-mode-cases-deep); box-shadow: var(--shadow-tile-lit), var(--shadow-plate-deep); color: var(--color-text-hi); } /* chosen: lit in the Cases mode's pink to violet, as the reference's chosen tile is lit in its brand */
 .pay-panel__prov .radio > input:checked { box-shadow: inset 0 0 0 var(--size-edge) var(--color-text-hi); }
 .pay-panel__prov .radio > input:checked::after { background: var(--color-text-hi); }
 .pay-panel__prov:has(input:focus-visible) { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
@@ -5296,8 +5308,8 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   padding: 9px var(--space-3); border-radius: var(--radius-s); background: var(--color-hash-well); box-shadow: var(--shadow-edge-lit); } /* Check in the hash's box, founder of 11 Nov 2026 */
 .spend__hash-t { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
 .spend__hash-t code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.spend__ok { display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--color-green); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; }
-.spend__ok svg { width: var(--space-3-5); height: var(--space-3-5); fill: var(--color-green); }
+.spend__ok { display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--color-green); font-size: var(--size-chip); font-weight: 700; } /* wraps to a second line where the column is narrow: nowrap ran it 40px under Check at 1280, stage 07 step 6, I6 */
+.spend__ok svg { flex: none; width: var(--space-3-5); height: var(--space-3-5); fill: var(--color-green); }
 .spend__hash > .button { flex: none; margin: 0; }
 .spend__card { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: var(--spend-card-min); padding: var(--spend-pad);
   border-radius: var(--radius-card); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: var(--shadow-tile-lit), var(--shadow-card-drop);
@@ -5679,7 +5691,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .selbar { position: sticky; z-index: 20; bottom: calc(var(--size-bar) + var(--selbar-gap)); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); box-sizing: border-box; padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5); border-radius: var(--radius-m); background: var(--gradient-menu); box-shadow: var(--shadow-shell); transition: box-shadow .2s; }
 .selbar__sum { display: grid; gap: var(--space-1); min-width: 0; }
 .selbar__n { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
-.selbar__sum > .fig .fig__v { font-size: var(--size-title); font-weight: 900; transition: text-shadow .2s; }
+.selbar__sum > .fig .fig__v { transition: text-shadow .2s; }
 .selbar.is-picking .selbar__sum > .fig .fig__v { text-shadow: 0 0 var(--space-5) color-mix(in srgb, var(--color-money) 55%, transparent), var(--shadow-figure-text); } /* lit as .pay-panel__offer-v */
 .selbar__top { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-1) var(--space-4); }
 .selbar__pk { position: relative; padding: 0; border: 0; background: none; font-family: inherit; font-size: var(--size-chip); cursor: pointer; } /* Select all and Deselect all as Text links beside the count, so the four acts keep one row */
@@ -5706,7 +5718,6 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    plate and its lines (.dock, .record). Contains Key-value line. */
 .cashout__calc { display: grid; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
 .cashout__h { margin: 0 0 var(--space-1); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 900; line-height: 1.2; text-transform: uppercase; }
-.cashout__calc > .kv--total .kv__v { color: var(--color-money); }
 
 /* THE INVENTORY'S HEAD, D-240, after the founder's "слишком просто и скучно" at My items' gate: the Section head with the count of what is
    held on a pink badge beside its title, the hint under it, and the Steam state as a card at the line's end, where the grey wrote a chip, a
@@ -5715,7 +5726,6 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
    Contains Section head, Badge, Link. */
 /* D-243: the founder, "огромная кнопка settings" (a huge Settings button). The card goes to one line, the small button's height: the mark at
    32px, the state and the way to Settings side by side, Settings a Text link at a chip's size. */
-.sec-head__title > .badge { align-self: center; height: var(--space-5); padding: 0 var(--space-2); font-size: var(--size-chip); } /* the count of a section's things beside its title */
 .steam-state {
   --steam-state-pulse: 1.6s; /* the live dot's halo loop, the drops ticker's --ticker-pulse; рішення користувача, D-209 (v4) carried by D-240 */
 }
@@ -5726,7 +5736,6 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .steam-state__on { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-green); font-size: var(--size-chip); font-weight: 900; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
 .steam-state__on::before { content: ''; flex: none; width: var(--space-2); height: var(--space-2); border-radius: 50%; background: var(--color-green); }
 .steam-state__on::after { content: ''; position: absolute; z-index: -1; left: 0; top: 50%; width: var(--space-2); height: var(--space-2); margin-top: calc(var(--space-2) / -2); border-radius: 50%; background: color-mix(in srgb, var(--color-green) 60%, transparent); animation: ticker-live var(--steam-state-pulse) ease-out infinite; pointer-events: none; } /* the drops ticker's live dot, .ticker__lbl::after, in the gain's green */
-.steam-state .link { color: var(--color-text-hi); font-size: var(--size-chip); }
 @media (min-width: 900px) {
   .sec-head:has(> .steam-state) { grid-template-columns: auto minmax(var(--sec-head-line), 1fr) auto; }
   .sec-head > .steam-state { grid-area: 1 / 3; margin-top: 0; }
@@ -5824,7 +5833,6 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 /* THE PAGE'S HEAD: the crumb, the H1 at the screen title's size, the line that says the page is public, the two ways on; beside them what a
    proof proves and what it does not, each in the dark well, the second with where that is answered. One column under 900px */
 .fair-head { display: grid; gap: var(--space-5); min-width: 0; box-sizing: border-box; padding: var(--space-5) var(--space-6) var(--space-6); border-radius: var(--radius-m); background: var(--gradient-button-stripes), var(--gradient-fair); box-shadow: var(--shadow-tile-lit), var(--shadow-fair); color: var(--color-text-hi); }
-.fair-head .crumb a { color: var(--color-text-hi); } /* on the blue's lightest stripe the crumb's soft grey falls to 3.4:1 and the lead's white to 4.3:1; full white holds 4.9:1, measured at D-245 */
 .fair-head__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-6); align-items: center; }
 .fair-head__lead { display: grid; gap: var(--space-4); justify-items: start; min-width: 0; }
 .fair-head__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-xl); font-weight: 900; letter-spacing: var(--tracking-score); line-height: 1.05; text-transform: uppercase; overflow-wrap: anywhere; } /* the screen title, --size-xl 900 (D-187), in capitals as every head of the kit */
@@ -5908,7 +5916,6 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
   --shelf-head-art-s: 124px; /* the same under 600px, the H1 keeping 200px of a 360px window; технічне рішення */
 }
 .shelf-head { position: relative; isolation: isolate; overflow: hidden; display: grid; align-content: center; gap: var(--space-4); box-sizing: border-box; min-width: 0; min-height: calc(var(--shelf-head-art) * .72); padding: var(--space-5) calc(var(--shelf-head-art) + var(--space-4)) var(--space-5) var(--space-6); border-radius: var(--radius-m); background: var(--gradient-button-stripes), var(--gradient-mode-cases-card); box-shadow: var(--shadow-mode-card); color: var(--color-text-hi); }
-.shelf-head .crumb a { color: var(--color-text-hi); }
 .shelf-head__h { display: grid; gap: var(--space-2); margin: 0; color: var(--color-text-hi); font-weight: 900; text-transform: uppercase; }
 .shelf-head__h-1 { font-size: var(--size-xl); letter-spacing: var(--tracking-score); line-height: 1.02; }
 .shelf-head__h-2 { font-size: var(--size-title); line-height: 1.15; text-wrap: balance; }
@@ -5924,7 +5931,8 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 
 /* WHERE THE BAR STICKS AND WHERE THE BLOCKS STAND: under the header strip from 900px, at the window's top under that, where the header
    scrolls away; a section jumped to stands clear of it. A stuck bar has the ground under its translucent plate */
-.shell__main > .catbar { position: sticky; z-index: 25; top: 0; margin-top: var(--space-4); background: var(--gradient-plate), var(--color-ground); }
+.catbar--sticky { position: sticky; z-index: 25; top: 0; background: var(--gradient-plate), var(--color-ground); } /* the bar that stays while the shelves scroll, on the ground so nothing shows through (D-246); declared at stage 07 step 6 */
+.shell__main > .catbar { margin-top: var(--space-4); }
 .shelf-sec, .shelf-state { scroll-margin-top: calc(var(--size-tap) + 2 * var(--space-3) + var(--space-4)); }
 .shell__main > .shelf-sec[hidden], .shell__main > .shelf-state[hidden], .shell__main > .empty[hidden] { display: none; }
 .shell__main > .catbar ~ .shelf-sec { margin-top: calc(var(--space-6) + var(--space-4)); }
@@ -5932,7 +5940,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .shell__main > .shelf-state:not([hidden]) ~ .shelf-sec { margin-top: var(--space-6); }
 .shell__main > .shelf-about { margin-top: calc(2 * var(--space-6)); }
 @media (min-width: 900px) {
-  .shell__main > .catbar { top: var(--size-header); }
+  .catbar--sticky { top: var(--size-header); }
   .shelf-sec, .shelf-state { scroll-margin-top: calc(var(--size-header) + var(--size-tap) + 2 * var(--space-3) + var(--space-5)); }
   .shell__main > .shelf-head { margin-inline: var(--space-2) var(--space-3); } /* a band, as the Account head and the case head stand */
   .shell__main > .shelf-head:first-child { margin-top: calc(var(--space-2) - var(--space-6)); }
@@ -5945,31 +5953,27 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .shelf-state__chips[hidden], .shelf-state__n[hidden] { display: none; }
 .shelf-state__n { margin: 0; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; }
 @media (max-width: 599px) {
-  .shelf-state__chips .chip, .shelf-state__chips > .button { min-height: var(--size-tap); }
-  .shelf-state__chips .chip > .button--close { width: var(--size-tap); min-height: var(--size-tap); }
 }
 
 /* THE FILTER DRAWER: the Dialog at the right edge, the whole window on a phone; its head and its one act stay while the controls scroll */
 .filter-drawer {
   --filter-drawer-w: 420px; /* wireframes/_wf.css .wf-drawer drew 360px; two steppers with a 44px press each side want 420; технічне рішення */
 }
-.dialog__layer:has(> .filter-drawer) { justify-content: flex-end; align-items: stretch; padding: 0; overflow: hidden; }
-.dialog.filter-drawer { display: flex; flex-direction: column; max-width: var(--filter-drawer-w); height: 100%; min-height: 0; margin: 0; border-radius: 0; }
+.dialog__layer:has(> .dialog--drawer) { justify-content: flex-end; align-items: stretch; padding: 0; overflow: hidden; }
+.dialog.dialog--drawer { display: flex; flex-direction: column; max-width: var(--filter-drawer-w); height: 100%; min-height: 0; margin: 0; border-radius: 0; }
 .filter-drawer__head { display: flex; flex: none; align-items: center; gap: var(--space-3); padding: var(--space-3-5) var(--space-4) var(--space-3-5) var(--space-5); border-bottom: var(--size-hairline) solid var(--color-line-soft); }
 .filter-drawer__h { flex: 1; min-width: 0; margin: 0; color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; line-height: 1.1; text-transform: uppercase; }
 .filter-drawer__head > .dialog__close { position: relative; top: auto; right: auto; }
 .filter-drawer__body { display: grid; flex: 1 1 auto; align-content: start; gap: var(--space-5); min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-5); }
 .filter-drawer__set { display: grid; gap: var(--space-2); min-width: 0; margin: 0; padding: 0; border: 0; }
-.filter-drawer__set > .range { height: var(--size-tap); }
 .filter-drawer__steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
 .filter-drawer .check { align-items: center; min-height: var(--size-tap); }
 .filter-drawer .popover--select .popover__panel { top: auto; bottom: calc(100% + var(--space-1-5)); } /* the two lists stand at the drawer's foot, so they open upward */
 .filter-drawer__foot { flex: none; padding: var(--space-3) var(--space-5) var(--space-4); border-top: var(--size-hairline) solid var(--color-line-soft); }
 .filter-drawer__foot > .button { width: 100%; }
 @media (max-width: 599px) {
-  .dialog__layer > .dialog.filter-drawer { max-width: none; min-height: 0; }
+  .dialog__layer > .dialog--drawer { max-width: none; min-height: 0; }
   .filter-drawer__head { padding-left: var(--space-4); }
-  .filter-drawer__head > .button--s { min-height: var(--size-tap); }
   .filter-drawer__body { padding: var(--space-4); }
   .filter-drawer__foot { padding-inline: var(--space-4); }
 }
@@ -5980,7 +5984,6 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .stepper__b { min-height: var(--size-tap); padding: 0; border: 0; border-radius: var(--radius-button); background: none; color: var(--color-text-hi); font: 900 var(--size-text) / 1 var(--font-family); cursor: pointer; }
 .stepper__b:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--size-edge)); }
 @media (hover: hover) { .stepper__b:hover { background: var(--color-tile-veil); } }
-.stepper > .input { min-width: 0; padding: 0; background: none; box-shadow: none; text-align: center; font-variant-numeric: tabular-nums; }
 
 /* RISK MARKS, inside the drawer alone: the tile's four bolts beside the word, never in its place (0.7 rule 5.5) */
 .risk-marks { display: inline-flex; flex: none; color: var(--color-skull-off); font-size: var(--size-check); }
@@ -5998,7 +6001,6 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 
 /* THE PAGE'S HEAD: the crumb, the H1 with the menu tile's shield, and the line that says what is set */
 .rp-head { display: grid; justify-items: start; gap: var(--space-3); min-width: 0; box-sizing: border-box; padding: var(--space-5) var(--space-6) var(--space-6); border-radius: var(--radius-m); background: var(--gradient-stripes-m), var(--gradient-mode-battles); box-shadow: var(--shadow-tile-lit-soft); color: var(--color-text-hi); } /* the account menu's Responsible play tile, .popover__tile--rp, v4 account-home.css .am3-t.is-rp */
-.rp-head .crumb a, .rp-head .crumb [aria-current] { color: var(--color-text-hi); } /* on the blue's lightest stripe the crumb's soft grey would not hold 4.5:1, as on Provably fair's head (D-245) */
 .rp-head__h { display: flex; align-items: center; gap: var(--space-3); margin: var(--space-1) 0 0; color: var(--color-text-hi); font-size: var(--size-xl); font-weight: 900; letter-spacing: var(--tracking-score); line-height: 1.05; text-transform: uppercase; overflow-wrap: anywhere; } /* the screen title, --size-xl 900 (D-187), in capitals as every head of the kit */
 .rp-head__h > .icon { flex: none; font-size: .8em; } /* the menu tile's shield at the title's cap height */
 .rp-head > .limits__say { max-width: var(--size-measure); color: var(--color-text-hi); font-size: var(--size-text); } /* the Limits panel's status line, said under the H1 as the grey says it, white on the blue */
@@ -6016,5 +6018,4 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 /* THE PANEL'S PARTS under their Section heads: what these tools do, what a limit closes, the four limits, help that is not ours */
 .shell__main > .limits { gap: var(--space-6); }
 .rp-sec { display: grid; gap: var(--space-4); min-width: 0; }
-.rp-sec > .prose { font-size: var(--size-text); } /* two plain lines, at the text's size: a statement, not a lead that argues */
 .rp-sec > .prose > p { margin: 0; } .rp-sec > .prose > p + p { margin-top: var(--space-3); }

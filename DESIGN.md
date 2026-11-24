@@ -406,6 +406,7 @@ Rounded and soft at the corner, sharp nowhere. Cards, banners, tiles and buttons
 - **Hover / Focus:** the fill lightens to `#E8156A`, a band of light crosses it once (`--gradient-button-sheen`) and the glow comes up (`--shadow-button`); nothing moves. Keyboard focus adds a 2px white outline 2px out.
 - **Ghost:** the dark tile at 55 % with a 2px pink edge inside; under the pointer the pink fills at 20 %.
 - **Disabled:** soft text on a pale wash at 14 % with a 1px hairline.
+- **The 44px press:** an S button carries a 44px press area it does not draw; where a row is a toolbar for the thumb the floor is declared, `.button--tap` at every width (the catalogue's bar) and `.button--s-tap` on a phone (chips, a drawer's head). Declared at stage 07 step 6 (`D-252`), where they had been rules written from the row.
 - **Measured exceptions:** the case screen's act renders 56px high at 1440 and 52px at 375, and on a phone the Daily panel's Open button renders 36px and its guest Sign in 44px; all three are set by a stronger selector on the block, not by a size of the family. They are carried to step 6.
 
 ### Cards and tiles

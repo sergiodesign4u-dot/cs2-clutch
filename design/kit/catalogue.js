@@ -79,13 +79,13 @@
   function drawChips(list) {
     chipsBox.textContent = '';
     list.forEach(function (it) {
-      var ch = make('span', 'chip'), x = make('button', 'button button--close');
+      var ch = make('span', 'chip chip--tap'), x = make('button', 'button button--close chip__x');
       ch.appendChild(make('span', 'chip__t', it[0]));
       x.setAttribute('aria-label', 'Remove filter: ' + it[0]);
       ch.appendChild(press(x, function (g) { it[1](g); }));
       chipsBox.appendChild(ch);
     });
-    if (list.length) chipsBox.appendChild(press(make('button', 'button button--ghost button--s', 'Clear all'), function (g) { var n = none(); n.sort = g.sort; return n; }));
+    if (list.length) chipsBox.appendChild(press(make('button', 'button button--ghost button--s button--s-tap', 'Clear all'), function (g) { var n = none(); n.sort = g.sort; return n; }));
   }
 
   /* 3.2: one band and a ceiling get the node's own answer with its figures; anything else names every facet that met nowhere */

@@ -1058,3 +1058,18 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Values in a rule.** None new. The address draws the Dialog on the page, so it takes the Dialog's own: under 600px the sheet's square edge inside the column, from 600px the card's `--radius-m` and `--shadow-dialog`, its two columns where it has 760px.
 
 **Contrast.** Not measured again: every text on the seven pages is a text the kit's Dialog and Sign-in block already carry on the same ground (`D-232`), and the address puts the card on the page ground the layer's scrim darkens. Named as unmeasured on this screen.
+
+## 36. Stage 07 step 6, the critique fixed through the kit, `D-252`
+
+**Variables added to `:root`: two; the root holds 553.**
+
+| Variable | Value | Origin | Used by |
+|---|---|---|---|
+| `--gradient-mode-cases-deep` | `linear-gradient(120deg, var(--color-button), #8E2BC9)` | the Cases mode's gradient started from the filled button's deeper pink, the founder's pick A of 4 Nov 2026 for a white label (`--color-button`): the brand pink holds a 14px white label at 3.5:1, the button pink at 4.5:1 on its light stripe | the chosen provider tile, Deposit |
+| `--color-pink-on-dark` | `color-mix(in srgb, var(--color-pink) 40%, var(--color-text-hi))` | the brand pink lightened toward white for small type on a dark card: the pink itself holds 11px at 3.7:1 on the item card's navy | an item on its way to Steam, My items |
+
+**Rules changed, no value.** Fourteen contextual overrides became declared forms, each in its component's block: `.button--tap`, `.button--s-tap`, `.chip__x`, `.chip--tap`, `.crumb--lit`, `.badge--l`, `.link--hi`, `.kv--money`, `.fig--title`, `.range--tap`, `.input--bare`, `.prose--text`, `.dialog--drawer`, `.catbar--sticky`. They carry the values the contextual rules carried, by the same variables.
+
+**A rule changed, one property.** `.spend__ok` lost `white-space: nowrap`, so the proof line wraps where the column is narrow; its mark took `flex: none`.
+
+**Contrast.** The two pairs above, computed from their values against the ground the detector read under them; the detector's third pair, white on the Before you spend stub, is large bold text and holds the 3:1 that size asks. Not re-measured in the browser against the lightest pixel: the pass at step 6 gave readings that disagree with the founder's own measure of the button pink, so they are not used, and the full measurement is carried to step 7.
