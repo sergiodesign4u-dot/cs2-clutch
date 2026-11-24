@@ -7687,3 +7687,5 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Found and fixed on the way.** Every coloured sign in layer sent Privacy policy to the terms; it now opens the privacy policy's own address, as the grey does. Every link to the grey /signin on the coloured screens now leads to the coloured one.
 
 **Waits for its gate.** The founder walks the seven states at 1440 and 360.
+
+**Accepted.** On 24 November 2026 the founder accepted Sign in at its gate: "да отлично" ("yes, great"). Step 5 is done: eight screens in colour, 51 states over 50 of the 133 grey pages; the hub's coverage map now says the rest wait in grey for stage 12, and its lede no longer names `design/_theme.css`, gone since step 3.

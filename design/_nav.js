@@ -63,7 +63,7 @@ window.DESIGN_NAV = {
         { node: '6.3', label: 'Self excluded',               file: 'responsible-excluded.html',   grey: 'responsible-excluded.html' }
       ] },
     { node: '2.4', name: 'Sign in', page: 'design/signin.html',
-      about: 'Sign in with Steam in colour since D-251, assembled from the kit: the dialog over the case screen, the layer every page with the shell carries, and the address /signin as the same card on the page with its H1 and the way back to reading, the Dialog in its sign in form and the Sign-in block in each state. Two declarations, no press disabled: a press with one missing is refused and names it (D-26, D-58). Steam refused and Steam unavailable say which side failed. Played by kit.js. Waits for its gate.',
+      about: 'Sign in with Steam in colour since D-251, assembled from the kit: the dialog over the case screen, the layer every page with the shell carries, and the address /signin as the same card on the page with its H1 and the way back to reading, the Dialog in its sign in form and the Sign-in block in each state. Two declarations, no press disabled: a press with one missing is refused and names it (D-26, D-58). Steam refused and Steam unavailable say which side failed. Played by kit.js. Accepted at its gate, 24 Nov 2026.',
       labsOf: ['design/v4/signin-lab.html'],
       states: [
         { node: '2.4', label: 'The dialog, over the case screen', file: 'signin-dialog.html',           grey: 'signin-dialog.html' },
