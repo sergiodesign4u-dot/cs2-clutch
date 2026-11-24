@@ -7664,3 +7664,11 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **What was decided.** From 900px the Limits panel stands in the middle of the column at its 720px measure, and the head's crumb, H1 and status line start where the panel starts, the band itself still the column's full width. The head reads the panel's own `--limits-measure`, declared once for both. Under 900px nothing moves: the panel already fills the column.
 
 **What did not change.** One column, never a dashboard at width (node 6.1 section 7); every value of `D-248`.
+
+## D-250. Stage 07 step 5: Responsible play's head words back at the band's left
+
+**Date:** 2026-11-24. **Stage:** 07, step 5. **Decided by:** the founder, looking at `D-249` with a shot of the head: "а вот это давай как было к левому краю" ("and this one, let's have it as it was, at the left edge").
+
+**What was decided.** The crumb, the H1 and the status line go back to the band's own 32px inset from 900px, as `D-248` drew them. The panel below stays in the middle of the column, as `D-249` put it. The padding rule `D-249` added to `.rp-head` is removed and `--limits-measure` is declared on `.limits` alone again, since nothing else reads it.
+
+**What did not change.** The band, the panel's place, every value of `D-248`. Under 900px nothing moves.
