@@ -53,7 +53,7 @@ window.DESIGN_NAV = {
         { node: '3.2', label: 'Nothing matches',    file: 'catalogue-empty.html',    grey: 'catalogue-empty.html' }
       ] },
     { node: '6.1', name: 'Responsible play', page: 'design/responsible.html',
-      about: 'The four limits a person sets over their own spending and time, in colour since D-248, assembled from the kit: the Limits panel with its periods as Select menus and every press answered under its row, the confirmation of a self exclusion, the head on the account menu\'s Responsible play blue, played by design/kit/rp.js. No ticker, no bonus, no countdown. Waits for its gate.',
+      about: 'The four limits a person sets over their own spending and time, in colour since D-248, assembled from the kit: the Limits panel with its periods as Select menus and every press answered under its row, the confirmation of a self exclusion, the head on the account menu\'s Responsible play blue, played by design/kit/rp.js. No ticker, no bonus, no countdown. The head\'s words at the band\'s left and the panel in the middle of the column by D-249 and D-250. Accepted at its gate, 24 Nov 2026.',
       labsOf: [],
       states: [
         { node: '6.1', label: 'Guest',                       file: 'responsible.html',            grey: 'responsible-guest.html' },
@@ -61,6 +61,18 @@ window.DESIGN_NAV = {
         { node: '6.2', label: 'Self exclusion confirmation', file: 'responsible-confirm.html',    grey: 'responsible-confirm.html' },
         { node: '6.3', label: 'A limit in force',            file: 'responsible-in-force.html',   grey: 'responsible-in-force.html' },
         { node: '6.3', label: 'Self excluded',               file: 'responsible-excluded.html',   grey: 'responsible-excluded.html' }
+      ] },
+    { node: '2.4', name: 'Sign in', page: 'design/signin.html',
+      about: 'Sign in with Steam in colour since D-251, assembled from the kit: the dialog over the case screen, the layer every page with the shell carries, and the address /signin as the same card on the page with its H1 and the way back to reading, the Dialog in its sign in form and the Sign-in block in each state. Two declarations, no press disabled: a press with one missing is refused and names it (D-26, D-58). Steam refused and Steam unavailable say which side failed. Played by kit.js. Waits for its gate.',
+      labsOf: ['design/v4/signin-lab.html'],
+      states: [
+        { node: '2.4', label: 'The dialog, over the case screen', file: 'signin-dialog.html',           grey: 'signin-dialog.html' },
+        { node: '2.4', label: 'Cold arrival at /signin',          file: 'signin.html',                  grey: 'signin.html' },
+        { node: '2.4', label: 'One of two given',                 file: 'signin-consent-partial.html',  grey: 'signin-consent-partial.html' },
+        { node: '2.4', label: 'Press refused, nothing declared',  file: 'signin-blocked.html',          grey: 'signin-blocked.html' },
+        { node: '2.4', label: 'Consent given',                    file: 'signin-consent-given.html',    grey: 'signin-consent-given.html' },
+        { node: '2.5', label: 'Steam refused',                    file: 'signin-steam-refused.html',    grey: 'signin-steam-refused.html' },
+        { node: '2.6', label: 'Steam unavailable',                file: 'signin-steam-unavailable.html', grey: 'signin-steam-unavailable.html' }
       ] },
     { node: '3.3', name: 'Case screen', page: 'design/case.html',
       about: 'The case, the open and the outcome on one page, assembled from the kit since D-236: the shell, the Case stage and the Commit block played by design/kit/stage.js, the kit\'s drop table and best drops, and the case\'s four one-off blocks, compared beside the case screen v4, the founder\'s picks of D-213 and D-214, its motion carried whole. Press Open signed in; ?land= decides what lands. The three states D-215 owed are pages of their own. Passed its gate on 20 Nov 2026.',

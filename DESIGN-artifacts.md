@@ -1049,3 +1049,12 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Updated by `D-249`, variable, value, why.** From 900px `.rp-head + .limits` takes `margin-inline: auto` in place of 8px at its start, and `.rp-head` pads its sides to `max(32px, (100% - --limits-measure) / 2)`, so the founder's centred panel and the head's words share one edge. `--limits-measure` is now declared on `.limits, .rp-head`, one value read by both.
 
 **Updated by `D-250`, variable, value, why.** The head's side padding from 900px is the band's own `--space-6` again: the `max(...)` rule of `D-249` is removed, so the head's words start at the band's left while the panel stays centred. `--limits-measure` is declared on `.limits` alone again.
+
+
+## 35. Stage 07 step 5, Sign in in colour, `D-251`
+
+**Variables added to `:root`: none; the root holds 551.** No rule of `kit.css` changed: the seven pages are the Dialog in its sign in form and the Sign-in block as they stand.
+
+**Values in a rule.** None new. The address draws the Dialog on the page, so it takes the Dialog's own: under 600px the sheet's square edge inside the column, from 600px the card's `--radius-m` and `--shadow-dialog`, its two columns where it has 760px.
+
+**Contrast.** Not measured again: every text on the seven pages is a text the kit's Dialog and Sign-in block already carry on the same ground (`D-232`), and the address puts the card on the page ground the layer's scrim darkens. Named as unmeasured on this screen.

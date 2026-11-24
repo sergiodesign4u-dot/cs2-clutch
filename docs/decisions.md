@@ -7672,3 +7672,18 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **What was decided.** The crumb, the H1 and the status line go back to the band's own 32px inset from 900px, as `D-248` drew them. The panel below stays in the middle of the column, as `D-249` put it. The padding rule `D-249` added to `.rp-head` is removed and `--limits-measure` is declared on `.limits` alone again, since nothing else reads it.
 
 **What did not change.** The band, the panel's place, every value of `D-248`. Under 900px nothing moves.
+
+**Accepted.** On 24 November 2026 the founder accepted Responsible play at its gate in this form: "да гоу дальше" ("yes, go on"). Next, Sign in.
+
+
+## D-251. Stage 07 step 5: Sign in in colour
+
+**Date:** 2026-11-24. **Stage:** 07, step 5. **Decided by:** the founder's go after Responsible play's gate, "да гоу дальше" ("yes, go on"); the eighth and last screen of `D-234`.
+
+**What was decided.** Node 2.4's seven grey pages in colour under their own names, from the kit alone. `signin-dialog.html` is the case screen as a guest sees it with the sign in layer open on arrival, the canon of `D-54`, the layer every page with the shell already carries. The six pages of the address, /signin, draw the same card on the page (assumed, for the gate): the kit's Dialog in its sign in form with no close and no scrim, the H1 Sign in where the layer has its heading, the Sign-in block in each page's state from the showcase's own instances, and the way back to reading under it, Or keep looking around without an account, then the footer. One content in two carriers in one order (`D-56`). No ticker (node 2.4 section 3). Titles from node 2.4 section 9 A: the two failures carry their own. Every provider lands on Home signed in from the address and on the page it was opened over from the layer (`D-138`, `D-161`).
+
+**What the kit gained.** No component, no rule of `kit.css`. `kit.js`: while a layer is open Tab walks its own controls only, as the grey's layer always did (0.1 section 6), and a layer drawn open on arrival takes the keyboard, on `deposit-dialog.html` too; the Sign-in block says "Both declarations made." when both are ticked, microcopy 2.4-19, which the kit had left empty; Copy answers on the refused sign in's reference, microcopy R155 and R34.
+
+**Found and fixed on the way.** Every coloured sign in layer sent Privacy policy to the terms; it now opens the privacy policy's own address, as the grey does. Every link to the grey /signin on the coloured screens now leads to the coloured one.
+
+**Waits for its gate.** The founder walks the seven states at 1440 and 360.

@@ -8,7 +8,8 @@
    A press on the dimmed page, Escape or a choice in the drawer closes it. The popovers open and close on their trigger, their close, their
    scrim, a press outside and Escape; a Select menu's option is the choice it shows, and its list walks by the arrows (D-238). The ticker pauses and resumes, starts paused for reduced motion, and while it runs a drop arrives at
    the front, paced as v4's with a rare drop after four to six (D-235). The sound tile says on or off. A layer (.dialog__layer) opens on any data-layer naming it
-   and closes on its close, a press on the scrim and Escape, giving the keyboard back where it came from. The sign in declarations behave
+   and closes on its close, a press on the scrim and Escape, giving the keyboard back where it came from; while it is open Tab walks its own
+   controls only, and a layer drawn open on arrival takes the keyboard (D-251). Copy answers on a Copyable value marked data-copy. The sign in declarations behave
    as signin-home.js did, D-58: a press with one missing is refused, the row is marked, the line names it, the keyboard goes to it. A
    favourite toggles signed in and asks a guest to sign in. The Daily ladder's open control opens its tier (D-246). */
 (function () {
@@ -116,13 +117,38 @@
     var f = l.querySelector('.dialog__close, button, a[href], input'); if (f) f.focus(); }
   function closeLayer(l) { l.hidden = true; d.documentElement.classList.remove('has-layer'); if (back && back.focus) back.focus(); back = null; }
 
+  /* a layer drawn open on arrival (deposit-dialog, signin-dialog) is open as a press opens it: the page under it held, the keyboard on its close */
+  var pinned = d.querySelector('.dialog__layer:not([hidden])');
+  if (pinned) { d.documentElement.classList.add('has-layer'); var pf = pinned.querySelector('.dialog__close, button, a[href], input'); if (pf) pf.focus({ preventScroll: true }); }
+  /* the keyboard stays in an open layer, the modal contract of 0.1 section 6 as wireframes/_nav.js holds it (D-251): Tab walks the layer's
+     own controls round and round, links and buttons too, which Safari's default Tab passes over; a script that holds its own layer first wins */
+  d.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab' || e.defaultPrevented) return;
+    var l = d.querySelector('.dialog__layer:not([hidden])'); if (!l) return;
+    var f = [].slice.call(l.querySelectorAll('a[href], button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"])')).filter(function (x) { return !x.disabled && x.getClientRects().length; });
+    if (!f.length) return;
+    e.preventDefault(); var i = f.indexOf(d.activeElement);
+    f[(i < 0 ? 0 : i + (e.shiftKey ? f.length - 1 : 1)) % f.length].focus();
+  });
+
+  /* Copy on a Copyable value that names no script of its own (data-copy): a sign in refused, its reference for support (D-251); the line
+     under it says Copied, or what to do, microcopy R155 and R34 */
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-copy] .copy-value__row button'); if (!b) return;
+    var box = b.closest('.copy-value'), s = box.querySelector('.copy-value__said'), v = box.querySelector('.copy-value__v').textContent;
+    function said(t) { if (s) s.textContent = t; }
+    try { navigator.clipboard.writeText(v).then(function () { said('Copied'); }, function () { said('Not copied, select it by hand'); }); }
+    catch (x) { said('Not copied, select it by hand'); }
+  });
+
   /* the sign in declarations, D-58 */
   d.querySelectorAll('[data-signin]').forEach(function (s) {
     var rows = [].slice.call(s.querySelectorAll('.field--declare')), why = s.querySelector('.signin__why');
-    var SAY = { both: '<b>Tick both to continue.</b> Neither declaration has been made yet.', terms: '<b>The agreement to the terms is still missing.</b>', age: '<b>The age declaration is still missing.</b>' };
+    var DONE = 'Both declarations made.', SAY = { both: '<b>Tick both to continue.</b> Neither declaration has been made yet.', terms: '<b>The agreement to the terms is still missing.</b>', age: '<b>The age declaration is still missing.</b>' };
     function miss() { return rows.map(function (r) { return !r.querySelector('input').checked; }); }
     function say(m) { why.innerHTML = '<p class="note note--refuse">' + (m[0] && m[1] ? SAY.both : m[0] ? SAY.terms : SAY.age) + '</p>'; }
-    rows.forEach(function (r) { r.querySelector('input').addEventListener('change', function () { if (this.checked) r.classList.remove('is-missing'); var m = miss(); if (!m[0] && !m[1]) why.innerHTML = ''; else if (why.innerHTML) say(m); }); });
+    /* both made: the line says so, the grey's wireAuth and microcopy 2.4-19 (D-251); it was left empty since D-232 */
+    rows.forEach(function (r) { r.querySelector('input').addEventListener('change', function () { if (this.checked) r.classList.remove('is-missing'); var m = miss(); if (!m[0] && !m[1]) why.innerHTML = '<p class="note">' + DONE + '</p>'; else if (why.innerHTML.indexOf(DONE) > -1) why.innerHTML = ''; else if (why.innerHTML) say(m); }); });
     s.addEventListener('click', function (e) {
       var go = e.target.closest('[data-go]'); if (!go) return; var m = miss(); if (!m[0] && !m[1]) return; e.preventDefault();
       rows.forEach(function (r, i) { if (m[i]) { r.classList.remove('is-missing'); void r.offsetWidth; r.classList.add('is-missing'); } });
