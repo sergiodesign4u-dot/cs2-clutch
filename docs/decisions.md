@@ -7760,3 +7760,11 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Rejected.** The art moved off the words: it keeps the colour but changes four compositions the founder approved (`D-209`). A recorded exception: the words are the cards' only label for a mode.
 
 **Still open, shown to the founder.** Whether a better item two cards after the reel's stop reads as a near miss on a cheap loss (`D-253`): as it is, or nothing more than one grade above the result from the second card on.
+
+## D-256. Stage 07 closes: the keep rule leads into the kit
+
+**Date:** 2026-11-25. **Stage:** 07, close. **Decided by:** the founder, on the closing table: "го" (go).
+
+**`CLAUDE.md`, "Values migrate".** Deleted: the clause on `design/_theme.css` holding two answers per job until step 3 picked one, done since `D-228`. Replaced: the paragraph's last sentence, the stage 06 form of the keep rule, by the stage 07 form: "Залишаємо" (keep it) about a visual change goes into the kit, the value in its one variable in `design/kit/kit.css` with its origin and the founder's words, a row in `DESIGN-artifacts.md`, `kit.html` regenerated, every screen rebuilt; never a value on a screen. The file holds 131 lines before and after; the change is inside one paragraph.
+
+**Status.** `README.md`: UI + Visual Done, with what is ready (the language, the kit for the whole product, eight screens in colour) and that the rest waits for stage 12. `/_nav.js`: UI + Visual done and its `wip` off, so Next moves to Tokens + Components. The sample's composition and its reasons stay in `D-234`.
