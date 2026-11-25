@@ -205,3 +205,5 @@ Read against "Вхід і вихід" and "Готово, коли" of the stage 
 | The strategy check on the whole sample | done | step 6, S1 and C2 |
 | The stage closed by the ritual | waiting | the `CLAUDE.md` table is shown to the founder; nothing is written before the go |
 | This checklist | done | |
+
+**After the close, `D-257`.** Row A1 once more: the strip's cards are drawn by the case's published chances, not evenly. Measured over 1 260 cards of the fast part, each item's share sits within about a point of its chance; before, the code drew each of the nine evenly, one in nine. The no near miss check still finds 0 violations.

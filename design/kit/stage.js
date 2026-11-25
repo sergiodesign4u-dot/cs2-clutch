@@ -7,7 +7,8 @@
    - the roll is settled before anything moves (7.1, E1): roll() picks by the published chances, the runs only render what was picked;
    - no near miss (7.1, E2, read as D-253 reads it): the cards that pass the line while a run slows, and the one card after the one it
      stops on, are never worth more than the result; from the second card after it the strip is the case's own mix again, so a loss on the
-     cheapest item is not a wall of one card; it stops inside the result's card, never on its edge;
+     cheapest item is not a wall of one card; every other card on the strip is drawn by the case's published chances (D-257), so nothing
+     rare is placed beside the stop and nothing rare passes more often than it drops; it stops inside the result's card, never on its edge;
    - one case runs on the band, two to five each on its own column, locking one after another, 4.6s and 0.6s more a column (7.2, 7.2b);
    - for whoever asked for less motion the same result lands in the same order, stilled (7.3); there is no fast mode;
    - in the last stretch the pointers and the line take the colour of what is landing (E3), so the tension is about a settled result.
@@ -63,17 +64,21 @@
     return out;
   }
   // the strip: variety in the fast part, nothing better than the result once it slows and nothing better on the card after it once it
-  // stops; from AT + 2 on the case's own mix again (D-253)
+  // stops; from AT + 2 on the case's own mix again (D-253). Every card the strip draws is drawn by the case's published chances, as the
+  // result is, so a rare item passes as rarely as it drops; it was drawn evenly before, a 0.64 % item as often as a 32.91 % one (D-257)
   var LEN = 54, AT = 46, SLOW = 9, AFTER = 1, LEAD = 30;
-  function same(a, b) { return !!a && !!b && a.w === b.w && a.s === b.s; }
+  function draw(c) { /* one card by its chance and nothing else: two alike side by side are allowed, since keeping them apart lifted the
+    rare ones from 0.64 % to about 4 % of the strip (measured, D-257) */
+    var total = c.reduce(function (a, x) { return a + (x.ch > 0 ? x.ch : 0); }, 0); if (!(total > 0)) return c[Math.floor(Math.random() * c.length)];
+    var t = Math.random() * total; for (var i = 0; i < c.length; i++) { t -= c[i].ch > 0 ? c[i].ch : 0; if (t <= 0) return c[i]; } return c[c.length - 1];
+  }
   function strip(res) {
     var cards = [], floor = ITEMS.filter(function (x) { return value(x) <= value(res); });
     if (!floor.length) floor = [res];
     for (var i = 0; i < LEN; i++) {
       if (i === AT) { cards.push(res); continue; }
-      var pool = (i >= AT - SLOW && i <= AT + AFTER) ? floor : ITEMS, p = pool[Math.floor(Math.random() * pool.length)];
-      for (var g = 0; g < pool.length && pool.length > 1 && (same(p, cards[i - 1]) || (i === AT - 1 && same(p, res))); g++) p = pool[(pool.indexOf(p) + 1) % pool.length];
-      cards.push(p);
+      var pool = (i >= AT - SLOW && i <= AT + AFTER) ? floor : ITEMS;
+      cards.push(draw(pool));
     }
     return cards;
   }
