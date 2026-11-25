@@ -7711,3 +7711,17 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Not fixed, for the founder.** The reel on the cheapest item shows a run of identical cards for about three seconds before it stops. It is what node 3.3's no near miss rule (`E2`) produces when only one item is worth no more than the result: every card that passes the line while the run slows, and every card beside the stop, must be that item. Making it varied means reading `E2` more narrowly, for example only the cards that pass the line in the last stretch and the one after the stop, which lets a better item stand two cards away when the run stops. That is a trust rule, so it is asked, not taken.
 
 **Carried to the first step of stage 08.** The kit's grey-era layer, about 117 KB of `.wf-*` rules that no coloured screen uses and the v4 labs still read; the literals beside their variables (the footer's two glyph fills, nine in the product layer, about 36 in that layer); the visually hidden rule written 21 times; the modifiers and classes with no rule; the text under 12px; two skipped heading levels; the filled act used for selections (A2); the ticker's flame over the header (A3); and the rows of the log still marked to verify.
+
+## D-253. Stage 07 step 6: what the no near miss rule covers on the strip
+
+**Date:** 2026-11-25. **Stage:** 07, step 6. **Decided by:** the founder, on the question left open by `D-252` (row A1 of `design/kit/docs/critique.md`): "давай как рекомендуешь" ("go as you recommend"). The recommendation was option (b): narrow the reading of `E2`, not the rule.
+
+**The problem.** Node `3.3` section 7.1 says the deceleration lands on the result "without visually passing better items first". The engine read it wider: every card from nine before the result to five after it had to be worth no more than the result. When the result is the cheapest item only the result itself qualifies, so fifteen identical cards made the strip and a loss on P250 crawled for about three seconds through a wall of P250. The critique's design review (Imp-A) read that as told early and scripted, which is the suspicion `E2` exists to prevent.
+
+**Decided.** What passing covers: every card that crosses the line once the run slows (nine, unchanged) and the one card after the one it stops on. From the second card after it the strip is the case's own mix again, better items included. `design/kit/stage.js` `strip()`, the window's right end from `AT + 5` to `AT + AFTER`, `AFTER = 1`; the sentence is added to node `3.3` section 7.1 and to `ia/case.html` in place.
+
+**Rejected.** (a) Keep the wall: the rule would hold, but on the cheapest item it reads as rigged in its own way. Shortening the nine cards that pass while slowing was not proposed: at 10 or more cards a second a skin is still seen as it passes, so a better item there is the near miss itself.
+
+**Measured.** `scratchpad/s6/e2.js`, every one of the nine items as the result, six opens each at 1440: no card from nine before to one after the result is worth more than it, in 54 of 54 opens; from the second card after it a better item turns up for every result except the top one (24 of 24 cards on P250). The case walk opens, sells and opens again at one, three and five.
+
+**The cost, printed.** At 360 the band shows the result and one card each side, so the stopped frame on the cheapest item is still three P250: the variety is visible on a phone only in the fast part of the run. Widening the phone band is a layout question, not this rule's.

@@ -109,7 +109,7 @@ Its own scores: Nielsen 26/40 (consistency 2, recognition 2, flexibility 2, mini
 | R1 to R8 | fixed | `inventory.md`: 46 one-offs and the eight named, the one-off rule as one screen, the table whole, the dock among the organisms, rank, size, the 44px press and the disabled button in colour, the icon question marked decided; the kit page's list and lede from the same source, the dock's card moved to the organisms |
 | R9, R11 | carried | stage 08's questions (open tokens; Select against Popover menu `--select`; the square buttons on the size axis) |
 | C2 | withdrawn on verification | v4's frame does the same at 360 (250 to 348), measured on `design/v4/case.html`; a founder pick carried by `D-232`, so `D-48`'s one size holds from 600px up and the phone outcome is its named exception |
-| A1 | asked | the identical cards on the cheapest item are what `E2` produces when one item is the floor; a narrower reading of `E2` is the founder's |
+| A1 | fixed, `D-253` | the identical cards on the cheapest item were what `E2` produced when one item is the floor; the founder took the narrower reading: the cards that pass while slowing and the one after the stop, the case's own mix from the second card after it. At 360 the stopped frame still shows three of the same (one card each side) |
 | S1 | recorded | the hero A/B runs after launch, `D-252` |
 | K2, K3, K5, K7, K8, K10, K11, I5, I7, A2, A3 | carried | the first step of stage 08 |
 
