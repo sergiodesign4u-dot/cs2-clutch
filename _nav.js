@@ -117,10 +117,14 @@ window.NAV = [
   ]},
 
   { label: 'UI + Visual',        pageLabel: 'Overview',  page: 'design/overview.html',     done: true, live: true }, // stage 07 begun 12 Nov 2026 with the fold of v4's values, D-224; its hub exists since D-225; closed 25 Nov 2026, D-254 and D-255: wip off and done, which moves Next to Tokens + Components
-  { label: 'Tokens + Components', pageLabel: 'Overview', page: 'design/kit/overview.html', done: false },
-  { label: 'Design System',      pageLabel: 'Why',       page: 'design/kit/why.html',      done: false },
-  { label: 'Responsive',         page: null,                       done: false },
-  { label: 'Animation',          page: null,                       done: false },
+  // Stages 08 to 11 lead into one room, the stand design/kit/, so they are one group of four (course CLAUDE.md, "Design System").
+  // wip sits on the group from stage 08 step 1, 26 Nov 2026, D-258, and stage 11 step 6 takes it off; done goes on each child when its page exists.
+  { label: 'Design System', wip: true, children: [
+      { label: 'Tokens + Components', page: 'design/kit/overview.html',   done: false },
+      { label: 'System guide',        page: 'design/kit/why.html',        done: false },
+      { label: 'Responsive',          page: 'design/kit/responsive.html', done: false },
+      { label: 'Animation',           page: 'design/kit/motion.html',     done: false }
+  ]},
   { label: 'Rollout',            page: null,                       done: false },
   { label: 'Handoff',            page: null,                       done: false }
 ];
@@ -468,6 +472,8 @@ window.NAV = [
       } else {
         head = el('span', 'nav-top', stage.label);
       }
+      // A group folded to one row shows its progress as a count, or folding hides it (course CLAUDE.md, "Design System" group).
+      if (stage.children) head.appendChild(el('span', 'nav-count', ' ' + m.doneCount + '/' + m.leaves.length));
       item.appendChild(head);
       if (i === nextIdx) item.appendChild(nextBadge(stage));
       else if (!m.complete) item.appendChild(badge('soon', 'SOON'));
@@ -479,6 +485,7 @@ window.NAV = [
     var isGroup = !!stage.children;
     if (isGroup) {
       head = el('span', 'nav-top', stage.label);
+      head.appendChild(el('span', 'nav-count', ' ' + m.doneCount + '/' + m.leaves.length));
       item.appendChild(head);
       if (i === nextIdx) item.appendChild(nextBadge(stage));
 

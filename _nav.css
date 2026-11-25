@@ -68,6 +68,8 @@ a.nav-top:hover { color: var(--nav-fg); background: rgba(255, 255, 255, 0.05); }
 .nav-badge-next { color: var(--nav-bg); background: var(--nav-badge); }
 .nav-badge-soon { color: var(--nav-muted); border: 1px solid var(--nav-rule); }
 .nav-badge-wip { color: var(--nav-badge); border: 1px solid var(--nav-badge); }
+/* A group folded to one row says how many of its pages exist */
+.nav-count { margin-left: 4px; font-size: 11px; font-weight: 400; color: var(--nav-muted); font-variant-numeric: tabular-nums; }
 
 /* Expanded group */
 .nav-sub { flex: 1 1 100%; display: flex; flex-direction: column; margin: 2px 0 6px; padding-left: 10px; border-left: 1px solid var(--nav-rule); }
