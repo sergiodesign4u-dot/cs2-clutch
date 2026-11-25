@@ -132,7 +132,7 @@
     var tf = getComputedStyle(run).transform, mx = tf && tf !== 'none' ? new DOMMatrixReadOnly(tf) : { m41: 0, m42: 0 };
     var p0 = Math.max(0, -(axis === 'x' ? mx.m41 : mx.m42));
     function place(p) { run.style.transform = axis === 'x' ? 'translate3d(' + (-p) + 'px,0,0)' : 'translate3d(0,' + (-p) + 'px,0)'; }
-    run.style.animation = 'none'; place(p0);
+    run.classList.add('is-driven'); place(p0);
     var nodes = run.children, size = axis === 'x' ? nodes[1].offsetLeft - nodes[0].offsetLeft : nodes[1].offsetTop - nodes[0].offsetTop;
     var view = axis === 'x' ? box.clientWidth : box.clientHeight, cardSz = axis === 'x' ? nodes[0].offsetWidth : nodes[0].offsetHeight;
     var lead = Math.min(nodes.length, Math.ceil((p0 + view) / size) + 1);
@@ -167,7 +167,7 @@
   function fillIdle() {
     [band].concat(cols).forEach(function (box, k) {
       var r = box.firstElementChild, from = box === band ? 0 : (k * 2) % ITEMS.length, list = ITEMS.slice(from).concat(ITEMS.slice(0, from));
-      r.removeAttribute('style'); r.innerHTML = '';
+      r.removeAttribute('style'); r.classList.remove('is-driven'); r.innerHTML = '';
       list.concat(list).forEach(function (x) { r.appendChild(card(x)); });
       box.removeAttribute('data-spin'); box.style.removeProperty('--stage-charge');
     });
@@ -185,7 +185,7 @@
     drop.forEach(function (b, i) {
       var r = first[count + i]; if (!r) { b.remove(); return; }
       var op = (b.offsetParent || rest).getBoundingClientRect();
-      b.classList.add('is-leaving'); b.style.position = 'absolute'; b.style.width = r.width + 'px'; b.style.margin = '0';
+      b.classList.add('is-leaving'); b.style.width = r.width + 'px';
       b.style.left = (r.left - op.left) + 'px'; b.style.top = (r.top - op.top) + 'px';
     });
     for (var i = keep.length; i < count; i++) keep.push(rest.appendChild(newCase()));

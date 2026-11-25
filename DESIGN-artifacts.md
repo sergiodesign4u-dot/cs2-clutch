@@ -1073,3 +1073,19 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **A rule changed, one property.** `.spend__ok` lost `white-space: nowrap`, so the proof line wraps where the column is narrow; its mark took `flex: none`.
 
 **Contrast.** The two pairs above, computed from their values against the ground the detector read under them; the detector's third pair, white on the Before you spend stub, is large bold text and holds the 3:1 that size asks. Not re-measured in the browser against the lightest pixel: the pass at step 6 gave readings that disagree with the founder's own measure of the button pink, so they are not used, and the full measurement is carried to step 7.
+
+## 37. Stage 07 step 7, the final check fixed through the kit, `D-254`
+
+**Variables changed in `:root`: three; none added, the root holds 553.**
+
+| Variable | Was | Now | Why |
+|---|---|---|---|
+| `--color-mode-later` | `rgba(66, 74, 128, .6)` | `rgba(66, 74, 128, .7)` | over Upgrade's gold the white Not launched yet measured 4.47:1 at its lightest pixel; now 5.2 |
+| `--shadow-mode-name` | `0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5)` | `0 0 2px rgba(6, 10, 30, .9), 0 0 4px rgba(6, 10, 30, .7)` added in front | a tight halo where the mode art runs under a name; a halo is the text's background (WCAG 1.4.3 Understanding). It lifts the pixels beside the glyphs, it does not clear every pair, see `D-254` |
+| `--shadow-mode-line` | `0 1px 6px rgba(6, 10, 30, .5)` | `0 0 2px rgba(6, 10, 30, .9), 0 0 4px rgba(6, 10, 30, .7)` added in front | the same halo on the mode line |
+
+**A rule changed, one property.** `.spend__v.spend__v--missing` takes `--color-text-hi` in place of `--color-text-muted`: the muted grey measured 2.3:1 on the pink plate of What this case pays; the smaller size and the words still say it is not a figure.
+
+**Rules added, no value.** `.case-stage__run.is-driven { animation: none }` and `.case-stage__case.is-leaving { position: absolute; margin: 0 }`, states that `stage.js` wrote inline before; `html:has(.selbar) { scroll-padding-bottom }` from the bar's measured height (`--selbar-room`, written by `items.js`) and existing variables; `text-wrap: pretty` on `.footer__ident` and `text-wrap: balance` on `.signin__away-h`.
+
+**Contrast, measured.** Every text run on the 44 screens, both account states where a screen has two, at 1440 and 360 (94 loads, 11 441 runs), and every FAQ answer opened by its own question (50 loads, 218 runs): the text hidden, the page shot, each run's colour against every pixel under it, the lightest included. Under the threshold after the fixes: only white text over the mode art on Home's Ways to play (three pairs), asked of the founder in `D-254`.

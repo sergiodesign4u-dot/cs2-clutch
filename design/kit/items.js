@@ -13,6 +13,10 @@
 (function () {
   var d = document, bar = d.querySelector('[data-selbar]'), list = d.querySelector('[data-items]');
   if (!list) return;
+  /* the Selection bar sticks over the grid's foot, so its height is the room a focused card keeps above it (stage 07 step 7, D-254, audit N2,
+     WCAG 2.4.11): kit.css reads --selbar-room into the page's scroll-padding-bottom */
+  function room() { if (bar) d.documentElement.style.setProperty('--selbar-room', bar.offsetHeight + 'px'); }
+  if (bar) { room(); addEventListener('resize', room); if (window.ResizeObserver) new ResizeObserver(room).observe(bar); }
   var NETS = [
     { name: 'Ethereum', tick: 'ETH', chain: 'Ethereum', fee: 2.40, rate: 2450, dp: 6, min: 10, re: /^0x[0-9a-fA-F]{40}$/, saved: '0x7a1f4c2e9b0d5583a17c4e2f9b6d0c8a3e51f742' },
     { name: 'Litecoin', tick: 'LTC', chain: 'Litecoin', fee: 0.05, rate: 84.20, dp: 6, min: 2, re: /^(ltc1[0-9a-z]{25,60}|[LM][1-9A-HJ-NP-Za-km-z]{26,33})$/, saved: '' },

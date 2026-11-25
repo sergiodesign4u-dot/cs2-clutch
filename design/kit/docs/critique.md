@@ -114,3 +114,94 @@ Its own scores: Nielsen 26/40 (consistency 2, recognition 2, flexibility 2, mini
 | K2, K3, K5, K7, K8, K10, K11, I5, I7, A2, A3 | carried | the first step of stage 08 |
 
 **Proof the overriders moved without a value.** The computed style of every element (pseudo-elements included) on the 44 screens, both account states, at 1440 and 360, 146 loads, before and after: the only differences are the three fixes above (the chosen provider's fill on the hidden deposit layer of every page, the band's colour on My items, the proof line on Home) and the case art's baked shadow on one load, which `stage.js` draws when the page is idle and two runs never agree on. The smoke check of 114 rows matches its baseline except the kit page's counts, 22 organisms and 21 molecules, the dock's move. The walks pass: the catalogue 104/104 in Chromium and WebKit, Responsible play 57/57 in both, Sign in 68/68, Provably fair, My items and Deposit all pass, the case screen opens, sells and opens again at one, three and five.
+
+## Stage 07, step 7: the final check, 25 Nov 2026
+
+**What was read.** The same 44 coloured screens and the hub, against `kit.css`, `kit.html`, `DESIGN.md`, `voice/docs/microcopy.md` and their grey originals in `wireframes/`. The classes step 6 already ran mechanically (wiring, overriders, literals, markup signatures) were not walked again by hand.
+
+**Instruments, each taken in full before any merge.**
+
+| Instrument | How it ran | Coverage it reported |
+|---|---|---|
+| Codex, read only | gpt-5.6-terra, effort medium, no `--write`: two tasks on structure and text against the grey and `microcopy.md` (index, case, deposit, cash out, My items; catalogue, fair, Responsible play, sign in), one on source hygiene, one more classifying the word diff below | 44/44 screens; the first two reported clean, the third four rows |
+| Claude, word diff | the visible words of each `<main>`, coloured against grey, rendered at 1440 (`scratchpad/s7/sync.js`) | 44 pairs, 38 differ; every difference classified |
+| Claude, wireframes untouched | `git log de3780a.. -- wireframes/` | no commit touches `wireframes/` in stage 07 |
+| Claude, pixel contrast | every visible text run: its colour against every pixel under it with the text hidden, the lightest included (`px.js`); every FAQ answer opened by a press on its question (`faq.js`); the pixels within 2px of the glyphs with a text shadow kept (`halo.js`) | 94 loads, 11 441 runs; 50 answers, 218 runs |
+| Claude, 360 | every page at 360 by 740: sideways scroll, text cut by its box, images past the column, the first primary act against the fold, the bottom bar over the last content (`s360.js`) | 47 loads |
+| `/impeccable audit` | a subagent, read only: Playwright with reduced motion and touch at 360, 100 loads, plus the detector on the eight main pages | 44 screens, 1440 and 360, both account states |
+
+### Findings, merged, and what happened to each
+
+Found by: Codex, Claude, Imp-audit. Status: fixed, withdrawn on verification (with the reason), carried (with where), asked (the founder's).
+
+| # | Class | Where | What | Found by | Status |
+|---|---|---|---|---|---|
+| T1 | Structure and text against the grey | 38 of 44 pages | words in one copy and not the other | Claude (word diff); Codex reported the class clean | withdrawn on verification, every one: founder decisions `D-236` (the case screen's blocks), `D-238` (step 2 of Deposit drops the bonus strip, the code and the country, "все это на втором шаге уже не надо"), `D-239` (what stands behind the cash out layer), `D-245` (the ruler on Provably fair, the reference as a Copyable value), `D-246` and `D-247` (the Daily ladder's words, Emberforge), `D-248` (Responsible play's guest and account as one page), `D-251` (Sign in's card); or the comparison itself: a native select's options counted as text, the word coins drawn as the coin glyph |
+| T2 | Structure and text against the grey | `account-empty.html` | Codex's one defect: the withdrawal and peg note missing | Codex | withdrawn on verification: the note is on the page (`Withdrawals need a public Steam inventory with trades unlocked. 1 coin = $1.00`); the differing word is the figures' coins, drawn as the glyph |
+| T3 | Microcopy | 44 pages | a string apart from `microcopy.md` | Codex | 0 findings |
+| T4 | Wireframes changed | `wireframes/` | any change in stage 07 | Claude | 0 findings |
+| T5 | A page with its own styles | `design/overview.html` | a `<style>` block, no `kit.css` | Codex | withdrawn on verification: the hub is a process page, styled as the wireframes hub by its own comment and `D-225`, not a product screen; all 44 screens link `kit.css` |
+| T6 | Style written from a script | `stage.js` | `run.style.animation = 'none'`; a leaving case's `position` and `margin` inline | Codex | fixed: `.case-stage__run.is-driven` and `.case-stage__case.is-leaving` in the kit; the script keeps only measured geometry |
+| T7 | Style written from a script | `motion.js:144` | a favourite burst's stroke `2px` | Codex | carried to stage 11: particle geometry, with the motion literals (N15) |
+| T8 | Same component, other markup; navigation; images and icons | 44 pages | | Codex | 0 findings |
+| T9 | Contrast | `case-degraded.html`, What this case pays | Not available in `--color-text-muted` on the pink plate, 2.3:1 | Claude | fixed: `--color-text-hi`, 6.2:1 |
+| T10 | Contrast | Home, Ways to play, Upgrade | Not launched yet, white on `--color-mode-later` over gold, 4.47:1 | Claude | fixed: the plate's alpha .6 to .7, 5.2:1 |
+| T11 | Contrast | Home, Ways to play | white names and lines over the mode art: Case battles 1.32:1 at 1440, Cases 1.31:1 at 360, Open a case, see every chance. 1.4:1 at 1440, at the lightest pixel | Claude | asked: a tight halo was added (`--shadow-mode-name`, `--shadow-mode-line`) and lifts the pixels beside the glyphs (Cases at 360 from 4.41 to 4.93, Open against someone from 3.54 to 7.02), but three pairs stay under; clearing them takes a scrim under the words or the art moved off them, the founder's composition (`D-209`) |
+| T12 | Contrast | Home, an FAQ answer's link | 4.35:1 | Claude | withdrawn on verification: measured inside a closed answer, against the question under it; with each answer opened by its question, 218 runs, 0 under |
+| T13 | Contrast | I2's other small text, I3 (step 6) | | Imp-B at step 6 | withdrawn on verification: no run under its threshold in the full measurement |
+| T14 | Breaks at 360 | 47 loads | | Claude | 0 sideways scroll, 0 text cut by its box, the bottom bar never covers the last content; images past the column are all scrollers or art clipped by their card (withdrawn) |
+| T15 | Breaks at 360 | Deposit's routes | the main act below the fold: Pay at 1209 to 1470px, Create my address at 601 | Claude | carried to stage 10: the act ends the form in the grey (frozen); a pinned act is a responsive decision |
+| T16 | Breaks at 360 | the case catalogue | 76px between a tile's price and the next tile's art | Claude | carried to stage 10: the tile keeps room for its favourite at the top |
+| N1 | Focus | the ticker, every page with the shell | tiles past the strip's clip take focus where no ring shows (WCAG 2.4.11) | Imp-audit | fixed: `kit.js` takes a clipped tile out of the tab order, recounted after each arrival and on a resize; 0 clipped tab stops at 1440 and 360 |
+| N2 | Focus | My items, cash out | the sticky Selection bar covers the card buttons Tab lands on (WCAG 2.4.11) | Imp-audit | fixed: the page keeps the bar's height clear (`scroll-padding-bottom`, `--selbar-room` from `items.js`); 0 of 12 tabbed buttons under the bar, 10 before |
+| N3 | Motion | Home | a looping video and 33 infinite animations, no pause control (WCAG 2.2.2) | Imp-audit | carried to stage 11: reduced motion stops all of them (0 running in 100 loads); the control is a motion decision |
+| N4 | Navigation | 44 pages | no skip link (WCAG 2.4.1) | Imp-audit | carried to stage 08: a shell element the grey does not draw, added when the shell becomes a component |
+| N5 | Target size | the header's two figures at 360, signed in | the hit areas overlap, Balance keeps 16px | Imp-audit | carried to stage 10 |
+| N6 | Performance | Home | the banner video downloads under reduced motion, where it never shows | Imp-audit | carried to stage 11 |
+| N7 | Performance | 44 pages | one 774 KB stylesheet, a quarter to a third used per page | Imp-audit | carried to stage 08: the split into a file per component (with K10) |
+| N8 | Forms | Sign in | a declaration named as missing is not tied to its checkbox (WCAG 3.3.1) | Imp-audit | fixed: `aria-invalid` and `aria-describedby` on the missing declaration, cleared when it is made |
+| N9 | Performance | item art, avatars | 512px PNGs drawn at 54 to 151px | Imp-audit | carried to production: image sizes are the build's |
+| N10 | Performance | `stage.js` `bake()` | the baked shadow drawn at the image's natural size | Imp-audit | carried to stage 11 |
+| N11 | Performance | the case pages | about 3 900 elements | Imp-audit | carried to stage 08 |
+| N12 | Forms | every form | no field marked required (advisory) | Imp-audit | carried to stage 08, with the form components |
+| N13 | Names | the ticker's pause | the name changes and `aria-pressed` flips as well | Imp-audit | fixed: the name says what a press does, no pressed state (`kit.js`, `shell.html`) |
+| N14 | Text spacing | three boxes at 360 | text clips under WCAG 1.4.12 spacing | Imp-audit | carried to stage 10 |
+| N15 | Literals | 120 transitions and animations | durations and curves beside the motion tokens | Imp-audit | carried to stage 11 |
+| N16 | Typography | footer, Sign in | a word alone on the last line | Imp-audit | fixed: `text-wrap: pretty` and `balance` |
+
+**Where the fixes went.** Step 7: fifteen changes, all in the kit (`kit.css` three variables and six rules, `kit.js` three, `items.js`, `stage.js`, `shell.html`), none on a screen; the pages changed only by being rebuilt from `shell.html`. Step 6: eighteen in the kit (fourteen declared forms, two variables, the proof line, `catalogue.js`) and seven builders naming the declared forms in markup, no style on a screen.
+
+**The second pass, after the fixes.** The pixel measurement, the FAQ pass, the 360 sweep, the smoke check and the walks were run again over the rebuilt pages (results in `D-254`). An accessibility test (`a11y.js`) was proven on the build before step 6, where it fails eight checks, and passes on this one.
+
+### The stage contract, as a checklist
+
+Read against "Вхід і вихід" and "Готово, коли" of the stage pack, line by line. Kept apart from the defect table above: a step that never happened is in no file.
+
+| Line of the pack | Status | Why |
+|---|---|---|
+| Gate before extract: no `/* INLINE */` blocks, literals or duplicate rules in `wireframes/` | done | 0 INLINE blocks; the one `<style>` is `wireframes/overview.html`, the hub |
+| `DESIGN.md` formed by `/impeccable document`, checked against `concept.md`, with Sources | done | `D-226`; its section Sources |
+| `concept.md` brought to the screens, conflicts as a table with the persona row | done | `D-226`, the attribute table with its `personas.md` rows |
+| Every token in `DESIGN.md` with its origin; those without listed | done | "Tokens with their origin"; the kit generator counts 553 with none missing |
+| `inventory.md` for the whole product, levels, one-offs apart | done | `D-227`, made whole at step 6 (R1 to R8) |
+| Every inventory row one level, same anatomy merged | done | `D-227`, `D-232` |
+| `kit.css` flat, every value a variable, names by the convention, the `.wf-*` frame not pulled in | not done | the `.wf-*` layer (about 117 KB) and the literals beside variables are still in it; carried to stage 08 step 1 by `D-252` |
+| `shell.html` and `kit.html`, every component live in its states | done | `D-232`, 22 organisms and 21 molecules |
+| The stage's md visible in the browser: Tokens and Inventory on `kit.html`, the kit in the panel, a Kit and tokens block on the hub | done at this step | the hub had no Kit and tokens block; added with Before to after |
+| `design/visuals/` one colouring, its README with the prompt | done | `D-233` |
+| The sample agreed and justified by coverage | done, with a named difference | eight screens, one over the pack's five to seven, by the founder's "all" (`D-234`); 64 of 67 components covered |
+| Copies assembled from the kit, `wireframes/` unchanged, no style on a screen | done | T4; K1 at step 6: the only `style` attributes carry data |
+| Each screen accepted in the browser before the next | done | the gates of step 5, `D-234` to `D-251` |
+| The two seed screens moved to the kit with before and after pairs at two widths in `design/screens/` | not done as written | the move was proven by computed style and byte-equal values (`D-224`, `D-229`) and both screens were accepted at their gates; no pairs were filed in `design/screens/`, which did not exist until this step |
+| The hub's coverage map honest about the grey | done | `D-225`, Coverage |
+| `_theme.css` moved by `git mv` | done | commit `d1a84a4` |
+| New values listed and approved | done | `D-228` to `D-232`, `DESIGN-artifacts.md` 30 to 37 |
+| No structural desync | done | T1, T2 |
+| One navigation, `index.html` the real home | done | T8 |
+| One component, one markup and value; every new pair at WCAG AA | not done | T11: three pairs on the mode cards, asked |
+| Every screen checked at 360 | done, with two carried | T14; T15 and T16 to stage 10 |
+| Critique and audit run, verified, fixed, the taxonomy run again on what the fixes touched | done | this section |
+| Before to after on the hub | done at this step | `design/overview.html#critique` |
+| The strategy check on the whole sample | done | step 6, S1 and C2 |
+| The stage closed by the ritual | waiting | the `CLAUDE.md` table is shown to the founder; nothing is written before the go |
+| This checklist | done | |

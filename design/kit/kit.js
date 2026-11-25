@@ -66,9 +66,16 @@
      "4-5 обычных, а потом одна редкая ... темп сделать не прям такой одинаковый". Nothing arrives while the strip is held, pointed at or
      holds focus. motion.js marks each arrival by its chance and lands a rare one */
   var ticker = shell && shell.querySelector('.ticker'), pause = ticker && ticker.querySelector('.ticker__pause'), run = ticker && ticker.querySelector('.ticker__run');
-  function hold(on) { ticker.classList.toggle('is-held', on); pause.setAttribute('aria-pressed', String(on)); pause.textContent = on ? 'Resume' : 'Pause'; }
+  // the control says what a press does, Pause or Resume, so it carries no pressed state as well (stage 07 step 7, D-254, audit N13)
+  function hold(on) { ticker.classList.toggle('is-held', on); pause.removeAttribute('aria-pressed'); pause.textContent = on ? 'Resume' : 'Pause'; }
+  /* a tile past the strip's clip cannot be seen, so it is not a tab stop: focus never lands where no ring can show (stage 07 step 7, D-254,
+     audit N1, WCAG 2.4.11). Recounted after each arrival and on a resize */
+  function reach() {
+    if (!ticker || !run) return; var clip = (run.parentElement || run).getBoundingClientRect();
+    [].forEach.call(run.querySelectorAll('a'), function (a) { var r = a.getBoundingClientRect(); if (r.right > clip.right + 1 || r.left < clip.left - 1) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex'); });
+  }
   if (ticker && run) {
-    hold(reduce);
+    hold(reduce); reach(); addEventListener('resize', reach);
     var KEEP = 24, SAMPLE = [].slice.call(run.children).map(function (n) { return n.cloneNode(true); }), next = SAMPLE.length - 1;
     var tpl = ticker.querySelector('template.ticker__rare'), RARE = tpl ? [].slice.call(tpl.content.children) : [];
     var left = 4 + Math.floor(Math.random() * 3), burst = 0, turn = 0;
@@ -95,7 +102,7 @@
         run.insertBefore(li, run.firstChild);
         while (run.children.length > KEEP) run.removeChild(run.lastChild);
         if (M) { M.mark(tile); if (p.rare) M.land(tile); }
-        slide(li); wait = p.wait;
+        slide(li); wait = p.wait; setTimeout(reach, 450);
       }
       setTimeout(arrive, wait);
     }
@@ -142,17 +149,22 @@
   });
 
   /* the sign in declarations, D-58 */
+  var whyN = 0;
   d.querySelectorAll('[data-signin]').forEach(function (s) {
     var rows = [].slice.call(s.querySelectorAll('.field--declare')), why = s.querySelector('.signin__why');
     var DONE = 'Both declarations made.', SAY = { both: '<b>Tick both to continue.</b> Neither declaration has been made yet.', terms: '<b>The agreement to the terms is still missing.</b>', age: '<b>The age declaration is still missing.</b>' };
     function miss() { return rows.map(function (r) { return !r.querySelector('input').checked; }); }
     function say(m) { why.innerHTML = '<p class="note note--refuse">' + (m[0] && m[1] ? SAY.both : m[0] ? SAY.terms : SAY.age) + '</p>'; }
+    /* a declaration named as missing is marked invalid and points at the line that names it (stage 07 step 7, D-254, audit N8, WCAG 3.3.1) */
+    function tie() { if (!why.id) why.id = 'signin-why-' + (++whyN); rows.forEach(function (r) { var i = r.querySelector('input');
+      if (r.classList.contains('is-missing')) { i.setAttribute('aria-invalid', 'true'); i.setAttribute('aria-describedby', why.id); } else { i.removeAttribute('aria-invalid'); i.removeAttribute('aria-describedby'); } }); }
+    tie();
     /* both made: the line says so, the grey's wireAuth and microcopy 2.4-19 (D-251); it was left empty since D-232 */
-    rows.forEach(function (r) { r.querySelector('input').addEventListener('change', function () { if (this.checked) r.classList.remove('is-missing'); var m = miss(); if (!m[0] && !m[1]) why.innerHTML = '<p class="note">' + DONE + '</p>'; else if (why.innerHTML.indexOf(DONE) > -1) why.innerHTML = ''; else if (why.innerHTML) say(m); }); });
+    rows.forEach(function (r) { r.querySelector('input').addEventListener('change', function () { if (this.checked) r.classList.remove('is-missing'); var m = miss(); if (!m[0] && !m[1]) why.innerHTML = '<p class="note">' + DONE + '</p>'; else if (why.innerHTML.indexOf(DONE) > -1) why.innerHTML = ''; else if (why.innerHTML) say(m); tie(); }); });
     s.addEventListener('click', function (e) {
       var go = e.target.closest('[data-go]'); if (!go) return; var m = miss(); if (!m[0] && !m[1]) return; e.preventDefault();
       rows.forEach(function (r, i) { if (m[i]) { r.classList.remove('is-missing'); void r.offsetWidth; r.classList.add('is-missing'); } });
-      say(m); rows[m[0] ? 0 : 1].querySelector('input').focus({ preventScroll: true });
+      say(m); tie(); rows[m[0] ? 0 : 1].querySelector('input').focus({ preventScroll: true });
     });
   });
 

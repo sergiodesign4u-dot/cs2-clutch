@@ -7725,3 +7725,26 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Measured.** `scratchpad/s6/e2.js`, every one of the nine items as the result, six opens each at 1440: no card from nine before to one after the result is worth more than it, in 54 of 54 opens; from the second card after it a better item turns up for every result except the top one (24 of 24 cards on P250). The case walk opens, sells and opens again at one, three and five.
 
 **The cost, printed.** At 360 the band shows the result and one card each side, so the stopped frame on the cheapest item is still three P250: the variety is visible on a phone only in the fast part of the run. Widening the phone band is a layout question, not this rule's.
+
+## D-254. Stage 07 step 7: the final check, fixed through the kit, and the stage's contract read line by line
+
+**Date:** 2026-11-25. **Stage:** 07, step 7. **Decided by:** the founder, on the step's plan: "гоу делать все что нужно" ("go, do everything needed"). The step ran in full without the founder ranking the defect table first; every row's outcome is in `design/kit/docs/critique.md`, "Stage 07, step 7", and the one choice that is the founder's is asked, not taken.
+
+**What was checked.** Structure and text of the 44 copies against their grey pages and `microcopy.md` (Codex, and a word diff of each rendered `<main>`); `wireframes/` untouched in stage 07 (git); style outside the kit, one markup per component, navigation, images and icons (Codex); contrast of every visible text run against the lightest pixel under it, with every FAQ answer opened by its own question (11 659 runs); every page at 360; `/impeccable audit` (a subagent, read only, 100 loads).
+
+**Fixed, all in the kit.**
+- **Contrast.** Not available on What this case pays, `--color-text-muted` to `--color-text-hi` (2.3 to 6.2:1); `--color-mode-later`, alpha .6 to .7 (4.47 to 5.2:1). Values and their reasons in `DESIGN-artifacts.md` 37.
+- **Focus.** A ticker tile past the strip's clip leaves the tab order (`kit.js`); a card focused under the Selection bar is scrolled clear of it (`scroll-padding-bottom` from the bar's height, `items.js`).
+- **Forms and names.** A declaration named as missing at Sign in carries `aria-invalid` and points at the line that names it; the ticker's pause says what a press does and carries no pressed state.
+- **Style from a script.** The stage's idle drift stops by a state (`.case-stage__run.is-driven`) and a leaving case's layout is its class (`.case-stage__case.is-leaving`); `stage.js` keeps only measured geometry.
+- **Typography.** No word alone on the footer's last line or under Sign in's way back (`text-wrap`).
+
+**Asked: white words over the mode art on Home.** Where the knives of Case battles, the crystals of Cases and the gold of Upgrade run under a card's name or line, the lightest pixel under the words leaves white at 1.3 to 1.4:1 (Case battles 1440, Cases 360, Open a case, see every chance. 1440). A tight halo was added to `--shadow-mode-name` and `--shadow-mode-line`; it lifts the pixels beside the glyphs (a halo is the text's background, WCAG 1.4.3 Understanding) but three pairs stay under. Clearing them takes one of: (a) a soft dark scrim under the words; (b) the art moved off the words, per card, by its own placement variables; (c) the pairs recorded as a founder exception. The composition is the founder's (`D-209`), so the choice is too. Recommended: (b), the art a few per cent to the right, because it keeps the cards' colour and the words clean.
+
+**Withdrawn on verification.** Every one of the 38 word differences: a founder decision (`D-236`, `D-238`, `D-239`, `D-245` to `D-248`, `D-251`) or the comparison itself; Codex's one defect (the withdrawal note on the empty inventory is there); the hub's own styles (a process page, `D-225`); an FAQ link measured inside a closed answer; images past the column at 360 (scrollers and clipped art).
+
+**Carried.** To stage 08: a skip link (a shell element the grey does not draw), required fields, the stylesheet split, the DOM size, with step 6's list. To stage 10: Pay below the fold on Deposit's routes at 360, the catalogue tile's gap, the header figures' targets, text spacing. To stage 11: a pause control for Home's looping video and animations (reduced motion already stops them all), the video's download under reduced motion, the baked shadows' size, the motion literals and the favourite burst's stroke. To production: image sizes.
+
+**The stage contract, read line by line** (the third instrument, a table of its own in the log). Not done: the `.wf-*` layer and literals still in `kit.css` (carried by `D-252`); the seed screens' before and after pairs in `design/screens/` (their move was proven by computed style and their gates instead); every new pair at AA (the mode cards, asked). Done at this step: the hub's Kit and tokens block and its Before to after section, five pairs in `design/screens/`. The sample is eight screens, one over the pack's seven, by `D-234`.
+
+**Measured after the fixes.** The contrast pass, the FAQ pass, every page at 360, the smoke check, the walks (catalogue 104/104, Responsible play 57/57, Sign in 68/68, Provably fair, My items, the case screen at one, three and five) and an accessibility test that fails eight checks on the build before step 6 and passes on this one.

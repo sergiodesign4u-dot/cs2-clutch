@@ -475,9 +475,9 @@
   --shadow-mode-art: drop-shadow(0 8px 10px rgba(6, 10, 30, .5)); /* a filter; v4 modes.css .wf-grid .wf-mode .wf-mode-art: the floating object's shadow; рішення користувача, D-209 (v4) carried by D-231 */
   --shadow-mode-art-warm: drop-shadow(0 4px 8px rgba(90, 40, 0, .55)); /* a filter; v4 modes.css, the Upgrade object: a warm shadow on the gold card; рішення користувача, D-209 (v4) carried by D-231 */
   --shadow-mode-knife: drop-shadow(0 6px 8px rgba(6, 10, 30, .55)); /* a filter; v4 modes.css, Case battles' two knives; рішення користувача, D-209 (v4) carried by D-231 */
-  --shadow-mode-name: 0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode h3; рішення користувача, D-209 (v4) carried by D-231 */
-  --shadow-mode-line: 0 1px 6px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode p; рішення користувача, D-209 (v4) carried by D-231 */
-  --color-mode-later: rgba(66, 74, 128, .6); /* v4 modes.css .wf-mode > .wf-fig-missing: the Not launched plate, a pale glass over the art; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-name: 0 0 2px rgba(6, 10, 30, .9), 0 0 4px rgba(6, 10, 30, .7), 0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode h3; рішення користувача, D-209 (v4) carried by D-231; the first two layers, a tight halo, added at stage 07 step 7, D-254: where the art runs under the name its lightest pixel left white at 1.3:1, and a halo is the text's background (WCAG 1.4.3 Understanding) */
+  --shadow-mode-line: 0 0 2px rgba(6, 10, 30, .9), 0 0 4px rgba(6, 10, 30, .7), 0 1px 6px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode p; рішення користувача, D-209 (v4) carried by D-231; the tight halo added at stage 07 step 7, D-254, as on the name */
+  --color-mode-later: rgba(66, 74, 128, .7); /* v4 modes.css .wf-mode > .wf-fig-missing: the Not launched plate, a pale glass over the art; рішення користувача, D-209 (v4) carried by D-231; alpha .6 to .7 at stage 07 step 7, D-254: over Upgrade's gold the white label measured 4.47:1 at its lightest pixel, now 5.2 */
   --shadow-mode-later: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 6px 16px rgba(6, 10, 30, .3); /* the same plate's edge and shadow; рішення користувача, D-209 (v4) carried by D-231 */
   --blur-mode-later: 8px; /* the same plate's backdrop blur; рішення користувача, D-209 (v4) carried by D-231 */
   --tracking-mode-name: .01em; /* v4 theme.css .wf-grid .wf-mode h3: a mode's name; рішення користувача, D-209 (v4) carried by D-231 */
@@ -4097,6 +4097,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .case-stage__band::before { top: 0; } .case-stage__band::after { bottom: 0; }
 .case-stage:not([data-count="1"]) .case-stage__band { opacity: 0; scale: 1 0; transition: opacity .2s, scale .24s var(--motion-ease-fold); }
 .case-stage__run { position: absolute; left: 0; top: 50%; display: flex; gap: var(--space-3); width: max-content; translate: 0 -50%; animation: case-stage-band 60s linear infinite; }
+.case-stage__run.is-driven { animation: none; } /* a run stage.js moves frame by frame stops its idle drift: a state of the run, not an inline style (stage 07 step 7, D-254, Codex SH-03) */
 @keyframes case-stage-band { to { transform: translateX(calc(-50% - var(--space-1-5))); } } /* half the run and half its gap: the second copy of the nine takes the first one's place */
 .case-stage__band .case-stage__card { flex: none; width: var(--stage-card-w); height: var(--stage-card-h); }
 
@@ -4178,6 +4179,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 /* the cases at rest: one cell per case, each case centred in its cell */
 .case-stage__rest { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(var(--count, 1), minmax(0, 1fr)); justify-items: center; align-items: center; width: 100%; height: 100%; transition: opacity .35s, transform .45s; }
 .case-stage__case { display: block; width: var(--stage-case); max-width: 92%; filter: var(--shadow-case-stage); }
+.case-stage__case.is-leaving { position: absolute; margin: 0; } /* a case the count takes away leaves from where it stood, its measured box set by stage.js (stage 07 step 7, D-254, Codex SH-04) */
 .case-stage[data-count="2"] .case-stage__case { width: var(--stage-case-2); } .case-stage[data-count="3"] .case-stage__case { width: var(--stage-case-3); }
 .case-stage[data-count="4"] .case-stage__case { width: var(--stage-case-4); } .case-stage[data-count="5"] .case-stage__case { width: var(--stage-case-5); }
 @media (max-width: 899px) { .case-stage:not([data-count="1"]) .case-stage__rest { column-gap: var(--space-1); } } /* v4 case-page.css @media (max-width: 899px) .v4c-frame[data-count]:not([data-count="1"]) .v4c-rest gap */
@@ -4459,7 +4461,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .footer__mid { position: relative; display: grid; grid-template-columns: minmax(var(--footer-brand-min), 1fr) minmax(0, var(--footer-cols-ratio)); gap: var(--space-6); min-height: var(--footer-mid-min); box-sizing: border-box;
   padding: var(--footer-mid-pad-top) calc(var(--footer-pad) + var(--footer-agents-w)) 0 var(--footer-pad); }
 .footer__brand { display: grid; align-content: start; gap: var(--space-4); container: footer-brand / inline-size; }
-.footer__ident { margin: 0; color: var(--color-text-muted); font-size: var(--footer-ident); line-height: 1.45; }
+.footer__ident { margin: 0; color: var(--color-text-muted); font-size: var(--footer-ident); line-height: 1.45; text-wrap: pretty; } /* pretty: no word alone on the last line, stage 07 step 7, D-254, audit N16 */
 .footer__help { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2-5) var(--space-4); }
 .footer__help > span { font-size: var(--footer-link); font-weight: 900; text-transform: uppercase; }
 .footer__social { display: grid; grid-template-columns: repeat(7, max-content); justify-content: start; gap: var(--space-2); }
@@ -5138,7 +5140,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .signin__tile--steam { background: var(--gradient-steam); color: var(--color-text-hi); font-size: var(--size-m); } /* inset 6px: an 18px glyph */
 .signin__fail { margin-bottom: var(--space-4); } /* a failure stands where the providers were, above the declarations it keeps in view */
 .signin__away { display: grid; gap: var(--space-2); margin-top: var(--space-5); color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.5; } /* the page form only: keep looking around without an account */
-.signin__away-h { margin: 0; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.signin__away-h { margin: 0; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; text-wrap: balance; } /* balance: two even lines, stage 07 step 7, D-254, audit N16 */
 .signin__away p { margin: 0; }
 @container dialog (min-width: 760px) {
   .signin { --signin-go-above: var(--signin-go-above-wide); --signin-or-above: var(--signin-or-above-wide); --signin-or-below: var(--space-4); flex: 1 1 auto; } /* signin-home.css @container dlg (min-width: 760px) .sd--e */
@@ -5493,7 +5495,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .spend--pays .spend__mark { font-size: 32px; color: var(--color-text-hi); } /* v4 .v4p-ic 32px */
 .spend--pays .spend__title { font-size: clamp(19px, 2cqw, 24px); line-height: 1.05; }
 .spend--pays .spend__money { font-weight: 900; }
-.spend__v.spend__v--missing { color: var(--color-text-muted); font-size: var(--size-m); } /* the missing figure, D-124, on the strip: Not available where a value could not be read */
+.spend__v.spend__v--missing { color: var(--color-text-hi); font-size: var(--size-m); } /* the missing figure, D-124, on the strip: Not available where a value could not be read; white since stage 07 step 7, D-254: the muted grey measured 2.3:1 on the pink plate, the smaller size and the words still say it is not a figure */
 .spend__note, .observed > .note { max-width: var(--size-measure); margin-top: var(--space-4); color: var(--color-text); font-size: var(--size-text); line-height: 1.4; } /* the line under a block of the case screen, at the page's text size as v4 drew it (kit.css part 2 .wf-note) */
 @container spend (max-width: 979px) {
   .spend--pays .spend__strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -5688,6 +5690,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .selbar {
   --selbar-gap: var(--space-2); /* the bar's offset from the window's foot and from the bottom bar, the header strip's 8px; технічне рішення */
 }
+html:has(.selbar) { scroll-padding-bottom: calc(var(--selbar-room, 0px) + var(--size-bar) + var(--space-2) + var(--space-3)); } /* a card focused under the sticky Selection bar is scrolled clear of it: its height (items.js) plus its offset and a gap; stage 07 step 7, D-254, audit N2 */
 .selbar { position: sticky; z-index: 20; bottom: calc(var(--size-bar) + var(--selbar-gap)); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); box-sizing: border-box; padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5); border-radius: var(--radius-m); background: var(--gradient-menu); box-shadow: var(--shadow-shell); transition: box-shadow .2s; }
 .selbar__sum { display: grid; gap: var(--space-1); min-width: 0; }
 .selbar__n { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
