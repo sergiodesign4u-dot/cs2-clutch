@@ -7748,3 +7748,15 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **The stage contract, read line by line** (the third instrument, a table of its own in the log). Not done: the `.wf-*` layer and literals still in `kit.css` (carried by `D-252`); the seed screens' before and after pairs in `design/screens/` (their move was proven by computed style and their gates instead); every new pair at AA (the mode cards, asked). Done at this step: the hub's Kit and tokens block and its Before to after section, five pairs in `design/screens/`. The sample is eight screens, one over the pack's seven, by `D-234`.
 
 **Measured after the fixes.** The contrast pass, the FAQ pass, every page at 360, the smoke check, the walks (catalogue 104/104, Responsible play 57/57, Sign in 68/68, Provably fair, My items, the case screen at one, three and five) and an accessibility test that fails eight checks on the build before step 6 and passes on this one.
+
+## D-255. Stage 07 step 7: a soft shade under the mode cards' words
+
+**Date:** 2026-11-25. **Stage:** 07, step 7. **Decided by:** the founder, on the question `D-254` left open: "1 а" (1, a), the shade under the words, of three ways offered (a shade, the art moved off the words, a recorded exception). The recommendation had been the second.
+
+**Decided.** Each name and line on Home's four mode cards has a soft dark shade behind it, drawn over the art and under the words: `.mode-card__name::before` and `.mode-card__line::before`, `--color-mode-scrim` (the ink of the card's foot at .7) with a 12px soft edge (`--blur-mode-scrim`), 8px above and below the words and 12px to each side. The halo `D-254` added to the two text shadows is taken back out: they hold v4's values again.
+
+**Measured.** At the lightest pixel under the words, at 1440 and 360, all 16 names and lines pass AA: before, Case battles stood at 1.32:1 at 1440, Cases at 1.31:1 at 360, Open a case, see every chance. at 1.4:1. The before and after are on the hub's Before to after and on the review page shown to the founder.
+
+**Rejected.** The art moved off the words: it keeps the colour but changes four compositions the founder approved (`D-209`). A recorded exception: the words are the cards' only label for a mode.
+
+**Still open, shown to the founder.** Whether a better item two cards after the reel's stop reads as a near miss on a cheap loss (`D-253`): as it is, or nothing more than one grade above the result from the second card on.

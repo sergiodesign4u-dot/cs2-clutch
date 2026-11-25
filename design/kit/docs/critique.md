@@ -146,7 +146,7 @@ Found by: Codex, Claude, Imp-audit. Status: fixed, withdrawn on verification (wi
 | T8 | Same component, other markup; navigation; images and icons | 44 pages | | Codex | 0 findings |
 | T9 | Contrast | `case-degraded.html`, What this case pays | Not available in `--color-text-muted` on the pink plate, 2.3:1 | Claude | fixed: `--color-text-hi`, 6.2:1 |
 | T10 | Contrast | Home, Ways to play, Upgrade | Not launched yet, white on `--color-mode-later` over gold, 4.47:1 | Claude | fixed: the plate's alpha .6 to .7, 5.2:1 |
-| T11 | Contrast | Home, Ways to play | white names and lines over the mode art: Case battles 1.32:1 at 1440, Cases 1.31:1 at 360, Open a case, see every chance. 1.4:1 at 1440, at the lightest pixel | Claude | asked: a tight halo was added (`--shadow-mode-name`, `--shadow-mode-line`) and lifts the pixels beside the glyphs (Cases at 360 from 4.41 to 4.93, Open against someone from 3.54 to 7.02), but three pairs stay under; clearing them takes a scrim under the words or the art moved off them, the founder's composition (`D-209`) |
+| T11 | Contrast | Home, Ways to play | white names and lines over the mode art: Case battles 1.32:1 at 1440, Cases 1.31:1 at 360, Open a case, see every chance. 1.4:1 at 1440, at the lightest pixel | Claude | fixed, `D-255`: the founder took (a), a soft dark shade under each name and line, over the art (`--color-mode-scrim`, `--blur-mode-scrim`); the halo of `D-254` taken back out; every name and line passes at its lightest pixel at 1440 and 360 (16 of 16) |
 | T12 | Contrast | Home, an FAQ answer's link | 4.35:1 | Claude | withdrawn on verification: measured inside a closed answer, against the question under it; with each answer opened by its question, 218 runs, 0 under |
 | T13 | Contrast | I2's other small text, I3 (step 6) | | Imp-B at step 6 | withdrawn on verification: no run under its threshold in the full measurement |
 | T14 | Breaks at 360 | 47 loads | | Claude | 0 sideways scroll, 0 text cut by its box, the bottom bar never covers the last content; images past the column are all scrollers or art clipped by their card (withdrawn) |
@@ -169,7 +169,7 @@ Found by: Codex, Claude, Imp-audit. Status: fixed, withdrawn on verification (wi
 | N15 | Literals | 120 transitions and animations | durations and curves beside the motion tokens | Imp-audit | carried to stage 11 |
 | N16 | Typography | footer, Sign in | a word alone on the last line | Imp-audit | fixed: `text-wrap: pretty` and `balance` |
 
-**Where the fixes went.** Step 7: fifteen changes, all in the kit (`kit.css` three variables and six rules, `kit.js` three, `items.js`, `stage.js`, `shell.html`), none on a screen; the pages changed only by being rebuilt from `shell.html`. Step 6: eighteen in the kit (fourteen declared forms, two variables, the proof line, `catalogue.js`) and seven builders naming the declared forms in markup, no style on a screen.
+**Where the fixes went.** Step 7: sixteen changes, all in the kit (`kit.css` three variables and seven rules, the halo of T11 taken back, `kit.js` three, `items.js`, `stage.js`, `shell.html`), none on a screen; the pages changed only by being rebuilt from `shell.html`. Step 6: eighteen in the kit (fourteen declared forms, two variables, the proof line, `catalogue.js`) and seven builders naming the declared forms in markup, no style on a screen.
 
 **The second pass, after the fixes.** The pixel measurement, the FAQ pass, the 360 sweep, the smoke check and the walks were run again over the rebuilt pages (results in `D-254`). An accessibility test (`a11y.js`) was proven on the build before step 6, where it fails eight checks, and passes on this one.
 
@@ -198,7 +198,7 @@ Read against "Вхід і вихід" and "Готово, коли" of the stage 
 | New values listed and approved | done | `D-228` to `D-232`, `DESIGN-artifacts.md` 30 to 37 |
 | No structural desync | done | T1, T2 |
 | One navigation, `index.html` the real home | done | T8 |
-| One component, one markup and value; every new pair at WCAG AA | not done | T11: three pairs on the mode cards, asked |
+| One component, one markup and value; every new pair at WCAG AA | done | T11 fixed by `D-255`; 0 text runs under their threshold in the last measurement |
 | Every screen checked at 360 | done, with two carried | T14; T15 and T16 to stage 10 |
 | Critique and audit run, verified, fixed, the taxonomy run again on what the fixes touched | done | this section |
 | Before to after on the hub | done at this step | `design/overview.html#critique` |

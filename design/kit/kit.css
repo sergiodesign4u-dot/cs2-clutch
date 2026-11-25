@@ -475,11 +475,13 @@
   --shadow-mode-art: drop-shadow(0 8px 10px rgba(6, 10, 30, .5)); /* a filter; v4 modes.css .wf-grid .wf-mode .wf-mode-art: the floating object's shadow; рішення користувача, D-209 (v4) carried by D-231 */
   --shadow-mode-art-warm: drop-shadow(0 4px 8px rgba(90, 40, 0, .55)); /* a filter; v4 modes.css, the Upgrade object: a warm shadow on the gold card; рішення користувача, D-209 (v4) carried by D-231 */
   --shadow-mode-knife: drop-shadow(0 6px 8px rgba(6, 10, 30, .55)); /* a filter; v4 modes.css, Case battles' two knives; рішення користувача, D-209 (v4) carried by D-231 */
-  --shadow-mode-name: 0 0 2px rgba(6, 10, 30, .9), 0 0 4px rgba(6, 10, 30, .7), 0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode h3; рішення користувача, D-209 (v4) carried by D-231; the first two layers, a tight halo, added at stage 07 step 7, D-254: where the art runs under the name its lightest pixel left white at 1.3:1, and a halo is the text's background (WCAG 1.4.3 Understanding) */
-  --shadow-mode-line: 0 0 2px rgba(6, 10, 30, .9), 0 0 4px rgba(6, 10, 30, .7), 0 1px 6px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode p; рішення користувача, D-209 (v4) carried by D-231; the tight halo added at stage 07 step 7, D-254, as on the name */
+  --shadow-mode-name: 0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode h3; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-line: 0 1px 6px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode p; рішення користувача, D-209 (v4) carried by D-231 */
   --color-mode-later: rgba(66, 74, 128, .7); /* v4 modes.css .wf-mode > .wf-fig-missing: the Not launched plate, a pale glass over the art; рішення користувача, D-209 (v4) carried by D-231; alpha .6 to .7 at stage 07 step 7, D-254: over Upgrade's gold the white label measured 4.47:1 at its lightest pixel, now 5.2 */
   --shadow-mode-later: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 6px 16px rgba(6, 10, 30, .3); /* the same plate's edge and shadow; рішення користувача, D-209 (v4) carried by D-231 */
   --blur-mode-later: 8px; /* the same plate's backdrop blur; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-mode-scrim: rgba(8, 6, 30, .7); /* the soft shade under a mode card's words where the art runs under them: the ink of --gradient-mode-foot (v4 modes.css) at .7; рішення користувача, stage 07 step 7, D-255: "1 а" (a scrim, of three ways) */
+  --blur-mode-scrim: 12px; /* the same shade's soft edge; D-255 */
   --tracking-mode-name: .01em; /* v4 theme.css .wf-grid .wf-mode h3: a mode's name; рішення користувача, D-209 (v4) carried by D-231 */
   --motion-mode-float: 4.6s; /* v4 modes.css v4-float: the object's breath; рішення користувача, D-209 (v4) carried by D-231 */
   --motion-mode-burst: 5s; /* v4 modes.css v4-burst: the rim copy's breath; рішення користувача, D-209 (v4) carried by D-231 */
@@ -3500,6 +3502,7 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 .mode-card--battles .mode-card__art::after { background-image: var(--art-mode-battles-knife-red); rotate: 30deg; transform: scaleX(-1); }
 /* the words at the top left over the colour */
 .mode-card__name, .mode-card__line { position: relative; z-index: 2; }
+.mode-card__name::before, .mode-card__line::before { content: ''; position: absolute; z-index: -1; inset: calc(-1 * var(--space-2)) calc(-1 * var(--space-3)); border-radius: var(--radius-card); background: var(--color-mode-scrim); filter: blur(var(--blur-mode-scrim)); pointer-events: none; } /* a soft shade under the words, over the art: the art runs under them on Case battles, Cases and Upgrade, and white measured 1.3:1 at its lightest pixel there; D-255 */
 .mode-card__name { display: flex; align-items: center; gap: var(--space-2); margin: 0; color: var(--color-text-hi); font-size: min(var(--size-l), 9.6cqw); font-weight: 900; letter-spacing: var(--tracking-mode-name); line-height: 1.05; text-shadow: var(--shadow-mode-name); text-transform: uppercase; white-space: nowrap; }
 .mode-card__line { max-width: var(--pw, 42cqw); margin: var(--space-1-5) 0 var(--space-2); color: var(--color-text-hi); font-size: var(--size-chip); line-height: 1.3; text-shadow: var(--shadow-mode-line); }
 /* the act across the foot, stopping at the art: the filled button at its medium height, or the plate that says the mode is not launched */

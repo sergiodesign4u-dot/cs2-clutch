@@ -1089,3 +1089,16 @@ Section 13's row for these three is done. `D-200` had brought the counters back 
 **Rules added, no value.** `.case-stage__run.is-driven { animation: none }` and `.case-stage__case.is-leaving { position: absolute; margin: 0 }`, states that `stage.js` wrote inline before; `html:has(.selbar) { scroll-padding-bottom }` from the bar's measured height (`--selbar-room`, written by `items.js`) and existing variables; `text-wrap: pretty` on `.footer__ident` and `text-wrap: balance` on `.signin__away-h`.
 
 **Contrast, measured.** Every text run on the 44 screens, both account states where a screen has two, at 1440 and 360 (94 loads, 11 441 runs), and every FAQ answer opened by its own question (50 loads, 218 runs): the text hidden, the page shot, each run's colour against every pixel under it, the lightest included. Under the threshold after the fixes: only white text over the mode art on Home's Ways to play (three pairs), asked of the founder in `D-254`.
+
+## 38. Stage 07 step 7, the shade under the mode cards' words, `D-255`
+
+**Variables added to `:root`: two; the root holds 555. Two values of section 37 taken back.**
+
+| Variable | Value | Origin | Used by |
+|---|---|---|---|
+| `--color-mode-scrim` | `rgba(8, 6, 30, .7)` | the ink `--gradient-mode-foot` already darkens a mode card's foot with (v4 modes.css), at .7: white on a near-white pixel of the art under it measures above 4.5:1 | `.mode-card__name::before`, `.mode-card__line::before` |
+| `--blur-mode-scrim` | `12px` | the shade's soft edge, so it reads as shadow and not as a plate | the same |
+
+**Taken back.** The tight halo added to `--shadow-mode-name` and `--shadow-mode-line` in section 37: both are v4's values again. The shade alone clears every name and line.
+
+**The founder's choice.** Of three ways (a shade under the words, the art moved off them, a recorded exception), "1 а", the shade. Measured: every name and line on the four cards at 1440 and 360 passes AA at its lightest pixel, 16 of 16.
