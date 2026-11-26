@@ -1,0 +1,67 @@
+/* DATA TABLE, level 3 (organism). Figures in rows that can be checked. Content: the drop table (--drops, D-125), what is in this case by tier, each
+ * item a Drop card laid as a grid of cards; and the ledger (--ledger), a history or a settlement, one row per event, its state with the reason
+ * beside it (never in a tooltip), a row whose proof does not check out marked mismatched. Design principle 1: every chance and every value is
+ * printed where it can be checked.
+ * Page: design/kit/data-table.html. The drop table stands on three coloured screens: the case screen, and Deposit and Sign in as the case shown in
+ *   their dialogs (design/kit/inventory.md, Data table). The ledger stands on no coloured screen yet (grey only, wireframes/history-*.html and
+ *   withdraw.html): it waits for the history, node 5.9, at the rollout.
+ * Holds: Drop card (.drop-card--fit, every row of the drop table), Note line (.note--stamp .note--soft, the stamp under it), Text link (.link, a
+ *   way on in a ledger's reason), Empty state (where a ledger has no rows, the table gives way to it). It places them and never restyles them.
+ * States: none of its own, it is not interactive. A row's state is data the product sets: data-state="mismatch" on a ledger row.
+ * Reads: --text-base, --text-body, --text-hi, --text-money, --bg-card-deep, --line-edge, --depth-card; its own --data-table-row-edge,
+ *   --data-table-row-bg-mismatch, --data-table-line-mismatch (tokens.css, COMPONENT TOKENS); geometry and type from the primitives. No colour
+ *   primitive read directly.
+ * Carried from design/kit/kit.css part 4.3 (DATA TABLE, lines 4347 to 4398) at stage 08 step 5, round 3. Nothing renamed; the merged drift of
+ *   step 3 (tokens-audit.md, row 30: the tile edge at white .07, one role with --line-edge) is the one value that moves, on a ledger row's
+ *   card under 600px. The screen's own placing of the block stays in kit.css until step 6. From design/v4/case-body.css row F
+ *   (.wf-drops[data-v="f"]) and case-blocks.js table(), D-232; the ledger built from the drop table's language, D-229 point 4.
+ * Every pixel literal of kit.css that no primitive equals is a custom property of the block below, with its origin: the rules hold no px. */
+
+.data-table {
+  --data-table-card: 176px; /* v4 case-body.css: .wf-drops[data-v="f"] grid-template-columns minmax(176px, 1fr), the narrowest a drop card stands in the grid; рішення користувача, D-209 (v4) carried by D-232 */
+}
+
+/* One anatomy: a real table (.data-table__t) with its caption and its heads kept for a screen reader, then the stamp that says as of when. */
+.data-table { min-width: 0; color: var(--text-base); font-size: var(--size-text); line-height: 1.2; }
+.data-table__t { width: 100%; margin: 0; border: 0; border-collapse: separate; border-spacing: 0; color: var(--text-base); font-size: var(--size-label); line-height: 1.3; }
+:where(.data-table__t td, .data-table__t th) { padding: 0; border: 0; font-weight: inherit; text-align: inherit; vertical-align: middle; } /* the table's own cells, the browser's padding and bold headings off; weightless, so a held component's own form (the Drop card's facts, .kv--fact) keeps its padding and weight as kit.css's .drop-card .kv kept them */
+.data-table__cap, .data-table--drops .data-table__head { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.data-table__stamp { margin-top: var(--space-3-5); }
+
+/* the drop table: a grid of Drop cards, one a row under 600px in its fit form; the tier heads stay in the markup and name each group for a
+   screen reader */
+.data-table--drops .data-table__t { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--data-table-card), 1fr)); gap: var(--space-3); }
+.data-table--drops .data-table__group { display: contents; }
+.data-table--drops .data-table__tier { display: none; }
+@media (max-width: 599px) { .data-table--drops .data-table__t { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); } }
+
+/* the ledger: the keys over the columns, each row a band of the drop card's ground, figures at the end */
+.data-table--ledger .data-table__t { border-spacing: 0 var(--space-2); }
+.data-table--ledger .data-table__head th { padding: 0 var(--space-3) var(--space-1); color: var(--text-body); font-size: var(--size-badge-text); font-weight: 700; letter-spacing: var(--tracking-label); text-align: left; text-transform: uppercase; white-space: nowrap; }
+.data-table--ledger .data-table__head th.data-table__num { text-align: right; }
+.data-table--ledger :where(tbody td) { padding: var(--space-3); background: var(--bg-card-deep); box-shadow: inset 0 var(--size-hairline) 0 var(--data-table-row-edge), inset 0 calc(-1 * var(--size-hairline)) 0 var(--data-table-row-edge); color: var(--text-body); vertical-align: top; }
+.data-table--ledger :where(tbody td:first-child) { border-radius: var(--radius-m) 0 0 var(--radius-m); box-shadow: inset var(--size-hairline) var(--size-hairline) 0 var(--data-table-row-edge), inset 0 calc(-1 * var(--size-hairline)) 0 var(--data-table-row-edge); }
+.data-table--ledger :where(tbody td:last-child) { border-radius: 0 var(--radius-m) var(--radius-m) 0; box-shadow: inset calc(-1 * var(--size-hairline)) var(--size-hairline) 0 var(--data-table-row-edge), inset 0 calc(-1 * var(--size-hairline)) 0 var(--data-table-row-edge); }
+.data-table__num { color: var(--text-hi); font-weight: 900; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.data-table__num.is-money { color: var(--text-money); }
+.data-table__ref { color: var(--text-hi); font-family: var(--font-mono); font-size: var(--size-chip); font-weight: 500; overflow-wrap: anywhere; }
+.data-table__when { color: var(--text-hi); font-family: var(--font-mono); font-size: var(--size-chip); font-weight: 500; white-space: nowrap; } /* a moment, read as the references are and never broken */
+.data-table__state { display: grid; justify-items: start; gap: var(--space-1); color: var(--text-hi); font-weight: 700; }
+.data-table__why { color: var(--text-body); font-size: var(--size-chip); font-weight: 400; line-height: 1.45; }
+
+/* a row whose proof does not check out: its band in the error wash with the down edge, the reason and the way on beside the state */
+.data-table--ledger tbody tr[data-state="mismatch"] td { background: linear-gradient(var(--data-table-row-bg-mismatch), var(--data-table-row-bg-mismatch)), var(--bg-card-deep); box-shadow: inset 0 var(--size-hairline) 0 var(--data-table-line-mismatch), inset 0 calc(-1 * var(--size-hairline)) 0 var(--data-table-line-mismatch); }
+.data-table--ledger tbody tr[data-state="mismatch"] td:first-child { box-shadow: inset var(--size-hairline) var(--size-hairline) 0 var(--data-table-line-mismatch), inset 0 calc(-1 * var(--size-hairline)) 0 var(--data-table-line-mismatch); }
+.data-table--ledger tbody tr[data-state="mismatch"] td:last-child { box-shadow: inset calc(-1 * var(--size-hairline)) var(--size-hairline) 0 var(--data-table-line-mismatch), inset 0 calc(-1 * var(--size-hairline)) 0 var(--data-table-line-mismatch); }
+
+/* under 600px a ledger row is a card of label and value lines, each label read from the cell's data-l */
+@media (max-width: 599px) {
+  .data-table--ledger .data-table__t, .data-table--ledger tbody, .data-table--ledger tr, .data-table--ledger td { display: block; }
+  .data-table--ledger .data-table__head { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .data-table--ledger tbody tr { display: grid; gap: var(--space-2); margin-bottom: var(--space-2); padding: var(--space-3) var(--space-3-5); border-radius: var(--radius-m); background: var(--bg-card-deep); box-shadow: var(--line-edge), var(--depth-card); }
+  .data-table--ledger tbody tr[data-state="mismatch"] { background: linear-gradient(var(--data-table-row-bg-mismatch), var(--data-table-row-bg-mismatch)), var(--bg-card-deep); box-shadow: inset 0 0 0 var(--size-hairline) var(--data-table-line-mismatch), var(--depth-card); }
+  .data-table--ledger tbody td, .data-table--ledger tbody td:first-child, .data-table--ledger tbody td:last-child,
+  .data-table--ledger tbody tr[data-state="mismatch"] td, .data-table--ledger tbody tr[data-state="mismatch"] td:first-child, .data-table--ledger tbody tr[data-state="mismatch"] td:last-child { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-end; gap: var(--space-1) var(--space-2); padding: 0; border-radius: 0; background: none; box-shadow: none; text-align: right; }
+  .data-table--ledger tbody td::before { content: attr(data-l); flex: none; margin-right: auto; color: var(--text-body); font-family: var(--font-family); font-size: var(--size-micro); font-weight: 700; letter-spacing: var(--tracking-snug); text-transform: uppercase; }
+  .data-table--ledger .data-table__state { flex: 1 1 100%; justify-items: start; text-align: left; } /* a state and its reason take the card's width under their key */
+}

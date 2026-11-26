@@ -36,6 +36,7 @@
 @import "components/logo.css";
 @import "components/avatar.css";
 @import "components/media-slot.css";
+@import "components/rare-mark.css";
 
 /* ===== Level 2, molecules ===== */
 /* molecules hold atoms only (design/kit/inventory.md, Contains), so their order is free; listed by the panel's subgroups */
@@ -59,7 +60,27 @@
 @import "components/empty-state.css";
 @import "components/money-strip.css";
 @import "components/payment-record.css";
+@import "components/field.css";
+@import "components/account-head.css";
 
 /* ===== Level 3, organisms: those holding no organism first, then those that hold one ===== */
+@import "components/header.css";
+@import "components/rail.css";
+@import "components/bottom-bar.css";
+@import "components/footer.css";
+@import "components/case-grid.css";
+@import "components/item-grid.css";
+@import "components/mode-row.css";
+@import "components/recent-drops.css";
+@import "components/ticker.css";
+@import "components/case-stage.css";
+@import "components/commit-block.css";
+@import "components/data-table.css";
+@import "components/case-how.css";
+@import "components/proof-fields.css";
+@import "components/deposit-dock.css";
+@import "components/limits-panel.css";
+@import "components/verify-form.css";
+@import "components/status-notice.css";
 
 /* ===== The screens' own blocks, design/system/screens/ (D-259) ===== */

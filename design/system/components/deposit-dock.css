@@ -1,0 +1,32 @@
+/* DEPOSIT DOCK, level 3 (organism). What arrives, in coins at the peg, what is charged, the declaration and the one act that pays; the refusal is
+ * said above the act, D-58. What arrives is the figure plus the bonus, the bonus in the gain's green, the peg on a chip at the head's right and
+ * the cap under them in gold (D-238, the rate set apart); a crypto route carries the rate on the chip, the skins route's chip counts the skins.
+ * Page: design/kit/deposit-dock.html. Stands on Deposit: the card, crypto and skins routes, declined and a limit raise pending, and the Add funds
+ *   dialog every signed-in screen can open (design/kit/inventory.md, Deposit dock).
+ * Holds: Figure (.fig--money at .fig--head, the sum, rename map row 28), Key-value line (.kv--total, what is charged), Note line (.note under
+ *   the total; .note--refuse above the act, written by pay.js), Field (.field--declare, the terms row, with its Checkbox), Button (.button--primary
+ *   at L, the act). Its own parts are the plate, the receive block with its head, its peg chip, the bonus and the cap, the total's block and
+ *   the act's cell; it places what it holds and never redraws it.
+ * Reads: --text-hi, --text-money, --text-meta, --text-up, --bg-plate, --bg-well, --line-plate-edge, --line-edge, --line-soft; geometry and type
+ *   from the primitives. No colour primitive is read directly.
+ * Carried from design/kit/kit.css part 4.2 (DEPOSIT DOCK, lines 2880 to 2901; an organism standing in the molecules' part) at stage 08 step 5,
+ *   round 3, unchanged in look. The sum's size is the Figure's .fig--head (rename map row 28): .dock__sum .fig__v is not carried, the bonus keeps
+ *   the same size by its own rule. The declaration's own rule in kit.css (.dock__declare: no least height, its words at the chip's size) stands
+ *   before the Field's block and the Field's row wins it on source order there, so kit.css draws the terms row as the Field draws it (48px,
+ *   14px words) with the same padding; carried as kit.css draws it, the dead half named in the founder's questions of round 3. */
+.dock { display: grid; gap: var(--space-4); min-width: 0; padding: var(--space-5); border-radius: var(--radius-m); background: var(--bg-plate); box-shadow: var(--line-plate-edge); }
+.dock__recv { display: grid; gap: var(--space-3); padding-bottom: var(--space-4); border-bottom: var(--size-hairline) solid var(--line-soft); }
+.dock__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.dock__k { color: var(--text-hi); font-size: var(--size-text); font-weight: 700; line-height: 1.2; }
+/* the peg on a chip, the baseline's Rate plate, research/docs/baseline-account.md 5b.2 */
+.dock__rate { display: inline-flex; align-items: center; gap: var(--space-1-5); padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--bg-well); box-shadow: var(--line-edge); color: var(--text-money); font-size: var(--size-chip); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1.2; white-space: nowrap; }
+.dock__sum { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1-5) var(--space-2-5); margin: 0; }
+.dock__plus { color: var(--text-meta); font-size: var(--size-title); font-weight: 900; line-height: 1; }
+/* the bonus at the sum's size (the Figure's --head), as the baseline's panel sets them */
+.dock__bonus-v { display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--text-up); font-size: var(--size-head-l); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.dock__bonus-v small { align-self: flex-end; margin-left: var(--space-hair); font-size: var(--size-label); font-weight: 700; }
+.dock__cap { margin: 0; color: var(--text-money); font-size: var(--size-chip); line-height: 1.4; }
+.dock__total { display: grid; gap: var(--space-3); }
+/* the terms row in the dock: the Field's declaration at the dock's width, its padding as the Field's */
+.dock__declare { padding: var(--space-2-5) var(--space-3); }
+.dock__act > .button { width: 100%; }

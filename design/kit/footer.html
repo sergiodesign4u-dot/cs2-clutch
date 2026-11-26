@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  /* the stand's frame: room above the block for the blue light that rises off its top, as a page's gap above the footer gives it */
+  .cp-frame { padding-top: 72px; min-width: 0; }
+  .cp-w { margin: 0 auto; }
+  .cp-w--760 { max-width: 760px; }
+  .cp-w--400 { max-width: 400px; }
+  .cp-cap { margin: 0 0 10px; font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Organisms &middot; Shell &middot; level 3</span>
+  <h1>Footer</h1>
+  <p class="kt-lead">The foot of every page as one block set off the rail: the four counters on a dark band, the brand with Need help and the social squares, three columns of links, the two trust plates, Play responsibly and Every round, with the payment cards, then the age and market lines, the language and the fine print. It carries Provably fair and Responsible play, each in its own column (CLAUDE.md, "Information architecture"). Everything on this page is drawn by <code>design/system/components/footer.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-frame">
+<footer class="footer" id="an-footer"><div class="footer__block"><div class="footer__band"><div class="footer__stats"><a class="footer__stat" id="s-stat" href="../catalogue.html"><span class="footer__tile" aria-hidden="true"><span class="icon icon--box"></span></span><span class="fig fig--stat"><span class="fig__v">367 013 504</span><span class="fig__c">Cases opened</span></span></a><div class="footer__stat" tabindex="0"><span class="footer__tile" aria-hidden="true"><span class="icon icon--arrow-up"></span></span><span class="fig fig--stat"><span class="fig__v">3 349 339</span><span class="fig__c">Upgrades</span></span></div><div class="footer__stat" tabindex="0"><span class="footer__tile" aria-hidden="true"><span class="icon icon--users"></span></span><span class="fig fig--stat"><span class="fig__v">1 864 228</span><span class="fig__c">Total users</span></span></div><div class="footer__stat" tabindex="0"><span class="footer__tile" aria-hidden="true"><span class="icon icon--pulse"></span></span><span class="fig fig--stat"><span class="fig__v">882</span><span class="fig__c"><span class="footer__live" aria-hidden="true"></span>Online now</span></span></div></div></div><div class="footer__mid"><div class="footer__brand"><a class="logo logo--l" href="../index.html" aria-label="CS2 Clutch, home"><span class="logo__mark"></span></a><p class="footer__ident">Operating company · Registration no. · Registered address</p><div class="footer__help"><span>Need help?</span><a class="button button--primary button--m" href="../../wireframes/support.html">Support</a></div><div class="footer__social"><a class="button button--icon" href="#" aria-label="Discord"><span class="icon icon--discord" aria-hidden="true"></span></a><a class="button button--icon" href="#" aria-label="Telegram"><span class="icon icon--telegram" aria-hidden="true"></span></a><a class="button button--icon" href="#" aria-label="X"><span class="icon icon--x" aria-hidden="true"></span></a><a class="button button--icon" href="#" aria-label="YouTube"><span class="icon icon--youtube" aria-hidden="true"></span></a><a class="button button--icon" href="#" aria-label="TikTok"><span class="icon icon--tiktok" aria-hidden="true"></span></a><a class="button button--icon" href="#" aria-label="Instagram"><span class="icon icon--instagram" aria-hidden="true"></span></a><a class="button button--icon" href="#" aria-label="Facebook"><span class="icon icon--facebook" aria-hidden="true"></span></a></div></div><div class="footer__cols"><nav class="footer__col" aria-label="Play and platform"><p class="footer__col-h">Play</p><a class="footer__link" id="s-link" href="../catalogue.html">Cases</a><span class="footer__gap"></span><p class="footer__col-h">Platform</p><a class="footer__link" href="../fair.html">Provably fair</a><a class="footer__link" href="../../wireframes/support.html">Support</a><a class="footer__link" href="../responsible.html">Responsible play</a></nav><nav class="footer__col" aria-label="Cases"><p class="footer__col-h">Cases</p><a class="footer__link" href="../catalogue.html">All cases</a><a class="footer__link" href="../catalogue.html#cat-daily">Daily cases</a><a class="footer__link" href="../catalogue.html#cat-featured">Featured cases</a></nav><nav class="footer__col" aria-label="Company"><p class="footer__col-h">Company</p><a class="footer__link" href="../../wireframes/legal.html">Terms of use</a><a class="footer__link" href="../../wireframes/legal-unpublished.html?doc=privacy">Privacy policy</a><a class="footer__link" href="../../wireframes/legal-unpublished.html?doc=cookie">Cookie policy</a><a class="footer__link" href="../../wireframes/legal-refund.html">Refund and payments policy</a><button class="footer__link footer__link--button" id="s-cookie" type="button">Cookie settings</button></nav></div><span class="footer__agents" aria-hidden="true"></span></div><div class="footer__strip"><div class="footer__plates"><a class="footer__plate footer__plate--age" href="../responsible.html"><span class="footer__age" aria-hidden="true">18+</span><span class="footer__ptx"><b>Play responsibly</b><span>For people 18 or over</span></span><span class="footer__go" aria-hidden="true"></span></a><a class="footer__plate footer__plate--fair" id="s-plate" href="../fair.html"><span class="footer__pt" aria-hidden="true"><span class="icon icon--target"></span></span><span class="footer__ptx"><b>Every round</b><span>Checkable without an account</span></span><span class="footer__go" aria-hidden="true"></span></a></div><ul class="footer__pay" aria-label="Payment methods"><li><a id="s-pay" href="../deposit.html" data-layer="deposit-layer" data-account-only aria-label="Add funds, Visa" title="Visa"><svg viewBox="0 0 60 20" aria-hidden="true"><text x="30" y="16" text-anchor="middle" font-family="Arial Black, Arial" font-weight="900" font-style="italic" font-size="18" fill="currentColor">VISA</text></svg></a></li><li><a href="../deposit.html" data-layer="deposit-layer" data-account-only aria-label="Add funds, Mastercard" title="Mastercard"><svg viewBox="0 0 60 30" aria-hidden="true"><circle cx="24" cy="15" r="11" fill="currentColor" opacity=".75"></circle><circle cx="36" cy="15" r="11" fill="currentColor" opacity=".45"></circle></svg></a></li><li><a href="../deposit.html" data-layer="deposit-layer" data-account-only aria-label="Add funds, Google Pay" title="Google Pay"><svg viewBox="0 0 60 20" aria-hidden="true"><text x="30" y="15" text-anchor="middle" font-family="Arial" font-weight="700" font-size="15" fill="currentColor">G Pay</text></svg></a></li><li><a href="../deposit.html" data-layer="deposit-layer" data-account-only aria-label="Add funds, Bitcoin" title="Bitcoin"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="12" fill="currentColor" opacity=".8"></circle><text x="15" y="20.5" text-anchor="middle" font-family="Arial" font-weight="900" font-size="15" fill="#0B0A22">₿</text></svg></a></li><li><a href="../deposit.html" data-layer="deposit-layer" data-account-only aria-label="Add funds, Ethereum" title="Ethereum"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 3l7 12-7 4-7-4z" fill="currentColor" opacity=".85"></path><path d="M15 21l7-4.5L15 27l-7-10.5z" fill="currentColor" opacity=".6"></path></svg></a></li><li><a href="../deposit.html" data-layer="deposit-layer" data-account-only aria-label="Add funds, Tether" title="Tether"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="12" fill="currentColor" opacity=".8"></circle><path d="M9 9h12v3h-4.5v10h-3V12H9z" fill="#0B0A22"></path></svg></a></li></ul></div><div class="footer__end"><div class="footer__row"><div class="footer__legal"><p>For people 18 or over. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start.</p><p>Available only in the countries we have cleared. Anywhere else, this site says so before anything can be paid.</p></div><div class="footer__lang"><div class="popover popover--lang"><button class="popover__trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="an-lang" aria-label="Language, English"><span class="popover__flag popover__flag--gb" aria-hidden="true"></span><span>EN</span></button><div class="popover__panel" id="an-lang"><div class="popover__list" role="group" aria-label="Language"><button class="popover__opt" type="button" aria-current="true"><span class="popover__flag popover__flag--gb" aria-hidden="true"></span>English<span class="popover__code">EN</span></button><button class="popover__opt" type="button"><span class="popover__flag popover__flag--de" aria-hidden="true"></span>German<span class="popover__code">DE</span></button><button class="popover__opt" type="button"><span class="popover__flag popover__flag--cn" aria-hidden="true"></span>Chinese<span class="popover__code">ZH</span></button><button class="popover__opt" type="button"><span class="popover__flag popover__flag--fr" aria-hidden="true"></span>French<span class="popover__code">FR</span></button><button class="popover__opt" type="button"><span class="popover__flag popover__flag--pl" aria-hidden="true"></span>Polish<span class="popover__code">PL</span></button><button class="popover__opt" type="button"><span class="popover__flag popover__flag--tr" aria-hidden="true"></span>Turkish<span class="popover__code">TR</span></button><button class="popover__opt" type="button"><span class="popover__flag popover__flag--pt" aria-hidden="true"></span>Portuguese<span class="popover__code">PT</span></button><button class="popover__opt" type="button"><span class="popover__flag popover__flag--es" aria-hidden="true"></span>Spanish<span class="popover__code">ES</span></button><button class="popover__opt" type="button"><span class="popover__flag popover__flag--ua" aria-hidden="true"></span>Ukrainian<span class="popover__code">UA</span></button></div><p class="popover__note">Only English is available for now.</p></div></div></div></div><div class="footer__fine"><span>© 2026 CS2 Clutch. All rights reserved</span><span>Prices are in coins. 1&nbsp;coin&nbsp;=&nbsp;$1.00</span></div></div></div></footer>
+  </div></div>
+  <p>It holds five atoms and places them, and redraws none: the <a href="figure.html">Figure</a> (level 1) as <code>.fig--stat</code>, each counter's figure and caption, sized by the footer through <code>--fig-stat-v</code>, <code>--fig-stat-c</code> and <code>--fig-stat-gap</code>; the <a href="logo.html">Logo</a> (level 1) as <code>.logo--l</code>; the <a href="button.html">Button</a> (level 1), Support as <code>.button--primary.button--m</code> and the seven social squares as <code>.button--icon</code>; the <a href="icon.html">Icon</a> (level 1), each counter's mark and the round plate's target, in its story form; the <a href="popover-menu.html">Popover menu</a> (level 1) as <code>.popover--lang</code>, the language. Everything else is the footer's own: the band and its tiles, the columns and their links, the strip, the two plates, the payment cards and the foot.</p>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The foot</b></td><td><code>.footer</code></td><td>the container whose own width decides the layout (<code>container: footer</code>), its own geometry (<code>--footer-*</code>), the base ink</td></tr>
+    <tr><td><b>Block</b></td><td><code>.footer__block</code></td><td>the panel set off the rail, the 24px corner, its lift and the soft blue light rising off its top</td></tr>
+    <tr><td><b>Counters</b></td><td><code>.footer__band</code>, <code>__stats</code>, <code>__stat</code>, <code>__tile</code>, <code>__live</code>, <a href="figure.html"><code>.fig--stat</code></a></td><td>the dark band between a blue and a pink line; each counter a tile in a mode's colours and a Figure; the green dot of Online now. Cases opened is a link, the other three take focus</td></tr>
+    <tr><td><b>Brand</b></td><td><code>.footer__brand</code>, <code>__ident</code>, <code>__help</code>, <code>__social</code>, <a href="logo.html"><code>.logo--l</code></a></td><td>the logo, the operator's line, Need help with Support, the social squares seven in a row (four under 342px of the column)</td></tr>
+    <tr><td><b>Columns</b></td><td><code>.footer__cols</code>, <code>__col</code>, <code>__col-h</code>, <code>__gap</code>, <code>__link</code>, <code>__link--button</code></td><td>Play over Platform, Cases, Company; the footer's own link, white, pink under the pointer; Cookie settings is a button that reads as a link</td></tr>
+    <tr><td><b>Operators</b></td><td><code>.footer__agents</code></td><td>the two operators at the right, their heads over the band's line; under 560px beside Company, their feet on the strip</td></tr>
+    <tr><td><b>Strip</b></td><td><code>.footer__strip</code>, <code>__plates</code>, <code>__plate--age</code>, <code>__plate--fair</code>, <code>__age</code>, <code>__pt</code>, <code>__ptx</code>, <code>__go</code></td><td>the two trust plates on a dark plate: Play responsibly with the 18+ disc, Every round with the target; each with its arrow</td></tr>
+    <tr><td><b>Payment cards</b></td><td><code>.footer__pay</code></td><td>six provider marks in one muted tone, three to a row beside the plates, six under 1000px</td></tr>
+    <tr><td><b>Foot</b></td><td><code>.footer__end</code>, <code>__row</code>, <code>__legal</code>, <code>__lang</code>, <code>__fine</code></td><td>the age and market lines and the language on one row over a pink line, the fine print under them</td></tr>
+  </tbody></table></div>
+  <p class="kt-note">The inventory lists a Disclosure and a Text link among what the Footer holds. No coloured screen draws either: the footer's links are its own form, <code>.footer__link</code>, and no part folds. Built as drawn; the row is a question for the founder.</p>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form. Its layout is chosen by its own width, not by the window's: the footer is a container. Widths and heights below are read from the rendered footers.</p>
+  <ul class="kt-list">
+    <li><b>Width = the footer's own.</b> Wider than 1000px: the counters four in a row, the brand beside three columns, the plates beside the payment cards three to a row. 1000px and under: the counters two by two, the brand over the columns, the cards six in a row under the plates. 560px and under: each counter's figure under its tile, two columns of links, the plates one over the other, the cards three to a row, the foot centred.</li>
+    <li><b>The window under 900px</b> takes the block's corner and lift away and runs it edge to edge: the rail is gone, so nothing sets it off.</li>
+    <li><b>A touch screen</b> (<code>pointer: coarse</code>) makes each link a 40px row and the cards 40px tall once they leave the plates' side.</li>
+  </ul>
+  <div class="kt-scene"><div class="cp-w cp-w--760"><p class="cp-cap">The same footer in a 760px column: <span class="cp-dim"></span></p><div class="cp-frame" data-clone data-dim></div></div></div>
+  <div class="kt-scene"><div class="cp-w cp-w--400"><p class="cp-cap">And in a 400px column: <span class="cp-dim"></span></p><div class="cp-frame" data-clone data-dim></div></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>At the foot of every page, once, after the screen's own blocks. It says what this place is and who runs it, how much has happened here (the counters), where help is, what the rules are and who may play. It carries the two trust destinations the rail does not: Provably fair, the brand's promise that its numbers are checkable (design principle 1), and Responsible play, the limits (a compliance constraint of CLAUDE.md). Its words are the screens' and the voice's: "Play responsibly", "For people 18 or over", "Every round", "Checkable without an account". The counters are samples (D-124).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>Under the screen's slot on every page, Home to Sign in, one per page. The ways to play live in the <b>Rail</b>; the money and the account live in the <b>Header</b>; the footer holds the destinations of trust and the law.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A destination someone needs now is a <b>Rail</b> row or, on a phone, the <b>Bottom bar</b>. A trust claim at the moment of spending is a <b>Money strip</b> or a <b>Status notice</b> beside the act, never only in the footer (principle 3). A single link in running text is a <b>Text link</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>The footer in Anatomy is live, on this page's theme: point at a counter, a link, a plate or a payment card, or reach them with Tab. The page loads <code>motion.js</code>, as the Icon's page does, only so the counters' and the round plate's marks are dressed in their story form and play under the pointer; nothing else of the product's script runs here, so the language stays closed (its open state is on the Popover menu's page).</p>
+  <p>Snapshots, dark on the left and light on the right, taken with reduced motion, so each shows the face the state settles on: a story does not play and the 18+ disc does not spin. The base set is shot once on the first counter; after it, only a named difference.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/footer-stat-hover-dark.png" alt="Counter hover, dark theme" loading="lazy"></div><div><img src="screens/states/footer-stat-hover-light.png" alt="Counter hover, light theme" loading="lazy"></div></div><figcaption><b>Counter hover: its tile rises 4px and turns, its story plays (stilled here)</b> <code>translate, rotate; no colour moves</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/footer-stat-focus-dark.png" alt="Counter focus-visible, dark theme" loading="lazy"></div><div><img src="screens/states/footer-stat-focus-light.png" alt="Counter focus-visible, light theme" loading="lazy"></div></div><figcaption><b>Counter focus-visible: the ring 4px off on a 12px corner, the tile as under the pointer</b> <code>--line-focus</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/footer-link-hover-dark.png" alt="Link hover, dark theme" loading="lazy"></div><div><img src="screens/states/footer-link-hover-light.png" alt="Link hover, light theme" loading="lazy"></div></div><figcaption><b>Link hover: the words turn pink</b> <code>--text-link</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/footer-plate-hover-dark.png" alt="Plate hover, dark theme" loading="lazy"></div><div><img src="screens/states/footer-plate-hover-light.png" alt="Plate hover, light theme" loading="lazy"></div></div><figcaption><b>Plate hover: up 2px, brighter, the arrow steps out</b> <code>filter: brightness(1.08), translate</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/footer-pay-hover-dark.png" alt="Payment card hover, dark theme" loading="lazy"></div><div><img src="screens/states/footer-pay-hover-light.png" alt="Payment card hover, light theme" loading="lazy"></div></div><figcaption><b>Payment card hover: the wash, the pink edge, the mark in white, up 2px</b> <code>--footer-pay-bg-hover, --line-lit, --text-hi, --shadow-footer-pay</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> a link, a plate, a payment card and Cookie settings take the same ring as a counter, <code>--line-focus</code>, at 2px from their edge (a counter's sits 4px off on a 12px corner). A payment card on focus also turns its mark white, as under the pointer.</li>
+    <li><b>No press look:</b> kit.css draws none on any part, so none is shot. Cookie settings has no hover of its own: it stays white and underlined.</li>
+    <li><b>Held components keep their own states:</b> Support and the social squares are the Button's, the language is the Popover menu's, the marks' stories are the Icon's. The footer writes none of them.</li>
+    <li><b>No disabled look</b> and nothing the product's script sets on the footer itself.</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ footer           # re-shoot after a change to footer.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ footer --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. One component token, <code>--footer-pay-bg-hover</code>: a payment card's wash under the pointer, white at .08, which no role holds. Twelve colours read in this block only stay primitives until step 9 (<code>tokens-audit.md</code>), among them the band's light and fade, the plates' lift, the fair blue, the 18+ red and the cards' muted tone. The block's own geometry is its <code>--footer-*</code> custom properties, each with its origin in v4.</p>
+  <p>File: <code>design/system/components/footer.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group.</p>
+  <pre>&lt;footer class="footer"&gt;&lt;div class="footer__block"&gt;
+  &lt;div class="footer__band"&gt;&lt;div class="footer__stats"&gt;&lt;a class="footer__stat" href="..."&gt;&lt;span class="footer__tile" aria-hidden="true"&gt;&lt;span class="icon icon--box"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="fig fig--stat"&gt;...&lt;/span&gt;&lt;/a&gt;...&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="footer__mid"&gt;&lt;div class="footer__brand"&gt;...&lt;/div&gt;&lt;div class="footer__cols"&gt;&lt;nav class="footer__col" aria-label="..."&gt;&lt;p class="footer__col-h"&gt;Platform&lt;/p&gt;&lt;a class="footer__link" href="..."&gt;Provably fair&lt;/a&gt;...&lt;/nav&gt;...&lt;/div&gt;&lt;span class="footer__agents" aria-hidden="true"&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="footer__strip"&gt;&lt;div class="footer__plates"&gt;&lt;a class="footer__plate footer__plate--age" href="..."&gt;...&lt;/a&gt;&lt;a class="footer__plate footer__plate--fair" href="..."&gt;...&lt;/a&gt;&lt;/div&gt;&lt;ul class="footer__pay" aria-label="Payment methods"&gt;...&lt;/ul&gt;&lt;/div&gt;
+  &lt;div class="footer__end"&gt;&lt;div class="footer__row"&gt;&lt;div class="footer__legal"&gt;...&lt;/div&gt;&lt;div class="footer__lang"&gt;&lt;div class="popover popover--lang"&gt;...&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="footer__fine"&gt;...&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/footer&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>. Where a page places it (<code>.shell &gt; .footer</code>, the gap above it and its grid area) is the shell's rule and stays in <code>kit.css</code> until step 6.</p>
+</section>
+<script>
+/* the variants: the Anatomy's footer cloned into narrower columns, its ids taken off */
+document.querySelectorAll('[data-clone]').forEach(function (f) {
+  var c = document.getElementById('an-footer').cloneNode(true); c.removeAttribute('id');
+  c.querySelectorAll('[id]').forEach(function (n) { n.removeAttribute('id'); }); c.querySelectorAll('[aria-controls]').forEach(function (n) { n.removeAttribute('aria-controls'); });
+  f.appendChild(c);
+});
+function dims() { document.querySelectorAll('[data-dim]').forEach(function (f) { var r = f.querySelector('.footer').getBoundingClientRect(); f.parentNode.querySelector('.cp-dim').textContent = Math.round(r.width) + ' x ' + Math.round(r.height); }); }
+dims(); addEventListener('load', dims);
+window.KIT_SHOTS = [
+  { id: 'stat', sel: '#s-stat', states: ['hover', 'focus'], pad: 10 },
+  { id: 'link', sel: '#s-link', states: ['hover'], pad: 10 },
+  { id: 'plate', sel: '#s-plate', states: ['hover'], pad: 10 },
+  { id: 'pay', sel: '#s-pay', states: ['hover'], pad: 10 }
+];
+</script>
+<script src="motion.js"></script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = [['--text-base', 'semantic'], ['--text-hi', 'semantic'], ['--text-meta', 'semantic'], ['--text-link', 'semantic'], ['--text-on-plate', 'semantic'],
+    ['--bg-panel', 'semantic'], ['--bg-note-plate', 'semantic'], ['--bg-tile', 'semantic'], ['--bg-match', 'semantic'], ['--bg-mark-on-plate', 'semantic'],
+    ['--bg-stripes', 'semantic'], ['--bg-stripes-m', 'semantic'], ['--bg-mode-cases', 'semantic'], ['--bg-mode-upgrade', 'semantic'], ['--bg-mode-battles', 'semantic'], ['--bg-mode-showdowns', 'semantic'],
+    ['--line-edge', 'semantic'], ['--line-lit-top', 'semantic'], ['--line-pink-fade', 'semantic'], ['--line-ring-soft', 'semantic'], ['--line-lit', 'semantic'], ['--line-focus', 'state'],
+    ['--footer-pay-bg-hover', 'component'],
+    ['--gradient-footer-light', 'primitive, read directly'], ['--shadow-footer-lift', 'primitive, read directly'], ['--gradient-footer-band', 'primitive, read directly'], ['--gradient-footer-fade', 'primitive, read directly'],
+    ['--gradient-edge-blue', 'primitive, read directly'], ['--shadow-footer-plate', 'primitive, read directly'], ['--gradient-footer-fair', 'primitive, read directly'], ['--color-footer-pt', 'primitive, read directly'],
+    ['--color-footer-age', 'primitive, read directly'], ['--shadow-footer-age', 'primitive, read directly'], ['--color-footer-pay', 'primitive, read directly'], ['--shadow-footer-pay', 'primitive, read directly']];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n[0]).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n[0] + '</code></td><td>' + n[1] + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

@@ -1,0 +1,259 @@
+/* CASE STAGE, level 3 (organism). Where the case stands, the open runs and the prize lands, one region in three phases that never unmounts (case.md
+ * section 0). At rest the case stands large over a band the nine run through, dim, fading to nothing at both ends, a pointer over the band and one
+ * under it; two to five cases part the stage into as many cells, the band folds shut and a column opens behind each case. The open
+ * (data-phase="open") hides the cases, lights the runs, closes the pointers in and draws the line the runs stop on. The outcome (data-phase="won")
+ * puts the prizes in the cells, the Outcome card one per case, on a light of the best tier.
+ * Page: design/kit/case-stage.html. Stands on the case screen (design/case.html and its states case-degraded.html, case-interrupted.html,
+ *   case-nocounter.html), inside the Case head, which gives it its ground; Deposit and Sign in open as layers over it (design/kit/inventory.md, Case stage).
+ * Holds: Media slot (.media--case .case-stage__case, the case at rest), Outcome card (.outcome, one per prize, in .case-stage__row), Button (the
+ *   batch prize's Sell, .button--ghost .button--s .outcome__sell, which the Outcome card places), Rare mark (.rare-mark on a run's card, laid by
+ *   motion.js). Its own: the band, the columns, the run's card (.case-stage__card), the pointers, the line, the cells, the rest, the win and the flood.
+ * Writes on what it holds, as its placing: the case's width by the count (.case-stage__case), the coin's size in a run card's value
+ *   (.case-stage__card-v > .icon--coin), the Outcome card's odds and Sell rising in after the landing (.case-stage.is-landed .outcome ...), and where a
+ *   run's card places the Rare mark (.case-stage__card > .rare-mark--*).
+ * Reads: --bg-rarity-1 to --bg-rarity-7 with --bg-rarity-4-lit and --bg-rarity-5-lit (the tier), --bg-act (the pointers' pink, the act's), --line-lit
+ *   (the line the runs stop on, the band's lit edges, the landing ring, the brand pink as a line where something is lit), --bg-card-deep, --bg-ring-deep,
+ *   --bg-mark-on-plate (the white in the run card's ring and in the pointers), --text-base, --text-body, --text-hi, --text-money, --line-edge,
+ *   --depth-card, --depth-skin-card; no component token; geometry, type and motion from the primitives and the block's --stage-* custom properties,
+ *   each with its origin. Colour primitives read directly, all waiting for step 9: --gradient-stage-band, --gradient-stage-edge, --gradient-stage-cell,
+ *   --color-pointer-deep, --shadow-case-stage (read in this block only, tokens-audit.md), and --gradient-stage-bam and --shadow-stage-wave (the hit's
+ *   flash and wave, elements stage.js adds after a press, so the count at load did not see them; read by this block only).
+ * Carried from design/kit/kit.css part 4.3, CASE STAGE (lines 4036 to 4253, its play D-236 at 4227 to 4253) and the case stage's share of RARE MARKS ON
+ *   THE CASE'S CARDS (lines 4255 to 4263), at stage 08 step 5, round 3, by the decisions of step 2 (D-260): the run card's edge is --line-edge, white
+ *   at .07 (merged drift row Q1, was --shadow-tile-edge at .05). Nothing else moved. Four literal sizes of its play are the block's own custom
+ *   properties (--stage-bam, --stage-wave, --stage-ring, its edge and glow), the rest are the space primitives they equal. The keyframes case-stage-*
+ *   are named by this block only and are carried here. The stage's ground is the Case head's (an organism that holds this one) and stays with it.
+ *   From design/v4/case-stage.css row M with card W7 and prize Z7, case-page.css (.v4c-frame, .v4c-rest, .v4c-win) and case-open.css (.v4o-card). */
+
+/* Data: the count, data-count 1 to 5, sets --count; the best tier of a landing is --tier on the stage (.case-stage--r1 to --r7), and a run card's own
+   tier the same way (.case-stage__card--r1 to --r7); v4 lights Restricted and Mil-Spec a step brighter on the dark stage. State, set by stage.js:
+   data-phase (none at rest, open, won), data-spin on a run (run, slow, land), --stage-charge 0 to 1, .case-stage--played, .is-landed, .is-driven,
+   .is-at, .is-won, .is-leaving, .is-baked. */
+.case-stage {
+  --stage-h: 340px; /* v4 case-stage.css: .v4c-top[data-v="m"] .v4c-stage .v4c-frame[data-count], one height for the stage whatever the count and the phase; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-inset: 22px; /* v4 case-page.css: .v4c-frame margin 0 22px, the stage's inset from the block's edge; the band runs back out through it; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-reach: 103px; /* v4 case-stage.css: .v4c-top[data-v="m"] .v4c-frame --bh, half the band: where the pointers stop and the run's line ends; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-band-h: 206px; /* v4 case-stage.css: .v4c-band height, the band the nine run through; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-band-fade: linear-gradient(90deg, transparent, black 22%, black 78%, transparent); /* a mask; v4 case-stage.css: .v4c-band, the band fading to nothing at both ends; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-band-fade-run: linear-gradient(90deg, transparent, black 14%, black 86%, transparent); /* a mask; v4 case-stage.css: .v4c-band[data-spin], the band opened wider while it runs; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-col-fade: linear-gradient(180deg, transparent, black 18%, black 82%, transparent); /* a mask; v4 case-stage.css: .v4c-col, a column fading at its top and foot; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-card-w: 146px; /* v4 case-stage.css: .v4c-band .v4o-card width, a card in the band; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-card-h: 170px; /* v4 case-stage.css: .v4c-band .v4o-card height; its ratio is the column card's aspect too; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-col-w: 168px; /* v4 case-stage.css: .v4c-col width min(168px, ...), the widest a column grows; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-col-room: 18px; /* v4 case-stage.css: .v4c-col .v4o-card width calc(100% - 18px), the air either side of a column's cards; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case: 420px; /* v4 case-stage.css: .v4c-top[data-v="m"] .v4c-box width, one case at rest; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case-2: 330px; /* v4 case-stage.css: .v4c-frame[data-count="2"] .v4c-box, each of two; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case-3: 290px; /* v4 case-stage.css: .v4c-frame[data-count="3"] .v4c-box; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case-4: 250px; /* v4 case-stage.css: .v4c-frame[data-count="4"] .v4c-box; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-case-5: 220px; /* v4 case-stage.css: .v4c-frame[data-count="5"] .v4c-box; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-w: 38px; /* v4 case-stage.css: .v4c-ptr-a width, a pointer; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-h: 32px; /* v4 case-stage.css: .v4c-ptr-a height; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-glow: 150px; /* v4 case-stage.css: .v4c-ptr-a::after width, the light where a pointer's tip meets the band; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-in: 30px; /* v4 case-stage.css: .v4c-frame:not([data-count="1"])[data-spin] .v4c-ptr-a.is-a left, a side pointer stepped in over the columns while they run; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-line-in: 26px; /* v4 case-stage.css: .v4c-frame:not([data-count="1"]) .v4c-ptr-line left and right, the line across the columns stopping short of the edges; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-flood-h: 220px; /* v4 case-stage.css: .v4c-top[data-v="m"] .v4c-flood height, the light the prizes land on; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-card-bar: 36px; /* v4 case-stage.css: .v4o-card::after width (cards N to W7), the tier's bar at a run card's foot; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-card-price: clamp(12px, 13cqw, 20px); /* v4 case-stage.css: .v4o-price font-size, a run card's value by the card's own width; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-tip: 13px; /* v4 case-stage.css: .v4c-ptr-a::after top calc(100% - 13px), where the pointer's tip stands in its own drawing, so the light sits at the tip; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-won-glow: 34px; /* v4 case-stage.css: :is(.v4c-band, .v4c-col)[data-spin="land"] .v4o-card.is-won box-shadow, the light round the card a run lands on; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-ease-flood: cubic-bezier(.2, .8, .3, 1); /* v4 case-stage.css: .v4c-win.is-on .v4c-flood animation, the prizes' light running out along the band's axis; рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-mark-drop: drop-shadow(0 4px 8px color-mix(in srgb, var(--pointer) 45%, transparent)); /* a filter; v4 case-stage.css: .v4c-ptr:not(.is-gem) .v4c-ptr-a svg, a pointer's soft light in its own pink (--pointer is declared on the stage beside it); рішення користувача, D-209 (v4) carried by D-232 */
+  --stage-charge: 0; /* v4 case-stage.css: .v4c-frame --v4o-charge, 0 at rest and through the run, raised to 1 by the page's script as a run slows onto its landing (with .case-stage--rN, the landing tier): how far the pointers' pink has turned to that tier; рішення користувача, D-209 (v4) carried by D-232 */
+}
+@media (max-width: 899px) { .case-stage { --stage-inset: var(--space-2-5); --stage-band-h: 170px; --stage-case: 320px; --stage-card-w: 120px; --stage-card-h: 136px; } } /* v4 case-page.css .v4c-frame margin 0 10px; case-stage.css @media (max-width: 899px) .v4c-band, .v4c-band .v4o-card, .v4c-box; рішення користувача, D-209 (v4) carried by D-232 */
+@media (min-width: 600px) and (max-width: 899px) { .case-stage { --stage-reach: 85px; } } /* v4 case-stage.css @media (max-width: 899px) and (min-width: 600px) .v4c-frame --bh; рішення користувача, D-209 (v4) carried by D-232 */
+@media (max-width: 599px) {
+  .case-stage { --stage-h: 250px; --stage-reach: 70px; --stage-band-h: 140px; --stage-case: 260px; --stage-card-w: 96px; --stage-card-h: 112px; --stage-mark-w: 28px; --stage-mark-h: 24px;
+    --stage-band-fade: linear-gradient(90deg, transparent, black 15%, black 85%, transparent); --stage-col-room: var(--space-2);
+    --stage-won-1: 348px; --stage-won-3: 320px; --stage-won-5: 520px; } /* v4 case-stage.css @media (max-width: 599px): the frame 250px and, at the outcome, 348 for one prize (its foot tab ran 10px under), 320 for two or three, 520 for four or five in two rows; the band 140, its fade 15 to 85 %; the pointers 28 by 24; a column's cards 8px narrower; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.case-stage[data-count="1"] { --count: 1; } .case-stage[data-count="2"] { --count: 2; } .case-stage[data-count="3"] { --count: 3; }
+.case-stage[data-count="4"] { --count: 4; } .case-stage[data-count="5"] { --count: 5; }
+.case-stage--r1 { --tier: var(--bg-rarity-1); } .case-stage--r2 { --tier: var(--bg-rarity-2); } .case-stage--r3 { --tier: var(--bg-rarity-3); }
+.case-stage--r4 { --tier: var(--bg-rarity-4-lit); } .case-stage--r5 { --tier: var(--bg-rarity-5-lit); } .case-stage--r6 { --tier: var(--bg-rarity-6); } .case-stage--r7 { --tier: var(--bg-rarity-7); }
+.case-stage { --pointer: color-mix(in srgb, var(--tier, var(--bg-act)) calc(var(--stage-charge) * 100%), var(--bg-act)); --hot: color-mix(in srgb, var(--tier, var(--line-lit)) calc(var(--stage-charge) * 100%), var(--line-lit));
+  position: relative; z-index: 3; display: grid; place-items: center; height: var(--stage-h); margin: 0 var(--stage-inset); }
+.case-stage > * { grid-area: 1 / 1; }
+@media (max-width: 599px) {
+  .case-stage[data-phase="won"][data-count="1"] { height: var(--stage-won-1); }
+  .case-stage[data-phase="won"]:is([data-count="2"], [data-count="3"]) { height: var(--stage-won-3); }
+  .case-stage[data-phase="won"]:is([data-count="4"], [data-count="5"]) { height: var(--stage-won-5); }
+}
+
+/* the band: one case. It folds shut along its middle for two to five and unfolds a beat after the columns close */
+.case-stage__band { position: absolute; left: calc(-1 * var(--stage-inset)); right: calc(-1 * var(--stage-inset)); top: 50%; z-index: 1; height: var(--stage-band-h); translate: 0 -50%; overflow: hidden; pointer-events: none;
+  background: var(--gradient-stage-band); -webkit-mask: var(--stage-band-fade); mask: var(--stage-band-fade); transition: opacity .3s .1s, scale .4s var(--motion-ease-unfold) .1s; }
+.case-stage__band::before, .case-stage__band::after { content: ''; position: absolute; left: 0; right: 0; height: var(--size-hairline); background: var(--gradient-stage-edge); }
+.case-stage__band::before { top: 0; } .case-stage__band::after { bottom: 0; }
+.case-stage:not([data-count="1"]) .case-stage__band { opacity: 0; scale: 1 0; transition: opacity .2s, scale .24s var(--motion-ease-fold); }
+.case-stage__run { position: absolute; left: 0; top: 50%; display: flex; gap: var(--space-3); width: max-content; translate: 0 -50%; animation: case-stage-band 60s linear infinite; }
+.case-stage__run.is-driven { animation: none; } /* a run stage.js moves frame by frame stops its idle drift: a state of the run, not an inline style (stage 07 step 7, D-254, Codex SH-03) */
+@keyframes case-stage-band { to { transform: translateX(calc(-50% - var(--space-1-5))); } } /* half the run and half its gap: the second copy of the nine takes the first one's place */
+.case-stage__band .case-stage__card { flex: none; width: var(--stage-card-w); height: var(--stage-card-h); }
+
+/* the columns: two to five, one behind each case, centred in its cell, the cards upright and drifting up; they open one after another */
+.case-stage__cols { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.case-stage__col { position: absolute; top: calc(-1 * var(--space-2)); bottom: calc(-1 * var(--space-2)); left: calc((var(--k, 0) + .5) / var(--count, 1) * 100%); width: min(var(--stage-col-w), calc(100% / var(--count, 1) * .84)); translate: -50% 0;
+  overflow: hidden; opacity: 0; scale: 1 0; visibility: hidden; -webkit-mask: var(--stage-col-fade); mask: var(--stage-col-fade);
+  transition: opacity .2s, scale .22s var(--motion-ease-fold), left .48s var(--motion-ease-settle), width .48s var(--motion-ease-settle), visibility 0s .24s; }
+.case-stage__col:nth-child(2) { --k: 1; } .case-stage__col:nth-child(3) { --k: 2; } .case-stage__col:nth-child(4) { --k: 3; } .case-stage__col:nth-child(5) { --k: 4; }
+.case-stage[data-count="2"] .case-stage__col:nth-child(-n+2), .case-stage[data-count="3"] .case-stage__col:nth-child(-n+3),
+.case-stage[data-count="4"] .case-stage__col:nth-child(-n+4), .case-stage[data-count="5"] .case-stage__col:nth-child(-n+5) { opacity: 1; scale: 1 1; visibility: visible;
+  transition: opacity .25s calc(.18s + var(--k, 0) * 60ms), scale .46s var(--motion-ease-open) calc(.18s + var(--k, 0) * 60ms), left .48s var(--motion-ease-settle), width .48s var(--motion-ease-settle), visibility 0s; }
+.case-stage__col-run { position: absolute; left: 0; right: 0; top: 0; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); animation: case-stage-col 46s linear infinite; animation-delay: calc(var(--k, 0) * -9s); }
+@keyframes case-stage-col { to { transform: translateY(calc(-50% - var(--space-1-5))); } }
+.case-stage__col .case-stage__card { flex: none; width: calc(100% - var(--stage-col-room)); height: auto; aspect-ratio: 146 / 170; } /* the band card's own ratio, --stage-card-w to --stage-card-h */
+@media (max-width: 599px) { .case-stage__col .case-stage__card-name { display: none; } }
+
+/* the run's card: the stage's own, W7 of card-lab.html: value large on top, the skin in its tier's ring lit from the top left round a gradient
+   fill, gun and skin, a short bar of the tier at its foot. The tier is a modifier, --r1 rarest to --r7 */
+.case-stage__card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; box-sizing: border-box; padding: 0 var(--space-2-5) var(--space-3-5); border-radius: var(--radius-card); overflow: hidden; container-type: inline-size; opacity: .8; filter: saturate(.85);
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 18%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 10%, var(--bg-card-deep)), var(--bg-card-deep) 60%);
+  box-shadow: var(--line-edge), var(--depth-card); color: var(--text-base); font-size: var(--size-text); line-height: 1.2; text-align: center; } /* v4 drew 14px corners, the ladder's 12, D-228 */
+.case-stage__card--r1 { --tier: var(--bg-rarity-1); } .case-stage__card--r2 { --tier: var(--bg-rarity-2); } .case-stage__card--r3 { --tier: var(--bg-rarity-3); }
+.case-stage__card--r4 { --tier: var(--bg-rarity-4-lit); } .case-stage__card--r5 { --tier: var(--bg-rarity-5-lit); } .case-stage__card--r6 { --tier: var(--bg-rarity-6); } .case-stage__card--r7 { --tier: var(--bg-rarity-7); }
+.case-stage__card::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: var(--stage-card-bar); height: var(--size-tier-bar); margin-left: calc(var(--stage-card-bar) / -2); border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--tier); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--tier); }
+.case-stage__card-v { position: absolute; z-index: 2; top: 7%; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: .3em; color: var(--text-money); font-size: var(--stage-card-price); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.case-stage__card-v > .icon--coin { width: 1em; height: 1em; }
+.case-stage__card-plate { position: absolute; left: 50%; top: 27.5%; height: 38%; aspect-ratio: 136 / 118; translate: -50% 0; background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--tier) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+/* the ring's light, both glows already blurred inside one mask, case-stage.css .v4o-glow (the performance pass of 10 Nov 2026) */
+.case-stage__card-glow { position: absolute; left: 50%; top: 13.03%; height: 66.95%; aspect-ratio: 176 / 158; translate: -50% 0; pointer-events: none; background: var(--tier); -webkit-mask: var(--shape-hex-glow) center / 100% 100% no-repeat; mask: var(--shape-hex-glow) center / 100% 100% no-repeat; }
+@container (max-width: 110px) { .case-stage__card-glow { top: 10.88%; height: 56.24%; } }
+.case-stage__card-ring { position: absolute; left: 50%; top: 21.5%; display: block; height: 50%; width: auto; aspect-ratio: 136 / 118; translate: -50% 0; overflow: visible; pointer-events: none; }
+.case-stage__card-ring path { fill: none; stroke-width: var(--size-ring-stroke); stroke-linejoin: round; stroke-linecap: round; }
+.case-stage__card-ring stop:nth-of-type(1) { stop-color: color-mix(in srgb, var(--tier) 62%, var(--bg-mark-on-plate)); }
+.case-stage__card-ring stop:nth-of-type(2) { stop-color: color-mix(in srgb, var(--tier) 92%, var(--bg-mark-on-plate)); }
+.case-stage__card-ring stop:nth-of-type(3) { stop-color: color-mix(in srgb, var(--tier) 72%, var(--bg-ring-deep)); }
+.case-stage__card > img { position: absolute; z-index: 1; left: 0; top: 25%; width: 100%; height: 43%; object-fit: contain; transform: scale(1.12); filter: var(--depth-skin-card); }
+/* a name wider than the card runs on centred and is cut by the card, never ended with an ellipsis: v4 case-stage.css .v4o-name span */
+.case-stage__card-name { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; width: 100%; line-height: 1.15; }
+.case-stage__card-w { overflow: hidden; color: var(--text-body); font-size: var(--size-badge-text); font-weight: 700; letter-spacing: var(--tracking-label); text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.case-stage__card-s { overflow: hidden; color: var(--text-hi); font-size: var(--size-s); font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
+
+/* the pointers: a parted triangle over the band and one under it, in the primary button's pink, bobbing toward the case at rest; for two to
+   five both turn a quarter and stand at the stage's two sides. Markup: two .case-stage__mark, each holding the triangle's svg */
+.case-stage__ptr { position: absolute; inset: 0; z-index: 4; pointer-events: none; transition: opacity .3s; }
+.case-stage__mark { position: absolute; left: 50%; width: var(--stage-mark-w); height: var(--stage-mark-h); translate: -50% -50%; transition: left .5s var(--motion-ease-settle), top .5s var(--motion-ease-settle), rotate .5s var(--motion-ease-settle); }
+.case-stage__mark--a { top: var(--space-4); rotate: 0deg; }
+.case-stage__mark--b { top: calc(100% - var(--space-4)); rotate: 180deg; }
+.case-stage__mark svg { display: block; width: 100%; height: 100%; overflow: visible; animation: case-stage-bob 1.8s ease-in-out infinite; filter: var(--stage-mark-drop); }
+.case-stage__mark .is-s1 { stop-color: color-mix(in srgb, var(--pointer) 72%, var(--bg-mark-on-plate)); }
+.case-stage__mark .is-s2 { stop-color: var(--pointer); }
+.case-stage__mark .is-s3 { stop-color: color-mix(in srgb, var(--pointer) 78%, var(--color-pointer-deep)); }
+.case-stage__mark .is-fill { stroke: none; }
+.case-stage__mark .is-edge { fill: none; stroke: color-mix(in srgb, var(--pointer) 40%, var(--bg-mark-on-plate)); stroke-width: .7; stroke-linejoin: round; opacity: .45; }
+.case-stage__mark .is-top { fill: none; stroke: var(--bg-mark-on-plate); stroke-width: .9; stroke-linecap: round; opacity: .45; }
+.case-stage__mark::after { content: ''; position: absolute; left: 50%; top: calc(100% - var(--stage-mark-tip)); width: var(--stage-mark-glow); height: var(--size-edge); translate: -50% 0; border-radius: var(--radius-xs); opacity: 0;
+  background: linear-gradient(90deg, transparent, var(--pointer), transparent); box-shadow: 0 0 var(--space-2) var(--pointer); transition: opacity .3s; } /* v4 drew a 2px corner, the ladder's 4, D-228 */
+@keyframes case-stage-bob { 50% { transform: translateY(var(--space-1)); } }
+.case-stage:not([data-count="1"]) .case-stage__mark--a { left: var(--space-3); top: 50%; rotate: -90deg; }
+.case-stage:not([data-count="1"]) .case-stage__mark--b { left: calc(100% - var(--space-3)); top: 50%; rotate: 90deg; }
+@media (max-width: 599px) { .case-stage:not([data-count="1"]) .case-stage__mark--a { left: 0; } .case-stage:not([data-count="1"]) .case-stage__mark--b { left: 100%; } }
+/* the line the run stops on: upright through the band for one, across the columns for two to five, case.md 7.2b; only while it runs */
+.case-stage__line { position: absolute; left: 50%; top: calc(50% - var(--stage-reach)); bottom: calc(50% - var(--stage-reach)); width: var(--size-edge); translate: -50% 0; opacity: 0;
+  background: linear-gradient(180deg, transparent, var(--hot) 22%, var(--hot) 78%, transparent); transition: opacity .3s; }
+.case-stage:not([data-count="1"]) .case-stage__line { left: var(--stage-line-in); right: var(--stage-line-in); top: 50%; bottom: auto; width: auto; height: var(--size-edge); translate: 0 -50%;
+  background: linear-gradient(90deg, transparent, var(--hot) 10%, var(--hot) 90%, transparent); }
+
+/* the cells: the lines between two to five cases, drawn out from the band's middle */
+.case-stage__cells { position: absolute; inset: 0; z-index: 1; pointer-events: none; transition: opacity .3s; }
+.case-stage__cells > i { position: absolute; top: 6%; bottom: 6%; left: calc(var(--k, 1) / var(--count, 1) * 100%); width: var(--size-hairline); opacity: 0; transform: scaleY(0); background: var(--gradient-stage-cell);
+  transition: left .48s var(--motion-ease-settle), transform .42s var(--motion-ease-settle) .08s, opacity .25s .08s; }
+.case-stage__cells > i:nth-child(2) { --k: 2; } .case-stage__cells > i:nth-child(3) { --k: 3; } .case-stage__cells > i:nth-child(4) { --k: 4; }
+.case-stage[data-count="2"] .case-stage__cells > i:nth-child(-n+1), .case-stage[data-count="3"] .case-stage__cells > i:nth-child(-n+2),
+.case-stage[data-count="4"] .case-stage__cells > i:nth-child(-n+3), .case-stage[data-count="5"] .case-stage__cells > i:nth-child(-n+4) { opacity: 1; transform: scaleY(1); }
+.case-stage[data-phase] .case-stage__cells { opacity: 0; }
+.case-stage[data-phase="open"] .case-stage__cells { opacity: 1; }
+
+/* the cases at rest: one cell per case, each case centred in its cell */
+.case-stage__rest { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(var(--count, 1), minmax(0, 1fr)); justify-items: center; align-items: center; width: 100%; height: 100%; transition: opacity .35s, transform .45s; }
+.case-stage__case { display: block; width: var(--stage-case); max-width: 92%; filter: var(--shadow-case-stage); }
+.case-stage__case.is-leaving { position: absolute; margin: 0; } /* a case the count takes away leaves from where it stood, its measured box set by stage.js (stage 07 step 7, D-254, Codex SH-04) */
+.case-stage[data-count="2"] .case-stage__case { width: var(--stage-case-2); } .case-stage[data-count="3"] .case-stage__case { width: var(--stage-case-3); }
+.case-stage[data-count="4"] .case-stage__case { width: var(--stage-case-4); } .case-stage[data-count="5"] .case-stage__case { width: var(--stage-case-5); }
+@media (max-width: 899px) { .case-stage:not([data-count="1"]) .case-stage__rest { column-gap: var(--space-1); } } /* v4 case-page.css @media (max-width: 899px) .v4c-frame[data-count]:not([data-count="1"]) .v4c-rest gap */
+.case-stage[data-phase] .case-stage__rest { opacity: 0; pointer-events: none; } /* the open sends the cases off (the page's script lunges each to the middle and bursts it); they stay in the frame unseen */
+
+/* the open: every card at full strength while the runs move, the band opened wider, its edges and the pointers lit, the pointers closed in */
+.case-stage[data-phase="open"] .case-stage__card { opacity: 1; filter: none; transition: opacity .35s, filter .35s, transform .25s, box-shadow .3s; }
+.case-stage[data-phase="open"] .case-stage__band { -webkit-mask: var(--stage-band-fade-run); mask: var(--stage-band-fade-run); }
+.case-stage[data-phase="open"] .case-stage__band::before, .case-stage[data-phase="open"] .case-stage__band::after { background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--hot) 70%, transparent) 30%, var(--hot) 50%, color-mix(in srgb, var(--hot) 70%, transparent) 70%, transparent); }
+.case-stage[data-phase="open"][data-count="1"] .case-stage__mark--a { top: calc(50% - var(--stage-reach) - var(--space-1-5)); }
+.case-stage[data-phase="open"][data-count="1"] .case-stage__mark--b { top: calc(50% + var(--stage-reach) + var(--space-1-5)); }
+.case-stage[data-phase="open"]:not([data-count="1"]) .case-stage__mark--a { left: var(--stage-mark-in); }
+.case-stage[data-phase="open"]:not([data-count="1"]) .case-stage__mark--b { left: calc(100% - var(--stage-mark-in)); }
+.case-stage[data-phase="open"] .case-stage__mark svg { animation: none; }
+.case-stage[data-phase="open"] .case-stage__mark::after { opacity: .9; }
+.case-stage[data-phase="open"] .case-stage__line { opacity: .8; }
+/* the card the run lands on lifts, the rest step back; on the outcome its copy in the run goes the instant the prize takes off */
+.case-stage__card.is-won { position: relative; z-index: 1; opacity: 1; filter: brightness(1.15); transform: scale(1.08); box-shadow: inset 0 0 0 var(--size-edge) var(--tier), 0 0 var(--stage-won-glow) color-mix(in srgb, var(--tier) 65%, transparent); }
+
+/* the outcome: the runs and the pointers go, the prizes stand in the cells on a light of the best tier */
+.case-stage[data-phase="won"] :is(.case-stage__band, .case-stage__cols, .case-stage__ptr) { opacity: 0; }
+.case-stage__win { position: relative; display: grid; place-items: center; align-self: stretch; box-sizing: border-box; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
+.case-stage[data-phase="won"] .case-stage__win { opacity: 1; pointer-events: auto; }
+.case-stage__flood { position: absolute; left: 0; right: 0; top: 50%; height: var(--stage-flood-h); translate: 0 -50%; opacity: 0; scale: 0 1; pointer-events: none;
+  background: radial-gradient(50% 50% at 50% 50%, color-mix(in srgb, var(--tier) 45%, transparent), color-mix(in srgb, var(--tier) 12%, transparent) 60%, transparent 75%); }
+.case-stage[data-phase="won"] .case-stage__flood { animation: case-stage-flood .8s var(--stage-ease-flood) .1s forwards; }
+@keyframes case-stage-flood { to { opacity: 1; scale: 1 1; } }
+.case-stage__row { position: relative; display: grid; grid-template-columns: repeat(var(--count, 1), minmax(0, 1fr)); justify-items: stretch; align-items: center; width: 100%; height: 100%; }
+@media (max-width: 599px) {
+  .case-stage:not([data-count="1"]) .case-stage__row { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: var(--space-2-5); align-content: center; }
+  .case-stage[data-count="2"] .case-stage__row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.case-stage__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  .case-stage__run { animation: none; translate: -25% -50%; }
+  .case-stage__col-run { animation: none; translate: 0 -20%; }
+  .case-stage__mark, .case-stage__mark svg { transition: none; animation: none; }
+  .case-stage__band, .case-stage__col, .case-stage__cells > i, .case-stage__rest, .case-stage__card { transition: none; }
+  .case-stage[data-phase="won"] .case-stage__flood { animation: none; opacity: 1; scale: 1 1; }
+}
+
+/* its play, D-236: the open as v4 plays it (case-stage.css .v4c-frame[data-spin], .v4c-bam, .v4c-wave), on a stage stage.js plays
+   (.case-stage--played; the showcase's still phases keep the rules above). The cases stay in sight through the open, the script lunges
+   each to the middle and bursts it; a run has data-spin run, slow, land, the card under the line lifts as it slows, the others step back as
+   it lands and the pointers strike once in the landing's colour; the flash and the wave are the script's, laid over the hit */
+.case-stage--played[data-phase="open"] .case-stage__rest { opacity: 1; pointer-events: none; }
+:is(.case-stage__band, .case-stage__col)[data-spin="slow"] .case-stage__card.is-at { transform: scale(1.04); }
+:is(.case-stage__band, .case-stage__col)[data-spin="land"] .case-stage__card { opacity: .28; filter: saturate(.4) brightness(.7); }
+:is(.case-stage__band, .case-stage__col)[data-spin="land"] .case-stage__card.is-won { opacity: 1; filter: brightness(1.15); transform: scale(1.08); transition: transform .45s cubic-bezier(.3, 1.6, .5, 1), opacity .3s, box-shadow .3s; }
+.case-stage[data-spin="land"] .case-stage__mark svg { animation: case-stage-strike .55s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes case-stage-strike { 0% { transform: translateY(calc(-1 * var(--space-1-75))) scale(1.3); } 100% { transform: none; } }
+.case-stage__bam, .case-stage__wave { position: absolute; z-index: 3; pointer-events: none; border-radius: 50%; opacity: 0; }
+.case-stage__bam {
+  --stage-bam: 420px; /* kit.css its play, .case-stage__bam width and height, a literal in the rule: the flash where a case hits the stage's middle; 260px under 900px; v4 case-stage.css .v4c-bam, D-236 */
+}
+.case-stage__wave {
+  --stage-wave: 220px; /* kit.css its play, .case-stage__wave width and height, a literal in the rule: the wave the hit sends out; v4 case-stage.css .v4c-wave, D-236 */
+}
+.case-stage__bam { width: var(--stage-bam); height: var(--stage-bam); mix-blend-mode: screen; background: var(--gradient-stage-bam); }
+.case-stage__wave { width: var(--stage-wave); height: var(--stage-wave); box-shadow: var(--shadow-stage-wave); }
+@media (max-width: 899px) { .case-stage__bam { --stage-bam: 260px; } }
+.case-stage__card > img.is-baked { filter: none; } /* the skin's shadow drawn into its picture once, stage.js, the performance pass of 10 Nov 2026 */
+/* the prize lands (.is-landed, set by stage.js as an open ends; the Outcome card's odds and Sell rise in here, the stage's own choreography of what it holds): a ring in the best tier's colour runs out from the stage's middle once, and each prize's chance and Sell rise in after it,
+   one prize after another (v4 case-page.css .v4c-ring, case-stage.css .v4c-won-odds, .v4c-sell1 and v4c-m-in) */
+.case-stage__win {
+  --stage-ring: 200px; /* kit.css its play, .case-stage--played .case-stage__win::after width and height, a literal in the rule: the ring the prize lands with, before it runs out; v4 case-page.css .v4c-ring, D-236 */
+  --stage-ring-edge: 3px; /* the same rule's box-shadow: the ring's own line */
+  --stage-ring-glow: 40px; /* the same rule's box-shadow: the light round it */
+}
+.case-stage--played .case-stage__win::after { content: ''; position: absolute; left: 50%; top: 50%; width: var(--stage-ring); height: var(--stage-ring); margin: calc(var(--stage-ring) / -2) 0 0 calc(var(--stage-ring) / -2); border-radius: 50%; opacity: 0; pointer-events: none;
+  box-shadow: 0 0 0 var(--stage-ring-edge) var(--tier, var(--line-lit)), 0 0 var(--stage-ring-glow) var(--tier, var(--line-lit)); }
+.case-stage.is-landed .case-stage__win::after { animation: case-stage-ring 1s cubic-bezier(.2, .7, .3, 1) forwards; }
+@keyframes case-stage-ring { 0% { opacity: 1; transform: scale(.3); } 100% { opacity: 0; transform: scale(3.2); } }
+.case-stage.is-landed .outcome:not(.is-on) :is(.outcome__odds, .outcome__sell) { opacity: 0; }
+.case-stage.is-landed .outcome.is-on :is(.outcome__odds, .outcome__sell) { opacity: 0; animation: case-stage-in .4s ease-out calc(.55s + var(--i, 0) * 90ms) forwards; }
+@keyframes case-stage-in { from { opacity: 0; transform: translateY(var(--space-1-5)); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .case-stage__card, .case-stage[data-spin="land"] .case-stage__mark svg { transition: none; animation: none; }
+  .case-stage.is-landed .case-stage__win::after { animation: none; }
+  .case-stage.is-landed .outcome.is-on :is(.outcome__odds, .outcome__sell) { animation: none; opacity: 1; } }
+
+/* RARE MARKS ON A RUN'S CARD, D-236: the Rare mark atom (rare-mark.css, laid on by motion.js by the card's data-chance) on a run's card always, as v4
+   has them (rare-mark.css): A's ring where the card draws its hexagon, B's lightning past the card's edge, C's plasma over the card's own ground */
+.case-stage__card > .rare-mark--ring { left: 50%; top: 21.5%; height: 50%; width: auto; aspect-ratio: 136 / 118; margin-left: 0; translate: -50% 0; }
+.case-stage__card > .rare-mark--bolt { inset: calc(-1 * var(--space-3)); }
+.case-stage__card > .rare-mark--fire { inset: 0; width: auto; height: auto; z-index: 0; border-radius: inherit; opacity: .9; background-image: var(--art-fx-plasma); }
+.case-stage__card:is(.is-mark-a, .is-mark-b, .is-mark-c) { overflow: visible; }
+@container (max-width: 110px) { .case-stage__card > .rare-mark--ring { top: 18%; height: 42%; } .case-stage__card > .rare-mark--bolt { inset: calc(-1 * var(--space-2)); } }

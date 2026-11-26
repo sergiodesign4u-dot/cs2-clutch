@@ -1,0 +1,30 @@
+/* CASE GRID, level 3 (organism). A shelf of cases: the section's head, the cases as tiles, and on Home the act that leads to the whole catalogue.
+ * On Home the shelf lays its tiles out by its own width (two, three or five a row) and centres a short last row; the catalogue's shelf (--shelf,
+ * node 3.1) stands four to a row and two under that, never three over one, what a filter leaves starting where the section's head starts (D-246).
+ * Page: design/kit/case-grid.html. Stands on Home (design/index.html, Featured cases) and the catalogue (design/catalogue*.html, every section).
+ * Holds (never redrawn here): Section head (level 2, .sec-head--l), Case tile (level 2, one in each cell, with its Favourite toggle), Button (the
+ *   foot's All cases, where a page carries it). The grid's own: the list, the cells, the foot and how it places them.
+ * Reads: --text-base; geometry and type from the primitives. No component token, no colour primitive.
+ * Carried from design/kit/kit.css part 4.3 (CASE GRID, lines 4015 to 4034) at stage 08 step 5, round 3, unchanged in look. kit.css writes no rule
+ *   from this block on a held component and no screen writes one on it. A section and a cell hidden by a filter wear [hidden], set by the
+ *   catalogue's script (design/kit/catalogue.js). From design/v4/index.html, Featured cases, on kit.css parts 2 and 3 .wf-sec,
+ *   .wf-grid:has(> .wf-tile), .wf-sec-foot, and case-tiles.css .wf-grid:has(> .wf-tile). Not interactive: no states of its own. */
+
+/* its own geometry, read inside .case-grid only */
+.case-grid {
+  --case-grid-all-w: 140px; /* v4 kit.css part 3: .wf-sec-foot .wf-btn min-width, All cases never narrower than this; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.case-grid { display: block; min-width: 0; color: var(--text-base); font-size: var(--size-text); line-height: 1.2; }
+/* how it places the tiles: one cell per case; the tile is the cell's one grid item and fills it both ways, so a row's tiles stand one height */
+.case-grid__list { container: case-grid / inline-size; display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+.case-grid__cell { display: grid; flex: 0 0 calc((100% - var(--space-4)) / 2); min-width: 0; }
+@container case-grid (min-width: 480px) { .case-grid__cell { flex-basis: calc((100% - 2 * var(--space-4)) / 3); } }
+@container case-grid (min-width: 720px) { .case-grid__cell { flex-basis: calc((100% - 4 * var(--space-4)) / 5); } }
+.case-grid[hidden], .case-grid__cell[hidden] { display: none; }
+/* the whole shelf, node 3.1: a section of four stands four to a row and two under that, never three over one; what a filter leaves starts
+   where the section's head starts, D-246 */
+.case-grid--shelf > .case-grid__list { justify-content: flex-start; row-gap: var(--space-5); }
+@container case-grid (min-width: 0) { .case-grid--shelf .case-grid__cell { flex-basis: calc((100% - var(--space-4)) / 2); } }
+@container case-grid (min-width: 640px) { .case-grid--shelf .case-grid__cell { flex-basis: calc((100% - 3 * var(--space-4)) / 4); } }
+.case-grid__foot { display: flex; justify-content: center; margin-top: var(--space-5); }
+.case-grid__all { min-width: var(--case-grid-all-w); }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Limits panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: grid; justify-items: center; gap: 18px; padding: 40px 18px; }
+  .cp-stage > * { width: 100%; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-cap { font-size: 12px; color: var(--text-meta); }
+  .cp-cell { display: grid; align-content: start; gap: 8px; min-width: 0; width: 100%; max-width: 720px; }
+  /* Responsible play's own rules on the panel's sections (kit.css part 4.4, .rp-sec, D-248), copied into a stand frame so the panel's parts stand
+     under their Section heads as on the screen; step 6 moves the screen's rules to design/system/screens/responsible.css */
+  .cp-rp .rp-sec { display: grid; gap: 16px; min-width: 0; }
+  .cp-rp .rp-sec > .prose > p { margin: 0; }
+  .cp-rp .rp-sec > .prose > p + p { margin-top: 12px; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Organisms &middot; Forms and notices &middot; level 3</span>
+  <h1>Limits panel</h1>
+  <p class="kt-lead">Responsible play's own block: what is in force now as stated moments, what a limit can close and what it never closes, the four limits as rows with their words at the left and their control at the right, and help that is not ours. Never a countdown, no elapsed time, no streak, no score. Everything on this page is drawn by <code>design/system/components/limits-panel.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <p class="kt-note">The panel as Responsible play draws it with a cool down in force, at its one readable measure of 720px. Its parts stand under Section heads inside the screen's own sections (<code>.rp-sec</code>), a rule of the screen that stays in <code>kit.css</code> until step 6; the stand copies it into a frame (<code>.cp-rp</code>) so the panel reads as on the screen.</p>
+  <div class="kt-scene"><div class="cp-stage cp-rp"><div class="cp-cell">
+    <p class="limits__say is-said" role="status">A cool down is running. Limits can still be tightened while it does.</p>
+    <div class="limits"><section class="limits__force" aria-labelledby="h2-force"><h2 class="limits__force-h" id="h2-force">What is in force now</h2><ul class="limits__list"><li class="limits__item"><span class="limits__n">Cool down</span><span class="limits__e" data-rp-cool-ends>Ends 25 Aug 2026, 09:31</span><span class="note">Adding funds and opening cases are closed until then. It cannot be shortened, and extending it takes effect immediately.</span></li><li class="limits__item" data-rp-force="dep"><span class="limits__n">Deposit limit</span><span class="limits__e">$40.00 per week</span></li></ul><p class="note">Taking what you hold out to Steam stays available under every one of your limits.</p><a class="button button--ghost button--m" href="../../wireframes/withdraw.html">Send to Steam</a></section><section class="rp-sec" aria-labelledby="h2-what"><div class="sec-head sec-head--battles"><h2 class="sec-head__title" id="h2-what"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--question"></span></span>What these tools do</h2></div><div class="prose prose--text"><p>Four limits you set yourself.</p><p>Tightening one takes effect immediately. Loosening one takes 24 hours, and the limit you have now holds until then.</p></div></section><section class="rp-sec" aria-labelledby="h2-closes"><div class="sec-head sec-head--battles"><h2 class="sec-head__title" id="h2-closes"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--shield"></span></span>What a limit closes, and what it never closes</h2></div><div class="limits__closes"><div class="limits__close"><span class="limits__k">A limit can close</span><span>Adding funds. Opening a case. A session, when its length is reached.</span></div><div class="limits__close"><span class="limits__k">No limit ever closes</span><span><strong>Taking what you hold out to Steam.</strong> Support. Reading the product.</span></div></div></section><div class="limits__rows"><div class="field field--row" data-rp-row="dep"><div class="field__t"><h3 class="field__k" id="rp-dep">Deposit limit</h3><span class="field__v">Caps what you can put in over a period.</span></div><div class="field__c"><div class="limits__ctl"><span class="limits__amount"><input class="input" type="text" inputmode="decimal" value="40.00" placeholder="Amount" aria-label="Deposit limit amount"></span><div class="limits__period"><span class="limits__sr" id="rp-dep-pl">Deposit limit period</span><div class="popover popover--select"><button class="popover__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="rp-dep-pl rp-dep-pv"><span class="popover__val" id="rp-dep-pv">per week</span></button><div class="popover__panel"><ul class="popover__list" role="listbox" aria-labelledby="rp-dep-pl"><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">per day</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="true">per week</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">per month</button></li></ul></div></div></div><button class="button button--ghost button--m" type="button" data-rp-act="dep">Save</button></div></div></div><div class="field field--row" data-rp-row="session"><div class="field__t"><h3 class="field__k" id="rp-session">Session limit</h3><span class="field__v">Ends a session once it has run this long.</span></div><div class="field__c"><div class="limits__ctl"><div class="limits__period"><span class="limits__sr" id="rp-session-pl">Session limit length</span><div class="popover popover--select"><button class="popover__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="rp-session-pl rp-session-pv"><span class="popover__val" id="rp-session-pv">2 hours</span></button><div class="popover__panel"><ul class="popover__list" role="listbox" aria-labelledby="rp-session-pl"><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">30 minutes</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">1 hour</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="true">2 hours</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">4 hours</button></li></ul></div></div></div><button class="button button--ghost button--m" type="button" data-rp-act="session">Save</button></div></div></div><div class="field field--row" data-rp-row="cool"><div class="field__t"><h3 class="field__k" id="rp-cool">Cool down</h3><span class="field__v">Closes adding funds and opening cases for a period you choose.</span><div class="kv kv--rule"><span class="kv__k">Extend</span><span class="kv__v">Immediately.</span></div><div class="kv kv--rule"><span class="kv__k">Shorten</span><span class="kv__v">Not possible. It ends by running out.</span></div></div><div class="field__c"><div class="limits__ctl"><div class="limits__period"><span class="limits__sr" id="rp-cool-pl">Cool down period</span><div class="popover popover--select"><button class="popover__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="rp-cool-pl rp-cool-pv"><span class="popover__val" id="rp-cool-pv">24 hours</span></button><div class="popover__panel"><ul class="popover__list" role="listbox" aria-labelledby="rp-cool-pl"><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="true">24 hours</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">7 days</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">30 days</button></li></ul></div></div></div><button class="button button--ghost button--m" type="button" data-rp-act="cool">Start a cool down</button></div></div></div><div class="field field--row" data-rp-row="excl"><div class="field__t"><h3 class="field__k" id="rp-excl">Self exclusion</h3><span class="field__v">Closes adding funds and opening cases for longer. It cannot be ended early, by you or by us.</span><div class="kv kv--rule"><span class="kv__k">End early</span><span class="kv__v">Not possible, by you or by us.</span></div></div><div class="field__c"><div class="limits__ctl"><div class="limits__period"><span class="limits__sr" id="rp-excl-pl">Self exclusion period</span><div class="popover popover--select"><button class="popover__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="rp-excl-pl rp-excl-pv"><span class="popover__val" id="rp-excl-pv">5 years</span></button><div class="popover__panel"><ul class="popover__list" role="listbox" aria-labelledby="rp-excl-pl"><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">6 months</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">1 year</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="true">5 years</button></li></ul></div></div></div><button class="button button--ghost button--m" type="button" data-rp-act="exclude">Self exclude</button></div></div></div></div><section class="rp-sec" aria-labelledby="h2-help"><div class="sec-head sec-head--battles"><h2 class="sec-head__title" id="h2-help"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--users"></span></span>Support that is not a limit</h2></div><div class="limits__help"><div class="limits__close"><span class="limits__k">Help that is not ours</span><span><a class="link" href="https://www.gamblingtherapy.org/" rel="external nofollow">Gambling Therapy</a>, free and confidential, in any country.</span></div><a class="button button--ghost button--m" href="../../wireframes/support.html">Support</a></div></section></div>
+  </div></div></div>
+  <p>The panel holds components and never redraws them: the <a href="field.html">Field</a> in its row form (the four limits, level 2), the <a href="text-field.html">Text field</a> (the amount), the <a href="popover-menu.html">Popover menu</a> in its select form (the period), the <a href="button.html">Button</a> (each act, the quiet ghost at M: the page refuses a lead to one control, microcopy 6.1-61), the <a href="key-value-line.html">Key-value line</a> (<code>.kv--rule</code>, which way a limit moves), the <a href="note-line.html">Note line</a> (what a limit closes, the answer to a press) and the <a href="text-link.html">Text link</a> (help that is not ours), all level 1 but the Field. The <a href="section-head.html">Section head</a> and the <a href="prose.html">Prose</a> beside it are the screen's. The panel's own part is the status line, the in-force plate and its list, the two cards of what a limit closes, the list of rows and each row's control line, the hidden name of a period, the place of the answer and the help line; it sizes the amount, the period and the acts into columns so the four rows line up.</p>
+  <div class="kt-tbl"><table style="min-width:760px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The panel</b></td><td><code>.limits</code></td><td>the 720px measure (<code>--limits-measure</code>), 20px between its blocks</td></tr>
+    <tr><td><b>Status line</b></td><td><code>.limits__say</code>, <code>.is-said</code></td><td>what is set, in the body ink; said in white once a limit is in force (on the screen it stands in the page's head band)</td></tr>
+    <tr><td><b>In force now</b></td><td><code>.limits__force</code> with <code>__force-h</code>, <code>__list</code>, <code>__item</code>, <code>__n</code>, <code>__e</code></td><td>the row's plate; each limit in a well, its name and its end as a stated moment at the text's size, never a figure that runs down</td></tr>
+    <tr><td><b>What a limit closes</b></td><td><code>.limits__closes</code>, <code>.limits__close</code>, <code>.limits__k</code></td><td>two cards in the well, side by side from 600px; the key in the quiet ink, the never closed in white</td></tr>
+    <tr><td><b>The four limits</b></td><td><code>.limits__rows</code> of <a href="field.html">Field</a> <code>.field--row</code></td><td>the rows 8px apart; the panel sets the words' basis and the name's margin</td></tr>
+    <tr><td><b>Control line</b></td><td><code>.limits__ctl</code>, <code>.limits__amount</code>, <code>.limits__period</code>, <code>.limits__sr</code></td><td>the amount 128px, the period 136px, the act at least 184px, one line ending on the row's right edge from 600px; the period's name for a screen reader</td></tr>
+    <tr><td><b>Answer</b></td><td><code>.limits__answer</code> with a <a href="note-line.html">Note line</a> <code>.note--hi</code> or <code>.note--refuse</code></td><td>its place under the row, the whole width; its tone is the Note line's</td></tr>
+    <tr><td><b>Help</b></td><td><code>.limits__help</code></td><td>help that is not ours beside Support</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One axis of data and one of width. Sizes are read from the render.</p>
+  <ul class="kt-list">
+    <li><b>State = what is set.</b> None set: the status line in the body ink and no in-force plate. In force (a cool down, a deposit limit): the line said in white and the plate first. Excluded: the plate names the exclusion and its end, and what still works. The rows stay the same four in every state; a press answers under its row.</li>
+    <li><b>Width = the measure, then the row.</b> The panel never grows past 720px. From 600px the amount, the period and the act stand on one line at the row's right edge, in columns the four rows share; under 600px the amount takes its own line under the words, and the period and the act share the next one where both fit.</li>
+  </ul>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-cell"><span class="cp-cap">The status line, none set and said</span><p class="limits__say" role="status">No limits are set.</p><p class="limits__say is-said" role="status">A self exclusion is running. You can still tighten another limit; nothing can be loosened.</p></div>
+    <div class="cp-cell"><span class="cp-cap">In force: a deposit limit alone</span><section class="limits__force" aria-label="What is in force now" data-dim><h3 class="limits__force-h">What is in force now</h3><ul class="limits__list"><li class="limits__item"><span class="limits__n">Deposit limit</span><span class="limits__e">$40.00 per week</span></li></ul><p class="note">Taking what you hold out to Steam stays available under every one of your limits.</p></section><span class="cp-dim"></span></div>
+    <div class="cp-cell"><span class="cp-cap">A row at the panel's width</span><div class="limits"><div class="limits__rows"><div class="field field--row" data-dim><div class="field__t"><h3 class="field__k">Session limit</h3><span class="field__v">Ends a session once it has run this long.</span></div><div class="field__c"><div class="limits__ctl"><div class="limits__period"><span class="limits__sr" id="v-s-pl">Session limit length</span><div class="popover popover--select"><button class="popover__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="v-s-pl v-s-pv"><span class="popover__val" id="v-s-pv">2 hours</span></button><div class="popover__panel"><ul class="popover__list" role="listbox" aria-labelledby="v-s-pl"><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="false">1 hour</button></li><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="true">2 hours</button></li></ul></div></div></div><button class="button button--ghost button--m" type="button">Save</button></div></div></div></div></div><span class="cp-dim"></span></div>
+  </div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>Only on Responsible play. A limit is a boundary a person sets for themselves: the panel states what is in force and when it ends as a moment, and says what a limit never closes (taking what you hold out to Steam, support, reading the product). It never acquires completion mechanics, streaks, status or a session score (CLAUDE.md, "Product substance"): at that point it would stop being a boundary and become a reason to keep going.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>Responsible play: the four limits as rows, each act a quiet ghost, the answer under the row that was pressed, the confirmation of a self exclusion in a Dialog.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A limit that stops a deposit is said on Deposit by the <b>Status notice</b>, not by this panel. A setting with no period and no amount is a <b>Field</b> row on its own. A figure that counts down or fills a bar is never drawn for a limit, by any component.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states under the pointer: the panel is not interactive. What it holds keeps its own (the amount's focus and refusal ring are the <a href="text-field.html">Text field</a>'s, the period opens as the <a href="popover-menu.html">Popover menu</a>, the acts press as the <a href="button.html">Button</a>). Two things are set by the product's script, <code>rp.js</code>, which joins the system at step 8: the answer to a press, written under its row as a <a href="note-line.html">Note line</a>, saved in white (<code>.note--hi</code>, rename map row 25, where <code>kit.css</code> drew <code>.limits__answer:not(.note--refuse)</code>) or refused (<code>.note--refuse</code>); and the status line, said (<code>.is-said</code>) once a limit is in force. They are shown here as the script writes them.</p>
+  <div class="kt-scene"><div class="cp-stage"><div class="cp-cell"><div class="limits"><div class="limits__rows">
+    <div class="field field--row"><div class="field__t"><h3 class="field__k">Deposit limit</h3><span class="field__v">Caps what you can put in over a period.</span></div><div class="field__c"><div class="limits__ctl"><span class="limits__amount"><input class="input" type="text" inputmode="decimal" value="40.00" placeholder="Amount" aria-label="Deposit limit amount"></span><div class="limits__period"><span class="limits__sr" id="s-d-pl">Deposit limit period</span><div class="popover popover--select"><button class="popover__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="s-d-pl s-d-pv"><span class="popover__val" id="s-d-pv">per week</span></button><div class="popover__panel"><ul class="popover__list" role="listbox" aria-labelledby="s-d-pl"><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="true">per week</button></li></ul></div></div></div><button class="button button--ghost button--m" type="button">Save</button></div></div><p class="limits__answer note note--hi" aria-live="polite">Saved. It applies now.</p></div>
+    <div class="field field--row"><div class="field__t"><h3 class="field__k">Cool down</h3><span class="field__v">Closes adding funds and opening cases for a period you choose.</span></div><div class="field__c"><div class="limits__ctl"><div class="limits__period"><span class="limits__sr" id="s-c-pl">Cool down period</span><div class="popover popover--select"><button class="popover__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="s-c-pl s-c-pv"><span class="popover__val" id="s-c-pv">24 hours</span></button><div class="popover__panel"><ul class="popover__list" role="listbox" aria-labelledby="s-c-pl"><li role="none"><button class="popover__opt" type="button" role="option" aria-selected="true">24 hours</button></li></ul></div></div></div><button class="button button--ghost button--m" type="button">Start a cool down</button></div></div><p class="limits__answer note note--refuse" aria-live="polite">Nothing changed: the cool down already runs until 25 Aug 2026, 09:31, and it cannot be shortened.</p></div>
+  </div></div></div></div></div>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token and no colour primitive: the in-force plate is a row's (<code>--bg-row</code>), each limit and each card sits in the well (<code>--bg-well</code>). The panel's own widths are custom properties declared on <code>.limits</code> with their origin, as <code>kit.css</code> wrote them: <code>--limits-measure</code> 720px, <code>--limits-amount</code> 128px, <code>--limits-period</code> 136px, <code>--limits-act</code> 184px. Geometry and type otherwise come straight from the primitives.</p>
+  <p>File: <code>design/system/components/limits-panel.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group.</p>
+  <pre>&lt;div class="limits"&gt;
+  &lt;section class="limits__force"&gt;&lt;h2 class="limits__force-h"&gt;What is in force now&lt;/h2&gt;&lt;ul class="limits__list"&gt;&lt;li class="limits__item"&gt;...&lt;/li&gt;&lt;/ul&gt;&lt;/section&gt;
+  &lt;div class="limits__closes"&gt;&lt;div class="limits__close"&gt;&lt;span class="limits__k"&gt;A limit can close&lt;/span&gt;...&lt;/div&gt;...&lt;/div&gt;
+  &lt;div class="limits__rows"&gt;&lt;div class="field field--row"&gt;...&lt;div class="field__c"&gt;&lt;div class="limits__ctl"&gt;...&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;...&lt;/div&gt;
+  &lt;div class="limits__help"&gt;...&lt;/div&gt;
+&lt;/div&gt;</pre>
+  <p>Stands on: <a href="../responsible.html">Responsible play</a>, <a href="../responsible-in-force.html">in force</a>, <a href="../responsible-excluded.html">excluded</a>, <a href="../responsible-confirm.html">the confirmation</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves the saved answer onto <code>.note--hi</code> in <code>rp.js</code> by the rename map.</p>
+</section>
+<script>
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(), c = b.closest('.cp-cell').querySelector('.cp-dim'); if (c) c.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-body', '--text-hi', '--text-meta', '--bg-row', '--bg-well', '--line-edge'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>semantic</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

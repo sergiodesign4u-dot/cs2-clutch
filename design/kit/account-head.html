@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Account head</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-wide { display: grid; gap: 28px; padding: 40px 18px; min-width: 0; }
+  .cp-wide--rise { padding-top: 96px; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-cap { margin: 0 0 6px; font-size: 12px; color: var(--text-meta); }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-w { min-width: 0; max-width: 100%; }
+  @media (max-width: 599px) { .cp-stage { padding-inline: 0; } .cp-wide { margin-inline: -18px; padding-inline: 0; } } /* a sample at a phone stands in the 328px a screen gives it, the scene's own 18px given back */
+  .cp-w--scroll { overflow-x: auto; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Heads and ways &middot; level 2</span>
+  <h1>Account head</h1>
+  <p class="kt-lead">Who this account is, at the top of an account page: the breadcrumb, the Steam picture, the name, the ID a person reads out to support, the Steam account the items go to, the money pair with Add funds, and the four tabs. On My items it takes its stage form: the band is the most valuable item's own (D-242). Everything on this page is drawn by <code>design/system/components/account-head.css</code> through <code>index.css</code>.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-wide cp-wide--rise"><div class="cp-w"><div class="account-head account-head--stage" role="region" aria-label="My account"><nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="#anatomy">Home</a></li><li><a href="#anatomy">My account</a></li><li><span aria-current="page">My items</span></li></ol></nav><div class="account-head__row" style="--item-tier: var(--bg-rarity-2)" data-dim="d-row-stage"><span class="account-head__word" aria-hidden="true">Asiimov</span><div class="account-head__who"><img class="avatar avatar--xl" src="../visuals/avatars/a5.webp" alt="" data-dim="d-av-stage"><div class="account-head__names"><p class="account-head__id">ID acc-7f3a91c4</p><p class="account-head__id account-head__id--steam"><span class="icon icon--steam" aria-hidden="true"></span><a class="link link--quiet link--hi" href="#anatomy">Steam nightjar_cs</a></p></div><p class="account-head__name" data-fs="d-name-stage">nightjar_cs</p></div><div class="account-head__money"><div class="account-head__figs"><span class="fig fig--money fig--title"><span class="fig__v"><span class="icon icon--coin" aria-hidden="true"></span>74.20</span><span class="fig__c">Balance</span></span><span class="fig fig--soft fig--title"><span class="fig__v"><span class="icon icon--pistol" aria-hidden="true"></span>140.95</span><span class="fig__c">Value of items held</span></span></div><a class="button button--primary button--m account-head__add" href="#anatomy" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="button__label">Add funds</span><span class="badge button__pin" aria-hidden="true">5%</span></a></div><figure class="account-head__show" data-show><span class="account-head__skin" aria-hidden="true" data-skin><img src="../concept/assets/skins/awp-asiimov.png" alt=""><span class="account-head__foil"></span></span><figcaption class="account-head__cap"><span class="account-head__k">Highest value</span><span>AWP Asiimov</span><span class="fig fig--money"><span class="fig__v"><span class="icon icon--coin" role="img" aria-label="coins"></span><span>66.05</span></span></span></figcaption></figure></div><nav class="tabs tabs--plate" aria-label="Account"><span class="tabs__t" aria-current="page"><span class="icon icon--box" aria-hidden="true"></span>My items</span><a class="tabs__t" href="#anatomy"><span class="icon icon--history" aria-hidden="true"></span>History</a><a class="tabs__t" href="#anatomy"><span class="icon icon--user" aria-hidden="true"></span>Profile</a><a class="tabs__t" href="#anatomy"><span class="icon icon--settings" aria-hidden="true"></span>Settings</a></nav></div></div></div></div>
+  <p>The head holds atoms and never redraws them: the <a href="breadcrumb.html">Breadcrumb</a> (level 1, <code>.crumb</code>), the <a href="avatar.html">Avatar</a> (level 1, <code>.avatar--xl</code>), the <a href="text-link.html">Text link</a> (level 1, <code>.link--quiet .link--hi</code>, the Steam name), the <a href="figure.html">Figure</a> (level 1, the pair at <code>.fig--title</code>, the cap's price, the missing figure in the no-Steam chip), the <a href="button.html">Button</a> (level 1, Add funds, <code>.button--primary .button--m</code>) with its <a href="badge.html">Badge</a> pin (level 1), the <a href="tabs.html">Tabs</a> (level 1, <code>.tabs--plate</code>) and the <a href="icon.html">Icon</a> (level 1). The head's own part is the band and its art, the chips, the money plate and how it places the pair, and on the stage the skin, its foil, its name behind it and the cap.</p>
+  <div class="kt-tbl"><table style="min-width:760px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The head</b></td><td><code>.account-head</code>, <code>--stage</code> (a region labelled My account)</td><td>the stack of breadcrumb, band and tabs; its own geometry, <code>--account-head-*</code></td></tr>
+    <tr><td><b>Breadcrumb</b></td><td><code>.crumb</code> (<a href="breadcrumb.html">Breadcrumb</a>)</td><td>the head only sets the 12px under it</td></tr>
+    <tr><td><b>Band</b></td><td><code>.account-head__row</code></td><td>the Cases pink under the stripes with its lit top edge; on the stage the item's grade (<code>--item-tier</code>) from the card's dark; the operators over its right end from 1200px (<code>::after</code>, <code>--art-footer-agents</code>)</td></tr>
+    <tr><td><b>Who</b></td><td><code>.account-head__who</code>, <code>__names</code>, <code>__name</code>; <code>.avatar--xl</code></td><td>the picture (64, 88 from 600px on the plain form), the name in heavy type, in italic capitals on the stage</td></tr>
+    <tr><td><b>Chips</b></td><td><code>.account-head__id</code>, <code>--steam</code>; <code>.account-head__steam</code> (a link)</td><td>the ID and the Steam account on a dark plate over the art; with none linked, the chip is the missing figure and the way to Settings</td></tr>
+    <tr><td><b>Money plate</b></td><td><code>.account-head__money</code>, <code>__figs</code>, <code>__add</code></td><td>the pair and Add funds on one dark plate; the balance lit in gold, the captions in spaced capitals, a hairline between the two</td></tr>
+    <tr><td><b>Skin</b></td><td><code>.account-head__show</code>, <code>__skin</code>, <code>__foil</code></td><td>the most valuable item breaking out over the band's top, turned <code>--account-head-tilt</code>, breathing, its contact shadow and the foil across its own shape</td></tr>
+    <tr><td><b>Word</b></td><td><code>.account-head__word</code></td><td>the skin's name in display capitals behind it, dark ink on the grade</td></tr>
+    <tr><td><b>Cap</b></td><td><code>.account-head__cap</code>, <code>__k</code></td><td>Highest value, the gun and skin and its price, over the skin, never under it</td></tr>
+    <tr><td><b>Tabs</b></td><td><code>.tabs.tabs--plate</code> (<a href="tabs.html">Tabs</a>)</td><td>the bar plate under the band; the current tab is not a link (D-58)</td></tr>
+    <tr><td><b>Spoken heading</b></td><td><code>.account-head__sr</code></td><td>the screen's H1 for a screen reader, where the head is the screen's own head (My items)</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Two axes. Sizes below are read from the render at this page's width, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Form = the page.</b> Plain on the account pages (History, Profile, Settings; grey so far); stage on My items, where the band shows what the account holds at its best (D-242).</li>
+    <li><b>Content = what is linked and held.</b> A Steam account linked shows its name as a quiet white link; none linked, the chip says so and leads to Settings (D-150). On the stage, nothing readable held hides the skin: the band is the Cases pink again and the operators stand where the skin stood.</li>
+    <li><b>Width = the head's own breakpoints.</b> The picture is 64 on a phone and 88 from 600px on the plain form, 64 on the stage; the padding 16, then 24 from 900px; the operators from 1200px. The stage stacks under 900px, skin first; under 600px the money plate takes the band's width and Add funds its own line.</li>
+  </ul>
+  <h3>Plain</h3>
+  <p>At a phone the plain form is wider than the screen: 369px at its narrowest with a Steam account linked, 432px with none, as <code>kit.css</code> draws it, against the 328px a 360 screen gives. No coloured screen wears it yet, so the frame scrolls it here and the step that colours the account pages fixes it (reported, not redrawn).</p>
+  <p class="cp-cap">Band <span class="cp-dim" id="d-row-plain"></span>, picture <span class="cp-dim" id="d-av-plain"></span>, name <span class="cp-dim" id="d-name-plain"></span></p>
+  <div class="kt-scene"><div class="cp-wide cp-wide--rise"><div class="cp-w cp-w--scroll"><div class="account-head" role="region" aria-label="My account"><nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="#anatomy">Home</a></li><li><a href="#anatomy">My account</a></li><li><span aria-current="page">My items</span></li></ol></nav><div class="account-head__row" data-dim="d-row-plain"><div class="account-head__who"><img class="avatar avatar--xl" src="../visuals/avatars/a5.webp" alt="" data-dim="d-av-plain"><div class="account-head__names"><p class="account-head__id">ID acc-7f3a91c4</p><p class="account-head__id account-head__id--steam"><span class="icon icon--steam" aria-hidden="true"></span><a class="link link--quiet link--hi" href="#anatomy">Steam nightjar_cs</a></p></div><p class="account-head__name" data-fs="d-name-plain">nightjar_cs</p></div><div class="account-head__money"><div class="account-head__figs"><span class="fig fig--money fig--title"><span class="fig__v"><span class="icon icon--coin" aria-hidden="true"></span>74.20</span><span class="fig__c">Balance</span></span><span class="fig fig--soft fig--title"><span class="fig__v"><span class="icon icon--pistol" aria-hidden="true"></span>140.95</span><span class="fig__c">Value of items held</span></span></div><a class="button button--primary button--m account-head__add" href="#anatomy" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="button__label">Add funds</span><span class="badge button__pin" aria-hidden="true">5%</span></a></div></div><nav class="tabs tabs--plate" aria-label="Account"><span class="tabs__t" aria-current="page"><span class="icon icon--box" aria-hidden="true"></span>My items</span><a class="tabs__t" href="#anatomy"><span class="icon icon--history" aria-hidden="true"></span>History</a><a class="tabs__t" href="#anatomy"><span class="icon icon--user" aria-hidden="true"></span>Profile</a><a class="tabs__t" href="#anatomy"><span class="icon icon--settings" aria-hidden="true"></span>Settings</a></nav></div></div></div></div>
+  <h3>Stage</h3>
+  <p class="cp-cap">The anatomy's sample: band <span class="cp-dim" id="d-row-stage"></span>, picture <span class="cp-dim" id="d-av-stage"></span>, name <span class="cp-dim" id="d-name-stage"></span></p>
+  <h3>Stage, nothing readable held</h3>
+  <p class="cp-cap">The figure wears <code>hidden</code>, as <code>items.js</code> sets it: band <span class="cp-dim" id="d-row-empty"></span></p>
+  <div class="kt-scene"><div class="cp-wide cp-wide--rise"><div class="cp-w"><div class="account-head account-head--stage" role="region" aria-label="My account"><nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="#anatomy">Home</a></li><li><a href="#anatomy">My account</a></li><li><span aria-current="page">My items</span></li></ol></nav><div class="account-head__row" data-dim="d-row-empty"><div class="account-head__who"><img class="avatar avatar--xl" src="../visuals/avatars/a5.webp" alt=""><div class="account-head__names"><p class="account-head__id">ID acc-7f3a91c4</p><p class="account-head__id account-head__id--steam"><span class="icon icon--steam" aria-hidden="true"></span><a class="link link--quiet link--hi" href="#anatomy">Steam nightjar_cs</a></p></div><p class="account-head__name">nightjar_cs</p></div><div class="account-head__money"><div class="account-head__figs"><span class="fig fig--money fig--title"><span class="fig__v"><span class="icon icon--coin" aria-hidden="true"></span>74.20</span><span class="fig__c">Balance</span></span><span class="fig fig--soft fig--title"><span class="fig__v"><span class="icon icon--pistol" aria-hidden="true"></span>140.95</span><span class="fig__c">Value of items held</span></span></div><a class="button button--primary button--m account-head__add" href="#anatomy" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="button__label">Add funds</span><span class="badge button__pin" aria-hidden="true">5%</span></a></div><figure class="account-head__show" data-show hidden><span class="account-head__skin" aria-hidden="true" data-skin><img src="../concept/assets/skins/awp-asiimov.png" alt=""><span class="account-head__foil"></span></span><figcaption class="account-head__cap"><span class="account-head__k">Highest value</span><span>AWP Asiimov</span><span class="fig fig--money"><span class="fig__v"><span class="icon icon--coin" role="img" aria-label="coins"></span><span>66.05</span></span></span></figcaption></figure></div><nav class="tabs tabs--plate" aria-label="Account"><span class="tabs__t" aria-current="page"><span class="icon icon--box" aria-hidden="true"></span>My items</span><a class="tabs__t" href="#anatomy"><span class="icon icon--history" aria-hidden="true"></span>History</a><a class="tabs__t" href="#anatomy"><span class="icon icon--user" aria-hidden="true"></span>Profile</a><a class="tabs__t" href="#anatomy"><span class="icon icon--settings" aria-hidden="true"></span>Settings</a></nav></div></div></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>At the top of every page of the account, once: it says whose account this is and what it holds before anything is done with it. The money pair is the header's (balance and value of items held, both in the coin, never summed, CLAUDE.md "Information architecture"), at the band's scale, with the one act that adds money. Its words are the screens': Balance, Value of items held, Add funds, Highest value (microcopy 5.1-9), No Steam account linked (5.11-2).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>My items: the stage form, its band in the grade of the most valuable item held, the money plate under the name and the four tabs under the band.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A section's title inside a page is a <b><a href="section-head.html">Section head</a></b>. Who is signed in, in the header on every page, is the <b><a href="account-menu.html">Account menu</a></b>. A case's own head on the case screen is the <b>Case head</b>. Another player's public shelf is titled by the <b><a href="item-grid.html">Item grid</a></b>, not by this head: the money pair is the account's own.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>The head's own control is the no-Steam chip, a link to Settings: live at rest below, point at it and reach it with Tab. Every other control in it keeps its atom's states (the breadcrumb's links, the Steam link, Add funds, the tabs).</p>
+  <div class="kt-scene"><div class="cp-wide cp-wide--rise"><div class="cp-w cp-w--scroll"><div class="account-head" role="region" aria-label="My account"><nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="#anatomy">Home</a></li><li><a href="#anatomy">My account</a></li><li><span aria-current="page">My items</span></li></ol></nav><div class="account-head__row"><div class="account-head__who"><img class="avatar avatar--xl" src="../visuals/avatars/a5.webp" alt=""><div class="account-head__names"><p class="account-head__id">ID acc-7f3a91c4</p><a class="account-head__id account-head__steam" href="#states" id="s-steam"><span class="icon icon--steam" aria-hidden="true"></span><span class="fig fig--missing"><span class="fig__v">No Steam account linked</span></span></a></div><p class="account-head__name">nightjar_cs</p></div><div class="account-head__money"><div class="account-head__figs"><span class="fig fig--money fig--title"><span class="fig__v"><span class="icon icon--coin" aria-hidden="true"></span>74.20</span><span class="fig__c">Balance</span></span><span class="fig fig--soft fig--title"><span class="fig__v"><span class="icon icon--pistol" aria-hidden="true"></span>140.95</span><span class="fig__c">Value of items held</span></span></div><a class="button button--primary button--m account-head__add" href="#anatomy" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="button__label">Add funds</span><span class="badge button__pin" aria-hidden="true">5%</span></a></div></div><nav class="tabs tabs--plate" aria-label="Account"><span class="tabs__t" aria-current="page"><span class="icon icon--box" aria-hidden="true"></span>My items</span><a class="tabs__t" href="#anatomy"><span class="icon icon--history" aria-hidden="true"></span>History</a><a class="tabs__t" href="#anatomy"><span class="icon icon--user" aria-hidden="true"></span>Profile</a><a class="tabs__t" href="#anatomy"><span class="icon icon--settings" aria-hidden="true"></span>Settings</a></nav></div></div></div></div>
+  <p>Snapshots of the same chip, dark on the left and light on the right, taken with reduced motion.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/account-head-steam-hover-dark.png" alt="Hover, dark theme" loading="lazy"></div><div><img src="screens/states/account-head-steam-hover-light.png" alt="Hover, light theme" loading="lazy"></div></div><figcaption><b>Hover</b> the underline, 3px under the words; the chip keeps its plate</figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/account-head-steam-focus-dark.png" alt="Focus-visible, dark theme" loading="lazy"></div><div><img src="screens/states/account-head-steam-focus-light.png" alt="Focus-visible, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible</b> <code>--line-focus</code></figcaption></figure></div>
+  <p>The stage follows what is held, and <code>items.js</code> writes it from the grid: on the band <code>--item-tier</code>, the grade of the most valuable readable item; on the figure <code>hidden</code> when nothing readable is held (shown above, under Variants); on the skin <code>--skin</code>, its picture as an absolute address for the foil's mask, and <code>.is-short</code> on a pistol; the word, the name and the price as text. The scripts join the system at step 8, so here they are the values the script sets. A pistol, drawn short:</p>
+  <div class="kt-scene"><div class="cp-wide cp-wide--rise"><div class="cp-w"><div class="account-head account-head--stage" role="region" aria-label="My account"><nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="#anatomy">Home</a></li><li><a href="#anatomy">My account</a></li><li><span aria-current="page">My items</span></li></ol></nav><div class="account-head__row" style="--item-tier: var(--bg-rarity-4)"><span class="account-head__word" aria-hidden="true">Kill Confirmed</span><div class="account-head__who"><img class="avatar avatar--xl" src="../visuals/avatars/a5.webp" alt=""><div class="account-head__names"><p class="account-head__id">ID acc-7f3a91c4</p><p class="account-head__id account-head__id--steam"><span class="icon icon--steam" aria-hidden="true"></span><a class="link link--quiet link--hi" href="#anatomy">Steam nightjar_cs</a></p></div><p class="account-head__name">nightjar_cs</p></div><div class="account-head__money"><div class="account-head__figs"><span class="fig fig--money fig--title"><span class="fig__v"><span class="icon icon--coin" aria-hidden="true"></span>74.20</span><span class="fig__c">Balance</span></span><span class="fig fig--soft fig--title"><span class="fig__v"><span class="icon icon--pistol" aria-hidden="true"></span>140.95</span><span class="fig__c">Value of items held</span></span></div><a class="button button--primary button--m account-head__add" href="#anatomy" aria-label="Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours"><span class="button__label">Add funds</span><span class="badge button__pin" aria-hidden="true">5%</span></a></div><figure class="account-head__show" data-show><span class="account-head__skin is-short" aria-hidden="true" data-skin><img src="../concept/assets/skins/usp-s-kill-confirmed.png" alt=""><span class="account-head__foil"></span></span><figcaption class="account-head__cap"><span class="account-head__k">Highest value</span><span>USP-S Kill Confirmed</span><span class="fig fig--money"><span class="fig__v"><span class="icon icon--coin" role="img" aria-label="coins"></span><span>14.20</span></span></span></figcaption></figure></div><nav class="tabs tabs--plate" aria-label="Account"><span class="tabs__t" aria-current="page"><span class="icon icon--box" aria-hidden="true"></span>My items</span><a class="tabs__t" href="#anatomy"><span class="icon icon--history" aria-hidden="true"></span>History</a><a class="tabs__t" href="#anatomy"><span class="icon icon--user" aria-hidden="true"></span>Profile</a><a class="tabs__t" href="#anatomy"><span class="icon icon--settings" aria-hidden="true"></span>Settings</a></nav></div></div></div></div>
+  <ul class="kt-list">
+    <li><b>No press face and no disabled look.</b> <code>kit.css</code> draws neither on the chip; the head refuses nothing itself (D-58).</li>
+    <li><b>Motion.</b> The skin breathes as the Home's mode objects do (<code>mode-card-float</code>) and the foil crosses it every 4.2s (<code>outcome-foil</code>); with reduced motion both stop.</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ account-head           # re-shoot after a change to account-head.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ account-head --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. One component token: the skin's contact shadow is the ground's navy at 55% on the grade in both themes, a fill no role paints (<code>--bg-page</code> turns to paper in the light theme). The band is a coloured plate, its words <code>--text-on-plate</code>; on the stage with its skin the name stands on <code>--bg-card</code> and reads <code>--text-hi</code>. Geometry, type and motion come straight from the primitives and from the head's own <code>--account-head-*</code>.</p>
+  <p>File: <code>design/system/components/account-head.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group. The rename map moves the screens onto it at step 6: rows 16 (<code>.avatar--xl</code>), 19 (<code>.link--hi</code> on the Steam name), 27 (<code>.tabs--plate</code>) and 28 (<code>.fig--title</code>). The screens' inline <code>--skin: url(../concept/...)</code> resolves where the stylesheet reads it; <code>items.js</code> rewrites it absolute at load, and step 6 keeps that.</p>
+  <pre>&lt;div class="account-head account-head--stage" role="region" aria-label="My account"&gt;
+  &lt;nav class="crumb" aria-label="Breadcrumb"&gt;...&lt;/nav&gt;&lt;h1 class="account-head__sr"&gt;My items&lt;/h1&gt;
+  &lt;div class="account-head__row" style="--item-tier: var(--bg-rarity-2)"&gt;
+    &lt;span class="account-head__word" aria-hidden="true"&gt;Asiimov&lt;/span&gt;
+    &lt;div class="account-head__who"&gt;&lt;img class="avatar avatar--xl" ...&gt;&lt;div class="account-head__names"&gt;...&lt;/div&gt;&lt;p class="account-head__name"&gt;nightjar_cs&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="account-head__money"&gt;&lt;div class="account-head__figs"&gt;&lt;span class="fig fig--money fig--title"&gt;...&lt;/span&gt;...&lt;/div&gt;&lt;a class="button button--primary button--m account-head__add" ...&gt;...&lt;/a&gt;&lt;/div&gt;
+    &lt;figure class="account-head__show" data-show&gt;&lt;span class="account-head__skin" style="--skin: url(...)"&gt;&lt;img ...&gt;&lt;span class="account-head__foil"&gt;&lt;/span&gt;&lt;/span&gt;&lt;figcaption class="account-head__cap"&gt;...&lt;/figcaption&gt;&lt;/figure&gt;
+  &lt;/div&gt;
+  &lt;nav class="tabs tabs--plate" aria-label="Account"&gt;...&lt;/nav&gt;
+&lt;/div&gt;</pre>
+  <p>Stands on: <a href="../account.html">My items</a>, <a href="../account-empty.html">My items, nothing held</a>, <a href="../account-degraded.html">My items, values not readable</a>. Until step 8 those screens still read <code>kit.css</code>.</p>
+</section>
+<script>
+/* the skin's picture as an absolute address, as items.js writes it: a url() in a custom property resolves where the stylesheet reads it */
+document.querySelectorAll('[data-skin]').forEach(function (s) { s.style.setProperty('--skin', 'url("' + s.querySelector('img').src + '")'); });
+window.KIT_SHOTS = [{ id: 'steam', sel: '#s-steam', states: ['hover', 'focus'] }];
+</script>
+<script>
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(), o = b.getAttribute('data-dim'), t = document.getElementById(o);
+  if (t) t.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+document.querySelectorAll('[data-fs]').forEach(function (b) { var t = document.getElementById(b.getAttribute('data-fs')); if (t) t.textContent = getComputedStyle(b).fontSize; });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ["--text-hi", "--text-on-plate", "--text-body", "--text-money", "--text-on-accent", "--bg-veil", "--bg-stripes", "--bg-mode-cases-card", "--bg-card", "--bg-rarity-4", "--bg-rarity-5", "--bg-foil", "--line-lit-top", "--line-edge", "--line-soft", "--line-focus", "--depth-figure-text", "--depth-skin-prize", "--account-head-contact-bg"], OWN = /^--account-head-/;
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = OWN.test(n) ? 'component' : /^--(line-focus|bg-hover|bg-active)$/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

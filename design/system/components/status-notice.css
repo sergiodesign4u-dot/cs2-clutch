@@ -1,0 +1,31 @@
+/* STATUS NOTICE, level 3 (organism). What happened to a payment, a withdrawal or a sign in, said in words with what still holds: a mark, the
+ * state as a heading, the sentences, and where the grey has them the steps with whom each waits on, the as-of stamp, the reference and the
+ * acts. Tone: in progress (crediting, a limit raise pending), stopped (declined, paused, a limit reached, Steam not answering), failed with a
+ * reference (Steam refused). The mark is the state; the words say the rest, so a state is never said by colour alone.
+ * Page: design/kit/status-notice.html. Stands on Deposit (crediting, declined, a limit reached, a raise pending) and Sign in (Steam refused,
+ *   Steam unavailable), six coloured states (design/kit/inventory.md, Status notice).
+ * Holds: Status steps (.steps, who each step waits on), Key-value line (.kv), Figure (.fig, a stated moment with its caption), Copyable value
+ *   (.copy-value, the reference), Button (the acts), Note line (.note beside an act), Icon (the mark's glyph). Its own parts are the plate, the
+ *   mark tile and its tone, the body, the heading, the sentences and the act line; it places what it holds (the steps, the reference and a
+ *   line stretched to the body's width) and never redraws it.
+ * Reads: --text-body, --text-hi, --text-on-plate, --bg-note-plate, --bg-wash, --bg-stripes-s, --bg-mode-battles, --line-edge; geometry and type
+ *   from the primitives. Two colours read directly and waiting for step 9 (tokens-audit.md, "What the semantic level does not take yet": read
+ *   in this block only): --color-fail and --color-fail-wash, the failed mark's ink and wash. The Account menu reads the same pair for Not copied
+ *   since round 2, so the pair is a role candidate put to the founder at this round's gate.
+ * Carried from design/kit/kit.css part 4.3 (STATUS NOTICE, lines 4903 to 4924) at stage 08 step 5, round 3, unchanged in look. The tone is a
+ *   modifier the markup carries (pay.js and the sign in pages write it with the notice), --stopped the base: its class stays so the state is named. */
+.notice {
+  --notice-mark: 30px; /* v4 signin-home.css .sd-note-i: the mark tile beside a line of the foot plate */
+}
+.notice { display: flex; align-items: flex-start; gap: var(--space-3); min-width: 0; box-sizing: border-box; padding: var(--space-3-5); border-radius: var(--radius-card); background: var(--bg-note-plate); box-shadow: var(--line-edge); color: var(--text-body); font-size: var(--size-label); line-height: 1.5; } /* .sd-note: 14px of padding, its 14px corner on the ladder's 12 (D-228) */
+.notice__mark { flex: none; display: grid; place-items: center; width: var(--notice-mark); height: var(--notice-mark); border-radius: var(--radius-s); background: var(--bg-wash); color: var(--text-body); font-size: var(--size-text); font-weight: 900; line-height: 1; } /* .sd-note-i: the plain tile, its 9px corner on the ladder's 8; the glyph is an .icon at the tile's text size */
+/* tone: --stopped is the base, the plain tile with its soft glyph */
+.notice--progress .notice__mark { background: var(--bg-stripes-s), var(--bg-mode-battles); color: var(--text-on-plate); } /* .sd-note .is-guard .sd-note-i: the guard line's striped blue tile */
+.notice--failed .notice__mark { background: var(--color-fail-wash); color: var(--color-fail); } /* the one failure pair v4 draws, Not copied, account-home.css .am3-copy.is-fail */
+.notice__body { display: grid; flex: 1 1 auto; justify-items: start; gap: var(--space-2); min-width: 0; }
+.notice__body > * { max-width: 100%; }
+.notice__h { margin: 0; color: var(--text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; } /* the heading of a mark-and-words card on the case screen, case-blocks.css .v4i-h */
+.notice__p { margin: 0; max-width: var(--size-measure); }
+.notice__p :is(b, strong) { color: var(--text-hi); font-weight: 700; } /* .sd-note b */
+.notice__body > .steps, .notice__body > .copy-value, .notice__body > .kv { justify-self: stretch; }
+.notice__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-1); }

@@ -1,0 +1,70 @@
+/* LIMITS PANEL, level 3 (organism). Responsible play's own block: one line that says what is set, what is in force now as stated moments (never a
+ * countdown, no elapsed time, no streak, no score: a limit never acquires completion mechanics, CLAUDE.md "Product substance"), what a limit can
+ * close and what it never closes, the four limits as rows with their words left and their control right, and help that is not ours. Every act
+ * is the quiet ghost: the page refuses a lead to one control (node 6.1 section 2, microcopy 6.1-61).
+ * Page: design/kit/limits-panel.html. Stands on Responsible play, its five coloured states: none set, in force, excluded, a guest, the
+ *   confirmation (design/kit/inventory.md, Limits panel).
+ * Holds: Field (.field--row, the four limits; level 2), Text field (.input, the amount), Popover menu (.popover--select, the period), Button
+ *   (.button--ghost at M, each act), Key-value line (.kv--rule, which way a limit moves), Note line (.note; the answer to a press, .note--hi when
+ *   saved by rename map row 25, .note--refuse when refused), Text link (help that is not ours). Its own parts are the status line, the in-force
+ *   plate with its list, the two cards of what a limit closes, the rows' list, the control line of a row, the hidden period name, the answer's
+ *   place and the help line; it places and sizes what it holds and never redraws it.
+ * Reads: --text-body, --text-hi, --text-meta, --bg-row, --bg-well, --line-edge; geometry and type from the primitives. No colour primitive is
+ *   read directly.
+ * Carried from design/kit/kit.css part 4.3 (LIMITS PANEL, lines 4636 to 4687) at stage 08 step 5, round 3, by the decisions of step 2 (D-260):
+ *   the saved answer in white is the Note line's .note--hi (rename map row 25), so .limits__answer:not(.note--refuse) is not carried; rp.js writes
+ *   the answer's classes and moves onto .note--hi at step 8. The rules the panel writes on the Field it holds (its name's margin, the words' and
+ *   the cell's flex) and on its acts (their least width) are its own placing and are carried. The rules Responsible play writes on the panel
+ *   (.rp-head > .limits__say, .shell__main > .limits, .shell__main > .rp-head + .limits) stay in kit.css for design/system/screens/. */
+.limits {
+  --limits-measure: 720px; /* wireframes/_wf.css .wf-rp: the page's one readable measure; технічне рішення */
+  --limits-amount: 128px; /* the amount box in a limit's row, wide enough for 10 000.00; технічне рішення */
+  --limits-period: 136px; /* the period select beside it, wide enough for "per month" and its caret; технічне рішення */
+  --limits-act: 184px; /* a limit's act, as wide as the widest of the four, Start a cool down, so the four acts stand as one column (D-248); технічне рішення */
+}
+.limits { display: grid; gap: var(--space-5); min-width: 0; max-width: var(--limits-measure); }
+.limits__say { margin: 0; color: var(--text-body); font-size: var(--size-label); line-height: 1.5; }
+.limits__say.is-said { color: var(--text-hi); font-weight: 700; } /* a limit is in force: the line is said, wireframes/_wf.css .wf-rp-say.is-said */
+
+/* what is in force now: the question row's plate, faq-home.css; each limit in the well an open answer sits in, .disclosure__body */
+.limits__force { display: grid; justify-items: start; gap: var(--space-3); min-width: 0; padding: var(--space-4) var(--space-5); border-radius: var(--radius-card); background: var(--bg-row); box-shadow: var(--line-edge); }
+.limits__force > * { max-width: 100%; }
+.limits__force-h { margin: 0; color: var(--text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.limits__list { display: grid; justify-self: stretch; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
+.limits__item { display: grid; gap: var(--space-hair); padding: var(--space-3) var(--space-4); border-radius: var(--radius-s); background: var(--bg-well); }
+.limits__n { color: var(--text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.4; }
+.limits__e { color: var(--text-hi); font-size: var(--size-label); font-variant-numeric: tabular-nums; line-height: 1.4; } /* a stated moment at the text's own size, not a figure: nothing to watch run down */
+
+/* what a limit closes and what it never closes: two cards in the well, side by side from 600px */
+.limits__closes { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+@media (min-width: 600px) { .limits__closes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.limits__close { display: grid; align-content: start; gap: var(--space-1); padding: var(--space-4); border-radius: var(--radius-card); background: var(--bg-well); box-shadow: var(--line-edge); color: var(--text-body); font-size: var(--size-label); line-height: 1.5; }
+.limits__close :is(b, strong) { color: var(--text-hi); font-weight: 700; }
+.limits__k { color: var(--text-meta); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.3; text-transform: uppercase; } /* the key of a key-value line at the label's size */
+
+/* the four limits: Field rows; the amount, the period and the act in one control line */
+.limits__rows { display: grid; gap: var(--space-2); }
+.limits__rows .field__k { margin: 0; } /* a limit's name is the page's h3, as wireframes/responsible.html draws it (D-248) */
+.limits__ctl { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); max-width: 100%; }
+.limits__amount { flex: 1 1 var(--limits-amount); min-width: 0; max-width: var(--limits-amount); }
+.limits__period { flex: 1 1 var(--limits-period); min-width: 0; max-width: var(--limits-period); }
+.limits__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* the period's name, the select's aria-label in the grey, heard before its value (D-248) */
+.limits__answer { flex: 1 1 100%; } /* the answer to a press, under its row's words and control: wireframes/_nav.js mountRp answer(), D-137 (D-248); its tone is the Note line's, .note--hi saved and .note--refuse refused */
+@media (min-width: 600px) { /* the amount, the period and the act on one line, ending on the row's right edge, each in a column of its own width, so the four rows' periods and acts stand under each other (D-248) */
+  .limits__ctl { flex-wrap: nowrap; justify-content: flex-end; }
+  .limits__amount { flex: 0 0 var(--limits-amount); width: var(--limits-amount); }
+  .limits__period { flex: 0 0 var(--limits-period); width: var(--limits-period); }
+  .limits__ctl > .button { flex: 0 0 auto; min-width: var(--limits-act); }
+  .limits__rows .field__t { flex-basis: calc(4 * var(--size-tap)); } /* the words give 44px so the deposit limit's three controls stay beside them in the 720px measure */
+}
+@media (max-width: 599px) { /* node 6.1 section 7: the amount full width under its label, the period beside the act, never squeezed */
+  .limits .field__c { flex: 1 1 100%; }
+  .limits__ctl { flex: 1 1 auto; }
+  .limits__amount { flex-basis: 100%; max-width: none; }
+  .limits__period { flex: 1 1 var(--limits-period); max-width: none; }
+  .limits__ctl > .button { flex: 1 1 auto; } /* a period and its act share a line where both fit, and the act takes the next line whole where they do not, so 24 hours is never cut */
+}
+
+/* help that is not ours, and Support beside it */
+.limits__help { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-4); }
+.limits__help > .limits__close { flex: 1 1 calc(5 * var(--size-tap)); }

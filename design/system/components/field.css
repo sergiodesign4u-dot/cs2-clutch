@@ -1,0 +1,48 @@
+/* FIELD, level 2 (molecule since D-265, Q5: it holds only atoms once the Popover menu is one). A label and its control with the words around it:
+ * the label over it, the act under it, and the line that says what happened; a row of words with its control at the right; a declaration.
+ * Page: design/kit/field.html. Stands on Deposit (the code, the country, the network, the card's e-mail, the dock's declaration), Provably fair
+ *   (the Verify form), Responsible play (the four limits as rows), Sign in (the two declarations), My items (Cash out) and the catalogue's
+ *   filter drawer (design/kit/inventory.md, Field).
+ * Holds: Text field (.input), Popover menu (.popover--select), Text area (.textarea), Checkbox (.check, the declaration's box), Switch (.switch),
+ *   Button (an act under the control), Note line (.note, .note--refuse under the control or the act). Its own parts are the label, the row's
+ *   words and its control's cell, the declaration's row with its sentence and links, and the act line; it places what it holds and never
+ *   redraws it: the control's own states (focus, the refusal ring aria-invalid sets) are the atom's.
+ * Reads: --text-body, --text-hi, --text-link, --bg-row, --bg-tile, --line-edge, --line-error, --line-focus; geometry, type and motion from the
+ *   primitives. One colour read in this block only, --color-pink-edge (the made declaration's edge), waits for step 9 (tokens-audit.md,
+ *   "What the semantic level does not take yet").
+ * Carried from design/kit/kit.css part 4.2 (FIELD, lines 3328 to 3360) at stage 08 step 5, round 3, unchanged in look. The rules other blocks
+ *   write on it stay in kit.css until their block is built: the Limits panel's (.limits__rows .field__k, .limits .field__c) move with the
+ *   Limits panel, the Deposit dock's (.dock__declare) with the dock. The declaration is one element with the Checkbox: the row wears
+ *   .field.field--declare.check, so this file loads after checkbox.css (the molecules' group) and its row wins as it did in kit.css. */
+
+/* stacked (the default): the label over its control, the note or the act under it */
+.field { display: grid; gap: var(--space-2); min-width: 0; }
+.field__l { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.field__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-1); }
+
+/* row: the words left, the control right; a control too wide for the row goes under the words */
+.field--row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-4); min-height: var(--size-row); box-sizing: border-box; padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5); border-radius: var(--radius-card); background: var(--bg-row); box-shadow: var(--line-edge); }
+.field__t { display: grid; flex: 1 1 calc(5 * var(--size-tap)); gap: var(--space-1); min-width: 0; }
+.field__k { color: var(--text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.3; }
+.field__v { color: var(--text-body); font-size: var(--size-label); line-height: 1.45; }
+.field__c { flex: none; display: flex; align-items: center; gap: var(--space-2); max-width: 100%; }
+
+/* a declaration: the row is the press, a label round the Checkbox atom (.field--declare.check), the founder's pick of D-229, so the box is 20px
+   with a 4px corner and takes the act's fill when ticked, D-231; the row takes the pink edge once its box is ticked; the refusal is the Note line
+   under the rows (D-58), and the row it names takes the refusal ring and a short nudge (.is-missing, set by kit.js in Sign in and pay.js on the
+   dock, never by a load). D-232: 10px above and below, v4 signin-home.css .sd-cbx padding 10px 12px. */
+.field--declare { display: flex; align-items: center; gap: var(--space-3); min-height: calc(var(--size-tap) + var(--space-1)); box-sizing: border-box; padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-card); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-body); font-size: var(--size-label); line-height: 1.4; cursor: pointer; transition: box-shadow .2s, background-color .2s, color .2s; }
+.field--declare:has(> input:checked) { color: var(--text-hi); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-pink-edge); }
+.field--declare.is-missing { box-shadow: inset 0 0 0 var(--size-edge) var(--line-error); animation: field-nudge .32s ease-out; }
+.field__s { flex: 1; min-width: 0; }
+.field__s a { color: var(--text-link); font-weight: 700; text-decoration: none; }
+.field__s a:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+@media (hover: hover) { .field__s a:hover { text-decoration: underline; } }
+@keyframes field-nudge { 25% { translate: calc(-1 * var(--space-1)) 0; } 55% { translate: var(--space-1) 0; } 80% { translate: calc(-1 * var(--size-edge)) 0; } }
+@media (prefers-reduced-motion: reduce) { .field--declare { transition: none; } .field--declare.is-missing { animation: none; } }
+
+/* roomy: the declaration row where the sign in dialog has its two columns, signin-home.css @container dlg (min-width: 760px) .sd--e .sd-cbx:
+   58px tall, 12px and 16px of padding, the sentence at 15px; it reads the Dialog's container, so outside a dialog it is the size M row (D-232) */
+@container dialog (min-width: 760px) {
+  .field--declare.field--roomy { min-height: calc(var(--size-tap) + var(--space-3-5)); padding: var(--space-3) var(--space-4); font-size: var(--size-s); }
+}

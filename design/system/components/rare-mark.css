@@ -1,0 +1,30 @@
+/* RARE MARK, level 1 (atom). The moving layer a script lays over a drop whose chance in its case is 5 % or less: A, the ring's current, a bright arc
+ * running round the drop's ring (5 % or less); B, lightning round the drop (2.5 % or less); C, plasma (1 % or less), the rarest that applies.
+ * Page: design/kit/rare-mark.html. Laid by design/kit/motion.js (mark()) on a Feed tile in the ticker (every coloured screen), a Drop card of What is in
+ *   this case and a run's card on the Case stage (the case screen); new at D-265 (Q6), built first in round 3 (design/kit/inventory.md, Rare mark).
+ * Reads: --bg-mark-on-plate (the white of the ring's current, a white mark on a picture); the host's --rarity, which tints the arc; the art
+ *   --art-fx-bolt and --art-fx-plasma-tall (design/system/art.css); the shape --shape-ring-mask; no component token, no colour primitive read directly.
+ *   Its geometry is the host's: a host sets --mark-ring-top, --mark-ring-w, --mark-ring-h, --mark-bolt-out, --mark-fire-rise and --mark-fire-side
+ *   (the Feed tile), or places the layer with its own rule (the Drop card, the Case stage's card); each host carries that placing in its own file.
+ * Carried from design/kit/kit.css part 3, RARE MARKS ON A DROP (lines 3237 to 3267, the layers at 3254 to 3262) and the reduced motion rule of
+ *   A RARE DROP (line 3323), at stage 08 step 5, round 3. The keyframes rare-mark-turn and rare-mark-step are named by this block only and are
+ *   carried here. D-214's three marks as v4 drew them (rare-mark.css, rare-mark.js), D-235 on the live drops, D-236 on the case's cards. */
+
+/* One layer per mark, never interactive. A: a turning conic light seen only through the ring's shape. B and C: 24 frames drawn once (visuals/fx),
+   played by stepping a picture 24 frames wide in a box one frame in size; each loop starts at its own point (the script sets animation-delay), so
+   two marks never flicker in step. */
+.rare-mark { position: absolute; pointer-events: none; }
+.rare-mark--ring { z-index: 2; left: 50%; top: var(--mark-ring-top); width: var(--mark-ring-w); height: var(--mark-ring-h); margin-left: calc(var(--mark-ring-w) / -2); overflow: hidden; -webkit-mask: var(--shape-ring-mask) center / 100% 100% no-repeat; mask: var(--shape-ring-mask) center / 100% 100% no-repeat; }
+.rare-mark--ring > i { position: absolute; inset: -40%; animation: rare-mark-turn 1.4s linear infinite;
+  background: conic-gradient(from 0deg, transparent 0 62%, color-mix(in srgb, var(--rarity) 60%, var(--bg-mark-on-plate)) 82%, var(--bg-mark-on-plate) 88%, transparent 94%); }
+@keyframes rare-mark-turn { to { transform: rotate(360deg); } }
+.rare-mark--bolt, .rare-mark--fire { overflow: hidden; background-repeat: no-repeat; background-size: 2400% 100%; animation: rare-mark-step var(--mark-loop) steps(24, jump-none) infinite; }
+@keyframes rare-mark-step { from { background-position: 0 0; } to { background-position: 100% 0; } }
+.rare-mark--bolt { --mark-loop: 1s; z-index: 4; inset: calc(-1 * var(--mark-bolt-out)); background-image: var(--art-fx-bolt); }
+/* C burns behind the host's ground (z-index -2): the host lends its ground to a ::before so the flame shows only round it */
+.rare-mark--fire { --mark-loop: 1.2s; z-index: -2; top: calc(-1 * var(--mark-fire-rise)); left: calc(-1 * var(--mark-fire-side)); width: calc(100% + 2 * var(--mark-fire-side)); height: calc(60% + var(--mark-fire-rise)); background-image: var(--art-fx-plasma-tall); }
+
+/* for whoever asked for less motion the mark stands still: the ring's light at its first turn, the first frame of the bolt and the plasma */
+@media (prefers-reduced-motion: reduce) {
+  .rare-mark--ring > i, .rare-mark--bolt, .rare-mark--fire { animation: none; }
+}

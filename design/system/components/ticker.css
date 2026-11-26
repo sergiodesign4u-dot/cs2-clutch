@@ -1,0 +1,75 @@
+/* TICKER, level 3 (organism). The live drops strip under the header: the drops newest first in one row of feed tiles (.feed-tile) running the
+ * strip's whole width, a new one swinging in at the front, and a chip in its top right corner, Live drops with its pulsing dot. Running, the pause
+ * shows on hover and focus in the dot's place; paused (.is-held, set by kit.js), the chip's control says Resume and no new drop arrives. Reduced
+ * motion starts it paused and stills the arrival.
+ * Page: design/kit/ticker.html. Stands on seven coloured screens: Home, the case screen, the catalogue, Deposit, My items, Provably fair, Sign in
+ *   (design/kit/inventory.md, Ticker); Responsible play carries none.
+ * Holds: Feed tile (.feed-tile, one in each .ticker__i), a molecule with its own hover, focus and rare drop; the ticker places them in a row and
+ *   writes nothing on them (kit.css has no .ticker__i .feed-tile rule). A rare drop's mark on a tile is the Rare mark atom, not drawn here. Its
+ *   own: the strip, the chip with its label and the pause (an 18px round outside the button family, inventory.md), the clip and the run.
+ * Reads: --text-base, --text-on-plate, --bg-page, --bg-lit, --bg-mark-on-plate, --line-focus-on-plate; no component token; geometry, type and
+ *   motion from the primitives. Colour primitives read directly, read in this block only and waiting for step 9 (tokens-audit.md, "What the
+ *   semantic level does not take yet"): --color-ticker-chip, --shadow-ticker-chip, --color-ticker-halo. The chip keeps its dark in both themes,
+ *   so its words, its pause and its ring read the on-plate roles, which keep the white kit.css draws.
+ * Carried from design/kit/kit.css part 4.3 (TICKER, lines 4926 to 4979) at stage 08 step 5, round 3. Part 3's "the live feed" (lines 1322 to
+ *   1350) writes on the grey's .wf-feed*, which no coloured state wears: not carried. The keyframes ticker-live are also named by the Steam
+ *   state (.steam-state__on::after, line 5744), a screen block that loads after the organisms: declared once, at the end of this file, its
+ *   first reader. A rule a screen writes on the
+ *   ticker stays in kit.css until step 6: .shell > .ticker (line 5770). From design/v4/theme.css (live drops, comp B), rare.css and kit.css
+ *   parts 2 and 3. */
+
+/* its own geometry, read inside .ticker only */
+.ticker {
+  --ticker-chip-inset: 16px; /* v4 theme.css .wf-feed-head: top 16px right 16px, the chip inset off the cards' corner; 10px under 600px */
+  --ticker-chip: 28px; /* the same, min-height */
+  --ticker-dot: 8px; /* kit.css part 3 .wf-feed-lbl::before: the live dot */
+  --ticker-pause: 18px; /* kit.css part 3 .wf-feed-pause: the round pause and play */
+  --ticker-pause-hit: -11px; /* v4 rare.css .wf-feed-pause::before: inset -11px, a 40px press */
+  --ticker-pause-bar: 2px; /* kit.css part 3 .wf-feed-pause::after: the two bars and their gap */
+  --ticker-pause-w: 6px; /* the same, the pause mark's width */
+  --ticker-pause-h: 8px; /* the same, its height */
+  --ticker-play: 4px; /* the same [aria-pressed="true"]: the play triangle's half height */
+  --ticker-play-w: 6px; /* the same, its width */
+  --ticker-pulse: 1.6s; /* the same, the halo's loop */
+  --ticker-gap: 6px; /* v4 theme.css .wf-feed-run: gap 6px between drops */
+  --ticker-start: var(--space-2); /* v4 theme.css .wf-feed-run: padding-left 8px from 900px; 16px under 900px */
+  --ticker-arrive: .9s; /* v4 theme.css .wf-feed-i.is-new: a new drop's swing */
+}
+.ticker { position: relative; box-sizing: border-box; min-height: var(--size-ticker); padding-block: var(--space-2) 0; background: var(--bg-page); color: var(--text-base); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+
+/* the chip: Live drops with its dot, the pause in the dot's place */
+.ticker__head { position: absolute; z-index: 3; top: var(--ticker-chip-inset); right: var(--ticker-chip-inset); display: flex; align-items: center; gap: var(--space-1-5); box-sizing: border-box; min-height: var(--ticker-chip); padding: 0 var(--space-3) 0 var(--space-2); border-radius: var(--radius-pill);
+  background: var(--color-ticker-chip); -webkit-backdrop-filter: blur(var(--blur-banner-clock)); backdrop-filter: blur(var(--blur-banner-clock)); box-shadow: var(--shadow-ticker-chip); }
+.ticker__lbl { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: var(--space-1-5); padding-left: var(--space-hair); color: var(--text-on-plate); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
+.ticker__lbl::before { content: ''; width: var(--ticker-dot); height: var(--ticker-dot); border-radius: 50%; background: var(--bg-lit); }
+.ticker__lbl::after { content: ''; position: absolute; z-index: -1; left: var(--space-hair); top: 50%; width: var(--ticker-dot); height: var(--ticker-dot); margin-top: calc(var(--ticker-dot) / -2); border-radius: 50%; background: var(--color-ticker-halo); pointer-events: none; animation: ticker-live var(--ticker-pulse) ease-out infinite; }
+/* the pause, and once paused the play: a pink round in the dot's place */
+.ticker__pause { position: relative; display: inline-flex; flex: 0 0 var(--ticker-pause); align-items: center; justify-content: center; width: var(--ticker-pause); height: var(--ticker-pause); padding: 0; border: 0; border-radius: 50%; background: var(--bg-lit); color: transparent; font-size: 0; cursor: pointer; }
+.ticker__pause::before { content: ''; position: absolute; inset: var(--ticker-pause-hit); }
+.ticker__pause::after { content: ''; flex: 0 0 auto; width: var(--ticker-pause-w); height: var(--ticker-pause-h); background: linear-gradient(90deg, var(--bg-mark-on-plate) 0 var(--ticker-pause-bar), transparent var(--ticker-pause-bar) calc(2 * var(--ticker-pause-bar)), var(--bg-mark-on-plate) calc(2 * var(--ticker-pause-bar))); }
+.ticker__pause[aria-pressed="true"]::after { width: 0; height: 0; margin-left: var(--space-hair); background: none; border-style: solid; border-width: var(--ticker-play) 0 var(--ticker-play) var(--ticker-play-w); border-color: transparent transparent transparent var(--bg-mark-on-plate); }
+.ticker__pause:focus-visible { outline: var(--size-edge) solid var(--line-focus-on-plate); outline-offset: var(--size-edge); }
+/* the dot shows while the strip runs and nothing is aimed at it; the pause takes its place on hover, on focus and while held */
+.ticker:is(:hover, :focus-within, .is-held) .ticker__lbl::before, .ticker:is(:hover, :focus-within, .is-held) .ticker__lbl::after { display: none; }
+@media (hover: hover) {
+  .ticker:not(:hover):not(:focus-within):not(.is-held) .ticker__pause { position: absolute; width: var(--size-hairline); height: var(--size-hairline); margin: calc(-1 * var(--size-hairline)); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .ticker__pause:hover { filter: brightness(1.1); }
+}
+@media (hover: none) { .ticker__lbl::before, .ticker__lbl::after { display: none; } }
+
+/* the run: the drops in one row, clipped at the strip's ends; each .ticker__i holds one Feed tile */
+.ticker__clip { overflow-x: clip; overflow-y: visible; }
+.ticker__run { display: flex; gap: var(--ticker-gap); width: max-content; margin: 0; padding: 0 0 0 var(--ticker-start); list-style: none; }
+.ticker__i { display: flex; flex: none; }
+/* a new drop swings in at the front, .is-new set by kit.js on its arrival and taken off at the animation's end */
+.ticker__i.is-new { transform-origin: 0 50%; animation: ticker-arrive var(--ticker-arrive) cubic-bezier(.22, .8, .3, 1); }
+@keyframes ticker-arrive {
+  0% { opacity: 0; transform: perspective(700px) translateX(-24px) rotateY(75deg); }
+  45% { opacity: .7; transform: perspective(700px) translateX(0) rotateY(28deg); }
+  78% { opacity: 1; transform: perspective(700px) rotateY(-6deg); }
+  100% { opacity: 1; transform: none; } }
+@media (max-width: 899px) { .ticker { --ticker-start: var(--space-4); padding-block: var(--space-2); } }
+@media (max-width: 599px) { .ticker { --ticker-chip-inset: 10px; min-height: 0; padding-block: var(--space-1-5); } }
+@media (prefers-reduced-motion: reduce) { .ticker__lbl::after { animation: none; opacity: 0; } .ticker__i.is-new { animation: none; } }
+/* shared: the Steam state's dot (design/system/screens/account.css from step 6) names it too; declared once here, its first reader */
+@keyframes ticker-live { from { transform: scale(1); opacity: 1; } to { transform: scale(2); opacity: 0; } }

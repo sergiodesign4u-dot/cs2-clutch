@@ -1,0 +1,186 @@
+/* FOOTER, level 3 (organism). The foot of every page as one block set off the rail: the counters on a dark band between a blue and a pink line,
+ * a large soft blue light rising off its top; the brand with the operator's line, Need help and Support, the social squares; three columns of links
+ * (Play over Platform, Cases, Company) with two operators standing at the right on the strip; the strip with the two trust plates, Play
+ * responsibly and Every round, and the payment cards; then the age and market lines and the language, and the fine print. Its own width decides
+ * its layout (a container, as v4's: two columns under 1000px, one under 560px).
+ * Page: design/kit/footer.html. Stands on all eight coloured screens: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
+ *   Responsible play, Sign in (design/kit/inventory.md, Footer), carrying Provably fair and Responsible play (CLAUDE.md, "Information architecture").
+ * Holds: Figure (.fig--stat, the four counters), Logo (.logo--l), Button (.button--primary.button--m, Support; .button--icon, the social squares),
+ *   Icon (each counter's mark and the round plate's target, in their story form when motion.js dresses them), Popover menu (.popover--lang, the
+ *   language). Its own: the band, the tiles, the columns and their links (.footer__link, the footer's own link form), the strip, the two plates,
+ *   the payment cards, the foot.
+ * Reads: --text-base, --text-hi, --text-meta, --text-link, --text-on-plate, --bg-panel, --bg-note-plate, --bg-tile, --bg-match, --bg-mark-on-plate,
+ *   --bg-stripes, --bg-stripes-m, --bg-mode-cases, --bg-mode-upgrade, --bg-mode-battles, --bg-mode-showdowns, --line-edge, --line-pink-fade,
+ *   --line-lit-top, --line-ring-soft, --line-lit, --line-focus; its own --footer-pay-bg-hover (tokens.css, COMPONENT TOKENS); geometry, type and motion from the
+ *   primitives. Colour primitives read directly, all read in this block only and waiting for step 9 (tokens-audit.md, "What the semantic level
+ *   does not take yet"): --gradient-footer-light, --shadow-footer-lift, --gradient-footer-band, --gradient-footer-fade, --gradient-edge-blue,
+ *   --shadow-footer-plate, --gradient-footer-fair, --color-footer-pt, --color-footer-age, --shadow-footer-age, --color-footer-pay, --shadow-footer-pay.
+ * Carried from design/kit/kit.css part 4.3 (FOOTER, lines 4397 to 4558) and the footer's light in ICON STORY (line 2154) at stage 08 step 5,
+ *   round 3. Part 3's "the footer" (lines 1490 to 1508) writes on the grey's .wf-* classes, which no coloured state wears: not carried. Rename map
+ *   row 30 applied: the strip's and the payment cards' tile edge reads --line-edge, white .07. The plate's words and arrow take --text-on-plate
+ *   where kit.css inherited the block's white: the same white in the dark theme, and white on the plate in the light one. Rules a screen writes
+ *   on the footer stay in kit.css until step 6: .shell > .footer (lines 5763 and 5772). Corners 20px and 14px moved to 24px and 12px, 10px to
+ *   8px, D-228. From design/v4/footer-home.css (variant I), footer-home.js and the language control kit.css part 3 holds. */
+
+/* its own geometry, read inside .footer only */
+.footer {
+  --footer-light-h: 220px; /* the same, its height; 140px under 900px */
+  --footer-light-inset: 6%; /* the same, from the block's sides; 0 under 900px */
+  --footer-band-pad: 36px 28px 32px; /* .ff-band: padding; 26px 14px 22px under 560px */
+  --footer-pad: 28px; /* .fe-mid, .ff-strip, .ff-foot: the block's inner side, 28px */
+  --footer-stat-tile: min(58px, 4.4cqw); /* .ff-stat .fl-tile: a counter's tile; 50px under 1000px, 36px under 560px */
+  --footer-stat-v: min(38px, 2.6cqw); /* .ff-stat b: a counter's figure; 30px under 1000px, 21px under 560px */
+  --footer-stat-c: 12px; /* .ff-stat b + span: its caption; 11px under 560px */
+  --footer-stat-gap: var(--space-1-5); /* .ff-stat > span:last-child: gap 6px between figure and caption; 4px under 560px */
+  --footer-stats-row-phone: 20px; /* .ff-stats under 560px: gap 20px 8px, the counters two by two */
+  --footer-live: 7px; /* .ff-stat.is-live b + span::before: the green dot of Online now */
+  --footer-mid-min: 300px; /* .fe-mid: min-height 300px, room for the operators */
+  --footer-mid-pad-top: 34px; /* .fe-mid: padding-top */
+  --footer-agents-w: 24%; /* .ft-h .fe-agents: the operators' width, and the room the columns leave them; 28% under 1000px */
+  --footer-agents-right: 3%; /* the same, from the block's right */
+  --footer-agents-rise: 40px; /* .fe-agents: height calc(100% + 40px), their heads over the band's line */
+  --footer-brand-min: 220px; /* .fe-mid: grid minmax(220px, 1fr), the brand column's floor */
+  --footer-cols-ratio: 1.7fr; /* .fe-mid: the columns' share */
+  --footer-ident: 13px; /* .fl-ident: the operator's line */
+  --footer-col-gap: 14px; /* .fe-gap: the gap between Play and Platform; 20px with a coarse pointer */
+  --footer-cookie-h: var(--size-tap); /* v4 footer-home.css .fl-linklike: Cookie settings, a button that reads as a link, 44px tall as kit.css part 2's button floor; the column keeps that room, D-232 */
+  --footer-link: 15px; /* .fl-col a and .fl-linklike, and Need help */
+  --footer-plate: 72px; /* .fl-plate: a trust plate's height, and the payment cards' two rows beside it */
+  --footer-plate-room: 44px; /* .fl-plate: padding-right 44px, room for its arrow */
+  --footer-plate-mark: 46px; /* .ff-18 and .fl-pt: the disc and the tile on a plate */
+  --footer-plate-icon: 26px; /* .fl-pt .fl-ri: the target on Every round */
+  --footer-arrow: 10px; /* .fl-go: the plate's arrow */
+  --footer-arrow-line: 2.5px; /* the same, its stroke */
+  --footer-arrow-right: 18px; /* the same, from the plate's right */
+  --footer-pay-w: 66px; /* .ft-i .fe-pay li: a payment card, 66 by 33, two rows and their gap as tall as the plates */
+  --footer-pay-h: 33px; /* the same; 40px with a coarse pointer under 1000px */
+  --footer-pay-mark: 17px; /* .ft-i .fh-pay svg: the provider's mark */
+  --footer-foot-pad: 26px 28px 24px; /* .ff-foot: padding; 20px 14px under 560px */
+  --footer-legal: 12.5px; /* .ff-legal p: the age and market lines */
+  --footer-legal-basis: 420px; /* .ft-i .ff-legal: flex-basis */
+  --footer-agents-phone-w: 46%; /* .ft-h .fe-agents under 560px: beside Company, their feet on the strip */
+  --footer-agents-phone-h: 280px; /* the same */
+  --footer-agents-phone-drop: -34px; /* the same, bottom: their legs behind the strip */
+  container: footer / inline-size;
+}
+.footer { padding: 0 var(--space-3) var(--space-2) var(--space-2); color: var(--text-base); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.footer__block { position: relative; isolation: isolate; border-radius: var(--radius-l); background: var(--bg-panel); color: var(--text-hi); box-shadow: var(--line-edge), var(--shadow-footer-lift); }
+.footer__block::before { content: ''; position: absolute; z-index: -1; left: var(--footer-light-inset); right: var(--footer-light-inset); bottom: 100%; height: var(--footer-light-h); background: var(--gradient-footer-light); pointer-events: none; }
+
+/* the counters' band, between a blue line on top and a pink one under it; each counter a coloured tile and a Figure (.fig--stat) the footer sizes */
+.footer__band { position: relative; isolation: isolate; padding: var(--footer-band-pad); background: var(--gradient-footer-band); }
+.footer__band::before, .footer__end::before { content: ''; position: absolute; z-index: -1; inset: 0; background: var(--gradient-footer-fade); }
+.footer__band::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: var(--space-hair); background: var(--line-pink-fade); }
+.footer__stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); }
+.footer__stats::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: var(--space-hair); background: var(--gradient-edge-blue); }
+.footer__stat { --fig-stat-v: var(--footer-stat-v); --fig-stat-c: var(--footer-stat-c); --fig-stat-gap: var(--footer-stat-gap); display: flex; color: inherit; text-decoration: none; align-items: center; justify-content: center; gap: var(--space-3-5); min-width: 0; }
+.footer__stat:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--space-1); border-radius: var(--radius-card); }
+.footer__tile { display: grid; place-items: center; flex: 0 0 auto; width: var(--footer-stat-tile); height: var(--footer-stat-tile); border-radius: var(--radius-card); background: var(--bg-stripes), var(--bg-mode-cases); box-shadow: var(--line-lit-top); color: var(--text-on-plate); font-size: calc(var(--footer-stat-tile) * .56); transition: translate .25s cubic-bezier(.2, .7, .2, 1), rotate .25s cubic-bezier(.2, .7, .2, 1); }
+.footer__stat:nth-child(2) .footer__tile { background: var(--bg-stripes), var(--bg-mode-upgrade); }
+.footer__stat:nth-child(3) .footer__tile { background: var(--bg-stripes), var(--bg-mode-battles); }
+.footer__stat:nth-child(4) .footer__tile { background: var(--bg-stripes), var(--bg-mode-showdowns); }
+.footer__live { display: inline-block; width: var(--footer-live); height: var(--footer-live); margin-right: var(--space-1-5); border-radius: 50%; background: var(--bg-match); vertical-align: var(--size-hairline); animation: footer-live 2s ease-in-out infinite; }
+@keyframes footer-live { 50% { opacity: .35; } }
+.footer__stat:focus-visible .footer__tile { translate: 0 calc(-1 * var(--size-lift)); rotate: -6deg; }
+@media (hover: hover) { .footer__stat:hover .footer__tile { translate: 0 calc(-1 * var(--size-lift)); rotate: -6deg; } }
+/* the counters' and the round plate's marks play the rail's stories (the Icon's story form, D-235), and here the story's light is white */
+.footer .icon-story { --story-c: var(--bg-mark-on-plate); }
+
+/* the brand and the columns, the operators standing at the right */
+.footer__mid { position: relative; display: grid; grid-template-columns: minmax(var(--footer-brand-min), 1fr) minmax(0, var(--footer-cols-ratio)); gap: var(--space-6); min-height: var(--footer-mid-min); box-sizing: border-box;
+  padding: var(--footer-mid-pad-top) calc(var(--footer-pad) + var(--footer-agents-w)) 0 var(--footer-pad); }
+.footer__brand { display: grid; align-content: start; gap: var(--space-4); container: footer-brand / inline-size; }
+.footer__ident { margin: 0; color: var(--text-meta); font-size: var(--footer-ident); line-height: 1.45; text-wrap: pretty; } /* pretty: no word alone on the last line, stage 07 step 7, D-254, audit N16 */
+.footer__help { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2-5) var(--space-4); }
+.footer__help > span { font-size: var(--footer-link); font-weight: 900; text-transform: uppercase; }
+.footer__social { display: grid; grid-template-columns: repeat(7, max-content); justify-content: start; gap: var(--space-2); }
+@container footer-brand (max-width: 341px) { .footer__social { grid-template-columns: repeat(4, max-content); } }
+.footer__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+.footer__col { display: grid; align-content: start; gap: var(--space-3); }
+.footer__col-h { margin: 0 0 var(--space-1); color: var(--text-meta); font-size: var(--size-chip); font-weight: 900; letter-spacing: var(--tracking-wide); line-height: 1.5; text-transform: uppercase; }
+.footer__gap { height: var(--footer-col-gap); }
+.footer__link { width: fit-content; color: var(--text-hi); font-size: var(--footer-link); line-height: 1.3; text-decoration: none; }
+/* Cookie settings: a button that reads as a link, 44px tall */
+.footer__link--button { display: flex; align-items: center; min-height: var(--footer-cookie-h); padding: 0; border: 0; background: none; font-family: inherit; line-height: 1.2; text-decoration: underline; text-underline-offset: var(--space-thin); white-space: nowrap; cursor: pointer; }
+.footer__link:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+@media (hover: hover) { .footer a.footer__link:hover { color: var(--text-link); } }
+.footer__agents { position: absolute; right: var(--footer-agents-right); bottom: 0; width: var(--footer-agents-w); height: calc(100% + var(--footer-agents-rise)); background: var(--art-footer-agents-2) right bottom / contain no-repeat; pointer-events: none; }
+
+/* the strip: the two trust plates, Play responsibly and Every round, and the payment cards */
+.footer__strip { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); margin: 0 var(--footer-pad); padding: var(--space-3-5); border-radius: var(--radius-m); background: var(--bg-note-plate); box-shadow: var(--line-edge); }
+.footer__plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: var(--space-3); }
+.footer__plate { position: relative; display: flex; align-items: center; gap: var(--space-3-5); box-sizing: border-box; min-height: var(--footer-plate); padding: var(--space-3) var(--footer-plate-room) var(--space-3) var(--space-3-5); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-footer-plate); color: var(--text-on-plate); text-decoration: none; transition: translate .2s, filter .2s; }
+.footer__plate--age { background: var(--bg-stripes-m), var(--bg-mode-showdowns); }
+.footer__plate--fair { background: var(--bg-stripes-m), var(--gradient-footer-fair); }
+.footer__age { display: grid; place-items: center; flex: 0 0 auto; width: var(--footer-plate-mark); height: var(--footer-plate-mark); border-radius: 50%; background: var(--bg-mark-on-plate); box-shadow: var(--shadow-footer-age); color: var(--color-footer-age); font-size: var(--size-s); font-weight: 900; letter-spacing: var(--tracking-footer-age); }
+.footer__pt { display: grid; place-items: center; flex: 0 0 auto; width: var(--footer-plate-mark); height: var(--footer-plate-mark); border-radius: var(--radius-card); background: var(--color-footer-pt); box-shadow: var(--line-ring-soft); color: var(--text-on-plate); font-size: var(--footer-plate-icon); }
+.footer__ptx { display: grid; gap: var(--space-thin); min-width: 0; }
+.footer__ptx > b { font-size: var(--size-text); font-weight: 900; letter-spacing: var(--tracking-title); text-transform: uppercase; }
+.footer__ptx > span { font-size: var(--size-xs); }
+/* the arrow is a glyph drawn with two borders, in the plate's own ink */
+.footer__go { position: absolute; right: var(--footer-arrow-right); top: 50%; width: var(--footer-arrow); height: var(--footer-arrow); margin-top: calc(var(--footer-arrow) / -2); box-sizing: border-box; border-top: var(--footer-arrow-line) solid currentColor; border-right: var(--footer-arrow-line) solid currentColor; rotate: 45deg; transition: translate .2s; }
+.footer__plate:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+@media (hover: hover) { .footer__plate:hover { translate: 0 calc(-1 * var(--space-hair)); filter: brightness(1.08); } .footer__plate:hover .footer__go { translate: var(--space-thin) calc(-1 * var(--space-thin)); } }
+.footer__pay { display: grid; grid-template-columns: repeat(3, var(--footer-pay-w)); gap: var(--space-1-5); margin: 0; padding: 0; list-style: none; }
+.footer__pay > li { display: grid; width: var(--footer-pay-w); height: var(--footer-pay-h); border-radius: var(--radius-tile); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--color-footer-pay); }
+.footer__pay a { display: grid; place-items: center; border-radius: inherit; color: inherit; text-decoration: none; transition: translate .2s cubic-bezier(.2, .7, .2, 1), color .2s, background-color .2s, box-shadow .2s; }
+.footer__pay svg { width: auto; height: var(--footer-pay-mark); max-width: 100%; }
+.footer__pay a:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); color: var(--text-hi); }
+@media (hover: hover) { .footer__pay a:hover { translate: 0 calc(-1 * var(--space-hair)); color: var(--text-hi); background-color: var(--footer-pay-bg-hover); box-shadow: inset 0 0 0 var(--size-hairline) var(--line-lit), var(--shadow-footer-pay); } }
+
+/* the foot: the age and market lines and the language on one row, the fine print under them, on a band like the counters' */
+.footer__end { position: relative; z-index: 2; isolation: isolate; display: grid; justify-items: center; gap: var(--space-4-25); margin-top: var(--footer-pad); padding: var(--footer-foot-pad); text-align: center; }
+.footer__end::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: var(--space-hair); background: var(--line-pink-fade); }
+.footer__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3-5) var(--space-5); width: 100%; }
+.footer__legal { flex: 1 1 var(--footer-legal-basis); text-align: left; }
+.footer__legal > p { margin: 0; color: var(--text-meta); font-size: var(--footer-legal); line-height: 1.5; }
+.footer__legal > p + p { margin-top: var(--space-1); }
+.footer__lang { position: relative; z-index: 3; flex: 0 0 auto; }
+.footer__fine { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-1-5) var(--space-5-5); color: var(--text-meta); font-size: var(--size-chip); letter-spacing: var(--tracking-snug); text-transform: uppercase; }
+
+/* narrower: the footer's own width decides. The block's own custom properties take the values their declarations above name for each width */
+@container footer (max-width: 1000px) {
+  .footer__block { --footer-stat-tile: 50px; --footer-stat-v: 30px; --footer-agents-w: 28%; } /* a container cannot query itself: the block inside it takes the values */
+  .footer__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-4); }
+  .footer__stat { justify-content: flex-start; }
+  .footer__mid { grid-template-columns: minmax(0, 1fr); }
+  .footer__agents { height: 70%; }
+  .footer__strip { grid-template-columns: minmax(0, 1fr); }
+  .footer__pay { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .footer__pay > li { width: auto; }
+}
+@container footer (max-width: 560px) {
+  .footer__block { --footer-stat-tile: 36px; --footer-stat-v: 21px; --footer-stat-c: 11px; --footer-stat-gap: var(--space-1); --footer-band-pad: 26px 14px 22px; --footer-foot-pad: 20px 14px; }
+  .footer__stats { gap: var(--footer-stats-row-phone) var(--space-2); }
+  .footer__stat { flex-direction: column; align-items: center; justify-content: flex-start; gap: var(--space-2); text-align: center; }
+  .footer__stat .fig { align-items: center; } /* the footer's placing of the Figure it holds: centred under its tile */
+  .footer__tile { border-radius: var(--radius-s); }
+  .footer__mid { min-height: 0; padding: var(--space-5) var(--space-4) calc(var(--space-6) + var(--space-1)); }
+  .footer__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer__social { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, var(--size-tile)); gap: var(--space-1-5); }
+  .footer__agents { right: var(--space-1); bottom: var(--footer-agents-phone-drop); width: var(--footer-agents-phone-w); height: var(--footer-agents-phone-h); }
+  .footer__strip { margin: 0 var(--space-2); padding: var(--space-2-5); }
+  .footer__plates { grid-template-columns: minmax(0, 1fr); }
+  .footer__pay { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer__row { justify-content: center; }
+  .footer__legal { text-align: center; }
+}
+@media (max-width: 899px) {
+  .footer { --footer-light-inset: 0; --footer-light-h: 140px; padding: 0 0 var(--space-4); }
+  .footer__block { border-radius: 0; box-shadow: none; }
+}
+/* presses on a touch screen: each link a 40px row, the payment cards 40px tall where they leave the plates' side */
+@media (pointer: coarse) {
+  .footer__block { --footer-col-gap: 20px; }
+  .footer__col { gap: 0; }
+  .footer__link { display: flex; align-items: center; min-height: var(--size-button-m); }
+  @container footer (max-width: 1000px) { .footer__pay > li { height: var(--size-button-m); } }
+}
+@media (prefers-reduced-motion: reduce) { .footer__live { animation: none; } .footer__tile, .footer__plate, .footer__go, .footer__pay a { transition: none; } }
+
+/* the 18+ disc spins once under the pointer, v4 footer-home.css .fl-plate.is-18:hover .ff-18, founder of 3 Nov 2026 */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .footer__plate--age:hover .footer__age { animation: footer-spin .7s cubic-bezier(.2, .7, .2, 1); }
+}
+@keyframes footer-spin { 0% { rotate: 0deg; scale: 1; } 60% { rotate: 380deg; scale: 1.08; } 100% { rotate: 360deg; scale: 1; } }

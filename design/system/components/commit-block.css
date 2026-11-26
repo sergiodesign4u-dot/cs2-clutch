@@ -1,0 +1,93 @@
+/* COMMIT BLOCK, level 3 (organism). Where money is spent: the count, the act with the total riding in it, the case's risk as four bolts and its
+ * band; under the plate the balance after the open, the coin's peg and the route to RTP and expected value (D-28), and the server seed hash before
+ * the act. The act carries the total and never the unit (D-31). Design principle 3: odds, cost and expected value stay visible where money is
+ * spent; cost never hides inside the excitement.
+ * Page: design/kit/commit-block.html. Stands on three coloured screens: the case screen, and Deposit and Sign in as the case shown in their dialogs
+ *   (design/kit/inventory.md, Commit block).
+ * Holds: Figure (.fig--money .fig--l, the guest's price and the outcome's net), Segmented control (.seg, the count), Button (.button--primary
+ *   .button--l .button--priced, the open and Sell; .button--ghost .button--l, Open again), Copyable value (.copy-value--inline, the hashes),
+ *   Text link (.link, .link--arrow), Note line (.note--refuse, the refusal when short), Icon (the bolts, the coin). It places them and never
+ *   restyles them: no hover, focus or press of theirs is written here.
+ * States the product script sets (design/kit/stage.js, drawCommit, open, the outcome): data-state="guest", "funded", "short", "open", "outcome",
+ *   "interrupted"; the act's aria-busy="true" while it rolls is the Button's own. Its own interactive part is the summary of Round details, a
+ *   ring on :focus-visible.
+ * Reads: --text-base, --text-body, --text-hi, --text-meta, --text-risk-low, --text-risk-mid, --text-risk-high, --bg-plate, --line-plate-edge,
+ *   --line-focus; its own --commit-bolt-extreme (tokens.css, COMPONENT TOKENS); geometry, type and motion from the primitives. One colour read in
+ *   this block only, waiting for step 9 (tokens-audit.md, "Commit block"): --color-skull-off-plate, an unlit bolt on the plate.
+ * Carried from design/kit/kit.css part 4.3 (COMMIT BLOCK, lines 4276 to 4345) and the Figure's .fig--end (lines 2306 to 2308) at stage 08 step 5,
+ *   round 3, by the decisions of step 2 (D-260): rename map row 8, the priced act's label at its start on a phone is .button--priced's own (built
+ *   in round 1), so the block's rule and its --commit-act-pad-s are not carried; row 14, .fig--end leaves the Figure and the act aligns the
+ *   figure it holds (.commit__act > .fig below). The screen's own placing (.shell__main > .commit, kit.css part 4.4) stays in kit.css until
+ *   step 6. From design/v4/case-stage.css (.v4c-plate, row M) and case-page.css (.v4c-commit and its parts), D-232.
+ * Every pixel literal of kit.css that no primitive equals is a custom property of the block below, with its origin: the rules hold no px. */
+
+.commit {
+  --commit-col-gap: 20px; /* v4 case-stage.css: .v4c-plate @media (min-width: 900px) column-gap, the count, the act and the risk apart on the plate; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-act-w: 220px; /* v4 case-page.css: html body .v4c-go min-width, the open act never narrower; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-bolt: 28px; /* v4 case-stage.css: .v4c-plate .v4c-risk .v4-bolts i, a bolt on the plate, larger than the tile's 20; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-bolts-w: 128px; /* v4 case-stage.css: .v4c-plate .wf-risk.v4c-risk .v4-bolts width, the four bolts' row; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-bolts-h: 30px; /* v4 case-stage.css: .v4c-plate .wf-risk.v4c-risk height; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-rounds-w: 760px; /* v4 case-page.css: .v4c-rounds max-width, the round details of a batch; рішення користувача, D-209 (v4) carried by D-232 */
+  --commit-rounds-indent: 20px; /* v4 case-page.css: .v4c-rounds ol padding-left, the numbers of the round list; рішення користувача, D-209 (v4) carried by D-232 */
+}
+
+/* One anatomy by state: the plate (the count, the act, the risk) with the lines under it before the open; the net, the facts, the two acts, where
+   it is saved and the routes on after it (outcome, interrupted). Under 900px the stage runs edge to edge and the block keeps the content edge. */
+.commit { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: stretch; gap: var(--space-2-5); box-sizing: border-box; width: 100%; margin: var(--space-3-5) 0 0; padding: 0; color: var(--text-base); font-size: var(--size-text); line-height: 1.2; text-align: center; }
+.commit > :not(.commit__plate) { align-self: center; }
+.commit[data-state="outcome"], .commit[data-state="interrupted"] { gap: var(--space-3); padding: 0 var(--space-4); }
+@media (max-width: 899px) { .commit { width: auto; margin-inline: var(--space-4); } } /* v4 case-stage.css @media (max-width: 899px) .v4c-commit, .v4c-after */
+.commit__plate { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-3-5); border-radius: var(--radius-m); background: var(--bg-plate); box-shadow: var(--line-plate-edge); } /* v4 drew 18px corners, the ladder's 16, D-228 */
+@media (min-width: 900px) {
+  .commit__plate { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: var(--commit-col-gap); }
+  .commit__count { grid-column: 1; justify-self: start; }
+  .commit__act { grid-column: 2; }
+  .commit__risk { grid-column: 3; justify-self: end; } /* v4 asked 10px off the right in .v4c-plate > .v4c-risk and its margin: 0 won; the bolts stand on the padding */
+}
+@media (max-width: 599px) { .commit__plate { padding: var(--space-3); } }
+.commit__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* the act: the open, or for a guest Sign in with the price as a Figure beside it. The act sets the Figure's alignment (rename map row 14): to its
+   end beside the act from 900px, centred over it under 900px, at its start on a phone where the act takes the row, the value at 18px there */
+.commit__act { display: flex; align-items: center; gap: var(--space-4); }
+.commit__act > .fig { align-items: flex-end; text-align: right; }
+.commit__go { min-width: var(--commit-act-w); }
+@media (max-width: 899px) {
+  .commit__act { flex-direction: column; gap: var(--space-2); }
+  .commit__act > .fig { align-items: center; text-align: center; }
+}
+@media (max-width: 599px) {
+  .commit__act { flex-direction: row; width: 100%; gap: var(--space-3); }
+  .commit__act > .fig { align-items: flex-start; text-align: left; }
+  .commit__act > .fig .fig__v { font-size: var(--size-m); }
+  .commit__go { flex: 1 1 auto; min-width: 0; }
+}
+
+/* the risk, larger: four bolts of 28px lit in the band's colour, its word beside them; "Risk" for a screen reader. Data: the band */
+.commit__risk { --rc: var(--text-meta); display: flex; flex: none; align-items: center; gap: var(--space-2); height: var(--commit-bolts-h); }
+.commit__risk[data-risk="low"] { --rc: var(--text-risk-low); } .commit__risk[data-risk="medium"] { --rc: var(--text-risk-mid); }
+.commit__risk[data-risk="high"] { --rc: var(--text-risk-high); } .commit__risk[data-risk="extreme"] { --rc: var(--commit-bolt-extreme); }
+.commit__bolts { display: flex; flex: none; align-items: center; justify-content: center; gap: var(--space-1); width: var(--commit-bolts-w); height: var(--commit-bolts-h); font-size: var(--commit-bolt); }
+.commit__bolts > .icon { display: block; color: var(--color-skull-off-plate); vertical-align: 0; } /* a primitive read directly: in this block only, step 9 */
+.commit__bolts > .icon.is-on { color: var(--rc); }
+.commit__band { order: 2; color: var(--text-body); font-size: var(--size-xs); font-weight: 700; white-space: nowrap; }
+
+/* under the plate: the money line with the peg, D-28, the refusal when short (a Note line, placed at its start), the hash before the act */
+.commit__line { margin: 0; color: var(--text-body); font-size: var(--size-xs); line-height: 1.2; } /* no measure: v4 wraps it at 68ch through a page-wide p rule, and the Text link's .02em would push even the one-open line over it */
+.commit__line > .note--refuse { display: inline-block; text-align: left; }
+
+/* the outcome: the net of the open, a gain only (no figure for a loss or an even open), the round's facts, the two acts, where it is saved */
+.commit__net { align-items: center; gap: var(--space-hair); text-align: center; }
+.commit__inst, .commit__saved { max-width: var(--size-measure); margin: 0; color: var(--text-body); font-size: var(--size-xs); line-height: 1.2; }
+.commit__inst b { color: var(--text-hi); font-variant-numeric: tabular-nums; }
+.commit__saved strong { font-weight: 700; }
+.commit__acts { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2-5); }
+@media (max-width: 599px) { .commit__acts { flex-direction: column; width: 100%; } .commit__wide { width: 100%; } }
+.commit__links { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-1-5) var(--space-4-25); margin: 0; }
+.commit__rounds { max-width: var(--commit-rounds-w); color: var(--text-body); font-size: var(--size-xs); text-align: left; }
+.commit__rounds > summary { color: var(--text-hi); font-weight: 700; text-align: center; cursor: pointer; }
+.commit__rounds > summary:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.commit__rounds p { margin: var(--space-2) 0 var(--space-1); }
+.commit__rounds ol { margin: 0; padding-left: var(--commit-rounds-indent); }
+.commit__rounds li { margin: var(--space-thin) 0; }
+.commit__rounds b { color: var(--text-hi); }

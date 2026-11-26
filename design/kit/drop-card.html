@@ -124,7 +124,7 @@ node design/kit/tools/shoot-states.js http://localhost:8765/ drop-card --check  
   &lt;p class="kv kv--fact drop-card__ch"&gt;&lt;span class="kv__k"&gt;Chance&lt;/span&gt;&lt;span class="kv__v"&gt;0.640 %&lt;/span&gt;&lt;/p&gt;
   &lt;p class="kv kv--fact drop-card__t"&gt;&lt;span class="kv__k"&gt;Tickets&lt;/span&gt;&lt;span class="kv__v"&gt;1 to 640&lt;/span&gt;&lt;/p&gt;
 &lt;/article&gt;</pre>
-  <p>Stands on: <a href="../case.html">the case screen</a>, <a href="../deposit.html">Deposit</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map (rows 22, 23 and 28). In the product the card is a table row (<code>&lt;tr class="drop-card ..."&gt;</code>) inside the Data table; the Data table is an organism of round 3. The rare marks laid over a card by a script (<code>.drop-card .rare-mark</code>) stay in <code>kit.css</code> with <code>.rare-mark</code>.</p>
+  <p>Stands on: <a href="../case.html">the case screen</a>, <a href="../deposit.html">Deposit</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map (rows 22, 23 and 28). In the product the card is a table row (<code>&lt;tr class="drop-card ..."&gt;</code>) inside the Data table; the Data table is an organism of round 3. The rare mark laid over a card by a script is the <a href="rare-mark.html">Rare mark</a> atom; how the card shows it (only while the card is hovered or holds focus) and places it (<code>.drop-card .rare-mark</code> and the rest) is this file's, since round 3.</p>
 </section>
 <script>
 window.KIT_SHOTS = [

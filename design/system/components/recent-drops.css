@@ -1,0 +1,28 @@
+/* RECENT DROPS, level 3 (organism). The best drops of this case by value: a strip of cards that scrolls sideways and snaps, each card the link to
+ * its round; the section's head names the order and leads to what usually drops.
+ * Page: design/kit/recent-drops.html. Stands on the case screen (design/case*.html) and, as the case's block in their dialogs, Deposit
+ *   (design/deposit-dialog.html) and Sign in (design/signin-dialog.html).
+ * Holds (never redrawn here): Section head (level 2, .sec-head--upgrade, its onward Text link .link--arrow), Recent drop card (level 2, one in each
+ *   cell, wearing .fig--title on its value and .avatar--l on its winner since rename map rows 28 and 15). The strip's own: the scroller, the cells,
+ *   the room it gives back to the cards' lift and light, and its ring.
+ * Reads: --text-base, --line-focus; geometry and type from the primitives. No component token, no colour primitive.
+ * Carried from design/kit/kit.css part 4.3 (RECENT DROPS, lines 4888 to 4901) at stage 08 step 5, round 3, unchanged in look. kit.css writes no rule
+ *   from this block on a held component and no screen writes one on it. From design/v4/case-blocks.css Best drops D (.v4d-w7) and case-body.css. */
+
+/* its own geometry, read inside .recent-drops only */
+.recent-drops {
+  --recent-drops-col: 150px; /* v4 case-blocks.css: .v4d-w7 grid-auto-columns minmax(150px, 1fr), the narrowest card in the strip; рішення користувача, D-209 (v4) carried by D-232 */
+  --recent-drops-col-s: 140px; /* v4 case-blocks.css: @media (max-width: 599px) .v4d-w7 grid-auto-columns, a card on a phone, the next one cut by the edge; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.recent-drops { display: flow-root; min-width: 0; color: var(--text-base); font-size: var(--size-text); line-height: 1.2; }
+/* how it places the cards: one column per card, sideways, snapping to a card's start; the negative margin gives back the room the cards' lift
+   and light need, so they are not cut by the scroller */
+.recent-drops__strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(var(--recent-drops-col), 1fr); gap: var(--space-3); margin: calc(-1 * var(--space-1-5)) calc(-1 * var(--space-1)) calc(-1 * var(--space-3-5)); padding: var(--space-1-5) var(--space-1) var(--space-3-5);
+  list-style: none; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--space-1); scrollbar-width: none; }
+.recent-drops__strip::-webkit-scrollbar { display: none; }
+.recent-drops__cell { display: grid; min-width: 0; scroll-snap-align: start; } /* one cell per card; the card is its one grid item and fills it */
+@media (max-width: 599px) { .recent-drops__strip { grid-auto-columns: var(--recent-drops-col-s); gap: var(--space-2-5); } }
+
+/* STATES. The strip's ring on :focus-visible, where a browser hands a scroller the focus; its cards are links and Tab reaches them first, so on
+   the screens the ring a person sees is the card's (the Recent drop card's states). */
+.recent-drops__strip:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-m); }

@@ -1,0 +1,128 @@
+/* ACCOUNT HEAD, level 2 (molecule, since D-265 Q5: it holds atoms only once the Breadcrumb is one). Who this account is, over the account pages:
+ * the breadcrumb, the Steam picture, the name, the ID a person reads out to support and the Steam account the items go to (or the chip that says
+ * none is linked, D-150), the money pair with Add funds, and the four tabs, the current one not a link (D-58). On My items it takes its stage form
+ * (D-242): the band is the most valuable item's own, its skin breaking out over the band's top, its name huge behind it.
+ * Page: design/kit/account-head.html. Stands on My items (design/account.html, account-empty.html, account-degraded.html); the other account
+ *   pages are grey so far (wireframes/account*.html, history*.html, wf-ah).
+ * Holds (atoms, never redrawn here): Breadcrumb (.crumb), Avatar (.avatar--xl, rename map row 16), Text link (.link--quiet .link--hi in the
+ *   Steam chip, row 19), Figure (.fig--money / .fig--soft with .fig--title, row 28; .fig--missing in the no-Steam chip; .fig--money in the cap),
+ *   Button (.button--primary .button--m, Add funds), Badge (.badge .button__pin, its 5% pin), Tabs (.tabs--plate, row 27), Icon. The skin on the
+ *   stage is the head's own element, not a Media slot: it is a bare picture turned, masked by its own foil and breathing.
+ * Reads: --text-hi, --text-on-plate, --text-body, --text-money, --text-on-accent, --bg-veil, --bg-stripes, --bg-mode-cases-card, --bg-card,
+ *   --bg-rarity-4, --bg-rarity-5 (the default tier), --bg-foil, --line-lit-top, --line-edge, --line-soft, --line-focus, --depth-figure-text,
+ *   --depth-skin-prize; its own --account-head-contact-bg (tokens.css, COMPONENT TOKENS); the picture --art-footer-agents of art.css; geometry,
+ *   type and motion from the primitives. No colour primitive read directly. The tier is --item-tier, set on the band by items.js from the card
+ *   it reads (or by the page), from the rarity ladder --bg-rarity-1 to -7, as on the Item card.
+ * Carried from design/kit/kit.css part 4.3 (ACCOUNT HEAD, lines 3879 to 3960, with its three after-gate passes D-240, D-241, D-242; THE STAGE
+ *   FORM, D-242, lines 3962 to 4000) at stage 08 step 5, round 3, by the decisions of step 2 (D-260): row 16, the picture wears .avatar--xl where
+ *   it wore the old .avatar--l (64); row 19, the Steam chip's link wears .link--hi where .account-head__id .link turned the quiet link white;
+ *   row 27, the head's rules on its .tabs are the atom's .tabs--plate; row 28, the money pair's size is the Figure's .fig--title. Those old rules
+ *   stay in kit.css until step 6. The avatar's old .avatar--l (kit.css 2325 to 2331) is the Avatar's. Left in kit.css for step 6, a screen's rules
+ *   on this block: .shell__main > :is(.banner, .case-head, .commit, .account-head) and its :first-child (5812, 5813). The keyframes it names,
+ *   mode-card-float and outcome-foil, are declared once by the Mode card and the Outcome card. From design/v4/account-home.css (.am3-head,
+ *   .ac2-plate), theme.css (.wf-header::before) and design/v4/myitems-lab.html (B1). */
+
+/* Two forms: plain (the band in the Cases pink with the operators over its right end from 1200px; the account pages) and stage (--stage, My
+   items: the band in the best item's grade, its skin, its name behind it and the cap over it). Content: a Steam account linked (its name as a
+   quiet white link) or none (the chip is a link to Settings saying so). The skin's tier and picture are data, written by items.js. */
+/* its own geometry, read inside .account-head only */
+.account-head {
+  --account-head-pad: var(--space-4); /* the account menu's 12px padding stepped up a rung for a page band, as the header strip pads its row; 24px from 900px */
+  --account-head-avatar: 88px; /* the picture on the account's own band, D-240: the menu's 64 (.avatar--xl since D-260) a step up so it holds the band's height beside a 26px name; технічне рішення */
+  --account-head-art: 240px; /* the operators' width at the band's right from 1200px, D-240: at 3:2 they stand 160px, the band's height and the rise over it; технічне рішення */
+  --account-head-rise: var(--space-6); /* how far the operators stand over the band's top, into the breadcrumb's row, D-240 */
+  /* the stage form's, D-242: each the founder's pick B1 as drawn in design/v4/myitems-lab.html, read only under .account-head--stage */
+  --account-head-skin: 92%; /* the skin's box across its cell, D-242: B1 after the founder's "пушку надо будет меньше сделать" (the gun smaller), from 112%; 380px under 900px, 260px under 600px */
+  --account-head-lift: 72px; /* how far that box stands over the band's top, D-242: B1 after the founder's "отступ можно сделать меньше" (less room over it); 48px under 900px, 30px under 600px */
+  --account-head-tilt: -12deg; /* the skin's turn, D-242: B1, the Jetskins showcase's slant (D-241's -14 eased so a long rifle stays inside its cell) */
+  --account-head-short: .62; /* a pistol's skin against a rifle's, D-242: a pistol fills its picture as a rifle does, so it is drawn at this to stand the size a pistol is; B1's switch */
+  --account-head-hero: 240px; /* the skin's cell at its least, D-242: B1; 210px under 900px, 180px under 600px */
+  --account-head-word: 230px; /* the skin's name behind it, D-242: B1's display capitals, the cs2-promo's huge type behind its one skin; 120px under 900px */
+  --account-head-title: 56px; /* the account's name on the stage, D-242: B1's heavy italic capitals over the money plate; 34px under 1200px (B1's own under 900px), --size-head-l under 600px */
+  --account-head-agents: 300px; /* B1's 300px of operators standing on the band's foot where the skin stood, nothing readable held, D-242; 200px under 900px. Written in the rule's min() in kit.css, named here at step 5 so no px stands in a rule; same value */
+}
+/* the root's words are the page's (the breadcrumb's row); the band is a coloured plate, its words white in both themes; the stage band with
+   its skin is dark at the left under the name (--bg-card), so there the words are the theme's again */
+.account-head { position: relative; display: grid; color: var(--text-hi); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.account-head > .crumb { margin-bottom: var(--space-3); }
+.account-head__row { position: relative; isolation: isolate; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-5); padding: var(--account-head-pad); border-radius: var(--radius-l) var(--radius-l) 0 0; background: var(--bg-stripes), var(--bg-mode-cases-card); box-shadow: var(--line-lit-top); color: var(--text-on-plate); }
+.account-head__row:last-child { border-radius: var(--radius-l); }
+.account-head__who { display: flex; align-items: center; gap: var(--space-4); min-width: 0; }
+.account-head__names { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-width: 0; }
+.account-head__name { flex-basis: 100%; margin: 0 0 var(--space-1); overflow: hidden; font-size: var(--size-head-l); font-weight: 900; line-height: 1.1; text-overflow: ellipsis; text-shadow: var(--depth-figure-text); white-space: nowrap; }
+/* the chips: the ID and the Steam account on a dark plate over the art (light: the paper veil, its words the theme's) */
+.account-head__id { display: inline-flex; align-items: center; gap: var(--space-1-5); max-width: 100%; box-sizing: border-box; min-height: var(--size-button-s); margin: 0; padding: 0 var(--space-2-5); overflow: hidden; border-radius: var(--radius-s); background: var(--bg-veil); color: var(--text-body); font-size: var(--size-chip); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); white-space: nowrap; }
+.account-head__id > .icon { flex: none; color: var(--text-hi); font-size: var(--size-text); }
+.account-head__steam { width: fit-content; color: inherit; text-decoration: none; } /* with no Steam account linked, the chip is the missing figure, still the way to Settings */
+.account-head__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* the screen's H1 for a screen reader where the head is the screen's own head, My items (wireframes/account.html h1.wf-vh), D-239 */
+/* the money plate: the header's (.header__money) at the band's scale, the pair and Add funds on one dark plate, so the pink act stands on dark,
+   not on the band's pink */
+.account-head__money { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); margin-left: auto; padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4); border-radius: var(--radius-card); background: var(--bg-veil); box-shadow: var(--line-edge); }
+.account-head__figs { display: flex; gap: var(--space-4); }
+.account-head__figs > .fig { justify-content: center; gap: var(--space-1-5); min-width: 0; }
+.account-head__figs > .fig + .fig { padding-left: var(--space-4); border-left: var(--size-hairline) solid var(--line-soft); }
+/* the pair's tone and caption are the head's placing: the value held is white at the balance's size (.fig--title), not the soft small figure,
+   the balance lit in the coin's gold as .pay-panel__offer-v, the captions in small spaced capitals */
+.account-head__figs .fig__v { color: var(--text-hi); }
+.account-head__figs .fig--money .fig__v { color: var(--text-money); text-shadow: 0 0 var(--space-5) color-mix(in srgb, var(--text-money) 55%, transparent), var(--depth-figure-text); }
+.account-head__figs .fig__c { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.account-head__add { align-self: center; }
+
+/* STATES. The head's own control is the no-Steam chip, a link to Settings: underlined under the pointer, the system's ring on :focus-visible.
+   Every other control in it (the breadcrumb, the Steam link, Add funds, the tabs) keeps its atom's own states. */
+@media (hover: hover) { .account-head__steam:hover { text-decoration: underline; text-underline-offset: var(--space-thin); } }
+.account-head__steam:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+
+@media (min-width: 600px) { .account-head__who > .avatar { width: var(--account-head-avatar); height: var(--account-head-avatar); } }
+@media (min-width: 900px) { .account-head { --account-head-pad: var(--space-5); } }
+@media (min-width: 1200px) {
+  .account-head__row { padding-right: calc(var(--account-head-art) + var(--space-4)); }
+  .account-head__row::after { content: ''; position: absolute; z-index: -1; right: var(--space-3); bottom: 0; width: var(--account-head-art); height: calc(100% + var(--account-head-rise)); background: var(--art-footer-agents) center bottom / contain no-repeat; pointer-events: none; }
+}
+@media (max-width: 599px) {
+  .account-head__name { font-size: var(--size-title); }
+  .account-head__money { width: 100%; margin-left: 0; }
+  .account-head__figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); flex-basis: 100%; }
+  .account-head__money { padding: var(--space-3); }
+  .account-head__add { flex-basis: 100%; }
+}
+
+/* THE STAGE FORM, D-242: on My items, the founder's pick B1 (design/v4/myitems-lab.html, round 2) */
+.account-head--stage .account-head__who > .avatar { width: var(--avatar-xl); height: var(--avatar-xl); } /* B1 keeps the menu's 64 (.avatar--xl) beside the chips, the name below them */
+.account-head--stage > .account-head__row { --item-tier: var(--bg-rarity-5); display: grid; grid-template: "who show" 1fr "money show" auto / minmax(0, 1fr) minmax(0, 1.1fr); align-items: end; gap: var(--space-3) 0; padding: var(--space-5) var(--space-6) var(--space-6); background: var(--bg-stripes), linear-gradient(100deg, var(--bg-card) 25%, color-mix(in srgb, var(--item-tier) 70%, var(--bg-card)) 70%, color-mix(in srgb, var(--item-tier) 45%, var(--bg-rarity-4))); transition: background .4s; } /* dark at the left under the name, the best item's grade at the right under it; the grade's change after a sale eases */
+.account-head--stage > .account-head__row:has(> .account-head__show:not([hidden])) { color: var(--text-hi); } /* the name stands on the card's own dark (--bg-card), not on a plate */
+.account-head--stage > .account-head__row::after { content: none; }
+.account-head--stage .account-head__who { grid-area: who; position: relative; z-index: 2; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-3); }
+.account-head--stage .account-head__name { grid-column: 1 / -1; margin: 0; overflow: visible; font-size: var(--account-head-title); font-style: italic; letter-spacing: var(--tracking-score); line-height: .95; text-transform: uppercase; white-space: normal; overflow-wrap: anywhere; }
+.account-head--stage .account-head__money { grid-area: money; position: relative; z-index: 2; width: fit-content; max-width: 100%; box-sizing: border-box; margin: var(--space-2) 0 0; }
+.account-head__word { position: absolute; z-index: -1; inset: 0; display: flex; align-items: flex-end; justify-content: flex-end; overflow: hidden; padding-right: var(--space-5); border-radius: inherit; color: color-mix(in srgb, var(--text-on-accent) 38%, transparent); font-size: var(--account-head-word); font-style: italic; font-weight: 900; letter-spacing: var(--tracking-score); line-height: .76; text-transform: uppercase; white-space: nowrap; pointer-events: none; } /* .76: the capitals sit on the band's foot, cut by it as the cs2-promo's type is; dark ink on the grade, as on a gold or pink plate */
+.account-head__show { grid-area: show; position: relative; z-index: 1; align-self: stretch; min-height: var(--account-head-hero); margin: 0; }
+.account-head__show[hidden] { display: none; }
+.account-head__show::before { content: ''; position: absolute; left: 12%; right: 6%; bottom: var(--space-4); height: var(--space-5); border-radius: 50%; background: color-mix(in srgb, var(--account-head-contact-bg) 55%, transparent); filter: blur(var(--space-2)); } /* the contact shadow under the skin: no plinth */
+.account-head__skin { position: absolute; z-index: 1; left: 6%; top: calc(-1 * var(--account-head-lift)); width: var(--account-head-skin); aspect-ratio: 4 / 3; transform-origin: 60% 55%; animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; pointer-events: none; } /* breathing as the mode objects breathe; placed by left, since the float animates translate */
+.account-head__skin.is-short { scale: var(--account-head-short); } /* set by items.js on a pistol */
+.account-head__skin > img { display: block; width: 100%; height: 100%; object-fit: contain; rotate: var(--account-head-tilt); filter: var(--depth-skin-prize); }
+.account-head__foil { position: absolute; inset: 0; overflow: hidden; rotate: var(--account-head-tilt); -webkit-mask: var(--skin) center / contain no-repeat; mask: var(--skin) center / contain no-repeat; }
+.account-head__foil::after { content: ''; position: absolute; inset: -30%; opacity: 0; background: linear-gradient(115deg, transparent 42%, var(--bg-foil) 49%, color-mix(in srgb, var(--item-tier) 55%, var(--text-hi)) 51%, transparent 58%); animation: outcome-foil 4.2s ease-in-out 1s infinite; } /* the outcome card's foil (.outcome__card::after), on the skin's own shape and again every 4.2s */
+.account-head__cap { position: absolute; z-index: 3; right: 0; bottom: 0; display: flex; align-items: center; gap: var(--space-2); padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--bg-veil); box-shadow: var(--line-edge); color: var(--text-hi); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; } /* over the skin, never under it: the founder, "что бы цена была сверху" (the price on top) */
+.account-head__k { color: var(--text-body); font-size: var(--size-unit); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.account-head__cap .fig__v { font-size: var(--size-chip); } /* the cap's price at the chip's 12px, under the Figure's smallest step (13) */
+/* nothing readable held: the Cases pink again, the operators where the skin stood */
+.account-head--stage > .account-head__row:not(:has(> .account-head__show:not([hidden]))) { background: var(--bg-stripes), var(--bg-mode-cases-card); }
+.account-head--stage > .account-head__row:not(:has(> .account-head__show:not([hidden]))) > .account-head__word { display: none; }
+.account-head--stage > .account-head__row:not(:has(> .account-head__show:not([hidden])))::after { content: ''; grid-area: show; align-self: stretch; min-height: var(--account-head-hero); margin-bottom: calc(-1 * var(--space-6)); background: var(--art-footer-agents) right bottom / min(var(--account-head-agents), 100%) auto no-repeat; pointer-events: none; } /* B1's 300px of operators, standing on the band's foot */
+@media (max-width: 1199px) { .account-head--stage { --account-head-title: 34px; } } /* under 1200px the name's column is too narrow for 56px capitals: NIGHTJAR_CS broke in two at 1024 */
+@media (max-width: 899px) {
+  .account-head--stage { --account-head-skin: 380px; --account-head-lift: 48px; --account-head-hero: 210px; --account-head-word: 120px; --account-head-agents: 200px; }
+  .account-head--stage > .account-head__row { grid-template: "show" auto "who" auto "money" auto / minmax(0, 1fr); padding: 0 var(--account-head-pad) var(--account-head-pad); }
+  .account-head--stage .account-head__show { align-self: auto; }
+  .account-head__skin { left: calc(50% - var(--account-head-skin) / 2); }
+  .account-head__word { align-items: flex-start; padding-top: var(--space-6); }
+  .account-head--stage > .account-head__row:not(:has(> .account-head__show:not([hidden])))::after { align-self: auto; margin-bottom: 0; }
+}
+@media (max-width: 599px) {
+  .account-head--stage { --account-head-skin: 260px; --account-head-lift: 30px; --account-head-hero: 180px; --account-head-title: var(--size-head-l); }
+  .account-head--stage .account-head__money { width: auto; } /* the plate takes the band's width on a phone, as the plain form's does */
+  .account-head__cap { left: 0; right: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .account-head__skin, .account-head__foil::after { animation: none; } }

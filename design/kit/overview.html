@@ -12,7 +12,7 @@
 <!-- the stand: the project's panel palette, then the stand's own styles -->
 <link rel="stylesheet" href="../../_nav.css">
 <link rel="stylesheet" href="_page.css">
-<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'inventory', label: 'Inventory' }, { id: 'review2', label: 'Round 2, the molecules' }, { id: 'review', label: 'Round 1, the atoms' }, { id: 'stands', label: 'Where it stands' }];</script>
+<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'inventory', label: 'Inventory' }, { id: 'review3', label: 'Round 3a, for review' }, { id: 'review2', label: 'Round 2, the molecules' }, { id: 'review', label: 'Round 1, the atoms' }, { id: 'stands', label: 'Where it stands' }];</script>
 <script src="_nav.js"></script>
 </head>
 <body class="kt">
@@ -30,7 +30,7 @@
     <div class="kt-tile"><b>Semantic roles</b><span class="v" data-c="roles"></span></div>
     <div class="kt-tile"><b>Roles that change in the light theme</b><span class="v" data-c="light"></span></div>
     <div class="kt-tile"><b>Pictures in art.css</b><span class="v" data-c="art"></span></div>
-    <div class="kt-tile"><b>Components</b><span class="v">71 on paper (inventory.md, D-260); their pages arrive from step 5</span></div>
+    <div class="kt-tile"><b>Components</b><span class="v">72 on paper (inventory.md, D-265); 66 built, 5 in round 3b, the File picker in the backlog</span></div>
   </div>
 </section>
 
@@ -44,6 +44,71 @@
   <h2>Inventory</h2>
   <p>Every component built so far, read from the stand's registry: its level, its file in the system, its states and where it stands. The level comes from <code>design/kit/inventory.md</code>; a component without a row here does not exist yet.</p>
   <div class="kt-tbl"><table style="min-width:760px"><thead><tr><th>Component</th><th class="n">Level</th><th>Group</th><th>File</th><th>States</th><th>Stands on</th></tr></thead><tbody id="kit-inventory"></tbody></table></div>
+</section>
+
+<section class="kt-sec" id="review3">
+  <h2>For your review, round 3a: the Rare mark, the Field, the Account head and 18 organisms</h2>
+  <p>21 components are built, each in one pass: its file in <code>design/system/components/</code>, its page with the five blocks, its states in both themes, its record in this panel and in <code>design/kit/inventory.md</code>, its <code>@import</code> in the group of its level. First what D-265 brought down a level: the Rare mark, an atom, and the Field and the Account head, molecules. Then the 18 organisms that hold no organism: the shell (Header, Rail, Bottom bar, Footer), the shelves and strips (Case grid, Item grid, Mode row, Recent drops, Ticker), the case and its proof (Case stage, Commit block, Data table, How this case works, Proof fields) and the forms and notices (Deposit dock, Limits panel, Verify form, Status notice). An organism places what it holds and never redraws it. Walk them in the panel on the left under Organisms. Round 3b, the five organisms that hold another (Proof block, Case head, Sign-in block, Payment panel, Dialog), waits until these questions are answered.</p>
+  <h3>What was checked</h3>
+  <ul class="kt-list">
+    <li><b>Same look.</b> Each component was drawn twice, the screens' markup on <code>kit.css</code> and the system's on <code>index.css</code>, in four states at 1440 and 360, and its computed style compared. 9 of 21 show no difference. The rest show only differences a decision names: the tile edge at .07 (row 30, D-260), the hover and press the Tabs and the Segmented control gained in round 1, the refusal ring in <code>--color-error</code> (row 29), the large link's tracking (row 20), the market link's underline (row 22), and a white written two ways. Rows 5, 6, 8, 13, 14, 16, 19, 25, 27 and 28 of the rename map draw exactly what the old rules drew.</li>
+    <li><b>The pages.</b> All 73 pages of the stand at 1440 and 360 in both themes: no error, no failed request, no sideways scroll, the panel marking each page.</li>
+    <li><b>The snapshots.</b> 62 new images for the 9 components that have states of their own, and two stills of the Rare mark under reduced motion. The rest have no state of their own: what can be pointed at in them is a component they hold, or a state a script sets, shown on the page as the attribute it writes.</li>
+    <li><b>No literal.</b> No hex and no rgb() in any new file; a pixel value stands only in a block's own custom property with its origin, in a breakpoint, or in a carried keyframe.</li>
+    <li><b>Fixed carriers on the stand.</b> The Header, the Rail and the Bottom bar are fixed to the window on the screens; their pages show them live inside a frame that holds them.</li>
+  </ul>
+  <h3>Found and fixed on the way</h3>
+  <ul class="kt-list">
+    <li><b>The Rare mark's placing moved into its hosts.</b> Round 2 had left it in <code>kit.css</code>; the Feed tile and the Drop card now carry where they put the mark, and their comparison did not grow.</li>
+    <li><b>The table's cell reset wiped the Drop card's facts</b> once it loaded after the atoms; it weighs nothing now. The Proof fields' row rule had laid out what they hold as a grid; it now reaches only its own rows.</li>
+    <li><b>One keyframe named by two blocks</b>, the live drops' pulse, which the Steam state names too: declared once, at the end of <code>ticker.css</code>.</li>
+  </ul>
+  <h3>Q1. Twelve component tokens, or six roles and six tokens</h3>
+  <p>Since D-264 a job two blocks repeat is a role. Recommended: make the six roles below, each in both themes, and keep the six tokens that stand in one block. One value moves, in the last row.</p>
+  <div class="kt-tbl"><table style="min-width:900px"><thead><tr><th>Role</th><th>Instead of</th><th>Where it paints</th><th>Why</th></tr></thead><tbody>
+    <tr><td><code>--bg-toggle-hover</code> (state)</td><td><code>--header-menu-bg-hover</code>, <code>--rail-toggle-bg-hover</code></td><td>the burger tile under the pointer, on the header's strip and on the rail's toggle</td><td>one job in two blocks, one value in each theme</td></tr>
+    <tr><td><code>--text-fail</code>, <code>--bg-fail-wash</code></td><td>the primitives <code>--color-fail</code>, <code>--color-fail-wash</code></td><td>a failure's words and its wash: the Account menu's Not copied, the Status notice's failed mark</td><td>the second reader is built, as round 2 said it would decide</td></tr>
+    <tr><td><code>--text-risk-extreme</code></td><td><code>--commit-bolt-extreme</code> and the primitive the Case tile reads</td><td>the fourth risk band's lit bolt, on a case tile and on the commit plate</td><td>the three other bands are already roles</td></tr>
+    <tr><td><code>--bg-error-wash</code></td><td><code>--data-table-row-bg-mismatch</code> and the primitive the Account menu reads</td><td>the refusal red's wash: Sign out under the pointer, a ledger row that does not check out</td><td>two blocks</td></tr>
+    <tr><td><code>--line-edge-lit-on-plate</code></td><td><code>--money-strip-hash-edge</code>, <code>--proof-fields-well-edge</code></td><td>the lit edge of a dark well on a plate that keeps its colour</td><td>one job in two blocks, the same value</td></tr>
+    <tr><td><code>--line-error</code> (exists)</td><td><code>--data-table-line-mismatch</code></td><td>the edge of a ledger row that does not check out</td><td>the same job as a refusal's ring; the red moves from <code>--color-down</code> to <code>--color-error</code>, as row 29 moved the fields' ring</td></tr>
+  </tbody></table></div>
+  <p>The six tokens kept, one block each: <code>--rail-foot-line</code>, <code>--rail-drawer-depth-open</code>, <code>--account-head-contact-bg</code>, <code>--footer-pay-bg-hover</code> (white .08, a step over <code>--bg-wash</code>; merging it is drift for step 9), <code>--data-table-row-edge</code>, <code>--proof-fields-key</code>.</p>
+  <h3>Q2. Two defects the build found on the screens</h3>
+  <p>Both are on the case screen today and were carried as they are, so nothing moved. Recommended: fix both in the Drop card's file with this round's answer, each named in the comparison.</p>
+  <ul class="kt-list">
+    <li><b>Mark A draws nothing on a Drop card or a run card.</b> Its light reads the host's <code>--rarity</code>, which only the Feed tile sets; the other hosts set <code>--tier</code>. Measured on <code>design/case.html</code>: every ring layer on a run card has no picture. The fix is one line in each host, <code>--rarity: var(--tier)</code>, and the arc you chose at D-214 appears where it was meant to.</li>
+    <li><b>A Drop card with mark C loses its ground under the pointer.</b> The card lends its ground to a layer that is already its 3px chance line, so under the pointer only that line is drawn. The fix lets the card keep its ground under the pointer, with the flame still behind it.</li>
+  </ul>
+  <h3>Q3. The light theme: what stays dark</h3>
+  <p>Several organisms stand on a ground that has no light pair, so in the light theme they read badly: the Footer's two bands (its captions and legal lines go dark on dark, the payment marks vanish), the Bottom bar, the Case stage's band beside its run cards that turn to paper, the white Logo on the Header's light strip, the closed Rail's foot chips, the Steam name on the Account head's chip, the Proof fields' values form, the Commit block's unlit bolt. Recommended: the shell's dark plates (the Footer's block, the Bottom bar, the Ticker's chip) and the Case stage's band stay dark in both themes, as plates, and read the on-plate roles; every other reading goes to step 7, the light theme's stress test, with these listed. Before round 3b, the Key-value line and the Copyable value get an on-plate form, so the Proof block's values read on its dark well.</p>
+  <h3>Q4. Small things kit.css draws against a rule</h3>
+  <p>Each is built as drawn. Recommended answer in each line.</p>
+  <ul class="kt-list">
+    <li><b>The Deposit dock's terms row</b> is meant at 12px words but loses to the Field's row, so every Deposit state draws 14px in a 48px row. Keep 14px as you have seen it; the dead half goes at step 6.</li>
+    <li><b>The dock's bonus coin</b> stands 6px from its figure, the sum's 8px, both at 26px. D-265 sets the gap by size: 8px for both.</li>
+    <li><b>"Not available" on a blind item card</b> is 700 weight in <code>kit.css</code>; row 28's title size gives 900. Keep 700: the missing tone keeps its weight at any size, one rule in the Figure.</li>
+    <li><b>The Footer's counters, plates and payment cards rise 2 to 4px</b> under the pointer. Keep, as motion, as D-265 Q4 kept the cards' lift.</li>
+    <li><b>A not launched rail row turns bold</b> under the pointer. Keep: the row's width is fixed, nothing beside it moves.</li>
+    <li><b>A rail row's focus ring is blue</b>, drawn inside its edge, where the system's ring is <code>--line-focus</code>. Keep blue until step 9, which reads every focus ring in both themes.</li>
+  </ul>
+  <h3>Q5. Two rules nothing wears</h3>
+  <p>Recommended: delete both at step 6 with the reconcile's third list. The Verify form's green tick before "Recomputed: matches" is worn by no state, and Provably fair (0.14) says no verified mark is ever drawn. The Ticker's play mark on a pressed pause is dead since D-254, when the script stopped setting <code>aria-pressed</code>; the paused strip already says Resume.</p>
+  <h3>Q6. What three organisms hold, and one form too wide for a phone</h3>
+  <p>The Contains column was read from the grey; the coloured markup differs in three rows. Recommended: correct them, no level moves (the Footer is shell, level 3 by rule). The Account head's plain form, worn by no coloured screen yet, is 369px wide with a Steam account and 432px without one, on a 328px phone column: recommended, a row in <code>design/kit/docs/backlog.md</code> at step 6, fixed when the account pages get colour.</p>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Organism</th><th>Inventory says</th><th>The coloured screens wear</th></tr></thead><tbody>
+    <tr><td><b>Footer</b></td><td>Figure, Disclosure, Logo, Text link, Popover menu</td><td>Figure, Logo, Button, Icon, Popover menu (its links are its own)</td></tr>
+    <tr><td><b>How this case works</b></td><td>Section head, Prose, Icon</td><td>Section head, Icon (its prose is its own type, 16px at 1.5)</td></tr>
+    <tr><td><b>Data table</b></td><td>Drop card, Figure, Text link, Badge</td><td>Drop card, Figure, Text link</td></tr>
+  </tbody></table></div>
+  <h3>Decided in the build, say if not</h3>
+  <ul class="kt-list">
+    <li>A lit rail row's words, the Footer's plates and the Bottom bar read the on-plate inks, so in the light theme their words stay white on their coloured plates; the dark theme is unchanged.</li>
+    <li>Two colours of the Case stage that the load never showed, the flash and the wave a press adds (<code>--gradient-stage-bam</code>, <code>--shadow-stage-wave</code>), join the list of colours read in one block, as the Feed tile's rare lights did at D-265.</li>
+    <li>Rules the screens write on these organisms (the page layout <code>.shell</code>, <code>.shell__main &gt; ...</code>, the Responsible play and Provably fair sections) stay in <code>kit.css</code> and move into <code>design/system/screens/</code> at step 6; each page lists them.</li>
+    <li>The Header's burger exists under 900px only, where the snapshot tool does not shoot; its states are shown on the page at 360 and named, not shot.</li>
+    <li>At step 8, the scripts that move into the system keep two things the build found: <code>motion.js</code> finds the ruler as <code>.case-how__ruler</code>, and <code>items.js</code> keeps rewriting a skin's address, which a stylesheet in <code>design/system/components/</code> would resolve elsewhere.</li>
+  </ul>
 </section>
 
 <section class="kt-sec" id="review2">
@@ -109,7 +174,7 @@
   <ul class="kt-list">
     <li><b>Step 3, done</b> (<code>D-261</code>): <code>tokens.css</code> in two levels with a light pair for every role, <code>base.css</code>, <code>art.css</code>. Nothing in the product links them yet.</li>
     <li><b>Step 4, done</b> (<code>D-262</code>): these foundation pages and the founder's first review on screen, its answers in <code>design/kit/docs/tokens-audit.md</code>, "Review of the foundations".</li>
-    <li><b>Step 5, now</b>: the components in rounds, atoms, then molecules, then organisms; each with its file, its states in both themes and its page, added to this panel in the group of its level. Round 0, the Button, is the reference (D-263); round 1, the other 21 atoms, is accepted (D-264); round 2, the 23 molecules, is accepted (D-265), three of them atoms since; round 3, the Rare mark, the Field and the Account head, then the organisms, is next.</li>
+    <li><b>Step 5, now</b>: the components in rounds, atoms, then molecules, then organisms; each with its file, its states in both themes and its page, added to this panel in the group of its level. Round 0, the Button, is the reference (D-263); round 1, the other 21 atoms, is accepted (D-264); round 2, the 23 molecules, is accepted (D-265), three of them atoms since; round 3a, the Rare mark, the Field, the Account head and the 18 organisms that hold no organism, is built for review; round 3b, the five organisms that hold one, follows its answers.</li>
     <li><b>Kept as it was</b>: <a href="kit.html">kit.html</a>, the showcase of stage 07, frozen, on <code>kit.css</code> until step 8 moves the screens onto the system.</li>
   </ul>
 </section>

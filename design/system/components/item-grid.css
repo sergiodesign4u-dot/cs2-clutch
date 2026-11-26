@@ -1,0 +1,27 @@
+/* ITEM GRID, level 3 (organism). A shelf of item cards: My items with its title and the sort keys, a public profile with its title alone. From
+ * 600px as many cards to a row as fit at the drop card's own width; on a phone one card to a row (the founder's pick of D-232 over the grey's two).
+ * Page: design/kit/item-grid.html. Stands on My items (design/account.html, account-empty.html, account-degraded.html); the public profile is grey
+ *   so far (wireframes/player.html).
+ * Holds (never redrawn here): Item card (level 2, one in each cell), Segmented control (.seg--s, the sort keys, level 1); on My items' other
+ *   states the Empty state (level 2, nothing held) and a Note line (.note--soft .note--label, values that cannot be read) stand in it in place of
+ *   or over the list. The grid's own: the bar with its title and the sort's label, the list and how it places its cards.
+ * Reads: --text-hi (the title), --text-body (the sort's label); geometry and type from the primitives. No component token, no colour primitive.
+ * Carried from design/kit/kit.css part 4.3 (ITEM GRID, lines 4617 to 4634) at stage 08 step 5, round 3, unchanged in look. The sort's small
+ *   form (.seg--s, kit.css 2438 to 2441, "modifier needed by .item-grid", D-243) is the Segmented control's. Left in kit.css for step 6, a
+ *   screen's rule beside this block: .shell__main > :is(.item-grid, .empty) + .note (5807). The order of the cards and the sort's pressed key are
+ *   set by items.js (aria-pressed, data-dir, the list's order). From design/v4/case-body.css row F and wireframes/_wf.css .wf-grid--inv. */
+
+/* its own geometry, read inside .item-grid only */
+.item-grid {
+  --igrid-min: 176px; /* v4 case-body.css .wf-drops[data-v="f"]: the drop card's smallest width on the grid */
+}
+.item-grid { display: grid; gap: var(--space-4); min-width: 0; }
+.item-grid__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-4); }
+.item-grid__h { margin: 0; color: var(--text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.item-grid__sort { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+.item-grid__l { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; } /* the bar's label, as the category bar's */
+/* how it places the cards: one to a row on a phone, wireframes/_wf.css .wf-grid--inv, 8px apart (case-body.css row F on a phone); a card fills its
+   row's height, so a row of cards ends on one line whatever its facts wrap to (D-239) */
+.item-grid__list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+.item-grid__list > li { display: grid; }
+@media (min-width: 600px) { .item-grid__list { grid-template-columns: repeat(auto-fill, minmax(var(--igrid-min), 1fr)); gap: var(--space-3); } }

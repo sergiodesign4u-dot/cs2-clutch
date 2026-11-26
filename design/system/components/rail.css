@@ -1,0 +1,190 @@
+/* RAIL, level 3 (organism). The full height left carrier, CLAUDE.md "Baseline": the logo, the destinations and its own toggle on the seam.
+ * Page: design/kit/rail.html. Stands on every coloured screen: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
+ * Responsible play, Sign in, 51 of 51 states (design/kit/inventory.md, Rail). Cases is the one live row; the eight not launched are grey
+ * under one heading and say so in each row for a screen reader (D-197, the carrier kept and only the dead items deferred, D-40).
+ * Holds: Logo (S, the link home), Icon (each row's mark, the sound's glyph, the social marks), Button (the sound's icon tile), Popover menu
+ *   (the language, --lang --fit). It never redraws them; its file carries the panel, the rows, the heading, the foot, the toggle, the scrim
+ *   and how it places what it holds: the logo on the header strip from 900px and at the drawer's top under it, the sound tile across its
+ *   cell (rename map row 13, the Button's --fill moved here), the language's cell as the size container --fit reads, the social marks at .8,
+ *   the stories its own controls play (the speaker, the flag, the burger lines; their keyframes are the Icon's).
+ * States: open beside the page, .is-closed (from 900px), .is-overlay (open over the page with the page dimmed, a product column of 1440 or
+ *   less), .is-open (the drawer under 900px), each set by design/kit/kit.js on the toggle and the header's burger; the current row carries
+ *   aria-current="page". Hover and focus-visible are this file's.
+ * Inputs the page may set: --rail-logo-x, where the logo stands on the header strip, by default the middle of the nearest container or the
+ *   window; --rail-page-x, the product column's left edge, where the overlay opens (the page layout sets both, .shell in kit.css).
+ * Reads: --text-base, --text-hi, --text-on-plate (a row's words and mark on its lit card, the chips' words), --text-meta, --bg-stripes,
+ *   --bg-mode-cases, --bg-mode-battles, --bg-mode-showdowns, --bg-case-gold, --bg-track, --bg-panel, --depth-shell, --bg-toggle,
+ *   --bg-burger-bars, --bg-mark (the burger's lines drawn white under the pointer), --bg-scrim, --line-edge, --line-focus; its own
+ *   --rail-toggle-bg-hover, --rail-foot-line and --rail-drawer-depth-open (tokens.css, COMPONENT TOKENS); geometry, type and motion from the
+ *   primitives; the pictures --art-case-coldfront, --art-mode-battles-crossed, --art-mode-showdowns, --art-mode-upgrade of art.css.
+ *   Read directly and waiting for step 9: --gradient-rail-giveaways, --shadow-rail-peek, --shadow-rail-chip, --color-rail-chip-sub,
+ *   --color-rail-tile-chip, --shadow-rail-drawer, read in this block only; --color-blue (a row's focus ring, kit.css's own look) and
+ *   --color-ticker (mixed into the social marks), two of the six with one reader per surface (tokens-audit.md, "What the semantic level does
+ *   not take yet").
+ * Carried from design/kit/kit.css part 4.3 (RAIL, lines 4725 to 4887) and part 4.1 (.button--fill, lines 2084 to 2085) at stage 08 step 5,
+ *   round 3, D-232, D-235. Rename map row 13: the sound tile's width is set by its cell (.rail__amb-i > .button), the markup no longer wears
+ *   .button--fill. Merged drift row 30: the sound and language chips' edge, --shadow-tile-edge at .05 in kit.css, is --line-edge at .07.
+ *   Part 3's .wf-rail rules and the D-19x passes are worn by no coloured state (the grey's classes) and stay in kit.css; so does the page
+ *   layout (.shell, .shell > .rail, .shell.is-wide) for step 6. */
+
+/* its own geometry, read inside .rail only */
+.rail {
+  --rail-w-closed: calc(var(--size-rail-collapsed) - var(--rail-edge)); /* v4 kit.css part 2 .is-rail-collapsed .wf-screen-body: the closed column, 70px, less the rail's 12px off the window */
+  --rail-edge: var(--space-3); /* v4 theme.css .wf-rail: margin 0 0 0 12px, the panel 12px off the window's edge */
+  --rail-panel-top: calc(var(--size-header) + var(--space-2)); /* v4 theme.css .wf-rail::before: inset 72px 0 8px, the panel starts under the header strip */
+  --rail-strip-mid: calc(var(--rail-panel-top) / 2); /* v4 theme.css .wf-rail-logo top 36px and .wf-rail-toggle top 15px: the header strip's middle, 8px down and 56px tall */
+  --rail-row: 48px; /* v4 rail-b1.css .wf-rail-item: min-height 48px, a row */
+  --rail-row-min: 34px; /* v4 rail-b1.css: a row gives up height down to 34px before the foot leaves a short window */
+  --rail-rest: 274px; /* the same: everything in the open rail that is not a row */
+  --rail-row-min-short: 30px; /* v4 rail-b1.css @media (max-height: 600px): a row's floor in a window under 600px tall */
+  --rail-rest-short: 240px; /* the same: what is not a row once the heading has gone */
+  --rail-row-start: 20px; /* v4 rail-b1.css .wf-rail-item: padding 0 16px 0 20px, the marks' left edge */
+  --rail-sec: 28px; /* v4 rail-b1.css .v4-rail-sec: min-height 28px, the "Not launched yet" heading */
+  --rail-peek: 56px; /* v4 rail-b1.css .wf-rail-item::after: a mode's object rising out of its card */
+  --rail-peek-right: 18px; /* the same, from the row's right */
+  --rail-peek-cases: 72px; /* v4 rail-b1.css :has([data-icon="box"])::after: this week's case on the Cases row, founder of 3 Nov 2026 */
+  --rail-chip-w: 150px; /* v4 rail-b1.css closed .wf-rail-lbl: min-width 150px, a row's name as a chip beside the closed panel */
+  --rail-chip-room: 72px; /* the same, padding-right 72px where a mode's object stands in the chip */
+  --rail-chip-peek: 58px; /* the same ::before: the object in the chip */
+  --rail-chip-peek-cases: 76px; /* the same, the case on the Cases chip */
+  --rail-chip-sub: 10px; /* v4 rail-b1.css closed .wf-rail-lbl[data-chip]::after: "Not launched yet" under a chip's name */
+  --rail-tile-chip-gap: var(--space-3); /* v4 rail-b1.css: the sound and language chips start 12px from their tile, 4px off the panel's edge */
+  --rail-social: 18px; /* v4 rail-b1.css .wf-rail-soc-row .wf-rail-ico: the social marks */
+  --rail-social-start: 20px; /* v4 rail-b1.css .wf-rail-soc-h and -row: the social heading and row on the marks' left edge */
+  --rail-social-end: 18px; /* the same, the row's right */
+  --rail-drawer-w: 280px; /* v4 kit.css part 2 @media (max-width: 899px) .wf-rail: the drawer's width */
+  --rail-drawer-max: 86vw; /* the same, its cap on a narrow phone */
+  --rail-drawer-rest: 342px; /* v4 rail-b1.css @media (max-width: 899px): what is not a row in the drawer */
+  --rail-chip-hide: inset(-60px 100% -10px 0); /* v4 rail-b1.css: a closed chip at rest, wiped back into its tile; its object may rise 60px over it */
+  --rail-chip-show: inset(-60px -10px -10px 0); /* the same, wiped out beside the panel under the pointer and for the keyboard */
+}
+/* the rows' fills and the objects that rise out of them, by destination; with none named a row takes the Cases pink */
+.rail__item { --rail-fill: var(--bg-mode-cases); --rail-peek-art: none; }
+.rail__item--cases { --rail-peek-art: var(--art-case-coldfront); }
+.rail__item--battles { --rail-fill: var(--bg-mode-battles); --rail-peek-art: var(--art-mode-battles-crossed); }
+.rail__item--showdowns { --rail-fill: var(--bg-mode-showdowns); --rail-peek-art: var(--art-mode-showdowns); }
+.rail__item--upgrade { --rail-fill: var(--bg-case-gold); --rail-peek-art: var(--art-mode-upgrade); }
+.rail__item--giveaways { --rail-fill: var(--gradient-rail-giveaways); }
+.rail__item--wins, .rail__item--affiliate { --rail-fill: var(--bg-case-gold); }
+.rail__item--exchange { --rail-fill: var(--bg-mode-battles); }
+
+.rail { position: relative; display: flex; flex-direction: column; box-sizing: border-box; color: var(--text-base); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+/* the logo: the link home, the Logo atom at S; the rail places it */
+.rail__logo { z-index: 2; }
+/* a row: its mark, its name; its card the mode's fill under the stripes, lit where it is the current page and under the pointer */
+.rail__item { position: relative; isolation: isolate; display: flex; align-items: center; gap: var(--space-3); box-sizing: border-box; min-height: var(--rail-row); margin: 0 0 var(--space-hair); padding: 0 var(--space-4) 0 var(--rail-row-start);
+  color: var(--text-meta); font-size: var(--size-label); font-weight: 500; letter-spacing: var(--tracking-mode-name); line-height: 1.2; text-decoration: none; text-transform: uppercase; transition: color .16s; }
+.rail__item:not(.rail__item--later) { margin-top: var(--space-4); color: var(--text-hi); font-weight: 900; }
+.rail__item::before { content: ''; position: absolute; z-index: -1; inset: var(--space-hair) var(--space-2); border-radius: var(--radius-card); background: var(--bg-stripes), var(--rail-fill); opacity: 0; pointer-events: none; transition: opacity .16s, filter .16s; }
+.rail__item::after { content: ''; position: absolute; z-index: 0; right: var(--rail-peek-right); bottom: var(--space-hair); width: var(--rail-peek); height: var(--rail-peek); background: var(--rail-peek-art) center bottom / contain no-repeat;
+  filter: var(--shadow-rail-peek); opacity: 0; transform: translateY(var(--space-2)) scale(.8); transform-origin: 50% 100%; pointer-events: none; transition: opacity .16s, transform .24s var(--motion-ease-settle); }
+.rail__item--cases::after { right: var(--space-3); bottom: var(--space-1); width: var(--rail-peek-cases); height: var(--rail-peek-cases); }
+.rail__mark { display: grid; place-items: center; flex: 0 0 var(--size-nav-mark); width: var(--size-nav-mark); height: var(--size-nav-mark); font-size: var(--size-nav-mark); }
+.rail__label { position: relative; z-index: 1; flex: 1 1 auto; min-width: 0; }
+.rail__soon, .rail__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* the current page: its card lit and its object standing on it; the words on the card are a plate's words */
+.rail__item[aria-current="page"] { color: var(--text-on-plate); }
+.rail__item[aria-current="page"]::before { opacity: 1; }
+.rail__item[aria-current="page"]::after { opacity: 1; transform: none; }
+/* under the pointer and for the keyboard: a live row takes its card and its object, a row not launched turns white on its card */
+.rail__item:focus-visible { outline: var(--size-edge) solid var(--color-blue); outline-offset: calc(-1 * var(--size-edge)); }
+.rail__item:not(.rail__item--later):focus-visible { color: var(--text-on-plate); }
+.rail__item:not(.rail__item--later):focus-visible::before { opacity: 1; filter: brightness(1.08); }
+.rail__item:not(.rail__item--later):focus-visible::after { opacity: 1; transform: translateY(calc(-1 * var(--size-lift))) rotate(-3deg) scale(1.06); }
+@media (hover: hover) {
+  .rail__item:not(.rail__item--later):hover { color: var(--text-on-plate); }
+  .rail__item:not(.rail__item--later):hover::before { opacity: 1; filter: brightness(1.08); }
+  .rail__item:not(.rail__item--later):hover::after { opacity: 1; transform: translateY(calc(-1 * var(--size-lift))) rotate(-3deg) scale(1.06); }
+  .rail__item--later:hover { z-index: 2; color: var(--text-on-plate); font-weight: 700; }
+  .rail__item--later:hover::before, .rail__item--later:hover::after { opacity: 1; }
+  .rail__item--later:hover::after { transform: none; }
+}
+/* the sentence, once, over the eight */
+.rail__sec { display: flex; align-items: center; gap: var(--space-2-5); min-height: var(--rail-sec); margin: var(--space-1) 0 var(--space-hair); padding: 0 var(--space-4) 0 var(--rail-row-start); color: var(--text-meta); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.rail__sec::after { content: ''; flex: 1 1 auto; height: var(--size-hairline); background: var(--bg-track); }
+/* the foot: under a hairline, the sound and the language as two tiles, then Social on the marks' left edge */
+.rail__foot { display: flex; flex-direction: column; gap: var(--space-4); margin-top: auto; padding: var(--space-2-5) 0 var(--space-2); box-shadow: inset 0 var(--size-hairline) 0 var(--rail-foot-line); }
+.rail__amb { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); margin: 0 var(--space-2); }
+/* a cell: the size container the language's --fit reads (the flag alone under 60px); the sound's icon tile runs across it (rename map row 13) */
+.rail__amb-i { position: relative; display: grid; container-type: inline-size; }
+.rail__amb-i > .button { width: 100%; }
+.rail__social-h { display: block; margin: var(--space-3) var(--space-3) var(--space-2) var(--rail-social-start); color: var(--text-meta); font-size: var(--size-chip); font-weight: 500; }
+.rail__social-row { display: flex; justify-content: space-between; margin: 0 var(--rail-social-end) 0 var(--rail-social-start); color: color-mix(in srgb, var(--text-meta) 60%, var(--color-ticker)); font-size: var(--rail-social); line-height: 1; }
+.rail__social-row .icon { opacity: .8; }
+/* the toggle, a burger tile, and the dimmed page under the open rail */
+.rail__toggle { display: none; }
+.rail__scrim { display: none; position: fixed; z-index: -2; inset: 0; background: var(--bg-scrim); }
+
+/* from 900px: the rail stands beside the page from the header's top, its panel drawn from under the strip down, its toggle and logo on the strip */
+@media (min-width: 900px) {
+  .rail { position: sticky; z-index: 35; top: 0; width: var(--size-rail); height: min(100vh, 100%); margin-left: var(--rail-edge); padding: calc(var(--rail-panel-top) + var(--space-3)) 0 var(--space-4); }
+  .rail::before { content: ''; position: absolute; z-index: -1; inset: var(--rail-panel-top) 0 var(--space-2); border-radius: var(--radius-m); background: var(--bg-panel); box-shadow: var(--depth-shell); pointer-events: none; }
+  .rail__logo { position: absolute; top: var(--rail-strip-mid); left: var(--rail-logo-x, calc(50cqw - var(--rail-edge))); translate: -50% -50%; }
+  .rail__item { min-height: clamp(var(--rail-row-min), calc((100dvh - var(--rail-rest)) / 9 - var(--space-hair)), var(--rail-row)); }
+  .rail__toggle { display: block; position: absolute; z-index: 3; top: calc(var(--rail-strip-mid) - var(--size-tile) / 2); left: var(--space-2); width: var(--size-tile); height: var(--size-tile); padding: 0; border: 0; border-radius: var(--radius-tile);
+    background: var(--bg-toggle); box-shadow: var(--line-edge); cursor: pointer; transition: background-color .2s; }
+  .rail__toggle::after { content: ''; position: absolute; inset: 0; width: var(--size-burger-w); height: var(--size-burger-h); margin: auto; border-radius: calc(var(--radius-xs) / 4); background: var(--bg-burger-bars); } /* a glyph's corner, v4's 1px, as the popover's copy glyph keeps its 2px */
+  .rail__toggle:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+  /* open over the page, set by kit.js where the product column is 1440px or less: fixed at the column's left edge, the page dimmed */
+  .rail.is-overlay { position: fixed; z-index: 70; left: var(--rail-page-x, 0); }
+  .rail.is-overlay .rail__scrim { display: block; }
+  /* CLOSED, set by kit.js: the cards as tiles with the mark in their middle; a name comes out as a chip in the row's fill beside the panel */
+  .rail.is-closed { width: var(--rail-w-closed); }
+  .rail.is-closed .rail__item { justify-content: center; gap: 0; padding: 0; }
+  .rail.is-closed .rail__item::after { content: none; }
+  .rail.is-closed .rail__sec { justify-content: center; padding: 0 var(--space-3-5); }
+  .rail.is-closed .rail__sec > span { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .rail.is-closed .rail__label { position: absolute; z-index: 60; left: calc(100% + var(--space-1)); top: 50%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; box-sizing: border-box; min-width: var(--rail-chip-w); min-height: var(--size-tap);
+    padding: var(--space-1-75) var(--space-3-5); border-radius: var(--radius-card); background: var(--bg-stripes), var(--rail-fill); box-shadow: var(--shadow-rail-chip); color: var(--text-on-plate); font-size: var(--size-xs); font-weight: 900; letter-spacing: var(--tracking-snug); line-height: 1.2; white-space: nowrap;
+    opacity: 0; translate: 0 -50%; clip-path: var(--rail-chip-hide); pointer-events: none; transition: opacity .12s, clip-path .26s var(--motion-ease-settle); }
+  .rail.is-closed .rail__label > .rail__soon { position: static; display: block; width: auto; height: auto; margin-top: var(--space-hair); overflow: visible; clip-path: none; color: var(--color-rail-chip-sub); font-size: var(--rail-chip-sub); font-weight: 700; letter-spacing: var(--tracking-caps); }
+  .rail.is-closed :is(.rail__item--cases, .rail__item--battles, .rail__item--showdowns, .rail__item--upgrade) > .rail__label { padding-right: var(--rail-chip-room); }
+  .rail.is-closed :is(.rail__item--cases, .rail__item--battles, .rail__item--showdowns, .rail__item--upgrade) > .rail__label::before { content: ''; position: absolute; right: var(--space-2); bottom: var(--space-hair); width: var(--rail-chip-peek); height: var(--rail-chip-peek); background: var(--rail-peek-art) center bottom / contain no-repeat; filter: var(--shadow-rail-peek); }
+  .rail.is-closed .rail__item--cases > .rail__label::before { right: 0; width: var(--rail-chip-peek-cases); }
+  .rail.is-closed .rail__item:focus-visible > .rail__label { opacity: 1; clip-path: var(--rail-chip-show); }
+  .rail.is-closed .rail__amb { grid-template-columns: minmax(0, 1fr); }
+  .rail.is-closed .rail__social { display: none; }
+  /* the sound and the language name themselves beside their tile, on the strip's dark */
+  .rail.is-closed .rail__amb-i[data-lbl]::after { content: attr(data-lbl); position: absolute; z-index: 60; left: calc(100% + var(--rail-tile-chip-gap)); top: 50%; display: flex; align-items: center; box-sizing: border-box; min-height: var(--size-tap); padding: 0 var(--space-4); border-radius: var(--radius-card);
+    background: var(--color-rail-tile-chip); box-shadow: var(--line-edge), var(--shadow-rail-chip); color: var(--text-on-plate); font-size: var(--size-xs); font-weight: 900; letter-spacing: var(--tracking-snug); line-height: 1.2; text-transform: uppercase; white-space: nowrap;
+    opacity: 0; translate: 0 -50%; clip-path: var(--rail-chip-hide); pointer-events: none; transition: opacity .12s, clip-path .26s var(--motion-ease-settle); }
+  .rail.is-closed .rail__amb-i:has(:focus-visible)::after { opacity: 1; clip-path: var(--rail-chip-show); }
+  @media (hover: hover) {
+    .rail__toggle:hover { background: var(--rail-toggle-bg-hover); }
+    .rail.is-closed .rail__item:hover > .rail__label, .rail.is-closed .rail__amb-i:hover::after { opacity: 1; clip-path: var(--rail-chip-show); }
+  }
+}
+@media (min-width: 900px) and (max-height: 600px) {
+  .rail__sec { display: none; }
+  .rail__item { min-height: clamp(var(--rail-row-min-short), calc((100dvh - var(--rail-rest-short)) / 9 - var(--space-hair)), var(--rail-row)); }
+}
+/* under 900px: the drawer the header's burger opens (.is-open, set by kit.js), one column that scrolls when a short phone cannot hold it; its logo leads it */
+@media (max-width: 899px) {
+  .rail { position: fixed; z-index: 70; inset: 0 auto 0 0; width: var(--rail-drawer-w); max-width: var(--rail-drawer-max); gap: var(--space-2); padding: 0 0 var(--space-3); overflow-y: auto; translate: -100% 0; transition: translate .2s; }
+  .rail::before { content: ''; position: fixed; z-index: -1; inset: 0 auto 0 0; width: var(--rail-drawer-w); max-width: var(--rail-drawer-max); border-radius: 0 var(--radius-m) var(--radius-m) 0; background: var(--bg-panel); box-shadow: var(--shadow-rail-drawer); pointer-events: none; }
+  .rail.is-open { translate: none; }
+  .rail.is-open::before { box-shadow: var(--shadow-rail-drawer), var(--rail-drawer-depth-open); }
+  .rail.is-open .rail__scrim { display: block; }
+  .rail__logo { flex: none; box-sizing: border-box; min-height: var(--size-header); padding: var(--space-2) var(--rail-row-start) 0; }
+  .rail__item { min-height: clamp(var(--size-tap), calc((100dvh - var(--rail-drawer-rest)) / 9 - var(--space-hair)), var(--rail-row)); }
+}
+/* the Logo is not interactive by itself (logo.css): the rail's link home draws its ring */
+.rail__logo:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+@media (prefers-reduced-motion: reduce) { .rail, .rail__item, .rail__item::before, .rail__item::after, .rail__label, .rail__toggle, .rail__amb-i::after { transition: none; } }
+
+/* the rail's own controls play stories too, D-235, v4 rail-icons.css: the sound's speaker kicks and its waves run out, muted it shakes its
+   head (its drawing is laid in by motion.js and read off aria-pressed); the language's flag turns over like a card; the burger's three lines,
+   three layers so each can run on its own, run in and out of step. The keyframes are the Icon's (icon.css, icon-story-kick, -wave, -no,
+   -flag, -lines); the rail places them on what it holds */
+.rail__amb .button[aria-pressed="false"] .icon-story__on, .rail__amb .button[aria-pressed="true"] .icon-story__off { display: none; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .rail__amb .button:is(:hover, :focus-visible) .icon-story__cone { animation: icon-story-kick var(--motion-rail-icon) var(--motion-ease-rail-icon); transform-origin: 7px 12px; }
+  .rail__amb .button:is(:hover, :focus-visible) .icon-story__on path { animation: icon-story-wave calc(var(--motion-rail-icon) / 2) var(--motion-ease-rail-icon) 2; transform-origin: 13px 12px; }
+  .rail__amb .button:is(:hover, :focus-visible) .icon-story__w2 { animation-delay: .08s; }
+  .rail__amb .button:is(:hover, :focus-visible) .icon-story__off { animation: icon-story-no var(--motion-rail-icon) var(--motion-ease-rail-icon); }
+  .rail__amb .popover__trigger:is(:hover, :focus-visible) .popover__flag { animation: icon-story-flag var(--motion-rail-icon) var(--motion-ease-rail-icon); }
+  .rail__toggle:is(:hover, :focus-visible)::after { animation: icon-story-lines var(--motion-rail-icon) var(--motion-ease-rail-icon); }
+}
+@media (min-width: 900px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .rail__toggle:is(:hover, :focus-visible)::after { background: linear-gradient(var(--bg-mark), var(--bg-mark)) 0 0 / 100% var(--space-hair) no-repeat, linear-gradient(var(--bg-mark), var(--bg-mark)) 0 var(--space-1-5) / 100% var(--space-hair) no-repeat, linear-gradient(var(--bg-mark), var(--bg-mark)) 0 var(--space-3) / 100% var(--space-hair) no-repeat; }
+}

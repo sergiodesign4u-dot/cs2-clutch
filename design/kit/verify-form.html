@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Verify form</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: grid; justify-items: center; gap: 28px; padding: 40px 18px; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-cap { font-size: 12px; color: var(--text-meta); }
+  .cp-cell { display: grid; align-content: start; gap: 8px; min-width: 0; width: 100%; max-width: 600px; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Organisms &middot; Forms and notices &middot; level 3</span>
+  <h1>Verify form</h1>
+  <p class="kt-lead">Paste a round and recompute it: the server seed hash and the server seed as text areas, the client seed and the nonce, the act, and the one area each recomputation replaces. No state draws a verified mark; the words say what agreed. Everything on this page is drawn by <code>design/system/components/verify-form.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage"><div class="cp-cell">
+    <form class="verify" onsubmit="return false" novalidate><div class="field"><label class="field__l" for="a-v-hash">Server seed hash, published before the round</label><textarea class="textarea" id="a-v-hash" rows="2" spellcheck="false">4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208</textarea></div><div class="field"><label class="field__l" for="a-v-seed">Server seed, revealed on rotation</label><textarea class="textarea" id="a-v-seed" rows="2" spellcheck="false">a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9</textarea></div><div class="field"><label class="field__l" for="a-v-client">Client seed</label><input class="input" id="a-v-client" type="text" spellcheck="false" value="7d19f4a2"></div><div class="field"><label class="field__l" for="a-v-nonce">Nonce</label><input class="input" id="a-v-nonce" type="text" spellcheck="false" value="41 207"></div><div class="verify__acts"><button class="button button--primary button--m" type="submit">Recompute it yourself</button></div><p class="note note--refuse" aria-live="polite" hidden></p><div class="verify__out" role="status"><p class="verify__say">Your recomputation and ours agree.</p><div class="kv"><span class="kv__k">Settled result, ours</span><span class="kv__v" data-round="ticket">417</span></div><div class="kv"><span class="kv__k">Recomputed here</span><span class="kv__v" data-round="ticket">417</span></div><div class="kv"><span class="kv__k">Ticket range it landed in</span><span class="kv__v" data-round="range">1 to 640, AK-47 Redline</span></div></div></form>
+  </div></div></div>
+  <p>The form holds components and never redraws them: the <a href="field.html">Field</a> (each input stacked with its label, level 2) with the <a href="text-area.html">Text area</a> and the <a href="text-field.html">Text field</a>, the <a href="button.html">Button</a> (Recompute it yourself, primary at M; Report this round), the <a href="key-value-line.html">Key-value line</a> (the matched results), the <a href="copyable-value.html">Copyable value</a> (the reference) and the <a href="note-line.html">Note line</a> (a line under a result; a refusal under a field), all level 1 but the Field. The form's own part is the plate, the act line, the result area in the hash well with its sentence, and the two values side by side when they disagree.</p>
+  <div class="kt-tbl"><table style="min-width:720px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The form</b></td><td><code>form.verify</code></td><td>the raised layer's plate (the sign in dialog's), 20px inside, 16px on a phone, 16px between its parts</td></tr>
+    <tr><td><b>Inputs</b></td><td>four <a href="field.html">Field</a>s, <code>.textarea</code> and <code>.input</code></td><td>nothing here: the label, the control and the refusal under it are the Field's and the atoms'</td></tr>
+    <tr><td><b>Act line</b></td><td><code>.verify__acts</code> with a <a href="button.html">Button</a></td><td>the act, and in the failed result the report act</td></tr>
+    <tr><td><b>Result</b></td><td><code>.verify__out</code> (<code>role="status"</code>), <code>.verify__say</code></td><td>Home's hash well with its lit edge, gone while empty; the sentence that says what the recomputation found, in white</td></tr>
+    <tr><td><b>Two values</b></td><td><code>.verify__vs</code>, <code>.verify__v</code> with <code>__k</code> and <code>__n</code></td><td>ours and the recomputed one side by side from 600px, stacked on a phone, each in the hash's chip, the figure in the mono face at 18px</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One axis of data: what the recomputation found. The form takes its column's width (3 of 5 parts of Check a round from 900px, the whole column under it); the two values stand side by side from 600px of window. Sizes are read from the render.</p>
+  <ul class="kt-list">
+    <li><b>Result = what the recomputation found.</b> Empty or prefilled: no result area. Malformed: each field that failed says why under itself, every failure at once, nothing typed cleared. Matched: the sentence and the results as Key-value lines. Failed: the two values side by side, the fault named as ours, one report act with the round attached and a reference. Unavailable: no proof yet, and why. Never a tick, a seal or a green mark on a match (Provably fair, 0.14).</li>
+  </ul>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-cell"><span class="cp-cap">Malformed</span><form class="verify" onsubmit="return false" data-dim novalidate><div class="field"><label class="field__l" for="m-v-hash">Server seed hash, published before the round</label><textarea class="textarea" id="m-v-hash" rows="2" spellcheck="false" aria-invalid="true" aria-describedby="m-v-hash-e">4f2a91c7e0b83d5619ac7f20d8e4b166</textarea><p class="note note--refuse" id="m-v-hash-e">This is 32 characters. A server seed hash is 64.</p></div><div class="field"><label class="field__l" for="m-v-seed">Server seed, revealed on rotation</label><textarea class="textarea" id="m-v-seed" rows="2" spellcheck="false">a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9</textarea></div><div class="field"><label class="field__l" for="m-v-client">Client seed</label><input class="input" id="m-v-client" type="text" spellcheck="false" value="7d19f4a2"></div><div class="field"><label class="field__l" for="m-v-nonce">Nonce</label><input class="input" id="m-v-nonce" type="text" spellcheck="false" value="41,207.5" aria-invalid="true" aria-describedby="m-v-nonce-e"><p class="note note--refuse" id="m-v-nonce-e">A nonce is a whole number. This one has a decimal point in it.</p></div><div class="verify__acts"><button class="button button--primary button--m" type="submit">Recompute it yourself</button></div><p class="note note--refuse" aria-live="polite" hidden></p></form><span class="cp-dim"></span></div>
+    <div class="cp-cell"><span class="cp-cap">Failed</span><form class="verify" action="#check" data-fair="failed" novalidate><div class="field"><label class="field__l" for="f-v-hash">Server seed hash, published before the round</label><textarea class="textarea" id="f-v-hash" rows="2" spellcheck="false">4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208</textarea></div><div class="field"><label class="field__l" for="f-v-seed">Server seed, revealed on rotation</label><textarea class="textarea" id="f-v-seed" rows="2" spellcheck="false">a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9</textarea></div><div class="field"><label class="field__l" for="f-v-client">Client seed</label><input class="input" id="f-v-client" type="text" spellcheck="false" value="7d19f4a2"></div><div class="field"><label class="field__l" for="f-v-nonce">Nonce</label><input class="input" id="f-v-nonce" type="text" spellcheck="false" value="41 207"></div><div class="verify__acts"><button class="button button--ghost button--m" type="submit">Recompute it yourself</button></div><p class="note note--refuse" aria-live="polite" hidden></p><div class="verify__out" role="status"><div class="verify__vs"><div class="verify__v"><span class="verify__k">Settled result, ours</span><span class="verify__n">79 124</span></div><div class="verify__v"><span class="verify__k">Recomputed here</span><span class="verify__n">30 211</span></div></div><p class="verify__say">These do not agree, and that is ours to explain rather than yours to prove. <span class="note">We do not yet know why.</span></p><div class="verify__acts"><a class="button button--primary button--m" href="../../wireframes/support-submitted.html?r=mp9n">Report this round</a></div><div class="copy-value"><span class="copy-value__k">Reference</span><div class="copy-value__row"><code class="copy-value__v">rp-2026-08-21-0007</code><button class="button button--ghost button--s" type="button" onclick="this.parentNode.parentNode.querySelector('.copy-value__said').textContent='Copied'">Copy</button></div><span class="copy-value__said" role="status" aria-live="polite"></span></div><p class="note">The round and every field on this page go with it, and we answer within 72 hours.</p></div></form><span class="cp-dim"></span></div>
+    <div class="cp-cell"><span class="cp-cap">Unavailable</span><form class="verify" action="#check" data-fair="unavailable" novalidate><div class="field"><label class="field__l" for="u-v-hash">Server seed hash, published before the round</label><textarea class="textarea" id="u-v-hash" rows="2" spellcheck="false">4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208</textarea></div><div class="field"><label class="field__l" for="u-v-seed">Server seed, revealed on rotation</label><textarea class="textarea" id="u-v-seed" rows="2" spellcheck="false">a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9</textarea></div><div class="field"><label class="field__l" for="u-v-client">Client seed</label><input class="input" id="u-v-client" type="text" spellcheck="false" value="7d19f4a2"></div><div class="field"><label class="field__l" for="u-v-nonce">Nonce</label><input class="input" id="u-v-nonce" type="text" spellcheck="false" value="41 207"></div><div class="verify__acts"><button class="button button--primary button--m" type="submit">Recompute it yourself</button></div><p class="note note--refuse" aria-live="polite" hidden></p><div class="verify__out" role="status"><p class="verify__say">No proof yet: this round's server seed has not rotated.</p><p class="note">The round is settled and the item is real. It becomes checkable when the seed rotates.</p></div></form><span class="cp-dim"></span></div>
+  </div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>Where a person checks a round themselves, without an account. Trust is the product (design principle 1): the form lets anyone recompute what we published and says in words whether it agreed. A failure is ours to explain, so the failed result names the fault as ours and gives one way to report it with a reference, never a verdict drawn as a mark.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>Provably fair, Check a round: the form at the left, what a round proof is made of at its right; opened from a result with the round in the address, the form arrives prefilled and computes nothing until pressed.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>Showing a round's proof read only is the <b>Proof fields</b>. A seed to copy is the <b>Copyable value</b>. A sign in or a payment that stopped is the <b>Status notice</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states under the pointer: the form is not interactive. What it holds keeps its own (each control's focus and refusal ring, the act's press, Copy). The results above are set by the product's script, <code>fair.js</code>, which joins the system at step 8: on a press it writes each field's refusal under it and sets <code>aria-invalid</code> on its control, and it replaces the result area whole; the form's own line (<code>[data-fair-say]</code>, a <code>.note--refuse</code>) shows only when it has words, by <code>hidden</code>. They are shown in Variants as the script writes them.</p>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token and no colour primitive: the plate is a raised layer (<code>--bg-layer</code>), the result Home's hash well (<code>--bg-hash-well</code>, <code>--line-edge-lit</code>), each value the translucent chip (<code>--bg-tile-veil</code>). Its own geometry, <code>--verify-ok</code> 14px, belongs to a green line kit.css declares and no coloured state wears (<code>.verify__ok</code>, put to the founder). Geometry and type otherwise come straight from the primitives.</p>
+  <p>File: <code>design/system/components/verify-form.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group.</p>
+  <pre>&lt;form class="verify" action="#check" novalidate&gt;
+  &lt;div class="field"&gt;&lt;label class="field__l" for="v-hash"&gt;Server seed hash, published before the round&lt;/label&gt;&lt;textarea class="textarea" id="v-hash" rows="2"&gt;&lt;/textarea&gt;&lt;/div&gt;
+  ...
+  &lt;div class="verify__acts"&gt;&lt;button class="button button--primary button--m" type="submit"&gt;Recompute it yourself&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="verify__out" role="status"&gt;&lt;p class="verify__say"&gt;Your recomputation and ours agree.&lt;/p&gt;...&lt;/div&gt;
+&lt;/form&gt;</pre>
+  <p>Stands on: <a href="../fair.html">Provably fair</a>, <a href="../fair-prefilled.html">prefilled</a>, <a href="../fair-malformed.html">malformed</a>, <a href="../fair-matched.html">matched</a>, <a href="../fair-proof-failed.html">failed</a>, <a href="../fair-unavailable.html">unavailable</a>. Until step 8 those screens still read <code>kit.css</code>.</p>
+</section>
+<script>
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(), c = b.closest('.cp-cell').querySelector('.cp-dim'); if (c) c.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-body', '--text-hi', '--text-match', '--text-on-accent', '--bg-layer', '--bg-hash-well', '--bg-tile-veil', '--bg-match', '--line-edge', '--line-edge-lit'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>semantic</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

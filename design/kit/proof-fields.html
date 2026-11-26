@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Proof fields</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { padding: 28px 18px; }
+  .cp-dim { display: block; margin-top: 6px; font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-stack { display: grid; gap: 26px; }
+  .cp-stack > div { min-width: 0; }
+  .cp-cap { margin: 0 0 8px; font-size: 12px; font-weight: 700; color: var(--text-meta); }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  /* the stand's frame for --values: the Proof block's plate (kit.css .proof, the fair blue under the act's stripes), which the Proof block draws in
+     round 3b; drawn here only so the field set stands on the ground it is made for */
+  .cp-plate { display: grid; gap: var(--space-3); padding: 22px; border-radius: var(--radius-card); background: var(--bg-act-stripes), var(--bg-fair); box-shadow: var(--line-lit-top), var(--depth-fair); color: var(--text-on-plate); }
+  @media (max-width: 599px) { .cp-plate { padding: var(--space-3-5); } }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Organisms &middot; Case and proof &middot; level 3</span>
+  <h1>Proof fields</h1>
+  <p class="kt-lead">The field set of a round proof in the dark hash well on the provably fair blue: on Provably fair, what each field is; on a round's public page, the round's own values with Copy. No verified mark anywhere: the words say what a proof proves. Everything on this page is drawn by <code>design/system/components/proof-fields.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage" style="max-width:520px">
+<section class="proof-fields" aria-labelledby="h2-made-a"><h2 class="proof-fields__h" id="h2-made-a">What a round proof is made of</h2><dl class="proof-fields__list"><div><dt>Server seed hash</dt><dd>Published before the round runs</dd></div><div><dt>Server seed</dt><dd>Revealed on rotation</dd></div><div><dt>Client seed</dt><dd>Shown with every round</dd></div><div><dt>Nonce</dt><dd>A whole number that advances</dd></div><div><dt>Settled result</dt><dd>The number the round produced</dd></div><div><dt>Ticket range</dt><dd>The interval the result falls in, and the item holding it</dd></div><div><dt>The drop table in force at that round, versioned</dt><dd>Its version, printed with the round</dd></div></dl></section>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:700px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The plate</b></td><td><code>.proof-fields</code></td><td>the Proof block's plate: the fair blue under the act's stripes, its lit top and its drop; 24px inside, 16px on a phone</td></tr>
+    <tr><td><b>The title</b></td><td><code>.proof-fields__h</code></td><td>the plate's key, white capitals at 11px</td></tr>
+    <tr><td><b>The well</b></td><td><code>.proof-fields__list</code> (a <code>&lt;dl&gt;</code>)</td><td>the dark hash well with its lit 1px edge, 8px corners; the fields 12px apart</td></tr>
+    <tr><td><b>A field</b></td><td><code>div</code> with <code>dt</code> and <code>dd</code></td><td>its key in capitals, white at .9, over what it is, in white at 14px</td></tr>
+    <tr><td><b>The round's values</b></td><td><code>.proof-fields--values</code> with <a href="copyable-value.html">Copyable value</a> (level 2) and <a href="key-value-line.html">Key-value line</a> (level 1)</td><td>no plate of its own: the well at the Proof block's paddings (9px over and under, 12px at the sides), a seed with its Copy act, a short value as a line</td></tr>
+  </tbody></table></div>
+  <p class="kt-note">The default form holds no component: its keys and meanings are the block's own definition list. The <code>--values</code> form holds <a href="copyable-value.html">Copyable value</a> (level 2) and <a href="key-value-line.html">Key-value line</a> (level 1), and restyles neither: the field rule of the default form is written for a row of <code>dt</code> and <code>dd</code> only, so a held component keeps its own layout. What is the organism's own: the plate, the title, the well and its fields.</p>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One axis, content. Sizes are read from the render; the plate's sides narrow from 24px to 16px under 600px of the window.</p>
+  <ul class="kt-list">
+    <li><b>What each field is</b> (the default, Provably fair): What a round proof is made of, each of its seven fields with what it means, beside the Verify form.</li>
+    <li><b>The round's own values</b> (<code>--values</code>, the public result, node 7.1): the server seed hash and the server seed with Copy, the client seed, the nonce, the settled result and the ticket range it landed in. It stands on the Proof block's plate, which the Proof block draws in round 3b; here it stands on a stand frame of that plate. It stands on no coloured screen yet and waits for the public result at the rollout.</li>
+  </ul>
+  <div class="kt-scene"><div class="cp-stack">
+<div><div style="width:min(100%, 420px)" data-dim data-label="What each field is, 420"><section class="proof-fields" aria-labelledby="h2-made-b"><h2 class="proof-fields__h" id="h2-made-b">What a round proof is made of</h2><dl class="proof-fields__list"><div><dt>Server seed hash</dt><dd>Published before the round runs</dd></div><div><dt>Server seed</dt><dd>Revealed on rotation</dd></div><div><dt>Client seed</dt><dd>Shown with every round</dd></div><div><dt>Nonce</dt><dd>A whole number that advances</dd></div><div><dt>Settled result</dt><dd>The number the round produced</dd></div><div><dt>Ticket range</dt><dd>The interval the result falls in, and the item holding it</dd></div><div><dt>The drop table in force at that round, versioned</dt><dd>Its version, printed with the round</dd></div></dl></section></div><span class="cp-dim"></span></div>
+<div><div style="width:min(100%, 560px)" data-dim data-label="The round's own values, on the Proof block's plate (stand frame)"><div class="cp-plate"><div class="proof-fields proof-fields--values"><div class="proof-fields__list"><div class="copy-value"><span class="copy-value__k">Server seed hash, published before the round</span><code class="copy-value__v">4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208</code><div class="copy-value__row"><button class="button button--ghost button--s" type="button">Copy</button><span class="copy-value__said"></span></div></div><div class="copy-value"><span class="copy-value__k">Server seed, revealed on rotation</span><code class="copy-value__v">a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9</code><div class="copy-value__row"><button class="button button--ghost button--s" type="button">Copy</button><span class="copy-value__said"></span></div></div><div class="kv"><span class="kv__k">Client seed</span><span class="kv__v">7d19f4a2</span></div><div class="kv"><span class="kv__k">Nonce</span><span class="kv__v">41 207</span></div><div class="kv"><span class="kv__k">Settled result</span><span class="kv__v">417</span></div><div class="kv"><span class="kv__k">Ticket range it landed in</span><span class="kv__v">1 to 640, AK-47 Redline</span></div></div></div></div></div><span class="cp-dim"></span></div>
+  </div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>Proof fields stand where a round is checked: on Provably fair, to say what a proof is made of before anyone types into the Verify form; on a round's public page, to hand over the round's own values so a stranger can recompute it without an account. Provable fairness is built so the product's own numbers are checkable (design principle 1, D-14); the fields are those numbers, in words, never a seal.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The parts of a round proof, or one round's values with Copy, on the provably fair blue.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>Typing values in to recompute a round is the <b>Verify form</b>. A round's whole proof with its state, its scope line and its act is the <b>Proof block</b>, which holds these fields. One hash before an open is a <b>Copyable value</b>. A line of key and value elsewhere is a <b>Key-value line</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states: it is not interactive. A Copy act inside <code>--values</code> keeps the <a href="copyable-value.html">Copyable value</a>'s own states, and the copied value's word is set by the product's script there.</p>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry and type come straight from the primitives; the one pixel literal no primitive equals, the well's 9px in <code>--values</code>, is a custom property of the block (<code>--proof-fields-well-y</code>) with its origin in the file. The plate keeps its colours in both themes, so its words read the on-plate roles. Two component tokens, each saying why no role fits: <code>--proof-fields-key</code> and <code>--proof-fields-well-edge</code> (see the round's questions).</p>
+  <p>File: <code>design/system/components/proof-fields.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group.</p>
+  <pre>&lt;section class="proof-fields" aria-labelledby="h2-made"&gt;&lt;h2 class="proof-fields__h" id="h2-made"&gt;What a round proof is made of&lt;/h2&gt;
+  &lt;dl class="proof-fields__list"&gt;&lt;div&gt;&lt;dt&gt;Server seed hash&lt;/dt&gt;&lt;dd&gt;Published before the round runs&lt;/dd&gt;&lt;/div&gt;...&lt;/dl&gt;
+&lt;/section&gt;
+
+&lt;div class="proof-fields proof-fields--values"&gt;&lt;div class="proof-fields__list"&gt;
+  &lt;div class="copy-value"&gt;&lt;span class="copy-value__k"&gt;Server seed hash, published before the round&lt;/span&gt;&lt;code class="copy-value__v"&gt;...&lt;/code&gt;...&lt;/div&gt;
+  &lt;div class="kv"&gt;&lt;span class="kv__k"&gt;Nonce&lt;/span&gt;&lt;span class="kv__v"&gt;41 207&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</pre>
+  <p>Stands on: <a href="../fair.html">Provably fair</a>, beside the Verify form (and its states <a href="../fair-matched.html">matched</a>, <a href="../fair-malformed.html">malformed</a>, <a href="../fair-prefilled.html">prefilled</a>, <a href="../fair-proof-failed.html">proof failed</a>, <a href="../fair-unavailable.html">unavailable</a>). Until step 8 those screens still read <code>kit.css</code>, where the block is the one-off <code>.fair-made</code>; step 6 moves their markup onto this file's names by the rename map (row 6) and the screen's placing of it in its grid (<code>.fair-check &gt; .fair-made</code>) into <code>design/system/screens/fair.css</code>.</p>
+</section>
+<script>
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.firstElementChild.getBoundingClientRect(), t = b.nextElementSibling; if (t) t.textContent = b.dataset.label + ': ' + Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-on-plate', '--bg-act-stripes', '--bg-fair', '--bg-hash-well-on-plate', '--line-lit-top', '--depth-fair', '--proof-fields-key', '--proof-fields-well-edge'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(text|bg|line|depth)-/.test(n) ? 'semantic' : /^--(color|shadow|gradient|filter)-/.test(n) ? 'primitive, read in this block only' : 'component';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

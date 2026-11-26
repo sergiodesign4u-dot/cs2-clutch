@@ -1,0 +1,36 @@
+/* PROOF FIELDS, level 3 (organism). The field set of a round proof in the dark hash well on the provably fair blue. Content: what each field is
+ * (Provably fair, the default: What a round proof is made of, its title and each field with what it means), and the round's own values
+ * (--values: the seeds with Copy, the client seed, the nonce, the result and its range, the set the Proof block holds on the public result).
+ * NO VERIFIED MARK (wireframes/fair.html, 0.14): no tick, no seal and no green on what a proof proves; the words say it.
+ * Page: design/kit/proof-fields.html. Stands on one coloured screen, Provably fair, beside the Verify form (design/kit/inventory.md, Proof
+ *   fields); its --values form waits for the public result (node 7.1), where the Proof block (round 3b) holds it.
+ * Holds: in --values, Copyable value (.copy-value, a seed with its Copy act) and Key-value line (.kv, a short value). It places them and never
+ *   restyles them. The default form's keys and meanings are the block's own definition list (dt, dd).
+ * States: none of its own, it is not interactive; a Copy act inside --values keeps the Copyable value's own states.
+ * Reads: --text-on-plate, --bg-act-stripes, --bg-fair, --bg-hash-well-on-plate, --line-lit-top, --depth-fair; its own --proof-fields-key and
+ *   --proof-fields-well-edge (tokens.css, COMPONENT TOKENS); geometry and type from the primitives. No colour primitive read directly.
+ * Carried from design/kit/kit.css part 4.4 (Provably fair's one-off blocks, CHECK A ROUND, lines 5878 to 5883 and 5889) at stage 08 step 5,
+ *   round 3, by rename map row 6: .fair-made becomes .proof-fields, its elements renamed the same way (.fair-made__h .proof-fields__h,
+ *   .fair-made__list .proof-fields__list); a component since D-259. The --values form is built now from the Proof block's own well
+ *   (kit.css .proof__fields, line 4719, its padding --proof-well-y), so the Proof block can hold it in round 3b. The screen's placing of the
+ *   block in its grid (.fair-check > .fair-made) stays in kit.css until step 6. From design/v4/proof-home.css (.x6-plate, .x6-hash), D-245.
+ * Every pixel literal of kit.css that no primitive equals is a custom property of the block below, with its origin: the rules hold no px. */
+
+.proof-fields {
+  --proof-fields-well-y: 9px; /* v4 proof-home.css .x6-hash: the well's padding, top and bottom; kit.css .proof --proof-well-y, the Proof block's field set */
+}
+
+/* the default form: the Proof block's plate (the fair blue under the act's stripes, its lit top, its drop), its title in white capitals, the
+   fields in the dark well, each a key in capitals over what it means. Its sides 16px on a phone */
+.proof-fields { display: grid; gap: var(--space-3); min-width: 0; box-sizing: border-box; color: var(--text-on-plate); }
+.proof-fields:not(.proof-fields--values) { padding: var(--space-5); border-radius: var(--radius-m); background: var(--bg-act-stripes), var(--bg-fair); box-shadow: var(--line-lit-top), var(--depth-fair); }
+@media (max-width: 599px) { .proof-fields:not(.proof-fields--values) { padding: var(--space-4); } }
+.proof-fields__h { margin: 0; color: var(--text-on-plate); font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.25; text-transform: uppercase; } /* .proof__h */
+.proof-fields__list { display: grid; gap: var(--space-3); min-width: 0; margin: 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-s); background: var(--bg-hash-well-on-plate); box-shadow: var(--proof-fields-well-edge); }
+.proof-fields__list > div:has(> dt) { display: grid; gap: var(--space-1); } /* a field of the default form, its key over its meaning; a held Copyable value or Key-value line in --values keeps its own layout */
+.proof-fields__list dt { color: var(--proof-fields-key); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.25; text-transform: uppercase; }
+.proof-fields__list dd { margin: 0; color: var(--text-on-plate); font-size: var(--size-label); font-weight: 700; line-height: 1.35; }
+
+/* --values: the round's own values, the set the Proof block stands on its own plate; no plate here, the well at the Proof block's paddings
+   (9px over and under, 12px at the sides), a seed a Copyable value, a short value a Key-value line */
+.proof-fields--values > .proof-fields__list { padding: var(--proof-fields-well-y) var(--space-3); }

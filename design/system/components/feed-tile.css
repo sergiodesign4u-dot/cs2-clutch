@@ -3,7 +3,8 @@
  * came from and who won it. The rarity is a modifier that sets --rarity; with none, the tile takes rarity 6.
  * Page: design/kit/feed-tile.html. Stands on the seven coloured screens, inside the ticker's .ticker__i (design/kit/inventory.md, Feed tile). The ticker
  *   itself, which places the tiles, is the organism of round 3.
- * Holds: Media slot (.media--skin, the skin), Avatar (.avatar--s, the winner; .avatar--bot for a bot's empty disc), Icon (.icon--box, the mode mark). The
+ * Holds: Media slot (.media--skin, the skin), Avatar (.avatar--s, the winner; .avatar--bot for a bot's empty disc), Icon (.icon--box, the mode mark), Rare
+ *   mark (.rare-mark, laid on by motion.js, placed by the tile's --mark-* geometry). The
  *   inventory also lists Text link: the two links of the tile (the face and the winner's name) are the tile's own forms, drawn here, and wear no .link.
  * Reads: --text-base, --text-hi, --text-base-on-plate, --text-on-plate, --bg-feed-plate, --bg-mark-on-plate, --bg-rarity-1 to --bg-rarity-7, --bg-lit,
  *   --line-focus, and on the back face the roles --text-meta-on-plate and --line-focus-on-plate (D-265); no component token; geometry, type and motion from the primitives. Colour primitives read
@@ -14,9 +15,10 @@
  *   --filter-rare-skin (depth with one reader, read again at step 7).
  * Carried from design/kit/kit.css part 3, lines 3147 to 3326 (FEED TILE, RARE MARKS ON A DROP and A RARE DROP) at stage 08 step 5, round 2, by the
  *   decisions of step 2 (D-260) and D-264 Q5: the bot's disc is the Avatar's .avatar--bot (was .feed-tile__av--bot), so its rule is not carried. The rare
- *   mark's moving layers (.rare-mark, its --mark-* geometry and its keyframes) stay in kit.css: the Drop card and the Case stage lay them too, and the
- *   parent places them once. What is carried of the rare mark is the tile's own side: the ground it lends to a layer under it (.is-mark-c) and the rare
- *   drop's lights, chance, crown, frame and landing (--volt, --orbit, --plasma, .is-live, .is-hit). Rules the ticker writes on this class
+ *   mark's moving layers (.rare-mark and its keyframes) are the Rare mark atom's, design/system/components/rare-mark.css (D-265 Q6, round 3). What is
+ *   carried of the rare mark is the tile's own side: where it places the mark (the --mark-* geometry, kit.css lines 3245 to 3253, moved here in round 3),
+ *   the ground it lends to a layer under it (.is-mark-c) and the rare drop's lights, chance, crown, frame and landing (--volt, --orbit, --plasma,
+ *   .is-live, .is-hit). Rules the ticker writes on this class
  *   (.ticker__i .feed-tile) stay in kit.css. Corner 6px moved to 8px, D-228. From design/v4/theme.css (live drops, comp B), account-home.css (the winner's
  *   avatar), rare-mark.css and rare.css. */
 
@@ -112,9 +114,20 @@ a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-o
 @media (prefers-reduced-motion: reduce) { .feed-tile__art, .feed-tile__back, .feed-tile__back > * { transition: none; } }
 
 /* RARE MARKS ON A DROP, D-235, the tile's own side: a drop whose chance in its case is 5 % or less carries mark A, 2.5 % or less B, 1 % or less C, the
-   rarest that applies (the chance is the tile's data-chance, a sample, D-124; motion.js lays the mark on). The moving layers are .rare-mark, kept in kit.css.
+   rarest that applies (the chance is the tile's data-chance, a sample, D-124; motion.js lays the mark on). The moving layers are the Rare mark atom
+   (rare-mark.css); the tile places them: A's ring where the tile draws its hexagon, B's lightning past the tile's edge, C's flame rising over it.
    C burns outside the tile, rising over it, behind the tile's ground: the tile lends its ground to ::before so the flame shows only round it; while the page is
    at its top a C tile stands over the sticky header, so the flame is not cut, founder of 11 Nov 2026: "here too we put it on top, as on mobile" */
+/* where the tile places the Rare mark, read by .rare-mark--ring, --bolt and --fire inside it; moved here from kit.css in round 3 */
+.feed-tile {
+  --mark-ring-top: 7px; /* v4 rare-mark.css .wf-feed-hit > .rm-ring: the ring where the tile draws its hexagon; 5px on a phone */
+  --mark-ring-w: 78px; /* the same, width; 60px on a phone */
+  --mark-ring-h: 68px; /* the same, height; 52px on a phone */
+  --mark-bolt-out: 8px; /* v4 rare-mark.css .wf-feed-i > .rm-bolt: lightning past the tile's edge; 6px on a phone */
+  --mark-fire-rise: 100px; /* v4 rare-mark.css .wf-feed-i.rm-c > .rm-fire: how far the flame rises over the tile */
+  --mark-fire-side: 14%; /* the same, how far it spreads past each side */
+}
+@media (max-width: 599px) { .feed-tile { --mark-ring-top: 5px; --mark-ring-w: 60px; --mark-ring-h: 52px; --mark-bolt-out: 6px; } }
 /* the tile lends its ground to a layer under it, for C's flame and for a rare drop's lit edge */
 .feed-tile:is(.is-mark-c, .feed-tile--rare) { isolation: isolate; background: none; }
 .feed-tile:is(.is-mark-c, .feed-tile--rare)::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--rarity) 38%, transparent), transparent), var(--bg-feed-plate); pointer-events: none; transition: box-shadow .4s; }

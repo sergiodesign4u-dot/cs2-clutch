@@ -1,0 +1,80 @@
+/* HEADER, level 3 (organism). The strip across the top that owns the money and the account and holds no destination (CLAUDE.md "Baseline").
+ * Page: design/kit/header.html. Stands on every coloured screen: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
+ * Responsible play, Sign in, 51 of 51 states (design/kit/inventory.md, Header). Guest: Sign in. Signed in: the money pair on its plate, the
+ * balance and the value of items held, each its own route, never summed (D-28), Add funds with its bonus, then the Account menu.
+ * Holds: Button (Sign in, primary M; Add funds, ghost S folded under 600px, its bonus a Badge on its corner), Figure (--money, --soft, each
+ *   with its Icon), Badge, Account menu (level 2). It never redraws them; its file carries the strip, its light, the falling weapons, the
+ *   burger under 900px and how it places the money and the account. The logo and the toggle on its strip from 900px are the Rail's.
+ * Reads: --bg-page, --text-base, --bg-layer, --depth-shell, --bg-veil, --line-edge, --line-focus, --bg-toggle, --bg-burger-bars, --bg-mark
+ *   (the plus on Add funds, a white glyph drawn as a fill); its own --header-menu-bg-hover (tokens.css, COMPONENT TOKENS: the burger under
+ *   the pointer and while the drawer is open); geometry, type and motion from the primitives; the picture --art-fall-near and --art-fall-far
+ *   of art.css. Read directly and waiting for step 9: --gradient-header-light, --gradient-header-edge, --shadow-header-edge and
+ *   --shadow-header-fall, read in this block only (tokens-audit.md, "What the semantic level does not take yet").
+ *   The fall's mask stops are written black: a mask reads only its alpha, so the colour is no colour of the system.
+ * Carried from design/kit/kit.css part 4.3 (HEADER, lines 4559 to 4615) at stage 08 step 5, round 3, D-232. The rename map row 2: the
+ *   account's control is the Account menu (.account-menu), so the layer rule under 900px reads its trigger. Merged drift row 30: the strip's
+ *   edge under 900px, --shadow-tile-edge at .05 in kit.css, is --line-edge at .07. Part 3's .wf-header rules and the D-19x passes are worn
+ *   by no coloured state (the grey's classes) and stay in kit.css. The page layout (.shell > .header) stays in kit.css for step 6. */
+
+/* its own geometry, read inside .header only */
+.header {
+  --header-room: calc(var(--space-3) + var(--space-2) + var(--size-tile) + var(--space-3-5)); /* v4 theme.css @media (min-width: 900px) .wf-header: padding-left 76px, the room the rail's toggle stands in */
+  --header-plate: 46px; /* v4 account-home.css .ac2-plate: the money plate, as tall as the account's pill, pulling 3px out of the 40px row */
+  --header-fig-hit: 5px; /* v4 account-home.css .ac-fig: padding-block 5px with margin-block -5px, each figure a 24px press */
+  --header-edge-inset: 28%; /* v4 theme.css .wf-header .wf-row::before: left 28% right 28%, the pink edge only over the logo */
+  --header-fall-mask: radial-gradient(42% 160% at 50% 0%, black 20%, transparent 100%); /* v4 theme.css .v4-fall: the weapons fall in the light only */
+  --header-fall-near: 230px; /* v4 theme.css .v4-fall .n: the near tile, 760 by 230, one tile a loop */
+  --header-fall-near-w: 760px; /* the same, width */
+  --header-fall-far: 180px; /* v4 theme.css .v4-fall .f: the far tile, 600 by 180 */
+  --header-fall-far-w: 600px; /* the same, width */
+  --header-fall-far-x: 120px; /* the same, its offset, 120px 40px */
+  --header-fall-far-y: 40px; /* the same */
+  --header-fall-loop: 9s; /* v4 theme.css: both tiles fall one tile in 9s */
+}
+
+/* the strip: a rounded plate on the page's ground with the pink light falling from its top and a pink edge over the logo */
+.header { position: sticky; z-index: 30; top: 0; isolation: isolate; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); box-sizing: border-box; min-height: var(--size-header);
+  padding: var(--space-3-5) var(--space-5-5) var(--space-1-5) var(--header-room); background: var(--bg-page); color: var(--text-base); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.header::before { content: ''; position: absolute; z-index: -1; inset: var(--space-2) var(--space-3) 0; border-radius: var(--radius-m); background: var(--gradient-header-light), var(--bg-layer); box-shadow: var(--depth-shell); pointer-events: none; }
+.header::after { content: ''; position: absolute; z-index: 1; top: var(--space-2); left: var(--header-edge-inset); right: var(--header-edge-inset); height: var(--space-hair); background: var(--gradient-header-edge); box-shadow: var(--shadow-header-edge); pointer-events: none; }
+
+/* the weapons falling in the light, idle.js's still frame: the near and the far tile */
+.header__fall { position: absolute; z-index: -1; inset: var(--space-2) var(--space-3) 0; overflow: hidden; border-radius: var(--radius-m); pointer-events: none; -webkit-mask: var(--header-fall-mask); mask: var(--header-fall-mask); }
+.header__fall > i { position: absolute; top: 0; left: 0; right: 0; filter: var(--shadow-header-fall); will-change: transform; }
+.header__fall-near { height: calc(100% + var(--header-fall-near)); background: var(--art-fall-near) 0 0 / var(--header-fall-near-w) var(--header-fall-near); animation: header-fall-near var(--header-fall-loop) linear infinite; }
+.header__fall-far { height: calc(100% + var(--header-fall-far)); background: var(--art-fall-far) var(--header-fall-far-x) var(--header-fall-far-y) / var(--header-fall-far-w) var(--header-fall-far); animation: header-fall-far var(--header-fall-loop) linear infinite; }
+@keyframes header-fall-near { from { transform: translateY(calc(-1 * var(--header-fall-near))); } to { transform: translateY(0); } }
+@keyframes header-fall-far { from { transform: translateY(calc(-1 * var(--header-fall-far))); } to { transform: translateY(0); } }
+
+/* the burger that opens the drawer, under 900px; from 900px the rail's own toggle stands in the room on the left */
+.header__menu { display: none; }
+
+/* the end: the money and the account, or Sign in */
+.header__end { display: flex; align-items: center; gap: var(--space-2-5); margin-left: auto; }
+/* the money pair and Add funds on one dark plate, as tall as the account's pill */
+.header__money { display: flex; align-items: center; gap: var(--space-3); box-sizing: border-box; height: var(--header-plate); margin-block: calc((var(--size-button-m) - var(--header-plate)) / 2); padding: 0 var(--space-1-75) 0 var(--space-3); border-radius: var(--radius-card); background: var(--bg-veil); box-shadow: var(--line-edge); }
+/* the two figures, the balance over the value of items held, each the link to its own place and never summed (D-28) */
+.header__figs { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-hair); }
+.header__fig { display: flex; margin-block: calc(-1 * var(--header-fig-hit)); padding-block: var(--header-fig-hit); color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.header__fig:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+/* the plus on Add funds, a glyph of two bars drawn as a fill */
+.header__plus { display: block; flex: none; width: var(--space-3); height: var(--space-3); border-radius: calc(var(--radius-xs) / 4); /* a glyph's corner, v4's 1px */
+  background: linear-gradient(var(--bg-mark), var(--bg-mark)) center / 100% var(--space-thin) no-repeat, linear-gradient(var(--bg-mark), var(--bg-mark)) center / var(--space-thin) 100% no-repeat; }
+
+/* under 900px: no light and nothing falls, the burger leads the strip; Add funds and the pill fold to their marks under 600px (their own) */
+@media (max-width: 899px) {
+  .header { position: relative; z-index: auto; padding: var(--space-3) var(--space-4) var(--space-1); }
+  .header::before { inset: var(--space-2) var(--space-2) 0; background: var(--bg-layer); box-shadow: var(--line-edge); }
+  .header::after, .header__fall { display: none; }
+  .header__menu { display: flex; flex: none; align-items: center; justify-content: center; width: var(--size-tile); height: var(--size-tile); margin: calc(-1 * var(--size-hairline)) 0; padding: 0; border: 0; border-radius: var(--radius-tile); background: var(--bg-toggle); box-shadow: var(--line-edge); cursor: pointer; transition: background-color .2s; -webkit-tap-highlight-color: transparent; }
+  .header__menu::after { content: ''; display: block; width: var(--size-burger-w); height: var(--size-burger-h); margin: auto; border-radius: calc(var(--radius-xs) / 4); background: var(--bg-burger-bars); }
+  /* open: the drawer it opens is open, set by kit.js (aria-expanded) */
+  .header__menu[aria-expanded="true"] { background: var(--header-menu-bg-hover); }
+  .header__end, .header__money { gap: var(--space-2); }
+  .header__money { padding-left: var(--space-2-5); }
+  /* the header's layer rises over the page while the account's sheet is open, under the rail's drawer (rename map row 2: the Account menu's trigger) */
+  .header:has(.account-menu__trigger[aria-expanded="true"]) { z-index: 61; }
+}
+.header__menu:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+@media (hover: hover) and (max-width: 899px) { .header__menu:hover { background: var(--header-menu-bg-hover); } }
+@media (prefers-reduced-motion: reduce) { .header__fall > i { animation: none; } .header__menu { transition: none; } }

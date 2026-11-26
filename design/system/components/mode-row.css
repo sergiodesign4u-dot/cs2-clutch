@@ -1,0 +1,24 @@
+/* MODE ROW, level 3 (organism). The four ways to play on Home, one live and three not launched (D-197, D-27): a row that reads its own width, not the
+ * window's: four side cards from 992px of row, four stacked from 624 to 991, two side from 516 to 623, two stacked under 516.
+ * Page: design/kit/mode-row.html. Stands on Home (design/index.html).
+ * Holds (never redrawn here): Mode card (level 2) in its fitted form, .mode-card--fit, which takes the stacked form wherever this row asks for it;
+ *   that form is the Mode card's own variant (mode-card.css, "modifier needed by .mode-row"), and it reads this row's container, mode-row. The
+ *   row's own: the heading for a screen reader, the grid and how it places the four cards.
+ * Reads: --text-base; geometry and type from the primitives. No component token, no colour primitive.
+ * Carried from design/kit/kit.css part 4.3 (MODE ROW, lines 4689 to 4702) at stage 08 step 5, round 3, unchanged in look. The fitted card's rules
+ *   (kit.css 3539 to 3550) were carried by the Mode card in round 2. No screen writes a rule on this block. From design/v4/modes.css
+ *   (.wf-sec:has(> .wf-grid.wf-modes), .wf-grid.wf-modes) on kit.css part 2 .wf-grid. Not interactive: no states of its own; the live card's act
+ *   is the Button's. Markup: section > h2 (for a screen reader) + the grid. */
+
+/* its own geometry, read inside .mode-row only */
+.mode-row {
+  --mode-row-gap: 40px; /* v4 modes.css: .wf-grid.wf-modes row-gap, 40px from one row of side cards to the next, room for what breaks their top edge; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.mode-row { container: mode-row / inline-size; min-width: 0; color: var(--text-base); font-size: var(--size-text); line-height: 1.2; }
+.mode-row__h { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* how it places the cards: two a row by default, four from 624px of row; the room over a row is the art's that breaks the cards' top edge */
+.mode-row__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: var(--mode-row-gap) var(--space-4); margin-top: var(--space-4); padding-top: var(--space-5); }
+@media (min-width: 900px) { .mode-row__grid { padding-top: var(--space-3); } }
+@container mode-row (min-width: 624px) { .mode-row__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@container mode-row (max-width: 515px) { .mode-row__grid { column-gap: var(--space-3); } }
+@container mode-row (max-width: 515px) or ((min-width: 624px) and (max-width: 991px)) { .mode-row__grid { row-gap: var(--space-6); padding-top: var(--space-5-5); } }

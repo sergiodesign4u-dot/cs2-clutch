@@ -1,0 +1,35 @@
+/* VERIFY FORM, level 3 (organism). Paste a round and recompute it: the server seed hash and the server seed as text areas, the client seed and the
+ * nonce, the act, and the one area the recomputation replaces. States: empty, prefilled, malformed (each field that failed says why under
+ * itself; nothing typed is cleared), matched (both results printed, agreed), failed (the two results side by side, the fault named as ours,
+ * one report act with the round attached and a reference), unavailable (no proof yet, the seed has not rotated). No state draws a verified mark.
+ * Page: design/kit/verify-form.html. Stands on Provably fair, its six coloured states (design/kit/inventory.md, Verify form).
+ * Holds: Field (the four inputs, stacked, level 2) with Text area (.textarea) and Text field (.input), Button (the act, primary at M; Report this
+ *   round), Key-value line (.kv, the matched results), Copyable value (.copy-value, the reference), Note line (.note under a result; .note--refuse
+ *   under a field and the form's own line). Its own parts are the plate, the act line, the result area with its sentence, the two values side
+ *   by side, and the green line of a match; it places what it holds and never redraws it.
+ * Reads: --text-body, --text-hi, --text-match, --text-on-accent, --bg-layer, --bg-hash-well, --bg-tile-veil, --bg-match, --line-edge,
+ *   --line-edge-lit; geometry and type from the primitives. No colour primitive is read directly.
+ * Carried from design/kit/kit.css part 4.3 (VERIFY FORM, lines 4981 to 5004) at stage 08 step 5, round 3, unchanged in look. The refusal ring a
+ *   malformed entry takes is the atoms' (fair.js sets aria-invalid; rename map row 29 already reads --line-error there). The rules Provably
+ *   fair writes on the form (.verify > .note--refuse[hidden], the phone padding again in .fair-check's @media) stay in kit.css for
+ *   design/system/screens/. The green line .verify__ok is carried as kit.css declares it; no coloured state wears it (see the round's questions). */
+.verify {
+  --verify-ok: 14px; /* v4 proof-home.css .x6-ok svg: the green disc before "Recomputed: matches" */
+}
+.verify { display: grid; gap: var(--space-4); min-width: 0; box-sizing: border-box; padding: var(--space-5); border-radius: var(--radius-m); background: var(--bg-layer); box-shadow: var(--line-edge); } /* .sd: the dialog's plate, its 18px corner on the ladder's 16 */
+@media (max-width: 599px) { .verify { padding: var(--space-4); } }
+.verify__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+
+/* the result, in Home's hash well: replaced whole by each recomputation, gone while empty */
+.verify__out { display: grid; gap: var(--space-3); min-width: 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-s); background: var(--bg-hash-well); box-shadow: var(--line-edge-lit); color: var(--text-body); font-size: var(--size-label); line-height: 1.5; } /* .x6-hash, its padding grown from 9 and 12 to 12 and 16 for three lines instead of two */
+.verify__out:empty { display: none; }
+.verify__say { margin: 0; color: var(--text-hi); font-weight: 700; }
+.verify__ok { position: relative; display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--text-match); font-size: var(--size-chip); font-weight: 700; line-height: 1.2; } /* .x6-ok */
+.verify__ok::before { content: '\2713'; flex: none; display: grid; place-items: center; width: var(--verify-ok); height: var(--verify-ok); border-radius: 50%; background: var(--bg-match); color: var(--text-on-accent); font-size: var(--size-micro); font-weight: 900; line-height: 1; } /* the green disc with the ground's dark tick, .x6-ok's svg */
+
+/* two values side by side, never one value with a mark; stacked on a phone (wireframes/_wf.css .wf-vpair) */
+.verify__vs { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+@media (min-width: 600px) { .verify__vs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.verify__v { display: grid; gap: var(--space-1); min-width: 0; padding: var(--space-2) var(--space-3); border-radius: var(--radius-s); background: var(--bg-tile-veil); box-shadow: var(--line-edge); } /* each result in the hash's own chip, case-page.css .v4c-hash code */
+.verify__k { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; } /* the hash's key, .v4c-hash-l */
+.verify__n { color: var(--text-hi); font-family: var(--font-mono); font-size: var(--size-m); font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.3; overflow-wrap: anywhere; }
