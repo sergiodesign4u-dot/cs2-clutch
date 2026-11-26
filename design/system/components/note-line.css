@@ -1,7 +1,7 @@
 /* NOTE LINE, level 1 (atom). One small line that qualifies a block; the refusal beside a control says what is missing (D-58); the stamp says as of when.
  * Page: design/kit/note-line.html. Stands on seven coloured screens: the case screen, the catalogue, Deposit, My items, Provably fair, Responsible
  * play, Sign in (design/kit/inventory.md, Note line).
- * Reads: --text-meta, --text-body, --text-base, --text-hi, --text-on-plate, its own --note-refuse-mark (tokens.css, COMPONENT TOKENS); geometry and
+ * Reads: --text-meta, --text-body, --text-base, --text-hi, --text-on-plate, --bg-error, a role the atoms brought (tokens.css, D-264); geometry and
  *   type from the primitives. One colour read in this block only, --color-refuse (the refusal line's words), waits for step 9 (tokens-audit.md).
  * Carried from design/kit/kit.css part 4.1 (lines 2413 to 2424) at stage 08 step 5, round 1, by the decisions of step 2 (D-260): the saved limit's
  *   tone (.note--hi, rename map row 25, from .limits__answer:not(.note--refuse)) and the size L (.note--l, row 26, from .spend__note and
@@ -24,4 +24,4 @@
    design/v4/signin-home.css .sd--e.is-asked .sd-why and its ::before; the line is as tall as the mark with a hairline over and under it */
 .note--refuse { position: relative; padding-left: calc(var(--size-refuse-mark) + var(--space-2)); color: var(--color-refuse); font-size: var(--size-label); font-weight: 400; line-height: calc(var(--size-refuse-mark) + 2 * var(--size-hairline)); }
 .note--refuse :is(b, strong) { font-weight: 700; }
-.note--refuse::before { content: '!'; position: absolute; left: 0; top: var(--size-hairline); display: grid; place-items: center; width: var(--size-refuse-mark); height: var(--size-refuse-mark); border-radius: 50%; background: var(--note-refuse-mark); color: var(--text-on-plate); font-size: var(--size-chip); font-weight: 900; line-height: 1; }
+.note--refuse::before { content: '!'; position: absolute; left: 0; top: var(--size-hairline); display: grid; place-items: center; width: var(--size-refuse-mark); height: var(--size-refuse-mark); border-radius: 50%; background: var(--bg-error); color: var(--text-on-plate); font-size: var(--size-chip); font-weight: 900; line-height: 1; }

@@ -7920,3 +7920,22 @@ The state token named `--color-focus` in the pack is `--line-focus` here: a ring
 **Rejected.**
 - Making `--opacity-disabled` now and redrawing Exchange as an opacity: it would change what My items shows, for a token with no other reader.
 - A component token for every state: a state that lands on a role reads the role (the close's red, the tile's ink, the ring).
+
+## D-264. The 21 atoms accepted: four roles the atoms brought, seven component tokens, a hover on tabs
+
+**Date:** 2026-11-26. **Stage:** 08, step 5, round 1. **Decided by:** the founder, after the round's hub and the atoms' pages on the published stand: "Q1–Q5 как рекомендуешь" (Q1 to Q5 as you recommend).
+
+**Built.** The other 21 atoms, each in one pass: its file in `design/system/components/`, its page of five blocks in `design/kit/`, its states in both themes (88 snapshots with the Button's), its record in `design/kit/_nav.js`, its row in `design/kit/inventory.md`, its `@import` in the atoms' group of `design/system/index.css`. Each picture of `design/system/art.css` is registered with `@property`, so a component resolves it from `art.css`.
+
+**Decided.**
+1. **Q1:** four roles join the semantic level of `design/system/tokens.css`, each in both themes, because a job two or three atoms repeat is a role and not a component's own token: `--line-act` (`--color-button` in both; the Button ghost's edge, the Checkbox and Radio ring under the pointer, the chosen Radio), `--line-lit` (`--color-pink`, light `--color-pink-deep`; the pressed Favourite's edge, the Text field and Text area focus ring), `--line-control` (`--color-text-muted`, light `--color-ink-lavender`; the ring of an unticked box and an unchosen radio), `--bg-error` (`--color-error` in both; the Mismatch badge, the mark before a refusal). They take the place of nine component tokens: `--button-ghost-line` accepted at D-263, `--check-line`, `--check-line-lit`, `--radio-line`, `--radio-line-lit`, `--fav-line-pressed`, `--text-field-line-focus`, `--badge-bg-bad`, `--note-refuse-mark`. The Button keeps seven tokens. Seven component tokens stay, each read by one block: `--badge-bg-bonus`, `--avatar-bg-bot`, `--media-case-glow`, `--range-thumb-line`, `--steps-halo-now`, `--switch-line`, `--switch-thumb`. No value moved. Measured when the role was written: `--bg-error` holds 2.7:1 against the light tile, under the 3:1 a meaningful fill needs, as `kit.css`'s red already did; the word on the plate carries the meaning, and step 7's stress test of the light theme reads it again.
+2. **Q2:** Tabs and the Segmented control keep the hover and the press the build gave them on `--bg-hover` and `--bg-active`; the chosen one does not change. The Text field, the Text area, the Disclosure and the Figure's link stay without a hover, as `kit.css` has them.
+3. **Q3:** rows 20 to 22 of the rename map stand: the large link's tracking .02em, The algorithm's two links at the 40px press, the Steam price link on a drop card as the quiet link with its underline. Step 6 moves the screens onto them.
+4. **Q4:** no light form of the logo now. Step 7 stress-tests the light theme on the whole stand and step 8 decides whether it stays; if it stays, the logo gets a light form or a dark plate then.
+5. **Q5:** the Avatar carries the bot's empty disc, `.avatar--bot`; step 6 moves the ticker onto it.
+6. The four points the hub listed as decided in the build stand, none vetoed: the Switch's faint ring at rest (1.6:1, the thumb carries the state); `--color-down` and `--color-refuse` stay primitives until step 9; the icon story's light and ring read their roles in the light theme; the gap between the coin and the number is decided with the molecules.
+
+**Rejected.**
+- Keeping fifteen component tokens: a job shared by two or three blocks would part by accident the first time one of them is touched.
+- New art for the logo in the light theme now, before step 8 decides whether the theme stays.
+- Leaving tabs and segmented options without a hover because `kit.css` drew none: they are acts a person presses.

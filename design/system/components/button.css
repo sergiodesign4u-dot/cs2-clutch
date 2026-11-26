@@ -24,7 +24,7 @@
 
 /* emphasis */
 .button--primary { background-color: var(--bg-act); background-image: var(--gradient-button-sheen), var(--bg-act-stripes); background-size: 300% 100%, auto; background-position: 100% 0, 0 0; background-repeat: no-repeat, repeat; color: var(--text-on-plate); transition: background-color .2s, box-shadow .2s; }
-.button--ghost { background-color: var(--button-ghost-bg); background-image: var(--gradient-button-sheen); background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat; box-shadow: inset 0 0 0 var(--size-edge) var(--button-ghost-line); transition: background-color .2s, box-shadow .2s; }
+.button--ghost { background-color: var(--button-ghost-bg); background-image: var(--gradient-button-sheen); background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat; box-shadow: inset 0 0 0 var(--size-edge) var(--line-act); transition: background-color .2s, box-shadow .2s; }
 .button--icon { width: var(--size-tile); min-height: var(--size-tile); padding: 0; border-radius: var(--radius-tile); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-body); transition: background .2s, color .2s; }
 .button--icon .icon { font-size: var(--size-tile-icon); }
 .button--close { width: var(--size-close); min-height: var(--size-close); padding: 0; border-radius: var(--radius-s); background: var(--button-close-bg); transition: color .15s; }
@@ -35,13 +35,13 @@
    Active draws the glow in. Disabled is the one disabled look of the product (D-239); busy shares its wash and keeps its words readable. */
 @media (hover: hover) {
   .button--primary:hover { background-color: var(--button-primary-bg-hover); background-position: 0 0, 0 0; box-shadow: var(--depth-act-glow); transition: background-position .6s cubic-bezier(.3, .6, .2, 1), background-color .2s, box-shadow .2s; }
-  .button--ghost:hover { background-color: var(--button-ghost-bg-hover); background-position: 0 0; box-shadow: inset 0 0 0 var(--size-edge) var(--button-ghost-line), var(--button-ghost-depth-hover); transition: background-position .6s cubic-bezier(.3, .6, .2, 1), background-color .2s, box-shadow .2s; }
+  .button--ghost:hover { background-color: var(--button-ghost-bg-hover); background-position: 0 0; box-shadow: inset 0 0 0 var(--size-edge) var(--line-act), var(--button-ghost-depth-hover); transition: background-position .6s cubic-bezier(.3, .6, .2, 1), background-color .2s, box-shadow .2s; }
   .button--icon:hover { background: var(--bg-act-stripes), var(--button-primary-bg-hover); color: var(--text-on-plate); }
   .button--close:hover { color: var(--text-error); }
   .button--close:hover::before { rotate: 135deg; } .button--close:hover::after { rotate: 45deg; }
 }
 .button--primary:focus-visible { background-color: var(--button-primary-bg-hover); background-position: 0 0, 0 0; box-shadow: var(--depth-act-glow); }
-.button--ghost:focus-visible { background-color: var(--button-ghost-bg-hover); background-position: 0 0; box-shadow: inset 0 0 0 var(--size-edge) var(--button-ghost-line), var(--button-ghost-depth-hover); }
+.button--ghost:focus-visible { background-color: var(--button-ghost-bg-hover); background-position: 0 0; box-shadow: inset 0 0 0 var(--size-edge) var(--line-act), var(--button-ghost-depth-hover); }
 .button--primary:active, .button--ghost:active { box-shadow: var(--button-depth-active); transition-duration: .08s; }
 .button:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
 .button[aria-busy="true"] { background: var(--button-bg-disabled); box-shadow: var(--line-edge); color: var(--text-body); cursor: progress; }

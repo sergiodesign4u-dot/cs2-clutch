@@ -104,7 +104,7 @@
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. Two component tokens, <code>--badge-bg-bonus</code> and <code>--badge-bg-bad</code>, because no fill role holds the coin's gold or the refusal's red (the founder decides them at the round's gate). <code>--bg-match</code> takes a deeper green in the light theme and <code>--text-on-accent</code> stays the ground's dark ink on every plate. One colour is read in this block only, <code>--color-badge-ink</code>, the ink on the gold; it waits for step 9. Geometry (<code>--size-badge</code>, <code>--size-badge-pad</code>, <code>--size-badge-text</code>, <code>--radius-s</code>) and type come straight from the primitives.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. The Mismatch tone reads the role <code>--bg-error</code>, the refusal red as a fill, which the Note line's mark reads too (D-264). The gold of a bonus is this atom's one component token, <code>--badge-bg-bonus</code>: no fill role holds the coin's gold and no other block draws it. <code>--bg-match</code> takes a deeper green in the light theme and <code>--text-on-accent</code> stays the ground's dark ink on every plate. One colour is read in this block only, <code>--color-badge-ink</code>, the ink on the gold; it waits for step 9. Geometry (<code>--size-badge</code>, <code>--size-badge-pad</code>, <code>--size-badge-text</code>, <code>--radius-s</code>) and type come straight from the primitives.</p>
   <p>File: <code>design/system/components/badge.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
   <pre>&lt;span class="badge badge--good"&gt;No fee&lt;/span&gt;
 &lt;span class="badge badge--status"&gt;USDT&lt;/span&gt;
@@ -117,7 +117,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-body', '--text-on-plate', '--text-on-accent', '--bg-tile', '--bg-act', '--bg-match', '--line-edge', '--badge-bg-bonus', '--badge-bg-bad', '--color-badge-ink'];
+  var T = ['--text-body', '--text-on-plate', '--text-on-accent', '--bg-tile', '--bg-act', '--bg-match', '--line-edge', '--badge-bg-bonus', '--bg-error', '--color-badge-ink'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = /^--badge-/.test(n) ? 'component' : /^--(color|shadow|gradient)-/.test(n) ? 'primitive' : 'semantic';

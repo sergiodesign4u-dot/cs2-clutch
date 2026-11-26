@@ -1,7 +1,7 @@
 /* FAVOURITE TOGGLE, level 1 (atom). The heart with its count; pressed, it turns pink and takes a pink edge.
  * Page: design/kit/favourite-toggle.html. Stands on Home, the case screen, the catalogue, Deposit and Sign in, in a case tile's corner and in
  * the case head (design/kit/inventory.md, Favourite toggle).
- * Reads: --bg-veil, --bg-tile-veil, --line-edge, --line-focus, --text-hi, --text-link; its own --fav-line-pressed (tokens.css, COMPONENT
+ * Reads: --bg-veil, --bg-tile-veil, --line-edge, --line-focus, --text-hi, --text-link; --line-lit, a role the atoms brought (tokens.css, D-264
  *   TOKENS); geometry, type and motion from the primitives. No colour primitive.
  * Carried from design/kit/kit.css part 4.1 (FAVOURITE TOGGLE, lines 2391 to 2411) at stage 08 step 5, round 1, unchanged in look. The tile
  *   corner's own look (.case-tile__fav, a dark pill behind the count, hidden until the tile is pointed at) is the Case tile's rule and stays
@@ -17,7 +17,7 @@
 /* STATES. Hover grows the heart by 12 percent, no more; pressed turns the count and heart pink and draws the pink edge in; focus-visible is the ring,
    never on :focus. No press look beyond pressed itself (kit.css draws none). */
 @media (hover: hover) { .fav:hover .icon { scale: 1.12; } }
-.fav[aria-pressed="true"] { color: var(--text-link); box-shadow: inset 0 0 0 var(--size-edge) var(--fav-line-pressed); }
+.fav[aria-pressed="true"] { color: var(--text-link); box-shadow: inset 0 0 0 var(--size-edge) var(--line-lit); }
 .fav:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
 @media (prefers-reduced-motion: reduce) { .fav .icon { transition: none; } }
 

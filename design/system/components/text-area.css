@@ -1,7 +1,7 @@
 /* TEXT AREA, level 1 (atom). Several lines of typed text: a client seed, a note. The Text field's twin, taller and set to grow downward.
  * Page: design/kit/text-area.html. Stands on Provably fair (Verify) (design/kit/inventory.md, Text area).
- * Reads: --text-hi, --text-meta, --bg-tile, --line-edge, --line-error; --text-field-line-focus, the Text field's own token
- *   (tokens.css, COMPONENT TOKENS), so the two draw one focus; geometry and type from the primitives. No colour primitive is read here.
+ * Reads: --text-hi, --text-meta, --bg-tile, --line-edge, --line-error; --line-lit, the role the Text field
+ *   reads too (tokens.css, D-264), so the two draw one focus; geometry and type from the primitives. No colour primitive is read here.
  * Carried from design/kit/kit.css part 4.1, FORM CONTROLS (lines 2471 to 2478, the .textarea rules) at stage 08 step 5, round 1, by the decisions
  *   of step 2 (D-260): the refusal ring reads --line-error (its --color-error) where kit.css drew --color-down, rename map row 29, merged drift.
  *   No hover, as the Text field: kit.css draws none. */
@@ -12,5 +12,5 @@
 
 /* STATES, the Text field's: no hover; focus-visible takes the pink ring inside the box, the refusal is aria-invalid and
    is ringed in --line-error, after the focus so a refused field keeps its red ring while focused (D-58: it stays live, the reason beside it). */
-.textarea:focus-visible { outline: none; box-shadow: inset 0 0 0 var(--size-edge) var(--text-field-line-focus); }
+.textarea:focus-visible { outline: none; box-shadow: inset 0 0 0 var(--size-edge) var(--line-lit); }
 .textarea[aria-invalid="true"] { box-shadow: inset 0 0 0 var(--size-edge) var(--line-error); }

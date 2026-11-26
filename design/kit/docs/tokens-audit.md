@@ -64,9 +64,9 @@ Decided at step 4's review on the stand, `D-262`, by the founder: "Q1–Q5 ка�
 | The Figure's sizes by container | seven sizes, unnamed | `.fig--xs` 13, `.fig` 14, `.fig--m` 18, `.fig--title` 20, `.fig--l` 22, `.fig--head` 26, `.fig--win` 30 | Q4: each named by the step of the type scale it reads; worn from step 5. |
 | `--fig-l`, `--outcome-name` | 22px, the one Figure size off the scale | kept, the Figure's own value | Q5: moving it to 20 or 24 would move the price beside every act. |
 
-### The components built (step 5), round 1, waiting for the founder
+### The components built (step 5), round 1, accepted at D-264
 
-Proposed on the hub, `design/kit/overview.html` section "For your review, round 1", 26 November 2026. Nothing below is decided yet; each row is marked when the founder answers. Rows the rename map of step 2 already decided are named by its row and are not asked again unless the variant does not equal the local rule it replaces.
+Proposed on the hub, `design/kit/overview.html` section "Round 1, the atoms", 26 November 2026, and accepted the same day by the founder, "Q1 to Q5 as you recommend" (translated), D-264: every row below stands as written. Rows the rename map of step 2 already decided are named by its row and are not asked again unless the variant does not equal the local rule it replaces.
 
 | Variable or class | Was | Becomes | Why |
 |---|---|---|---|
@@ -75,7 +75,7 @@ Proposed on the hub, `design/kit/overview.html` section "For your review, round 
 | `.link--l` (row 20) | the section head's sub line link at tracking normal | the family's .02em | Q3: the two sources of the L disagree; What still works already has .02em. |
 | `.link--tap` (row 21) | The algorithm's two links 36px high, padding 10px | the 40px press of every `--tap` link | Q3: one press size for one variant. |
 | `.link--quiet` (row 22) | the market link on a drop card without an underline | the quiet link with its underline | Q3: the rename map makes it the quiet link. |
-| Fifteen component tokens proposed by the atoms | none | four shared roles (`--line-act`, `--line-lit`, `--line-control`, `--bg-error`) and seven component tokens | Q1: a job in two blocks or more is a role; no value changes either way. |
+| Fifteen component tokens proposed by the atoms, and the Button's `--button-ghost-line` | none; the Button's edge was its own token (D-263) | four roles in the semantic level, `--line-act`, `--line-lit`, `--line-control`, `--bg-error`, in the place of nine component tokens; seven component tokens stay | Q1, D-264: a job in two blocks or more is a role; no value moved. `--bg-error` measures 2.7:1 against the light tile, as `kit.css`'s red did, named for step 7. |
 | `--art-*` in `design/system/art.css` | an unregistered custom property: its `url()` resolved where `var()` read it, so a component found no picture | each registered with `@property` as a `<url>`, resolved from `art.css` | a defect of step 3 found when the first component read a picture; no picture changes. |
 
 ### Moved onto the system's classes (step 6)

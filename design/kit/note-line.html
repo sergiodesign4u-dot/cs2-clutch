@@ -46,7 +46,7 @@
     <tr><td><b>Tone</b></td><td><code>.note--soft</code>, <code>--hi</code>, <code>--refuse</code></td><td>the colour: a quieter grey, white for a saved answer, the light red of a refusal</td></tr>
     <tr><td><b>Size</b></td><td><code>.note--label</code>, <code>--l</code></td><td>14 for a label's size, 16 for the line under a block at the page's text size</td></tr>
     <tr><td><b>Stamp</b></td><td><code>.note--stamp</code></td><td>figures in columns, for an as-of time</td></tr>
-    <tr><td><b>Mark</b></td><td><code>.note--refuse::before</code></td><td>the round "!" that leads a refusal, in the refusal red (<code>--note-refuse-mark</code>)</td></tr>
+    <tr><td><b>Mark</b></td><td><code>.note--refuse::before</code></td><td>the round "!" that leads a refusal, in the refusal red (<code>--bg-error</code>)</td></tr>
   </tbody></table></div>
 </section>
 
@@ -93,7 +93,7 @@
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry and type come straight from the primitives. One colour is read directly and waits for step 9: <code>--color-refuse</code>, the refusal line's words, read in this block only. The mark's fill, <code>--note-refuse-mark</code>, is a component token: no fill role carries the refusal red.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry and type come straight from the primitives. One colour is read directly and waits for step 9: <code>--color-refuse</code>, the refusal line's words, read in this block only. The mark's fill reads <code>--bg-error</code>, the refusal red as a fill, a role the Badge's Mismatch reads too (D-264).</p>
   <p>File: <code>design/system/components/note-line.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
   <pre>&lt;p class="note"&gt;No provider fee on this route&lt;/p&gt;
 &lt;p class="note note--l"&gt;Buying an item outright is cheaper on average than opening for it.&lt;/p&gt;
@@ -106,8 +106,8 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-meta', '--text-body', '--text-base', '--text-hi', '--text-on-plate', '--note-refuse-mark'];
-  var KIND = {"--note-refuse-mark": "component"};
+  var T = ['--text-meta', '--text-body', '--text-base', '--text-hi', '--text-on-plate', '--bg-error'];
+  var KIND = {};
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = KIND[n] || (/^--line-focus/.test(n) ? 'state' : 'semantic');

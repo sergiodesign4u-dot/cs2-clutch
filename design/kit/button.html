@@ -161,8 +161,8 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-hi', '--text-on-plate', '--text-body', '--text-meta', '--text-error', '--text-money-on-plate', '--bg-act', '--bg-act-stripes', '--bg-tile', '--line-edge', '--line-focus', '--depth-act-glow',
-    '--button-primary-bg-hover', '--button-ghost-bg', '--button-ghost-bg-hover', '--button-ghost-line', '--button-ghost-depth-hover', '--button-depth-active', '--button-close-bg', '--button-bg-disabled'];
+  var T = ['--text-hi', '--text-on-plate', '--text-body', '--text-meta', '--text-error', '--text-money-on-plate', '--bg-act', '--bg-act-stripes', '--bg-tile', '--line-edge', '--line-focus', '--line-act', '--depth-act-glow',
+    '--button-primary-bg-hover', '--button-ghost-bg', '--button-ghost-bg-hover', '--button-ghost-depth-hover', '--button-depth-active', '--button-close-bg', '--button-bg-disabled'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = /^--button-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';

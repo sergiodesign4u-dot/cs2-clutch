@@ -92,7 +92,7 @@
   <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion. The base set is the Text field's, shot there once; here only the refusal, the state this atom's decision names (D-260, Q2).</p>
 <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/text-area-area-invalid-dark.png" alt="Refusal: the red ring (aria-invalid), dark theme" loading="lazy"></div><div><img src="screens/states/text-area-area-invalid-light.png" alt="Refusal: the red ring (aria-invalid), light theme" loading="lazy"></div></div><figcaption><b>Refusal: the red ring (aria-invalid)</b> <code>--line-error</code></figcaption></figure></div>
   <ul class="kt-list">
-    <li><b>The same answer, said once:</b> no hover, and focus-visible takes the pink ring (<code>--text-field-line-focus</code>), exactly as on the Text field, on its page.</li>
+    <li><b>The same answer, said once:</b> no hover, and focus-visible takes the pink ring (<code>--line-lit</code>), exactly as on the Text field, on its page.</li>
     <li><b>The refusal moved from <code>--color-down</code> to <code>--color-error</code></b> (rename map row 29, merged drift, D-260): the Field's declaration and this ring were two reds for one refusal. It reads the role <code>--line-error</code>.</li>
     <li><b>No disabled look:</b> a text area stays live and refuses with its reason (D-58).</li>
   </ul>
@@ -103,7 +103,7 @@ node design/kit/tools/shoot-states.js http://localhost:8765/ text-area --check  
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry (<code>--size-button-m</code>, <code>--radius-button</code>, <code>--space-3</code>) and type come straight from the primitives. <code>--text-field-line-focus</code> is the Text field's component token, read here so the two draw one focus.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry (<code>--size-button-m</code>, <code>--radius-button</code>, <code>--space-3</code>) and type come straight from the primitives. <code>--line-lit</code> is the role the Text field reads, so the two draw one focus (D-264).</p>
   <p>File: <code>design/system/components/text-area.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
   <pre>&lt;textarea class="textarea" id="v-hash" rows="2" spellcheck="false" aria-invalid="true" aria-describedby="v-hash-e"&gt;4f2a...&lt;/textarea&gt;
 &lt;p class="note note--refuse" id="v-hash-e"&gt;This is 32 characters. A server seed hash is 64.&lt;/p&gt;</pre>
@@ -118,7 +118,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-hi', '--text-meta', '--bg-tile', '--line-edge', '--line-error', '--text-field-line-focus'];
+  var T = ['--text-hi', '--text-meta', '--bg-tile', '--line-edge', '--line-error', '--line-lit'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = /^--text-field-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';

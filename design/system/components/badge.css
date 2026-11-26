@@ -1,7 +1,7 @@
 /* BADGE, level 1 (atom). Short text in a pill: a count or a bonus pinned to a control, a ribbon on a tile, a status.
  * Page: design/kit/badge.html. Stands on Home, the case screen, the catalogue, Deposit, My items, Provably fair (design/kit/inventory.md, Badge).
- * Reads: --text-body, --text-on-plate, --text-on-accent, --bg-tile, --bg-act, --bg-match, --line-edge; its own --badge-bg-bonus and
- *   --badge-bg-bad (tokens.css, COMPONENT TOKENS); geometry, type from the primitives; one colour read in this block only,
+ * Reads: --text-body, --text-on-plate, --text-on-accent, --bg-tile, --bg-act, --bg-match, --line-edge; its own --badge-bg-bonus (tokens.css, COMPONENT TOKENS) and
+ *   the role --bg-error (D-264); geometry, type from the primitives; one colour read in this block only,
  *   --color-badge-ink, waits for step 9 (tokens-audit.md).
  * Carried from design/kit/kit.css part 4.1 (BADGE, lines 2310 to 2320) at stage 08 step 5, round 1, unchanged in look. From the 5 % badge,
  *   account-home.css. Not interactive: no states. */
@@ -16,4 +16,4 @@
 /* needed by .proof, D-232: a round whose recomputation does not match is our failure, in the red of the refusal's mark with the ground's dark
    ink, as .badge--good is green with it; one badge shape, the colour only (D-230). The failure wash of Not copied was tried first and read
    at 3.5:1 on the blue plate; this reads 6.1:1. Stands on no coloured state yet: kept, wired or deleted at step 6 (inventory.md, "To verify") */
-.badge--bad { background: var(--badge-bg-bad); color: var(--text-on-accent); }
+.badge--bad { background: var(--bg-error); color: var(--text-on-accent); }

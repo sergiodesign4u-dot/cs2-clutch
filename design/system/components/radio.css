@@ -1,6 +1,6 @@
 /* RADIO, level 1 (atom). A round mark that holds one yes among a few: in a choice tile (a provider, a Steam offer).
  * Page: design/kit/radio.html. Stands on Deposit, in the Payment panel's provider tiles (design/kit/inventory.md, Radio).
- * Reads: --text-body, --bg-tile, --bg-act, --line-focus; its own --radio-line and --radio-line-lit (tokens.css, COMPONENT TOKENS); geometry,
+ * Reads: --text-body, --bg-tile, --bg-act, --line-focus; --line-control and --line-act, roles the atoms brought (tokens.css, D-264); geometry,
  *   type and motion from the primitives. No colour primitive is read directly.
  * Carried from design/kit/kit.css part 4.1, FORM CONTROLS (lines 2483 to 2486 and 2489 to 2491, the radio half of the rules it shares with the
  *   Checkbox) at stage 08 step 5, round 1, unchanged in look; the hover now sits in @media (hover: hover). The rules the Payment panel writes on
@@ -9,11 +9,11 @@
 /* One form. As the Checkbox, but round and for one choice of a set: the group is the same name on every input. A radio sits inside the tile
    that is its label, so it draws only the mark; with a label of its own it takes the Checkbox's line. */
 .radio { display: inline-flex; align-items: flex-start; gap: var(--space-3); color: var(--text-body); font-size: var(--size-label); line-height: 1.45; cursor: pointer; }
-.radio > input { appearance: none; flex: none; display: grid; place-items: center; width: var(--size-check); height: var(--size-check); margin: 0; border-radius: 50%; background: var(--bg-tile); box-shadow: inset 0 0 0 var(--size-hairline) var(--radio-line); cursor: pointer; transition: background .15s, box-shadow .15s; }
+.radio > input { appearance: none; flex: none; display: grid; place-items: center; width: var(--size-check); height: var(--size-check); margin: 0; border-radius: 50%; background: var(--bg-tile); box-shadow: inset 0 0 0 var(--size-hairline) var(--line-control); cursor: pointer; transition: background .15s, box-shadow .15s; }
 
 /* STATES. Hover lights the ring of an unchosen radio in the act's pink; chosen, the ring is 2px in the act and a dot of the act stands in the
    middle. Focus ring on :focus-visible only. No disabled look: a control stays live and refuses, D-58. */
-@media (hover: hover) { .radio:hover > input:not(:checked) { box-shadow: inset 0 0 0 var(--size-hairline) var(--radio-line-lit); } }
-.radio > input:checked { box-shadow: inset 0 0 0 var(--size-edge) var(--radio-line-lit); }
+@media (hover: hover) { .radio:hover > input:not(:checked) { box-shadow: inset 0 0 0 var(--size-hairline) var(--line-act); } }
+.radio > input:checked { box-shadow: inset 0 0 0 var(--size-edge) var(--line-act); }
 .radio > input:checked::after { content: ''; width: 50%; height: 50%; border-radius: 50%; background: var(--bg-act); }
 .radio > input:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
