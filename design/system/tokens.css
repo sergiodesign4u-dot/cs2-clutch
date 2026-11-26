@@ -15,7 +15,8 @@
  *   on the 51 coloured states at 1440 and 360 (a reference is counted by what lies under it: the theme's dark ground, or a coloured plate
  *   or a picture; a role on a plate keeps its value in both themes), the parent from DESIGN.md where it names one, and the threshold
  *   with the contrast measured in both themes against the grounds it can sit on (page, card, tile; paper, white card, light tile).
- *   The state tokens close this block: --bg-hover, --bg-active and --line-focus, made at step 5 with the Button in both themes (D-263).
+ *   The state tokens close this block: --bg-hover, --bg-active and --line-focus, made at step 5 with the Button in both themes (D-263), and
+ *   --depth-card-hover, the card's lift, made with the molecules (round 2).
  *   After them, four roles the atoms brought at step 5, a job two or three atoms repeat (D-264, Q1): --line-act, --line-lit, --line-control, --bg-error.
  *   There is no --opacity-disabled: disabled is drawn once, on the Button, and a control otherwise stays live and refuses (D-58).
  *
@@ -880,6 +881,8 @@
      step 5 by the components that lift under the pointer. */
   --bg-active: var(--color-card-hover); /* the ground while pressed, a step past the hover: dark, the baseline's own hover navy (--color-card-hover, deep walk of 20 Oct 2026), until now read by
      nothing; light, the light tile. Fill. A ground. */
+  --depth-card-hover: var(--shadow-card-hover); /* the lift under a card the pointer brings, a deep navy shadow, as kit.css draws it on the Drop card and the Recent drop card (stage 08 step 5, round 2:
+     kit.css lists it among the state primitives step 5 makes into tokens). Depth: no threshold; the same in both themes for now, read at step 7. */
   --line-focus: var(--color-text-hi); /* the focus ring, drawn on :focus-visible only, never on :focus, at --size-edge with its offset: white as 40 rules of kit.css draw it, navy on paper.
      Line. Threshold 3:1 (a line that carries meaning, WCAG 1.4.11). Dark 19.4:1 on the tile, light 16.4:1 on the light tile. */
 
@@ -1018,6 +1021,7 @@
   /* States */
   --bg-hover: var(--color-paper); /* dark --color-card; light reuses --color-paper, a value the kit already has */
   --bg-active: var(--color-paper-2); /* dark --color-card-hover; light reuses --color-paper-2, a value the kit already has */
+  --depth-card-hover: var(--shadow-card-hover); /* the same: a lift, read again at step 7 */
   --line-focus: var(--color-ground); /* dark --color-text-hi; light reuses --color-ground, a value the kit already has */
 
   /* Roles the atoms brought at step 5 (D-264) */
@@ -1047,9 +1051,44 @@
   /* Badge, round 1 of step 5 (design/system/components/badge.css) */
   --badge-bg-bonus: var(--color-money); /* the badge's own gold fill, the tone of the unmarked badge (the 5 % pinned to Add funds, Instant); no fill role holds the coin's gold: --text-money is
      ink and the audit counts this the one fill read of --color-money */
+  /* Daily ladder, round 2 of step 5 (design/system/components/daily-ladder.css) */
+  --daily-chip-text-locked: var(--color-text-muted); /* the quiet words of a locked tier's chip, which sits on the tier's coloured plate under a dark chip: no ink role holds the lavender on a plate
+     (--text-meta turns to a dark ink in the light theme, --text-body-on-plate is the softer white-grey and would move the look) */
+  --daily-hue-legend: var(--color-pink); /* Legend's own hue, the light of its edge and its hover glow: a tier's hue is a data axis of a coloured plate, the same in both themes, and the fill
+     role --bg-lit turns to the act pink in the light theme and would shift Legend's glow */
+  --daily-tier-lit-hover: var(--shadow-tile-lit-hover); /* the lit top edge of a tier card under the pointer, white at .30 where the resting edge is .25 and the live card's .40: a hover state with no role to
+     take it, one reader */
+  --daily-tier-lift-hover: var(--shadow-daily-lift-hover); /* the drop under a tier card lifted by the pointer: a hover depth with no role to take it, one reader */
+  --daily-tier-lift-live-hover: var(--shadow-daily-lift-live-hover); /* the deeper drop under the live tier card lifted by the pointer (24px over the 18px of the others): a hover depth with no role to take it, one reader */
+  /* Event banner, round 2 of step 5 (design/system/components/event-banner.css) */
+  --banner-edge: var(--shadow-edge); /* the 1px light edge on the banner's own dark scene, on the block from 900px and on each countdown cell: --line-edge turns to an ink edge in the light
+     theme, which on a dark picture would not show, and no role holds a light edge on a plate (--line-lit-top is the top edge only) */
+  /* Feed tile, round 2 of step 5 (design/system/components/feed-tile.css) */
+  --feed-tile-text-bot: var(--color-text-muted); /* the word bot beside a bot winner on the tile's back face, the muted lavender kit.css draws. The back face's plate (--gradient-feed-back) is navy in
+     both themes, so the ink on it must not flip: --text-meta turns a dark lavender in the light theme, which on navy is unreadable, and no
+     --text-meta-on-plate role exists (the plate inks are --text-on-plate, --text-body-on-plate and --text-base-on-plate, each a different value) */
+  --feed-tile-line-focus-back: var(--color-text-hi); /* the focus ring of the two links on the back face (the case, the winner), solid white as kit.css draws it. --line-focus turns navy in the light theme,
+     which would vanish on the back face's navy plate; no line role is solid white on a plate (the Range's --range-thumb-line has the same reason) */
+  /* Hero, round 2 of step 5 (design/system/components/hero.css) */
+  --hero-trust-depth-hover: var(--shadow-trust-hover); /* the trust badge's lit edge and green glow under the pointer: a hover depth with no role to take it, one reader */
   /* Media slot, round 1 of step 5 (design/system/components/media-slot.css) */
   --media-case-glow: var(--color-pink); /* the light round a skin in a case when its screen names none: the case tile and the daily case set --case-glow, the others take the act pink; no role
      is a light colour and --color-pink is read on several surfaces */
+  /* Money strip, round 2 of step 5 (design/system/components/money-strip.css) */
+  --money-strip-panel-bg-hover: var(--color-plate-hover); /* the veil a linked panel of the strip takes under the pointer, white at .06 over the coloured plate; --bg-hover is an opaque card ground and would
+     repaint the pink and violet panel as a navy card */
+  --money-strip-card-filter-hover: var(--filter-card-hover); /* a round's card brightens under the pointer (brightness 1.08), a filter on a rarity plate; no role holds a filter */
+  --money-strip-line-focus: var(--color-text-hi); /* the focus ring of a link drawn inside a panel of the strip: white, as kit.css draws it; --line-focus turns navy on paper and the plate under the ring
+     is blue to pink in both themes, where navy would lose the ring */
+  --money-strip-hash-edge: var(--shadow-edge-lit); /* the 1px lit edge of the hash's box on the Every round plate; --line-edge-lit turns to a navy edge in the light theme, drawn for a paper ground, and
+     this box is a dark well on a blue plate in both */
+  /* Outcome card, round 2 of step 5 (design/system/components/outcome-card.css) */
+  --outcome-tab-edge: var(--color-track); /* the hairline round the multiple's tab, white at .08 on the tab's own dark plate. --bg-track is the role of the same value but paints a fill (a track a
+     bar fills) and goes navy .08 in the light theme, which would vanish on a plate that stays dark; --line-edge is .07 and goes ink in the light theme;
+     --line-plate-edge is violet. The tab is the one plate here that keeps its colour in both themes (its ground --color-tab is read in this block only) */
+  --outcome-tab-up-ink: var(--color-up); /* the words of the tab when the item is worth more than the open, the up green on the up-tab's dark teal plate. --text-up is the role of the same value
+     but it flips to the deep green in the light theme (--color-green-deep, written for a light ground) and would read about 2:1 on a plate that stays
+     dark; --text-match-on-plate is a different green (--color-green) and would redraw the dark theme. No -on-plate role exists for the gain */
   /* Range, round 1 of step 5 (design/system/components/range.css) */
   --range-thumb-line: var(--color-text-hi); /* the white rim of the thumb, a ring drawn in solid white on the act pink; no line role is solid white on a plate (--line-focus turns navy on paper,
      --line-lit-top is white at .25), and the thumb's pink does not change with the theme */
@@ -1077,8 +1116,29 @@
   --avatar-bg-bot: var(--color-avatar-bot); /* the same: a navy disc on either ground; its ring is the role --line-ring-soft, which already has a light value */
   /* Badge, round 1 of step 5 (design/system/components/badge.css) */
   --badge-bg-bonus: var(--color-money); /* the same: the plate keeps its gold in both themes, and its ink --color-badge-ink is fixed, so the pair is measured on the plate itself */
+  /* Daily ladder, round 2 of step 5 (design/system/components/daily-ladder.css) */
+  --daily-chip-text-locked: var(--color-text-muted); /* the same: the plate and its chip are dark in both themes, so the words keep the lavender they have */
+  --daily-hue-legend: var(--color-pink); /* the same: a tier keeps its hue in both themes, as the other four do (Nova's blue and Elite's gold are read directly, Guardian's violet is --bg-case-violet) */
+  --daily-tier-lit-hover: var(--shadow-tile-lit-hover); /* the same: it lights a coloured plate, the same in both themes */
+  --daily-tier-lift-hover: var(--shadow-daily-lift-hover); /* the same: a shadow, read again at step 7 like the depth roles */
+  --daily-tier-lift-live-hover: var(--shadow-daily-lift-live-hover); /* the same: a shadow, read again at step 7 like the depth roles */
+  /* Event banner, round 2 of step 5 (design/system/components/event-banner.css) */
+  --banner-edge: var(--shadow-edge); /* the same: the scene is dark in both themes, so the edge keeps its white .07 */
+  /* Feed tile, round 2 of step 5 (design/system/components/feed-tile.css) */
+  --feed-tile-text-bot: var(--color-text-muted); /* the same: the plate does not change with the theme, so its muted ink does not either */
+  --feed-tile-line-focus-back: var(--color-text-hi); /* the same: the back face's plate is navy in both themes, so its ring stays white in both */
+  /* Hero, round 2 of step 5 (design/system/components/hero.css) */
+  --hero-trust-depth-hover: var(--shadow-trust-hover); /* the same: the badge is a dark glass plate in both themes, so its glow is the same; read again at step 7 */
   /* Media slot, round 1 of step 5 (design/system/components/media-slot.css) */
   --media-case-glow: var(--color-pink); /* the same: a glow in the brand pink reads on either ground; read again at step 7 with the depth roles */
+  /* Money strip, round 2 of step 5 (design/system/components/money-strip.css) */
+  --money-strip-panel-bg-hover: var(--color-plate-hover); /* the same: the strip is a plate that keeps its colours in both themes, so the veil is the same in both */
+  --money-strip-card-filter-hover: var(--filter-card-hover); /* the same: the card keeps its rarity colours in both themes */
+  --money-strip-line-focus: var(--color-text-hi); /* the same: the plate does not change with the theme, so the ring does not */
+  --money-strip-hash-edge: var(--shadow-edge-lit); /* the same: the well and the plate keep their colours in both themes */
+  /* Outcome card, round 2 of step 5 (design/system/components/outcome-card.css) */
+  --outcome-tab-edge: var(--color-track); /* the same: the plate keeps its colour in both themes, so its edge keeps its white */
+  --outcome-tab-up-ink: var(--color-up); /* the same: the plate keeps its colour in both themes, so its words keep theirs */
   /* Range, round 1 of step 5 (design/system/components/range.css) */
   --range-thumb-line: var(--color-text-hi); /* the same: the thumb is the act pink in both themes, so its white rim stays white; 4.9:1 white on --color-button, measured */
   /* Status steps, round 1 of step 5 (design/system/components/status-steps.css) */

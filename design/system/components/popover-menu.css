@@ -1,0 +1,104 @@
+/* POPOVER MENU, level 2 (molecule). A control that opens a panel of choices over the page: the language list and the select list.
+ * Page: design/kit/popover-menu.html. Stands on every coloured screen: the rail's language control (Home, the case screen, the catalogue,
+ *   Deposit, My items, Provably fair, Responsible play, Sign in), Deposit's country and network, Responsible play's limit periods
+ *   (design/kit/inventory.md, Popover menu).
+ * Holds: the inventory row lists Button, Text link and Icon; on the coloured screens the language and select forms hold none of them (the
+ *   close and the glyphs were the account form's and left with it at the split), so every part here is the molecule's own: the trigger, the
+ *   panel, the options, the flag, the caret, the note and the phone's sheet.
+ * Reads: --text-hi, --text-base, --text-body, --text-meta, --text-link, --bg-tile, --bg-menu, --bg-layer, --bg-lit (mixed at 16%, the chosen
+ *   option's wash), --bg-hover, --line-edge, --line-lit, --line-focus; the flags from art.css (--art-flag-*); geometry, type and motion from
+ *   the primitives. Read directly and waiting for step 9 (tokens-audit.md, "What the semantic level does not take yet"): --shadow-panel,
+ *   --shadow-menu and --color-handle, listed as read in the Popover menu block only; --color-line, one of the six with one reader per surface
+ *   (the panel's hairline here, the status steps' ring there); --color-scrim-sheet, the phone sheet's scrim, read by the Popover menu block
+ *   of kit.css only and missing from that list because no state at load opens a sheet. Since the split (D-260, Q3) the sheet's three values
+ *   (--shadow-menu, --color-handle, --color-scrim-sheet) are read here and by account-menu.css: a role at the gate or at step 9.
+ * Carried from design/kit/kit.css part 4.2 (POPOVER MENU, lines 3619 to 3651 and 3711 to 3773) at stage 08 step 5, round 2, by the
+ *   decisions of step 2 (D-260): the account form (lines 3652 to 3709, --account) left for design/system/components/account-menu.css
+ *   (rename map row 2, Q3); the native Select (.select, .select--l, kit.css 2471 to 2479) is merged into --select and not carried (row 1);
+ *   the tile edge of the language trigger reads --line-edge at white .07 (row 30, merged drift). The open and the chosen states are set by
+ *   design/kit/kit.js (aria-expanded on the trigger, aria-selected on a select option); the language's current option is aria-current.
+ *   The keyframes popover-rise is named here (--fit on a phone) and by the account menu's sheet: declared once at the end of this file. From design/v4/footer-home.css and kit.css part 3 (the language), D-238 (the select), D-232 (--fit). */
+
+/* its own geometry, read inside .popover only, D-231 */
+.popover {
+  --popover-lang-menu: 320px; /* kit.css part 3: .wf-lang-wrap.is-open .wf-lang-pop width, as Home v4 draws it. Popover menu, language */
+  --popover-caret: 5px; /* v4 footer-home.css: .wf-rail-lang::after border-top, the language control's caret. Popover menu, language */
+  --popover-handle: 40px; /* v4 account-home.css: .am3::before width at 899px, the sheet's handle. Popover menu, the language list on a phone (--fit) */
+}
+
+/* the frame: a trigger that carries aria-expanded and a panel that follows it in the markup and shows while it is true */
+.popover { position: relative; display: inline-flex; }
+.popover__panel { display: none; }
+.popover__trigger[aria-expanded="true"] ~ .popover__panel { display: block; }
+.popover__trigger { display: inline-flex; align-items: center; justify-content: center; border: 0; font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.popover__trigger:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+.popover__scrim { display: none; }
+
+/* the language: the tile with the flag and the code, its caret; the list of nine opens upward, two to a row */
+.popover--lang .popover__trigger { gap: var(--space-2); min-height: var(--size-tile); padding: 0 var(--space-4); border-radius: var(--radius-tile); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-body); font-size: var(--size-label); font-weight: 700; line-height: 1.2; white-space: nowrap; }
+.popover--lang .popover__trigger::after { content: ''; display: inline-block; margin-left: var(--space-1-5); border-style: solid; border-width: var(--popover-caret) var(--space-1) 0; border-color: var(--text-meta) transparent transparent; }
+.popover__flag { flex: 0 0 var(--size-check); width: var(--size-check); height: var(--size-check); border-radius: 50%; background: var(--flag) center / contain no-repeat; }
+.popover__flag--gb { --flag: var(--art-flag-gb); } .popover__flag--de { --flag: var(--art-flag-de); } .popover__flag--cn { --flag: var(--art-flag-cn); }
+.popover__flag--fr { --flag: var(--art-flag-fr); } .popover__flag--pl { --flag: var(--art-flag-pl); } .popover__flag--tr { --flag: var(--art-flag-tr); }
+.popover__flag--pt { --flag: var(--art-flag-pt); } .popover__flag--es { --flag: var(--art-flag-es); } .popover__flag--ua { --flag: var(--art-flag-ua); }
+.popover--lang .popover__trigger[aria-expanded="true"] ~ .popover__panel { display: flex; }
+.popover--lang .popover__panel { position: absolute; z-index: 10; bottom: calc(100% + var(--space-2)); right: 0; flex-direction: column; gap: var(--space-2); box-sizing: border-box; width: var(--popover-lang-menu); max-width: calc(100vw - 2 * var(--space-4)); padding: var(--space-4);
+  border: var(--size-hairline) solid var(--color-line); border-radius: var(--radius-m); background: var(--bg-menu); box-shadow: var(--shadow-panel); color: var(--text-base); font-size: var(--size-xs); line-height: 1.2; text-align: left; }
+.popover__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--size-edge); }
+.popover__opt { display: flex; align-items: center; justify-content: flex-start; gap: var(--space-2); min-height: var(--size-button-m); padding: 0 var(--space-2); border: 0; border-radius: var(--radius-s); background: none; color: var(--text-base);
+  font-family: inherit; font-size: var(--size-label); font-weight: 500; line-height: 1.2; text-align: left; white-space: nowrap; cursor: pointer; }
+.popover__opt[aria-current="true"] { background: color-mix(in srgb, var(--bg-lit) 16%, transparent); color: var(--text-hi); }
+.popover__code { flex: 0 0 auto; margin-left: auto; color: var(--text-meta); font-size: var(--size-chip); font-weight: 700; }
+.popover__opt[aria-current="true"] .popover__code { color: var(--text-link); }
+.popover__opt:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: calc(-1 * var(--size-edge)); } /* inside the row, as kit.css draws it: the rows touch */
+@media (hover: hover) { .popover__opt:hover { background: var(--bg-hover); color: var(--text-hi); } .popover__opt[aria-current="true"]:hover { background: color-mix(in srgb, var(--bg-lit) 16%, transparent); } }
+.popover__note { margin: var(--space-2) var(--space-3) var(--space-1); color: var(--text-meta); font-size: var(--size-chip); line-height: 1.2; }
+@media (max-width: 359px) { .popover__code { display: none; } }
+@media (prefers-reduced-motion: reduce) { .popover__trigger { transition: none; } }
+
+/* --select, the Select menu, D-238. A field's choice from a short list drawn by the kit in place of the browser's own list, the founder's
+   correction of 20 Nov 2026: the trigger is the Select's field with its caret and the value (a flag where the choice is a country), the list
+   drops under it at the field's width, one option to a row, the chosen one in the pink wash with a tick. The trigger carries
+   aria-haspopup="listbox", the options role="option" and aria-selected; kit.js sets the choice, closes the list, gives the keyboard back to
+   the trigger and tells the page (an event "pick" on the .popover). The former native Select, merged here by D-260 (row 1). */
+.popover--select { display: flex; width: 100%; }
+.popover--select .popover__trigger { position: relative; flex: 1 1 auto; justify-content: flex-start; gap: var(--space-2-5); min-width: 0; min-height: var(--size-button-m); box-sizing: border-box; padding: 0 var(--space-6) 0 var(--space-3);
+  border-radius: var(--radius-button); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-hi); font-size: var(--size-label); font-weight: 500; line-height: 1.2; text-align: left; } /* the Select's field */
+.popover--select .popover__trigger::after { content: ''; position: absolute; top: 50%; right: var(--space-4); width: var(--space-2); height: var(--space-2); margin-top: calc(-1 * var(--space-1) - var(--space-hair)); border: solid var(--text-body); border-width: 0 var(--size-edge) var(--size-edge) 0; rotate: 45deg; transition: rotate .2s var(--motion-ease-settle), margin .2s; }
+.popover--select .popover__trigger[aria-expanded="true"] { box-shadow: inset 0 0 0 var(--size-edge) var(--line-lit); }
+.popover--select .popover__trigger[aria-expanded="true"]::after { rotate: 225deg; margin-top: 0; }
+.popover--select .popover__val { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.popover--select .popover__panel { position: absolute; z-index: 20; top: calc(100% + var(--space-1-5)); left: 0; right: 0; box-sizing: border-box; max-height: calc(6 * var(--size-button-m) + 2 * var(--space-1-5)); overflow-y: auto; padding: var(--space-1-5);
+  border: var(--size-hairline) solid var(--color-line); border-radius: var(--radius-card); background: var(--bg-menu); box-shadow: var(--shadow-panel); animation: popover-drop .18s var(--motion-ease-settle); } /* the language list's panel, dropping under its field */
+.popover--select .popover__list { grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; }
+.popover--select .popover__opt { width: 100%; padding: 0 var(--space-3); white-space: normal; }
+.popover__opt[aria-selected="true"] { background: color-mix(in srgb, var(--bg-lit) 16%, transparent); color: var(--text-hi); } /* chosen, as the language's current option */
+.popover__opt[aria-selected="true"]::after { content: ''; flex: none; width: var(--space-1-5); height: var(--space-3); margin: 0 var(--space-1) var(--space-hair) auto; border: solid var(--text-link); border-width: 0 var(--size-edge) var(--size-edge) 0; rotate: 45deg; } /* the tick, the current item's pink */
+@media (hover: hover) { .popover__opt[aria-selected="true"]:hover { background: color-mix(in srgb, var(--bg-lit) 16%, transparent); } }
+@keyframes popover-drop { from { translate: 0 calc(-1 * var(--space-1)); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .popover--select .popover__panel { animation: none; } .popover--select .popover__trigger::after { transition: none; } }
+
+/* --fit, D-232: the language control fills its cell, its content centred, and its list opens up from its start, as the open rail and the
+   drawer draw it; in a cell under 60px wide (the closed rail) it is the flag alone on a square tile and its list opens beside it. v4 theme.css
+   and rail-b1.css .wf-rail-lang, kit.css part 3 .wf-lang-pop. Its cell is a size container, which the rail gives it (.rail__amb-i) */
+.popover--fit { display: flex; }
+.popover--fit .popover__trigger { flex: 1 1 auto; justify-content: center; }
+.popover--fit .popover__panel { left: 0; right: auto; }
+@container (max-width: 59px) {
+  .popover--fit .popover__trigger { width: var(--size-tile); padding: 0; gap: 0; }
+  .popover--fit .popover__trigger > :not(.popover__flag), .popover--fit .popover__trigger::after { display: none; }
+  .popover--fit .popover__trigger > .popover__flag { flex-basis: var(--size-tile-icon); width: var(--size-tile-icon); height: var(--size-tile-icon); }
+  .popover--fit .popover__panel { left: calc(100% + var(--space-4)); bottom: 0; }
+}
+/* under 900px, in the drawer: the list rises from the bottom as a sheet, as the Account menu's does on a phone, its handle on top and the page
+   and the drawer dimmed by the popover's own scrim, so the drawer's edge never clips it; a press on the scrim or Escape closes it, D-232 */
+@media (max-width: 899px) {
+  .popover--fit { position: static; }
+  .popover--fit .popover__panel { position: fixed; z-index: 61; inset: auto 0 0 0; width: auto; max-width: none; max-height: 88vh; overflow-y: auto; padding: var(--space-2) var(--space-3) var(--space-4); border: 0; border-radius: var(--radius-l) var(--radius-l) 0 0; background: var(--bg-layer); box-shadow: var(--line-edge), var(--shadow-menu); animation: popover-rise .28s cubic-bezier(.2, .7, .2, 1); }
+  .popover--fit .popover__panel::before { content: ''; display: block; flex: none; width: var(--popover-handle); height: var(--space-1); margin: 0 auto var(--space-2-5); border-radius: var(--radius-xs); background: var(--color-handle); }
+  .popover--fit .popover__trigger[aria-expanded="true"] ~ .popover__scrim { display: block; position: fixed; inset: 0; z-index: 60; background: var(--color-scrim-sheet); }
+}
+@media (prefers-reduced-motion: reduce) { .popover--fit .popover__panel { animation: none; } }
+
+/* kit.css line 3709; the Popover menu's phone sheet (--fit) and the Account menu's sheet both rise with it; declared once, here, the first of them to load (round 2: a keyframe two blocks name is declared once, by the parent, in the file of its first reader) */
+@keyframes popover-rise { from { translate: 0 var(--space-5); opacity: 0; } }

@@ -1,0 +1,103 @@
+/* MODE CARD, level 2 (molecule). One way to play on Home: its colour, its art breaking the card's top edge, the name, one line, and the act across the
+ * foot. Live, the act is the filled Button; not launched (.is-later), the Button is absent and a glass plate says Not launched yet in its place (D-197, D-27).
+ * Page: design/kit/mode-card.html. Stands on Home, design/index.html (design/kit/inventory.md, Mode card).
+ * Holds: Button (.button--primary .button--m, the act of the live card). The art is three layers of the card's own (a burst on the card's colour, the
+ *   object, a thinner copy of the burst at its rim), and the not-launched plate is the card's own element: the markup of Home holds no Media slot and
+ *   no Badge in this card (reported, design/kit/inventory.md lists both under Contains).
+ * Reads: --bg-mode-cases-card, --bg-mode-battles, --bg-mode-showdowns, --bg-mode-upgrade (the four cards' colours), --depth-mode-card, --depth-mode-art,
+ *   --text-on-plate, --text-base-on-plate; geometry, type and motion from the primitives; the art is the --art-mode-* pictures of art.css. Colour
+ *   primitives read directly, all in this block only and waiting for step 9 (tokens-audit.md, "Mode card"): --gradient-mode-foot,
+ *   --shadow-mode-art-warm, --shadow-mode-knife, --shadow-mode-name, --shadow-mode-line, --color-mode-later, --shadow-mode-later, --color-mode-scrim.
+ *   The mask stops are written black: a mask reads only its alpha, so the colour is no colour of the system.
+ * Carried from design/kit/kit.css part 4.2 (MODE CARD, lines 3469 to 3550) at stage 08 step 5, round 2, unchanged in look. The keyframes mode-card-*
+ *   are named by this block alone and are carried. From design/v4/modes.css, theme.css and buttons.css. */
+
+/* Two forms: side (comp A, 7 to 4, words left and art right) and stacked (.mode-card--stack, the art over the words), which the mode row chooses
+   by its own width (.mode-card--fit, below). The art's placement per card (--ol, --ot, --ow, --bz, --mx, --my, --pw) is measured against comp A, in
+   units of 1 % of the card (cqw). Data: the mode, a modifier that sets the card's colour and its art. */
+/* its own geometry, read inside .mode-card only, D-231 */
+.mode-card {
+  --mode-rise: 80px; /* v4 modes.css .wf-grid .wf-mode clip-path: how far the art may break the card's top edge */
+  --mode-pad-foot: 14px; /* v4 modes.css .wf-grid .wf-mode: the card's padding at its foot */
+  --mode-line-foot: 10px; /* v4 modes.css, the stacked card's description, its bottom margin */
+}
+.mode-card { --k: 1; --dx: 0; --dy: 0; position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; box-sizing: border-box; isolation: isolate; container-type: inline-size; align-self: stretch; justify-self: stretch; aspect-ratio: 7 / 4; padding: var(--space-4) var(--space-4) var(--mode-pad-foot); border-radius: var(--radius-card); background: var(--gradient-mode-foot), var(--mode-fill); box-shadow: var(--depth-mode-card);
+  clip-path: inset(calc(-1 * var(--mode-rise)) 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); color: var(--text-base-on-plate); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; transition: filter .35s; }
+.mode-card--cases { --mode-fill: var(--bg-mode-cases-card); --mode-obj: var(--art-mode-cases); --mode-burst: var(--art-mode-cases-burst); --ol: 43.4; --ot: -7.2; --ow: 70; --bz: 1.35; --pw: 45cqw; --mx: 78%; --my: 50%; }
+.mode-card--battles { --mode-fill: var(--bg-mode-battles); --mode-obj: none; --mode-burst: var(--art-mode-battles); --ol: 53; --ot: -7; --ow: 62; --bz: 1.3; --pw: 56cqw; --mx: 84%; --my: 44%; }
+.mode-card--showdowns { --mode-fill: var(--bg-mode-showdowns); --mode-obj: var(--art-mode-showdowns); --mode-burst: var(--art-mode-showdowns-burst); --ol: 45.6; --ot: -8; --ow: 59; --bz: 1.35; --mx: 75%; --my: 38%; }
+.mode-card--upgrade { --mode-fill: var(--bg-mode-upgrade); --mode-obj: var(--art-mode-upgrade); --mode-burst: var(--art-mode-upgrade-burst); --ol: 44; --ot: -6; --ow: 70; --bz: 1.3; --mx: 79%; --my: 44%; } /* its foot goes into the card's bottom edge, it does not hang */
+
+/* layer 1, the burst on the card's colour, fading out before the words; layer 3, its thinner copy at the object's rim, breathing */
+.mode-card::before, .mode-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: var(--mode-burst) calc((100 - (100 - var(--ol)) * var(--k) + var(--dx) - var(--ow) * var(--k) * (var(--bz) - 1) / 2) * 1cqw) calc((var(--ot) * var(--k) + var(--dy) - var(--ow) * var(--k) * (var(--bz) - 1) / 2) * 1cqw) / calc(var(--ow) * var(--k) * var(--bz) * 1cqw) auto no-repeat; }
+.mode-card::before { z-index: 0; mix-blend-mode: screen; -webkit-mask: linear-gradient(90deg, transparent 36%, black 58%); mask: linear-gradient(90deg, transparent 36%, black 58%); transition: filter .35s; }
+.mode-card::after { z-index: 1; opacity: .3; -webkit-mask: radial-gradient(circle at var(--mx) var(--my), transparent 22cqw, black 30cqw, transparent 38cqw); mask: radial-gradient(circle at var(--mx) var(--my), transparent 22cqw, black 30cqw, transparent 38cqw);
+  animation: mode-card-burst var(--motion-mode-burst) ease-in-out infinite alternate; }
+/* layer 2, the object, floating, free over the top edge only */
+.mode-card__art { position: absolute; z-index: 1; left: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx)) * 1cqw); top: calc((var(--ot) * var(--k) + var(--dy)) * 1cqw); width: calc(var(--ow) * var(--k) * 1cqw); aspect-ratio: 1; background: var(--mode-obj) center / contain no-repeat; filter: var(--depth-mode-art); pointer-events: none;
+  animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; transition: translate .4s var(--motion-ease-pop), rotate .4s var(--motion-ease-pop), scale .4s var(--motion-ease-pop); }
+.mode-card--upgrade .mode-card__art { filter: var(--shadow-mode-art-warm); } /* a navy shadow would dirty the gold card */
+.mode-card--showdowns .mode-card__art { -webkit-mask: linear-gradient(black 84%, transparent 100%); mask: linear-gradient(black 84%, transparent 100%); } /* the bust ends behind the act */
+/* Case battles: two knives crossing, each its own layer, tips over the top edge; the red one is the blue one's mirror */
+.mode-card--battles .mode-card__art { left: 0; top: 0; width: 100%; height: 100%; aspect-ratio: auto; background: none; filter: none; }
+.mode-card--battles .mode-card__art::before, .mode-card--battles .mode-card__art::after { content: ''; position: absolute; left: calc((100 - 56.2 * var(--k) + var(--dx)) * 1cqw); top: calc((-10.8 * var(--k) + var(--dy)) * 1cqw); width: calc(75.7 * var(--k) * 1cqw); height: calc(75.7 * var(--k) * 1cqw); background: center / contain no-repeat; filter: var(--shadow-mode-knife); }
+.mode-card--battles .mode-card__art::before { background-image: var(--art-mode-battles-knife-blue); rotate: -30deg; }
+.mode-card--battles .mode-card__art::after { background-image: var(--art-mode-battles-knife-red); rotate: 30deg; transform: scaleX(-1); }
+
+/* the words at the top left over the colour */
+.mode-card__name, .mode-card__line { position: relative; z-index: 2; }
+.mode-card__name::before, .mode-card__line::before { content: ''; position: absolute; z-index: -1; inset: calc(-1 * var(--space-2)) calc(-1 * var(--space-3)); border-radius: var(--radius-card); background: var(--color-mode-scrim); filter: blur(var(--blur-mode-scrim)); pointer-events: none; } /* a soft shade under the words, over the art: the art runs under them on Case battles, Cases and Upgrade, and white measured 1.3:1 at its lightest pixel there; D-255 */
+.mode-card__name { display: flex; align-items: center; gap: var(--space-2); margin: 0; color: var(--text-on-plate); font-size: min(var(--size-l), 9.6cqw); font-weight: 900; letter-spacing: var(--tracking-mode-name); line-height: 1.05; text-shadow: var(--shadow-mode-name); text-transform: uppercase; white-space: nowrap; }
+.mode-card__line { max-width: var(--pw, 42cqw); margin: var(--space-1-5) 0 var(--space-2); color: var(--text-on-plate); font-size: var(--size-chip); line-height: 1.3; text-shadow: var(--shadow-mode-line); }
+
+/* the act across the foot, stopping at the art: the Button at its medium height (it keeps its own states), or the plate that says the mode is not
+   launched. The card places the Button, sets its width and its foot margin; its sides here are the small button's, as kit.css draws them. */
+.mode-card__act, .mode-card__later { position: relative; z-index: 3; align-self: flex-start; display: flex; justify-content: center; align-items: center; box-sizing: border-box; width: max-content; min-width: 56cqw; max-width: 100%; min-height: var(--size-button-m); margin: auto 0 0; padding: 0 var(--size-button-s-pad); border-radius: var(--radius-button); }
+.mode-card__act { line-height: 1.4; text-align: center; }
+.mode-card__later { background: var(--color-mode-later); box-shadow: var(--shadow-mode-later); -webkit-backdrop-filter: blur(var(--blur-mode-later)); backdrop-filter: blur(var(--blur-mode-later)); color: var(--text-on-plate); font-size: max(var(--size-unit), min(var(--size-xs), 4.6cqw)); font-weight: 700; letter-spacing: var(--tracking-tight); line-height: 1.3; text-shadow: var(--shadow-mode-line); text-transform: uppercase; white-space: nowrap; }
+@container (max-width: 159px) { .mode-card__later { padding: 0 var(--space-2); letter-spacing: 0; } } /* a stacked card under 160px: the plate spans it, so its sides come from the padding, not the tracking */
+
+/* stacked: the art in the top right breaking the top edge, the words under it across the card */
+.mode-card--stack { --dy: -6; aspect-ratio: auto; padding: var(--space-3); }
+.mode-card--stack::before { -webkit-mask: linear-gradient(180deg, black 28%, transparent 62%); mask: linear-gradient(180deg, black 28%, transparent 62%); }
+.mode-card--stack::after { --rx: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx) + var(--ow) * var(--k) / 2) * 1cqw); --ry: calc((var(--ot) * var(--k) + var(--dy) + var(--ow) * var(--k) / 2) * 1cqw);
+  -webkit-mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), black calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), black calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); }
+.mode-card--stack .mode-card__name { margin-top: 46cqw; font-size: min(var(--size-title), 12.5cqw); }
+.mode-card--stack .mode-card__line { max-width: none; margin: var(--space-1) 0 var(--mode-line-foot); }
+.mode-card--stack .mode-card__act, .mode-card--stack .mode-card__later { align-self: stretch; width: auto; }
+.mode-card--stack .mode-card__later { font-size: max(var(--size-unit), min(var(--size-xs), 7.6cqw)); }
+
+@keyframes mode-card-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 calc(-1 * var(--space-1)); } }
+@keyframes mode-card-burst { from { opacity: .18; } to { opacity: .3; } }
+@keyframes mode-card-strike-l { 0% { rotate: -30deg; translate: 0 0; } 45% { rotate: -40deg; translate: -3cqw -1cqw; } 75% { rotate: -25deg; translate: 1cqw 0; } 100% { rotate: -33deg; translate: -1cqw -1cqw; } }
+@keyframes mode-card-strike-r { 0% { rotate: 30deg; translate: 0 0; } 45% { rotate: 40deg; translate: 3cqw -1cqw; } 75% { rotate: 25deg; translate: -1cqw 0; } 100% { rotate: 33deg; translate: 1cqw -1cqw; } }
+
+/* STATES. The card is not a link: under the pointer it brightens and its art rises and turns a few degrees; on Case battles the two knives draw apart
+   and strike instead. The act inside is the Button and keeps the Button's own states. There is no focus state of the card. */
+@media (hover: hover) {
+  .mode-card:hover { filter: brightness(1.08); }
+  .mode-card:hover::before { filter: brightness(1.3) saturate(1.15); }
+  .mode-card:hover .mode-card__art { scale: 1.08; rotate: -4deg; translate: 0 calc(-1 * var(--space-1-5)); animation-play-state: paused; }
+  .mode-card--battles:hover .mode-card__art { scale: none; rotate: none; translate: none; }
+  .mode-card--battles:hover .mode-card__art::before { animation: mode-card-strike-l var(--motion-mode-strike) var(--motion-ease-pop) forwards; }
+  .mode-card--battles:hover .mode-card__art::after { animation: mode-card-strike-r var(--motion-mode-strike) var(--motion-ease-pop) forwards; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mode-card, .mode-card::before, .mode-card::after, .mode-card__art, .mode-card__art::before, .mode-card__art::after { animation: none; transition: none; }
+  .mode-card:hover .mode-card__art { scale: none; rotate: none; translate: none; }
+  .mode-card--battles:hover .mode-card__art::before, .mode-card--battles:hover .mode-card__art::after { animation: none; }
+}
+
+/* modifier needed by .mode-row, D-232: the fitted card takes the stacked form (.mode-card--stack) wherever the row is narrow, by the row's own width,
+   and the side form elsewhere; the same values as --stack, from design/v4/modes.css @container modes. The container, mode-row, is the row's. */
+@container mode-row (max-width: 515px) or ((min-width: 624px) and (max-width: 991px)) {
+  .mode-card--fit { --dy: -6; aspect-ratio: auto; padding: var(--space-3); }
+  .mode-card--fit::before { -webkit-mask: linear-gradient(180deg, black 28%, transparent 62%); mask: linear-gradient(180deg, black 28%, transparent 62%); }
+  .mode-card--fit::after { --rx: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx) + var(--ow) * var(--k) / 2) * 1cqw); --ry: calc((var(--ot) * var(--k) + var(--dy) + var(--ow) * var(--k) / 2) * 1cqw);
+    -webkit-mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), black calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), black calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); }
+  .mode-card--fit .mode-card__name { margin-top: 46cqw; font-size: min(var(--size-title), 12.5cqw); }
+  .mode-card--fit .mode-card__line { max-width: none; margin: var(--space-1) 0 var(--mode-line-foot); }
+  .mode-card--fit .mode-card__act, .mode-card--fit .mode-card__later { align-self: stretch; width: auto; }
+  .mode-card--fit .mode-card__later { font-size: max(var(--size-unit), min(var(--size-xs), 7.6cqw)); }
+}

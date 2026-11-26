@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Mode card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 90px 28px; align-items: flex-start; justify-content: center; padding: 100px 18px 40px; }
+  .cp-side { width: 300px; max-width: 100%; }
+  .cp-stack { width: 160px; }
+  .cp-row { container: mode-row / inline-size; width: 340px; max-width: 100%; } /* the Mode row's container, declared here for the fitted form */
+  .cp-cap { display: block; margin-top: 8px; font-size: 12px; color: var(--text-meta); text-align: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Cards &middot; level 2</span>
+  <h1>Mode card</h1>
+  <p class="kt-lead">One way to play, on Home: its colour, its art breaking the card's top edge, the name, one line, and the act across the foot. Live, the act is a filled Button; not launched, the Button is absent and a glass plate says so in its place (D-27, D-197). Everything on this page is drawn by <code>design/system/components/mode-card.css</code> through <code>index.css</code>.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-side"><article class="mode-card mode-card--cases"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Cases</h3><p class="mode-card__line">Open a case, see every chance.</p><a class="button button--primary button--m mode-card__act" href="#anatomy">Open a case</a></article><span class="cp-cap">Live</span></div>
+    <div class="cp-side"><article class="mode-card mode-card--battles is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Case battles</h3><p class="mode-card__line">Open against someone, highest total wins.</p><p class="mode-card__later">Not launched yet</p></article><span class="cp-cap">Not launched</span></div>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:720px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The card</b> (the molecule's own)</td><td><code>.mode-card</code>, <code>--cases</code>, <code>--battles</code>, <code>--showdowns</code>, <code>--upgrade</code></td><td>the mode's colour and the placement of its art (<code>--ol</code>, <code>--ot</code>, <code>--ow</code>, <code>--bz</code>, <code>--mx</code>, <code>--my</code>, <code>--pw</code>, in units of 1% of the card); the 7 to 4 shape; how far the art may break the top edge (<code>--mode-rise</code>)</td></tr>
+    <tr><td><b>The art</b> (the molecule's own)</td><td><code>.mode-card__art</code> and the card's <code>::before</code> and <code>::after</code></td><td>three layers: a burst on the card's colour, the object floating over the top edge, a thinner copy of the burst at its rim; the pictures are the <code>--art-mode-*</code> of <code>art.css</code></td></tr>
+    <tr><td><b>The words</b> (the molecule's own)</td><td><code>.mode-card__name</code>, <code>.mode-card__line</code></td><td>white on the colour, with a soft shade under them where the art runs behind (D-255); the name in capitals at 900</td></tr>
+    <tr><td><b>The live act</b></td><td>a <a href="button.html">Button</a>, <code>.button--primary .button--m</code> wearing <code>.mode-card__act</code></td><td>only where the card puts it: across the foot, at least 56% of the card wide, its sides the small button's 14px as <code>kit.css</code> draws them; the Button is the atom's and keeps its states</td></tr>
+    <tr><td><b>The not-launched plate</b> (the molecule's own)</td><td><code>.mode-card__later</code>, with <code>.is-later</code> on the card</td><td>the pale glass plate in the Button's place; a card that is not launched says so in words and carries no act (D-27)</td></tr>
+  </tbody></table></div>
+  <p class="kt-note">The inventory lists a Media slot and a Badge under what this card contains. Home's markup holds neither: the art is the card's own layers and the not-launched plate is its own element, so this page names only the Button. Put to the gate.</p>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Three axes. Each carries its rule, so the next screen picks by the rule instead of finding a reason again.</p>
+  <ul class="kt-list">
+    <li><b>Mode = data.</b> A modifier names the mode and sets its colour and the art's placement: Cases, Case battles, Showdowns, Upgrade. The card never invents a mode;</li>
+    <li><b>Content = live or not launched.</b> A live card carries the act; a card that is not launched carries the plate that says so, and no Button.</li>
+    <li><b>Form = side or stacked.</b> Side (7 to 4): words left, art right. Stacked (<code>--stack</code>): the art over the words. The Mode row chooses by its own width, through <code>--fit</code>: stacked where the row is narrow, side elsewhere.</li>
+    <li><b>Width = the row's.</b> The card has no width of its own; its container is its own, so the art and the words scale with it (units of the card's width).</li>
+  </ul>
+  <h3>Side, the four modes</h3>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-side"><article class="mode-card mode-card--cases"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Cases</h3><p class="mode-card__line">Open a case, see every chance.</p><a class="button button--primary button--m mode-card__act" href="#variants">Open a case</a></article></div>
+    <div class="cp-side"><article class="mode-card mode-card--battles is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Case battles</h3><p class="mode-card__line">Open against someone, highest total wins.</p><p class="mode-card__later">Not launched yet</p></article></div>
+    <div class="cp-side"><article class="mode-card mode-card--showdowns is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Showdowns</h3><p class="mode-card__line">One round, one opponent.</p><p class="mode-card__later">Not launched yet</p></article></div>
+    <div class="cp-side"><article class="mode-card mode-card--upgrade is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Upgrade</h3><p class="mode-card__line">Trade a skin for one worth more.</p><p class="mode-card__later">Not launched yet</p></article></div>
+  </div></div>
+  <h3>Stacked, the four modes</h3>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-stack"><article class="mode-card mode-card--cases mode-card--stack"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Cases</h3><p class="mode-card__line">Open a case, see every chance.</p><a class="button button--primary button--m mode-card__act" href="#variants">Open a case</a></article></div>
+    <div class="cp-stack"><article class="mode-card mode-card--battles mode-card--stack is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Case battles</h3><p class="mode-card__line">Open against someone, highest total wins.</p><p class="mode-card__later">Not launched yet</p></article></div>
+    <div class="cp-stack"><article class="mode-card mode-card--showdowns mode-card--stack is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Showdowns</h3><p class="mode-card__line">One round, one opponent.</p><p class="mode-card__later">Not launched yet</p></article></div>
+    <div class="cp-stack"><article class="mode-card mode-card--upgrade mode-card--stack is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Upgrade</h3><p class="mode-card__line">Trade a skin for one worth more.</p><p class="mode-card__later">Not launched yet</p></article></div>
+  </div></div>
+  <h3>Fitted, as the Mode row asks for it</h3>
+  <p><code>--fit</code> is the stacked form on a condition: it applies inside a container named <code>mode-row</code> when that container is up to 515px wide or between 624px and 991px. This sample stands in a 340px container declared on this page for the purpose; the real container belongs to the Mode row, an organism.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-row"><article class="mode-card mode-card--cases mode-card--fit"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Cases</h3><p class="mode-card__line">Open a case, see every chance.</p><a class="button button--primary button--m mode-card__act" href="#variants">Open a case</a></article></div>
+  </div></div>
+  <div class="kt-scene"><div class="kt-tbl"><table style="min-width:420px"><thead><tr><th>Form</th><th>Measured</th></tr></thead><tbody>
+    <tr><td>Side, in a 300px cell</td><td><span class="cp-dim" data-dim-of="#variants .cp-side .mode-card"></span></td></tr>
+    <tr><td>Stacked, in a 160px cell</td><td><span class="cp-dim" data-dim-of="#variants .cp-stack .mode-card"></span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A way to play, offered as one of a row: Home's "Ways to play". A mode that is not launched is still drawn, in its colour and with its line, and says "Not launched yet" in the plate where the act would be, so the structure the baseline validated stays whole and a person never meets a dead button (D-27, D-197). The line says what the mode is in one sentence, the act says what the press does: "Open a case, see every chance." and "Open a case" (microcopy 0.4-15, 0.4-16).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>A mode in the Ways to play row: Cases live with its act, the other three with the plate. A fifth mode is a new modifier with its colour and its art, never a different card.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A case to open, with its price and its risk, is the <b>Case tile</b>. A daily or a timed offer is the <b>Daily ladder</b> or the <b>Event banner</b>. A destination in the rail is a row of the rail, not a card. A press that does something stays a <b>Button</b>; the card places one and never draws its own.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at the card. The act inside is the Button and answers with the Button's own hover, focus and press (its page); the card has no focus state of its own, it is not a link.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-side" id="s-mode"><article class="mode-card mode-card--cases"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Cases</h3><p class="mode-card__line">Open a case, see every chance.</p><a class="button button--primary button--m mode-card__act" href="#states">Open a case</a></article></div>
+  </div></div>
+  <p>Snapshots of the same instance, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. Shot once, on Cases.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/mode-card-cases-hover-dark.png" alt="Hover: the card brightens and its art rises, dark theme" loading="lazy"></div><div><img src="screens/states/mode-card-cases-hover-light.png" alt="Hover: the card brightens and its art rises, light theme" loading="lazy"></div></div><figcaption><b>Hover: the card brightens, its art rises and turns</b> <code>--depth-mode-card, --depth-mode-art</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> the other three cards, live or not, draw the same hover: the card brightens and its art rises and turns a few degrees. Case battles differs in motion only: its two knives draw apart and strike under the pointer instead; with reduced motion that strike is off, so a snapshot cannot show it.</li>
+    <li><b>The art's breath is always on.</b> The object floats and the rim copy of the burst breathes, set by <code>--motion-mode-float</code> and <code>--motion-mode-burst</code>; both stop with reduced motion.</li>
+    <li><b>No disabled look.</b> A mode that is not launched is a different content, the plate, not a disabled act (D-27, D-58).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ mode-card           # re-shoot after a change to mode-card.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ mode-card --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token. The four cards' colours, their depth and the words' ink are roles; a mode card is a coloured plate, so its words keep their white in both themes. Eight colour primitives are read directly, all in this block only and waiting for step 9: <code>--gradient-mode-foot</code>, <code>--shadow-mode-art-warm</code>, <code>--shadow-mode-knife</code>, <code>--shadow-mode-name</code>, <code>--shadow-mode-line</code>, <code>--color-mode-later</code>, <code>--shadow-mode-later</code>, <code>--color-mode-scrim</code>. Geometry, type and motion come straight from the primitives.</p>
+  <p>File: <code>design/system/components/mode-card.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
+  <pre>&lt;article class="mode-card mode-card--cases mode-card--fit"&gt;&lt;span class="mode-card__art" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;h3 class="mode-card__name"&gt;Cases&lt;/h3&gt;&lt;p class="mode-card__line"&gt;Open a case, see every chance.&lt;/p&gt;
+  &lt;a class="button button--primary button--m mode-card__act" href="..."&gt;Open a case&lt;/a&gt;&lt;/article&gt;
+&lt;article class="mode-card mode-card--battles mode-card--fit is-later"&gt;...&lt;p class="mode-card__later"&gt;Not launched yet&lt;/p&gt;&lt;/article&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>. Until step 8 that screen still reads <code>kit.css</code>; step 6 moves its markup onto this file's forms.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'cases', sel: '#s-mode .mode-card', states: ['hover'], pad: 90 }
+];
+document.querySelectorAll('[data-dim-of]').forEach(function (s) { var e = document.querySelector(s.getAttribute('data-dim-of')); if (e) { var r = e.getBoundingClientRect(); s.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); } });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--bg-mode-cases-card', '--bg-mode-battles', '--bg-mode-showdowns', '--bg-mode-upgrade', '--depth-mode-card', '--depth-mode-art', '--text-on-plate', '--text-base-on-plate'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

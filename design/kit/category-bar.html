@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Category bar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: grid; gap: 18px; padding: 28px 18px; }
+  .cp-narrow { width: min(100%, 320px); min-width: 0; }
+  .cp-stage > * { min-width: 0; }
+  .cp-matrix td, .cp-matrix th { vertical-align: middle; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: start; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Heads and ways &middot; level 2</span>
+  <h1>Category bar</h1>
+  <p class="kt-lead">The shelf's sections as a run of options, one current, and the two acts on the shelf, Search and Filters with its count. One row at every width, because it sticks: the run scrolls and fades where more waits. Everything on this page is drawn by <code>design/system/components/category-bar.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <nav class="catbar" aria-label="Categories"><span class="catbar__l">Categories</span><div class="catbar__run"><a class="seg__opt" href="#anatomy" aria-current="true">Daily</a><a class="seg__opt" href="#anatomy">Featured</a><a class="seg__opt" href="#anatomy">Community</a><a class="seg__opt" href="#anatomy">Classic</a></div><div class="catbar__acts"><button class="button button--ghost button--m button--tap" type="button" aria-label="Search cases by name"><i class="icon icon--search" aria-hidden="true"></i><span class="button__label">Search</span></button><button class="button button--ghost button--m button--tap" type="button" aria-expanded="false"><i class="icon icon--filter" aria-hidden="true"></i><span class="button__label">Filters</span><span class="badge badge--count button__pin">2</span></button></div></nav>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The bar</b> (the molecule's own)</td><td><code>nav.catbar</code></td><td>the plate (<code>--bg-plate</code>), its violet edge (<code>--line-plate-edge</code>), the corner, the padding by width: 8px, 12px from 600px, 12px 16px from 1200px</td></tr>
+    <tr><td><b>The label</b> (the molecule's own)</td><td><code>.catbar__l</code></td><td>"Categories" in small capitals; drawn from 1200px only</td></tr>
+    <tr><td><b>The run</b> (the molecule's own)</td><td><code>.catbar__run</code>, <code>.is-more</code></td><td>the row that scrolls without a scrollbar; <code>.is-more</code>, set by the script, fades its end where more sections wait</td></tr>
+    <tr><td><b>An option</b></td><td><code>.seg__opt</code> as a link, <a href="segmented-control.html">Segmented control</a></td><td>the chosen look is the atom's (<code>aria-current="true"</code>); the bar only keeps it from shrinking, wrapping or underlining</td></tr>
+    <tr><td><b>The acts</b></td><td><code>.catbar__acts</code> &gt; <a href="button.html">Button</a> <code>--ghost --m --tap</code></td><td>the group's place at the bar's end; each act is the Button's ghost M at the 44px press with an <a href="icon.html">Icon</a> and its word; the bar sizes the glyph and folds the word under 1200px</td></tr>
+    <tr><td><b>The count</b></td><td><a href="badge.html">Badge</a> <code>.badge--count .button__pin</code></td><td>how many filters are in force, pinned to the Filters tile; hidden while there are none</td></tr>
+    <tr><td><b>Sticky</b></td><td><code>.catbar--sticky</code></td><td>stays under the header strip while the shelves scroll, on the page's ground so nothing shows through</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form, so there is no variant to pick. Two things change with the situation, and each carries its rule. Heights and widths are read from the render.</p>
+  <ul class="kt-list">
+    <li><b>The run = the sections that exist.</b> A section a filter emptied takes its chip, and with no section left the run and its label go (D-58). More chips than room: the run scrolls and <code>.is-more</code> fades its end. The script sets it; here it is set by hand, as the product's script does.</li>
+    <li><b>The acts fold by width.</b> From 1200px Search and Filters show the glyph and the word; under 1200px the glyph alone in a 44 x 44 square, the word kept for a screen reader. This is the screens' look; rename map row 11 would have made them icon tiles at every width, and that is put to the founder (round 2, Q2).</li>
+    <li><b>Width = the layout.</b> The bar is as wide as its column; its content never sets it.</li>
+  </ul>
+  <h3>A run that scrolls</h3>
+  <div class="kt-scene"><div class="cp-stage"><div class="cp-narrow">
+    <nav class="catbar" aria-label="Categories"><div class="catbar__run is-more"><a class="seg__opt" href="#variants" aria-current="true">Daily</a><a class="seg__opt" href="#variants">Featured</a><a class="seg__opt" href="#variants">Community</a><a class="seg__opt" href="#variants">Classic</a><a class="seg__opt" href="#variants">Battles</a></div><div class="catbar__acts"><button class="button button--ghost button--m button--tap" type="button" aria-label="Search cases by name"><i class="icon icon--search" aria-hidden="true"></i><span class="button__label">Search</span></button></div></nav>
+  </div></div></div>
+  <h3>Sizes, read from the render</h3>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:560px">
+    <thead><tr><th>Part</th><th>Measured</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td><b>The bar</b></td><td><span data-dim="bar" class="cp-dim"></span></td><td class="kt-note">one row; the option's 44px and the bar's padding set it</td></tr>
+      <tr><td><b>An option</b></td><td><span data-dim="opt" class="cp-dim"></span></td><td class="kt-note">the Segmented control's M, 44px</td></tr>
+      <tr><td><b>An act</b></td><td><span data-dim="act" class="cp-dim"></span></td><td class="kt-note">the Button's tile; see the finding in the code section</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A shelf that holds several sections on one page and needs a way to jump between them and two acts that act on the whole shelf: the catalogue. The bar is a jump list, not a filter: the section in view is the current chip and the bar never filters (<code>catalogue.js</code>). It sticks, so it must stay one row at every width: stacked, the open bar took 124px of a 640px window, and the baseline keeps the two acts and lets the chips give way (<code>research/docs/baseline.md</code> 10.2). Its job is the main flow's second step, choose what to open: every case with its chance and value is a section away.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The catalogue: Daily, Featured, Community and Classic as the run, Search and Filters at the end, one row, stuck under the header.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>Choosing one value that stays on the page (the count of rounds, an amount, the sort) is a <b>Segmented control</b> alone. Panels that swap on one page are <b>Tabs</b>. A path to this page is a <b>Breadcrumb</b>. A section's own heading is a <b>Section head</b>; the bar jumps to it.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p><b>No states of its own.</b> The plate is not interactive. What can be pointed at is its atoms: an option is the Segmented control's (<a href="segmented-control.html">hover, active, focus-visible</a>), an act is the Button's (<a href="button.html">ghost hover, press, focus-visible</a>). The bar never draws a hover or a press instead of theirs. The one thing it adds is where the ring of an option stands, because the run scrolls and a scroller cuts an outer ring: the ring is drawn inside the option. Live at rest, press Tab to reach it.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <nav class="catbar" aria-label="Categories"><span class="catbar__l">Categories</span><div class="catbar__run"><a class="seg__opt" href="#states" aria-current="true">Daily</a><a class="seg__opt" href="#states" id="s-opt">Featured</a><a class="seg__opt" href="#states">Community</a><a class="seg__opt" href="#states">Classic</a></div><div class="catbar__acts"><button class="button button--ghost button--m button--tap" type="button" aria-label="Search cases by name"><i class="icon icon--search" aria-hidden="true"></i><span class="button__label">Search</span></button><button class="button button--ghost button--m button--tap" type="button" aria-expanded="false"><i class="icon icon--filter" aria-hidden="true"></i><span class="button__label">Filters</span><span class="badge badge--count button__pin">2</span></button></div></nav>
+  </div></div>
+  <p>Snapshot of the option's ring in the run, dark on the left and light on the right, taken with reduced motion.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/category-bar-option-focus-dark.png" alt="An option in the run, focus-visible, dark theme" loading="lazy"></div><div><img src="screens/states/category-bar-option-focus-light.png" alt="An option in the run, focus-visible, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible, inside the run</b> <code>--line-focus</code>, offset inward by <code>--size-edge</code> and the hairline</figcaption></figure></div>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ category-bar           # re-shoot after a change to category-bar.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ category-bar --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry (<code>--space-*</code>, <code>--radius-m</code>, <code>--size-header</code>) and type come straight from the primitives. No colour primitive is read and no component token is made. The fade of the run is a mask: it reads the alpha of its opaque stop, <code>black</code>, which is no colour of the product.</p>
+  <p><b>The acts, rename map rows 11 and 12.</b> The two acts are the ghost Button M at the 44px press, <code>.button--tap</code>, as the catalogue wears them: the glyph and its word from 1200px, the glyph alone in a 44 x 44 square under 1200px with the word kept for a screen reader. Folding the word and sizing the glyph is the bar's own placing of what it holds, so those two rules stay in this file; the Button's own fold, <code>.button--fold</code>, folds under 600px and is not this. Row 11 as written, the icon tile, would have dropped the words and the pink edge from 1200px: it is put to the founder on the hub (round 2, Q2), and the bar keeps the screen's look until then. The option's chosen look is the atom's and draws the very values the bar drew (row 12); its hover and press are the Segmented control's (D-264, Q2).</p>
+  <p>File: <code>design/system/components/category-bar.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
+  <pre>&lt;nav class="catbar catbar--sticky" aria-label="Categories"&gt;
+  &lt;span class="catbar__l"&gt;Categories&lt;/span&gt;
+  &lt;div class="catbar__run"&gt;&lt;a class="seg__opt" href="#cat-daily" aria-current="true"&gt;Daily&lt;/a&gt; ... &lt;/div&gt;
+  &lt;div class="catbar__acts"&gt;
+    &lt;button class="button button--ghost button--m button--tap" type="button" aria-label="Search cases by name"&gt;&lt;i class="icon icon--search" aria-hidden="true"&gt;&lt;/i&gt;&lt;span class="button__label"&gt;Search&lt;/span&gt;&lt;/button&gt;
+    &lt;button class="button button--ghost button--m button--tap" type="button"&gt;&lt;i class="icon icon--filter" aria-hidden="true"&gt;&lt;/i&gt;&lt;span class="button__label"&gt;Filters&lt;/span&gt;&lt;span class="badge badge--count button__pin" hidden&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
+  <p>Stands on: <a href="../catalogue.html">the catalogue</a>. Until step 8 that screen still reads <code>kit.css</code>; step 6 moves its markup onto this file and the Button's tile.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'option', sel: '#s-opt', states: ['focus'] }
+];
+(function () {
+  var bar = document.querySelector('#anatomy .catbar'), opt = bar.querySelector('.seg__opt'), act = bar.querySelector('.button');
+  function dim(el) { var r = el.getBoundingClientRect(); return Math.round(r.width) + ' x ' + Math.round(r.height); }
+  document.querySelector('[data-dim="bar"]').textContent = dim(bar) + ' at ' + innerWidth + 'px wide';
+  document.querySelector('[data-dim="opt"]').textContent = dim(opt);
+  document.querySelector('[data-dim="act"]').textContent = dim(act);
+})();
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--bg-plate', '--bg-page', '--line-plate-edge', '--text-body', '--line-focus'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

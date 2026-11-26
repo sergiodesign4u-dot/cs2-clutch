@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Event banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-w { display: grid; gap: 18px; }
+  .cp-w__col { display: grid; gap: 6px; width: min(var(--w), 100%); max-width: 100%; justify-self: start; }
+</style>
+
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Blocks &middot; level 2</span>
+  <h1>Event banner</h1>
+  <p class="kt-lead">An event's scene from edge to edge: its title as a logotype, the countdown and the one act over it (D-209, comp B). Four still layers share one frame and each moves on its own, which is the point of it: it is the main stage, and the motion is carried as it was approved (D-194, D-235). Everything on this page is drawn by <code>design/system/components/event-banner.css</code> through <code>index.css</code>.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><section class="banner" aria-label="Event"><span class="media banner__story" aria-hidden="true"></span><div class="banner__art" aria-hidden="true"></div><p class="banner__title">Coldfront week</p><div class="banner__clock" role="timer" aria-label="Time left in Coldfront week"><span class="banner__cell"><b>11</b><span>Days</span></span><span class="banner__cell"><b>05</b><span>Hours</span></span><span class="banner__cell"><b>19</b><span>Minutes</span></span><span class="banner__cell"><b>16</b><span>Seconds</span></span><span class="banner__end">Ends 30&nbsp;Nov&nbsp;2026,&nbsp;18:00&nbsp;UTC</span></div><a class="button button--ghost button--l banner__act" href="#anatomy">See Coldfront</a></section></div>
+  <div class="kt-tbl"><table style="min-width:760px"><thead><tr><th>Part</th><th>Class or atom</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The scene</b></td><td><code>.banner</code> (its <code>::before</code> and <code>::after</code>), <code>.banner__art</code> (its <code>::before</code> and <code>::after</code>)</td><td>the four still layers: the plate, the aurora and the far snow, the soldier with the case, the case's light and the near snow. Each moves on its own timing; the pictures are art tokens</td></tr>
+    <tr><td><b>The story</b></td><td><a href="media-slot.html">Media slot</a> as <code>.media.banner__story</code>, a video inside</td><td>nothing in the slot itself: the molecule only fades it in over the layers once a page's script marks the banner <code>.is-story</code>, and never for reduced motion</td></tr>
+    <tr><td><b>Title</b></td><td><code>.banner__title</code></td><td>the event's name; it is drawn as the logotype picture and the words stay for a screen reader</td></tr>
+    <tr><td><b>Countdown</b></td><td><code>.banner__clock</code>, <code>.banner__cell</code> (a number and a unit), <code>.banner__end</code></td><td>the four cells and the end line over them; a role of <code>timer</code> with its name. The numbers are set by the page's script</td></tr>
+    <tr><td><b>The act</b></td><td><a href="button.html">Button</a>: ghost L, with <code>.banner__act</code></td><td>nothing in the Button. <code>.banner__act</code> places it and lays a light across it every few seconds and at once under the pointer</td></tr>
+  </tbody></table></div>
+  <ul class="kt-list">
+    <li><b>The molecule's own:</b> the scene, the title, the countdown and the placing of the act. <b>Held, not redrawn:</b> the Media slot and the Button, each with its own states.</li>
+    <li>On a stand page the countdown is a still sample: no script loads here (the countdown's numbers and the story's <code>.is-story</code> are the product's scripts, which move into the system at step 8).</li>
+  </ul>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form, no variants. It is cut by the window, as Home lays it, and the cuts below are read from the render of the same markup at each width (the heights from the banner, the rest from its parts).</p>
+  <div class="kt-tbl"><table style="min-width:720px"><thead><tr><th>Window</th><th>Cut</th><th>Banner</th><th>Title</th><th>Countdown</th><th>Act</th></tr></thead><tbody>
+    <tr><td class="n">under 600 (360, 390)</td><td>a phone: as tall as the window is wide, never over 400; no corner</td><td class="n">360 x 360, 390 x 390</td><td class="n">317 x 131, 320 x 132</td><td class="n">328 x 72, 358 x 72, over the act</td><td class="n">328 x 52, 358 x 52, full width</td></tr>
+    <tr><td class="n">600 to 899 (700)</td><td>the wide cut at 340, title top left, countdown top right, act at the foot</td><td class="n">700 x 340</td><td class="n">300 x 124</td><td class="n">332 x 108</td><td class="n">240 x 52</td></tr>
+    <tr><td class="n">900 and up (1000, 1440)</td><td>a block with its 16px corner at 360, 60px cells from 900 to 1099</td><td class="n">1000 x 360, 1440 x 360</td><td class="n">500 x 206</td><td class="n">284 x 108, 332 x 108</td><td class="n">240 x 52</td></tr>
+    <tr><td class="n">1200 and up</td><td>the title and the act keep v4's column, a 48px gutter</td><td class="n">as above</td><td class="n">as above</td><td class="n">as above</td><td class="n">as above</td></tr>
+  </tbody></table></div>
+  <p class="kt-note">The sample at the top of this page is <span class="cp-dim" data-dim-live></span> at this window. The act is the large ghost at every width (D-228), so the cost of the money is never hidden by it (design principle 3 holds: the banner carries no price).</p>
+  <ul class="kt-list">
+    <li><b>Axis: the window, never the content.</b> The three cuts above answer the window's width, not the banner's own, as Home lays it.</li>
+    <li><b>Story playing (<code>.is-story</code>).</b> A page's script adds the class once the video in the Media slot plays: the slot fades in over the layers (<code>--motion-banner-fade</code>) and they hold still under it, and on a phone the soldier and the case fade out. The video is the product's (3.5 MB) and is not loaded on the stand, so the state is named here and not drawn.</li>
+  </ul>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>Use it once at the head of Home when a named event runs, to say what it is, when it ends and the one place to go: "Coldfront week", "Ends 30 Nov 2026, 18:00 UTC", "See Coldfront". It has an end time on it, so a banner without a real end is not one. It is the main stage (design principle 4) and its motion has a job, to keep the platform alive and to amplify the event (principle 2); it carries no price and no chance, so it never stands where money is spent (principle 3).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>Home's event banner: one banner above the page's H1, one act, a countdown that ends. At rest it moves slowly; under the pointer the case flares and the soldier leans in.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A page's own title and a trust line is the <b>Hero</b>. A mode that is live or not launched is a <b>Mode card</b>. A daily free case is the <b>Daily ladder</b>. A notice that says what happened is a <b>Status notice</b>. A second banner on one page is refused: one stage, one event.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at the banner, then reach the act with Tab. The act's own hover, press and focus ring are the Button's, on <a href="button.html">its page</a>.</p>
+  <div class="kt-scene"><section class="banner" id="s-banner" aria-label="Event"><span class="media banner__story" aria-hidden="true"></span><div class="banner__art" aria-hidden="true"></div><p class="banner__title">Coldfront week</p><div class="banner__clock" role="timer" aria-label="Time left in Coldfront week"><span class="banner__cell"><b>11</b><span>Days</span></span><span class="banner__cell"><b>05</b><span>Hours</span></span><span class="banner__cell"><b>19</b><span>Minutes</span></span><span class="banner__cell"><b>16</b><span>Seconds</span></span><span class="banner__end">Ends 30&nbsp;Nov&nbsp;2026,&nbsp;18:00&nbsp;UTC</span></div><a class="button button--ghost button--l banner__act" id="s-act" href="#anatomy">See Coldfront</a></section></div>
+  <p>Snapshots of the same instance, dark on the left and light on the right, taken with reduced motion, so the flare is a still brightening and the soldier does not lean. The base set is shot once, on the banner.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/event-banner-banner-hover-dark.png" alt="Hover, dark theme" loading="lazy"></div><div><img src="screens/states/event-banner-banner-hover-light.png" alt="Hover, light theme" loading="lazy"></div></div><figcaption><b>Hover (the pointer on the banner, away from the act)</b> <code>--filter-banner-flare-still</code> <code>--banner-lean</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> focus-visible on the act draws the same flare as a pointer over the banner (the scene brightens, the soldier leans in, the light crosses the act at once), and the focus ring itself is the Button's <code>--line-focus</code>. The banner has no press: only its act is a control.</li>
+    <li><b>Reduced motion:</b> every layer stands still, the story is not shown, the act's light does not cross, and the flare is a step, not a pulse (<code>--filter-banner-flare-still</code>).</li>
+    <li>The banner is a dark scene in both themes. The light snapshot shows the scene unchanged, the countdown cells and the ink on the scene on-plate roles, and the ghost act as the Button draws it in the light theme.</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ event-banner           # re-shoot after a change to event-banner.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ event-banner --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and motion come straight from the primitives and the block's own <code>--banner-*</code> sizes. Twenty-one colours, shadows, filters and gradients are read directly and wait for step 9, each in this block only: <code>--color-banner</code>, <code>-banner-clock-phone</code>, <code>-banner-cell</code>, <code>-banner-rule</code>, <code>--shadow-banner</code>, <code>-banner-clock</code>, <code>-banner-title</code>, <code>--filter-banner-plate</code>, <code>-flare</code>, <code>-flare-still</code> and eleven <code>--gradient-banner-*</code> (shade, foot, hero mask, art mask, story mask, sweep and the two snows, with their phone cuts).</p>
+  <p>File: <code>design/system/components/event-banner.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group. The seven keyframes (<code>banner-plate</code>, <code>-hero</code>, <code>-aurora</code>, <code>-pulse</code>, <code>-snow-near</code>, <code>-snow-far</code>, <code>-sweep</code>) are carried with it, since no other block names them.</p>
+  <pre>&lt;section class="banner" aria-label="Event"&gt;
+  &lt;span class="media banner__story" aria-hidden="true"&gt;&lt;video ...&gt;&lt;/video&gt;&lt;/span&gt;
+  &lt;div class="banner__art" aria-hidden="true"&gt;&lt;/div&gt;
+  &lt;p class="banner__title"&gt;Coldfront week&lt;/p&gt;
+  &lt;div class="banner__clock" role="timer" aria-label="..."&gt; four .banner__cell and .banner__end &lt;/div&gt;
+  &lt;a class="button button--ghost button--l banner__act" href="..."&gt;See Coldfront&lt;/a&gt;
+&lt;/section&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a> and the design index. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's form.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'banner', sel: '#s-banner', states: ['hover'], pad: 14 }
+];
+(function () { var b = document.querySelector('.banner'), r = b.getBoundingClientRect(), o = document.querySelector('[data-dim-live]'); o.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); })();
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-base-on-plate', '--text-on-plate', '--text-body-on-plate', '--bg-scrim', '--banner-edge'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--banner-/.test(n) ? 'component' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

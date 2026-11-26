@@ -1,0 +1,54 @@
+/* HERO, level 2 (molecule). Home's H1 in capitals and the Trustpilot line as a badge: a glass plate with a lit edge, five tiles filled to the
+ * score in Trustpilot's green, the score large, the source and the count stacked; a light crosses it every few seconds and under the pointer
+ * the tiles hop in turn. Centred under 900px, the badge under the H1; from 900px the H1 on the left and the badge beside it where both fit,
+ * else under it. Signed in, the line is not drawn. The badge is a picture with its line as its name (role img) until a review page exists, so
+ * it is not a control.
+ * Page: design/kit/hero.html. Stands on Home (design/kit/inventory.md, Hero).
+ * Holds: no atom as Home draws it today. The inventory row names a Text link; the badge is an <a role="img"> with no href and its own look, the
+ *   molecule's own part, so no .link is worn (reported at round 2).
+ * Reads: --text-hi, --text-meta, --text-on-plate, --text-body-on-plate, --bg-mark-on-plate, --bg-sweep, --line-focus; one of its own tokens
+ *   (tokens.css, COMPONENT TOKENS), --hero-trust-depth-hover; geometry, type and motion from the primitives and its own --hero-* block
+ *   below. The badge is a dark glass plate in both themes, so its inks are on-plate roles. Colours read directly and waiting for step 9
+ *   (tokens-audit.md "What the semantic level does not take yet"), all read in this block only: --color-trustpilot, --color-trust-plate,
+ *   --color-trust-off, --color-trust-rule, --gradient-trust, --gradient-trust-edge, --shadow-trust.
+ * Carried from design/kit/kit.css part 4.2 (lines 3368 to 3411) at stage 08 step 5, round 2. The keyframes hero-trust-sweep are declared once at
+ *   the end of this file: .pay-panel__offer::after names them too and loads after. v4 draws its lit edge cut
+ *   to a star, theme.css's star clip-path leaking onto the badge's ::before; the kit does not carry the leak, D-231. From design/v4/heading-home.css,
+ *   trust-badge.css and trust-badge.js on theme.css .wf-hero--short. The rules a screen writes on it (.shell__main > .banner + .hero) stay in kit.css. */
+/* its own geometry, read inside .hero only, D-231 */
+.hero {
+  --hero-title: clamp(24px, 4.5vw + 8px, 28px); /* heading-home.css .wf-hero--short h1, Home's H1 from 24px at 360 to 28px by 444 */
+  --hero-trust-tile: 24px; /* trust-badge.css .v4-trust-tiles i, one star tile */
+}
+.hero { display: block; padding: var(--space-3) 0 0; color: var(--text-hi); text-align: center; }
+.hero__title { max-width: none; margin: 0; color: var(--text-hi); font-size: var(--hero-title); font-weight: 900; letter-spacing: var(--tracking-title); line-height: 1.3; text-transform: uppercase; text-wrap: balance; }
+.hero__line { display: flex; justify-content: center; max-width: none; margin: var(--space-3) 0 0; color: var(--text-meta); font-size: var(--size-xs); line-height: 1.2; }
+@media (min-width: 900px) {
+  .hero { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-3) var(--space-4); padding: var(--space-5) 0 var(--space-3); text-align: left; }
+  .hero__line { justify-content: normal; margin: 0; white-space: nowrap; }
+}
+.hero__trust { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; gap: var(--space-2-5); padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2-5); border-radius: var(--radius-card); background: var(--gradient-trust), var(--color-trust-plate); box-shadow: var(--shadow-trust); color: var(--text-on-plate); font-size: var(--size-text); line-height: 1.2; text-decoration: none; transition: translate .3s var(--motion-ease-settle), box-shadow .3s; } /* v4 drew 14px corners, the ladder's 12, D-228 */
+.hero__trust::before { content: ''; position: absolute; z-index: -1; inset: 0; padding: var(--size-hairline); border-radius: inherit; background: var(--gradient-trust-edge); -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0); -webkit-mask-composite: xor; mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0); mask-composite: exclude; } /* the ring is a mask, so it reads only alpha: black here stands for the black kit.css wrote as a hex (tokens-audit.md finding 3), the same computed value */
+.hero__trust::after { content: ''; position: absolute; z-index: 1; inset: 0; background: var(--bg-sweep); transform: translateX(-110%); pointer-events: none; animation: hero-trust-sweep var(--motion-trust-sweep) ease-in-out infinite; }
+.hero__stars { display: inline-flex; gap: var(--space-thin); }
+.hero__stars > i { --fill: 100%; position: relative; display: block; width: var(--hero-trust-tile); height: var(--hero-trust-tile); border-radius: var(--radius-xs); background: linear-gradient(90deg, var(--color-trustpilot) var(--fill), var(--color-trust-off) var(--fill)); transition: translate .3s var(--motion-ease-settle); } /* --fill is the share of the tile the score fills, set per tile; v4 drew 5px corners, the ladder's 4, D-228 */
+.hero__stars > i:nth-child(2) { transition-delay: var(--motion-stagger); } .hero__stars > i:nth-child(3) { transition-delay: calc(2 * var(--motion-stagger)); }
+.hero__stars > i:nth-child(4) { transition-delay: calc(3 * var(--motion-stagger)); } .hero__stars > i:nth-child(5) { transition-delay: calc(4 * var(--motion-stagger)); }
+.hero__stars svg { position: absolute; inset: var(--space-thin); display: block; fill: var(--bg-mark-on-plate); }
+.hero__score { color: var(--text-on-plate); font-size: var(--size-head-l); font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-score); line-height: 1; }
+.hero__meta { display: flex; flex-direction: column; gap: var(--size-hairline); padding-left: var(--space-2-5); border-left: var(--size-hairline) solid var(--color-trust-rule); font-size: var(--size-chip); line-height: 1.2; white-space: nowrap; }
+.hero__meta > strong { color: var(--text-on-plate); font-size: var(--size-xs); font-weight: 900; }
+.hero__meta > span { color: var(--text-body-on-plate); }
+@media (hover: hover) {
+  .hero__trust:hover { translate: 0 calc(-1 * var(--size-edge)); box-shadow: var(--hero-trust-depth-hover); }
+  .hero__trust:hover .hero__stars > i { translate: 0 calc(-1 * var(--space-thin)); }
+}
+.hero__trust:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+@media (prefers-reduced-motion: reduce) {
+  .hero__trust::after { animation: none; }
+  .hero__trust, .hero__stars > i { transition: none; }
+  .hero__trust:hover, .hero__trust:hover .hero__stars > i { translate: none; }
+}
+
+/* kit.css line 3392; the trust badge's light, also read by the Payment panel's offer (an organism, round 3), which loads after; declared once, here (round 2: a keyframe two blocks name is declared once, by the parent, in the file of its first reader) */
+@keyframes hero-trust-sweep { 0%, 76% { transform: translateX(-110%); } 100% { transform: translateX(110%); } }

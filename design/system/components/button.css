@@ -27,6 +27,7 @@
 .button--ghost { background-color: var(--button-ghost-bg); background-image: var(--gradient-button-sheen); background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat; box-shadow: inset 0 0 0 var(--size-edge) var(--line-act); transition: background-color .2s, box-shadow .2s; }
 .button--icon { width: var(--size-tile); min-height: var(--size-tile); padding: 0; border-radius: var(--radius-tile); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-body); transition: background .2s, color .2s; }
 .button--icon .icon { font-size: var(--size-tile-icon); }
+.button--icon.button--tap { width: var(--size-tap); min-height: var(--size-tap); } /* the tile at the 44px press: .button--icon comes after .button--tap and would set 42px (found in round 2) */
 .button--close { width: var(--size-close); min-height: var(--size-close); padding: 0; border-radius: var(--radius-s); background: var(--button-close-bg); transition: color .15s; }
 .button--close::before, .button--close::after { content: ''; position: absolute; left: 50%; top: 50%; width: 50%; height: var(--size-edge); translate: -50% -50%; border-radius: var(--radius-xs); background: currentColor; rotate: 45deg; transition: rotate .2s; }
 .button--close::after { rotate: -45deg; }

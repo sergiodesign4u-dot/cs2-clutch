@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Withdraw item</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; justify-items: center; padding: 40px 18px; }
+  .cp-wi { width: 100%; max-width: 560px; }
+  .cp-wide { width: 100%; max-width: 560px; }
+  .cp-phone { width: 328px; max-width: 100%; }
+  .cp-cap { display: block; margin-top: 8px; font-size: 12px; color: var(--text-meta); text-align: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Cards &middot; level 2</span>
+  <h1>Withdraw item</h1>
+  <p class="kt-lead">The item on its way out: its picture, the gun, the skin and the wear, its value now with when that was read, and the Steam account it goes to. The card is the same on every state of the withdrawal clock; the notice above it says which state it is, never the card. Everything on this page is drawn by <code>design/system/components/withdraw-item.css</code> through <code>index.css</code>; the skins, values and the account are samples.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <p class="kt-note">This component stands on no coloured screen yet. The withdrawal screens (nodes 5.3 to 5.8) are grey in <code>wireframes/</code> and wait for the rollout, so it is built from <code>kit.css</code> and this page is its only coloured proof.</p>
+  <div class="kt-scene"><div class="cp-stage"><div class="cp-wide"><article class="withdraw-item" style="--item-tier: var(--bg-rarity-2)"><span class="withdraw-item__art"><span class="media media--skin"><img src="../concept/assets/skins/ak-47-redline.png" alt=""></span></span><div class="withdraw-item__b"><span class="withdraw-item__w">AK-47</span><span class="withdraw-item__s">Redline</span><span class="withdraw-item__wear">Field-Tested</span><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>21.40</span><span class="fig__c">Value now, read 21 Aug 2026 09:31</span></span><div class="kv"><span class="kv__k">Going to Steam account</span><span class="kv__v">nightjar_cs</span></div></div></article></div></div></div>
+  <div class="kt-tbl"><table style="min-width:720px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The card</b> (the molecule's own)</td><td><code>.withdraw-item</code>, <code>--item-tier</code></td><td>the face: the tier's wash from the bottom left, the short bar at the foot under the picture, the corner <code>--radius-m</code>; the tier is set on the card by the page, <code>--bg-rarity-1</code> to <code>-7</code>, and defaults to step 5</td></tr>
+    <tr><td><b>The picture</b></td><td><code>.withdraw-item__art</code> holding a <a href="media-slot.html">Media slot</a> (<code>.media--skin</code>)</td><td>the hexagon behind the skin; the picture column is 112px on a phone and 160px from 600px</td></tr>
+    <tr><td><b>The words</b> (the molecule's own)</td><td><code>.withdraw-item__b</code>, <code>__w</code>, <code>__s</code>, <code>__wear</code></td><td>the gun in small capitals, the skin's name in white and cut with an ellipsis, the wear in a step of its tier</td></tr>
+    <tr><td><b>The value now</b></td><td>a <a href="figure.html">Figure</a> (<code>.fig--money .fig--title</code>) with the <a href="icon.html">coin</a>; its caption says when the price was read</td><td>only the gap above it; the figure and its caption are the atom's</td></tr>
+    <tr><td><b>The account</b></td><td>a <a href="key-value-line.html">Key-value line</a> (<code>.kv</code>)</td><td>the rule over it and the gap; the Steam account it goes to, as the key and its value</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form. It has no emphasis and no state of its own; two things vary, and neither is the card's choice.</p>
+  <ul class="kt-list">
+    <li><b>Tier = data, set by the page.</b> The page writes <code>--item-tier</code> from the rarity ladder; the wash, the bar and the wear's step follow.</li>
+    <li><b>Width = the viewport's.</b> Under 600px the picture is 112px and the card is 16px padded; from 600px the picture is 160px and the card is roomier. The card itself has no width: its container sets it.</li>
+    <li><b>The clock is not a variant.</b> On the clock, offer expired, restricted, not eligible and Steam degraded the card is identical; the notice above it carries the state (node 5.3 and its siblings).</li>
+  </ul>
+  <h3>Tier</h3>
+  <div class="kt-scene"><div class="cp-stage"><div class="cp-wi"><article class="withdraw-item" style="--item-tier: var(--bg-rarity-1)"><span class="withdraw-item__art"><span class="media media--skin"><img src="../concept/assets/skins/karambit-tiger-tooth.png" alt=""></span></span><div class="withdraw-item__b"><span class="withdraw-item__w">&#9733; Karambit</span><span class="withdraw-item__s">Tiger Tooth</span><span class="withdraw-item__wear">Factory New</span><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>1940.00</span><span class="fig__c">Value now, read 21 Aug 2026 09:31</span></span><div class="kv"><span class="kv__k">Going to Steam account</span><span class="kv__v">nightjar_cs</span></div></div></article><span class="cp-cap">--bg-rarity-1</span></div><div class="cp-wi"><article class="withdraw-item" style="--item-tier: var(--bg-rarity-3)"><span class="withdraw-item__art"><span class="media media--skin"><img src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""></span></span><div class="withdraw-item__b"><span class="withdraw-item__w">M4A1-S</span><span class="withdraw-item__s">Hyper Beast</span><span class="withdraw-item__wear">Field-Tested</span><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>29.90</span><span class="fig__c">Value now, read 21 Aug 2026 09:31</span></span><div class="kv"><span class="kv__k">Going to Steam account</span><span class="kv__v">nightjar_cs</span></div></div></article><span class="cp-cap">--bg-rarity-3</span></div><div class="cp-wi"><article class="withdraw-item" style="--item-tier: var(--bg-rarity-5)"><span class="withdraw-item__art"><span class="media media--skin"><img src="../concept/assets/skins/mp9-rose-iron.png" alt=""></span></span><div class="withdraw-item__b"><span class="withdraw-item__w">MP9</span><span class="withdraw-item__s">Rose Iron</span><span class="withdraw-item__wear">Minimal Wear</span><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>1.86</span><span class="fig__c">Value now, read 21 Aug 2026 09:31</span></span><div class="kv"><span class="kv__k">Going to Steam account</span><span class="kv__v">nightjar_cs</span></div></div></article><span class="cp-cap">--bg-rarity-5</span></div><div class="cp-wi"><article class="withdraw-item" style="--item-tier: var(--bg-rarity-7)"><span class="withdraw-item__art"><span class="media media--skin"><img src="../concept/assets/skins/usp-s-cortex.png" alt=""></span></span><div class="withdraw-item__b"><span class="withdraw-item__w">USP-S</span><span class="withdraw-item__s">Cortex</span><span class="withdraw-item__wear">Minimal Wear</span><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>3.10</span><span class="fig__c">Value now, read 21 Aug 2026 09:31</span></span><div class="kv"><span class="kv__k">Going to Steam account</span><span class="kv__v">nightjar_cs</span></div></div></article><span class="cp-cap">--bg-rarity-7</span></div></div></div>
+  <h3>On a phone, with a long name</h3>
+  <div class="kt-scene"><div class="cp-stage"><div class="cp-phone"><article class="withdraw-item" style="--item-tier: var(--bg-rarity-4)"><span class="withdraw-item__art"><span class="media media--skin"><img src="../concept/assets/skins/glock-18-water-elemental.png" alt=""></span></span><div class="withdraw-item__b"><span class="withdraw-item__w">Glock-18</span><span class="withdraw-item__s">Water Elemental With A Very Long Name</span><span class="withdraw-item__wear">Factory New</span><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>4.20</span><span class="fig__c">Value now, read 21 Aug 2026 09:31</span></span><div class="kv"><span class="kv__k">Going to Steam account</span><span class="kv__v">nightjar_cs</span></div></div></article></div></div></div>
+  <p class="kt-note">The picture column follows the viewport, not this 328px frame, so on a wide window the frame shows the wide form in a narrow box; narrow the window under 600px to see the phone form.</p>
+  <div class="kt-scene"><div class="kt-tbl"><table style="min-width:420px"><thead><tr><th>Form</th><th>Measured</th></tr></thead><tbody>
+    <tr><td>In a 560px container at this window</td><td><span class="cp-dim" data-dim-of="#anatomy .withdraw-item"></span></td></tr>
+    <tr><td>Its picture column</td><td><span class="cp-dim" data-dim-of="#anatomy .withdraw-item__art"></span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>On the screens that send an item to Steam, once, above the notice that says where the clock stands. It names the item and the account it goes to, and gives its value now with the time that value was read, so the person sees the number the sending is settled on before it moves (design principle 3). It is a statement of one item, not an act: it carries no button, and the screen's own acts sit beside it.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>A withdrawal screen: the one item on its way out, with its value now and its account, and the notice of the clock above it.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A skin the person holds, with its acts, is the <b>Item card</b>. What came out of a round is the <b>Outcome card</b>. An item in a drop table is the <b>Drop card</b>. A line of the same job without a picture is a <b>Key-value line</b>. The act of sending is a <b>Button</b> on the screen, never in this card.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states: it is not interactive.</p>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token and no colour primitive read directly: the face, its wash and its words read the semantic level, and the tier reads the role <code>--bg-rarity-5</code> by default (it read the primitive in <code>kit.css</code>). Geometry and type come straight from the primitives.</p>
+  <p>File: <code>design/system/components/withdraw-item.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
+  <pre>&lt;article class="withdraw-item" style="--item-tier: var(--bg-rarity-2)"&gt;
+  &lt;span class="withdraw-item__art"&gt;&lt;span class="media media--skin"&gt;&lt;img src="..." alt=""&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;div class="withdraw-item__b"&gt;&lt;span class="withdraw-item__w"&gt;AK-47&lt;/span&gt;&lt;span class="withdraw-item__s"&gt;Redline&lt;/span&gt;&lt;span class="withdraw-item__wear"&gt;Field-Tested&lt;/span&gt;
+    &lt;span class="fig fig--money fig--title"&gt;...&lt;/span&gt;&lt;div class="kv"&gt;...&lt;/div&gt;&lt;/div&gt;
+&lt;/article&gt;</pre>
+  <p>Stands on no coloured screen yet; it waits for the rollout of the withdrawal screens (inventory.md, Withdraw item). Its grey form is <code>wf-held</code> on pages of <code>wireframes/</code>.</p>
+</section>
+<script>
+document.querySelectorAll('[data-dim-of]').forEach(function (s) { var e = document.querySelector(s.getAttribute('data-dim-of')); if (e) { var r = e.getBoundingClientRect(); s.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); } });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--bg-card', '--bg-page', '--bg-rarity-5', '--text-hi', '--text-body', '--line-edge', '--line-soft', '--depth-card', '--depth-skin-drop'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

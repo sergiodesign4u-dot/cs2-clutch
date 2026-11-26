@@ -1,0 +1,204 @@
+/* MONEY STRIP, level 2 (molecule). The numbers a player weighs before spending, on one coloured plate: a pink stub with its title and the figures
+ * beside it, each with the line that says what it is; Home adds the Every round plate and two checked rounds under it (Before you spend), the
+ * case screen adds a dollar mark and four panels (What this case pays, --pays). Design principle 3: odds, cost and expected value stay visible
+ * and legible; none of them is hidden in the excitement.
+ * Page: design/kit/money-strip.html. Stands on four coloured screens: Home, the case screen, Deposit and Sign in (the last two as the case's block
+ *   shown in their dialogs; design/kit/inventory.md, Money strip).
+ * Holds: Button (the Check act in the hash's box, S primary), Icon (the coin before a money figure, the dollar mark), Note line (the line under
+ *   the case's block, .note--l since rename map row 26). It places them and never restyles them. The figures are drawn by this block's own type:
+ *   they are a size read off the strip's width, which the Figure atom does not draw (see the questions of the round).
+ * Reads: --text-on-plate, --text-on-plate-soft, --text-money-on-plate, --text-match-on-plate, --text-link-on-plate, --text-on-accent, --bg-spend-strip,
+ *   --bg-fair, --bg-act-stripes, --bg-hash-well-on-plate, --bg-mark-on-plate, --line-lit-top, --depth-plate-deep, --depth-fair, --depth-stub-text,
+ *   --depth-figure-text, --depth-case-lift, --depth-skin-lift; its own --money-strip-* tokens (tokens.css, COMPONENT TOKENS); geometry, type and
+ *   motion from the primitives. Colours read in this block only, waiting for step 9 (tokens-audit.md, "Before you spend"): --gradient-spend-stub,
+ *   --shadow-card-drop, --shadow-word-text, --color-plate-ticket, --color-ruler, --color-ruler-range, --shadow-ruler-mark, --filter-card-skin;
+ *   and --color-plate-rule, one of the six colours with one reader per surface (Before you spend, What this case pays).
+ * Carried from design/kit/kit.css part 4.4 (lines 5255 to 5383, Before you spend; lines 5492 to 5519, What this case pays, and .spend__v--missing,
+ *   .spend__note) at stage 08 step 5, round 2, by rename map row 3 (.spend becomes .money-strip, .spend--pays .money-strip--pays, every element
+ *   renamed the same way) and row 26 (the note under the block is the Note line's size L, its measure and its gap stay here). From design/v4/
+ *   proof-home.css (.x6), case-blocks.css (.v4p-b, .v4p-strip); founder decisions of 2 and 4 Nov 2026, D-234, D-236, D-254.
+ * Every pixel literal of kit.css that no primitive equals is a custom property of the block below, with its origin: the rules hold no px. */
+
+/* the strip lays itself out by its own width, not the window's: container money-strip. The stub becomes a bar under 820px, the figures fold under
+   576px and stack under 480px; the case's block goes to two panels a row under 980px and one under 480px. */
+.money-strip { container: money-strip / inline-size; }
+.money-strip__in {
+  --money-strip-stub: clamp(132px, 14.4cqw, 170px); /* proof-home.css .x6 --stub, the stub's column */
+  --money-strip-fig: clamp(40px, 4.4cqw, 52px); /* .x6 --fig, a figure's size */
+  --money-strip-pad: clamp(14px, 1.86cqw, 22px); /* .x6 --pad, a panel's padding */
+  --money-strip-rtp: calc((100cqw - var(--money-strip-stub)) * 1.6 / 3.6); /* .x6 --rtp, the RTP panel's width, from the strip's columns */
+  --money-strip-case-h: clamp(84px, calc(var(--money-strip-rtp) * .36), 178px); /* .x6 --case-h, Ironbound's height, a share of its panel */
+  --money-strip-min: clamp(160px, 16.6cqw, 196px); /* .x6-p min-height */
+  --money-strip-card-min: clamp(170px, 16cqw, 188px); /* .x6-card min-height */
+  --money-strip-row-gap: clamp(30px, 3cqw, 40px); /* .x6-row margin-top beside the strip, founder of 2 Nov 2026 */
+  --money-strip-shield-w: 30px; /* proof-home.css .x6-stub svg, the shield */
+  --money-strip-shield-h: 34px; /* proof-home.css .x6-stub svg, the shield */
+  --money-strip-word: clamp(26px, 3cqw, 36px); /* .x6-word, Every round */
+  --money-strip-round-s: clamp(18px, 1.9cqw, 22px); /* .x6-s, the skin's name on a round's card */
+  --money-strip-skin-rise: clamp(36px, 4.6cqw, 54px); /* .x6-skin top, a skin rising above a round's card */
+  --money-strip-skin-rise-low: clamp(14px, 2cqw, 26px); /* the Glock a little lower, founder of 2 Nov 2026 */
+  --money-strip-skin-rise-whole: clamp(24px, 3cqw, 36px); /* the AK larger and whole inside the card, founder of 2 Nov 2026 */
+  --money-strip-rtp-rise: 90px; /* .x6-p--rtp, how far above its panel the case may stand */
+  --money-strip-card-rise: 100px; /* .x6-card, how far above its card the skin may stand */
+  --money-strip-hash-pad: 9px; /* the hash's box, padding above and below; Check in the hash's box, founder of 11 Nov 2026 */
+  position: relative; color: var(--text-on-plate); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; text-align: left; /* the grey body's 16px at 1.2, which v4's block inherited */
+}
+@container money-strip (max-width: 819px) { .money-strip__in { --money-strip-stub: 0px; --money-strip-rtp: calc(100cqw * 1.25 / 3.1); --money-strip-fig: 38px; --money-strip-row-gap: var(--space-3); } } /* .x6 FOLD 1: --fig 38px so "94.2 %" clears the case, founder of 4 Nov 2026 */
+@container money-strip (max-width: 575px) { .money-strip__in { --money-strip-rtp: 100cqw; --money-strip-case-h: clamp(84px, calc(var(--money-strip-rtp) * .3), 170px); } }
+@container money-strip (max-width: 479px) { .money-strip__in { --money-strip-case-h: 112px; } }
+
+/* a link inside the strip keeps the strip's ink and loses its underline; its ring is drawn inside the panel, white on the plate in both themes.
+   A Button inside keeps its own states (the atom), so the rule leaves it out. */
+.money-strip a:not(.button) { color: inherit; text-decoration: none; }
+.money-strip a:not(.button):focus-visible { outline: var(--size-edge) solid var(--money-strip-line-focus); outline-offset: calc(-1 * var(--space-thin)); }
+.money-strip small { font-size: .56em; font-weight: 700; }
+.money-strip code { font-family: var(--font-mono); font-size: var(--size-chip); letter-spacing: var(--tracking-link); overflow-wrap: anywhere; }
+.money-strip__nw { white-space: nowrap; }
+.money-strip__nw > svg { display: inline; width: var(--space-3-5); height: var(--space-3-5); margin-left: var(--space-1-5); vertical-align: calc(-1 * var(--space-hair)); transition: translate .2s var(--motion-ease-pop); }
+.money-strip__vh { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* the strip: the stub and its figures on one blue to violet to pink ticket */
+.money-strip__strip { position: relative; display: grid; grid-template-columns: var(--money-strip-stub) minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr); border-radius: var(--radius-card);
+  background: var(--bg-spend-strip); box-shadow: var(--line-lit-top), var(--depth-plate-deep); }
+.money-strip__stub { display: flex; flex-direction: column; justify-content: center; gap: var(--space-3-5); padding: var(--money-strip-pad); border-radius: var(--radius-card) 0 0 var(--radius-card);
+  background: var(--bg-act-stripes), var(--gradient-spend-stub); }
+.money-strip__stub svg { width: var(--money-strip-shield-w); height: var(--money-strip-shield-h); fill: var(--bg-mark-on-plate); }
+.money-strip__stub .money-strip__tick { stroke: var(--text-link-on-plate); }
+.money-strip__title { margin: 0; font-size: clamp(var(--size-title), 2.2cqw, var(--size-head-l)); font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: var(--depth-stub-text); }
+.money-strip__p { position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: var(--money-strip-min); padding: var(--money-strip-pad); transition: background-color .2s; }
+.money-strip__p + .money-strip__p::before { content: ''; position: absolute; left: 0; top: var(--money-strip-pad); bottom: var(--money-strip-pad); width: var(--size-hairline); background: var(--color-plate-rule); }
+.money-strip__p:last-child { border-radius: 0 var(--radius-card) var(--radius-card) 0; }
+.money-strip__k { position: relative; display: block; font-size: clamp(var(--size-unit), 1.02cqw, var(--size-chip)); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.25; text-transform: uppercase; color: var(--text-on-plate); }
+.money-strip__v { position: relative; display: block; margin-top: var(--space-2); font-size: var(--money-strip-fig); font-weight: 900; line-height: 1; letter-spacing: var(--tracking-score); white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: var(--depth-figure-text); }
+.money-strip__p--fee .money-strip__v { color: var(--text-money-on-plate); }
+.money-strip__say { position: relative; display: block; margin-top: var(--space-2); color: var(--text-on-plate-soft); font-size: clamp(var(--size-xs), 1.2cqw, var(--size-label)); line-height: 1.4; }
+.money-strip__money { color: var(--text-money-on-plate); font-weight: 700; white-space: nowrap; }
+.money-strip__money > .icon { margin-right: var(--space-1); vertical-align: calc(-1 * var(--space-hair)); } /* the coin to its number: 4px here, 6px on the cards of the drops (D-264) */
+.money-strip__go { position: relative; display: block; margin-top: auto; padding-top: var(--space-3-5); color: var(--text-on-plate); font-size: clamp(var(--size-chip), 1.1cqw, var(--size-xs)); font-weight: 700; letter-spacing: var(--tracking-link); white-space: nowrap; }
+
+/* Ironbound beside the RTP, its height a share of the panel's own width */
+.money-strip__p--rtp { isolation: isolate; clip-path: inset(calc(-1 * var(--money-strip-rtp-rise)) 0 0 0); overflow-x: clip; }
+.money-strip__p--rtp > .money-strip__k, .money-strip__p--rtp > .money-strip__v { max-width: 48%; }
+.money-strip__p--rtp > .money-strip__say { max-width: 44%; }
+.money-strip__case { position: absolute; z-index: 0; right: -3%; bottom: calc(-1 * var(--space-2)); height: var(--money-strip-case-h); aspect-ratio: 3 / 2; pointer-events: none; transform-origin: 60% 90%; transition: transform .45s var(--motion-ease-pop); }
+.money-strip__case-b, .money-strip__case-f { position: absolute; inset: 0; background: var(--art-case-ironbound) center / 100% auto no-repeat; }
+.money-strip__case-b { filter: var(--depth-case-lift); }
+.money-strip__case-f { z-index: 2; clip-path: var(--shape-case-rim); }
+.money-strip__case-sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: var(--depth-skin-lift); transition: transform .45s var(--motion-ease-pop); }
+
+/* the second ticket: the Every round plate in the provably fair blue, then two round cards. --r1 and --r2 are set on the card by the screen:
+   the round's rarity plate, a pair of colours */
+.money-strip__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1.35fr); gap: var(--space-3); margin-top: var(--money-strip-row-gap); }
+.money-strip__plate { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: var(--money-strip-pad); border-radius: var(--radius-card);
+  background: var(--bg-act-stripes), var(--bg-fair); box-shadow: var(--line-lit-top), var(--depth-fair); }
+.money-strip__fig { display: block; }
+.money-strip__word { display: block; margin-top: var(--space-1-5); font-size: var(--money-strip-word); font-weight: 900; line-height: 1; white-space: nowrap; text-shadow: var(--shadow-word-text); }
+.money-strip__hash { box-sizing: border-box; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: var(--space-2-5); width: 100%; margin: var(--space-3) 0 var(--space-3-5);
+  padding: var(--money-strip-hash-pad) var(--space-3); border-radius: var(--radius-s); background: var(--bg-hash-well-on-plate); box-shadow: var(--money-strip-hash-edge); } /* Check in the hash's box, founder of 11 Nov 2026 */
+.money-strip__hash-t { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.money-strip__hash-t code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.money-strip__ok { display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--text-match-on-plate); font-size: var(--size-chip); font-weight: 700; } /* wraps to a second line where the column is narrow: nowrap ran it 40px under Check at 1280, stage 07 step 6, I6 */
+.money-strip__ok svg { flex: none; width: var(--space-3-5); height: var(--space-3-5); fill: currentColor; }
+.money-strip__ok svg path { stroke: var(--text-on-accent); } /* the tick on the green disc, the page's dark ink; the screen's markup carries the same colour as an attribute */
+.money-strip__hash > .button { flex: none; margin: 0; }
+.money-strip__card { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: var(--money-strip-card-min); padding: var(--money-strip-pad);
+  border-radius: var(--radius-card); background: linear-gradient(120deg, var(--r1), var(--r2)); box-shadow: var(--line-lit-top), var(--shadow-card-drop);
+  clip-path: inset(calc(-1 * var(--money-strip-card-rise)) 0 0 0 round 0 0 var(--radius-card) var(--radius-card)); overflow-x: clip; transition: filter .2s; }
+.money-strip__card > :not(.money-strip__skin) { position: relative; z-index: 1; }
+.money-strip__skin { position: absolute; z-index: 0; right: -3%; top: calc(-1 * var(--money-strip-skin-rise)); width: 50%; height: auto; transform: rotate(-12deg); filter: var(--filter-card-skin); transition: transform .45s var(--motion-ease-pop); }
+.money-strip__r { font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--text-on-plate); }
+.money-strip__w { margin-top: var(--space-1-5); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-snug); text-transform: uppercase; color: var(--text-on-plate); }
+.money-strip__s { max-width: 54%; font-size: var(--money-strip-round-s); font-weight: 900; line-height: 1.1; }
+.money-strip__from { margin-top: var(--space-1); font-size: var(--size-chip); color: var(--text-on-plate); }
+.money-strip__t { display: block; margin-top: var(--space-3); font-size: var(--size-chip); color: var(--color-plate-ticket); }
+.money-strip__t b { color: var(--text-on-plate); font-weight: 900; }
+.money-strip__ruler { position: relative; display: block; width: 100%; height: var(--space-1-5); margin-top: var(--space-1-5); border-radius: var(--space-thin); background: var(--color-ruler); }
+.money-strip__ruler i { position: absolute; top: 0; bottom: 0; left: calc(var(--a) * 1%); width: max(var(--space-1), calc((var(--b) - var(--a)) * 1%)); border-radius: var(--space-thin); background: var(--color-ruler-range); }
+.money-strip__ruler b { position: absolute; top: calc(-1 * var(--space-1)); left: calc(var(--t) * 1%); width: var(--space-thin); height: var(--space-3-5); margin-left: calc(-.5 * var(--space-thin)); border-radius: var(--space-hair); background: var(--bg-mark-on-plate); box-shadow: var(--shadow-ruler-mark); }
+.money-strip__cgo { margin-top: auto; padding-top: var(--space-3-5); color: var(--text-on-plate); font-size: var(--size-xs); font-weight: 700; }
+
+/* STATES. The strip's links (a panel, the Every round plate, a round's card) light under the pointer; a panel of the RTP lifts its case, a card
+   its skin; the arrow after a link's last word steps forward. The ring on :focus-visible only, inside the panel. Nothing here presses. */
+@media (hover: hover) {
+  a.money-strip__p:hover { background-color: var(--money-strip-panel-bg-hover); }
+  .money-strip__p--rtp:hover .money-strip__case { transform: scale(1.04); }
+  .money-strip__p--rtp:hover .money-strip__case-sk { transform: translate(-50%, -66%) rotate(-12deg) scale(1.06); }
+  .money-strip__card:hover { filter: var(--money-strip-card-filter-hover); }
+  .money-strip__card:hover .money-strip__skin { transform: translateY(calc(-1 * var(--space-1-5))) rotate(-16deg) scale(1.05); }
+  .money-strip__card:hover .money-strip__skin--whole { transform: translateY(calc(-1 * var(--space-1-5))) rotate(-10deg) scale(1.03); }
+  a.money-strip__p:hover .money-strip__go svg, .money-strip__card:hover .money-strip__cgo svg { translate: var(--space-thin) 0; }
+}
+@media (prefers-reduced-motion: reduce) { .money-strip__case, .money-strip__case-sk, .money-strip__card, .money-strip__skin, .money-strip__nw > svg { transition: none; } }
+
+/* narrower than 820px: the stub is a bar across the top, three panels under it, the Every round plate across the row's top */
+@container money-strip (max-width: 819px) {
+  .money-strip__in { --money-strip-shield-w: 22px; --money-strip-shield-h: 25px; --money-strip-col-b: 188px; --money-strip-col-c: 158px; --money-strip-row-fold-gap: clamp(46px, 9cqw, 54px); --money-strip-fig-max: 190px; --money-strip-hash-grow: 170px; } /* proof-home.css .x6 FOLD 1 */
+  .money-strip__strip { grid-template-columns: minmax(0, 1.25fr) minmax(var(--money-strip-col-b), 1fr) minmax(var(--money-strip-col-c), .85fr); }
+  .money-strip__stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: var(--space-2-5); padding: var(--space-3) var(--money-strip-pad); border-radius: var(--radius-card) var(--radius-card) 0 0; }
+  .money-strip__title { font-size: var(--size-title); }
+  .money-strip__p--rtp { border-radius: 0 0 0 var(--radius-card); }
+  .money-strip__p:last-child { border-radius: 0 0 var(--radius-card) 0; }
+  .money-strip__case { bottom: calc(var(--money-strip-pad) + var(--space-5)); } /* a narrow RTP panel: the case stands on the link's line */
+  .money-strip__row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: var(--money-strip-row-fold-gap); }
+  .money-strip__plate { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--space-2-5) var(--space-4); }
+  .money-strip__fig { max-width: var(--money-strip-fig-max); }
+  .money-strip__hash { flex: 1 1 var(--money-strip-hash-grow); width: auto; margin: 0; }
+}
+@container money-strip (max-width: 575px) {
+  .money-strip__strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .money-strip__p--rtp { grid-column: 1 / -1; border-radius: 0; min-height: 0; }
+  .money-strip__p--rtp > .money-strip__say { max-width: 50%; }
+  .money-strip__p--rtp + .money-strip__p { border-radius: 0 0 0 var(--radius-card); }
+  .money-strip__p--rtp + .money-strip__p::before { left: var(--money-strip-pad); right: var(--money-strip-pad); top: 0; bottom: auto; width: auto; height: var(--size-hairline); }
+  .money-strip__p--fee::after { content: ''; position: absolute; left: var(--money-strip-pad); right: var(--money-strip-pad); top: 0; height: var(--size-hairline); background: var(--color-plate-rule); }
+}
+@container money-strip (max-width: 479px) {
+  .money-strip__in { --money-strip-case-bottom-s: 34px; --money-strip-row-stack-gap: 48px; --money-strip-skin-rise-s: 44px; } /* the stacked strip: v4's phone cut */
+  .money-strip__strip { grid-template-columns: minmax(0, 1fr); }
+  .money-strip__p--rtp + .money-strip__p { border-radius: 0; }
+  .money-strip__p--fee { border-radius: 0 0 var(--radius-card) var(--radius-card); }
+  .money-strip__p--fee::before { left: var(--money-strip-pad); right: var(--money-strip-pad); top: 0; bottom: auto; width: auto; height: var(--size-hairline); }
+  .money-strip__p { min-height: 0; }
+  .money-strip__p--fee::after { content: none; }
+  .money-strip__case { bottom: var(--money-strip-case-bottom-s); }
+  .money-strip__row { grid-template-columns: minmax(0, 1fr); row-gap: var(--money-strip-row-stack-gap); }
+  .money-strip__plate { flex-direction: column; align-items: flex-start; }
+  .money-strip__fig { max-width: none; }
+  .money-strip__hash { flex: none; width: 100%; margin: var(--space-3) 0 var(--space-3-5); }
+  .money-strip__card { min-height: 0; }
+  .money-strip__skin { top: calc(-1 * var(--money-strip-skin-rise-s)); width: 54%; }
+}
+.money-strip__skin--low { top: calc(-1 * var(--money-strip-skin-rise-low)); } /* the Glock a little lower, founder of 2 Nov 2026 */
+.money-strip__skin--whole { right: 4%; top: calc(-1 * var(--money-strip-skin-rise-whole)); width: 58%; transform: rotate(-8deg); } /* the AK larger and whole inside the card, founder of 2 Nov 2026 */
+@container money-strip (max-width: 479px) { .money-strip__skin--low { right: 3%; } } /* on a phone the Glock stays inside the screen */
+
+/* WHAT THIS CASE PAYS, --pays: the strip with the stub's dollar and title and four panels, the tested RTP beside the case, the expected value, the
+   chance to get the price back, the value against a real copy; two panels a row under 980px of its own width, one under 480px. v4 case-blocks.css
+   .v4p-b and .v4p-strip on proof-home.css .x6, the same specificity over the strip's own rules */
+.money-strip--pays .money-strip__in { --money-strip-case-h: clamp(80px, 11cqw, 150px); --money-strip-pays-title: clamp(19px, 2cqw, 24px); --money-strip-pays-mark: 32px; --money-strip-pays-min: 150px; } /* v4 .v4p-ic 32px; the 150px floor of a two-a-row panel */
+.money-strip--pays .money-strip__strip { grid-template-columns: var(--money-strip-stub) minmax(0, 1.7fr) repeat(3, minmax(0, 1fr)); }
+.money-strip--pays .money-strip__stub { gap: var(--space-3); }
+.money-strip--pays .money-strip__mark { font-size: var(--money-strip-pays-mark); color: var(--text-on-plate); }
+.money-strip--pays .money-strip__title { font-size: var(--money-strip-pays-title); line-height: 1.05; }
+.money-strip--pays .money-strip__money { font-weight: 900; }
+.money-strip__v.money-strip__v--missing { color: var(--text-on-plate); font-size: var(--size-m); } /* the missing figure, D-124, on the strip: Not available where a value could not be read; white since stage 07 step 7, D-254: the muted grey measured 2.3:1 on the pink plate, the smaller size and the words still say it is not a figure */
+/* the line under the block is the Note line at size L (rename map row 26); here only its measure and the gap above it */
+.money-strip__note { max-width: var(--size-measure); margin-top: var(--space-4); }
+@container money-strip (max-width: 979px) {
+  .money-strip--pays .money-strip__strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .money-strip--pays .money-strip__stub { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: var(--space-2-5); padding: var(--space-3) var(--money-strip-pad); border-radius: var(--radius-card) var(--radius-card) 0 0; }
+  .money-strip--pays .money-strip__mark { font-size: var(--size-l); }
+  .money-strip--pays .money-strip__p { min-height: var(--money-strip-pays-min); }
+  .money-strip--pays .money-strip__p--rtp { grid-column: auto; border-radius: 0; }
+  .money-strip--pays .money-strip__p:nth-child(4)::before { display: none; }
+  .money-strip--pays .money-strip__p:nth-child(n+4) { border-top: var(--size-hairline) solid var(--color-plate-rule); }
+  .money-strip--pays .money-strip__p:nth-child(4) { border-radius: 0 0 0 var(--radius-card); }
+  .money-strip--pays .money-strip__p:last-child { border-radius: 0 0 var(--radius-card) 0; }
+}
+@container money-strip (max-width: 479px) {
+  .money-strip--pays .money-strip__strip { grid-template-columns: minmax(0, 1fr); }
+  .money-strip--pays .money-strip__p + .money-strip__p::before { display: none; }
+  .money-strip--pays .money-strip__p + .money-strip__p { border-top: var(--size-hairline) solid var(--color-plate-rule); }
+  .money-strip--pays .money-strip__p { min-height: 0; border-radius: 0; }
+  .money-strip--pays .money-strip__p:last-child { border-radius: 0 0 var(--radius-card) var(--radius-card); }
+}

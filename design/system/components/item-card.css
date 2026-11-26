@@ -1,0 +1,73 @@
+/* ITEM CARD, level 2 (molecule). One skin held by a person: its picture in its tier's hexagon, the gun, the skin and the wear, its value in gold, and
+ * what the content adds (my items: a tick, Share this round, the acts over the card, the facts and what it costs out to Steam; the ledger and the
+ * public shelf: a status band, the value when won, where from and when, Check this round). Chosen, sending, sold and gone are states of one card.
+ * Page: design/kit/item-card.html. Stands on My items, design/account.html (design/kit/inventory.md, Item card).
+ * Holds (atoms, never redrawn here): Media slot (.media--skin, the skin), Checkbox (.check, the tick), Button (.button--ghost .button--s, the acts),
+ *   Figure (.fig--money .fig--title, the value), Icon (.icon--share, .icon--coin), Key-value line (.kv, the facts), Note line (.note, the Exchange line).
+ *   The molecule's own: the card's face and its grade, the hexagon behind the skin, the band, the share glyph's box, the acts' veil, how all of it is placed.
+ * Reads: --bg-card, --bg-page, --bg-tile, --bg-veil, --bg-rarity-5 (the default tier), --text-hi, --text-body, --text-meta, --line-edge, --line-soft,
+ *   --line-lit, --line-focus, --depth-card, --depth-skin-drop; geometry, type and motion from the primitives. The tier is --item-tier, set by the
+ *   page from the rarity ladder (--bg-rarity-1 to -7), as --case-art is on .media--case. Colour primitives read directly, each waiting for step 9
+ *   (tokens-audit.md): --color-pink-on-dark (read in the block "After my items' second gate", the card's own D-241 pass: the pink of a card on its way
+ *   to Steam) and --color-line (one of the six with one reader per surface: the band's rule on a sold or gone card).
+ * Carried from design/kit/kit.css part 4.2 (ITEM CARD, lines 3413 to 3467) at stage 08 step 5, round 2, by the decisions of step 2 (D-260): rename map
+ *   row 10, the acts go back to .button--s as the family draws it (sides 14px, not the 4px this card gave them); row 28, the value's size is the
+ *   Figure's variant .fig--title instead of .item-card > .fig .fig__v. The tile edge reads --line-edge (the .07 of D-260, Q1). From the case screen's
+ *   drop card (design/v4/case-body.css row F) and, since D-241, the Jetskins and Lumpbox grids on Behance. */
+
+/* One anatomy: top (tick and share), art, gun, skin, wear, value, then the acts (my items) or the facts. The block's own geometry. */
+.item-card {
+  --item-card-tilt: -10deg; /* the skin's turn on its card, D-241: the Jetskins grid lays its skins on a slant; технічне рішення */
+  --item-card-skin: 1.18; /* the skin's scale over its hexagon at rest, D-241: it overlaps the hexagon's points as a drop tile's skin does; технічне рішення */
+}
+.item-card { --item-tier: var(--bg-rarity-5); position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; padding: var(--space-4) var(--space-3); border-radius: var(--radius-m); text-align: center;
+  background: linear-gradient(to top, color-mix(in srgb, var(--item-tier) 42%, transparent), transparent 62%), linear-gradient(160deg, color-mix(in srgb, var(--item-tier) 14%, var(--bg-card)), var(--bg-card) 55%);
+  box-shadow: inset 0 var(--size-edge) 0 color-mix(in srgb, var(--item-tier) 80%, transparent), var(--line-edge), var(--depth-card); transition: translate .2s, box-shadow .2s; } /* D-241: the grade washed up from the foot, its line on the top edge */
+.item-card::after { content: ''; position: absolute; left: 50%; bottom: 0; width: var(--size-tap); height: calc(var(--size-edge) + var(--size-hairline)); translate: -50% 0; border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--item-tier); box-shadow: 0 0 var(--space-3) var(--size-hairline) var(--item-tier); }
+
+/* STATES. Under the pointer the card rises and its grade's edge lights; ticked, it takes the pressed pink edge of the Favourite toggle, and the acts,
+   Share and what it costs out to Steam show with the pointer, with focus anywhere inside it, or with the tick. A tick is real: the box is the native
+   input of the Checkbox. Sending, sold and gone are the product's classes on the card (set by the page, as the ledger's data says) and change the band. */
+@media (hover: hover) { .item-card:hover { translate: 0 calc(-1 * (var(--size-edge) + var(--size-hairline))); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--item-tier) 55%, transparent), var(--depth-card); } }
+.item-card:has(.item-card__top input:checked) { box-shadow: inset 0 0 0 var(--size-edge) var(--line-lit), var(--depth-card); } /* selected: the pressed edge of .fav */
+
+.item-card__top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); min-height: var(--size-button-s); } /* centred on one line, D-243: the founder, the tick and the share "не выровнено, странно выглядит" (not aligned, looks odd) */
+.item-card__share { position: relative; display: inline-grid; place-items: center; width: var(--size-button-s); height: var(--size-button-s); margin-right: calc((var(--size-check) - var(--size-button-s)) / 2); border-radius: var(--radius-s); color: var(--text-body); font-size: var(--size-check); transition: background .15s, color .15s; visibility: hidden; } /* Share this round shows with the acts, D-128; a Text link at D-243, since D-244 the share glyph alone at the tick's size, its words its name (aria-label and title): the founder, "просто иконку share поставим" (just put a share icon). The glyph's edge stands on the card's padding as the tick's does; the colours are the icon button's */
+.item-card__share::after { content: ''; position: absolute; inset: calc((var(--size-button-s) - var(--size-tap)) / 2); } /* the 44px target around the 32px box */
+@media (hover: hover) { .item-card__share:hover { background: var(--bg-tile); color: var(--text-hi); } }
+.item-card__share:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+
+.item-card__band { display: block; margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-3)) var(--space-1); padding: var(--space-2) var(--space-3); border-bottom: var(--size-hairline) solid var(--line-soft); color: var(--text-meta); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.4; min-height: 2.8em; text-transform: uppercase; } /* two lines kept on every band, so a wrapped one and a short one sit alike (the grey's rule) */
+.item-card.is-sending .item-card__band { color: var(--color-pink-on-dark); }
+.item-card.is-sold .item-card__band, .item-card.is-gone .item-card__band { color: var(--text-hi); border-bottom-color: var(--color-line); }
+
+/* the skin in its tier's hexagon: a faint fill, then the lit hexagon, the skin over both, larger and turned, straightening and rising under the pointer */
+.item-card__art { position: relative; display: block; height: calc(var(--size-drop-v4) + var(--space-2)); margin: var(--space-2) 0; }
+.item-card__art::before, .item-card__art::after { content: ''; position: absolute; left: 50%; top: 50%; height: 86%; aspect-ratio: 136 / 118; translate: -50% -50%; }
+.item-card__art::before { background: color-mix(in srgb, var(--item-tier) 22%, var(--bg-card)); -webkit-mask: var(--shape-hex-fill) center / contain no-repeat; mask: var(--shape-hex-fill) center / contain no-repeat; }
+.item-card__art::after { background: linear-gradient(135deg, color-mix(in srgb, var(--item-tier) 62%, var(--text-hi)), var(--item-tier) 50%, color-mix(in srgb, var(--item-tier) 72%, var(--bg-page))); -webkit-mask: var(--shape-hex-inner) center / contain no-repeat; mask: var(--shape-hex-inner) center / contain no-repeat; }
+.item-card__art > .media { position: absolute; inset: 0; z-index: 1; }
+.item-card__art > .media > img { filter: var(--depth-skin-drop); rotate: var(--item-card-tilt); scale: var(--item-card-skin); transition: scale .25s, rotate .25s, translate .25s; }
+@media (hover: hover) { .item-card:hover .item-card__art > .media > img { rotate: calc(var(--item-card-tilt) / 2.5); scale: calc(var(--item-card-skin) + .1); translate: 0 calc(-1 * var(--space-1)); } } /* the skin straightens and rises under the pointer, D-241 */
+
+/* the words: the gun, the skin, the wear in a step of its tier, then the value (the Figure, centred) and the line that names it in the ledger */
+.item-card__w { margin: 0; color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.3; text-transform: uppercase; }
+.item-card__s { margin: 0; overflow: hidden; color: var(--text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+.item-card__wear { margin: 0; color: color-mix(in srgb, var(--item-tier) 35%, var(--text-hi)); font-size: var(--size-unit); line-height: 1.3; }
+.item-card > .fig { align-self: center; align-items: center; margin-top: var(--space-2); }
+.item-card__k { margin: 0; color: var(--text-meta); font-size: var(--size-unit); }
+.item-card__facts { position: relative; z-index: 3; display: grid; gap: var(--space-1); margin-top: var(--space-2); padding-top: var(--space-2); border-top: var(--size-hairline) solid var(--line-soft); text-align: left; }
+.item-card__out { visibility: hidden; } /* what taking it out costs shows with the acts, D-128 */
+
+/* the acts: on the ledger and the shelf one Button across the foot; on my items a veil over the card that opens on hover, focus or tick. Row 10 of
+   the rename map: the Button keeps its own sides, 14px, where this card gave it 4px; the width is the card's */
+.item-card > .button { width: 100%; margin-top: var(--space-2); } /* the label never wraps: .button is nowrap */
+.item-card__acts { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: center; gap: var(--space-2); padding: var(--space-3); background: var(--bg-veil); -webkit-backdrop-filter: blur(var(--blur-mode)); backdrop-filter: blur(var(--blur-mode)); visibility: hidden; } /* the grey's dim: the header's veil, and the card behind it blurred so its words do not read through (--blur-mode reused for its value, see report) */
+.item-card__acts > .button { width: 100%; }
+.item-card__acts > .note { text-align: center; }
+.item-card:focus-within .item-card__acts, .item-card:has(.item-card__top input:checked) .item-card__acts,
+.item-card:focus-within .item-card__share, .item-card:has(.item-card__top input:checked) .item-card__share,
+.item-card:focus-within .item-card__out, .item-card:has(.item-card__top input:checked) .item-card__out { visibility: visible; }
+@media (hover: hover) { .item-card:hover .item-card__acts, .item-card:hover .item-card__share, .item-card:hover .item-card__out { visibility: visible; } }
+
+@media (prefers-reduced-motion: reduce) { .item-card, .item-card__art > .media > img { transition: none; } .item-card:hover { translate: none; } }

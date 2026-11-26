@@ -1,0 +1,29 @@
+/* COPYABLE VALUE, level 2 (molecule). A key over a value read one character at a time, and Copy; once copied, a green line says so.
+ * Page: design/kit/copyable-value.html. Stands on Deposit (the crypto address with its QR), the case screen (the server seed hash under the open act),
+ *   Provably fair and Sign in (design/kit/inventory.md, Copyable value).
+ * Holds: Button (Copy, ghost M). The inventory also names the Key-value line; no coloured state wears it inside this block (see the page), so the
+ *   molecule draws its own key (.copy-value__k) and value (.copy-value__v). The molecule's own part is the key, the value's well, the answer line,
+ *   the one-line strip and the address with its QR.
+ * Reads: --bg-tile-veil, --line-edge, --text-hi, --text-body, --text-match, --bg-mark-on-plate and --text-on-accent (the QR's white tile and its ink);
+ *   --font-mono and geometry and type from the primitives. No component token, no colour primitive read directly.
+ * Carried from design/kit/kit.css part 4.2, COPYABLE VALUE (lines 2670 to 2689) at stage 08 step 5, round 2, unchanged in look; the colours are read
+ *   through the roles that hold them (--color-tile-veil, --shadow-edge, --color-text-hi, --color-text-soft, --color-green, and for the QR
+ *   --color-text-hi and --color-ground). The look is the server seed hash under the case screen's open act, design/v4/case-page.css .v4c-hash, and the
+ *   hash well of Home's Every round, design/v4/proof-home.css .x6-hash. The molecule has no state of its own: Copy has the Button's. The answer line
+ *   (.copy-value__said) is written by the product's script (kit.js, Copy on a value, microcopy R155 and R34) and is empty at rest. */
+
+/* One form with three contents: a block (key over value over Copy), the one-line strip under the open act (--inline), and a wallet address with its QR (--address). */
+.copy-value { display: grid; gap: var(--space-2); min-width: 0; }
+.copy-value__k { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.copy-value__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-width: 0; }
+.copy-value__v { min-width: 0; padding: var(--space-1) var(--space-2); border-radius: var(--radius-s); background: var(--bg-tile-veil); box-shadow: var(--line-edge); color: var(--text-hi); font-family: var(--font-mono); font-size: var(--size-chip); font-weight: 500; line-height: 1.4; overflow-wrap: anywhere; } /* a hash wraps whole, never cut */
+.copy-value__said { color: var(--text-match); font-size: var(--size-chip); font-weight: 700; line-height: 1.2; }
+.copy-value__said:empty { display: none; }
+/* the one-line strip under the open act: key, value and Copy on one centred line */
+.copy-value--inline { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-1) var(--space-2); }
+/* a wallet address: the QR beside the address; on a phone the QR stands over it */
+.copy-value--address { grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--space-4); }
+.copy-value__qr { display: grid; place-items: center; width: min(100%, calc(4 * var(--size-tap))); aspect-ratio: 1; box-sizing: border-box; padding: var(--space-3); border-radius: var(--radius-card); background: var(--bg-mark-on-plate); color: var(--text-on-accent); font-size: var(--size-chip); }
+.copy-value__qr > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.copy-value__body { display: grid; gap: var(--space-2); min-width: 0; }
+@media (min-width: 600px) { .copy-value--address { grid-template-columns: calc(4 * var(--size-tap)) minmax(0, 1fr); } }

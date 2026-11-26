@@ -1,0 +1,50 @@
+/* BREADCRUMB, level 2 (molecule). Where this page sits: its steps as soft links, the page itself in white, a slash between them; cut to its
+ * parent with a back mark it reads as one step back.
+ * Page: design/kit/breadcrumb.html. Stands on seven coloured screens: the case screen (fit), the catalogue, Provably fair and Responsible play
+ * (lit), My items (plain), and the pages above them (design/kit/inventory.md, Breadcrumb).
+ * Reads: --text-base, --text-body, --text-hi (a crumb on the page's ground); --text-base-on-plate, --text-body-on-plate, --text-on-plate (a
+ *   crumb on a coloured band or the case head's stage, which keep their colour in both themes); --line-focus; geometry, type and tracking
+ *   from the primitives. No colour primitive and no component token: every state found its role.
+ * Holds: no atom. The steps are plain anchors the molecule styles itself, as the screens wear them: the Text link atom is pink and 13px, a
+ *   step is soft grey in small capitals at the buttons' tracking, so the inventory's "holds Text link" is a question to the founder (the
+ *   report, questions).
+ * Carried from design/kit/kit.css part 4.2 (BREADCRUMB, lines 2522 to 2544) at stage 08 step 5, round 2, from the case screen's head, design/v4/case-page.css
+ *   (.v4c-nav .wf-crumb). The colours moved onto the semantic level: in the dark theme every role reads the value kit.css drew. The plain crumb
+ *   stands on the page's ground and takes the ground roles, so it holds its contrast on paper in the light theme; lit and fit stand on a plate
+ *   and take the on-plate roles, which the light theme leaves as they are. The rule of the pack: a crumb on a plate keeps the plate's
+ *   colours (--text-base-on-plate names this block). The one rule from outside the block, .account-head > .crumb, belongs to the Account head.
+ *   Markup: nav > ol > li, the current page an element with aria-current. */
+
+/* One anatomy in three grounds. Emphasis by its ground: plain on the page's ground (My items), lit on a coloured band (the catalogue's,
+   Provably fair's and Responsible play's heads), fit in the case head, which cuts to its parent under 900px. */
+.crumb { color: var(--text-base); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-caps); line-height: 1.2; text-transform: uppercase; }
+.crumb > ol { display: flex; flex-wrap: wrap; gap: var(--space-1-5); margin: 0; padding: 0; list-style: none; }
+.crumb li + li::before { content: '/'; margin-right: var(--space-1-5); color: var(--text-body); opacity: .6; }
+.crumb a { color: var(--text-body); text-decoration: none; }
+.crumb [aria-current] { color: var(--text-hi); }
+
+/* on a plate: the band and the stage keep their colour in both themes, so the words on them do */
+.crumb--lit, .crumb--fit { color: var(--text-base-on-plate); }
+.crumb--lit li + li::before, .crumb--fit li + li::before { color: var(--text-body-on-plate); }
+.crumb--fit a { color: var(--text-body-on-plate); }
+.crumb--lit [aria-current], .crumb--fit [aria-current] { color: var(--text-on-plate); }
+.crumb--lit a { color: var(--text-on-plate); } /* a crumb on a lit plate: on the blue's lightest stripe the soft grey falls to 3.4:1, full white holds 4.9:1, measured at D-245; Provably fair's, the catalogue's and Responsible play's heads; declared at stage 07 step 6, it was three contextual rules */
+
+/* STATES. A step takes the page's white under the pointer; the ring is on :focus-visible only. The page itself is not a link, so it has none. */
+@media (hover: hover) {
+  .crumb a:hover { color: var(--text-hi); }
+  .crumb--lit a:hover, .crumb--fit a:hover { color: var(--text-on-plate); }
+}
+.crumb a:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+
+/* cut to its parent: every step but the one above the page is hidden from sight, never from the markup; the back mark stands before it */
+.crumb--back li:not(:nth-last-child(2)) { display: none; }
+.crumb--back li + li::before { content: none; }
+.crumb--back li:nth-last-child(2) a::before { content: '\2039'; margin-right: var(--space-1-5); font-size: var(--size-text); line-height: 0; }
+/* modifier needed by .case-head, D-232: the trail that cuts to its parent with the back mark (.crumb--back) under 900px, case-page.css
+   @media (max-width: 899px) .v4c-nav .wf-crumb */
+@media (max-width: 899px) {
+  .crumb--fit li:not(:nth-last-child(2)) { display: none; }
+  .crumb--fit li + li::before { content: none; }
+  .crumb--fit li:nth-last-child(2) a::before { content: '\2039'; margin-right: var(--space-1-5); font-size: var(--size-text); line-height: 0; }
+}

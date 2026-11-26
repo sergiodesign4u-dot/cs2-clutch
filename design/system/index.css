@@ -34,6 +34,30 @@
 @import "components/media-slot.css";
 
 /* ===== Level 2, molecules ===== */
+/* molecules hold atoms only (design/kit/inventory.md, Contains), so their order is free; listed by the panel's subgroups */
+@import "components/case-tile.css";
+@import "components/drop-card.css";
+@import "components/recent-drop-card.css";
+@import "components/feed-tile.css";
+@import "components/item-card.css";
+@import "components/mode-card.css";
+@import "components/outcome-card.css";
+@import "components/withdraw-item.css";
+@import "components/amount-field.css";
+@import "components/copyable-value.css";
+@import "components/filter-chip.css";
+@import "components/chosen-method.css";
+@import "components/popover-menu.css";
+@import "components/account-menu.css";
+@import "components/breadcrumb.css";
+@import "components/category-bar.css";
+@import "components/section-head.css";
+@import "components/daily-ladder.css";
+@import "components/event-banner.css";
+@import "components/hero.css";
+@import "components/empty-state.css";
+@import "components/money-strip.css";
+@import "components/payment-record.css";
 
 /* ===== Level 3, organisms: those holding no organism first, then those that hold one ===== */
 

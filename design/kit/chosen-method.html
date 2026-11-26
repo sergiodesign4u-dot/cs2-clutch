@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Chosen method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-frame { width: 100%; max-width: 360px; box-sizing: border-box; }
+  .cp-frame--wide { max-width: 560px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-empty { font-size: 12px; color: var(--text-meta); max-width: 200px; margin: 0 auto; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Inputs and menus &middot; level 2</span>
+  <h1>Chosen method</h1>
+  <p class="kt-lead">The head of a route at step 2 of Add funds: Back to the ways to pay, the method's mark, and its name under its family (D-238). On a route's own page the name is the H1. Everything on this page is drawn by <code>design/system/components/chosen-method.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage"><div class="cp-frame cp-frame--wide">
+    <div class="chosen"><a class="button button--icon chosen__back" href="#anatomy" aria-label="Back to the ways to pay"></a><span class="chosen__mark"><img src="marks/bitcoin.svg" alt="" width="60" height="40"></span><div class="chosen__t"><span class="chosen__k">Crypto</span><h3 class="chosen__v">Bitcoin</h3></div></div>
+  </div></div></div>
+<div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The row</b></td><td><code>.chosen</code></td><td>the gap between its three parts (<code>--space-3</code>) and the mark's height, the block's one variable <code>--chosen-mark</code> (40px, 32px under 600). <i>The molecule's own.</i></td></tr>
+    <tr><td><b>Back</b></td><td>a <a href="button.html">Button</a> tile: <code>.button.button--icon.chosen__back</code></td><td>the molecule draws only the chevron in the tile's borders (<code>.chosen__back::before</code>); the tile, its hover, focus and press are the Button's</td></tr>
+    <tr><td><b>The mark</b></td><td><code>.chosen__mark</code> with an <code>img</code></td><td>the method's picture at the mark's height, <code>object-fit: contain</code>, one <code>--radius-xs</code> corner. <i>The molecule's own.</i> The inventory lists the <a href="media-slot.html">Media slot</a> here; see the questions in the round's report</td></tr>
+    <tr><td><b>The family</b></td><td><code>.chosen__k</code></td><td>the small capitals over the name, in <code>--text-body</code>. <i>The molecule's own.</i></td></tr>
+    <tr><td><b>The name</b></td><td><code>.chosen__v</code> (an <code>h3</code>, the H1 on a route's page)</td><td>the large Section head's type: <code>--size-head-l</code>, 900, capitals; <code>--size-title</code> under 600. <i>The molecule's own.</i></td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form. The only axis is the mark's content, and it changes the picture, not the molecule. The mark's height is read from the rendered sample, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Content = the mark's picture.</b> A wide mark (Visa or Mastercard, 124 by 40), a narrow one (Bitcoin, 60 by 40), or <code>.chosen__mark--skin</code> where the route is skins: a skin is drawn half again as tall in its transparent square so the rifle reads at the plates' size.</li>
+    <li><b>Size = the window's.</b> Under 600px the mark steps down to 32px and the name to <code>--size-title</code>, so the name keeps its room. Narrow the window to see it.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:620px">
+    <thead><tr><th>Mark</th><th>Row, and the mark as rendered</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>Narrow</b></td><td><div class="cell"><div style="width:360px;max-width:100%"><div class="chosen"><a class="button button--icon chosen__back" href="#anatomy" aria-label="Back to the ways to pay"></a><span data-dim class="chosen__mark"><img src="marks/bitcoin.svg" alt="" width="60" height="40"></span><div class="chosen__t"><span class="chosen__k">Crypto</span><h3 class="chosen__v">Bitcoin</h3></div></div></div><span class="cp-dim"></span></div></td><td class="kt-note">Bitcoin, Gift Cards</td></tr>
+      <tr><td><b>Wide</b></td><td><div class="cell"><div style="width:360px;max-width:100%"><div class="chosen"><a class="button button--icon chosen__back" href="#anatomy" aria-label="Back to the ways to pay"></a><span data-dim class="chosen__mark"><img src="marks/visa-or-mastercard.svg" alt="" width="124" height="40"></span><div class="chosen__t"><span class="chosen__k">Cards, wallets and more</span><h3 class="chosen__v">Visa Or Mastercard</h3></div></div></div><span class="cp-dim"></span></div></td><td class="kt-note">Visa Or Mastercard</td></tr>
+      <tr><td><b>Skin</b></td><td><div class="cell"><div style="width:360px;max-width:100%"><div class="chosen"><a class="button button--icon chosen__back" href="#anatomy" aria-label="Back to the ways to pay"></a><span data-dim class="chosen__mark chosen__mark--skin"><img src="../concept/assets/skins/ak-47-redline.png" alt="" width="60" height="40"></span><div class="chosen__t"><span class="chosen__k">Cards, wallets and more</span><h3 class="chosen__v">CS2 Skins</h3></div></div></div><span class="cp-dim"></span></div></td><td class="kt-note">CS2 Skins</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A route's page says which way to pay the person chose and gives the way back: the mark and the name confirm the choice, the family over it says which group it came from, and Back returns to the ways to pay without losing the place (D-238). The bonus, the code and the country stay at step 1, so this head carries nothing else. The name is the method's own, as the provider writes it.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The top of a deposit route: "Crypto, Bitcoin" with Back at its start, over the route's own form.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A heading with no way back and no mark is a <b>Section head</b>. Choosing among the ways to pay is the provider tiles of the Deposit screen's own block, not this head. A path of pages over the whole site is the <b>Breadcrumb</b>. An act that does something is a <b>Button</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states: it is not interactive. The row has no hover, press or focus of its own; the Back tile is a Button and keeps the Button's hover, focus-visible ring and press (<a href="button.html">the Button's page</a>), so no snapshot is repeated here.</p>
+  <div class="kt-scene"><div class="cp-stage"><div class="cp-frame cp-frame--wide">
+    <div class="chosen"><a class="button button--icon chosen__back" href="#states" aria-label="Back to the ways to pay"></a><span class="chosen__mark"><img src="marks/bitcoin.svg" alt="" width="60" height="40"></span><div class="chosen__t"><span class="chosen__k">Crypto</span><h3 class="chosen__v">Bitcoin</h3></div></div>
+  </div></div></div>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. The molecule reads two ink roles, <code>--text-body</code> for the family and <code>--text-hi</code> for the name; the Back tile reads the Button's. Geometry and type come straight from the primitives, and the one px the block holds is its own variable <code>--chosen-mark</code>, carried with its origin. No component token and no colour primitive is read directly.</p>
+  <p>File: <code>design/system/components/chosen-method.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
+  <pre>&lt;div class="chosen"&gt;
+  &lt;a class="button button--icon chosen__back" href="deposit.html" aria-label="Back to the ways to pay"&gt;&lt;/a&gt;
+  &lt;span class="chosen__mark"&gt;&lt;img src="marks/bitcoin.svg" alt="" width="60" height="40"&gt;&lt;/span&gt;
+  &lt;div class="chosen__t"&gt;&lt;span class="chosen__k"&gt;Crypto&lt;/span&gt;&lt;h3 class="chosen__v"&gt;Bitcoin&lt;/h3&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+  <p>Stands on: <a href="../deposit-dialog.html">Deposit, the Add funds dialog</a> and the route pages: <a href="../deposit-crypto.html">crypto</a>, <a href="../deposit-card.html">card</a>, <a href="../deposit-giftcards.html">gift cards</a>, <a href="../deposit-skins.html">skins</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); var d = b.closest('.cell').querySelector('.cp-dim'); d.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-hi', '--text-body'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

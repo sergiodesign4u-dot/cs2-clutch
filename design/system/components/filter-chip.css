@@ -1,0 +1,17 @@
+/* FILTER CHIP, level 2 (molecule). A filter in force, said in words, and the cross that takes it off.
+ * Page: design/kit/filter-chip.html. Stands on the catalogue: Filters in force, built by catalogue.js from the drawer's choices (design/kit/inventory.md,
+ *   Filter chip; Clear all beside the group is a small ghost Button of the screen's block).
+ * Holds: Button (the close, .button--close as .chip__x). The molecule's own part is the pill, the words that cut with an ellipsis, and the cross's
+ *   size and quiet colour; the Button keeps its hover, focus and press.
+ * Reads: --bg-tile-veil, --line-edge, --text-hi, --text-body; geometry and type from the primitives. No component token, no colour primitive read
+ *   directly.
+ * Carried from design/kit/kit.css part 4.2, FILTER CHIP (lines 3362 to 3369) at stage 08 step 5, round 2, unchanged in look; --color-tile-veil
+ *   is read as --bg-tile-veil, --shadow-edge as --line-edge, --color-text-hi as --text-hi and --color-text-soft as --text-body. The molecule has no
+ *   state of its own: the cross has the Button's. From design/v4/seo-home.css (computed .sx-pin) with the dialog's cross of buttons.css as the
+ *   remove. */
+
+/* One form. The words and the cross on one pill at a small button's height. */
+.chip { display: inline-flex; align-items: center; gap: var(--space-1); max-width: 100%; min-height: var(--size-button-s); box-sizing: border-box; padding-left: var(--space-3); border-radius: var(--radius-card); background: var(--bg-tile-veil); box-shadow: var(--line-edge); color: var(--text-hi); font-size: var(--size-chip); font-weight: 700; line-height: 1.2; }
+.chip__t { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chip > .chip__x { flex: none; width: var(--size-button-s); min-height: var(--size-button-s); background: none; color: var(--text-body); } /* the chip's own cross, a close button at the chip's height; named .chip__x at stage 07 step 6 */
+@media (max-width: 599px) { .chip--tap { min-height: var(--size-tap); } .chip--tap > .chip__x { width: var(--size-tap); min-height: var(--size-tap); } } /* a chip and its cross at the 44px floor on a phone, the catalogue's filters in force (D-246); declared at stage 07 step 6 */

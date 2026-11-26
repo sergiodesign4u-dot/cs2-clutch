@@ -1,4 +1,5 @@
-/* design/kit/_page.css: the stand's own styles, stage 08 step 4. The panel, the hub's cards, a page's frame, the tiles and tables that show
+/* design/kit/_page.css: the stand's own styles, stage 08 step 4. Its rules on bare elements (h1 to h3, p, code, pre) weigh nothing and touch only
+ * the stand's own text: an element with no class or a stand class (kt-, cp-, co-, ty-, ic-); a component's sample keeps exactly its own look (round 2). The panel, the hub's cards, a page's frame, the tiles and tables that show
  * the system. No product class lives here and no screen of design/ links this file (architecture.md, "Two folders"). The frame reads the
  * system's own roles (--bg-page, --text-hi, --line-soft ...), so the theme switch in the panel turns the whole page; the panel keeps the
  * project's dark plate from /_nav.css in both themes, as every sidebar of the project does. */
@@ -6,9 +7,9 @@
 :root { --kp-w: 248px; }
 * { box-sizing: border-box; }
 body.kt { margin: 0; background: var(--bg-page); color: var(--text-body); font-family: var(--font-family); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
-.kt-main a:where(:not([class])) { color: var(--text-link); } /* the stand's own words only: a link wearing a component class keeps the component's ink (round 1) */
-.kt code, .kt pre { font-family: var(--font-mono); }
-.kt code { font-size: .86em; color: var(--text-hi); overflow-wrap: anywhere; }
+:where(.kt-main a:not([class])) { color: var(--text-link); } /* the stand's own words only: a link wearing a component class keeps the component's ink (round 1); no specificity, so a component's own `a` rule wins too (round 2) */
+:where(.kt) code:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]), :where(.kt) pre:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]) { font-family: var(--font-mono); }
+:where(.kt) code:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]) { font-size: .86em; color: var(--text-hi); overflow-wrap: anywhere; }
 
 /* ---------- the panel ---------- */
 .kp { position: fixed; inset: 0 auto 0 0; z-index: 200; width: var(--kp-w); padding: 18px 14px 32px; overflow-y: auto; overscroll-behavior: contain;
@@ -62,23 +63,23 @@ body.kt { margin: 0; background: var(--bg-page); color: var(--text-body); font-f
 .kt-wrap { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 56px; }
 .kt-head { display: grid; gap: 12px; }
 .kt-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-link); }
-.kt h1, .kt h2, .kt h3 { margin: 0; color: var(--text-hi); text-wrap: balance; }
-.kt h1 { font-size: 40px; font-weight: 900; line-height: 1.1; text-transform: uppercase; letter-spacing: .01em; }
-.kt h2 { font-size: 22px; font-weight: 900; line-height: 1.25; text-transform: uppercase; letter-spacing: .02em; }
-.kt h3 { font-size: 15px; font-weight: 700; line-height: 1.3; }
-.kt p { margin: 0; max-width: 72ch; }
+:where(.kt) h1:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]), :where(.kt) h2:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]), :where(.kt) h3:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]) { margin: 0; color: var(--text-hi); text-wrap: balance; }
+:where(.kt) h1:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]) { font-size: 40px; font-weight: 900; line-height: 1.1; text-transform: uppercase; letter-spacing: .01em; }
+:where(.kt) h2:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]) { font-size: 22px; font-weight: 900; line-height: 1.25; text-transform: uppercase; letter-spacing: .02em; }
+:where(.kt) h3:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]) { font-size: 15px; font-weight: 700; line-height: 1.3; }
+:where(.kt) p:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]) { margin: 0; max-width: 72ch; }
 .kt-lead { font-size: 17px; color: var(--text-lead); }
 .kt-sec { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; min-width: 0; scroll-margin-top: 24px; }
 .kt-note { font-size: 13px; color: var(--text-meta); }
 .kt ul.kt-list { margin: 0; padding-left: 18px; display: grid; gap: 8px; max-width: 80ch; }
 .kt-panel { background: var(--bg-card); border-radius: 12px; padding: 18px 20px; box-shadow: var(--line-edge); display: grid; gap: 10px; min-width: 0; }
 .kt-tbl { overflow-x: auto; }
-.kt table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.kt th, .kt td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line-soft); vertical-align: middle; }
-.kt th { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-meta); }
-.kt td b { color: var(--text-hi); }
+:where(.kt) table { width: 100%; border-collapse: collapse; font-size: 13px; }
+:where(.kt) th, :where(.kt) td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line-soft); vertical-align: middle; }
+:where(.kt) th { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-meta); }
+:where(.kt) td b { color: var(--text-hi); }
 .kt .n { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.kt pre { margin: 0; padding: 14px 16px; border-radius: 10px; background: var(--bg-tile); box-shadow: var(--line-edge); overflow-x: auto; font-size: 12px; line-height: 1.5; color: var(--text-body); }
+:where(.kt) pre:where(:not([class]), [class^="kt-"], [class*=" kt-"], [class^="cp-"], [class*=" cp-"], [class^="co-"], [class^="ty-"], [class^="ic-"]) { margin: 0; padding: 14px 16px; border-radius: 10px; background: var(--bg-tile); box-shadow: var(--line-edge); overflow-x: auto; font-size: 12px; line-height: 1.5; color: var(--text-body); }
 .kt-tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 10.5px; font-weight: 700; letter-spacing: .04em; white-space: nowrap; color: var(--text-hi); background: var(--bg-wash); box-shadow: var(--line-edge); }
 .kt-ok { color: var(--text-match); font-weight: 700; } .kt-bad { color: var(--text-error); font-weight: 700; } .kt-na { color: var(--text-meta); }
 

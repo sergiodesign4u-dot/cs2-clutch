@@ -1,0 +1,15 @@
+/* AMOUNT FIELD, level 2 (molecule). A label, the amount with its unit, and the presets that set it; a preset is pressed while the amount is its figure.
+ * Page: design/kit/amount-field.html. Stands on Deposit: the card route's amount in the Add funds dialog and its step pages (design/kit/inventory.md,
+ *   Amount field).
+ * Holds: Text field (.input-unit with .input--l), Segmented control (.seg, as .amount__presets). The molecule's own part is its label, the weight of the
+ *   amount and the wrap of the presets; the Text field and the Segmented control keep every rule and every state they have (text-field.css,
+ *   segmented-control.css).
+ * Reads: --text-body (the label); geometry and type from the primitives. No component token, no colour primitive read directly.
+ * Carried from design/kit/kit.css part 4.2, AMOUNT FIELD (lines 2514 to 2521) at stage 08 step 5, round 2, unchanged in look; the label's grey,
+ *   --color-text-soft, is read through --text-body, the role that holds it. The molecule has no state of its own: a state belongs to what it holds. */
+
+/* One form. The label stands over the amount, the amount over its presets; one column, no size and no emphasis of its own. */
+.amount { display: grid; gap: var(--space-2); min-width: 0; }
+.amount__l { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.amount .input { font-weight: 900; font-variant-numeric: tabular-nums; } /* the amount is a figure: the figures' weight, as .fig__v */
+.amount__presets { flex-wrap: wrap; } /* on .seg: six presets wrap to a second row at 360 rather than leave the page */

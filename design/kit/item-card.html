@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Item card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: flex-start; justify-content: center; padding: 40px 18px; }
+  .cp-cell { width: 210px; max-width: 100%; }
+  .cp-cap { display: block; margin-top: 8px; font-size: 12px; color: var(--text-meta); text-align: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Cards &middot; level 2</span>
+  <h1>Item card</h1>
+  <p class="kt-lead">One skin a person holds or held: its picture in its tier's hexagon, the gun, the skin and the wear, its value in gold, and what the place adds. On My items it carries a tick, Share this round and acts that open over the card; in the ledger and on a public shelf it carries a status band and Check this round. Everything on this page is drawn by <code>design/system/components/item-card.css</code> through <code>index.css</code>; names, wears and values in the samples are samples.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-2)"><div class="item-card__top"><label class="check"><input type="checkbox" aria-label="Select AWP Asiimov"></label><a class="item-card__share" href="#anatomy" aria-label="Share this round" title="Share this round"><i class="icon icon--share" aria-hidden="true"></i></a></div><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/awp-asiimov.png" alt=""></span></span><p class="item-card__w">AWP</p><p class="item-card__s">Asiimov</p><p class="item-card__wear">(Field-Tested)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>66.05</span></span>
+      <div class="item-card__acts"><button class="button button--ghost button--s" type="button">Sell for coins</button><a class="button button--ghost button--s" href="#anatomy">Send to Steam</a><button class="button button--ghost button--s" type="button" disabled>Exchange</button><p class="note">Exchange is not here yet</p></div>
+      <div class="item-card__facts"><div class="kv"><span class="kv__k">Starting at</span><span class="kv__v">61.20&#160;coins</span></div><div class="kv"><span class="kv__k">On sale</span><span class="kv__v">230</span></div><div class="kv item-card__out"><span class="kv__k">Out to Steam</span><span class="kv__v">+4.85&#160;coins</span></div></div></article><span class="cp-cap">My items, at rest</span></div>
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-3)"><div class="item-card__top"><label class="check"><input type="checkbox" checked aria-label="Select M4A1-S Hyper Beast"></label><a class="item-card__share" href="#anatomy" aria-label="Share this round" title="Share this round"><i class="icon icon--share" aria-hidden="true"></i></a></div><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""></span></span><p class="item-card__w">M4A1-S</p><p class="item-card__s">Hyper Beast</p><p class="item-card__wear">(Field-Tested)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>29.90</span></span>
+      <div class="item-card__acts"><button class="button button--ghost button--s" type="button">Sell for coins</button><a class="button button--ghost button--s" href="#anatomy">Send to Steam</a><button class="button button--ghost button--s" type="button" disabled>Exchange</button><p class="note">Exchange is not here yet</p></div>
+      <div class="item-card__facts"><div class="kv"><span class="kv__k">Starting at</span><span class="kv__v">34.10&#160;coins</span></div><div class="kv"><span class="kv__k">On sale</span><span class="kv__v">155</span></div><div class="kv item-card__out"><span class="kv__k">Out to Steam</span><span class="kv__v">&#8722;4.20&#160;coins</span></div></div></article><span class="cp-cap">My items, ticked: the acts are open</span></div>
+    <div class="cp-cell"><article class="item-card is-sending" style="--item-tier: var(--bg-rarity-5)"><span class="item-card__band">Sending to Steam, 21 Aug</span><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/mp9-rose-iron.png" alt=""></span></span><p class="item-card__w">MP9</p><p class="item-card__s">Rose Iron</p><p class="item-card__wear">(Minimal Wear)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>1.86</span></span><p class="item-card__k">Value when won</p><div class="item-card__facts"><div class="kv"><span class="kv__k">From</span><span class="kv__v">Nightfall</span></div><div class="kv"><span class="kv__k">Won</span><span class="kv__v">20 Aug 2026</span></div></div><a class="button button--ghost button--s" href="#anatomy">Check this round</a></article><span class="cp-cap">The ledger</span></div>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:720px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The card</b> (the molecule's own)</td><td><code>.item-card</code>, <code>--item-tier</code></td><td>the face: the tier's grade washed up from the foot, its line on the top edge and its short bar at the foot; the corner <code>--radius-m</code>; the tier is set on the card by the page, <code>--bg-rarity-1</code> to <code>-7</code></td></tr>
+    <tr><td><b>The tick</b></td><td><code>.item-card__top</code> holding a <a href="checkbox.html">Checkbox</a> (<code>.check</code>)</td><td>only the row it stands in and its 32px height; the box is the atom's</td></tr>
+    <tr><td><b>Share this round</b> (the molecule's own)</td><td><code>.item-card__share</code> holding an <a href="icon.html">Icon</a> (<code>.icon--share</code>)</td><td>the glyph's box (32px, a 44px target), its colours and its own hover and ring; hidden until the acts open</td></tr>
+    <tr><td><b>The band</b> (the molecule's own)</td><td><code>.item-card__band</code></td><td>the ledger's status line over the picture, two lines kept; pink while sending, white on a sold or gone card</td></tr>
+    <tr><td><b>The picture</b></td><td><code>.item-card__art</code> holding a <a href="media-slot.html">Media slot</a> (<code>.media--skin</code>)</td><td>the hexagon behind the skin and the skin's turn and scale (<code>--item-card-tilt</code>, <code>--item-card-skin</code>)</td></tr>
+    <tr><td><b>The words</b> (the molecule's own)</td><td><code>.item-card__w</code>, <code>__s</code>, <code>__wear</code></td><td>the gun in small capitals, the skin's name in white, the wear in a step of its tier</td></tr>
+    <tr><td><b>The value</b></td><td>a <a href="figure.html">Figure</a>, <code>.fig--money .fig--title</code>, centred by the card; <code>.item-card__k</code> names it in the ledger</td><td>only where it stands: centred, 8px above it; the figure is the atom's</td></tr>
+    <tr><td><b>The acts</b></td><td><code>.item-card__acts</code> holding <a href="button.html">Buttons</a> (<code>.button--ghost .button--s</code>) and a <a href="note-line.html">Note line</a></td><td>the veil over the card and its blur; the buttons keep their own size and states (row 10: 14px sides, the family's)</td></tr>
+    <tr><td><b>The facts</b></td><td><code>.item-card__facts</code> holding <a href="key-value-line.html">Key-value lines</a> (<code>.kv</code>); <code>.item-card__out</code> shows with the acts</td><td>the rule over them and their gap; the lines are the atom's</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Three axes. Each carries its rule, so the next screen picks by the rule instead of finding a reason again.</p>
+  <ul class="kt-list">
+    <li><b>Tier = data, set by the page.</b> The card never decides its grade: the page writes <code>--item-tier</code> from the rarity ladder (<code>--bg-rarity-1</code> rarest to <code>-7</code>), and the wash, the line on the edge, the hexagon and the wear's step follow. With nothing set the card takes step 5.</li>
+    <li><b>Content = where it stands.</b> My items: the tick and Share on top, the acts over the card, the facts and what taking it out costs. The ledger and a public shelf: a status band, the value when won, where it came from and when, Check this round across the foot; the two are drawn alike.</li>
+    <li><b>State = what has happened to it.</b> Chosen (ticked), sending to Steam, sold, gone. Each changes the band or the edge and nothing else. A sold card is its own receipt: no tick, no acts, its band says what happened.</li>
+    <li><b>Width = the grid's.</b> The card has no width of its own: <a href="item-grid.html">the Item grid</a> sets the column, and its height follows what it holds. Read from the render below.</li>
+  </ul>
+  <h3>Tier</h3>
+  <p>The card's face at each of the seven steps, tick, acts and facts left out so the grade is what you see.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-1)"><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/karambit-tiger-tooth.png" alt=""></span></span><p class="item-card__w">Karambit</p><p class="item-card__s">Tiger Tooth</p><p class="item-card__wear">(Factory New)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>1940.00</span></span></article><span class="cp-cap">--bg-rarity-1</span></div>
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-2)"><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/ak-47-redline.png" alt=""></span></span><p class="item-card__w">AK-47</p><p class="item-card__s">Redline</p><p class="item-card__wear">(Field-Tested)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>21.40</span></span></article><span class="cp-cap">--bg-rarity-2</span></div>
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-3)"><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/m4a1-s-hyper-beast.png" alt=""></span></span><p class="item-card__w">M4A1-S</p><p class="item-card__s">Hyper Beast</p><p class="item-card__wear">(Field-Tested)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>29.90</span></span></article><span class="cp-cap">--bg-rarity-3</span></div>
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-4)"><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/glock-18-water-elemental.png" alt=""></span></span><p class="item-card__w">Glock-18</p><p class="item-card__s">Water Elemental</p><p class="item-card__wear">(Factory New)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>4.20</span></span></article><span class="cp-cap">--bg-rarity-4</span></div>
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-5)"><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/mp9-rose-iron.png" alt=""></span></span><p class="item-card__w">MP9</p><p class="item-card__s">Rose Iron</p><p class="item-card__wear">(Minimal Wear)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>1.86</span></span></article><span class="cp-cap">--bg-rarity-5, also the default</span></div>
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-6)"><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/p250-sand-dune.png" alt=""></span></span><p class="item-card__w">P250</p><p class="item-card__s">Sand Dune</p><p class="item-card__wear">(Battle-Scarred)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>0.31</span></span></article><span class="cp-cap">--bg-rarity-6</span></div>
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-7)"><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/usp-s-cortex.png" alt=""></span></span><p class="item-card__w">USP-S</p><p class="item-card__s">Cortex</p><p class="item-card__wear">(Minimal Wear)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>3.10</span></span></article><span class="cp-cap">--bg-rarity-7</span></div>
+  </div></div>
+  <h3>Content and state: the ledger and the shelf</h3>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-cell"><article class="item-card is-sending" style="--item-tier: var(--bg-rarity-5)"><span class="item-card__band">Sending to Steam, 21 Aug</span><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/mp9-rose-iron.png" alt=""></span></span><p class="item-card__w">MP9</p><p class="item-card__s">Rose Iron</p><p class="item-card__wear">(Minimal Wear)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>1.86</span></span><p class="item-card__k">Value when won</p><div class="item-card__facts"><div class="kv"><span class="kv__k">From</span><span class="kv__v">Nightfall</span></div><div class="kv"><span class="kv__k">Won</span><span class="kv__v">20 Aug 2026</span></div></div><a class="button button--ghost button--s" href="#variants">Check this round</a></article><span class="cp-cap"><code>.is-sending</code></span></div>
+    <div class="cp-cell"><article class="item-card is-sold" style="--item-tier: var(--bg-rarity-5)"><span class="item-card__band">Sold, 20 Aug</span><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/p250-sand-dune.png" alt=""></span></span><p class="item-card__w">P250</p><p class="item-card__s">Sand Dune</p><p class="item-card__wear">(Battle-Scarred)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>0.31</span></span><p class="item-card__k">Value when won</p><div class="item-card__facts"><div class="kv"><span class="kv__k">From</span><span class="kv__v">Nightfall</span></div><div class="kv"><span class="kv__k">Won</span><span class="kv__v">20 Aug 2026</span></div></div><a class="button button--ghost button--s" href="#variants">No proof to check</a></article><span class="cp-cap"><code>.is-sold</code></span></div>
+    <div class="cp-cell"><article class="item-card is-gone" style="--item-tier: var(--bg-rarity-2)"><span class="item-card__band">Sent to Steam, 19 Aug</span><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/ak-47-redline.png" alt=""></span></span><p class="item-card__w">AK-47</p><p class="item-card__s">Redline</p><p class="item-card__wear">(Field-Tested)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>21.90</span></span><p class="item-card__k">Value when won</p><div class="item-card__facts"><div class="kv"><span class="kv__k">From</span><span class="kv__v">Warsteel</span></div><div class="kv"><span class="kv__k">Won</span><span class="kv__v">18 Aug 2026</span></div></div><a class="button button--ghost button--s" href="#variants">Check this round</a></article><span class="cp-cap"><code>.is-gone</code></span></div>
+    <div class="cp-cell"><article class="item-card" style="--item-tier: var(--bg-rarity-4)"><span class="item-card__band">Still held</span><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/glock-18-water-elemental.png" alt=""></span></span><p class="item-card__w">Glock-18</p><p class="item-card__s">Water Elemental</p><p class="item-card__wear">(Factory New)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>3.02</span></span><p class="item-card__k">Value when won</p><div class="item-card__facts"><div class="kv"><span class="kv__k">From</span><span class="kv__v">Warsteel</span></div><div class="kv"><span class="kv__k">Won</span><span class="kv__v">20 Aug 2026</span></div></div><a class="button button--ghost button--s" href="#variants">Check this round</a></article><span class="cp-cap">no class: still held</span></div>
+  </div></div>
+  <ul class="kt-list">
+    <li><code>.is-sending</code>, <code>.is-sold</code> and <code>.is-gone</code> are the product's classes, set by the page from the ledger's data and by the Sell act on My items; they colour the band (pink while sending, white and a harder rule once sold or gone) and nothing else.</li>
+    <li>The value missing (the degraded state, D-239) is the Figure's missing form inside the card, <code>.fig--missing</code>; no coloured screen draws it yet.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table style="min-width:420px"><thead><tr><th>Form</th><th>Measured</th></tr></thead><tbody>
+    <tr><td>My items, in a 210px cell</td><td><span class="cp-dim" data-dim-of="#anatomy .cp-cell:nth-child(1) .item-card"></span></td></tr>
+    <tr><td>The ledger, in a 210px cell</td><td><span class="cp-dim" data-dim-of="#variants .cp-cell:nth-child(1) .item-card.is-sending"></span></td></tr>
+    <tr><td>The face only (the tier strip)</td><td><span class="cp-dim" data-dim-of="#variants .cp-cell:nth-child(1) .item-card:not(.is-sending)"></span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A skin a person owns or once won, shown as a thing to act on or to read about: My items, the history's Items tab and a player's shelf. The value is the card's one gold figure; what taking the item out to Steam costs shows with the acts ("Out to Steam", D-128), so nothing is spent behind a pretty card (design principle 3). The acts are the voice's plain verbs, "Sell for coins", "Send to Steam", and Exchange says it is not here yet instead of hiding (D-239).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>A skin the person holds: a card in My items with its tick and its acts, or in the ledger with its band and Check this round. The page sets its tier and its state; the card draws the rest.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>An item of a case's drop table, with its chance and its tickets, is the <b>Drop card</b>. A win in the live strip is the <b>Recent drop card</b>. What came out of a round is the <b>Outcome card</b>. An item on its way to Steam, on the withdrawal screens, is the <b>Withdraw item</b>. A glyph alone is an <b>Icon</b> and a press is a <b>Button</b>; the card never draws either itself.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at the card, press it, reach it with Tab, tick it. The acts, Share and what taking it out costs show with the pointer, with focus anywhere inside the card, or with the tick.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-cell" id="s-item"><article class="item-card" style="--item-tier: var(--bg-rarity-2)"><div class="item-card__top"><label class="check"><input type="checkbox" aria-label="Select AWP Asiimov"></label><a class="item-card__share" href="#states" aria-label="Share this round" title="Share this round"><i class="icon icon--share" aria-hidden="true"></i></a></div><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/awp-asiimov.png" alt=""></span></span><p class="item-card__w">AWP</p><p class="item-card__s">Asiimov</p><p class="item-card__wear">(Field-Tested)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>66.05</span></span>
+      <div class="item-card__acts"><button class="button button--ghost button--s" type="button">Sell for coins</button><a class="button button--ghost button--s" href="#states">Send to Steam</a><button class="button button--ghost button--s" type="button" disabled>Exchange</button><p class="note">Exchange is not here yet</p></div>
+      <div class="item-card__facts"><div class="kv"><span class="kv__k">Starting at</span><span class="kv__v">61.20&#160;coins</span></div><div class="kv"><span class="kv__k">On sale</span><span class="kv__v">230</span></div><div class="kv item-card__out"><span class="kv__k">Out to Steam</span><span class="kv__v">+4.85&#160;coins</span></div></div></article></div>
+    <div class="cp-cell" id="s-item-on"><article class="item-card" style="--item-tier: var(--bg-rarity-2)"><div class="item-card__top"><label class="check"><input type="checkbox" checked aria-label="Select AWP Asiimov"></label><a class="item-card__share" href="#states" aria-label="Share this round" title="Share this round"><i class="icon icon--share" aria-hidden="true"></i></a></div><span class="item-card__art"><span class="media media--skin"><img src="../concept/assets/skins/awp-asiimov.png" alt=""></span></span><p class="item-card__w">AWP</p><p class="item-card__s">Asiimov</p><p class="item-card__wear">(Field-Tested)</p><span class="fig fig--money fig--title"><span class="fig__v"><i class="icon icon--coin" role="img" aria-label="coins"></i>66.05</span></span>
+      <div class="item-card__acts"><button class="button button--ghost button--s" type="button">Sell for coins</button><a class="button button--ghost button--s" href="#states">Send to Steam</a><button class="button button--ghost button--s" type="button" disabled>Exchange</button><p class="note">Exchange is not here yet</p></div>
+      <div class="item-card__facts"><div class="kv"><span class="kv__k">Starting at</span><span class="kv__v">61.20&#160;coins</span></div><div class="kv"><span class="kv__k">On sale</span><span class="kv__v">230</span></div><div class="kv item-card__out"><span class="kv__k">Out to Steam</span><span class="kv__v">+4.85&#160;coins</span></div></div></article></div>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot once on this card: hover, focus on the native tick (the element Tab reaches), and the ticked card as a twin at rest, set by the product's own <code>:checked</code>.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/item-card-my-hover-dark.png" alt="Hover: the acts open, the lit edge, dark theme" loading="lazy"></div><div><img src="screens/states/item-card-my-hover-light.png" alt="Hover: the acts open, the lit edge, light theme" loading="lazy"></div></div><figcaption><b>Hover: the card rises, its edge lights and the acts open (the pointer rests on Send to Steam, so that Button shows its own hover)</b> <code>--bg-veil, --line-edge, --depth-card</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/item-card-my-focus-dark.png" alt="Focus-visible: the ring on the native tick, the acts open, dark theme" loading="lazy"></div><div><img src="screens/states/item-card-my-focus-light.png" alt="Focus-visible: the ring on the native tick, the acts open, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible: the ring on the native tick, and the acts open with focus inside</b> <code>--line-focus, --bg-veil</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/item-card-my-checked-dark.png" alt="Ticked: the pressed pink edge, the acts open, dark theme" loading="lazy"></div><div><img src="screens/states/item-card-my-checked-light.png" alt="Ticked: the pressed pink edge, the acts open, light theme" loading="lazy"></div></div><figcaption><b>Ticked: the pressed pink edge, the acts open without the pointer</b> <code>--line-lit, --depth-card</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> the ledger and the shelf have no tick and no acts, so they have no state of their own beyond the pointer's lift; sending, sold and gone are classes the page sets and are shown in Variants.</li>
+    <li><b>The acts and the tick are atoms.</b> A Button under the pointer, in focus or pressed does what its page says; the Checkbox does too. The card writes no hover, focus or press for either. Its own states are the lift, the lit edge and the skin that straightens, the ticked edge, and Share's tile and ring (Share shows only while the acts are open, so it is not shot alone).</li>
+    <li><b>The lift is carried as drawn.</b> Under the pointer the card rises 3px, as <code>kit.css</code> draws it since D-241, where the rule for a state is ground, colour or edge and never position. Said here so the gate can keep it or take it out.</li>
+    <li><b>No disabled look of its own.</b> Exchange is the one disabled Button of the product (D-239), the Button's.</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ item-card           # re-shoot after a change to item-card.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ item-card --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token: the card's face, its wash and its words read the semantic level, and the tier is the page's <code>--item-tier</code>. Two colour primitives are read directly and wait for step 9: <code>--color-pink-on-dark</code> (the pink of a card on its way to Steam) and <code>--color-line</code> (the band's rule on a sold or gone card, one of the six primitives with one reader per surface). Geometry, type and motion come straight from the primitives.</p>
+  <p>File: <code>design/system/components/item-card.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
+  <pre>&lt;article class="item-card" style="--item-tier: var(--bg-rarity-2)"&gt;
+  &lt;div class="item-card__top"&gt;&lt;label class="check"&gt;&lt;input type="checkbox" aria-label="Select AWP Asiimov"&gt;&lt;/label&gt;
+    &lt;a class="item-card__share" href="..." aria-label="Share this round"&gt;&lt;i class="icon icon--share" aria-hidden="true"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+  &lt;span class="item-card__art"&gt;&lt;span class="media media--skin"&gt;&lt;img src="..." alt=""&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;p class="item-card__w"&gt;AWP&lt;/p&gt;&lt;p class="item-card__s"&gt;Asiimov&lt;/p&gt;&lt;p class="item-card__wear"&gt;(Field-Tested)&lt;/p&gt;
+  &lt;span class="fig fig--money fig--title"&gt;...&lt;/span&gt;
+  &lt;div class="item-card__acts"&gt;&lt;button class="button button--ghost button--s" type="button"&gt;Sell for coins&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="item-card__facts"&gt;&lt;div class="kv"&gt;...&lt;/div&gt;&lt;/div&gt;
+&lt;/article&gt;</pre>
+  <p>Stands on: <a href="../account.html">My items</a>. The ledger and the public shelf wear the same class on grey pages only so far. Until step 8 that screen still reads <code>kit.css</code>; step 6 moves its markup onto this file's forms by the rename map (row 10 for the acts, row 28 for the value).</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'my', sel: '#s-item .item-card', states: ['hover', 'focus', 'checked'], checked: '#s-item-on .item-card', tab: '#s-item .item-card__top input' }
+];
+document.querySelectorAll('[data-dim-of]').forEach(function (s) { var e = document.querySelector(s.getAttribute('data-dim-of')); if (e) { var r = e.getBoundingClientRect(); s.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); } });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--bg-card', '--bg-page', '--bg-tile', '--bg-veil', '--bg-rarity-5', '--text-hi', '--text-body', '--text-meta', '--line-edge', '--line-soft', '--line-lit', '--line-focus', '--depth-card', '--depth-skin-drop'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(item)-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

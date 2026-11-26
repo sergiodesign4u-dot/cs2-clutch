@@ -1,0 +1,179 @@
+/* FEED TILE, level 2 (molecule). One drop in the live ticker: the skin over the stage's ring in its rarity, the weapon and the skin's name, the mode mark in
+ * the corner and a rarity bar on its foot. Under the pointer, or with focus inside, its back face wipes in from the left on a slanted edge: the case it
+ * came from and who won it. The rarity is a modifier that sets --rarity; with none, the tile takes rarity 6.
+ * Page: design/kit/feed-tile.html. Stands on the seven coloured screens, inside the ticker's .ticker__i (design/kit/inventory.md, Feed tile). The ticker
+ *   itself, which places the tiles, is the organism of round 3.
+ * Holds: Media slot (.media--skin, the skin), Avatar (.avatar--s, the winner; .avatar--bot for a bot's empty disc), Icon (.icon--box, the mode mark). The
+ *   inventory also lists Text link: the two links of the tile (the face and the winner's name) are the tile's own forms, drawn here, and wear no .link.
+ * Reads: --text-base, --text-hi, --text-base-on-plate, --text-on-plate, --bg-feed-plate, --bg-mark-on-plate, --bg-rarity-1 to --bg-rarity-7, --bg-lit,
+ *   --line-focus; its own --feed-tile-* tokens (tokens.css, COMPONENT TOKENS); geometry, type and motion from the primitives. Colour primitives read
+ *   directly, all waiting for step 9: --gradient-feed-back, --shadow-feed-tile, --shadow-feed-skin, --shadow-feed-text and --color-feed-ring-deep (read in
+ *   this block only, tokens-audit.md), --color-gold (one of the six with one reader per surface), --color-rare-volt-light, --color-rare-zap,
+ *   --color-rare-orbit-light, --color-rare-orbit-deep, --color-rare-plasma-light, --color-rare-chance, --color-crown-light and --color-crown-deep (each
+ *   used in exactly one place, tokens-audit.md), and the rare drop's three lights --shadow-rare-volt, --shadow-rare-orbit, --shadow-rare-plasma-glow and
+ *   --filter-rare-skin (depth with one reader, read again at step 7).
+ * Carried from design/kit/kit.css part 3, lines 3147 to 3326 (FEED TILE, RARE MARKS ON A DROP and A RARE DROP) at stage 08 step 5, round 2, by the
+ *   decisions of step 2 (D-260) and D-264 Q5: the bot's disc is the Avatar's .avatar--bot (was .feed-tile__av--bot), so its rule is not carried. The rare
+ *   mark's moving layers (.rare-mark, its --mark-* geometry and its keyframes) stay in kit.css: the Drop card and the Case stage lay them too, and the
+ *   parent places them once. What is carried of the rare mark is the tile's own side: the ground it lends to a layer under it (.is-mark-c) and the rare
+ *   drop's lights, chance, crown, frame and landing (--volt, --orbit, --plasma, .is-live, .is-hit). Rules the ticker writes on this class
+ *   (.ticker__i .feed-tile) stay in kit.css. Corner 6px moved to 8px, D-228. From design/v4/theme.css (live drops, comp B), account-home.css (the winner's
+ *   avatar), rare-mark.css and rare.css. */
+
+/* Data: the skin's rarity, a modifier setting --rarity (gold the rarest, then covert, classified, restricted, milspec, industrial, consumer); the face and
+   the back are one tile in two sizes, the phone's set below. */
+/* its own geometry, read inside .feed-tile only, D-231 */
+.feed-tile {
+  --feed-bar: 36px; /* v4 theme.css .wf-feed-i::after: the rarity bar on the drop's foot; 28px on a phone */
+  --feed-bar-back: 44px; /* v4 theme.css .wf-feed-back::before: the rarity bar on the back face's top */
+  --feed-bar-h: 3px; /* v4 theme.css .wf-feed-i::after and .wf-feed-back::before: both bars' thickness */
+  --feed-hex-w: 59px; /* v4 theme.css .wf-feed-hit::before: the hexagon's fill, width; 45px on a phone */
+  --feed-hex-h: 51px; /* the same, height; 39px on a phone */
+  --feed-hex-top: 15.5px; /* the same, from the tile's top; 11.5px on a phone */
+  --feed-ring-w: 101px; /* v4 theme.css .wf-feed-hit::after: the ring with its light, width; 78px on a phone */
+  --feed-ring-h: 91px; /* the same, height; 70px on a phone */
+  --feed-ring-top: -4.5px; /* the same, from the tile's top; -3.8px on a phone */
+  --feed-skin: 64px; /* v4 theme.css .wf-feed-hit .wf-feed-art: the skin's height; 44px on a phone */
+  --feed-skin-above: 4px; /* the same, its top margin; 2px on a phone */
+  --feed-skin-below: 5px; /* the same, its bottom margin; 3px on a phone */
+  --feed-pad-top: 6px; /* v4 theme.css .wf-feed-hit: the face's padding, top; 4px on a phone */
+  --feed-pad-side: 4px; /* the same, sides; 3px on a phone */
+  --feed-pad-foot: 8px; /* the same, foot; 6px on a phone */
+  --feed-name: 13px; /* v4 theme.css .wf-feed-hit .wf-feed-w: the weapon's size; 11px on a phone */
+  --feed-sub: 12px; /* v4 theme.css .wf-feed-hit .wf-feed-s: the skin's name; 11px on a phone, critique row 12 */
+  --feed-sub-gap: 2px; /* the same, its top margin; 1px on a phone */
+  --feed-back-pad-top: 10px; /* v4 theme.css .wf-feed-back: the back face's padding, top; 6px on a phone */
+  --feed-back-pad-side: 8px; /* the same, sides; 6px on a phone */
+  --feed-back-pad-foot: 12px; /* the same, foot; 8px on a phone */
+  --feed-back-gap: 6px; /* the same, between the case and the winner; 4px on a phone */
+  --feed-case-w: 76px; /* v4 theme.css .wf-feed-back .wf-feed-art: the case on the back face, width; 60px on a phone */
+  --feed-case-h: 46px; /* the same, height; 34px on a phone */
+  --feed-mark: 14px; /* v4 theme.css .wf-feed-mode: the mode mark in the drop's corner */
+  --feed-back-shift: 14px; /* how far the back face's words slide in from; v4 theme.css .wf-feed-back > *; made a variable at the merge, D-231 */
+  --feed-underline: 3px; /* a winner's name underlined as a link; kit.css part 2, the product's link underline, wf-linklike; made a variable at the merge, D-231 */
+  --feed-eq-edge: 1.5px; /* kit.css A RARE DROP, .feed-tile__eq padding: the plasma frame's line, a literal in the rule; on the block so the rule holds no px; D-235 */
+  --feed-wave-glow: 16px; /* kit.css A RARE DROP, .feed-tile__wave box-shadow: the landing wave's outer and inner light, a literal in the rule; on the block; D-235 */
+}
+/* the same on a phone, as --size-drop-v4 in :root; v4 theme.css @media (max-width: 599px), founder of 4 Nov 2026 */
+@media (max-width: 599px) {
+  .feed-tile { --feed-bar: 28px; --feed-hex-w: 45px; --feed-hex-h: 39px; --feed-hex-top: 11.5px; --feed-ring-w: 78px; --feed-ring-h: 70px; --feed-ring-top: -3.8px; --feed-skin: 44px; --feed-skin-above: 2px; --feed-skin-below: 3px; --feed-pad-top: 4px; --feed-pad-side: 3px; --feed-pad-foot: 6px; --feed-name: 11px; --feed-sub: 11px; --feed-sub-gap: 1px; --feed-back-pad-top: 6px; --feed-back-pad-side: 6px; --feed-back-pad-foot: 8px; --feed-back-gap: 4px; --feed-case-w: 60px; --feed-case-h: 34px; }
+}
+.feed-tile { --rarity: var(--bg-rarity-6); position: relative; display: block; box-sizing: border-box; flex: none; width: var(--size-drop-v4); border-radius: var(--radius-s); background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--rarity) 38%, transparent), transparent), var(--bg-feed-plate); box-shadow: var(--shadow-feed-tile); color: var(--text-base); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; }
+.feed-tile { min-width: min-content; } /* D-232: a drop grows to fit its names as v4's does (theme.css .wf-feed-i: flex-basis --size-drop-v4, flex-shrink 0, the names unbroken), never cut short by the ellipsis; the width above is its least */
+.feed-tile--gold { --rarity: var(--bg-rarity-1); } .feed-tile--covert { --rarity: var(--bg-rarity-2); } .feed-tile--classified { --rarity: var(--bg-rarity-3); }
+.feed-tile--restricted { --rarity: var(--bg-rarity-4); } .feed-tile--milspec { --rarity: var(--bg-rarity-5); } .feed-tile--industrial { --rarity: var(--bg-rarity-6); } .feed-tile--consumer { --rarity: var(--bg-rarity-7); }
+/* the rarity bar on the foot, its light rising into the plate */
+.feed-tile::after { content: ''; position: absolute; z-index: 2; left: 50%; bottom: 0; width: var(--feed-bar); height: var(--feed-bar-h); margin-left: calc(var(--feed-bar) / -2); border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--rarity); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--rarity); pointer-events: none; }
+/* the face: the link to the round */
+.feed-tile__hit { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; gap: 0; padding: var(--feed-pad-top) var(--feed-pad-side) var(--feed-pad-foot); border-radius: var(--radius-m); color: var(--text-hi); text-align: center; text-decoration: none; }
+.feed-tile__hit::before, .feed-tile__hit::after { content: ''; position: absolute; z-index: -1; left: 50%; }
+/* the fill inside the ring, clear at its top left to the rarity at its foot */
+.feed-tile__hit::before { top: var(--feed-hex-top); width: var(--feed-hex-w); height: var(--feed-hex-h); margin-left: calc(var(--feed-hex-w) / -2); background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--rarity) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+/* the stage's ring with its light, one masked layer */
+.feed-tile__hit::after { top: var(--feed-ring-top); width: var(--feed-ring-w); height: var(--feed-ring-h); margin-left: calc(var(--feed-ring-w) / -2);
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--rarity) 62%, var(--bg-mark-on-plate)), color-mix(in srgb, var(--rarity) 92%, var(--bg-mark-on-plate)), color-mix(in srgb, var(--rarity) 72%, var(--color-feed-ring-deep)));
+  -webkit-mask: var(--shape-feed-ring) center / 100% 100% no-repeat; mask: var(--shape-feed-ring) center / 100% 100% no-repeat; }
+.feed-tile__hit:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: calc(-1 * var(--size-edge)); border-radius: var(--radius-s); }
+/* the skin, larger than the ring, a Media slot with no plate */
+.feed-tile__art { width: 128%; height: var(--feed-skin); margin: var(--feed-skin-above) -14% var(--feed-skin-below); border-radius: 0; filter: var(--shadow-feed-skin); transition: transform .3s var(--motion-ease-pop); }
+.feed-tile__w, .feed-tile__s { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-shadow: var(--shadow-feed-text); }
+.feed-tile__w { font-size: var(--feed-name); font-weight: 700; line-height: 1; }
+.feed-tile__s { margin-top: var(--feed-sub-gap); font-size: var(--feed-sub); line-height: 1; letter-spacing: var(--tracking-feed-sub); opacity: .85; }
+@media (max-width: 599px) { .feed-tile__w, .feed-tile__s { line-height: 1.2; } }
+/* the mode mark, an Icon in the gold */
+.feed-tile__mode { position: absolute; z-index: 2; top: var(--space-2); right: var(--space-2); color: var(--color-gold); font-size: var(--feed-mark); opacity: .9; pointer-events: none; }
+/* the back face: the case it came from, its name, then who won it, on one centred column; hidden behind a slanted edge until it wipes in. Its plate is navy
+   in both themes (--gradient-feed-back has no light pair), so its words wear the plate inks and its ring the white one, --feed-tile-line-focus-back. */
+.feed-tile__back { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: var(--feed-back-gap); box-sizing: border-box; padding: var(--feed-back-pad-top) var(--feed-back-pad-side) var(--feed-back-pad-foot); border-radius: var(--radius-s);
+  background: radial-gradient(70% 42% at 50% 0%, color-mix(in srgb, var(--rarity) 34%, transparent), transparent), radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--rarity) 30%, transparent), transparent), var(--gradient-feed-back);
+  clip-path: polygon(0 0, 0 0, -30% 100%, -30% 100%); pointer-events: none; transition: clip-path .42s cubic-bezier(.65, 0, .35, 1); }
+.feed-tile__back::before { content: ''; position: absolute; top: 0; left: 50%; width: var(--feed-bar-back); height: var(--feed-bar-h); margin-left: calc(var(--feed-bar-back) / -2); border-radius: 0 0 var(--radius-xs) var(--radius-xs); background: var(--rarity); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--rarity); pointer-events: none; }
+.feed-tile__back > * { opacity: 0; translate: calc(-1 * var(--feed-back-shift)) 0; transition: opacity .25s ease-out .12s, translate .35s var(--motion-ease-pop) .12s; }
+.feed-tile__case { flex: none; display: flex; flex-direction: column; align-items: center; gap: var(--space-1-5); color: var(--text-on-plate); font-size: var(--size-chip); line-height: 1.2; text-decoration: none; text-transform: uppercase; }
+.feed-tile__case-art { flex: none; align-self: center; width: var(--feed-case-w); height: var(--feed-case-h); background: var(--case-art) center / contain no-repeat; } /* the case's cover, --case-art as .media--case names it */
+.feed-tile__case-n { font-size: var(--size-xs); font-weight: 700; letter-spacing: var(--tracking-caps); line-height: 1.2; }
+.feed-tile__who { display: flex; justify-content: center; align-items: center; gap: var(--space-1-5); max-width: 100%; min-width: 0; min-height: 0; color: var(--text-base-on-plate); font-size: var(--size-xs); line-height: 1.25; text-decoration: none; }
+a.feed-tile__who { margin-block: calc(-1 * var(--space-1-5)); padding-block: var(--space-1-5); color: var(--text-on-plate); font-size: var(--size-chip); text-transform: uppercase; } /* a winner with a profile: 12 to 24px of hit area, WCAG 2.2 target size, critique row 11 */
+.feed-tile__whon { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--size-xs); }
+a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-offset: var(--feed-underline); }
+.feed-tile__bot { color: var(--feed-tile-text-bot); font-size: var(--size-chip); letter-spacing: var(--tracking-label); line-height: 1.25; text-transform: uppercase; }
+.feed-tile__case:focus-visible, a.feed-tile__who:focus-visible { outline: var(--size-edge) solid var(--feed-tile-line-focus-back); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+
+/* STATES. The back face opens under the pointer and for a keyboard inside it; the skin turns a little with it. Each link of the face and the back takes the
+   system's ring on :focus-visible, never on :focus. The avatar inside keeps its own look and adds no state. */
+.feed-tile__back:focus-within { clip-path: polygon(0 0, 130% 0, 100% 100%, -30% 100%); pointer-events: auto; }
+.feed-tile__back:focus-within > * { opacity: 1; translate: 0 0; }
+@media (hover: hover) {
+  .feed-tile:hover .feed-tile__back { clip-path: polygon(0 0, 130% 0, 100% 100%, -30% 100%); pointer-events: auto; }
+  .feed-tile:hover .feed-tile__back > * { opacity: 1; translate: 0 0; }
+  .feed-tile:hover .feed-tile__art { transform: scale(1.08) rotate(-3deg); }
+}
+@media (prefers-reduced-motion: reduce) { .feed-tile__art, .feed-tile__back, .feed-tile__back > * { transition: none; } }
+
+/* RARE MARKS ON A DROP, D-235, the tile's own side: a drop whose chance in its case is 5 % or less carries mark A, 2.5 % or less B, 1 % or less C, the
+   rarest that applies (the chance is the tile's data-chance, a sample, D-124; motion.js lays the mark on). The moving layers are .rare-mark, kept in kit.css.
+   C burns outside the tile, rising over it, behind the tile's ground: the tile lends its ground to ::before so the flame shows only round it; while the page is
+   at its top a C tile stands over the sticky header, so the flame is not cut, founder of 11 Nov 2026: "here too we put it on top, as on mobile" */
+/* the tile lends its ground to a layer under it, for C's flame and for a rare drop's lit edge */
+.feed-tile:is(.is-mark-c, .feed-tile--rare) { isolation: isolate; background: none; }
+.feed-tile:is(.is-mark-c, .feed-tile--rare)::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--rarity) 38%, transparent), transparent), var(--bg-feed-plate); pointer-events: none; transition: box-shadow .4s; }
+.feed-tile.is-mark-c { z-index: 31; } /* over the sticky header, z-index 30, while the page is at its top */
+.is-scrolled .feed-tile.is-mark-c { z-index: auto; }
+
+/* A RARE DROP, D-235, v4 rare.css and rare.js, founder of 1 Nov 2026 after rare-drops.html: "да отлично давай их на хоум пейдж ... 4-5 обычных,
+   а потом одна редкая". Three tiers in turn, lightning (--volt), the golden orbit (--orbit) and plasma (--plasma), each a tile with its chance
+   large and faint in its corner and, the rarest, a crown; the plasma's frame is an equalizer in its tier's colour. It lands once as its arrival
+   settles (.is-hit): the tile punches up, a flash, a wave in the tier's colour, the next two tiles shoved aside (.is-shoved); then it is the live
+   one (.is-live), lit, until the next rare drop calms it (.is-calm). Its mark is its chance's, as any drop's. motion.js plays the landing. */
+.feed-tile {
+  --rare-chance: 24px; /* v4 rare.css .v4-rare-chance: the chance figure */
+  --rare-chance-x: 5px; /* the same, from the tile's left */
+  --rare-chance-y: 3px; /* the same, from its top */
+  --rare-crown-w: 66px; /* v4 rare.css .v4-rare-crown: the crown, width */
+  --rare-crown-h: 50px; /* the same, height */
+  --rare-crown-x: -8px; /* the same, past the tile's right */
+  --rare-crown-y: -5px; /* the same, past its foot */
+  --rare-wave: 110px; /* v4 rare.css .v4-rare-wave: the wave's first ring */
+}
+.feed-tile--volt { --rare-light: var(--color-rare-volt-light); --rare-mid: var(--color-rare-zap); --rare-deep: var(--bg-rarity-5); }
+.feed-tile--orbit { --rare-light: var(--color-rare-orbit-light); --rare-mid: var(--bg-rarity-1); --rare-deep: var(--color-rare-orbit-deep); }
+.feed-tile--plasma { --rare-light: var(--color-rare-plasma-light); --rare-mid: var(--bg-lit); --rare-deep: var(--bg-rarity-3); }
+.feed-tile--volt:is(.is-live, .is-calm)::before { box-shadow: var(--shadow-rare-volt); }
+.feed-tile--orbit:is(.is-live, .is-calm)::before { box-shadow: var(--shadow-rare-orbit); }
+.feed-tile--plasma:is(.is-live, .is-calm)::before { box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--rarity) 45%, transparent), var(--shadow-rare-plasma-glow); }
+.feed-tile--rare.is-live .feed-tile__art { filter: var(--filter-rare-skin) drop-shadow(0 0 var(--space-2) color-mix(in srgb, var(--rare-mid) 55%, transparent)); } /* the second light is the tier's, so it is set here */
+.feed-tile--rare .feed-tile__hit::before { background: linear-gradient(135deg, transparent 34%, color-mix(in srgb, var(--rarity) 85%, transparent)); } /* the hexagon clears further towards its corner, so the chance shows through */
+.feed-tile__rare { position: absolute; inset: 0; z-index: 0; border-radius: inherit; overflow: hidden; pointer-events: none; }
+.feed-tile__chance { position: absolute; top: var(--rare-chance-y); left: var(--rare-chance-x); font-size: var(--rare-chance); font-weight: 900; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; opacity: .55;
+  background: linear-gradient(to bottom, var(--color-rare-chance), var(--rarity)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.feed-tile__crown { position: absolute; right: var(--rare-crown-x); bottom: var(--rare-crown-y); width: var(--rare-crown-w); height: var(--rare-crown-h); transform: rotate(-24deg); opacity: .42; }
+.feed-tile__crown::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, var(--color-crown-light), var(--rarity) 45%, var(--color-crown-deep)); -webkit-mask: var(--icon-crown) center / contain no-repeat; mask: var(--icon-crown) center / contain no-repeat; }
+/* plasma's frame, an equalizer: two bars of light climbing its sides out of step */
+@property --feed-eq-l { syntax: '<percentage>'; inherits: false; initial-value: 40%; }
+@property --feed-eq-r { syntax: '<percentage>'; inherits: false; initial-value: 40%; }
+.feed-tile__eq { position: absolute; inset: 0; z-index: 3; border-radius: inherit; padding: var(--feed-eq-edge); pointer-events: none; opacity: 0; transition: opacity .4s;
+  background:
+    linear-gradient(to top, color-mix(in srgb, var(--rarity) 55%, var(--bg-mark-on-plate)) 0%, var(--rarity) calc(var(--feed-eq-l) * .45), transparent var(--feed-eq-l)) left / 50% 100% no-repeat,
+    linear-gradient(to top, color-mix(in srgb, var(--rarity) 55%, var(--bg-mark-on-plate)) 0%, var(--rarity) calc(var(--feed-eq-r) * .45), transparent var(--feed-eq-r)) right / 50% 100% no-repeat,
+    color-mix(in srgb, var(--rarity) 22%, transparent);
+  -webkit-mask: linear-gradient(var(--bg-mark-on-plate) 0 0) content-box, linear-gradient(var(--bg-mark-on-plate) 0 0); -webkit-mask-composite: xor; mask: linear-gradient(var(--bg-mark-on-plate) 0 0) content-box exclude, linear-gradient(var(--bg-mark-on-plate) 0 0);
+  animation: feed-eq-l 1.7s ease-in-out infinite, feed-eq-r 1.3s ease-in-out infinite; }
+.feed-tile.is-live .feed-tile__eq { opacity: 1; }
+@keyframes feed-eq-l { 0%, 100% { --feed-eq-l: 30%; } 14% { --feed-eq-l: 72%; } 26% { --feed-eq-l: 45%; } 41% { --feed-eq-l: 88%; } 55% { --feed-eq-l: 36%; } 70% { --feed-eq-l: 64%; } 84% { --feed-eq-l: 92%; } }
+@keyframes feed-eq-r { 0%, 100% { --feed-eq-r: 55%; } 18% { --feed-eq-r: 28%; } 33% { --feed-eq-r: 80%; } 47% { --feed-eq-r: 50%; } 62% { --feed-eq-r: 94%; } 78% { --feed-eq-r: 34%; } 90% { --feed-eq-r: 70%; } }
+/* the landing */
+.feed-tile__wave { position: absolute; z-index: 6; top: 50%; left: 50%; width: var(--rare-wave); height: var(--rare-wave); margin: calc(var(--rare-wave) / -2) 0 0 calc(var(--rare-wave) / -2); border-radius: 50%; pointer-events: none; opacity: 0;
+  border: var(--size-edge) solid var(--rare-mid); box-shadow: 0 0 var(--feed-wave-glow) var(--rare-mid), inset 0 0 var(--feed-wave-glow) var(--rare-deep); }
+.feed-tile__flash { position: absolute; inset: 0; z-index: 5; border-radius: inherit; pointer-events: none; opacity: 0; mix-blend-mode: screen; background: radial-gradient(circle at 50% 45%, var(--rare-light), transparent 72%); }
+.feed-tile.is-hit { animation: feed-rare-bump .5s cubic-bezier(.2, .9, .3, 1.3); }
+.feed-tile.is-hit .feed-tile__wave { animation: feed-rare-wave .8s ease-out both; }
+.feed-tile.is-hit .feed-tile__flash { animation: feed-rare-flash .7s ease-out both; }
+.feed-tile.is-shoved { animation: feed-rare-shove .6s ease-out; }
+@keyframes feed-rare-bump { 0% { transform: scale(1); } 30% { transform: scale(1.12); } 100% { transform: none; } }
+@keyframes feed-rare-wave { 0% { transform: scale(.3); opacity: 1; } 100% { transform: scale(2.1); opacity: 0; } }
+@keyframes feed-rare-flash { 0% { opacity: .75; } 100% { opacity: 0; } }
+@keyframes feed-rare-shove { 0% { transform: none; } 30% { transform: translateX(var(--space-1-75)) rotate(1.2deg); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .feed-tile--rare, .feed-tile--rare *, .feed-tile--rare::before, .feed-tile.is-shoved { animation: none !important; transition: none !important; }
+}

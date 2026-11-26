@@ -1,0 +1,149 @@
+/* EVENT BANNER, level 2 (molecule). The event's scene from edge to edge, its title as an illustrated logotype, the countdown and the one act
+ * over it, D-209 comp B. Four still layers share one frame and each moves on its own: the plate (::before), the aurora and the far snow
+ * (__art::before), the soldier with the case (__art::after), the case's light and the near snow (::after); a story video lies over them once
+ * it plays (.is-story, set by the page's script as banner-story.js does) and never for reduced motion.
+ * Page: design/kit/event-banner.html. Stands on Home and design/index.html (design/kit/inventory.md, Event banner).
+ * Holds: Media slot (the story, .banner__story, a .media with its video), Button (the act, the ghost of the family since D-226 row A2, large
+ *   at every width, D-228).
+ * Reads: --text-base-on-plate, --text-on-plate, --text-body-on-plate, --bg-scrim; one of its own tokens (tokens.css, COMPONENT TOKENS),
+ *   --banner-edge; geometry, type and motion from the primitives and its own --banner-* block below. The banner is a dark scene in both
+ *   themes, so every ink on it is an on-plate role. Colours read directly and waiting for step 9 (tokens-audit.md "What the semantic level
+ *   does not take yet"), all read in this block only: --color-banner, --color-banner-clock-phone, --color-banner-cell, --color-banner-rule,
+ *   --shadow-banner, --shadow-banner-clock, --shadow-banner-title, --filter-banner-plate, --filter-banner-flare, --filter-banner-flare-still,
+ *   --gradient-banner-shade, -shade-phone, -foot, -foot-phone, -hero-mask, -hero-mask-phone, -story-mask-phone, -art-mask, -sweep, -snow-near,
+ *   -snow-far.
+ * Carried from design/kit/kit.css part 4.2 (lines 3010 to 3146) at stage 08 step 5, round 2, its five keyframes with it (no other block names
+ *   them). It moves, D-194, D-209: the motion is carried as kit.css draws it, nothing added. Laid out by the window as Home lays it: a phone
+ *   under 600, the wide cut from 600, a block with its corner from 900. Corners: the block's 16px is --radius-m, the cells' 8px --radius-s,
+ *   the countdown's 12px --radius-card; none moved. From design/v4/banner.css, theme.css "the banner" and buttons.css, with kit.css part 3's
+ *   mask on the art. The rules an organism or a screen writes on it (.shell__main > :is(.banner ...), .shell__main > .banner + .hero) stay
+ *   in kit.css. */
+/* its own geometry, read inside .banner only, D-231 */
+.banner {
+  --banner-block: 360px; /* the banner's height from 900px, comp A's wide low card; v4 banner.css: .wf-event .wf-banner-art, height */
+  --banner-phone-max: 400px; /* the phone banner is as tall as the window is wide and never over this; v4 banner.css: .wf-event --ph-h */
+  --banner-scene: 480px; /* every layer drawn this high on the wide cut, from 600px; v4 banner.css: .wf-event --scene-size */
+  --banner-scene-x: 214px; /* the scene's offset past 45 % from the right, so the case stands near the banner's middle; v4 banner.css: .wf-event --scene-pos */
+  --banner-scene-y: -50px; /* the scene's top offset on the wide cut; v4 banner.css: .wf-event --scene-pos and --plate-pos */
+  --banner-plate: 1315px; /* the wide plate's least width, its width at 480px high; v4 banner.css: .wf-event --plate-size */
+  --banner-plate-x: 86px; /* the wide plate's offset past 45 %, stopped at the right edge; v4 banner.css: .wf-event --plate-pos */
+  --banner-scene-phone: 100vw; /* the scene's height on a phone, the window's width; v4 banner.css: @media (max-width: 599px) .wf-event --scene-size and --ph-h */
+  --banner-scene-phone-x: -24vw; /* the phone scene's right offset; v4 banner.css: @media (max-width: 599px) .wf-event --scene-pos */
+  --banner-scene-phone-y: 44px; /* the phone scene's top offset, under the title; v4 banner.css: @media (max-width: 599px) .wf-event --scene-pos */
+  --banner-story-foot: 70px; /* the phone story stops this far above the banner's foot and melts there; v4 banner.css: @media (max-width: 599px) .v4-story, height */
+  --banner-title: 500px; /* the title art's width from 900px, the title's 1100 by 454; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-room: 420px; /* what the title leaves the countdown from 1100px; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-room-narrow: 348px; /* the same from 900 to 1099px, where the cells are 60px; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-tablet: 300px; /* the title from 600 to 899px; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-room-tablet: 396px; /* the countdown's 332 and three 16px insets, 600 to 899px; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-title-phone: 320px; /* the title on a phone, "Coldfront can be bigger"; v4 banner.css: .wf-event .wf-event-name, width */
+  --banner-cell: 72px; /* a countdown cell's width; v4 theme.css: .wf-event-clock, grid-template-columns */
+  --banner-cell-narrow: 60px; /* a cell from 900 to 1099px, so the title is no stamp; v4 banner.css: .wf-event-clock, grid-template-columns */
+  --banner-end-phone: 10px; /* the end line on a phone; v4 banner.css: .wf-event-end, font-size; not --size-badge-text, a different job */
+  --banner-act: 240px; /* the act's least width from 600px; v4 theme.css: .wf-event-go, min-width */
+  --banner-content-v4: 1560px; /* the column v4 is drawn to on a wide screen, the inset of the banner's title and act from 1200px; v4 theme.css: .wf-event .wf-event-name, .wf-event-go */
+  --banner-lean: -14px -4px; /* the soldier leaning in under the pointer, a translate; v4 banner.css: .wf-event:hover .wf-banner-art::after */
+  --banner-snow-near: 300px 300px, 300px 300px, 300px 300px, 420px 420px, 420px 420px, 420px 420px; /* the near snow's two tiles; v4 banner.css: .wf-event::after, background-size */
+  --banner-snow-far: 230px 230px, 230px 230px, 230px 230px, 340px 340px, 340px 340px, 340px 340px; /* the far snow's two tiles; v4 banner.css: .wf-event .wf-banner-art::before, background-size */
+  --banner-gutter: 48px; /* the title's and the act's left from 1200px; v4 theme.css: .wf-event .wf-event-name, .wf-event-go */
+  --banner-cell-top: 7px; /* a cell's top padding; v4 theme.css: .wf-event-cell, padding */
+  --banner-cell-foot: 5px; /* a cell's foot padding; v4 theme.css: .wf-event-cell, padding */
+}
+.banner { --scene-size: auto var(--banner-scene); --scene-pos: right calc(45% + var(--banner-scene-x)) top var(--banner-scene-y);
+  --plate: var(--art-banner-plate-wide); --plate-size: max(100%, var(--banner-plate)) auto; --plate-pos: right min(45% + var(--banner-plate-x), 0px) top var(--banner-scene-y);
+  position: relative; overflow: hidden; isolation: isolate; background: var(--color-banner); color: var(--text-base-on-plate); font-size: var(--size-text); line-height: 1.2; }
+/* layer 1, the plate, with the shade that keeps the title legible and the melt into the page at the foot */
+.banner::before { content: ''; position: absolute; inset: 0; z-index: -3; background: var(--gradient-banner-shade), var(--gradient-banner-foot), var(--plate) var(--plate-pos) / var(--plate-size) no-repeat;
+  filter: var(--filter-banner-plate); animation: banner-plate var(--motion-drift) ease-in-out infinite alternate; transition: translate var(--motion-banner-lean) var(--motion-ease-settle); }
+/* layer 4, the case's light and the near snow over everything */
+.banner::after { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: var(--gradient-banner-snow-near), var(--art-banner-glow) var(--scene-pos) / var(--scene-size) no-repeat;
+  background-size: var(--banner-snow-near), var(--scene-size); animation: banner-pulse var(--motion-banner-pulse) ease-in-out infinite, banner-snow-near var(--motion-banner-snow-near) linear infinite;
+  transition: filter var(--motion-banner-fade) var(--motion-ease-settle); }
+/* the frame of the two middle layers; its height is the banner's */
+.banner__art { position: relative; height: var(--banner-block); -webkit-mask-image: var(--gradient-banner-art-mask); mask-image: var(--gradient-banner-art-mask); }
+.banner__art::before, .banner__art::after { content: ''; position: absolute; inset: 0; pointer-events: none; transform-origin: 50% 50%; }
+/* layer 2, the aurora and the far snow */
+.banner__art::before { z-index: -2; background: var(--gradient-banner-snow-far), var(--art-banner-aurora) var(--scene-pos) / var(--scene-size) no-repeat; background-size: var(--banner-snow-far), var(--scene-size);
+  transform-origin: 60% 0; animation: banner-aurora var(--motion-sway) ease-in-out infinite alternate, banner-snow-far var(--motion-banner-snow-far) linear infinite; }
+/* layer 3, the soldier and the case */
+.banner__art::after { z-index: -1; background: var(--art-banner-hero) var(--scene-pos) / var(--scene-size) no-repeat; -webkit-mask: var(--gradient-banner-hero-mask); mask: var(--gradient-banner-hero-mask);
+  animation: banner-hero var(--motion-snow) ease-in-out infinite alternate; transition: translate var(--motion-banner-lean) var(--motion-ease-settle); }
+/* the story, a .media slot with its video, over the still layers and under the words */
+.banner__story { position: absolute; inset: 0; z-index: 1; border-radius: 0; background: none; opacity: 0; pointer-events: none; transition: opacity var(--motion-banner-fade) ease; }
+.banner.is-story .banner__story { opacity: 1; }
+.banner.is-story::before, .banner.is-story::after, .banner.is-story .banner__art::before, .banner.is-story .banner__art::after { animation-play-state: paused; }
+/* the title: the event's name as its logotype; the words stay for a screen reader */
+.banner__title { position: absolute; z-index: 2; top: var(--space-5-5); left: max(var(--space-5), (100% - var(--size-content)) / 2); width: min(var(--banner-title), 100% - var(--banner-title-room)); aspect-ratio: 1100 / 454; margin: 0;
+  background: var(--art-banner-title) left center / contain no-repeat; color: transparent; font-size: 0; filter: var(--shadow-banner-title); }
+/* the countdown: the end line over four cells */
+.banner__clock { position: absolute; z-index: 2; top: var(--space-5-5); right: max(var(--space-5), (100% - var(--size-content)) / 2); display: grid; grid-template-columns: repeat(4, var(--banner-cell)); gap: var(--space-2);
+  padding: var(--space-2-5); border-radius: var(--radius-card); background: var(--bg-scrim); box-shadow: var(--shadow-banner-clock); -webkit-backdrop-filter: blur(var(--blur-banner-clock)); backdrop-filter: blur(var(--blur-banner-clock)); text-align: center; }
+.banner__cell { grid-row: 2; padding: var(--banner-cell-top) 0 var(--banner-cell-foot); border-radius: var(--radius-s); background: var(--color-banner-cell); box-shadow: var(--banner-edge); }
+.banner__cell > b { display: block; color: var(--text-on-plate); font-size: var(--size-head-l); font-weight: 900; line-height: 1; }
+.banner__cell > span { display: block; margin-top: var(--space-1); color: var(--text-body-on-plate); font-size: var(--size-unit); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.banner__end { grid-row: 1; grid-column: 1 / -1; padding-bottom: var(--space-2); border-bottom: var(--size-hairline) solid var(--color-banner-rule); color: var(--text-body-on-plate); font-size: var(--size-xs); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+/* the act, a .button: a light crosses it every few seconds, and at once under the pointer */
+.banner__act { position: absolute; z-index: 2; bottom: var(--space-5-5); left: max(var(--space-5), (100% - var(--size-content)) / 2); min-width: var(--banner-act); overflow: hidden; isolation: isolate; }
+.banner__act::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--gradient-banner-sweep); transform: translateX(-110%); animation: banner-sweep var(--motion-banner-sweep) ease-in-out infinite; }
+.banner__act:focus-visible::after { animation: banner-sweep var(--motion-banner-sweep-fast) ease-out 1; }
+/* under the pointer, or with the act focused: the case flares, the soldier leans in */
+@media (hover: hover) {
+  .banner:hover::after { animation-duration: var(--motion-banner-pulse-fast), var(--motion-banner-snow-near); filter: var(--filter-banner-flare); }
+  .banner:hover .banner__art::after { translate: var(--banner-lean); }
+  .banner__act:hover::after { animation: banner-sweep var(--motion-banner-sweep-fast) ease-out 1; }
+}
+.banner:has(.banner__act:focus-visible)::after { animation-duration: var(--motion-banner-pulse-fast), var(--motion-banner-snow-near); filter: var(--filter-banner-flare); }
+.banner:has(.banner__act:focus-visible) .banner__art::after { translate: var(--banner-lean); }
+@keyframes banner-plate { from { transform: scale(1.03) translateX(3px); } to { transform: scale(1.045) translateX(-3px); } }
+@keyframes banner-hero { from { transform: translate(0, 0) scale(1.01); } to { transform: translate(-6px, -3px) scale(1.025); } }
+@keyframes banner-aurora { 0% { opacity: .65; transform: scaleY(1) skewX(0); } 50% { opacity: 1; } 100% { opacity: .8; transform: scaleY(1.06) skewX(-2deg); } }
+@keyframes banner-pulse { 0%, 100% { filter: brightness(.9); } 50% { filter: brightness(1.35); } }
+@keyframes banner-snow-near { from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, var(--scene-pos); } to { background-position: -60px 300px, -60px 300px, -60px 300px, -84px 420px, -84px 420px, -84px 420px, var(--scene-pos); } }
+@keyframes banner-snow-far { from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, var(--scene-pos); } to { background-position: -30px 230px, -30px 230px, -30px 230px, -44px 340px, -44px 340px, -44px 340px, var(--scene-pos); } }
+@keyframes banner-sweep { 0%, 70% { transform: translateX(-110%); } 100% { transform: translateX(110%); } }
+/* a block from 900px: inset in its column with the header strip's corner */
+@media (min-width: 900px) {
+  .banner { border-radius: var(--radius-m); box-shadow: var(--banner-edge), var(--shadow-banner); }
+}
+/* a narrow desktop, 900 to 1099px: 60px cells give the title room */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .banner__clock { grid-template-columns: repeat(4, var(--banner-cell-narrow)); }
+  .banner__title { width: min(var(--banner-title), 100% - var(--banner-title-room-narrow)); }
+}
+/* a wide screen: the title and the act keep v4's column; the countdown keeps the kit's (v4's theme.css rule for it loses to banner.css) */
+@media (min-width: 1200px) {
+  .banner__title, .banner__act { left: max(var(--banner-gutter), (100% - var(--banner-content-v4)) / 2); }
+}
+/* a tablet, 600 to 899px: the desktop's form at 340px, the title top left, the countdown top right, the act at the foot */
+@media (min-width: 600px) and (max-width: 899px) {
+  .banner__art { height: var(--size-banner); }
+  .banner__title { top: var(--space-5); left: var(--space-4); width: min(var(--banner-title-tablet), 100% - var(--banner-title-room-tablet)); }
+  .banner__clock { top: var(--space-5); right: var(--space-4); }
+  .banner__act { bottom: var(--space-5); left: var(--space-4); }
+}
+/* a phone: as tall as the window is wide, the title over the sky, the countdown and a full-width act over the snow. The act is the family's
+   large 52, D-228, not v4's 44px bar, so the countdown stands 8px over it as v4's did: 12 + 52 + 8 from the foot */
+@media (max-width: 599px) {
+  .banner { --ph-h: clamp(var(--size-banner), var(--banner-scene-phone), var(--banner-phone-max)); --scene-size: auto var(--banner-scene-phone); --scene-pos: right var(--banner-scene-phone-x) top var(--banner-scene-phone-y); }
+  .banner::before { background: var(--gradient-banner-shade-phone), var(--gradient-banner-foot-phone), var(--art-banner-plate) var(--scene-pos) / var(--scene-size) no-repeat; }
+  .banner__art { height: var(--ph-h); }
+  .banner__art::after { -webkit-mask: var(--gradient-banner-hero-mask-phone); mask: var(--gradient-banner-hero-mask-phone); }
+  .banner__title { top: var(--space-2-5); left: var(--space-4); width: min(var(--banner-title-phone), 88%); }
+  .banner__clock { top: auto; left: var(--space-4); right: var(--space-4); bottom: calc(var(--space-3) + var(--size-button-l) + var(--space-2)); grid-template-columns: repeat(4, 1fr); gap: var(--space-1); padding: var(--space-1-5);
+    background: var(--color-banner-clock-phone); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .banner__cell { padding: var(--space-thin) 0; }
+  .banner__cell > b { font-size: var(--size-m); }
+  .banner__cell > span { margin-top: var(--space-hair); letter-spacing: var(--tracking-banner-unit-phone); }
+  .banner__end { padding-bottom: var(--space-1); font-size: var(--banner-end-phone); }
+  .banner__act { left: var(--space-4); right: var(--space-4); bottom: var(--space-3); min-width: 0; }
+  .banner__story { inset: 0 0 auto; height: calc(var(--ph-h) - var(--banner-story-foot)); -webkit-mask: var(--gradient-banner-story-mask-phone); mask: var(--gradient-banner-story-mask-phone); }
+  .banner__story > video { object-position: 50% 62%; }
+  .banner.is-story::after, .banner.is-story .banner__art::after { opacity: 0; transition: opacity var(--motion-banner-fade) ease; }
+}
+/* reduced motion: the still picture; no story, no drift, no sweep; the flare is a step, not a pulse */
+@media (prefers-reduced-motion: reduce) {
+  .banner::before, .banner::after, .banner__art::before, .banner__art::after, .banner__act::after, .banner__story { animation: none; transition: none; }
+  .banner__story { display: none; }
+  .banner:hover::after, .banner:has(.banner__act:focus-visible)::after { filter: var(--filter-banner-flare-still); }
+  .banner:hover .banner__art::after, .banner:has(.banner__act:focus-visible) .banner__art::after { translate: none; }
+}

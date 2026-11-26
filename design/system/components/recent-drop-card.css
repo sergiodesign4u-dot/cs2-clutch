@@ -1,0 +1,76 @@
+/* RECENT DROP CARD, level 2 (molecule). One best drop of this case: the value first, the skin in its tier's ring, the gun and the skin, the moment it
+ * dropped; the whole card is the link to that round. Under the pointer or on focus the skin falls back and who won it and when stands over it; with no
+ * pointer the moment stays at the foot.
+ * Page: design/kit/recent-drop-card.html. Stands on the case screen, Deposit and Sign in, eleven coloured states (design/kit/inventory.md, Recent drop card).
+ * Holds: Media slot (.media--skin, the skin in its ring), Figure (.fig--money with .fig--title, the value), Avatar (.avatar--l, the winner).
+ * Reads: --text-base, --text-hi, --text-body, --bg-card-deep, --bg-mark-on-plate, --bg-ring-deep, --bg-rarity-1 to --bg-rarity-7 with --bg-rarity-4-lit
+ *   and --bg-rarity-5-lit, --line-edge, --line-focus, --depth-card, --depth-skin-card; geometry, type and motion from the primitives. The lift
+ *   under the pointer reads the state token --depth-card-hover, made once for this card and the Drop card (round 2). No colour primitive is read.
+ * Carried from design/kit/kit.css part 4.2 (THE STAGE'S OWN CARD and RECENT DROP CARD, lines 2903 to 2925 and 3775 to 3806) at stage 08 step 5, round 2,
+ *   by the decisions of step 2 (D-260): the winner's avatar is the Avatar's L (.avatar--l, rename map row 15, was .recent-drop__who .avatar's 52px
+ *   and --recent-drop-avatar); the value's size is the Figure's .fig--title (row 28). The tier ring round the avatar and the gap under it stay the
+ *   card's. The tier, the plate, the ring and the hidden word are shared in kit.css with the Drop card and the Outcome card; each molecule carries them
+ *   for its own classes. From design/v4/case-blocks.css Best drops D (.v4d-w7) and case-body.css. */
+
+/* Data: the tier, --r1 rarest to --r7; v4 lights Restricted and Mil-Spec a step brighter on the dark card. */
+.recent-drop--r1 { --tier: var(--bg-rarity-1); }
+.recent-drop--r2 { --tier: var(--bg-rarity-2); }
+.recent-drop--r3 { --tier: var(--bg-rarity-3); }
+.recent-drop--r4 { --tier: var(--bg-rarity-4-lit); }
+.recent-drop--r5 { --tier: var(--bg-rarity-5-lit); }
+.recent-drop--r6 { --tier: var(--bg-rarity-6); }
+.recent-drop--r7 { --tier: var(--bg-rarity-7); }
+/* the fill inside the ring, its tier from clear at the top left to deep at the foot */
+.recent-drop__plate { position: absolute; left: 50%; top: 50%; height: 64%; aspect-ratio: 136 / 118; translate: -50% -50%;
+  background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--tier) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+/* the ring: one hexagon stroked with its own gradient (each card's svg names its own), light from the top left corner */
+.recent-drop__ring { display: block; position: absolute; left: 50%; top: 50%; height: 86%; width: auto; aspect-ratio: 136 / 118; translate: -50% -50%; overflow: visible; pointer-events: none;
+  filter: drop-shadow(calc(-1 * var(--size-ring-glow-near)) calc(-1 * var(--size-ring-glow-near)) var(--blur-ring-glow-near) color-mix(in srgb, var(--tier) 55%, transparent))
+    drop-shadow(calc(-1 * var(--size-ring-glow-far)) calc(-1 * var(--size-ring-glow-far)) var(--blur-ring-glow-far) color-mix(in srgb, var(--tier) 28%, transparent)); }
+.recent-drop__ring path { fill: none; stroke-width: var(--size-ring-stroke); stroke-linejoin: round; stroke-linecap: round; }
+.recent-drop__ring stop:nth-of-type(1) { stop-color: color-mix(in srgb, var(--tier) 62%, var(--bg-mark-on-plate)); }
+.recent-drop__ring stop:nth-of-type(2) { stop-color: color-mix(in srgb, var(--tier) 92%, var(--bg-mark-on-plate)); }
+.recent-drop__ring stop:nth-of-type(3) { stop-color: color-mix(in srgb, var(--tier) 72%, var(--bg-ring-deep)); }
+.recent-drop__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* One card, one form. Its two faces: the drop (the value, the skin, the gun and the skin's name, the moment) and the winner (who, when), which stands
+   over the drop under the pointer or on focus. */
+/* its own geometry, read inside .recent-drop only, D-231 */
+.recent-drop {
+  --recent-drop-who-top: 46px; /* v4 case-blocks.css: .v4d-who inset top, the winner's veil starts under the value. Recent drop card */
+}
+.recent-drop { position: relative; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; height: 100%; padding: var(--space-4) var(--space-3) var(--space-4-25); border-radius: var(--radius-m); overflow: hidden;
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 18%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 10%, var(--bg-card-deep)), var(--bg-card-deep) 60%);
+  box-shadow: var(--line-edge), var(--depth-card); color: var(--text-hi); font-size: var(--size-text); line-height: 1.2; text-align: center; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.recent-drop::after { content: ''; position: absolute; left: 50%; bottom: 0; width: var(--size-tier-bar-w); height: var(--size-tier-bar); margin-left: calc(var(--size-tier-bar-w) / -2); border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--tier); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--tier); }
+.recent-drop:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+/* the value: a Figure (--title); the gap to the coin and the coin's size are the card's */
+.recent-drop__v .fig__v { gap: var(--space-1-5); }
+.recent-drop__v .icon--coin { font-size: var(--size-m); }
+/* the skin: a Media slot with no plate, in its ring */
+.recent-drop__art { width: 100%; height: var(--size-card-art); margin: var(--space-2-5) 0 var(--space-2); }
+.recent-drop__art > img { position: absolute; inset: 0; z-index: 1; transform: scale(1.06); filter: var(--depth-skin-card); transition: transform .3s; }
+.recent-drop__w { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.recent-drop__s { display: block; max-width: 100%; overflow: hidden; color: var(--text-hi); font-size: var(--size-text); font-weight: 900; white-space: nowrap; text-overflow: ellipsis; }
+.recent-drop__t { margin-top: auto; white-space: nowrap; padding-top: var(--space-2); color: var(--text-body); font-size: var(--size-unit); opacity: .85; font-variant-numeric: tabular-nums; }
+/* the winner's face: over the drop, its tier's light behind it; the Avatar is the L, ringed in the tier */
+.recent-drop__who { position: absolute; inset: var(--recent-drop-who-top) 0 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1); padding: 0 var(--space-2-5) var(--space-3-5); opacity: 0;
+  background: radial-gradient(60% 50% at 50% 46%, color-mix(in srgb, var(--tier) 22%, transparent), transparent 70%); transition: opacity .2s; }
+.recent-drop__who .avatar--l { margin-bottom: var(--space-1); box-shadow: 0 0 0 var(--size-edge) var(--tier), 0 0 var(--blur-winner-ring) color-mix(in srgb, var(--tier) 45%, transparent); }
+.recent-drop__wn { display: block; max-width: 100%; overflow: hidden; color: var(--text-hi); font-size: var(--size-s); font-weight: 900; white-space: nowrap; text-overflow: ellipsis; }
+.recent-drop__who .recent-drop__t { margin: 0; padding: 0; }
+.recent-drop__art, .recent-drop__w, .recent-drop__s { transition: opacity .2s; }
+
+/* STATES. The card is one link. Hover and focus-visible turn the faces: the skin falls back to a faint .14, the gun and the skin's name go out, the winner
+   comes in; hover also lifts the card by --size-lift and lights its edge and glow in its tier. The ring on focus is the system's. With no pointer to hover
+   with (hover: none) the moment stays at the foot and the winner's face is not drawn. */
+@media (hover: hover) {
+  .recent-drop:hover { transform: translateY(calc(-1 * var(--size-lift))); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--tier) 55%, transparent), var(--depth-card-hover), 0 0 var(--blur-card-hover) color-mix(in srgb, var(--tier) 22%, transparent); }
+  .recent-drop:is(:hover, :focus-visible) .recent-drop__who { opacity: 1; }
+  .recent-drop:is(:hover, :focus-visible) .recent-drop__art { opacity: .14; }
+  .recent-drop:is(:hover, :focus-visible) :is(.recent-drop__w, .recent-drop__s) { opacity: 0; }
+}
+@media (hover: none) { .recent-drop__who { position: static; opacity: 1; margin-top: auto; padding: var(--space-2) 0 0; background: none; } .recent-drop__who .avatar--l, .recent-drop__wn { display: none; } }
+@media (max-width: 599px) { .recent-drop { padding: var(--space-3-5) var(--space-2-5) var(--space-4); } .recent-drop__v .fig__v { font-size: var(--size-m); } .recent-drop__s { font-size: var(--size-label); } .recent-drop__art { height: var(--size-card-art-s); } }
+@media (prefers-reduced-motion: reduce) { .recent-drop, .recent-drop__art > img, .recent-drop__who, .recent-drop__art, .recent-drop__w, .recent-drop__s { transition: none; } }

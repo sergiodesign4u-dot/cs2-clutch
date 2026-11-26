@@ -1,0 +1,23 @@
+/* EMPTY STATE, level 2 (molecule). A heading that says what is not here, the sentence that says what would put it here, and the way on.
+ * Page: design/kit/empty-state.html. Stands on two coloured screens: the catalogue (nothing matches) and My items (nothing yet); "gone"
+ * (--gone) is declared and worn by no coloured state, kept for step 6 to verify (design/kit/inventory.md, Empty state).
+ * Holds: Button (the way on: M primary, or S ghost beside a way to widen), Text link (in the line under it), Note line (the count of the whole).
+ *   It never restyles them; it places them (the acts row, the widen row).
+ * Reads: --text-hi, --text-body, --text-money, --text-on-plate, --bg-row, --bg-stripes, --bg-mode-cases, --line-edge, --depth-card; geometry and
+ *   type from the primitives. No colour primitive is read directly.
+ * Carried from design/kit/kit.css part 4.2 (lines 2999 to 3009) at stage 08 step 5, round 2, rule for rule. The look is the case screen's two
+ *   info cards, a mark tile beside a heading and its sentence, design/v4/case-page.css .v4i-cost. */
+
+/* Three variants by content: nothing yet (a list, a ledger, a shelf), nothing matches (the ways to widen, each with its act, and the count of the
+   whole), not available (--gone: taken down or never there, two ways on). The card is the row's ground with its hairline and its lift. */
+.empty { display: flex; align-items: flex-start; gap: var(--space-4); min-width: 0; padding: var(--space-5); border-radius: var(--radius-m); background: var(--bg-row); box-shadow: var(--line-edge), var(--depth-card); }
+.empty__art { position: relative; flex: none; display: grid; place-items: center; width: var(--size-tap); height: var(--size-tap); border-radius: var(--radius-card); background: var(--bg-stripes), var(--bg-mode-cases); color: var(--text-on-plate); font-size: var(--size-tile-icon); }
+.empty__body { display: grid; justify-items: start; gap: var(--space-2); min-width: 0; }
+.empty__h { margin: 0; color: var(--text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.empty__p { margin: 0; max-width: var(--size-measure); color: var(--text-body); font-size: var(--size-label); line-height: 1.55; }
+.empty__p strong { color: var(--text-hi); }
+.empty__widen { display: grid; gap: var(--space-2); margin: var(--space-1) 0 0; padding: 0; list-style: none; }
+.empty__widen > li { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); color: var(--text-body); font-size: var(--size-label); line-height: 1.45; }
+.empty__widen strong { color: var(--text-money); font-variant-numeric: tabular-nums; }
+.empty__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-top: var(--space-2); }
+.empty--gone .empty__h { font-size: var(--size-l); line-height: 1.1; text-transform: uppercase; }

@@ -1,0 +1,51 @@
+/* SECTION HEAD, level 2 (molecule). A section's title on a striped tile in a mode colour with the section's mark, then a 2px line in that colour
+ * fading out, from 900px; a sub line under it, or beside it from 1200px. L is Featured cases' larger title on Home and a screen's H1 where the
+ * screen has no head block of its own (Deposit, D-237).
+ * Page: design/kit/section-head.html. Stands on every coloured screen: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
+ * Responsible play, Sign in (design/kit/inventory.md, Section head).
+ * Holds: Icon (the mark in the tile), Text link (--arrow --l, in the sub line, rename map row 20), Badge (--l, the count beside the title).
+ * Reads: --text-hi (the title), --text-on-plate (the mark on its tile), --text-meta (the sub line), --bg-stripes, --bg-mode-cases,
+ *   --bg-mode-upgrade, --bg-mode-battles, --bg-mode-showdowns (the tile), --line-lit-top (its lit edge), --bg-lit (Cases' line); geometry
+ *   and type from the primitives. Three colours read in this block only, --color-head-upgrade, --color-head-battles and --color-head-showdowns,
+ *   the line of a head in its mode's colour, and wait for step 9 (tokens-audit.md). No component token.
+ * Carried from design/kit/kit.css part 4.2 (SECTION HEAD, lines 3808 to 3847) at stage 08 step 5, round 2, by the decisions of step 2 (D-260):
+ *   the sub line's arrow link at its size (.sec-head__sub .link--arrow, line 3830, row 20) is the Text link's --l, so its rule is not carried.
+ *   The screens' own rules on the head (the Steam state in it, the margins of a block's head, the flame over it) stay in kit.css. From
+ *   design/v4/heading-home.css and case-blocks.css on kit.css part 2 .wf-sec-head and theme.css. */
+
+/* its own geometry, read inside .sec-head only, D-231 */
+.sec-head {
+  --sec-head-tile-s: 34px; /* heading-home.css and case-blocks.css @max-width 599 h2::before, the section tile on a phone */
+  --sec-head-icon-s: 18px; /* heading-home.css and case-blocks.css @max-width 599 h2::after, the section mark on a phone */
+  --sec-head-line: 96px; /* kit.css part 2 .wf-sec-head grid and ::after min-width, the shortest a section's line runs */
+  --sec-head-l-s: 21px; /* faq-home.css .hz-head h2 and seo-home.css .sx-h h2 under 600 and 560px, the large head on a phone; Featured cases drew 26, D-234 takes 21 */
+}
+
+/* Size: M (the title at --size-title) and L (--size-head-l, 21px on a phone). Data: the mode's colour, a tile and a line. */
+.sec-head { --sec-g: var(--bg-mode-cases); --sec-c: var(--bg-lit); margin-bottom: var(--space-4); }
+.sec-head--upgrade { --sec-g: var(--bg-mode-upgrade); --sec-c: var(--color-head-upgrade); }
+.sec-head--battles { --sec-g: var(--bg-mode-battles); --sec-c: var(--color-head-battles); }
+.sec-head--showdowns { --sec-g: var(--bg-mode-showdowns); --sec-c: var(--color-head-showdowns); }
+.sec-head__title { position: relative; display: flex; align-items: center; gap: var(--space-3-5); margin: 0; color: var(--text-hi); font-size: var(--size-title); font-weight: 900; letter-spacing: 0; line-height: 1.1; text-transform: uppercase; } /* 1.1 as every head v4 drew, faq-home.css .hz-head h2 and seo-home.css .sx-h h2; the grey's 1.4 showed only where a title wraps, D-234 */
+.sec-head--l .sec-head__title { font-size: var(--size-head-l); }
+/* a tile says its width beside its basis: Safari measures an auto column by the width alone, so a head came out short by the tile less
+   its glyph, wrapped, and ran under its line, D-246. The same on the Daily ladder's mark and Before you open's tile */
+.sec-head__tile { display: grid; place-items: center; flex: 0 0 var(--size-tile); width: var(--size-tile); height: var(--size-tile); border-radius: var(--radius-tile); background: var(--bg-stripes), var(--sec-g); box-shadow: var(--line-lit-top); color: var(--text-on-plate); }
+.sec-head__tile > .icon { font-size: var(--size-tile-icon); }
+.sec-head__sub { max-width: var(--size-measure); margin: 0; color: var(--text-meta); font-size: var(--size-text); line-height: 1.4; }
+@media (max-width: 599px) {
+  .sec-head__tile { flex-basis: var(--sec-head-tile-s); width: var(--sec-head-tile-s); height: var(--sec-head-tile-s); border-radius: var(--radius-s); } /* v4 drew 10px, the ladder's 8, D-228 */
+  .sec-head__tile > .icon { font-size: var(--sec-head-icon-s); }
+  .sec-head--l .sec-head__title { font-size: var(--sec-head-l-s); } /* one large head on a phone, D-234: 21px as three of v4's four drew it */
+}
+@media (min-width: 900px) {
+  .sec-head { display: grid; grid-template-columns: auto minmax(var(--sec-head-line), 1fr); align-items: center; gap: var(--space-1) var(--space-4); }
+  .sec-head::after { content: ''; grid-area: 1 / 2; align-self: center; min-width: var(--sec-head-line); height: var(--size-edge); background: linear-gradient(90deg, var(--sec-c), transparent); }
+  .sec-head__title { grid-column: 1; min-width: 0; }
+  .sec-head__sub { grid-area: 2 / 1 / auto / -1; min-width: 0; }
+}
+@media (min-width: 1200px) {
+  .sec-head:has(.sec-head__sub) { grid-template-columns: auto auto minmax(var(--sec-head-line), 1fr); }
+  .sec-head:has(.sec-head__sub) .sec-head__sub { grid-area: 1 / 2; }
+  .sec-head:has(.sec-head__sub)::after { grid-area: 1 / 3; }
+}

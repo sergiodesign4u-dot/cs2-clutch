@@ -1,0 +1,104 @@
+/* DROP CARD, level 2 (molecule). One item of What is in this case: its value in coins first and largest, the skin in its tier's ring, the gun, the skin
+ * and the wear and grade, then the chance and its tickets of the 100 000, over a line of the 100 000 with the item's stretch lit.
+ * Page: design/kit/drop-card.html. Stands on the case screen, Deposit and Sign in, eleven coloured states (design/kit/inventory.md, Drop card).
+ * Holds: Media slot (.media--skin, the skin in its ring), Text link (.link--quiet, the market line), Figure (.fig--money with .fig--title, or
+ *   .fig--m on the row), Key-value line (.kv--fact, the chance and the tickets).
+ * Reads: --text-base, --text-hi, --text-body, --bg-card-deep, --bg-track, --bg-mark-on-plate, --bg-ring-deep, --bg-rarity-1 to --bg-rarity-7 with
+ *   --bg-rarity-4-lit and --bg-rarity-5-lit, --line-edge, --depth-card, --depth-skin-card; geometry, type and motion from the primitives. The lift
+ *   under the pointer reads the state token --depth-card-hover, made once for this card and the Recent drop card (round 2). No colour primitive is read.
+ * Carried from design/kit/kit.css part 4.2 (THE STAGE'S OWN CARD and DROP CARD, lines 2903 to 2992) at stage 08 step 5, round 2, by the decisions
+ *   of step 2 (D-260): the facts are .kv--fact (rename map row 23, was .drop-card .kv, .drop-card .kv__k and .drop-card__t .kv__v) and the market
+ *   link is .link--quiet (row 22, was .drop-card__mkt.link's colour); the value's size is the Figure's .fig--title and .fig--m (row 28). The tier,
+ *   the plate, the ring and the hidden word are shared in kit.css with the Recent drop card and the Outcome card; each molecule carries them for
+ *   its own classes. The rare marks laid over a card (.drop-card .rare-mark, kit.css part 4.4) stay in kit.css with .rare-mark, which the Feed
+ *   tile and the Case stage use too. From design/v4/case-body.css row F and case-blocks.js table(). */
+
+/* Data: the tier, --r1 rarest to --r7; v4 lights Restricted and Mil-Spec a step brighter on the dark card. The tier colours the ring, the bars, the
+   edge and the light under the pointer. */
+.drop-card--r1 { --tier: var(--bg-rarity-1); }
+.drop-card--r2 { --tier: var(--bg-rarity-2); }
+.drop-card--r3 { --tier: var(--bg-rarity-3); }
+.drop-card--r4 { --tier: var(--bg-rarity-4-lit); }
+.drop-card--r5 { --tier: var(--bg-rarity-5-lit); }
+.drop-card--r6 { --tier: var(--bg-rarity-6); }
+.drop-card--r7 { --tier: var(--bg-rarity-7); }
+/* the fill inside the ring, its tier from clear at the top left to deep at the foot */
+.drop-card__plate { position: absolute; left: 50%; top: 50%; height: 64%; aspect-ratio: 136 / 118; translate: -50% -50%;
+  background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--tier) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+/* the ring: one hexagon stroked with its own gradient (each card's svg names its own), light from the top left corner */
+.drop-card__ring { display: block; position: absolute; left: 50%; top: 50%; height: 86%; width: auto; aspect-ratio: 136 / 118; translate: -50% -50%; overflow: visible; pointer-events: none;
+  filter: drop-shadow(calc(-1 * var(--size-ring-glow-near)) calc(-1 * var(--size-ring-glow-near)) var(--blur-ring-glow-near) color-mix(in srgb, var(--tier) 55%, transparent))
+    drop-shadow(calc(-1 * var(--size-ring-glow-far)) calc(-1 * var(--size-ring-glow-far)) var(--blur-ring-glow-far) color-mix(in srgb, var(--tier) 28%, transparent)); }
+.drop-card__ring path { fill: none; stroke-width: var(--size-ring-stroke); stroke-linejoin: round; stroke-linecap: round; }
+.drop-card__ring stop:nth-of-type(1) { stop-color: color-mix(in srgb, var(--tier) 62%, var(--bg-mark-on-plate)); }
+.drop-card__ring stop:nth-of-type(2) { stop-color: color-mix(in srgb, var(--tier) 92%, var(--bg-mark-on-plate)); }
+.drop-card__ring stop:nth-of-type(3) { stop-color: color-mix(in srgb, var(--tier) 72%, var(--bg-ring-deep)); }
+.drop-card__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* One card, three forms by its container: the card (the default, the value over the skin over the words), the row (--row, the value over the skin on the
+   left, the words on the right) and the fit form (--fit), which takes the row's look under 600px where the data table gives it the whole width. */
+/* its own geometry, read inside .drop-card only, D-231 */
+.drop-card {
+  --drop-card-row-art: 104px; /* v4 case-body.css: row F --v4f-art at 599px, the skin's column of a card laid as a row. Drop card */
+  --drop-card-row-art-h: 84px; /* v4 case-body.css: row F .wf-art-c height at 599px. Drop card */
+}
+.drop-card { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr auto auto; grid-template-areas: 'v' 'art' 'name' 'ch' 't'; align-items: start; gap: 0;
+  padding: var(--space-4) var(--space-3-5) var(--space-4-25); border-radius: var(--radius-m); overflow: hidden; container: drop-card / inline-size;
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 16%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 10%, var(--bg-card-deep)), var(--bg-card-deep) 60%);
+  box-shadow: var(--line-edge), var(--depth-card); color: var(--text-base); font-size: var(--size-text); line-height: 1.2; text-align: center; transition: transform .2s, box-shadow .2s; }
+.drop-card::after { content: ''; position: absolute; left: 50%; bottom: 0; width: var(--size-tier-bar-w); height: var(--size-tier-bar); margin-left: calc(var(--size-tier-bar-w) / -2); border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--tier); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--tier); }
+.drop-card::before { content: ''; position: absolute; grid-area: ch; top: 0; left: 0; right: 0; height: var(--size-tier-bar); border-radius: var(--radius-xs);
+  background: linear-gradient(90deg, transparent calc(var(--a, 0) * 1%), var(--tier) calc(var(--a, 0) * 1%), var(--tier) max(calc(var(--b, 0) * 1%), calc(var(--a, 0) * 1% + var(--space-1))), transparent 0), var(--bg-track); }
+/* the value: a Figure, its own size set by the variant (--title on the card, --m on the row); the gap to the coin and the coin's size are the card's */
+.drop-card__v { grid-area: v; justify-self: center; }
+.drop-card__v .fig__v { gap: var(--space-1-5); }
+.drop-card__v .icon--coin { font-size: var(--size-m); }
+/* the skin: a Media slot with no plate, in its ring; it grows and turns under the pointer */
+.drop-card__art { grid-area: art; width: 100%; height: var(--size-card-art); margin: var(--space-2-5) 0 var(--space-2); }
+.drop-card__art > img { position: absolute; inset: 0; z-index: 1; transform: scale(1.06); filter: var(--depth-skin-card); transition: transform .3s; }
+.drop-card__name { grid-area: name; display: flex; font-size: inherit; font-weight: 400; flex-direction: column; align-items: center; gap: var(--size-hairline); min-width: 0; margin: 0 0 var(--space-3-5); }
+.drop-card__w { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.drop-card__s { max-width: 100%; overflow: hidden; color: var(--text-hi); font-size: var(--size-text); font-weight: 900; white-space: nowrap; text-overflow: ellipsis; }
+.drop-card__ax { margin-top: var(--size-edge); color: color-mix(in srgb, var(--tier) 65%, var(--text-hi)); font-size: var(--size-unit); text-wrap: balance; }
+/* the market line: a quiet Text link, placed and sized by the card; its colour, underline and hover are the link's */
+.drop-card__mkt { margin-top: var(--size-edge); font-size: var(--size-unit); letter-spacing: normal; }
+/* the facts: two Key-value lines (--fact) in the cells under the words; the tier tints the tickets' figure (--kv-tint); the key wraps over its figure in a narrow card */
+.drop-card__ch { grid-area: ch; }
+.drop-card__t { grid-area: t; --kv-tint: var(--tier); }
+.drop-card .drop-card__t { padding-top: var(--space-1-5); font-size: var(--size-xs); }
+@container drop-card (max-width: 160px) { .drop-card__t .kv__k { flex-basis: 100%; } }
+
+/* STATES. Hover lifts the card by --size-lift, lights its edge and its glow in its tier, and turns the skin; the lift is a rest of the card, so the
+   hover is the card's own. The atoms inside keep their own hover (the market link) and add none. Not focusable: nothing in the card takes focus but its link. */
+@media (hover: hover) {
+  .drop-card:hover { transform: translateY(calc(-1 * var(--size-lift))); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--tier) 55%, transparent), var(--depth-card-hover), 0 0 var(--blur-card-hover) color-mix(in srgb, var(--tier) 22%, transparent); }
+  .drop-card:hover .drop-card__art > img { transform: scale(1.12) rotate(-3deg); }
+}
+/* as a row: the value over the skin on the left, the name, the chance and the tickets on the right, the foot bar under the skin */
+.drop-card--row { grid-template-columns: var(--drop-card-row-art) minmax(0, 1fr); grid-template-rows: auto 1fr auto auto; grid-template-areas: 'v name' 'art name' 'art ch' 'art t'; column-gap: var(--space-3-5);
+  padding: var(--space-3) var(--space-3-5) var(--space-3-5); text-align: left; }
+.drop-card--row::after { left: calc(var(--space-3-5) + var(--drop-card-row-art) / 2); }
+.drop-card--row .drop-card__art { align-self: start; height: var(--drop-card-row-art-h); margin: var(--space-1-5) 0 0; }
+.drop-card--row .drop-card__name { align-items: flex-start; margin: var(--size-edge) 0 var(--space-2-5); }
+.drop-card--row .drop-card__s { font-size: var(--size-label); }
+.drop-card--row .kv--fact { flex-wrap: nowrap; gap: var(--space-1-5); font-size: var(--size-chip); }
+.drop-card--row .drop-card__t { font-size: var(--size-chip); }
+.drop-card--row .kv__k { font-size: var(--size-micro); letter-spacing: var(--tracking-snug); }
+@container drop-card (max-width: 160px) { .drop-card--row .drop-card__t .kv__k { flex-basis: auto; } }
+@media (prefers-reduced-motion: reduce) { .drop-card, .drop-card__art > img { transition: none; } }
+/* needed by .data-table, D-232: the card that takes its row form (.drop-card--row) where the table gives it the whole width, under 600px; the same
+   values as --row, from design/v4/case-body.css row F @media (max-width: 599px). Its value is a --title Figure above 600px and an 18px one here, so
+   the size is the card's to switch: the markup cannot change with the width. */
+@media (max-width: 599px) {
+  .drop-card--fit { grid-template-columns: var(--drop-card-row-art) minmax(0, 1fr); grid-template-rows: auto 1fr auto auto; grid-template-areas: 'v name' 'art name' 'art ch' 'art t'; column-gap: var(--space-3-5);
+    padding: var(--space-3) var(--space-3-5) var(--space-3-5); text-align: left; }
+  .drop-card--fit::after { left: calc(var(--space-3-5) + var(--drop-card-row-art) / 2); }
+  .drop-card--fit .drop-card__v .fig__v { font-size: var(--size-m); }
+  .drop-card--fit .drop-card__art { align-self: start; height: var(--drop-card-row-art-h); margin: var(--space-1-5) 0 0; }
+  .drop-card--fit .drop-card__name { align-items: flex-start; margin: var(--size-edge) 0 var(--space-2-5); }
+  .drop-card--fit .drop-card__s { font-size: var(--size-label); }
+  .drop-card--fit .kv--fact { flex-wrap: nowrap; gap: var(--space-1-5); font-size: var(--size-chip); }
+  .drop-card--fit .drop-card__t { font-size: var(--size-chip); }
+  .drop-card--fit .kv__k { font-size: var(--size-micro); letter-spacing: var(--tracking-snug); }
+}

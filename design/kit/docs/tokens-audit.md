@@ -78,6 +78,21 @@ Proposed on the hub, `design/kit/overview.html` section "Round 1, the atoms", 26
 | Fifteen component tokens proposed by the atoms, and the Button's `--button-ghost-line` | none; the Button's edge was its own token (D-263) | four roles in the semantic level, `--line-act`, `--line-lit`, `--line-control`, `--bg-error`, in the place of nine component tokens; seven component tokens stay | Q1, D-264: a job in two blocks or more is a role; no value moved. `--bg-error` measures 2.7:1 against the light tile, as `kit.css`'s red did, named for step 7. |
 | `--art-*` in `design/system/art.css` | an unregistered custom property: its `url()` resolved where `var()` read it, so a component found no picture | each registered with `@property` as a `<url>`, resolved from `art.css` | a defect of step 3 found when the first component read a picture; no picture changes. |
 
+### The components built (step 5), round 2, waiting for the founder
+
+Proposed on the hub, `design/kit/overview.html` section "For your review, round 2", 26 November 2026. Nothing below is decided yet; each row is marked when the founder answers.
+
+| Variable or class | Was | Becomes | Why |
+|---|---|---|---|
+| Fifteen component tokens proposed by the molecules | none | two roles, `--line-focus-on-plate` (in the place of `--money-strip-line-focus`, `--feed-tile-line-focus-back`) and `--text-meta-on-plate` (in the place of `--daily-chip-text-locked`, `--feed-tile-text-bot`); eleven component tokens | Q1: a job in two blocks is a role (D-264); no value moves. |
+| `--color-scrim-sheet`, `--color-handle`, `--shadow-menu` read directly | one block, the popover menu, before the split | the roles `--bg-scrim-sheet`, `--bg-handle`, `--depth-menu` | Q1: read by the Popover menu and the Account menu since row 2. |
+| `--shadow-card-hover` read directly by the Drop card and the Recent drop card | a state primitive ("States, 13" above) | the state token `--depth-card-hover`, the same value in both themes | made with the molecules, as the list above leaves a state to the first component that wears it. |
+| `.catbar__acts > .button` (row 11) | the icon tile at every width, as row 11 wrote it | the ghost Button M with `--tap`, the word folded under 1200px by the bar | Q2: row 11 would drop the words and the pink edge from 1200px; the bar keeps the screens' look. |
+| `.daily__tier.is-live > .button` (row 9) | sides 10px, 12px words wrapping at 360 | the family's Button M; the label "Open case", the case's name in its accessible name | Q3: the family's M does not wrap, and "Open Guardian case" spills 13px at 360. |
+| `.button--icon.button--tap` | 42px: `.button--icon` set its own size after `--tap` | 44px | a defect of round 0 found in round 2; no screen wears the pair yet. |
+| Colours read in one block that the load never showed | not in the list above | added to "Colours read in one block only": the Feed tile's rare lights (`--color-crown-deep`, `--color-crown-light`, `--color-rare-chance`, `--color-rare-orbit-deep`, `--color-rare-orbit-light`, `--color-rare-plasma-light`, `--color-rare-volt-light`, `--color-rare-zap`, `--filter-rare-skin`, `--shadow-rare-orbit`, `--shadow-rare-plasma-glow`, `--shadow-rare-volt`); the Case tile's `--color-risk-extreme` and `--shadow-price-edge` | a script or a hover sets them, so step 1 did not count them; step 9 decides with the others. |
+| `@keyframes popover-rise`, `outcome-foil`, `hero-trust-sweep` | in `kit.css`, each named by two blocks | declared once, at the end of the file of its first reader (`popover-menu.css`, `outcome-card.css`, `hero.css`) | a keyframe belongs to no component; the first reader loads before the second. |
+
 ### Moved onto the system's classes (step 6)
 
 None yet.

@@ -1,0 +1,27 @@
+/* CHOSEN METHOD, level 2 (molecule). The head of a route at step 2: Back to the ways to pay, the method's mark and its name under its family, D-238.
+ * Page: design/kit/chosen-method.html. Stands on Deposit: the route's head in the Add funds dialog and on each route's page (design/kit/inventory.md,
+ *   Chosen method); on a route's page the name is the H1.
+ * Holds: Button (the icon tile, as .chosen__back), the method's mark (a picture in its own square; the inventory names the Media slot, see the page).
+ *   The molecule's own part is the row, the chevron drawn on the Back tile, the mark's height, the family over the name and the name's type.
+ * Reads: --text-body (the family), --text-hi (the name); geometry and type from the primitives. One custom property of the block,
+ *   --chosen-mark, the mark's height. No colour primitive read directly.
+ * Carried from design/kit/kit.css part 4.2, CHOSEN METHOD (lines 2654 to 2669) and the skin form of the mark (the .chosen__mark--skin half of the
+ *   selector list at line 5652, shared with the screen's .methods, which keeps it) at stage 08 step 5, round 2, unchanged in look; the block's
+ *   variable was --methods-mark, named for the tile it matches, and is --chosen-mark here so the file stands alone. The molecule has no state
+ *   of its own: the Back tile has the Button's. */
+
+/* One form. Back at the start, the mark, then the name over its family; the row never grows past its container. */
+.chosen {
+  --chosen-mark: 40px; /* kit.css .chosen --methods-mark: the mark beside the chosen name at the method tile's size, .methods; D-238 */
+  display: flex; align-items: center; gap: var(--space-3); min-width: 0;
+}
+.chosen__back { flex: none; }
+.chosen__back::before { content: ''; width: var(--space-2-5); height: var(--space-2-5); margin-left: var(--space-1); border: solid currentColor; border-width: 0 0 var(--size-edge) var(--size-edge); rotate: 45deg; } /* the chevron, in the tile's borders */
+.chosen__mark { flex: none; display: grid; place-items: center; height: var(--chosen-mark); }
+.chosen__mark > img { display: block; width: auto; height: var(--chosen-mark); max-width: 100%; border-radius: var(--radius-xs); object-fit: contain; }
+/* a skin's picture stands in its transparent square: drawn half again as tall so the rifle reads at the plates' size (the CS2 Skins route) */
+.chosen__mark--skin > img { height: calc(1.5 * var(--chosen-mark)); margin: calc(-.25 * var(--chosen-mark)) 0; }
+.chosen__t { display: grid; gap: var(--space-1); min-width: 0; margin: 0; }
+.chosen__k { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.chosen__v { margin: 0; color: var(--text-hi); font-size: var(--size-head-l); font-weight: 900; line-height: 1.1; text-transform: uppercase; overflow-wrap: anywhere; } /* the large Section head's title, .sec-head--l */
+@media (max-width: 599px) { .chosen { --chosen-mark: var(--space-6); } .chosen__v { font-size: var(--size-title); } } /* on a phone the mark steps down to 32px so the name keeps its room */

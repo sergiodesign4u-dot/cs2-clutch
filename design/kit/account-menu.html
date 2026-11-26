@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Account menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: flex-start; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  /* a frame for the open menu: it holds the panel, and the transform keeps the phone's sheet (position: fixed, under 900px) and its scrim
+     inside the frame rather than over the page, so a narrow window shows the sheet as a phone draws it */
+  .cp-frame { position: relative; transform: translateZ(0); overflow: hidden; display: flex; justify-content: flex-end; align-items: flex-start; box-sizing: border-box; width: 380px; max-width: 100%; height: 640px; padding: 16px 16px 0; border-radius: 12px; }
+  .cp-frame--closed { height: auto; padding: 16px; }
+  @media (max-width: 599px) { .cp-stage { padding-inline: 0; } .cp-frame { width: 100%; } }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Inputs and menus &middot; level 2</span>
+  <h1>Account menu</h1>
+  <p class="kt-lead">The avatar pill in the header and the menu it opens: who is signed in with the ID and Copy, My items first, four destinations, Responsible play and Sign out. Under 900px the menu rises from the bottom as a sheet. Split from the Popover menu by its head (D-260, Q3). Everything on this page is drawn by <code>design/system/components/account-menu.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-frame"><div class="account-menu"><button class="account-menu__trigger" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="an-acct" aria-label="Account, nightjar_cs"><img class="avatar" src="../visuals/avatars/a5.webp" alt=""><span class="account-menu__name">nightjar_cs</span><span class="account-menu__chev" aria-hidden="true"></span></button><div class="account-menu__scrim" aria-hidden="true"></div><div class="account-menu__panel" id="an-acct"><button class="button button--close account-menu__x" type="button" aria-label="Close"></button><div class="account-menu__head"><img class="avatar avatar--xl" src="../visuals/avatars/a5.webp" alt=""><div class="account-menu__who"><b>nightjar_cs</b><div class="account-menu__id"><span class="account-menu__id-v">ID acc-7f3a91c4</span><button class="account-menu__copy" type="button"><span class="account-menu__copy-i" aria-hidden="true"></span><span class="account-menu__copy-t" aria-live="polite">Copy</span></button></div></div></div><nav class="account-menu__grid" aria-label="Account"><a class="account-menu__tile account-menu__tile--items" href="../account.html"><i class="icon icon--box" aria-hidden="true"></i><span>My items</span><img class="account-menu__case" src="../visuals/cases/coldfront-c.webp" alt="" loading="lazy"></a><a class="account-menu__tile" href="../../wireframes/history.html"><i class="icon icon--history" aria-hidden="true"></i><span>History</span></a><a class="account-menu__tile" href="../../wireframes/history-withdrawals.html"><i class="icon icon--send" aria-hidden="true"></i><span>Withdrawals</span></a><a class="account-menu__tile" href="../../wireframes/profile.html"><i class="icon icon--user" aria-hidden="true"></i><span>Profile</span></a><a class="account-menu__tile" href="../../wireframes/settings.html"><i class="icon icon--settings" aria-hidden="true"></i><span>Settings</span></a><a class="account-menu__tile account-menu__tile--rp" href="../responsible.html?account"><i class="icon icon--shield" aria-hidden="true"></i><span>Responsible play</span></a></nav><a class="account-menu__out" href="../../wireframes/index.html"><i class="icon icon--out" aria-hidden="true"></i><span>Sign out</span></a></div></div></div>
+  </div></div>
+  <p>It holds three atoms and places them: the <a href="avatar.html">Avatar</a>, M on the pill and XL at the head (<code>.avatar--xl</code>, rename map row 17, where kit.css sized it by <code>--popover-avatar</code>); the <a href="button.html">Button</a>'s close, <code>.button--close</code>, shown on a phone's sheet; the <a href="icon.html">Icon</a> on each tile and on Sign out. Everything else is the molecule's own.</p>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The frame</b></td><td><code>.account-menu</code></td><td>where the menu anchors, its own geometry (<code>--account-menu-*</code>)</td></tr>
+    <tr><td><b>Pill</b></td><td><code>.account-menu__trigger</code> with <code>aria-expanded</code>, <code>__name</code>, <code>__chev</code></td><td>the avatar, the name and the chevron on a veil, 46px; under 600px the avatar alone</td></tr>
+    <tr><td><b>Panel</b></td><td><code>.account-menu__panel</code>, <code>__scrim</code>, <code>__x</code></td><td>the raised layer, 340px; under 900px a sheet from the bottom with a handle, a dimmed page and the Button's close</td></tr>
+    <tr><td><b>Head</b></td><td><code>.account-menu__head</code>, <code>__who</code>, <a href="avatar.html"><code>.avatar--xl</code></a></td><td>the picture at 64px in its white ring, the name cut with an ellipsis</td></tr>
+    <tr><td><b>ID and Copy</b></td><td><code>.account-menu__id</code>, <code>__id-v</code>, <code>__copy</code>, <code>__copy-i</code>, <code>__copy-t</code></td><td>the account's ID on a veil plate; Copy, with its two squares, says Copied or Not copied for 2.4 seconds</td></tr>
+    <tr><td><b>Tiles</b></td><td><code>.account-menu__grid</code>, <code>__tile</code>, <code>__tile--items</code>, <code>__case</code>, <code>__tile--rp</code></td><td>My items first and full width on the Cases plate with the case rising behind it; four tiles two to a row; Responsible play on the battles blue</td></tr>
+    <tr><td><b>Sign out</b></td><td><code>.account-menu__out</code></td><td>the quiet row at the foot, red under the pointer</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form. What changes is the width of the screen, not the menu: the axis is the layout's. Sizes below are read from the render.</p>
+  <ul class="kt-list">
+    <li><b>Form = one.</b> The head, the tiles in a fixed order (My items first, the account's destinations, Responsible play), Sign out. A destination that is not live yet keeps its tile and its page says so (D-197); the menu never grows a second form.</li>
+    <li><b>Layout = the screen's width.</b> From 900px a dropdown, 340px wide, under the pill's right edge. Under 900px a sheet from the bottom, full width, with a handle, its own close and a dimmed page. Under 600px the pill is the avatar alone, its name kept for a screen reader in the trigger's label.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:640px">
+    <thead><tr><th>Part</th><th>Rendered</th><th>Size</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>Pill</b></td><td><div class="cell"><div class="account-menu"><button class="account-menu__trigger" type="button" aria-expanded="false" aria-label="Account, nightjar_cs" data-dim><img class="avatar" src="../visuals/avatars/a5.webp" alt=""><span class="account-menu__name">nightjar_cs</span><span class="account-menu__chev" aria-hidden="true"></span></button></div></div></td><td class="cp-dim"></td><td class="kt-note">the header's right end, signed in</td></tr>
+      <tr><td><b>Tile</b></td><td><div class="cell"><div class="account-menu" style="width:158px;display:grid"><a class="account-menu__tile" href="#variants" data-dim><i class="icon icon--history" aria-hidden="true"></i><span>History</span></a></div></div></td><td class="cp-dim"></td><td class="kt-note">four, two to a row</td></tr>
+      <tr><td><b>My items</b></td><td><div class="cell"><div class="account-menu" style="width:316px;display:grid"><a class="account-menu__tile account-menu__tile--items" href="#variants" data-dim><i class="icon icon--box" aria-hidden="true"></i><span>My items</span><img class="account-menu__case" src="../visuals/cases/coldfront-c.webp" alt=""></a></div></div></td><td class="cp-dim"></td><td class="kt-note">first, the full row</td></tr>
+      <tr><td><b>Responsible play</b></td><td><div class="cell"><div class="account-menu" style="width:316px;display:grid"><a class="account-menu__tile account-menu__tile--rp" href="#variants" data-dim><i class="icon icon--shield" aria-hidden="true"></i><span>Responsible play</span></a></div></div></td><td class="cp-dim"></td><td class="kt-note">last of the tiles, the full row</td></tr>
+    </tbody>
+  </table></div></div>
+  <p class="kt-note">The panel is 340px from 900px; the head's avatar is the Avatar's XL, 64px. Narrow the window under 900px to see the menu above become the sheet inside its frame.</p>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>The account menu is the one place a signed-in person reaches their own things from any screen: My items first, because the items held are what the product gives back, then History, Withdrawals, Profile and Settings, then Responsible play, then Sign out. It sits in the header beside the money, never in the rail, so no carrier holds another's kind. Its words are the destinations' names, the same as the account's tabs say them.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The header of every signed-in screen: the pill with the avatar and the name, opening the menu with the ID to copy, My items first and Sign out at the foot.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A short choice of a value (a language, a country, a period) is the <b>Popover menu</b>, which has no head. The account's own pages switch between each other by <b>Tabs</b>. A value to copy on a page is the <b>Copyable value</b>. A way to play is a row of the rail, not a tile here.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at them and reach them with Tab. Open, Copied and Not copied are set by <code>kit.js</code> (<code>aria-expanded</code> on the pill, <code>.is-done</code> and <code>.is-fail</code> on Copy), and the scripts join the system at step 8, so they are shown as twins carrying the value the script sets.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-frame cp-frame--closed"><div class="account-menu" id="s-pill"><button class="account-menu__trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Account, nightjar_cs"><img class="avatar" src="../visuals/avatars/a5.webp" alt=""><span class="account-menu__name">nightjar_cs</span><span class="account-menu__chev" aria-hidden="true"></span></button></div></div>
+  </div>
+  <div class="cp-stage">
+    <div class="cp-frame" id="s-open-box"><div class="account-menu" id="s-open"><button class="account-menu__trigger" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="s-acct" aria-label="Account, nightjar_cs"><img class="avatar" src="../visuals/avatars/a5.webp" alt=""><span class="account-menu__name">nightjar_cs</span><span class="account-menu__chev" aria-hidden="true"></span></button><div class="account-menu__scrim" aria-hidden="true"></div><div class="account-menu__panel" id="s-acct"><button class="button button--close account-menu__x" type="button" aria-label="Close"></button><div class="account-menu__head"><img class="avatar avatar--xl" src="../visuals/avatars/a5.webp" alt=""><div class="account-menu__who"><b>nightjar_cs</b><div class="account-menu__id"><span class="account-menu__id-v">ID acc-7f3a91c4</span><button class="account-menu__copy" type="button" id="s-copy"><span class="account-menu__copy-i" aria-hidden="true"></span><span class="account-menu__copy-t" aria-live="polite">Copy</span></button></div></div></div><nav class="account-menu__grid" aria-label="Account"><a class="account-menu__tile account-menu__tile--items" href="../account.html" id="s-items"><i class="icon icon--box" aria-hidden="true"></i><span>My items</span><img class="account-menu__case" src="../visuals/cases/coldfront-c.webp" alt="" loading="lazy"></a><a class="account-menu__tile" href="../../wireframes/history.html" id="s-tile"><i class="icon icon--history" aria-hidden="true"></i><span>History</span></a><a class="account-menu__tile" href="../../wireframes/history-withdrawals.html"><i class="icon icon--send" aria-hidden="true"></i><span>Withdrawals</span></a><a class="account-menu__tile" href="../../wireframes/profile.html"><i class="icon icon--user" aria-hidden="true"></i><span>Profile</span></a><a class="account-menu__tile" href="../../wireframes/settings.html"><i class="icon icon--settings" aria-hidden="true"></i><span>Settings</span></a><a class="account-menu__tile account-menu__tile--rp" href="../responsible.html?account" id="s-rp"><i class="icon icon--shield" aria-hidden="true"></i><span>Responsible play</span></a></nav><a class="account-menu__out" href="../../wireframes/index.html" id="s-out"><i class="icon icon--out" aria-hidden="true"></i><span>Sign out</span></a></div></div></div>
+    <div class="cp-frame cp-frame--closed"><div class="account-menu" style="display:grid;gap:16px">
+      <div class="account-menu__who" id="s-done-box" style="width:238px"><b>nightjar_cs</b><div class="account-menu__id"><span class="account-menu__id-v">ID acc-7f3a91c4</span><button class="account-menu__copy is-done" type="button" id="s-copy-done"><span class="account-menu__copy-i" aria-hidden="true"></span><span class="account-menu__copy-t" aria-live="polite">Copied</span></button></div></div>
+      <div class="account-menu__who" id="s-fail-box" style="width:238px"><b>nightjar_cs</b><div class="account-menu__id"><span class="account-menu__id-v">ID acc-7f3a91c4</span><button class="account-menu__copy is-fail" type="button" id="s-copy-fail"><span class="account-menu__copy-i" aria-hidden="true"></span><span class="account-menu__copy-t" aria-live="polite">Not copied, select it by hand</span></button></div></div>
+    </div></div>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot on the pill; after it, only a named difference.</p>
+  <div class="cp-shots" id="cp-shots"></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> Copy and Sign out take the same ring on focus-visible as the pill, <code>--line-focus</code>; Sign out on focus shows its hover face under the ring, and a tile on focus shows the lit plate its hover shows. My items and Responsible play brighten under the pointer and keep their plate; the case behind My items moves a step.</li>
+    <li><b>No press face.</b> <code>kit.css</code> draws none and none is added: a tile goes to its page. The close on a phone's sheet is the Button's and keeps the Button's states.</li>
+    <li><b>Not copied</b> is the failure the script says when the clipboard refuses: the words stay readable and say what still works, "Not copied, select it by hand". The menu has no disabled look (D-58).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ account-menu           # re-shoot after a change to account-menu.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ account-menu --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token. A tile that turns into a plate (My items, Responsible play, a tile under the pointer or on focus) carries its words in <code>--text-on-plate</code>, the same white in the dark theme, so the light theme keeps white on the pink and the blue. Read directly and waiting for step 9: <code>--shadow-menu</code>, <code>--color-handle</code> and <code>--color-error-wash</code> (read in the Popover menu block only, the block this one is split from), <code>--color-scrim-sheet</code>, and Copy's <code>--color-done</code>, <code>--color-done-wash</code>, <code>--color-fail</code>, <code>--color-fail-wash</code>, set by a script and so missing from the step 3 count. Geometry, type and motion come straight from the primitives.</p>
+  <p>File: <code>design/system/components/account-menu.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
+  <pre>&lt;div class="account-menu"&gt;
+  &lt;button class="account-menu__trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="acct-menu" aria-label="Account, nightjar_cs"&gt;
+    &lt;img class="avatar" src="..." alt=""&gt;&lt;span class="account-menu__name"&gt;nightjar_cs&lt;/span&gt;&lt;span class="account-menu__chev" aria-hidden="true"&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;div class="account-menu__scrim" aria-hidden="true"&gt;&lt;/div&gt;
+  &lt;div class="account-menu__panel" id="acct-menu"&gt;
+    &lt;button class="button button--close account-menu__x" type="button" aria-label="Close"&gt;&lt;/button&gt;
+    &lt;div class="account-menu__head"&gt;&lt;img class="avatar avatar--xl" src="..." alt=""&gt;&lt;div class="account-menu__who"&gt;&lt;b&gt;nightjar_cs&lt;/b&gt;
+      &lt;div class="account-menu__id"&gt;&lt;span class="account-menu__id-v"&gt;ID acc-7f3a91c4&lt;/span&gt;&lt;button class="account-menu__copy" type="button"&gt;...Copy&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;nav class="account-menu__grid" aria-label="Account"&gt;
+      &lt;a class="account-menu__tile account-menu__tile--items" href="..."&gt;&lt;i class="icon icon--box" aria-hidden="true"&gt;&lt;/i&gt;&lt;span&gt;My items&lt;/span&gt;&lt;img class="account-menu__case" ...&gt;&lt;/a&gt;
+      &lt;a class="account-menu__tile" href="..."&gt;...History&lt;/a&gt; ... &lt;a class="account-menu__tile account-menu__tile--rp" href="..."&gt;...Responsible play&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;a class="account-menu__out" href="..."&gt;&lt;i class="icon icon--out" aria-hidden="true"&gt;&lt;/i&gt;&lt;span&gt;Sign out&lt;/span&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+  <p>Stands on the header of every signed-in state: <a href="../index.html?account">Home</a>, <a href="../case.html?account">the case screen</a>, <a href="../catalogue-account.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../responsible.html?account">Responsible play</a>. Today those screens wear <code>.popover--account</code> and its <code>.popover__*</code> elements on <code>kit.css</code>; step 6 moves them onto this file's names by rename map rows 2 and 17, and <code>kit.js</code> follows the new names at step 8.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'pill', sel: '#s-pill .account-menu__trigger', states: ['focus'] },
+  { id: 'pill', sel: '#s-pill .account-menu__trigger', states: ['open'], open: '#s-open .account-menu__trigger', box: '#s-open-box', pad: 0 },
+  { id: 'copy', sel: '#s-copy', states: ['hover'] },
+  { id: 'copy', sel: '#s-copy', states: ['done'], done: '#s-copy-done', box: '#s-done-box', pad: 8 },
+  { id: 'copy', sel: '#s-copy', states: ['fail'], fail: '#s-copy-fail', box: '#s-fail-box', pad: 8 },
+  { id: 'tile', sel: '#s-tile', states: ['hover', 'focus'] },
+  { id: 'items', sel: '#s-items', states: ['hover'] },
+  { id: 'rp', sel: '#s-rp', states: ['hover'] },
+  { id: 'out', sel: '#s-out', states: ['hover'] }
+];
+(function () {
+  var C = [['pill', 'focus', 'Pill focus-visible: the ring', '--line-focus'], ['pill', 'open', 'Open, the product\'s own (aria-expanded): the pink ring on the pill, the menu under it', '--line-lit, --bg-layer, --shadow-menu'],
+    ['copy', 'hover', 'Copy hover: the act\'s stripes on the pink', '--bg-act-stripes, --bg-lit, --text-on-plate'], ['copy', 'done', 'Copied, set by kit.js (.is-done): the squares become a tick', '--color-done, --color-done-wash'],
+    ['copy', 'fail', 'Not copied, set by kit.js (.is-fail): the words in the failure red, in sentence case', '--color-fail, --color-fail-wash'],
+    ['tile', 'hover', 'Tile hover: the tile lights as the Cases plate', '--bg-act-stripes, --bg-mode-cases, --text-on-plate'], ['tile', 'focus', 'Tile focus-visible: the ring over the lit plate', '--line-focus'],
+    ['items', 'hover', 'My items hover: the plate brightens, the case moves a step', 'filter brightness 1.08'], ['rp', 'hover', 'Responsible play hover: the blue brightens', 'filter brightness 1.08'],
+    ['out', 'hover', 'Sign out hover: red words on a red wash', '--text-error, --color-error-wash']];
+  document.getElementById('cp-shots').innerHTML = C.map(function (c) { var f = 'screens/states/account-menu-' + c[0] + '-' + c[1] + '-';
+    return '<figure class="cp-shot"><div class="kt-pair"><div><img src="' + f + 'dark.png" alt="' + c[2] + ', dark theme" loading="lazy"></div><div><img src="' + f + 'light.png" alt="' + c[2] + ', light theme" loading="lazy"></div></div><figcaption><b>' + c[2] + '</b> <code>' + c[3] + '</code></figcaption></figure>'; }).join('');
+})();
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.closest('tr').querySelector('.cp-dim').textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-hi', '--text-on-plate', '--text-base', '--text-body', '--text-meta', '--text-error', '--bg-veil', '--bg-wash', '--bg-tile', '--bg-layer', '--bg-lit', '--bg-act-stripes', '--bg-stripes-m', '--bg-mode-cases', '--bg-mode-battles',
+    '--line-edge', '--line-lit', '--line-lit-top-soft', '--line-focus', '--depth-avatar', '--shadow-menu', '--color-handle', '--color-error-wash', '--color-scrim-sheet', '--color-done', '--color-done-wash', '--color-fail', '--color-fail-wash'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(shadow|color)-/.test(n) ? 'primitive, waits for step 9' : /^--line-focus$/.test(n) ? 'state' : n === '--depth-avatar' ? 'semantic, read by the Avatar XL' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

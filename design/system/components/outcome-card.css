@@ -1,0 +1,114 @@
+/* OUTCOME CARD, level 2 (molecule). What came out of a round, Z7 of win-lab.html on W7's card: its published chance over the skin, the skin large in its
+ * tier's ring, the gun with its wear and the skin, the value in coins with the coin, and its multiple of the open's price on a tab at the foot, green
+ * when the item is worth more than the open. A band of light crosses it once as it lands (.is-on). Two to five in a row are the smaller --batch, each
+ * with its own Sell under it.
+ * Page: design/kit/outcome-card.html. Stands on the case screen, design/case.html, at its outcome (design/kit/inventory.md, Outcome card).
+ * Holds: Media slot (.media--skin .outcome__art, the skin in its ring), Figure (.fig--win, the value), Icon (.icon--coin), Button (.button--ghost
+ *   .button--s .outcome__sell, a batch's own Sell). The molecule's own: the card, the tier's bar and ring, the chance, the names, the multiple's tab.
+ * Reads: --bg-card-deep, --bg-foil, --bg-rarity-1 to -7 (the tier; the ladder's lit steps 4 and 5), --text-hi, --text-body, --text-body-on-plate,
+ *   --text-base, --line-edge, --depth-skin-prize, --bg-ring-deep (the ring's depth); its own --outcome-tab-edge and --outcome-tab-up-ink
+ *   (tokens.css, COMPONENT TOKENS); geometry, type and motion from the primitives. Colour primitives read directly, all in this block only and waiting
+ *   for step 9 (tokens-audit.md, "Outcome card"): --color-tab, --color-up-tab, --shadow-outcome, --shadow-up-tab. The tab is a plate that keeps its
+ *   colour in both themes, so its words read the -on-plate ink and its two component tokens name the same primitive in both.
+ * Carried from design/kit/kit.css part 3 (THE STAGE'S OWN CARD, the Outcome card's share of lines 2903 to 2925: the tier, the plate, the ring, the
+ *   hidden word) and part 4.2 (OUTCOME CARD, lines 3552 to 3617) at stage 08 step 5, round 2, by the decisions of step 2 (D-260): rename map row 28, the
+ *   value's size is the Figure's variant .fig--win instead of .outcome__v .fig__v. The tier's lit steps stay, as the drop card draws them (D-209 (v4)).
+ *   Not carried: the keyframes outcome-foil, which the account head names too, declared once at the end of this file. From design/v4/case-stage.css
+ *   (data-card w7, data-prize z7), case-page.css and case-win.js. */
+
+/* Data: the tier, a modifier --r1 (rarest) to --r7 that sets --tier; v4 lights Restricted and Mil-Spec a step brighter on the dark card. Content: one
+   round (the plain card) or a batch of two to five (--batch). */
+.outcome--r1 { --tier: var(--bg-rarity-1); }
+.outcome--r2 { --tier: var(--bg-rarity-2); }
+.outcome--r3 { --tier: var(--bg-rarity-3); }
+.outcome--r4 { --tier: var(--bg-rarity-4-lit); }
+.outcome--r5 { --tier: var(--bg-rarity-5-lit); }
+.outcome--r6 { --tier: var(--bg-rarity-6); }
+.outcome--r7 { --tier: var(--bg-rarity-7); }
+
+/* its own geometry, read inside .outcome only, D-231 */
+.outcome {
+  --outcome-foot: 40px; /* v4 case-stage.css: z6/z7 .v4c-won-card padding-bottom, the room the multiple's tab stands in. Outcome card */
+  --outcome-dot: .45em; /* v4 case-stage.css: z7 .v4c-won-wear::before margin, the dot between the gun and its wear, in the line's own em. Outcome card */
+  --outcome-name: 22px; /* v4 case-stage.css: x3/y/z .v4c-won-name b, the won skin's name. Outcome card */
+  --outcome-w: 300px; /* v4 case-stage.css: x3/y/z .v4c-won-card width. Outcome card */
+  --outcome-h: 330px; /* v4 case-stage.css: x3/y/z .v4c-won-card height. Outcome card */
+  --outcome-art-s: 220px; /* v4 case-page.css: .v4c-frame[data-phase="won"][data-count="1"] .v4c-won-art width at 599px. Outcome card */
+  --outcome-batch-w: 220px; /* v4 case-stage.css: x3/y/z :not([data-count="1"]) .v4c-won-card width, min(220px, 92%). Outcome card, two to five */
+  --outcome-batch-h: 270px; /* v4 case-stage.css: x3/y/z :not([data-count="1"]) .v4c-won-card height. Outcome card, two to five */
+  --outcome-batch-h-s: 190px; /* v4 case-stage.css: x3/y/z :not([data-count="1"]) .v4c-won-card height at 599px. Outcome card, two to five */
+  --outcome-batch-art-s: 76px; /* v4 case-stage.css: [data-prize] :not([data-count="1"]) .v4c-won-art height at 599px (its width is --size-card-art-s). Outcome card, two to five */
+  --outcome-x-tab: 92px; /* v4 case-stage.css: z6/z7 .v4c-won-x min-width, the multiple's tab. Outcome card */
+  --outcome-x-tab-s: 76px; /* v4 case-stage.css: z6/z7 :not([data-count="1"]) .v4c-won-x min-width. Outcome card, two to five */
+}
+.outcome { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: var(--text-base); font-size: var(--size-text); line-height: 1.2; text-align: center; }
+.outcome__card { position: relative; display: grid; grid-template: 'odds odds' auto 'art art' 1fr 'name name' auto 'v v' auto / 1fr auto; align-items: center; gap: var(--space-1) var(--space-2-5);
+  box-sizing: border-box; width: var(--outcome-w); max-width: 100%; height: var(--outcome-h); padding: var(--space-4) var(--space-4-25) var(--outcome-foot); border-radius: var(--radius-m); overflow: hidden; text-align: left;
+  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 18%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 12%, var(--bg-card-deep)), var(--bg-card-deep) 60%);
+  box-shadow: var(--line-edge), 0 0 var(--blur-outcome) color-mix(in srgb, var(--tier) 22%, transparent), var(--shadow-outcome); }
+.outcome__card::before { content: ''; position: absolute; z-index: 2; left: 50%; top: 0; width: var(--size-tier-bar-w); height: var(--size-tier-bar); margin-left: calc(var(--size-tier-bar-w) / -2); border-radius: 0 0 var(--radius-xs) var(--radius-xs); background: var(--tier); box-shadow: 0 0 var(--blur-tier-bar) var(--size-hairline) var(--tier); }
+.outcome__card::after { content: ''; position: absolute; inset: -30%; z-index: 2; pointer-events: none; opacity: 0; transform: translateX(-60%);
+  background: linear-gradient(115deg, transparent 42%, var(--bg-foil) 49%, color-mix(in srgb, var(--tier) 55%, var(--text-hi)) 51%, transparent 58%); }
+.outcome.is-on .outcome__card::after { animation: outcome-foil 1.4s ease-in-out .7s; } /* the product sets .is-on when the prize lands; outcome-foil is declared once at the end of this file */
+
+/* the stage's own card, shared with the Drop card and the Recent drop card: the fill inside the ring, its tier from clear at the top left to deep at
+   the foot; the ring, one hexagon stroked with its own gradient (the card's svg names it), light from the top left corner; a word for a screen reader only */
+.outcome__plate { position: absolute; left: 50%; top: 50%; height: 64%; aspect-ratio: 136 / 118; translate: -50% -50%;
+  background: linear-gradient(135deg, transparent 12%, color-mix(in srgb, var(--tier) 85%, transparent));
+  -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat, var(--shape-hex-inner) center / 100% 100% no-repeat; }
+.outcome__ring { display: block; position: absolute; left: 50%; top: 50%; height: 86%; width: auto; aspect-ratio: 136 / 118; translate: -50% -50%; overflow: visible; pointer-events: none;
+  filter: drop-shadow(calc(-1 * var(--size-ring-glow-near)) calc(-1 * var(--size-ring-glow-near)) var(--blur-ring-glow-near) color-mix(in srgb, var(--tier) 55%, transparent))
+    drop-shadow(calc(-1 * var(--size-ring-glow-far)) calc(-1 * var(--size-ring-glow-far)) var(--blur-ring-glow-far) color-mix(in srgb, var(--tier) 28%, transparent)); }
+.outcome__ring path { fill: none; stroke-width: var(--size-ring-stroke); stroke-linejoin: round; stroke-linecap: round; }
+.outcome__ring stop:nth-of-type(1) { stop-color: color-mix(in srgb, var(--tier) 62%, var(--text-hi)); }
+.outcome__ring stop:nth-of-type(2) { stop-color: color-mix(in srgb, var(--tier) 92%, var(--text-hi)); }
+.outcome__ring stop:nth-of-type(3) { stop-color: color-mix(in srgb, var(--tier) 72%, var(--bg-ring-deep)); }
+.outcome__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* the chance over the skin, the skin in its ring (a Media slot, the picture a little larger than its frame), the gun with its wear, the skin's name */
+.outcome__odds { grid-area: odds; justify-self: center; align-self: start; display: flex; flex-direction: column; align-items: center; color: var(--text-body); font-size: var(--size-badge-text); font-weight: 700; letter-spacing: var(--tracking-label); text-align: center; text-transform: uppercase; white-space: nowrap; }
+.outcome__odds > b { order: 2; color: color-mix(in srgb, var(--tier) 70%, var(--text-hi)); font-size: var(--size-s); font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: 0; text-transform: none; }
+.outcome__art { grid-area: art; width: 100%; height: 100%; min-height: 0; }
+.outcome__art .outcome__plate { height: 67%; }
+.outcome__art .outcome__ring { height: 88%; }
+.outcome__art > img { position: absolute; inset: 0; z-index: 1; transform: scale(1.12); filter: var(--depth-skin-prize); }
+.outcome__name { grid-area: name; justify-self: stretch; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0; line-height: 1.15; text-align: center; }
+.outcome__w { max-width: 100%; overflow: hidden; color: var(--text-body); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; }
+.outcome__wear { color: var(--text-hi); }
+.outcome__wear::before { content: '\00B7'; margin: 0 var(--outcome-dot); color: var(--text-body); }
+.outcome__s { max-width: 100%; overflow: hidden; color: var(--text-hi); font-size: var(--outcome-name); font-weight: 900; line-height: 1.05; white-space: nowrap; text-overflow: ellipsis; }
+
+/* the value: the Figure (.fig--win, its size) placed on the grid, its coin at the skin's name size; the gap between the coin and the figure is the
+   Figure's 8px, 6px in a batch and 4px in a batch on a phone */
+.outcome__v { grid-area: v; justify-self: center; margin-top: var(--space-1); }
+.outcome__v .icon--coin { font-size: var(--outcome-name); }
+
+/* the multiple of the open's price on a tab at the foot; green when the item is worth more than the open (.is-up, the product's own class) */
+.outcome__x { position: absolute; z-index: 3; left: 50%; bottom: 0; translate: -50%; box-sizing: border-box; min-width: var(--outcome-x-tab); padding: var(--space-1-75) var(--space-5) var(--space-1-5); border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background: var(--color-tab); box-shadow: inset 0 0 0 var(--size-hairline) var(--outcome-tab-edge); color: var(--text-body-on-plate); font-size: var(--size-s); font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); text-align: center; white-space: nowrap; }
+.outcome__x.is-up { background: var(--color-up-tab); box-shadow: var(--shadow-up-tab); color: var(--outcome-tab-up-ink); }
+.outcome__sell { margin-top: var(--size-edge); }
+
+/* two to five in a row: a smaller card, the chance over it, the multiple's tab smaller, its own Sell under it */
+.outcome--batch .outcome__card { width: min(var(--outcome-batch-w), 92%); height: var(--outcome-batch-h); padding: var(--space-3) var(--space-3) var(--outcome-foot); }
+.outcome--batch .outcome__w { font-size: var(--size-badge-text); }
+.outcome--batch .outcome__s { font-size: var(--size-text); }
+.outcome--batch .outcome__v .fig__v { gap: var(--space-1-5); font-size: var(--outcome-name); }
+.outcome--batch .outcome__v .icon--coin { font-size: var(--size-text); }
+.outcome--batch .outcome__x { min-width: var(--outcome-x-tab-s); padding: calc(var(--space-1) + var(--size-hairline)) var(--space-4-25) var(--space-1); font-size: var(--size-xs); }
+@media (max-width: 599px) {
+  .outcome:not(.outcome--batch) .outcome__art { justify-self: center; width: var(--outcome-art-s); }
+  .outcome--batch .outcome__card { height: var(--outcome-batch-h-s); padding: var(--space-3) var(--space-2) calc(var(--outcome-foot) - var(--space-3)); }
+  .outcome--batch .outcome__odds { display: none; }
+  .outcome--batch .outcome__art { width: var(--size-card-art-s); height: var(--outcome-batch-art-s); }
+  .outcome--batch .outcome__name { min-width: 0; max-width: 100%; overflow: hidden; }
+  .outcome--batch .outcome__s { font-size: var(--size-xs); line-height: 1.1; white-space: normal; overflow: visible; text-overflow: clip; text-wrap: balance; }
+  .outcome--batch .outcome__v .fig__v { gap: var(--space-1); font-size: var(--size-xs); }
+  .outcome--batch .outcome__v .icon--coin { font-size: var(--size-xs); }
+  .outcome--batch .outcome__x { min-width: 0; padding: calc(var(--space-1) - var(--size-hairline)) var(--space-3) var(--size-edge); font-size: var(--size-unit); }
+}
+
+@media (prefers-reduced-motion: reduce) { .outcome.is-on .outcome__card::after { animation: none; } }
+
+/* kit.css line 3580; the outcome's band of light, also read by the Account head (an organism, round 3), which loads after; declared once, here (round 2: a keyframe two blocks name is declared once, by the parent, in the file of its first reader) */
+@keyframes outcome-foil { 0% { opacity: 0; transform: translateX(-60%); } 15% { opacity: 1; } 60% { opacity: 1; transform: translateX(60%); } 61%, 100% { opacity: 0; transform: translateX(60%); } }

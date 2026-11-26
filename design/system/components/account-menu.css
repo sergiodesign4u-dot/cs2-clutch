@@ -1,0 +1,108 @@
+/* ACCOUNT MENU, level 2 (molecule). The avatar pill in the header that opens the account's menu: who, the ID with Copy, My items first, four
+ * destinations, Responsible play and Sign out; under 900px the menu rises from the bottom as a sheet with its own close over a dimmed page.
+ * Page: design/kit/account-menu.html. Stands on every signed-in coloured state: Case, Catalogue, Deposit, Home, My items, Responsible play
+ *   (27 of 51 states; design/kit/inventory.md, Account menu), in the header (design/account.html, any screen with ?account).
+ * Holds: Avatar (M on the pill, XL at the head, .avatar--xl by rename map row 17), Button (the sheet's close, .button--close), Icon (each
+ *   tile's glyph, Sign out's); its own parts are the pill, the panel, the head, the ID plate with Copy, the tiles, Sign out and the sheet.
+ * Reads: --text-hi, --text-on-plate, --text-base, --text-body, --text-meta, --text-error, --bg-veil, --bg-wash, --bg-tile, --bg-layer, --bg-lit,
+ *   --bg-act-stripes, --bg-stripes-m, --bg-mode-cases, --bg-mode-battles, --line-edge, --line-lit, --line-lit-top-soft, --line-focus;
+ *   geometry, type and motion from the primitives. Read directly and waiting for step 9 (tokens-audit.md, "What the semantic level does not
+ *   take yet"): --shadow-menu, --color-handle and --color-error-wash, listed as read in the Popover menu block only, the block this
+ *   component is split from; --color-scrim-sheet, --color-done, --color-done-wash, --color-fail and --color-fail-wash, whose origin comments
+ *   name the Popover menu (v4 account-home.css), missing from that list because a script or a phone sheet sets the state, never a load;
+ *   --color-fail and its wash are also read by the Status notice (.notice--failed), so they are a role candidate for the gate.
+ * Carried from design/kit/kit.css part 4.2 (POPOVER MENU, lines 3625 to 3651 for the frame and 3652 to 3709 for --account) at stage 08 step 5,
+ *   round 2, by the decisions of step 2 (D-260, Q3): split from the Popover menu as its own component (rename map row 2), .popover--account
+ *   becomes .account-menu and each element .popover__x becomes .account-menu__x; the head's avatar is .avatar--xl, no longer sized here by
+ *   --popover-avatar (row 17); the tile edge reads --line-edge at white .07 (row 30, merged drift). A tile that turns into a plate (the
+ *   hover, the focus, My items, Responsible play) carries its words in --text-on-plate, the same white in the dark theme. Open is set by
+ *   design/kit/kit.js (aria-expanded on the pill); Copied and Not copied by kit.js too (.is-done, .is-fail on Copy, for 2.4 seconds).
+ *   The keyframes popover-rise is named here and by the Popover menu's --fit: declared once, at the end of popover-menu.css, which loads first. From design/v4/account-home.css. */
+
+/* its own geometry, read inside .account-menu only, D-231; was --popover-*, renamed with the block (row 2) */
+.account-menu {
+  --account-menu-copy-line: 1.6px; /* v4 account-home.css: .am3-copy-i::before and ::after border, the two squares of Copy. Account menu (was Popover menu) */
+  --account-menu-plate: 46px; /* v4 account-home.css: .ac2-btn height, the avatar pill that pulls 3px out of the 40px row. Account menu (was Popover menu) */
+  --account-menu-menu: 340px; /* v4 account-home.css: .am3 width. Account menu (was Popover menu, account) */
+  --account-menu-id-plate: 30px; /* v4 account-home.css: .am3-id height. Account menu (was Popover menu) */
+  --account-menu-copy: 24px; /* v4 account-home.css: .am3-copy height. Account menu (was Popover menu) */
+  --account-menu-copy-icon: 11px; /* v4 account-home.css: .am3-copy-i, two squares 7px apart. Account menu (was Popover menu) */
+  --account-menu-copy-square: 7px; /* v4 account-home.css: .am3-copy-i::before and ::after. Account menu (was Popover menu) */
+  --account-menu-tile: 76px; /* v4 account-home.css: .am3-t min-height. Account menu (was Popover menu) */
+  --account-menu-tile-items: 92px; /* v4 account-home.css: .am3-t.is-items min-height. Account menu (was Popover menu) */
+  --account-menu-tile-rp: 48px; /* v4 account-home.css: .am3-t.is-rp min-height. Account menu (was Popover menu) */
+  --account-menu-case-w: 184px; /* v4 account-home.css: .am3-case width, the case rising behind My items. Account menu (was Popover menu) */
+  --account-menu-case-h: 120px; /* v4 account-home.css: .am3-case height. Account menu (was Popover menu) */
+  --account-menu-story-icon: 26px; /* v4 account-home.css: .am-ic--story, the box on My items. Account menu (was Popover menu) */
+  --account-menu-handle: 40px; /* v4 account-home.css: .am3::before width at 899px, the sheet's handle. Account menu on a phone (was Popover menu) */
+}
+
+/* the frame: the pill carries aria-expanded and the panel follows it in the markup and shows while it is true */
+.account-menu { position: relative; display: inline-flex; }
+.account-menu__panel { display: none; }
+.account-menu__trigger[aria-expanded="true"] ~ .account-menu__panel { display: block; }
+.account-menu__scrim { display: none; }
+
+/* the pill */
+.account-menu__trigger { display: inline-flex; align-items: center; justify-content: center; gap: calc(var(--space-2) + var(--size-hairline)); height: var(--account-menu-plate); margin-block: calc(-1 * (var(--account-menu-plate) - var(--size-button-m)) / 2); box-sizing: border-box; padding: 0 var(--space-3) 0 var(--space-1-75); border: 0; border-radius: var(--radius-card);
+  background: var(--bg-veil); box-shadow: var(--line-edge); color: var(--text-hi); font-family: inherit; font-size: var(--size-text); line-height: 1.2; white-space: nowrap; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: box-shadow .2s; }
+.account-menu__trigger:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+.account-menu__trigger[aria-expanded="true"] { box-shadow: inset 0 0 0 var(--size-edge) var(--line-lit); }
+.account-menu__name { font-size: var(--size-label); font-weight: 700; }
+.account-menu__chev { width: var(--space-2); height: var(--space-2); box-sizing: border-box; margin: calc(-1 * var(--space-1)) var(--size-edge) 0 0; border: solid var(--text-body); border-width: 0 var(--size-edge) var(--size-edge) 0; rotate: 45deg; transition: rotate .2s, margin .2s; }
+[aria-expanded="true"] > .account-menu__chev { rotate: 225deg; margin-top: var(--space-1); }
+
+/* the menu */
+.account-menu__panel { position: absolute; z-index: 10; top: calc(100% + var(--space-2-5)); right: 0; width: var(--account-menu-menu); box-sizing: border-box; padding: var(--space-3); border-radius: var(--radius-m);
+  background: var(--bg-layer); box-shadow: var(--line-edge), var(--shadow-menu); color: var(--text-base); font-size: var(--size-text); line-height: 1.2; text-align: left; }
+.account-menu__x { display: none; }
+.account-menu__head { display: flex; align-items: center; gap: var(--space-3-5); padding: var(--space-1) var(--space-1) var(--space-3-5); }
+.account-menu__who { display: grid; gap: var(--space-1-75); min-width: 0; }
+.account-menu__who > b { overflow: hidden; font-size: var(--size-lead); font-weight: 900; white-space: nowrap; text-overflow: ellipsis; }
+.account-menu__id { display: flex; align-items: center; gap: var(--space-2); height: var(--account-menu-id-plate); box-sizing: border-box; padding: 0 calc(var(--space-1) - var(--size-hairline)) 0 var(--space-2-5); border-radius: var(--radius-s); background: var(--bg-veil); box-shadow: var(--line-edge); }
+.account-menu__id-v { color: var(--text-body); font-size: var(--size-chip); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); white-space: nowrap; }
+.account-menu__copy { display: inline-flex; align-items: center; justify-content: center; gap: calc(var(--space-1) + var(--size-hairline)); height: var(--account-menu-copy); margin-left: auto; padding: 0 var(--space-2); border: 0; border-radius: var(--radius-s); background: var(--bg-wash); color: var(--text-hi);
+  font-family: inherit; font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-snug); line-height: 1.2; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: background-color .2s, color .2s; }
+.account-menu__copy-i { position: relative; width: var(--account-menu-copy-icon); height: var(--account-menu-copy-icon); }
+.account-menu__copy-i::before, .account-menu__copy-i::after { content: ''; position: absolute; box-sizing: border-box; width: var(--account-menu-copy-square); height: var(--account-menu-copy-square); border: var(--account-menu-copy-line) solid currentColor; border-radius: calc(var(--radius-xs) / 2); } /* a glyph's corner, not a component's: half the smallest step, v4's 2px, so the squares stay squares */
+.account-menu__copy-i::before { left: 0; top: 0; opacity: .6; }
+.account-menu__copy-i::after { right: 0; bottom: 0; }
+@media (hover: hover) { .account-menu__copy:hover { background: var(--bg-act-stripes), var(--bg-lit); color: var(--text-on-plate); } }
+.account-menu__copy:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+.account-menu__copy.is-done { background: var(--color-done-wash); color: var(--color-done); }
+.account-menu__copy.is-done .account-menu__copy-i::before { opacity: 0; }
+.account-menu__copy.is-done .account-menu__copy-i::after { width: var(--space-1); height: var(--space-2); right: var(--size-edge); bottom: var(--size-edge); border-width: 0 var(--size-edge) var(--size-edge) 0; border-radius: 0; rotate: 45deg; }
+.account-menu__copy.is-fail { height: auto; padding: var(--space-1) var(--space-2); background: var(--color-fail-wash); color: var(--color-fail); white-space: normal; text-transform: none; letter-spacing: 0; }
+
+/* the destinations: My items first and widest, four tiles two to a row, Responsible play in the battles blue */
+.account-menu__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.account-menu__tile { position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: var(--space-2-5); box-sizing: border-box; min-height: var(--account-menu-tile); padding: var(--space-3);
+  border-radius: var(--radius-card); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.2; text-decoration: none; transition: background-color .2s; }
+.account-menu__tile .icon { font-size: var(--size-title); }
+.account-menu__tile:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); background: var(--bg-act-stripes), var(--bg-mode-cases); box-shadow: none; color: var(--text-on-plate); }
+.account-menu__tile--items { grid-column: 1 / -1; min-height: var(--account-menu-tile-items); justify-content: flex-end; background: var(--bg-act-stripes), var(--bg-mode-cases); box-shadow: var(--line-lit-top-soft); color: var(--text-on-plate); font-size: var(--size-s); font-weight: 900; letter-spacing: var(--tracking-tile); text-transform: uppercase; }
+.account-menu__tile--items .icon { font-size: var(--account-menu-story-icon); }
+.account-menu__case { position: absolute; z-index: -1; right: calc(-1 * (var(--space-5) - var(--size-edge))); top: calc(-1 * var(--space-2-5)); width: var(--account-menu-case-w); height: var(--account-menu-case-h); object-fit: contain; pointer-events: none; transition: translate .25s cubic-bezier(.2, .7, .2, 1); }
+.account-menu__tile--rp { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: var(--space-3); min-height: var(--account-menu-tile-rp); background: var(--bg-stripes-m), var(--bg-mode-battles); box-shadow: var(--line-lit-top-soft); color: var(--text-on-plate); }
+.account-menu__out { display: flex; align-items: center; justify-content: center; gap: var(--space-2-5); min-height: var(--size-button-m); margin-top: var(--space-2); padding: 0 var(--space-3); border-radius: var(--radius-s); color: var(--text-meta); font-size: var(--size-label); font-weight: 700; line-height: 1.2; text-decoration: none; transition: color .2s, background-color .2s; }
+.account-menu__out .icon { font-size: var(--size-title); }
+.account-menu__out:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); color: var(--text-error); background: var(--color-error-wash); }
+@media (hover: hover) {
+  .account-menu__tile:hover { background: var(--bg-act-stripes), var(--bg-mode-cases); box-shadow: none; color: var(--text-on-plate); }
+  .account-menu__tile--items:hover, .account-menu__tile--rp:hover { filter: brightness(1.08); }
+  .account-menu__tile--items:hover .account-menu__case { translate: calc(-1 * var(--space-1)) calc(-1 * var(--size-edge)); }
+  .account-menu__tile--rp:hover { background: var(--bg-stripes-m), var(--bg-mode-battles); box-shadow: var(--line-lit-top-soft); }
+  .account-menu__out:hover { color: var(--text-error); background: var(--color-error-wash); }
+}
+
+/* under 900px the menu rises from the bottom as a sheet over a dimmed page, with a handle and its own close */
+@media (max-width: 899px) {
+  .account-menu { position: static; }
+  .account-menu__panel { position: fixed; z-index: 61; inset: auto 0 0 0; width: auto; max-height: 88vh; overflow-y: auto; padding: var(--space-2) var(--space-3) var(--space-4); border-radius: var(--radius-l) var(--radius-l) 0 0; animation: popover-rise .28s cubic-bezier(.2, .7, .2, 1); }
+  .account-menu__panel::before { content: ''; display: block; width: var(--account-menu-handle); height: var(--space-1); margin: 0 auto var(--space-2-5); border-radius: var(--radius-xs); background: var(--color-handle); }
+  .account-menu__x { display: grid; position: absolute; top: var(--space-3); right: var(--space-3); z-index: 1; width: var(--size-button-m); min-height: var(--size-button-m); }
+  .account-menu__trigger[aria-expanded="true"] ~ .account-menu__scrim { display: block; position: fixed; inset: 0; z-index: 60; background: var(--color-scrim-sheet); }
+}
+/* under 600px the pill is the avatar alone */
+@media (max-width: 599px) { .account-menu__trigger { padding: 0 var(--space-1-75); } .account-menu :is(.account-menu__name, .account-menu__chev) { display: none; } }
+@media (prefers-reduced-motion: reduce) { .account-menu__panel { animation: none; } .account-menu__trigger, .account-menu__chev, .account-menu__copy, .account-menu__tile, .account-menu__case, .account-menu__out { transition: none; } }

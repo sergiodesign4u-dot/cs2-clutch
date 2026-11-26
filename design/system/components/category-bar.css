@@ -1,0 +1,38 @@
+/* CATEGORY BAR, level 2 (molecule). The shelf's sections as a run of options, one current, and the two acts on the shelf, Search and Filters
+ * with its count. One row at every width and sticky: the run scrolls, fading where more waits, and the acts fold to their glyph under 1200px.
+ * Page: design/kit/category-bar.html. Stands on the catalogue (design/kit/inventory.md, Category bar).
+ * Holds: Segmented control (.seg__opt as a link, its chosen look is the atom's own, rename map row 12), Button (ghost M at the 44px press, --tap, as the screen wears it; row 11 is put to the founder, round 2 Q2),
+ *   Icon, Badge (--count, pinned to the Filters tile).
+ * Reads: --bg-plate and --bg-page (the plate and the ground a stuck bar stands on), --line-plate-edge, --text-body; geometry from the
+ *   primitives. No colour primitive and no component token: every part found its role.
+ * Carried from design/kit/kit.css part 4.2 (CATEGORY BAR, lines 2630 to 2653) and part 5 (WHERE THE BAR STICKS, the bar's own .catbar--sticky,
+ *   lines 5940 and 5949) at stage 08 step 5, round 2, by the decisions of step 2 (D-260): the chosen option's rule (line 2643, row 12) is the
+ *   atom's, not carried; the acts' glyph size and their fold under 1200px
+ *   (lines 2645 to 2649) are carried as the bar's placing of what it holds: row 11's icon tile would drop the words from 1200px (round 2, Q2). The screen's rules on the bar (.shell__main > .catbar,
+ *   the shelf sections' margins) stay in kit.css for the catalogue to carry at step 6. From design/v4/case-stage.css .v4c-plate, D-246. */
+
+/* One form: a plate with the run at its start and the acts at its end. At every width one row, because it sticks and stacked it took 124px of a
+   640px window; the baseline keeps the two acts and lets the chips give way (research/docs/baseline.md 10.2, node 3.1 section 9). */
+.catbar { display: flex; align-items: center; gap: var(--space-2); box-sizing: border-box; min-width: 0; padding: var(--space-2); border-radius: var(--radius-m); background: var(--bg-plate); box-shadow: var(--line-plate-edge); }
+.catbar__l { display: none; flex: none; color: var(--text-body); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.catbar__run { position: relative; display: flex; flex: 1 1 auto; gap: var(--space-2); min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.catbar__run.is-more { -webkit-mask: linear-gradient(90deg, black calc(100% - var(--space-6)), transparent); mask: linear-gradient(90deg, black calc(100% - var(--space-6)), transparent); } /* more sections wait past the edge; a mask reads alpha only, so the colour of its opaque stop is no colour of the product */
+.catbar__run::-webkit-scrollbar { display: none; }
+/* how the run places what it holds: an option is a link here, so it keeps its width, takes no underline and never wraps */
+.catbar__run > .seg__opt { flex: none; text-decoration: none; white-space: nowrap; }
+.catbar__run > .seg__opt:focus-visible { outline-offset: calc(-1 * var(--size-edge) - var(--space-hair)); } /* a scroller cuts an outer ring: the offset only, the ring is the atom's */
+.catbar__acts { display: flex; flex: none; gap: var(--space-2); margin-left: auto; }
+.catbar__acts > .button > .icon { font-size: var(--size-tile-icon); } /* the bar sizes the glyph its acts hold, kit.css line 2645 */
+/* under 1200px each act folds to its glyph in a square of the 44px press, its word kept for a screen reader (kit.css lines 2647 to 2650);
+   the Button's own fold (.button--fold) folds under 600px, so this is the bar's placing, not a variant of the atom */
+@media (max-width: 1199px) {
+  .catbar__acts > .button { width: var(--size-tap); padding: 0; }
+  .catbar__acts .button__label { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+@media (min-width: 600px) { .catbar { gap: var(--space-3); padding: var(--space-3); } }
+@media (min-width: 1200px) { .catbar { padding: var(--space-3) var(--space-4); } .catbar__l { display: block; } }
+.catbar [hidden] { display: none; } /* a section a filter emptied takes its chip, and with no section left the run and its label go (D-58) */
+
+/* sticky: the bar that stays while the shelves scroll, on the ground so nothing shows through (D-246); under the header strip from 900px, at the window's top under that, where the header scrolls away */
+.catbar--sticky { position: sticky; z-index: 25; top: 0; background: var(--bg-plate), var(--bg-page); }
+@media (min-width: 900px) { .catbar--sticky { top: var(--size-header); } }

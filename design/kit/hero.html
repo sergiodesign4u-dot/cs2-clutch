@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-w { display: grid; gap: 18px; }
+  .cp-w__col { display: grid; gap: 6px; width: min(var(--w), 100%); max-width: 100%; justify-self: start; }
+</style>
+
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Blocks &middot; level 2</span>
+  <h1>Hero</h1>
+  <p class="kt-lead">Home's H1 in capitals and, for a guest, the Trustpilot line as a badge. The H1 says what the place is and the badge gives the one figure that can be checked elsewhere (design principle 1, trust is the product). Everything on this page is drawn by <code>design/system/components/hero.css</code> through <code>index.css</code>.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><section class="hero" aria-labelledby="h1-a"><h1 class="hero__title" id="h1-a">CS2 case opening with published odds</h1><p class="hero__line"><a class="hero__trust" role="img" aria-label="Trustpilot 4.1, 1 870 reviews"><span class="hero__stars" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.7l6.3-.7z"/></svg></i><i><svg viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.7l6.3-.7z"/></svg></i><i><svg viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.7l6.3-.7z"/></svg></i><i><svg viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.7l6.3-.7z"/></svg></i><i style="--fill: 10%"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.7l6.3-.7z"/></svg></i></span><b class="hero__score" aria-hidden="true">4.1</b><span class="hero__meta" aria-hidden="true"><strong>Trustpilot</strong><span>1 870 reviews</span></span></a></p></section></div>
+  <div class="kt-tbl"><table style="min-width:700px"><thead><tr><th>Part</th><th>Class</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The block</b></td><td><code>.hero</code></td><td>centred under 900px; from 900px the H1 on the left and the badge beside it where both fit, else under it</td></tr>
+    <tr><td><b>H1</b></td><td><code>.hero__title</code></td><td>the words only: capitals, 900, <code>--hero-title</code> (24px at 360 to 28px by 444, then 28px)</td></tr>
+    <tr><td><b>Line</b></td><td><code>.hero__line</code></td><td>the line that holds the badge; drawn for a guest and left out signed in</td></tr>
+    <tr><td><b>Badge</b></td><td><code>.hero__trust</code> (its <code>::before</code> lit edge, its <code>::after</code> sweeping light)</td><td>the glass plate and its corner; a picture with its line as its name (<code>role="img"</code>), not a control</td></tr>
+    <tr><td><b>Stars</b></td><td><code>.hero__stars</code> &gt; <code>i</code> with <code>--fill</code></td><td>five 24px tiles filled to the score in Trustpilot's green; <code>--fill</code> is the share of the tile the score fills, set per tile (10% on the fifth for 4.1)</td></tr>
+    <tr><td><b>Score and source</b></td><td><code>.hero__score</code>, <code>.hero__meta</code> (a <code>strong</code> and a <code>span</code>)</td><td>the score large, the source and the count stacked beside a rule</td></tr>
+  </tbody></table></div>
+  <ul class="kt-list">
+    <li><b>The molecule's own:</b> every part above. It holds no atom as Home draws it today: the inventory row names a Text link, but the badge is an <code>&lt;a role="img"&gt;</code> with no <code>href</code> and its own look. When a review page exists and the badge leads there, the founder decides whether it becomes a <a href="text-link.html">Text link</a> or stays the molecule's own. Reported at round 2.</li>
+    <li>The score, the count and the source are a sample (decision <code>D-124</code>: an unknown figure is drawn as a sample and marked as one).</li>
+  </ul>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form and no variants. It lays itself out by the window, and the table reads the render of the same markup at each width.</p>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Window</th><th>Layout</th><th>Block</th><th>H1</th><th>Badge</th></tr></thead><tbody>
+    <tr><td class="n">360</td><td>block, centred, the badge under the H1</td><td class="n">312 x 134</td><td class="n">24.2px, 312 x 63</td><td class="n">300 x 47</td></tr>
+    <tr><td class="n">444</td><td>the same</td><td class="n">396 x 144</td><td class="n">28px, 396 x 73</td><td class="n">300 x 47</td></tr>
+    <tr><td class="n">700 and 899</td><td>the same, the H1 on one line</td><td class="n">652 x 107, 851 x 107</td><td class="n">28px, one line</td><td class="n">300 x 47</td></tr>
+    <tr><td class="n">900</td><td>flex, the H1 left; here the badge wraps under it</td><td class="n">852 x 131</td><td class="n">28px, 590 x 36</td><td class="n">300 x 47</td></tr>
+    <tr><td class="n">1440</td><td>flex, the H1 left and the badge on the right</td><td class="n">1392 x 83</td><td class="n">28px, 590 x 36</td><td class="n">300 x 47</td></tr>
+  </tbody></table></div>
+  <p class="kt-note">The sample at the top of this page is <span class="cp-dim" data-dim-live></span> at this window; the sizes in the table were read on the same markup at the windows named.</p>
+  <ul class="kt-list">
+    <li><b>Signed in, the line is not drawn.</b> The block is the H1 alone (<code>.hero__line</code> absent), shown below. The page's script does this by <code>data-when="guest"</code>; no script loads here.</li>
+  </ul>
+  <div class="kt-scene"><section class="hero" aria-labelledby="h1-b"><h1 class="hero__title" id="h1-b">CS2 case opening with published odds</h1></section></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>Use it as the first words of Home, under the event banner: an H1 that names the product by what it does, "CS2 case opening with published odds", and a third-party score that a person can check. The numbers are the site's to prove, so the badge is a sample until the real count is wired (<code>D-124</code>). The research's riskiest assumption is that a trust signal in the hero moves a first-time visitor towards a deposit (<code>research/docs/lean-ux-canvas.md</code> section 7); it is an assumption and not a result here.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>Home's heading block: one H1 and, for a guest, one trust badge. One per page.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A section's heading with its tile is a <b>Section head</b>. An event headline is the <b>Event banner</b>. A trail of pages is a <b>Breadcrumb</b>. A line that leads onward is a <b>Text link</b>. A claim with no figure behind it is not a badge: the badge carries a score, a source and a count, or it is not drawn.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states: it is not interactive. The badge is a picture (<code>role="img"</code>, no <code>href</code>), so it takes no focus and no press, and nothing here is snapshotted.</p>
+  <ul class="kt-list">
+    <li>Under the pointer the badge lifts 2px, its edge brightens with a green glow (<code>--hero-trust-depth-hover</code>) and the five tiles hop in turn, 45ms apart. This is motion on a picture, carried as kit.css draws it (D-235), and not a control's state. Under reduced motion the badge does not lift, the tiles do not hop and the light does not cross.</li>
+    <li>A light crosses the badge every seven seconds. <code>kit.css</code> also writes a focus ring on the badge, <code>--line-focus</code> here; the badge cannot take focus today, so the rule is carried and does nothing until the badge becomes a link.</li>
+  </ul>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and motion come straight from the primitives and the block's own <code>--hero-*</code> sizes. Seven colours are read directly and wait for step 9, each in this block only: <code>--color-trustpilot</code>, <code>--color-trust-plate</code>, <code>--color-trust-off</code>, <code>--color-trust-rule</code>, <code>--gradient-trust</code>, <code>--gradient-trust-edge</code>, <code>--shadow-trust</code>.</p>
+  <p>File: <code>design/system/components/hero.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group. The keyframes <code>hero-trust-sweep</code> are declared at its end, once: the payment panel's offer names them too and loads after.</p>
+  <pre>&lt;section class="hero" aria-labelledby="h1-home"&gt;
+  &lt;h1 class="hero__title" id="h1-home"&gt;CS2 case opening with published odds&lt;/h1&gt;
+  &lt;p class="hero__line"&gt;&lt;a class="hero__trust" role="img" aria-label="Trustpilot 4.1, 1 870 reviews"&gt; ...stars, score, source... &lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>. Until step 8 that screen still reads <code>kit.css</code>; step 6 moves its markup onto this file's form.</p>
+</section>
+<script>
+(function () { var h = document.querySelector('.hero'), r = h.getBoundingClientRect(), o = document.querySelector('[data-dim-live]'); o.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); })();
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-hi', '--text-meta', '--text-on-plate', '--text-body-on-plate', '--bg-mark-on-plate', '--bg-sweep', '--line-focus', '--hero-trust-depth-hover'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--hero-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

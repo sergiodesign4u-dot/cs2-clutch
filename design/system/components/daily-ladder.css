@@ -1,0 +1,199 @@
+/* DAILY LADDER, level 2 (molecule). The five tiers of Daily cases, each with its case, its name and its status, under a head with the title,
+ * the reset and, for a guest, the one act. A tier gives a case and nothing else, and the ladder never counts down to the next tier (D-220,
+ * CLAUDE.md "a limit never acquires completion mechanics"): no streak, no score, no progress bar, none carried here.
+ * Page: design/kit/daily-ladder.html. Stands on Home and the catalogue (design/kit/inventory.md, Daily ladder).
+ * Holds: Media slot (a case as .media--case draws it), Button (the guest's Sign in at L, the live tier's open control at M), Icon (the coin).
+ * Reads: --text-hi, --text-body, --text-meta, --text-money, --text-money-on-plate, --text-on-plate, --text-on-accent, --text-match-on-plate,
+ *   --bg-daily-panel, --bg-plate-veil, --bg-stripes, --bg-act-stripes, --bg-mode-upgrade, --bg-mode-battles, --bg-case-violet,
+ *   --bg-mark-on-plate, --line-edge, --line-edge-lit, --line-lit-top; five of its own tokens (tokens.css, COMPONENT TOKENS):
+ *   --daily-chip-text-locked, --daily-hue-legend, --daily-tier-lit-hover, --daily-tier-lift-hover, --daily-tier-lift-live-hover; geometry, type
+ *   and motion from the primitives and its own --daily-* block below. Colours read directly and waiting for step 9 (tokens-audit.md "What the
+ *   semantic level does not take yet"): read in this block only, --color-daily-silver, --color-daily-chip, --shadow-tile-lit-live,
+ *   --shadow-daily-lift, --shadow-daily-name, --shadow-daily-skin, --gradient-daily-fade, --gradient-daily-fade-s, --gradient-daily-silver,
+ *   --gradient-daily-guardian, --gradient-daily-legend, --gradient-daily-elite; among the six with one reader per surface,
+ *   --color-blue (Nova's hue, the time figure, the clock's line) and --color-gold (Elite's hue).
+ * Carried from design/kit/kit.css part 4.2 (lines 2688 to 2878) at stage 08 step 5, round 2. Carried from design/v4/daily-home.css and
+ *   daily-home.js, the title's tile from heading-home.css. The panel lays itself out by its own width: .daily is the container, .daily__panel
+ *   the plate. States: .daily--guest (each tier says the wager that opens it), .daily--acct (a tier reached, opened today or locked); the card
+ *   whose case can be opened now is .is-live and holds the open control; .is-locked darkens a case not reached. Row 9 of the rename map,
+ *   D-260: the live tier's open control is the Button M as button.css draws it. A rule an organism or a screen writes on this block
+ *   (.shell__main > :is(.daily ...)) stays in kit.css. */
+/* its own geometry, read inside .daily only, D-231 */
+.daily {
+  --daily-space-4-5: 20px; /* рішення користувача, D-209; the Daily head's column gap, the panel's inset on a phone, the least air over the cards; design/v4/daily-home.css: .dc-head, .dc (phone), .dc-cards */
+  --daily-money-gap: 3px; /* рішення користувача, D-209; the coin to its figure inside a line of text; design/v4/daily-home.css: .dc-m gap */
+  --daily-heading: 36px; /* рішення користувача, D-209; the Daily cases title inside its panel; design/v4/daily-home.css: .dc-t font-size */
+  --daily-heading-s: 28px; /* рішення користувача, D-209; the same title on a panel under 761px; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-t */
+  --daily-name-s: 19px; /* the tier name on a phone; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-name, 18 to 19 for large text, stage 06 critique row 7 */
+  --daily-mark: 46px; /* рішення користувача, D-209; the striped calendar tile before the title; design/v4/heading-home.css: .dc-t::before */
+  --daily-mark-s: 36px; /* the same tile on a panel under 761px; design/v4/heading-home.css: @container dc (max-width: 760px) .dc-t::before */
+  --daily-title: 320px; /* the title column's basis before it wraps; design/v4/daily-home.css: .dc-title flex */
+  --daily-card: 166px; /* рішення користувача, D-209; a tier card's height on a wide panel; design/v4/daily-home.css: .dc-card height */
+  --daily-art-foot: 76px; /* how far above a card's foot its case stands; design/v4/daily-home.css: .dc-art bottom */
+  --daily-art-foot-live: 92px; /* the same over the card with the open control, and on every card from 761 to 1199px; design/v4/daily-home.css: .dc-card.is-hero .dc-art */
+  --daily-reach: 70px; /* the fitted reach of the highest picture pixel above the cards, subtracted from the row's top margin; design/v4/daily-home.css: .dc-cards margin */
+  --daily-reach-mid: 54px; /* the same between 761 and 1199px of panel; design/v4/daily-home.css: @container dc (min-width: 761px) and (max-width: 1199px) .dc-cards */
+  --daily-art-s: 210px; /* a tier's picture on a phone, never wider; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-art */
+  --daily-art-s-pad: 116px; /* the card's top padding that clears that picture, 55 % of 210; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-card */
+  --daily-ground-s: 440px; /* the height the warehouse ground keeps on a phone, and its fade; design/v4/daily-home.css: @container dc (max-width: 760px) .dc::before */
+  --daily-glow: 36px; /* a tier card's light in its hue under the pointer; design/v4/daily-home.css: .dc-card:hover */
+  --daily-glow-live: 40px; /* the same on the card with the open control; design/v4/daily-home.css: .dc-card.is-hero:hover */
+}
+.daily { container: daily / inline-size; }
+.daily__panel { position: relative; isolation: isolate; display: flex; flex-direction: column; box-sizing: border-box; padding: var(--space-5-5); border-radius: var(--radius-m); background: var(--bg-daily-panel); box-shadow: var(--line-edge); color: var(--text-hi); font-family: var(--font-family); font-size: var(--size-text); line-height: 1.2; text-align: left; }
+.daily__panel::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: .15; background: var(--art-daily-ground) right center / cover no-repeat; -webkit-mask: var(--gradient-daily-fade); mask: var(--gradient-daily-fade); }
+.daily__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); margin: calc(-1 * var(--size-hairline)); overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* "coins" for a screen reader only */
+.daily__money { display: inline-flex; align-items: center; gap: var(--daily-money-gap); color: var(--text-money-on-plate); font-weight: 900; white-space: nowrap; vertical-align: bottom; }
+.daily__money > .icon--coin { font-size: var(--size-xs); }
+
+/* the head: the title with its tile, its line, the reset box and a guest's act */
+.daily__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--daily-space-4-5); }
+.daily__title { flex: 1 1 var(--daily-title); min-width: 0; }
+.daily__heading { position: relative; display: flex; align-items: center; gap: var(--space-4); margin: 0; color: var(--text-hi); font-size: var(--daily-heading); font-weight: 900; line-height: 1; text-transform: uppercase; }
+.daily__heading::before { content: ''; flex: 0 0 var(--daily-mark); width: var(--daily-mark); height: var(--daily-mark); border-radius: var(--radius-card); background: var(--bg-stripes), var(--bg-mode-upgrade); box-shadow: var(--line-lit-top); }
+.daily__heading::after { content: ''; position: absolute; left: calc((var(--daily-mark) - var(--size-l)) / 2); top: 50%; width: var(--size-l); height: var(--size-l); margin-top: calc(var(--size-l) / -2); background: var(--bg-mark-on-plate); -webkit-mask: var(--icon-calendar) center / contain no-repeat; mask: var(--icon-calendar) center / contain no-repeat; }
+.daily__lead { max-width: var(--size-measure); margin: var(--space-2) 0 0; color: var(--text-body); font-size: var(--size-s); line-height: 1.4; }
+.daily__note { max-width: var(--size-measure); margin: var(--space-2-5) 0 0; color: var(--text-body); font-size: var(--size-label); line-height: 1.4; } /* a limit in force: no wager is shown */
+.daily__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2-5); }
+.daily__boxes { display: flex; flex-wrap: wrap; gap: var(--space-2-5); }
+.daily__box { display: inline-flex; align-items: center; gap: var(--space-2-5); box-sizing: border-box; height: var(--size-button-l); padding: 0 var(--space-4) 0 var(--space-3); border-radius: var(--radius-button); background: var(--bg-plate-veil); box-shadow: var(--line-edge-lit); }
+.daily__box-t { display: grid; gap: calc(var(--space-1) / 2); }
+.daily__box-v { font-size: var(--size-m); font-weight: 900; line-height: 1.05; white-space: nowrap; }
+.daily__box-c { color: var(--text-meta); font-size: var(--size-chip); white-space: nowrap; }
+.daily__box--money .daily__box-v { color: var(--text-money); }
+.daily__box--time .daily__box-v { color: var(--color-blue); }
+.daily__box > .icon--coin { font-size: var(--size-title); }
+.daily__clock { flex: 0 0 auto; width: 1em; height: 1em; font-size: var(--size-title); fill: none; stroke: var(--color-blue); stroke-width: 2.2; stroke-linecap: round; }
+@container daily (min-width: 1080px) {
+  .daily__head--titled { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0 var(--space-5); }
+  .daily__head--titled .daily__title { display: contents; }
+  .daily__head--titled .daily__heading { grid-column: 1; grid-row: 1; }
+  .daily__head--titled .daily__row { grid-column: 2; grid-row: 1; justify-self: end; justify-content: flex-end; }
+  .daily__head--titled :is(.daily__lead, .daily__note) { grid-column: 1 / -1; }
+  .daily__head--titled .daily__lead { margin-top: var(--space-3-5); }
+}
+@container daily (min-width: 761px) and (max-width: 1079px) {
+  .daily__head--titled .daily__title { flex-basis: 100%; }
+  .daily__row { flex: 1 1 100%; }
+  .daily__boxes, .daily__box, .daily__row > .button { flex: 1 1 auto; }
+}
+
+/* the tiers: their colour, their case */
+.daily__cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); margin: max(var(--daily-space-4-5), calc((100cqi - 2 * var(--space-5-5) - 4 * var(--space-3)) / 5 * .825 - var(--daily-reach))) 0 0; padding: 0; list-style: none; }
+.daily__tier--silver { --tier-hue: var(--color-daily-silver); --tier-g: var(--gradient-daily-silver); --case-art: var(--art-daily-silver); }
+.daily__tier--nova { --tier-hue: var(--color-blue); --tier-g: var(--bg-mode-battles); --case-art: var(--art-daily-nova); }
+.daily__tier--guardian { --tier-hue: var(--bg-case-violet); --tier-g: var(--gradient-daily-guardian); --case-art: var(--art-daily-guardian); }
+.daily__tier--legend { --tier-hue: var(--daily-hue-legend); --tier-g: var(--gradient-daily-legend); --case-art: var(--art-daily-legend); }
+.daily__tier--elite { --tier-hue: var(--color-gold); --tier-g: var(--gradient-daily-elite); --case-art: var(--art-daily-elite); }
+.daily__tier { position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: var(--space-2); min-width: 0; height: var(--daily-card); padding: var(--space-3-5) var(--space-3-5) var(--space-4); border-radius: var(--radius-m); background: var(--bg-act-stripes), var(--tier-g); box-shadow: var(--line-lit-top); color: var(--text-on-plate); transition: translate .22s cubic-bezier(.2, .8, .2, 1), box-shadow .22s ease; }
+.daily__name { position: relative; font-size: var(--size-l); font-weight: 900; line-height: 1; text-transform: uppercase; text-shadow: var(--shadow-daily-name); }
+/* the card whose case opens now: higher, an edge of its own hue, its open control inside it */
+.daily__tier.is-live { translate: 0 calc(-1 * var(--space-3)); box-shadow: var(--shadow-tile-lit-live), inset 0 0 0 var(--size-edge) color-mix(in srgb, var(--tier-hue) 70%, transparent), var(--shadow-daily-lift); }
+.daily__tier.is-live > .button { align-self: stretch; } /* row 9 of the rename map, D-260: the live act is the family's Button M, its sides and words as button.css draws them; kit.css's 10px sides and, on a phone, its 12px two-line words are not carried */
+@media (hover: hover) {
+  .daily__tier:hover { translate: 0 calc(-1 * var(--space-1-5)); box-shadow: var(--daily-tier-lit-hover), var(--daily-tier-lift-hover), 0 0 var(--daily-glow) color-mix(in srgb, var(--tier-hue) 60%, transparent); }
+  .daily__tier.is-live:hover { translate: 0 calc(-1 * (var(--space-3) + var(--space-1-5))); box-shadow: var(--shadow-tile-lit-live), inset 0 0 0 var(--size-edge) color-mix(in srgb, var(--tier-hue) 70%, transparent), var(--daily-tier-lift-live-hover), 0 0 var(--daily-glow-live) color-mix(in srgb, var(--tier-hue) 70%, transparent); }
+}
+/* the case, as .media--case draws it: the picture, the skins in its tray, the picture's front over them cut at the level rim, the skins
+   that lean on it in front (--front) */
+.daily__art.media--case { position: absolute; left: -16%; right: -16%; bottom: var(--daily-art-foot); pointer-events: none; }
+.daily__art.media--case::after { content: ''; clip-path: var(--shape-daily-rim); }
+.daily__tier.is-live .daily__art { bottom: var(--daily-art-foot-live); }
+.daily__art > .daily__skin { position: absolute; z-index: 1; display: block; object-fit: contain; filter: var(--shadow-daily-skin); }
+.daily__art > .daily__skin--front { z-index: 3; }
+.daily__tier--nova .daily__skin--c { left: 50%; top: 46%; width: 36%; height: 36%; rotate: 24deg; }
+.daily__tier--guardian .daily__skin--a { left: 22%; top: 12%; width: 56%; height: 48%; rotate: -16deg; }
+.daily__tier--guardian .daily__skin--c { left: 0; top: 48%; width: 34%; height: 34%; rotate: -26deg; }
+.daily__tier--legend .daily__skin--a { left: 14%; top: 10%; width: 56%; height: 48%; rotate: -18deg; }
+.daily__tier--legend .daily__skin--b { left: 30%; top: 6%; width: 56%; height: 48%; rotate: 16deg; }
+.daily__tier--legend .daily__skin--d { left: 56%; top: 50%; width: 32%; height: 32%; rotate: 22deg; }
+.daily__tier--elite .daily__skin--a { left: 32%; top: 0; width: 40%; height: 44%; rotate: -12deg; }
+.daily__tier--elite .daily__skin--b { left: 12%; top: 14%; width: 56%; height: 44%; rotate: 14deg; }
+.daily__tier--elite .daily__skin--c { left: 6%; top: 44%; width: 36%; height: 36%; rotate: -30deg; }
+.daily__tier--elite .daily__skin--d { left: 52%; top: 42%; width: 36%; height: 36%; rotate: 30deg; }
+.daily__tier.is-live .daily__skin { animation: daily-lift 2.6s ease-in-out infinite alternate; } /* ready: the skins lift a little and settle */
+@keyframes daily-lift { to { translate: 0 -8%; } }
+.daily--acct .daily__tier.is-locked .daily__art { filter: brightness(.45) saturate(.75); } /* a case not reached is darkened, the card keeps its colour */
+@container daily (min-width: 761px) and (max-width: 1199px) {
+  .daily__art.media--case { bottom: var(--daily-art-foot-live); }
+  .daily__cards { margin-top: max(var(--daily-space-4-5), calc((100cqi - 2 * var(--space-5-5) - 4 * var(--space-3)) / 5 * .825 - var(--daily-reach-mid))); }
+}
+
+/* the statuses */
+.daily__chip { position: relative; display: inline-flex; align-items: center; gap: var(--space-1-5); max-width: 100%; box-sizing: border-box; padding: var(--size-badge-pad) var(--space-2-5) var(--size-badge-pad) var(--space-2); border-radius: var(--radius-s); background: var(--color-daily-chip); color: var(--text-on-plate); font-size: var(--size-xs); font-weight: 700; line-height: 1.2; }
+.daily__chip > svg { flex: 0 0 auto; width: 1em; height: 1em; font-size: var(--size-label); fill: currentColor; }
+.daily__chip--opened > svg { fill: var(--text-match-on-plate); }
+.daily__chip--open { background: var(--bg-mark-on-plate); color: var(--text-on-accent); }
+.daily__chip--locked { color: var(--daily-chip-text-locked); }
+.daily__say { order: 4; max-width: var(--size-measure); margin: var(--space-2-5) 0 0; color: var(--text-body); font-size: var(--size-xs); }
+.daily__say:empty { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .daily__tier { transition: none; }
+  .daily__tier:hover { translate: none; }
+  .daily__tier.is-live:hover { translate: 0 calc(-1 * var(--space-3)); }
+  .daily__tier.is-live .daily__skin { animation: none; }
+}
+
+/* a phone, after the still rules as in v4, so a live card on a phone lifts 6px under the pointer either way */
+@container daily (max-width: 760px) {
+  .daily__panel { padding: var(--daily-space-4-5) var(--space-4); }
+  .daily__panel::before { background: var(--art-daily-ground) 82% 0 / auto var(--daily-ground-s) no-repeat; -webkit-mask: var(--gradient-daily-fade-s); mask: var(--gradient-daily-fade-s); }
+  .daily__heading { gap: var(--space-3); font-size: var(--daily-heading-s); }
+  .daily__heading::before { flex-basis: var(--daily-mark-s); width: var(--daily-mark-s); height: var(--daily-mark-s); border-radius: var(--radius-s); }
+  .daily__heading::after { left: calc((var(--daily-mark-s) - var(--size-title)) / 2); width: var(--size-title); height: var(--size-title); margin-top: calc(var(--size-title) / -2); }
+  .daily__head--titled .daily__title { flex-basis: 100%; }
+  .daily__row, .daily__boxes { width: 100%; }
+  .daily__boxes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+  .daily__box { padding: 0 var(--space-2-5); gap: var(--space-2); }
+  .daily__box-v { font-size: var(--size-text); }
+  .daily__box-c { font-size: var(--size-unit); white-space: normal; line-height: 1.15; }
+  .daily__box--time:nth-child(odd) { grid-column: 1 / -1; }
+  .daily__row > .button { width: 100%; }
+  /* each tier is the desktop's upright card, two to a row under 440px of panel and three from 440px, the short last row centred */
+  .daily__cards { order: 3; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4) var(--space-2-5); margin-top: calc(var(--daily-space-4-5) + var(--size-edge)); }
+  .daily__tier { grid-column: span 2; height: auto; justify-content: flex-start; gap: var(--space-1-5); padding: calc(min(55%, var(--daily-art-s-pad)) + var(--space-1)) var(--space-2-5) var(--space-2-5); }
+  .daily__tier:last-child { grid-column: 2 / span 2; }
+  .daily__art.media--case, .daily__tier.is-live .daily__art { left: 50%; right: auto; top: 0; bottom: auto; width: min(100%, var(--daily-art-s)); translate: -50% -14%; }
+  .daily__name { font-size: var(--daily-name-s); }
+  .daily__chip { font-size: var(--size-chip); }
+  .daily__tier.is-live { translate: none; align-items: stretch; }
+}
+@media (hover: hover) { @container daily (max-width: 760px) { .daily__tier.is-live:hover { translate: 0 calc(-1 * var(--space-1-5)); } } }
+@container daily (min-width: 440px) and (max-width: 760px) {
+  .daily__cards { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .daily__tier:nth-child(4) { grid-column: 2 / span 2; }
+  .daily__tier:last-child { grid-column: 4 / span 2; }
+  .daily__name { font-size: var(--size-title); }
+}
+@container daily (max-width: 459px) {
+  .daily__box--time { height: var(--size-tap); }
+  .daily__box--time > .daily__box-t { display: flex; align-items: baseline; gap: var(--space-2); }
+  .daily__box--time .daily__box-c { white-space: nowrap; }
+  .daily--guest .daily__boxes { display: flex; width: auto; }
+  .daily--acct .daily__boxes { grid-template-columns: minmax(0, 1fr); }
+}
+@container daily (min-width: 761px) and (max-width: 1079px) {
+  .daily--guest :is(.daily__boxes, .daily__box, .daily__row > .button) { flex: 0 0 auto; }
+}
+@container daily (min-width: 900px) and (max-width: 1079px) {
+  .daily--guest .daily__head--titled { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0 var(--space-5); }
+  .daily--guest .daily__head--titled .daily__title { display: contents; }
+  .daily--guest .daily__head--titled .daily__heading { grid-column: 1; grid-row: 1; }
+  .daily--guest .daily__head--titled .daily__row { grid-column: 2; grid-row: 1; justify-self: end; justify-content: flex-end; flex: none; }
+  .daily--guest .daily__head--titled .daily__lead { grid-column: 1 / -1; margin-top: var(--space-3-5); }
+}
+@container daily (min-width: 460px) and (max-width: 760px) {
+  .daily--guest .daily__row { width: auto; flex-wrap: nowrap; }
+  .daily--guest .daily__boxes { display: flex; width: auto; }
+  .daily--guest :is(.daily__box, .daily__row > .button) { flex: 0 0 auto; }
+  .daily--guest .daily__row > .button { width: auto; }
+  .daily--acct .daily__boxes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .daily--acct .daily__box--time:nth-child(odd) { grid-column: auto; }
+}
+@container daily (min-width: 761px) and (max-width: 899px) {
+  .daily--guest .daily__head--titled { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 var(--space-5); }
+  .daily--guest .daily__head--titled .daily__row { grid-column: 2; grid-row: 1; display: grid; gap: var(--space-2-5); width: auto; flex: none; }
+  .daily--guest .daily__head--titled :is(.daily__boxes, .daily__box) { display: flex; width: 100%; }
+}
+@container daily (min-width: 761px) { .daily__name { font-size: min(var(--size-l), 2.5cqw); } }

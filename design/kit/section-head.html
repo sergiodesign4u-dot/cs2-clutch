@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Section head</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: grid; gap: 28px; padding: 28px 18px; }
+  .cp-matrix td, .cp-matrix th { vertical-align: middle; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: start; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Molecules &middot; Heads and ways &middot; level 2</span>
+  <h1>Section head</h1>
+  <p class="kt-lead">A section's title on a striped tile in a mode's colour with the section's mark, then a line in that colour fading out, and a sub line under it or beside it. Everything on this page is drawn by <code>design/system/components/section-head.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="sec-head sec-head--upgrade"><h2 class="sec-head__title"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--cup"></span></span>Best drops</h2><p class="sec-head__sub">By value. <a class="link link--arrow link--l" href="#anatomy">What usually drops</a></p></div>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The head</b> (the molecule's own)</td><td><code>.sec-head</code></td><td>the grid from 900px (title, then the line); the colour as <code>--sec-g</code> (the tile) and <code>--sec-c</code> (the line); 16px under it</td></tr>
+    <tr><td><b>The title</b> (the molecule's own)</td><td><code>.sec-head__title</code> (an h1 or h2)</td><td>20px, 900, uppercase, line height 1.1; 14px between the tile and the words</td></tr>
+    <tr><td><b>The tile</b> (the molecule's own)</td><td><code>.sec-head__tile</code></td><td>the stripes over the mode's gradient, the lit top edge, the 42px square (34px under 600px)</td></tr>
+    <tr><td><b>The mark</b></td><td><a href="icon.html">Icon</a> in the tile</td><td>the glyph at 22px (18px under 600px); only its name changes</td></tr>
+    <tr><td><b>The line</b> (the molecule's own)</td><td><code>.sec-head::after</code>, from 900px</td><td>2px in the mode's colour fading to nothing; at least 96px long</td></tr>
+    <tr><td><b>The sub line</b> (the molecule's own)</td><td><code>.sec-head__sub</code></td><td>16px in the quiet ink, at most 68 characters; under the title, and beside it from 1200px</td></tr>
+    <tr><td><b>The onward link</b></td><td><a href="text-link.html">Text link</a> <code>.link--arrow .link--l</code> in the sub line</td><td>the arrow link at the sub line's size, 16px; the wording</td></tr>
+    <tr><td><b>The count</b></td><td><a href="badge.html">Badge</a> <code>.badge--count .badge--l</code> after the title</td><td>how many things the section holds</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Two axes. Each carries its rule, so the next screen picks by the rule. Sizes are read from the render.</p>
+  <ul class="kt-list">
+    <li><b>Size = the head's job.</b> M is a section's head (20px). L is Featured cases' larger title on Home and a screen's H1 where the screen has no head block of its own (Deposit, D-237); 26px, and 21px under 600px (D-234).</li>
+    <li><b>Data = the mode the section belongs to.</b> Cases is the default, pink to violet. Upgrade is amber, Battles blue, Showdowns red; the colour is a modifier and the mark is an Icon in the tile. The colour names the section's mode and never a state.</li>
+    <li><b>Content = optional parts.</b> A sub line, an onward link in it, a count beside the title. A head with none of them is the title and its tile.</li>
+  </ul>
+  <h3>Size</h3>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:680px">
+    <thead><tr><th>Size</th><th>Sample</th><th>Measured</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>M</b></td><td><div class="sec-head" data-dim><h2 class="sec-head__title"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--box"></span></span>Inventory</h2></div></td><td><span class="cp-dim"></span></td><td class="kt-note">every block's head: the case, the catalogue, My items, Provably fair</td></tr>
+      <tr><td><b>L</b></td><td><div class="sec-head sec-head--l" data-dim><h2 class="sec-head__title"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--star"></span></span>Featured cases</h2></div></td><td><span class="cp-dim"></span></td><td class="kt-note">Home's Featured cases, Deposit's H1</td></tr>
+    </tbody>
+  </table></div></div>
+  <h3>Mode colour</h3>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="sec-head"><h2 class="sec-head__title"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--star"></span></span>Cases</h2></div>
+    <div class="sec-head sec-head--upgrade"><h2 class="sec-head__title"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--cup"></span></span>Best drops</h2></div>
+    <div class="sec-head sec-head--battles"><h2 class="sec-head__title"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--target"></span></span>Check a round</h2></div>
+    <div class="sec-head sec-head--showdowns"><h2 class="sec-head__title"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--pulse"></span></span>Published against observed</h2></div>
+  </div></div>
+  <h3>Content</h3>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="sec-head"><h2 class="sec-head__title"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--box"></span></span>Inventory<span class="badge badge--count badge--l">6</span></h2></div>
+    <div class="sec-head sec-head--showdowns"><h2 class="sec-head__title"><span class="sec-head__tile" aria-hidden="true"><span class="icon icon--pulse"></span></span>Published against observed</h2><p class="sec-head__sub">What we publish for each tier, and what actually came out.</p></div>
+  </div></div>
+  <p class="kt-note">Under 900px the line is gone and the sub line stands under the title; from 900px the line runs beside the title and the sub line stands under it; from 1200px a head with a sub line puts it beside the title, before the line. Resize the window to see each.</p>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>One head to a section of a page, naming what the section is in the words of the screen: "What is in this case", "Best drops", "Published against observed". It gives the page its outline (the screen reader's headings) and its rhythm, and the mode's colour tells which part of the product the section belongs to without a legend. The sub line says what the section shows in one short sentence, with the way on if there is one; it never carries a claim the section does not prove, which is design principle 1, trust is the product.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>Over a block of a page: Best drops over the strip of recent drops, with "By value" and the link to what usually drops. One H1 per page: where a screen has no head block, its head is the L.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A label inside a panel or over a field is a plain label, not a head. A path to the page is a <b>Breadcrumb</b>. A head that belongs to a page and carries art is the page's own head block (the catalogue's, the fair page's). A destination is a <b>Text link</b>, which the sub line holds.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p><b>No states: it is not interactive.</b> The head is read, never pressed. The one thing in it that can be pointed at is the onward link, and that is the Text link's own hover and focus (<a href="text-link.html">its page</a>); the head draws none instead of it.</p>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and tracking come straight from the primitives. Three colours are read directly and wait for step 9: <code>--color-head-upgrade</code>, <code>--color-head-battles</code> and <code>--color-head-showdowns</code>, the line of a head in its mode's colour, read in this block only. The head's four own sizes (<code>--sec-head-tile-s</code>, <code>-icon-s</code>, <code>-line</code>, <code>-l-s</code>) are written in the file with their origin, as <code>kit.css</code> writes them. The sub line's link at 16px is the Text link's <code>--l</code>, with the family's .02em tracking (D-264): the screens' rule drew it at normal tracking, a difference of 0.32px per letter that is the one change from what they draw.</p>
+  <p>File: <code>design/system/components/section-head.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
+  <pre>&lt;div class="sec-head sec-head--upgrade"&gt;
+  &lt;h2 class="sec-head__title"&gt;&lt;span class="sec-head__tile" aria-hidden="true"&gt;&lt;span class="icon icon--cup"&gt;&lt;/span&gt;&lt;/span&gt;Best drops&lt;/h2&gt;
+  &lt;p class="sec-head__sub"&gt;By value. &lt;a class="link link--arrow link--l" href="..."&gt;What usually drops&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- --l for the large head; --battles, --showdowns, --upgrade for the mode; none for Cases --&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file, and the screens' own rules on the head (the Steam state in it, a block's margins) stay with their screens.</p>
+</section>
+<script>
+document.querySelectorAll('[data-dim]').forEach(function (h) {
+  var r = h.getBoundingClientRect(), t = getComputedStyle(h.querySelector('.sec-head__title')), tile = h.querySelector('.sec-head__tile').getBoundingClientRect();
+  h.closest('tr').querySelector('.cp-dim').textContent = 'title ' + parseFloat(t.fontSize) + 'px, tile ' + Math.round(tile.width) + ' x ' + Math.round(tile.height) + ', head ' + Math.round(r.height) + ' high';
+});
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-hi', '--text-on-plate', '--text-meta', '--bg-stripes', '--bg-mode-cases', '--bg-mode-upgrade', '--bg-mode-battles', '--bg-mode-showdowns', '--bg-lit', '--line-lit-top'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>semantic</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

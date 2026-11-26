@@ -1,0 +1,18 @@
+/* PAYMENT RECORD, level 2 (molecule). The record of a payment on its way: its lines, the one that decides a withdrawal last, the line that says when to
+ * ask, and the ways on.
+ * Page: design/kit/payment-record.html. Stands on one coloured screen, Deposit (the paid state, "This deposit"); the grey's support page carries it
+ *   too in its upheld state (design/kit/inventory.md, Payment record). Its Section head above it is the screen's, not the record's.
+ * Holds: Key-value line (each line at M, .kv--m since rename map row 24; the one that decides last is .kv--total), Note line (the line that says when to
+ *   ask), Button (the ways on, M ghost). It places them and never restyles them.
+ * Reads: --bg-plate, --line-plate-edge; geometry and type from the primitives. No colour primitive is read directly.
+ * Carried from design/kit/kit.css part 4.4 (lines 5666 to 5678, This deposit) at stage 08 step 5, round 2, by rename map row 3 of the molecules
+ *   (.record becomes .payment-record, every element renamed the same way) and row 24 (the lines are the Key-value line at M, not a rule on
+ *   .record__lines > .kv). One-off of wireframes/deposit-crediting.html .wf-total; the lines stand on the Deposit dock's plate as its total does. */
+
+.payment-record {
+  --payment-record-w: 520px; /* .dialog --dialog-w-card, the one-column card: a record reads at a card's width, not across the column; технічне рішення */
+}
+.payment-record { min-width: 0; }
+.payment-record__lines { display: grid; gap: var(--space-3); max-width: var(--payment-record-w); box-sizing: border-box; padding: var(--space-5); border-radius: var(--radius-m); background: var(--bg-plate); box-shadow: var(--line-plate-edge); }
+.payment-record > .note { margin-top: var(--space-3); }
+.payment-record__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); }

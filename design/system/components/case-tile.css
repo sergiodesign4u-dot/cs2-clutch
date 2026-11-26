@@ -1,0 +1,100 @@
+/* CASE TILE, level 2 (molecule). A case as Home draws it: the case with its skin, its name, its risk as four bolts, its price in gold with the coin.
+ * Page: design/kit/case-tile.html. Stands on the catalogue and Home, eight pages (design/kit/inventory.md, Case tile).
+ * Holds: Media slot (.media--case, the case's picture), Favourite toggle (.fav, the corner's pill), Icon (.icon--bolt, .icon--coin). The price is the
+ *   tile's own .case-tile__cost, not a Figure: the product never wore .fig there and a Figure would redraw the number.
+ * Reads: --text-base, --text-hi, --text-on-plate, --text-meta, --text-body, --text-money, --text-money-on-plate, --text-risk-low, --text-risk-mid, --text-risk-high,
+ *   --text-risk-off, --bg-lit, --bg-tile, --bg-act-stripes, --bg-mode-cases, --bg-mode-battles, --bg-mode-showdowns, --bg-case-gold,
+ *   --bg-case-violet, --line-edge-lit, --line-lit, --line-focus; geometry, type and motion from the primitives. Colour primitives read directly,
+ *   each named in the report of round 2: --color-blue and --color-gold (two of the six with one reader per surface), --color-rare-fire,
+ *   --color-fav-plate, --gradient-case-violet, --gradient-fade-up and --shadow-tip (read in this block only, tokens-audit.md), --color-price-plate,
+ *   --shadow-price-edge and --color-risk-extreme (this block's, no role yet), --color-disabled (the busy wash the Button's disabled look also
+ *   reads); all wait for step 9.
+ * Carried from design/kit/kit.css part 4.2 (CASE TILE, lines 2545 to 2628) at stage 08 step 5, round 2, unchanged in look. Rules an organism or a
+ *   screen writes on this class (.case-grid__cell > .case-tile and the like) stay in kit.css: the Case grid carries them in round 3.
+ *   From design/v4/case-tiles.css and theme.css. */
+
+/* One form. The colour is the case's, a modifier (pink the default, blue, violet, gold, ember): it sets the light round the case (--case-glow, which
+   the Media slot reads) and the plate the tile takes under the pointer (--case-plate). */
+.case-tile {
+  --case-tile-fav-strip: 36px; /* case-tiles.css .wf-tile padding-top calc(var(--space-4) + 36px), the strip over a case where its favourite sits */
+  --case-tile-risk: 22px; /* case-tiles.css .wf-tile-risk height, the row of four bolts; its width is four --size-check */
+}
+.case-tile { --case-glow: var(--bg-lit); --case-plate: var(--bg-mode-cases); position: relative; z-index: 0; isolation: isolate; display: flex; flex-direction: column; box-sizing: border-box; padding: calc(var(--space-4) + var(--case-tile-fav-strip)) var(--space-2) var(--space-5); border-radius: var(--radius-m); color: var(--text-base); font-size: var(--size-text); line-height: 1.2; text-align: center; transition: z-index 0s .2s; }
+.case-tile--blue { --case-glow: var(--color-blue); --case-plate: var(--bg-mode-battles); }
+.case-tile--gold { --case-glow: var(--color-gold); --case-plate: var(--bg-case-gold); }
+.case-tile--violet { --case-glow: var(--bg-case-violet); --case-plate: var(--gradient-case-violet); }
+.case-tile--ember { --case-glow: var(--color-rare-fire); --case-plate: var(--bg-mode-showdowns); }
+.case-tile__link { position: relative; isolation: isolate; display: flex; flex: 1 1 auto; flex-direction: column; align-items: center; gap: var(--space-hair); color: inherit; text-decoration: none; }
+.case-tile__link:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-m); }
+/* the tile's own card under the pointer, starting under the lid so the case stands out of its top edge */
+.case-tile__fx { position: absolute; z-index: -1; inset: 30% calc(-1 * var(--space-1)) calc(-1 * var(--space-2-5)); border-radius: var(--radius-m); background: var(--bg-act-stripes), var(--case-plate); opacity: 0; translate: 0 var(--space-2-5); pointer-events: none; -webkit-mask: var(--gradient-fade-up); mask: var(--gradient-fade-up); transition: opacity .22s, translate .3s var(--motion-ease-settle); }
+/* the case: the Media slot, wider than the tile and moved right so the case's body stands on the tile's centre line */
+.case-tile__art { width: 124%; margin: -6% -12% var(--space-3); translate: 6.8% 0; transform-origin: 50% 82%; transition: transform .45s var(--motion-ease-pop), filter .35s; }
+.case-tile__art > img { transition: rotate .45s var(--motion-ease-pop), translate .45s var(--motion-ease-pop), scale .45s var(--motion-ease-pop); }
+.case-tile__name { color: var(--text-hi); font-size: var(--size-text); font-weight: 900; letter-spacing: var(--tracking-case-name); text-transform: uppercase; }
+/* the risk: four bolts, one to four lit in the band's colour; its words stay for a screen reader */
+.case-tile__risk { --rc: var(--text-meta); --n: 0; position: relative; display: block; width: calc(4 * var(--size-check)); height: var(--case-tile-risk); margin-block: var(--space-hair) var(--space-2); overflow: visible; color: transparent; font-size: 0; }
+.case-tile__risk[data-risk="low"] { --rc: var(--text-risk-low); } .case-tile__risk[data-risk="medium"] { --rc: var(--text-risk-mid); }
+.case-tile__risk[data-risk="high"] { --rc: var(--text-risk-high); } .case-tile__risk[data-risk="extreme"] { --rc: var(--color-risk-extreme); }
+.case-tile__bolts { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: var(--size-check); }
+.case-tile__bolts > .icon { position: relative; display: block; color: var(--text-risk-off); transition: filter .2s, scale .2s; }
+.case-tile__bolts > .icon.is-on { color: var(--rc); }
+.case-tile__bolts > .icon:nth-child(2) { --k: 1; } .case-tile__bolts > .icon:nth-child(3) { --k: 2; } .case-tile__bolts > .icon:nth-child(4) { --k: 3; }
+/* the band in words beside the bolts on their right, or their left (.is-left, set by the screen's script where the right has no room) */
+.case-tile__tip { position: absolute; z-index: 5; left: 0; right: auto; top: 50%; translate: calc(-1 * var(--space-1)) -50%; padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--bg-tile); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--rc) 70%, transparent), var(--shadow-tip); color: var(--text-hi); font-size: var(--size-chip); font-weight: 700; line-height: 1.2; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .15s, translate .2s var(--motion-ease-settle), left 0s .2s, right 0s .2s; }
+.case-tile__tip::after { content: ''; position: absolute; right: 100%; top: 50%; width: var(--space-1-5); height: var(--space-2-5); translate: 0 -50%; background: color-mix(in srgb, var(--rc) 70%, var(--bg-tile)); clip-path: var(--shape-tip-tail); }
+.case-tile__tip.is-left { translate: var(--space-1) -50%; }
+.case-tile__tip.is-left::after { right: auto; left: 100%; scale: -1 1; }
+.case-tile__price { position: relative; display: flex; align-self: center; align-items: center; justify-content: center; min-height: var(--size-button-m); margin-top: var(--space-1); padding: 0; border-radius: var(--radius-s); transition: background .2s, box-shadow .2s, padding .2s; }
+.case-tile__cost { color: var(--text-money); font-size: var(--size-title); font-weight: 900; font-variant-numeric: tabular-nums; transition: opacity .2s, translate .25s; }
+.case-tile__cost > .icon--coin { width: .8em; height: .8em; margin-right: var(--space-1-5); vertical-align: -.05em; }
+/* under the pointer or keyboard focus the price stands on a dark plate; the money keeps its plate value there, so it holds its contrast in the light theme too (kit.css has no such line: its one theme is dark, where the two values are the same) */
+.case-tile:is(:hover, :focus-within) .case-tile__price { padding: 0 var(--space-3-5); background: var(--color-price-plate); box-shadow: var(--shadow-price-edge); }
+:where(.case-tile:is(:hover, :focus-within)) .case-tile__cost { color: var(--text-money-on-plate); } /* zero extra weight: the missing and the busy forms keep their own colour */
+:where(.case-tile:is(:hover, :focus-within)) .case-tile__name { color: var(--text-on-plate); } /* the name sits on the tile's card under the pointer, a plate in both themes; --text-on-plate is the same white as --text-hi in the dark theme */
+/* the favourite: the Favourite toggle, its plate drawn inside the tap area as a smaller pill; the plate is dark in both themes, so its words and heart wear the plate ink */
+.case-tile__fav { position: absolute; z-index: 2; top: var(--space-hair); right: var(--space-hair); isolation: isolate; overflow: visible; justify-content: center; color: var(--text-on-plate); min-width: var(--size-tap); min-height: var(--size-button-m); padding: 0 var(--space-1-5); border-radius: 0; background: none; box-shadow: none; font-size: var(--size-xs); font-weight: 400; font-variant-numeric: normal; line-height: 1.2; white-space: nowrap; }
+.case-tile__count { font-size: var(--size-label); font-weight: 700; }
+.case-tile__fav::before { content: ''; position: absolute; z-index: -1; inset: var(--space-1-5) 0; border-radius: var(--radius-s); background: var(--color-fav-plate); box-shadow: var(--line-edge-lit); } /* v4 drew 10px corners, the ladder's 8, D-228 */
+.case-tile__fav > * { position: relative; margin: 0 var(--space-1); }
+.case-tile__fav > .icon { font-size: var(--size-check); transition-timing-function: var(--motion-ease-bounce); }
+.case-tile__fav[aria-pressed="true"] { box-shadow: none; }
+.case-tile__fav[aria-pressed="true"]::before { box-shadow: inset 0 0 0 var(--size-edge) var(--line-lit); }
+.case-tile__fav[aria-pressed="true"] > :not(.icon) { color: var(--text-on-plate); }
+
+/* STATES. Hover (and focus on the face) lifts the tile: its own card rises out of the lid, the case swells and the skin leaves it, the price takes its
+   plate and the favourite shows; under the bolts the band shows in words and the bolts strike. The ring is the system's, on :focus-visible only. */
+@media (hover: hover) {
+  .case-tile:hover .case-tile__fx, .case-tile__link:focus-visible .case-tile__fx { opacity: 1; translate: 0 0; }
+  .case-tile:hover .case-tile__art { transform: scale(1.06); filter: brightness(1.1); }
+  .case-tile:hover .case-tile__art > img { rotate: 4deg; translate: 0 -14%; scale: 1.14; }
+  .case-tile:hover .case-tile__bolts > .is-on { filter: brightness(1.2) drop-shadow(0 0 var(--blur-bolt) color-mix(in srgb, var(--rc) 60%, transparent)); }
+  .case-tile__risk:hover .case-tile__bolts > .is-on { animation: case-tile-strike .5s var(--motion-ease-bounce) calc(var(--k, 0) * var(--motion-stagger-bolt)) both; filter: brightness(1.3) drop-shadow(0 0 var(--blur-bolt-strike) var(--rc)); }
+  .case-tile__risk:hover .case-tile__bolts > :not(.is-on) { animation: case-tile-flicker .5s ease-out calc(var(--k, 0) * var(--motion-stagger-bolt)) both; }
+  .case-tile .case-tile__fav:not([aria-pressed="true"]) { opacity: 0; transition: opacity .2s; }
+  .case-tile:is(:hover, :focus-within) .case-tile__fav { opacity: 1; }
+}
+@keyframes case-tile-strike { 0% { scale: 1; translate: 0 0; } 35% { scale: 1.4; translate: 0 calc(-1 * var(--space-thin)); } 100% { scale: 1.15; translate: 0 calc(-1 * var(--size-hairline)); } }
+@keyframes case-tile-flicker { 0%, 100% { filter: none; color: var(--text-risk-off); } 30% { filter: drop-shadow(0 0 var(--space-1) var(--rc)); color: color-mix(in srgb, var(--rc) 55%, var(--text-risk-off)); } }
+.case-tile__risk:hover .case-tile__tip { left: calc(100% + var(--space-2-5)); opacity: 1; translate: 0 -50%; transition: opacity .15s, translate .2s var(--motion-ease-settle), left 0s, right 0s; }
+.case-tile__risk:hover .case-tile__tip.is-left { left: auto; right: calc(100% + var(--space-2-5)); }
+.case-tile:has(.case-tile__risk:hover) { z-index: 2; transition: z-index 0s; } /* the tile whose bolts are hovered rises over its neighbours, so its tooltip is not covered */
+.case-tile .case-tile__fav:focus-visible { opacity: 1; }
+/* a figure whose source fails says so in words, never a zero and never a default band, 0.11 rule 3, D-246 */
+.case-tile__risk.is-missing { width: auto; max-width: 100%; height: auto; min-height: var(--case-tile-risk); color: var(--text-body); font-size: var(--size-chip); line-height: var(--case-tile-risk); }
+.case-tile__cost.is-missing { color: var(--text-body); font-size: var(--size-chip); font-weight: 700; }
+.case-tile__gone { position: absolute; z-index: 2; top: var(--space-2); left: var(--space-1); right: var(--space-1); margin: 0; color: var(--text-body); font-size: var(--size-unit); line-height: 1.2; text-align: right; pointer-events: none; } /* the favourite count's source failed */
+/* busy: the loading skeleton, the base case and bars in the busy wash, the tile's own shape so the grid does not reflow; the product's own, aria-busy (D-133, D-246) */
+.case-tile .case-tile__fav[aria-busy="true"] { opacity: 1; cursor: default; } /* the count alone is being read, catalogue-loading (D-133) */
+.case-tile__fav[aria-busy="true"] > .case-tile__count { width: 2.4em; height: 1em; border-radius: var(--radius-xs); background: var(--color-disabled); }
+.case-tile[aria-busy="true"] :is(.case-tile__name, .case-tile__cost) { border-radius: var(--radius-xs); background: var(--color-disabled); color: transparent; }
+.case-tile[aria-busy="true"] .case-tile__risk { border-radius: var(--radius-xs); background: var(--color-disabled); }
+.case-tile[aria-busy="true"] :is(.case-tile__bolts, .case-tile__tip, .case-tile__cost > .icon) { visibility: hidden; }
+.case-tile[aria-busy="true"] .case-tile__fav > :not(.icon) { min-width: 2.4em; border-radius: var(--radius-xs); background: var(--color-disabled); color: transparent; }
+@media (prefers-reduced-motion: reduce) {
+  .case-tile__fx, .case-tile__art, .case-tile__art > img, .case-tile__cost, .case-tile__price, .case-tile__tip, .case-tile__bolts > .icon, .case-tile__fav > .icon { transition: none; }
+  .case-tile:hover .case-tile__fx { translate: none; }
+  .case-tile:hover .case-tile__art { transform: none; }
+  .case-tile:hover .case-tile__art > img { rotate: -10deg; translate: none; scale: none; }
+  .case-tile__risk:hover .case-tile__bolts > .icon { animation: none; }
+}
