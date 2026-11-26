@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, geometry and motion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system, straight: index.css arrives with the first component at step 5 -->
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/base.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'space', label: 'Space' }, { id: 'radius', label: 'Corners' }, { id: 'sizes', label: 'Sizes of things' }, { id: 'shell', label: 'The shell and the breakpoints' }, { id: 'motion', label: 'Motion as it stands' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .ge-row { display: grid; grid-template-columns: 180px 64px minmax(0, 1fr); gap: 12px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--line-soft); font-size: 12px; }
+  @media (max-width: 599px) { .ge-row { grid-template-columns: minmax(0, 1fr) 56px; } .ge-row > :last-child { grid-column: 1 / -1; } }
+  .ge-row > * { min-width: 0; }
+  .ge-row > div { overflow: hidden; }
+  .ge-bar { height: 16px; border-radius: 3px; background: var(--bg-lit); max-width: 100%; }
+  .ge-gap { display: flex; align-items: center; }
+  .ge-gap i { width: 16px; height: 32px; border-radius: 3px; background: var(--bg-tile); box-shadow: var(--line-edge-lit); }
+  .ge-gap u { height: 32px; background: repeating-linear-gradient(135deg, var(--bg-lit) 0 2px, transparent 2px 6px); }
+  .ge-rad { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 12px; }
+  .ge-rad div { display: grid; gap: 8px; }
+  .ge-rad i { height: 84px; background: var(--bg-tile); border: 2px solid var(--bg-lit); }
+  .ge-shell { display: grid; grid-template-columns: 70px 1fr; grid-template-rows: 32px 26px 1fr 28px; gap: 4px; height: 240px; font-size: 11px; }
+  .ge-shell > div { display: grid; place-items: center; border-radius: 6px; background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-meta); text-align: center; padding: 4px; }
+  .ge-shell .h { grid-column: 1 / -1; } .ge-shell .r { grid-row: 2 / -1; }
+  .ge-bp { display: grid; gap: 6px; }
+  .ge-bp div { display: grid; grid-template-columns: 120px 1fr; gap: 10px; font-size: 13px; }
+  .mo-row { display: grid; grid-template-columns: 220px 80px minmax(0, 1fr) 64px; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line-soft); font-size: 12px; }
+  @media (max-width: 699px) { .mo-row { grid-template-columns: minmax(0, 1fr) 64px; } .mo-row > :nth-child(3) { grid-column: 1 / -1; } }
+  .mo-track { position: relative; height: 22px; border-radius: 11px; background: var(--bg-track); overflow: hidden; }
+  .mo-dot { position: absolute; left: 2px; top: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--bg-lit); }
+  .mo-track.is-run .mo-dot { left: calc(100% - 20px); }
+  .mo-play { min-height: 32px; padding: 0 10px; border: 0; border-radius: 8px; font: inherit; font-size: 12px; font-weight: 700; color: var(--text-on-plate); background: var(--bg-act); cursor: pointer; }
+  .mo-play:focus-visible { outline: 2px solid var(--text-hi); outline-offset: 2px; }
+  .mo-curve { width: 64px; height: 64px; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Foundations &middot; tokens.css and base.css</span>
+  <h1>Geometry and motion</h1>
+  <p class="kt-lead">Space shown as space and a corner as a corner, the sizes of controls and of the shell, where the layout breaks, and the motion the product carries today. Geometry is read straight from the primitives: a gap has nothing a theme would override.</p>
+</header>
+
+<section class="kt-sec" id="space">
+  <div class="kt-subhead"><h2>Space</h2><span id="n-space"></span></div>
+  <p>The seven steps of direction 2 (<code>--space-1</code> to <code>--space-7</code>, 4 to 56px, D-187) and the half steps the molecules needed (D-231). Each drawn as the gap it makes between two tiles.</p>
+  <div id="space-body"></div>
+</section>
+
+<section class="kt-sec" id="radius">
+  <div class="kt-subhead"><h2>Corners</h2><span id="n-radius"></span></div>
+  <p>Rounded and soft, sharp nowhere. Cards, tiles and buttons take one corner, 12px (D-209, D-218); a circle is a control or an avatar; a pill is a chip.</p>
+  <div class="ge-rad" id="radius-body"></div>
+</section>
+
+<section class="kt-sec" id="sizes">
+  <div class="kt-subhead"><h2>Sizes of things</h2><span id="n-size"></span></div>
+  <p>Every size that is not a type size, from a hairline to the content column, drawn to scale up to the width of this column. No target in the product is smaller than <code>--size-tap</code>, 44px.</p>
+  <div id="size-body"></div>
+</section>
+
+<section class="kt-sec" id="shell">
+  <h2>The shell and the breakpoints</h2>
+  <p>From <code>base.css</code>: the header across the top, the rail beside the page from the header's top, the live drops under the header, the screen's slot, the footer (D-232); under 900px the rail becomes a drawer and a bottom bar carries a shortcut subset.</p>
+  <div class="kt-pair">
+    <div class="ge-shell" aria-label="The shell at 900px and up">
+      <div class="h">Header, <span data-v="--size-header"></span></div><div class="r">Rail <span data-v="--size-rail-collapsed"></span> closed, <span data-v="--size-rail"></span> open</div>
+      <div>Live drops</div><div>The screen's slot: gutter 32px, 56px from 1200px, the column centred past 1560px (D-234)</div><div>Footer</div>
+    </div>
+    <div class="ge-bp kt-panel">
+      <h3>Where the layout breaks</h3>
+      <div><b>under 600px</b><span>a phone: one column, the bottom bar of <span data-v="--size-bar"></span></span></div>
+      <div><b>600 to 899px</b><span>a tablet: still the drawer and the bar</span></div>
+      <div><b>900px and up</b><span>the rail beside the content, the header strip over both</span></div>
+      <div><b>1200px</b><span>the slot's gutter grows to 56px</span></div>
+      <div><b>1560px</b><span>the widest column, centred past it</span></div>
+      <p class="kt-note">Single rules also stand at 760, 1100 and 1360px (DESIGN.md, Layout). The breakpoints are stage 10's; this is where they stand today.</p>
+    </div>
+  </div>
+</section>
+
+<section class="kt-sec" id="motion">
+  <div class="kt-subhead"><h2>Motion as it stands</h2><span id="n-motion"></span></div>
+  <p>Every duration and curve the product reads today, carried from v4 with the founder's picks (D-235, D-236). This section holds them until stage 11 gives motion its own page and brings them to three durations and three curves. Press Play to run a duration with the settle curve, or a curve over 0.8 seconds.</p>
+  <p class="kt-note" id="mo-reduced" hidden>Your system asks for reduced motion, so Play shows the end state without moving.</p>
+  <div id="motion-body"></div>
+</section>
+
+<script src="_tokens.js"></script>
+<script>
+(function () {
+  var cs = getComputedStyle(document.documentElement), esc = KitTokens.esc;
+  document.querySelectorAll('[data-v]').forEach(function (b) { b.textContent = cs.getPropertyValue(b.getAttribute('data-v')).trim(); });
+  var TYPE = ['--size-xl', '--size-l', '--size-m', '--size-s', '--size-xs', '--size-unit', '--size-chip', '--size-label', '--size-text', '--size-title', '--size-panel', '--size-stat', '--size-micro', '--size-lead', '--size-badge-text', '--size-tile-icon', '--size-head-l'];
+  function px(p) { var d = document.createElement('div'); d.style.cssText = 'position:absolute;visibility:hidden;width:var(' + p + ')'; document.body.appendChild(d); var w = d.getBoundingClientRect().width; d.remove(); return w; }
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; if (reduce) document.getElementById('mo-reduced').hidden = false;
+  KitTokens.load().then(function (t) {
+    function tip(p) { return ' title="' + esc(p.comment) + '"'; }
+    var sp = t.prims.filter(function (p) { return /^--space-/.test(p.name); }).map(function (p) { return [p, px(p.name)]; }).sort(function (a, b) { return a[1] - b[1]; });
+    document.getElementById('n-space').textContent = sp.length + ' tokens';
+    document.getElementById('space-body').innerHTML = sp.map(function (x) { var p = x[0];
+      return '<div class="ge-row"' + tip(p) + '><code>' + esc(p.name) + '</code><span class="n">' + esc(p.value) + '</span><div class="ge-gap"><i></i><u style="width:var(' + p.name + ')"></u><i></i></div></div>'; }).join('');
+    var rd = t.prims.filter(function (p) { return /^--radius-/.test(p.name); });
+    document.getElementById('n-radius').textContent = rd.length + ' tokens';
+    document.getElementById('radius-body').innerHTML = rd.map(function (p) {
+      return '<div' + tip(p) + '><i style="border-radius:var(' + p.name + ')"></i><code>' + esc(p.name) + '</code><span class="kt-note">' + esc(p.value) + '</span></div>'; }).join('');
+    var sz = t.prims.filter(function (p) { return /^--size-/.test(p.name) && TYPE.indexOf(p.name) < 0; }).map(function (p) { return [p, px(p.name)]; }).sort(function (a, b) { return a[1] - b[1]; });
+    document.getElementById('n-size').textContent = sz.length + ' tokens';
+    document.getElementById('size-body').innerHTML = sz.map(function (x) { var p = x[0];
+      return '<div class="ge-row"' + tip(p) + '><code>' + esc(p.name) + '</code><span class="n">' + esc(p.value) + '</span><div class="ge-bar" style="width:var(' + p.name + ')"></div></div>'; }).join('');
+    var mo = t.prims.filter(function (p) { return /^--motion-/.test(p.name); });
+    document.getElementById('n-motion').textContent = mo.length + ' tokens, ' + mo.filter(function (p) { return /cubic-bezier/.test(p.value); }).length + ' of them curves';
+    document.getElementById('motion-body').innerHTML = mo.map(function (p, i) {
+      var curve = /cubic-bezier/.test(p.value), viz = '';
+      if (curve) { var v = p.value.replace(/^[^(]*\(|\)\s*$/g, '').split(',').map(parseFloat), Y = function (y) { return 54 - y * 44; };
+        viz = '<svg class="mo-curve" viewBox="0 -10 64 74" aria-hidden="true"><path d="M5 54 C ' + (5 + v[0] * 54) + ' ' + Y(v[1]) + ', ' + (5 + v[2] * 54) + ' ' + Y(v[3]) + ', 59 10" fill="none" stroke="var(--text-link)" stroke-width="2.5"/><path d="M5 54 H59" stroke="var(--line-soft)"/></svg>'; }
+      return '<div class="mo-row"' + tip(p) + '><span><code>' + esc(p.name) + '</code><div class="kt-note">' + esc(p.value) + '</div></span>' + (viz || '<span></span>') +
+        '<div class="mo-track" id="mo' + i + '"><i class="mo-dot"></i></div><button type="button" class="mo-play" data-i="' + i + '" data-v="' + esc(p.name) + '" data-c="' + curve + '">Play</button></div>'; }).join('');
+    document.getElementById('motion-body').addEventListener('click', function (e) {
+      var b = e.target.closest('.mo-play'); if (!b) return;
+      var tr = document.getElementById('mo' + b.getAttribute('data-i')), dot = tr.firstChild, c = b.getAttribute('data-c') === 'true', v = 'var(' + b.getAttribute('data-v') + ')';
+      tr.classList.remove('is-run'); dot.style.transition = 'none'; void dot.offsetWidth;
+      dot.style.transition = reduce ? 'none' : 'left ' + (c ? '.8s' : v) + ' ' + (c ? v : 'var(--motion-ease-settle)');
+      tr.classList.add('is-run');
+    });
+  });
+})();
+</script>
+
+</div></main>
+</body>
+</html>

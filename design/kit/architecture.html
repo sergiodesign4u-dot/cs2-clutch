@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system, straight: index.css arrives with the first component at step 5 -->
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/base.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'ladders', label: 'Two ladders' }, { id: 'roles', label: 'Roles and their names' }, { id: 'reads', label: 'What a component reads' }, { id: 'themes', label: 'The themes' }, { id: 'folders', label: 'Two folders' }, { id: 'imports', label: 'Why @import by level' }, { id: 'five', label: 'Adding a component' }, { id: 'change', label: 'Where a change goes' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .ar-ladders { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 899px) { .ar-ladders { grid-template-columns: 1fr; } }
+  .ar-step { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; padding: 12px 14px; border-radius: 10px; background: var(--bg-tile); box-shadow: var(--line-edge); }
+  .ar-step + .ar-step { margin-top: 8px; }
+  .ar-step i { display: grid; place-items: center; height: 40px; border-radius: 8px; font-style: normal; font-weight: 900; color: var(--text-on-plate); background: var(--bg-act); }
+  .ar-step.is-cap i { background: var(--bg-fair); }
+  .ar-step.is-later { opacity: .7; } .ar-step.is-later i { color: var(--text-hi); background: var(--bg-wash); box-shadow: var(--line-edge); }
+  .ar-step b { color: var(--text-hi); } .ar-step p { font-size: 13px; margin-top: 2px; }
+  .ar-folders { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 699px) { .ar-folders { grid-template-columns: 1fr; } }
+  .ar-folders ul { margin: 0; padding-left: 18px; font-size: 13px; display: grid; gap: 4px; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Foundations &middot; the rules</span>
+  <h1>Architecture</h1>
+  <p class="kt-lead">How the system is built, read before anything else on the stand. The source is <code>design/kit/docs/architecture.md</code>; this page is its visible place and changes with it.</p>
+</header>
+
+<section class="kt-sec" id="ladders">
+  <h2>Two ladders, both called levels</h2>
+  <p>They are different axes. One says where a value comes from; the other says what a component contains.</p>
+  <div class="ar-ladders">
+    <div class="kt-panel">
+      <h3>The ladder of tokens: where a value comes from</h3>
+      <div class="ar-step"><i>1</i><div><b>Primitive</b><p>A raw value with its origin beside it, carried from <code>kit.css</code> line for line: colours, space, radii, sizes, type, motion, shadows, gradients, shapes, icons. Pictures live in <code>art.css</code> (D-259).</p></div></div>
+      <div class="ar-step"><i>2</i><div><b>Semantic</b><p>A role a component reads: a job that repeats in two blocks or more, may part from its neighbour, and paints one surface. Always a <code>var()</code> of a primitive, with its readers, parent and contrast in both themes.</p></div></div>
+      <p class="kt-note">A component token is made only at step 5, only where a state finds no role.</p>
+    </div>
+    <div class="kt-panel">
+      <h3>The ladder of components: what contains what</h3>
+      <div class="ar-step"><i>1</i><div><b>Atoms</b><p>Contain no component. 23 on paper.</p></div></div>
+      <div class="ar-step"><i>2</i><div><b>Molecules</b><p>Contain an atom. 23 on paper.</p></div></div>
+      <div class="ar-step is-cap"><i>3</i><div><b>Organisms, the ceiling</b><p>Contain a molecule or an organism, and stay organisms whatever they hold. Inside the level, one that contains another loads after it. 25 on paper.</p></div></div>
+      <div class="ar-step is-later"><i>+</i><div><b>Patterns, from stage 09</b><p>Settled compositions of organisms, above the ladder.</p></div></div>
+      <p class="kt-note">The level is produced once, in <code>design/kit/inventory.md</code>, and then only read: it sets the files, the <code>@import</code> order, this panel's groups and the order of the rounds. Never group by purpose.</p>
+    </div>
+  </div>
+</section>
+
+<section class="kt-sec" id="roles">
+  <h2>Roles and their names</h2>
+  <p>The prefix names the surface a role paints, because each surface has its own threshold (WCAG 1.4.3 and 1.4.11). A role on one surface never paints another, even at the same value: a fill on a 12px label passes as a fill and fails as text.</p>
+  <div class="kt-tbl"><table style="min-width:620px">
+    <thead><tr><th>Prefix</th><th>Surface</th><th>Threshold</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><code>--text-*</code></td><td>ink: words, and glyphs</td><td>4.5:1; 3:1 for a glyph or large text</td><td><span style="color:var(--text-money);font-weight:900">1 250</span> <code>--text-money</code></td></tr>
+      <tr><td><code>--bg-*</code></td><td>fill: grounds, plates, marks</td><td>3:1 where the fill carries meaning; a ground is what ink is measured on</td><td><span style="display:inline-block;width:40px;height:18px;border-radius:5px;background:var(--bg-act);vertical-align:middle"></span> <code>--bg-act</code></td></tr>
+      <tr><td><code>--line-*</code></td><td>line: rules, edges, rings</td><td>3:1 where the line carries meaning; a decorative divider is exempt</td><td><span style="display:inline-block;width:40px;height:18px;border-radius:5px;box-shadow:inset 0 0 0 2px var(--line-error);vertical-align:middle"></span> <code>--line-error</code></td></tr>
+      <tr><td><code>--depth-*</code></td><td>a lift, a glow, a shadow under art</td><td>none: colour without a contrast job</td><td><span style="display:inline-block;width:40px;height:18px;border-radius:5px;background:var(--bg-card);box-shadow:var(--depth-card);vertical-align:middle"></span> <code>--depth-card</code></td></tr>
+    </tbody>
+  </table></div>
+  <div class="kt-pair">
+    <div><span class="kt-theme-lbl">Dark</span><div class="kt-scene" data-theme="dark" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><span style="color:var(--text-hi);font-weight:900">--text-hi</span><span style="padding:6px 10px;border-radius:8px;background:var(--bg-act);color:var(--text-on-plate);font-weight:900">--text-on-plate</span></div></div>
+    <div><span class="kt-theme-lbl">Light</span><div class="kt-scene" data-theme="light" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><span style="color:var(--text-hi);font-weight:900">--text-hi</span><span style="padding:6px 10px;border-radius:8px;background:var(--bg-act);color:var(--text-on-plate);font-weight:900">--text-on-plate</span></div></div>
+  </div>
+  <p>The suffix <code>-on-plate</code> marks the same job on a coloured plate or a picture instead of the theme's ground. The theme moves the ground and leaves the plate, so the two part in the light theme, as above.</p>
+</section>
+
+<section class="kt-sec" id="reads">
+  <h2>What a component reads</h2>
+  <ul class="kt-list">
+    <li><b>Colour only through the semantic level.</b> The theme and a rebrand override colour; a component that reads a colour primitive is a hole the first theme finds. Named exception: a colour read in one block only stays a primitive until step 9 decides.</li>
+    <li><b>Geometry, type and motion straight from the primitives.</b> A radius, a gap or a duration has nothing to override.</li>
+    <li><b>No literal.</b> No hex and no pixel value in a component's file. A state reads a state token, <code>--bg-hover</code>, <code>--bg-active</code>, <code>--color-focus</code>, <code>--opacity-disabled</code>, made at step 5 in both themes.</li>
+  </ul>
+</section>
+
+<section class="kt-sec" id="themes">
+  <h2>The themes</h2>
+  <p>The product is dark from its first day (design principle 4, D-258). <code>:root</code> holds the dark roles and <code>[data-theme="dark"]</code> repeats them, so a part of a page can stay dark inside a light one. <code>[data-theme="light"]</code> overrides the semantic level only, never a primitive. Every role has its pair, and a pair is not a mirror: contrast is measured against the opposite ground, so the light theme takes another step of a colour, or a new value named "variable, value, why" in <code>tokens-audit.md</code>.</p>
+</section>
+
+<section class="kt-sec" id="folders">
+  <h2>Two folders</h2>
+  <div class="ar-folders">
+    <div class="kt-panel"><h3><code>design/system/</code>: what the product loads</h3><p class="kt-note">A package that can be lifted out whole.</p><ul>
+      <li><code>tokens.css</code>: primitive, semantic, the light pair</li><li><code>base.css</code>: the reset, the page's type and ground, the shell's layout</li><li><code>art.css</code>: the pictures</li>
+      <li><code>index.css</code>, from step 5: tokens, base, art, then <code>@import</code> by level</li><li><code>components/</code>: one file per component</li><li><code>screens/</code>: a screen's own blocks, one file per screen (D-259)</li></ul></div>
+    <div class="kt-panel"><h3><code>design/kit/</code>: what shows the system to a person</h3><p class="kt-note">Never loaded by a screen.</p><ul>
+      <li><code>_nav.js</code>: the one registry of the stand, panel and cards; <code>_page.css</code>: the stand's styles; <code>_tokens.js</code>: reads tokens.css for these pages</li>
+      <li><code>overview.html</code>: the hub</li><li>a page per foundation and, from step 5, per component</li>
+      <li><code>docs/</code>: the audit, the census, the architecture; the inventory stays at <code>design/kit/inventory.md</code> (D-258)</li></ul></div>
+  </div>
+  <p>A product class in the stand, or a stand style in a component's file, is a defect.</p>
+</section>
+
+<section class="kt-sec" id="imports">
+  <h2>Why <code>@import</code> goes by level</h2>
+  <pre>@import "tokens.css";  @import "base.css";  @import "art.css";
+/* atoms */      @import "components/button.css";  ...
+/* molecules */  @import "components/case-tile.css";  ...
+/* organisms */  @import "components/field.css";  ...  @import "components/dialog.css";
+/* screens */    @import "screens/home.css";  ...</pre>
+  <p>Bottom up: a container loads after what it holds, so the cascade lets a container adjust its parts and never the other way round. Alphabetical order would load the Button after the Dialog that styles it.</p>
+</section>
+
+<section class="kt-sec" id="five">
+  <h2>Adding a component: five things at once</h2>
+  <ol class="kt-list">
+    <li><code>design/system/components/&lt;name&gt;.css</code>, its states in both themes.</li>
+    <li><code>design/kit/&lt;name&gt;.html</code>, its page with five blocks.</li>
+    <li>A record in <code>design/kit/_nav.js</code>, in the group of its level.</li>
+    <li>A row in <code>design/kit/inventory.md</code> with its level.</li>
+    <li>An <code>@import</code> in its level's group in <code>index.css</code>, never at the end of the file.</li>
+  </ol>
+  <p class="kt-note">A card on the hub is not a sixth: the registry draws it.</p>
+</section>
+
+<section class="kt-sec" id="change">
+  <h2>Where a change goes</h2>
+  <div class="kt-tbl"><table style="min-width:560px"><thead><tr><th>A change of</th><th>Goes to</th><th>And is recorded</th></tr></thead><tbody>
+    <tr><td><b>A value</b>: a colour, a size, a duration</td><td>one line in <code>tokens.css</code>; it reaches every component through <code>var()</code></td><td>a row "variable, was, becomes, why" in <code>tokens-audit.md</code></td></tr>
+    <tr><td><b>A form</b>: a variant, a part, a state</td><td>the component's file and its page</td><td>the component's page and <code>inventory.md</code></td></tr>
+    <tr><td><b>A screen's markup</b></td><td>the screen, wearing the system's classes</td><td>a screen never holds a value of its own</td></tr>
+  </tbody></table></div>
+</section>
+
+</div></main>
+</body>
+</html>

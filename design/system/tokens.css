@@ -645,7 +645,9 @@
 }
 
 /* ===== SEMANTIC ===== */
-:root {
+/* :root holds the dark theme, the product's own; [data-theme="dark"] repeats it for a part of a page that must stay dark inside a light one
+   (the stand shows both themes side by side), stage 08 step 4 */
+:root, [data-theme="dark"] {
   /* Ink: words and glyphs */
   --text-hi: var(--color-text-hi); /* the words on the theme's ground: figures, names, headings, the label of an act on a dark tile. Ink: 117 rules in 61 blocks (Popover menu, Drop card,
      Hero). Parent: атрибут A5. Threshold 4.5:1 (ink). Dark 18.8:1 on the card, light 16.4:1 on the light tile. */

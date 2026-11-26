@@ -120,7 +120,7 @@ window.NAV = [
   // Stages 08 to 11 lead into one room, the stand design/kit/, so they are one group of four (course CLAUDE.md, "Design System").
   // wip sits on the group from stage 08 step 1, 26 Nov 2026, D-258, and stage 11 step 6 takes it off; done goes on each child when its page exists.
   { label: 'Design System', wip: true, children: [
-      { label: 'Tokens + Components', page: 'design/kit/overview.html',   done: false },
+      { label: 'Tokens + Components', page: 'design/kit/overview.html',   done: true }, // the stand's hub exists since stage 08 step 4; the group stays wip until stage 11
       { label: 'System guide',        page: 'design/kit/why.html',        done: false },
       { label: 'Responsive',          page: 'design/kit/responsive.html', done: false },
       { label: 'Animation',           page: 'design/kit/motion.html',     done: false }
