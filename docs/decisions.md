@@ -7875,3 +7875,31 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 - Renaming the primitives to hue steps: a third layer of renames that no theme needs.
 - Leaving shadows and brand plates outside the semantic level: components would read colour around it.
 - Mirroring the dark values for the light theme: the brand pink, the money gold and the greens fail 4.5:1 on paper.
+
+## D-262. The foundations accepted on the stand: the light values kept, one value declared once, the Figure's sizes named
+
+**Date:** 2026-11-26. **Stage:** 08, step 4. **Decided by:** the founder, after the foundation pages on the published stand: "Q1–Q5 как рекомендуешь" (Q1 to Q5 as you recommend).
+
+**Built.** The stand opens at `design/kit/overview.html` with its own registry and panel (`design/kit/_nav.js`, `KIT_NAV`), a dark and light switch, and no roadmap. Six foundation pages read `design/system/tokens.css` live:
+- architecture, from `design/kit/docs/architecture.md`, written at this step;
+- colour, every role in both themes side by side, the contrast of all 101, the palette;
+- typography;
+- geometry with motion;
+- icons with art;
+- depth.
+
+`tokens.css` lets a part of a page stay dark (`[data-theme="dark"]`), with no value changed. Tokens + Components is done on the roadmap; the Design System group stays wip until stage 11.
+
+**Decided.**
+1. **Q1:** the light theme's 28 values are accepted as written at step 3. They are the stress test of step 7; whether the theme stays in the product is decided at step 8.
+2. **Q2:** `--shadow-tile-lit-soft` is declared once, at white .22. The first declaration, at .20, was overridden everywhere, so no pixel moves.
+3. **Q3:** rarity 4 and rarity 6 keep 2.9:1 on the dark tile. This is the baseline's ladder, and the tier is also said in words. It is a known cost, printed in both roles.
+4. **Q4:** the Figure's sizes are named by the type step each reads: `.fig--xs` 13, `.fig` 14, `.fig--m` 18, `.fig--title` 20, `.fig--l` 22, `.fig--head` 26, `.fig--win` 30. They are written into `design/kit/inventory.md` and on `kit.html`.
+5. **Q5:** 22px stays the Figure's own value, the one size off the scale.
+
+Each answer is a row in `design/kit/docs/tokens-audit.md`, "Review of the foundations".
+
+**Rejected.**
+- Moving 22px to 20 or 24: it moves the price beside every act.
+- Keeping .20 for the account menu's tile: it was never drawn.
+- Lifting rarity 4 and 6: it changes the baseline's ladder for one contrast figure.

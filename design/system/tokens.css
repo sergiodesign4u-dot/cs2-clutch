@@ -464,7 +464,6 @@
   --shadow-up-tab: inset 0 0 0 1px rgba(53, 224, 138, .35), 0 0 14px rgba(53, 224, 138, .22); /* v4 case-stage.css: z .v4c-won-x.is-up. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
   --shadow-menu: 0 24px 48px rgba(0, 0, 0, .5); /* v4 account-home.css: .am3, under the account menu. Popover menu, account; рішення користувача, D-209 (v4) carried by D-231 */
   --shadow-avatar-l: 0 0 0 2px rgba(255, 255, 255, .85), 0 6px 14px rgba(6, 10, 30, .45); /* v4 account-home.css: .am3-ava. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
-  --shadow-tile-lit-soft: inset 0 1px 0 rgba(255, 255, 255, .2); /* v4 account-home.css: .am3-t.is-items and .is-rp, the light along a lit tile's top. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
   --gradient-menu: linear-gradient(180deg, #16133C, #0D0C28); /* v4 account-home.css: .am3 background. Popover menu, account; рішення користувача, D-209 (v4) carried by D-231 */
   --gradient-stripes-m: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px); /* v4 account-home.css: .am3-t.is-rp, the stripes on Responsible play, wider than --gradient-stripes. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
   --blur-ring-glow-near: 2px; /* the near light's blur; the same rules; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
@@ -567,7 +566,7 @@
   --filter-card-skin: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); /* a skin rising off a round's card; v4 proof-home.css .x6-skin; рішення користувача, D-209 (v4) carried by D-234 */
   --filter-card-hover: brightness(1.08); /* a round's card under the pointer; v4 proof-home.css .x6-card:hover; рішення користувача, D-209 (v4) carried by D-234 */
   --gradient-involves-stage: linear-gradient(150deg, #8E2BC9, #3B1A8F); /* the plate Nightfall stands on, the case tile's violet; v4 seo-home.css .v4-seo --c1 --c2 and .sx-stage; рішення користувача, D-209 (v4) carried by D-234 */
-  --shadow-tile-lit-soft: inset 0 1px 0 rgba(255, 255, 255, .22); /* that plate's lit top edge, a step under --shadow-tile-lit; v4 seo-home.css .sx-stage; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-tile-lit-soft: inset 0 1px 0 rgba(255, 255, 255, .22); /* stage 08 step 4, D-262 (Q2), the founder: "Q1-Q5 как рекомендуешь": the one declaration; a first one at .20 (v4 account-home.css .am3-t, the account menu's tile) was overridden by this line everywhere and is removed, so no pixel moves; that plate's lit top edge, a step under --shadow-tile-lit; v4 seo-home.css .sx-stage; рішення користувача, D-209 (v4) carried by D-234 */
   --shadow-edge-bright: inset 0 0 0 1px rgba(255, 255, 255, .12); /* a dark pill's edge over the plate; v4 seo-home.css .sl-pill; рішення користувача, D-209 (v4) carried by D-234 */
   --color-rule-faint: rgba(255, 255, 255, .08); /* the hairline over each part of About Clutch; v4 faq-home.css .ab-i border-top; the same value as --color-track, a pair for stage 08; рішення користувача, D-209 (v4) carried by D-234 */
   /* Stage 07 step 5, the motion v4 Home was approved with, carried into the kit, D-235: the rare drops' colours and shadows and the pace an
@@ -608,7 +607,7 @@
   --gradient-button-sweep: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .16) 50%, transparent 70%); /* the light running through a busy act, Rolling; v4 case-page.css .v4c-go.is-rolling::after; рішення користувача, D-209 (v4) carried by D-236 */
 
   /* ===== The light theme's values, new at stage 08 step 3, D-258 point 1: "each light value step 3 writes is a new value, named
-     'variable, value, why' in tokens-audit.md and shown at step 4's review before any component reads it". Proposed, not yet seen. ===== */
+     'variable, value, why' in tokens-audit.md and shown at step 4's review before any component reads it". Accepted at that review, D-262 (Q1). ===== */
   --color-paper: #F2F3F9; /* the page ground of the light theme: the navy of --color-ground (hue 230) lifted to paper, so the light page keeps the product's blue cast rather than a neutral grey; technical, the light pair of D-258 */
   --color-paper-2: #E8EAF4; /* a step under the paper, the light tile and the stage's deep card: the dark theme draws them a step off the card, the light one a step off the page; technical, the light pair of D-258 */
   --color-paper-3: #E2E5F1; /* the light square of the burger toggle, a step under --color-paper-2 as --color-burger stands a step over the tile; technical, the light pair of D-258 */
@@ -771,7 +770,8 @@
   --bg-rarity-3: var(--color-rarity-3); /* rarity 3. Fill: 5 rules in 5 blocks (The stage's own card, Feed tile, Case stage). Parent: атрибут A4. Threshold 3:1 (a ring or a plate, WCAG 1.4.11).
      Dark 4.6:1 on the tile, light 3.5:1 on the light tile. */
   --bg-rarity-4: var(--color-rarity-4); /* rarity 4. Fill: 2 rules in 2 blocks (Feed tile, The stage form). Parent: атрибут A4. Threshold 3:1 (a ring or a plate, WCAG 1.4.11). Dark 2.9:1 on the
-     tile, light 5.6:1 on the light tile. Below the threshold in the dark theme: named for step 4. */
+     tile, light 5.6:1 on the light tile. Below the threshold in the dark theme: kept by the founder at step 4 (D-262, Q3), the baseline's ladder, the tier
+     also said in words on the item; a known cost. */
   --bg-rarity-4-lit: var(--color-rarity-4-lit); /* rarity 4 lit, its glow on the stage. Fill: 5 rules in 4 blocks (Case stage, The stage's own card, Published against observed). Threshold 3:1 (a ring
      or a plate, WCAG 1.4.11). Dark 4.7:1 on the tile, light 3.4:1 on the light tile. */
   --bg-rarity-5: var(--color-rarity-5); /* rarity 5. Fill: 3 rules in 3 blocks (Feed tile, After my items' second gate, The stage form). Parent: атрибут A4. Threshold 3:1 (a ring or a plate,
@@ -779,7 +779,8 @@
   --bg-rarity-5-lit: var(--color-rarity-5-lit); /* rarity 5 lit, its glow on the stage. Fill: 5 rules in 4 blocks (How this case works, The stage's own card, Case stage). Threshold 3:1 (a ring or a
      plate, WCAG 1.4.11). Dark 4.5:1 on the tile, light 3.6:1 on the light tile. */
   --bg-rarity-6: var(--color-rarity-6); /* rarity 6. Fill: 1 rule in 1 block (Feed tile). Parent: атрибут A4. Threshold 3:1 (a ring or a plate, WCAG 1.4.11). Dark 2.9:1 on the tile, light 5.6:1
-     on the light tile. Below the threshold in the dark theme: named for step 4. */
+     on the light tile. Below the threshold in the dark theme: kept by the founder at step 4 (D-262, Q3), the baseline's ladder, the tier also said in
+     words on the item; a known cost. */
   --bg-rarity-7: var(--color-rarity-7); /* rarity 7, the commonest; no sample item has it, so no state draws it yet. Fill: no state draws it yet. Parent: атрибут A4. Threshold 3:1 (a ring or a
      plate, WCAG 1.4.11). Dark 14.3:1 on the tile, light 3.5:1 on the light tile. */
 
@@ -829,9 +830,9 @@
      from its ground; no threshold of its own. */
   --line-lit-top: var(--shadow-tile-lit); /* the lit top edge of a plate, white at .25. Line: 15 rules in 10 blocks (Payment panel, Before you spend, Daily ladder). A light or an edge on a
      coloured plate: the same in both themes, no threshold of its own. */
-  --line-lit-top-soft: var(--shadow-tile-lit-soft); /* the softer lit top edge. The kit declares --shadow-tile-lit-soft twice, white at .20 (the account menu's tile) and at .22 (the involves plate); the
-     second wins everywhere, so every reader draws .22 today. Carried as it stands and named for step 4. Line: 5 rules in 3 blocks (Popover menu, What
-     opening a case here involves, The page's head). A light or an edge on a coloured plate: the same in both themes, no threshold of its own. */
+  --line-lit-top-soft: var(--shadow-tile-lit-soft); /* the softer lit top edge, white at .22; declared twice in kit.css (.20 and .22, the second winning everywhere), one declaration since D-262. Line: 5
+     rules in 3 blocks (Popover menu, What opening a case here involves, The page's head). A light or an edge on a coloured plate: the same in both themes,
+     no threshold of its own. */
   --line-plate-edge: var(--shadow-plate-edge); /* the violet edge of a bar's plate. Line: 4 rules in 4 blocks (Category bar, Deposit dock, Commit block). A light or an edge on a coloured plate: the
      same in both themes, no threshold of its own. */
   --line-pink-fade: var(--gradient-edge-pink); /* a pink line fading out at both ends. Line: 3 rules in 2 blocks (Footer, Disclosure). A light or an edge on a coloured plate: the same in both themes,
