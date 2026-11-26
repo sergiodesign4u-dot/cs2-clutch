@@ -7796,3 +7796,52 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 **Step 1, done the same day.** `design/kit/docs/tokens-audit.md` and `design/kit/docs/census.md`, facts only, on two instruments (Claude by script and browser, Codex read only). The numbers: 554 variables in `:root`, 231 distinct colour values, 432 custom properties declared inside components, 10 orphans, 18 variables painting two surfaces, 148 near-identical colour pairs in four clusters, 1 326 of 3 663 rules worn by no coloured state at load (979 of them the grey-era `wf-*` layer, dead), every variable with an origin. The census: 102 loads, 21 990 controls, 8 885 visible, 360 measured on every load, no horizontal scroll; the tile edge drawn at three alphas and a refusal ringed in two reds; seventeen jobs drawn in more than one form; eleven grey variants with no form in colour. Their visible place is `design/kit/pixel-proof.html` at step 9, as the pack sets it.
 
 **Rejected.** A dark-only system with the hole named: it leaves step 7 and half of the state checks hollow and nothing proves that the semantic level is overridden apart from the components. Moving the scripts now: it would touch every screen twice, once now and once at step 8.
+
+## D-259. Where the material with no component goes: screens' own blocks, art, depth and motion
+
+**Date:** 2026-11-26. **Stage:** 08, after step 1. **Decided by:** the founder, on the four placements step 1 asked for: "все как рекомендуешь" (everything as you recommend).
+
+**Decided.**
+1. **A screen's own blocks** (`kit.css` part 4.4, the eighteen one-offs from Before you spend to Responsible play's head) go to `design/system/screens/<screen>.css`, imported after the organisms, loaded by the product and not listed on the stand as components. Four of them stand on a second screen and become components at step 2: Before you spend with its form What this case pays, How this case works, What a round proof is made of, and This deposit.
+2. **The art** (the 55 `--art-*` pictures, the case art map `[data-art]`, the flags `[data-flag]`) goes to `design/system/art.css` beside `base.css`, shown on the icons page under "Art".
+3. **Depth and surface** (the 175 shadows, gradients, blurs, filters and clip shapes) get a fifth foundation page, `design/kit/depth.html`, at step 4.
+4. **Motion** (the 29 `--motion-*` values) is a section "Motion as it stands" on `design/kit/geometry.html` until stage 11 gives it `motion.html`.
+
+**Rejected.** Folding the screens' blocks into the components (they hold one screen's content and would make components of one-offs); leaving the art and the depth values off every page (a token no page shows does not exist for the person who decides).
+
+## D-260. The family consolidated on paper: 71 components, two values merged, a rename map for step 6
+
+**Date:** 2026-11-26. **Stage:** 08, step 2. **Decided by:** the founder, one level at a time. Atoms: "Q1 и Q2 как рекомендуешь" (Q1 and Q2 as you recommend). Molecules: "Q3 как рекомендуешь" (Q3 as you recommend). Organisms: "принято" (accepted).
+
+**Decided.**
+1. **Q1, the dark tile's edge:** one role at white .07. `--shadow-tile-edge` goes from .05 to .07; the icon tiles, menu rows and best drop cards brighten by .02. The Hero's glass (.10) and a form control's meta-grey edge are other roles.
+2. **Q2, a refusing control:** its ring is `--color-error`. The Verify form's malformed fields leave `--color-down`, which stays for a value that went down.
+3. **Q3, the account menu:** its own component, the Account menu, level 2, beside the Popover menu, whose head it lacks. The Popover menu keeps the language and select lists.
+4. **The count:** 67 became 71, 23 atoms, 23 molecules and 25 organisms. The Select is merged into the Popover menu's select form. Four one-offs on a second screen became components by `D-259`: Money strip, Payment record, How this case works and Proof fields, the last being the field set the public result's Proof block holds. The Account menu split out.
+5. **Local overrides closed, no value changed by them.** The atoms' page closed nine. Seven became variants:
+   - Button: `--stack` (glyph over label); the priced start moved into `--priced`; `--name` kept;
+   - Text link: `--l` and `--s`;
+   - Avatar: L 52, the old L renamed XL;
+   - Note line: `--l`.
+   Two went back to the family's values, both fit-tested at 1440 and 360: Daily's live act at M and the item card's acts at S.
+   The molecules' page closed the rest the same way:
+   - Text link: `--tap` and `--hi` as a tone;
+   - Key-value line: `--fact`;
+   - Note line: `--hi`;
+   - Tabs: `--plate`;
+   - Segmented control: takes the category bar's chosen look.
+   The Figure's seven sizes by container are named at step 4 against the type scale.
+6. **What goes:**
+   - Deleted: `.button--arrow`, `.select` and `.select--l`.
+   - Moved to their containers: `.button--fill` and `.fig--end`.
+   - Verified at step 6: fourteen classes worn by no coloured state at load.
+7. **Ten grey variants without a form in colour are closed.** Six take a form the kit already has. Four go to `backlog.md` at step 6: the File picker, a text area with an attachment, the roomy field label and a legal page's table of contents.
+8. **Seventeen screens' own blocks** go to seven files in `design/system/screens/`, by `D-259`.
+
+**Found on the recount, not a decision:** the Field rises from level 2 to 3. The control it holds for a choice is now the Popover menu, a molecule. The molecules' and organisms' pages had counted it at 2. Written in `design/kit/inventory.md` with the table, the rename map, what goes and the closed controls, and the merged drift in `tokens-audit.md`.
+
+**Rejected.**
+- One component with three forms for the menus: a zone one has and another lacks makes two.
+- White .05 for the edge: three families would keep it, nine would change.
+- `--color-down` for a refusal: it is the colour of money that fell.
+- Keeping the item card's and Daily's own button padding: a block restyling an atom is the drift this stage removes.

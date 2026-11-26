@@ -239,7 +239,7 @@ The inventory's variants, read from all 134 grey pages at stage 07, minus what t
 | Button | primary, label, M | drawn | `button--primary button--m` |
 | Button | secondary, leading icon and label, M | drawn | `button--ghost button--m button--name` (the sign-in providers) |
 | Button | primary, label, L | drawn | `button--primary button--l` (the commit, Sign in with Steam, a declined deposit) |
-| Button | secondary, label, L (Send to Steam on the outcome, Round details) | **no form** | no coloured state draws a ghost L; Round details belongs to the batch outcome (3.6) |
+| Button | secondary, label, L (Send to Steam on the outcome, Round details) | drawn | `button--ghost button--l`: See Coldfront on Home's banner, Read the algorithm on Provably fair's head, Open again on the interrupted open. Withdrawn on verification at step 2: the fold of section 1 missed it, the walk of every component root (`blocks.js`, 26 Nov 2026) found 18 |
 | Button | primary, leading icon and label, L (Sign in with Steam) | drawn | `button--primary button--l` with its glyph |
 | Button | primary and secondary, leading icon and label, S (the selection bar's Steam and Sell) | drawn in another form | the selection bar draws them at M, shrunk to 11px at 360 (section 1) |
 | Navigation item | the rail, the footer, the account menu, the bottom bar | drawn | `rail__item`, `footer__link`, `popover__opt`, `bottom-bar__i` |
@@ -271,7 +271,7 @@ The inventory's variants, read from all 134 grey pages at stage 07, minus what t
 | Range | label M | drawn | `range range--tap` in the filter drawer |
 | File picker | icon only L | **no form** | support (0.10) only; nothing in colour and no rule of its own in the kit |
 
-**11 variants have no form in colour** and 5 are drawn in another form than the grey's (a decision already taken, D-238, or a shrink at 360 that section 1 lists). Each goes to step 2.
+**11 variants had no form in colour at step 1, 10 after the row on the ghost L was withdrawn at step 2** and 5 are drawn in another form than the grey's (a decision already taken, D-238, or a shrink at 360 that section 1 lists). Each goes to step 2.
 
 ### Checked before believing it
 

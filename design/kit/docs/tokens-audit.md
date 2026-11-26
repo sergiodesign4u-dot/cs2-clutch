@@ -41,7 +41,14 @@ The only three legal sources of a change of look in this stage. Every row is "va
 
 ### Merged drift (step 3)
 
-None yet.
+Decided at step 2 (`D-260`), on the atoms' page, by the founder: "Q1 и Q2 как рекомендуешь" (Q1 and Q2 as you recommend), and with the atoms accepted. The two variable rows are written into `tokens.css` at step 3; the two class rows are written into the Button at step 5 and worn by the screens at step 6, and are listed here because they change what a screen shows.
+
+| Variable or class | Was | Becomes | Why |
+|---|---|---|---|
+| `--shadow-tile-edge` | `inset 0 0 0 1px rgba(255, 255, 255, .05)` | white at .07, one role with `--shadow-edge` | Q1: one 1px edge of a dark tile drawn at .05 by the icon tiles, menu rows and best drop cards and at .07 by fields, tabs, the segmented control, the rail, the header and the disabled button (`census.md`, Line colours); .07 is what most families draw. Its 16 readers in `kit.css` brighten by .02. The Hero's glass at .10 and a form control's meta-grey edge are other roles and stay. |
+| `.input[aria-invalid="true"]`, `.textarea[aria-invalid="true"]` ring | `--color-down` `#FF5C7A` | `--color-error` `#FF4D6A` | Q2: a refusing control is an error, as Sign in's declarations already draw it; the fall's red stays for a value that went down. Seen on the Verify form's malformed entry (`fair-malformed.html`). |
+| `.daily__tier.is-live > .button` | sides 10px; at 360, 12px words that wrap | the Button M as the family draws it | a local rule restyling an atom; the family's values fit at 1440 and 360 (fit test, step 2); on a phone the words go from 12 to 13px. |
+| `.item-card > .button`, `.item-card__acts > .button` | sides 4px | the Button S's 14px sides | a local rule restyling an atom; no visible change, the act fills the card's width. |
 
 ### Review of the foundations (step 4)
 

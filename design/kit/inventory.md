@@ -15,7 +15,7 @@ Read on 18 November 2026 from all 133 product pages in `wireframes/` (the hub `o
 5. **Inside level 3** the organisms that hold no other organism come first, then those that do, so a part always loads before its whole.
 6. **The level is computed, not chosen.** The script recomputes every level from the "Contains" column and fails on a mismatch. Four rows moved on that check while this file was drawn: Status notice rose to 3 (it holds a Copyable value); Daily ladder, Withdraw item and Deposit dock fell to 2 (they hold only atoms).
 
-**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms; 21 molecules and 22 organisms since `D-238`, the Deposit dock rising a level when the terms declaration, a Field, moved into it. 28 one-offs stay out of the kit, 32 since `D-234` added Home's four closing blocks, 36 since `D-236` added the case screen's four, 38 since `D-237` added the two of Deposit the walk of the grey had missed. 46 since the screens of step 5 added eight more: Provably fair's four (`D-245`), the catalogue's head and Filters in force (`D-246`), Responsible play's head (`D-248`) and Steam state (`D-240`); the count was not carried at those gates and was put right at step 6 (the reader's finding R1, `design/kit/docs/critique.md`). **Two of them already stand on a second screen and are owed to the components at stage 08:** Before you spend, with its form What this case pays (1.0 and 3.3), and How this case works (3.3, read by 1.2 since `D-245`). Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each.
+**Totals.** 67 components: 24 atoms, 22 molecules, 21 organisms; 21 molecules and 22 organisms since `D-238`, the Deposit dock rising a level when the terms declaration, a Field, moved into it. 28 one-offs stay out of the kit, 32 since `D-234` added Home's four closing blocks, 36 since `D-236` added the case screen's four, 38 since `D-237` added the two of Deposit the walk of the grey had missed. 46 since the screens of step 5 added eight more: Provably fair's four (`D-245`), the catalogue's head and Filters in force (`D-246`), Responsible play's head (`D-248`) and Steam state (`D-240`); the count was not carried at those gates and was put right at step 6 (the reader's finding R1, `design/kit/docs/critique.md`). **Two of them already stand on a second screen and are owed to the components at stage 08:** Before you spend, with its form What this case pays (1.0 and 3.3), and How this case works (3.3, read by 1.2 since `D-245`). Form controls enter the kit from a single screen, the pack's one exception: File picker and Switch stand on one node each. **Stage 08 step 2 consolidated the family to 71: 23 atoms, 23 molecules, 25 organisms** (`D-260`): the Select merged into the Popover menu, the Account menu split from it, the two one-offs above and two more (What a round proof is made of, This deposit) made components by `D-259`, and the Field risen to level 3. The tables below stay as stage 07 wrote them; the family stage 08 builds, its rename map and what goes are in the last section, "Stage 08 step 2: the family consolidated".
 
 ## The table
 
@@ -111,18 +111,18 @@ On one screen only: one IA node, with the state nodes drawn on its own pages (3.
 
 | Block | Node | Read from | Note |
 |---|---|---|---|
-| Before you spend | 1.0 | `wf-figs` (v4 `x6`) | the money strip and the Every round plate beside two checked rounds; `.spend`, kit.css 4.4, D-234 |
+| Before you spend | 1.0 | `wf-figs` (v4 `x6`) | the money strip and the Every round plate beside two checked rounds; `.spend`, kit.css 4.4, D-234; **a component since stage 08 step 2, `D-260`** |
 | What opening a case here involves | 1.0 | `wf-prose` (v4 `sx`) | the paragraph beside Nightfall on its plate; `.involves`, kit.css 4.4, D-234 |
 | Questions and answers | 1.0 | `wf-faq` on Home (v4 `fq`) | its questions are kit Disclosures; `.faq`, kit.css 4.4, D-234 |
 | About Clutch | 1.0 | `wf-prose` (v4 `ab`) | a lead and four parts under heads; `.about`, kit.css 4.4, D-234 |
 | Before you open | 3.3 | `wf-case-info` (v4 `v4i`, row D) | two plates, what a skin's price means and what must be true before opening; `.before`, kit.css 4.4, D-236 |
-| What this case pays | 3.3 | `wf-figs` (v4 `x6` with `v4p`, row B) | Home's money strip with four panels; `.spend--pays`, a form of Before you spend, kit.css 4.4, D-236 |
+| What this case pays | 3.3 | `wf-figs` (v4 `x6` with `v4p`, row B) | Home's money strip with four panels; `.spend--pays`, a form of Before you spend, kit.css 4.4, D-236; **a component since stage 08 step 2, `D-260`** |
 | Published against observed | 3.3 | `wf-table` (v4 `v4o`, row D) | a row a tier, the published bar and the observed tick with its change; `.observed`, kit.css 4.4, D-236 |
 | Provably fair's head | 1.2 | `wf-sec` with `wf-scope-two` | the crumb, the H1, the public line and two ways on beside what a proof proves and does not, on the Proof block's blue; `.fair-head`, `.fair-scope`, kit.css 4.4, D-245 |
-| What a round proof is made of | 1.2 | `wf-proof-fields` read only | the field set in the hash well on the same blue, beside the Verify form; `.fair-made`, kit.css 4.4, D-245 |
+| What a round proof is made of | 1.2 | `wf-proof-fields` read only | the field set in the hash well on the same blue, beside the Verify form; `.fair-made`, kit.css 4.4, D-245; **a component since stage 08 step 2, `D-260`** |
 | If your check does not match ours | 1.2 | `wf-sec` | read before it happens, on a card; `.fair-miss`, kit.css 4.4, D-245 |
 | The algorithm, published in full | 1.2 | `wf-algo` | the computation and its history beside the worked example, its version on a status Badge; `.fair-algo`, kit.css 4.4, D-245 |
-| How this case works | 3.3, 1.2 | `wf-prose` (v4 `v4t`, `v4u`, row I) | the prose on its plate beside the ticket ruler; `.how`, `.ruler`, kit.css 4.4, D-236; read by 1.2 as How a round is fixed since D-245, so by this table's rule it is owed to the components |
+| How this case works | 3.3, 1.2 | `wf-prose` (v4 `v4t`, `v4u`, row I) | the prose on its plate beside the ticket ruler; `.how`, `.ruler`, kit.css 4.4, D-236; read by 1.2 as How a round is fixed since D-245, so by this table's rule it is owed to the components; **a component since stage 08 step 2, `D-260`** |
 | System page block | 0.3 | `wf-sys` | code, heading, two ways out, reference |
 | Toast | 0.3 | `wf-copied` | Copied; node 0.5 owns toasts and no other page draws one |
 | Cookie consent | 0.4 | `wf-ck` | its own layer with category rows; its toggles are kit Checkboxes |
@@ -144,7 +144,7 @@ On one screen only: one IA node, with the state nodes drawn on its own pages (3.
 | Provider tile | 4.1 | `wf-pay-t` | the provider grid on the deposit page; the other deposit states show the Chosen method instead; the ways to pay, `.methods`, kit.css 4.4, D-237; each method's mark over its name, `design/kit/marks/`, D-238 |
 | Skin deposit | 4.1 | `wf-skindep` | deposit with skins; the skins as kit Checkbox rows in the Payment panel's list, `.pay-panel__list`, D-237 |
 | What still works | 4.2 | `wf-open-list` | the ways a stop leaves open, each a Text link with its line; `.works`, kit.css 4.4, D-237 |
-| This deposit | 4.4 | `wf-total` | the record of a payment on its way, Key-value lines on the dock's plate; `.record`, kit.css 4.4, D-237 |
+| This deposit | 4.4 | `wf-total` | the record of a payment on its way, Key-value lines on the dock's plate; `.record`, kit.css 4.4, D-237; **a component since stage 08 step 2, `D-260`** |
 | Cash out form | 5.1 | `wf-co-lay` | inside the cash out dialog; what goes out on the dock's plate, `.cashout`, kit.css 4.4, D-239 |
 | Selection bar | 5.1 | `wf-invbar` | counts what is ticked, four acts; sticky on the account head's plate, `.selbar`, kit.css 4.4, D-239; no edge while something is ticked, its sum lit, D-240 |
 | Steam state | 5.1 | none, the grey's sub line `Steam connected · Settings` | the Steam account's state at the inventory head's end, Steam's dark blue, a live green dot, the way to Settings; `.steam-state`, kit.css 4.4, D-240; on one 44px line, Settings at a chip's size, D-243 |
@@ -404,7 +404,7 @@ The same words of an act carried by different classes, rank or size. 320 distinc
 
 ## Cross-check 2: control without a family
 
-**No product control is without a family.** The script left 133 controls unassigned, and every one is `.wfp-toggle`, the toggle of the wireframe panel drawn on each of the 133 pages: a tool of the grey prototype, not part of the product, excluded by name. Stage 08 reads this list at steps 1 and 2; it is empty, not skipped.
+**No product control is without a family.** The script left 133 controls unassigned, and every one is `.wfp-toggle`, the toggle of the wireframe panel drawn on each of the 133 pages: a tool of the grey prototype, not part of the product, excluded by name. Stage 08 reads this list at steps 1 and 2; it is empty, not skipped. **Read at stage 08:** a control with a family can still have no form in colour; step 1 measured ten such grey variants and step 2 closed each, in the last section's "Controls without a form, closed".
 
 ## Icons
 
@@ -482,3 +482,177 @@ Nothing is changed by this file; the choice is recorded in `docs/decisions.md` w
 - **Patterns.** A composition of organisms repeated on three or more screens is stage 09. The case screen's blocks (head, stage, commit block, drop table, recent drops) are components here because each stands on four nodes, 3.3, 3.5, 3.6 and 3.7.
 - **The structural diff of `D-222` point 6** runs against this file once step 3 has the kit classes; it is not run here.
 
+## Stage 08 step 2: the family consolidated
+
+Written on 26 November 2026 after the founder accepted the three levels one gate at a time: the atoms with Q1 and Q2 as recommended (the dark tile's edge is white at .07 everywhere, a refusing control is ringed in `--color-error`), the molecules with Q3 as recommended (the account menu is its own component), the organisms with no question. The record is `D-260` in `docs/decisions.md`. **Nothing in the product changed at this step:** the classes below are what step 5 writes and step 6 moves the screens onto. The tables above stay as stage 07 wrote them; this section is the family stage 08 builds.
+
+**How it was decided.** One component is one anatomy, the same zones in the same order; a zone one has and another lacks makes two. Everything else that differs is a variant on an axis: emphasis, content or size, the container choosing the size; width is layout and on no axis. A fourth axis is named where it occurs, **data**: the case's colour, a skin's tier, a mode, set by what is shown rather than by the designer. Measured locally on all 51 coloured states at 1440 and 360 (every component root), every rule of `kit.css` part 4 that names another component's class, and a fit test of the family's own values wherever a block shrinks a button; the grey pages counted from `wireframes/` as stage 07 did.
+
+**Totals.** 67 components became **71: 23 atoms, 23 molecules, 25 organisms.** One left: the native Select, merged into the Popover menu as its select form. Five entered: four one-offs that stand on a second screen (Money strip, Payment record, How this case works, Proof fields, by `D-259`) and the Account menu, split from the Popover menu by its head. **One level moved on the recount:** the Field rises from 2 to 3, because the control it holds for a choice is now the Popover menu, a molecule, where it was the Select, an atom; the review pages of the molecules and the organisms counted it at 2 and said 24 and 24. It holds no organism, so it loads first among the organisms, and the five organisms that hold it come after it. The script that writes this table recomputes every level from the Contains column and fails on a mismatch.
+
+### The table
+
+"Coloured" counts the states of 51 that draw the component's root visible at either width; "grey pages" is the product, from the tables above. Within level 3 the order is the load order: an organism that holds another comes after it.
+
+#### Level 1, atoms (23)
+
+| Component | Class | Level | Axes and values | Coloured | Grey pages | Contains | Since step 2 |
+|---|---|---|---|---|---|---|---|
+| Avatar | `.avatar` | 1 | Size by container: S 16 (ticker), M 32 (header trigger), L 52 (best drop card), XL 64 (account head, account menu). Data: player, bot. | 44: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 117 | nothing from the kit | kept; L 52 new from the best drop card's own rule, the old L renamed XL |
+| Badge | `.badge` | 1 | Tone: bonus, status, count, good, bad. Size: S 16, L 24. | 30: Case, Catalogue, Deposit, Home, My items, Provably fair | 132 | nothing from the kit | kept |
+| Button | `.button` | 1 | Emphasis: primary, ghost, tile (glyph on a dark tile), close. Content: label, glyph + label, label + price (`--priced`), a proper name (`--name`), glyph over label (`--stack`, new), a label that folds to its glyph under 600 (`--fold`). Size: S 32, M 40, L 52; press floor 44 (`--tap`, `--s-tap`). | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 133 | nothing from the kit | kept; `--stack` new, `--arrow` deleted, `--fill` moved to its container |
+| Checkbox | `.check` | 1 | Content: with its label, alone (a card's tick, the cookie layer). | 5: Catalogue, Deposit, My items | 19 | nothing from the kit | kept |
+| Disclosure | `.disclosure` | 1 | One form: the question row that opens its answer. | 9: Deposit, Home, Provably fair | 133 | nothing from the kit | kept |
+| Favourite toggle | `.fav` | 1 | Emphasis: bare with its count (a tile's corner), on a tile (the case head). | 19: Case, Catalogue, Deposit, Home, Sign in | 21 | nothing from the kit | kept |
+| Figure | `.fig` | 1 | Tone: plain, money, soft, up, down, missing. Size: seven by container (13, 14, 18, 20, 22, 26, 30px), named on the typography page at step 4. As a link: the whole figure (also the grey's large text link on withdraw). | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 133 | nothing from the kit | kept; `--end` moved to its container |
+| File picker | none yet | 1 | No form in colour: to the backlog with its anatomy, a read-only Text field and a ghost S Choose a file. | none | 1 | nothing from the kit | kept, backlog |
+| Icon | `.icon` | 1 | One form: a glyph by name at its text's size and colour; a story form played under the pointer. | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 133 | nothing from the kit | kept |
+| Key-value line | `.kv` | 1 | Emphasis: fact (`--fact`, bold white, new), record (plain grey). Content: line, total, rule, money total. Size: S, M (the payment record). | 24: Case, Deposit, My items, Provably fair, Responsible play, Sign in | 39 | nothing from the kit | kept; `--fact` and M new |
+| Logo | `.logo` | 1 | Size: S (rail), L (footer). | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 133 | nothing from the kit | kept |
+| Media slot | `.media` | 1 | Content: skin, case. A skin floats; its frame belongs to the card around it. | 39: Case, Catalogue, Deposit, Home, My items, Provably fair, Sign in | 133 | nothing from the kit | kept |
+| Note line | `.note` | 1 | Tone: muted, soft, refusal, hi (`--hi`, new: a saved limit). Content: a fact, an as-of stamp, a label. Size: S 12, M 14, L 16 (`--l`, new). | 37: Case, Catalogue, Deposit, My items, Provably fair, Responsible play, Sign in | 76 | nothing from the kit | kept; `--hi` and `--l` new |
+| Prose | `.prose` | 1 | Size: lead 17, text 16. | 12: Catalogue, Responsible play | 22 | nothing from the kit | kept |
+| Radio | `.radio` | 1 | Content: in a choice tile (a provider, a Steam offer). | 3: Deposit | 5 | nothing from the kit | kept |
+| Range | `.range` | 1 | One form, with the 44px press. | 1: Catalogue | 3 | nothing from the kit | kept |
+| Segmented control | `.seg` | 1 | Size: M 44, S 32 (the sort, a sticker count). The chosen look is its own, also where the category bar wears it. | 12: Case, Deposit, My items | 5 | nothing from the kit | kept; the category bar's chosen rule moves in |
+| Status steps | `.steps` | 1 | One form. | 1: Deposit | 6 | nothing from the kit | kept |
+| Switch | `.switch` | 1 | One form, the kit's own. | none | 4 | nothing from the kit | kept |
+| Tabs | `.tabs` | 1 | Content: current, with a count. Ground: plain, on a plate (`--plate`, new: the account head). | 4: My items | 29 | nothing from the kit | kept; `--plate` new |
+| Text area | `.textarea` | 1 | One form. Its refusal ring reads `--color-error`. | 6: Provably fair | 14 | nothing from the kit | kept |
+| Text field | `.input` | 1 | Size: M 40, L 52 (an amount). Emphasis: boxed, bare (inside a stepper). Its refusal ring reads `--color-error`. | 19: Catalogue, Deposit, My items, Provably fair, Responsible play | 25 | nothing from the kit | kept |
+| Text link | `.link` | 1 | Tone: pink, quiet, hi (white). Content: in running text (the text's size), standing alone with an arrow. Size of the standing link: S 12, M 13, L 16. Press floor `--tap`, 40px. | 42: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 133 | nothing from the kit | kept; `--s`, `--l`, `--tap` new, `--hi` a tone only |
+
+#### Level 2, molecules (23)
+
+| Component | Class | Level | Axes and values | Coloured | Grey pages | Contains | Since step 2 |
+|---|---|---|---|---|---|---|---|
+| Amount field | `.amount` | 2 | One form. | 3: Deposit | 3 | Text field, Button | kept |
+| Breadcrumb | `.crumb` | 2 | Emphasis by its ground: plain, lit (on a coloured band), fit (in the case head). Content: the way back only (`--back`, a phone; verify at step 6). | 33: Case, Catalogue, Deposit, My items, Provably fair, Responsible play, Sign in | 74 | Text link | kept |
+| Case tile | `.case-tile` | 2 | Data: the case's colour (pink, blue, violet, gold, ember). | 8: Catalogue, Home | 8 | Media slot, Favourite toggle, Figure, Icon | kept |
+| Category bar | `.catbar` | 2 | One form, sticky. Its run is a Segmented control; its two glyph acts are the Button's tile at the 44px floor. | 7: Catalogue | 7 | Button, Icon, Badge, Segmented control | kept |
+| Chosen method | `.chosen` | 2 | One form. | 7: Deposit | 7 | Button, Media slot | kept |
+| Copyable value | `.copy-value` | 2 | Content: a block, inline, a long address with its QR. | 10: Case, Deposit, Provably fair, Sign in | 22 | Button, Key-value line | kept |
+| Daily ladder | `.daily` | 2 | Content: as a guest sees it, as an account sees it. Data: the tier. | 7: Catalogue, Home | 7 | Figure, Media slot, Button, Note line | kept; its live act back to the Button M |
+| Drop card | `.drop-card` | 2 | Data: tier 1 to 7. Content: a card, a row (`--row`, verify at step 6), the fit form on narrow widths. | 11: Case, Deposit, Sign in | 13 | Media slot, Text link, Figure, Key-value line | kept; its facts are `kv--fact`, its market link `link--quiet` |
+| Empty state | `.empty` | 2 | Content: nothing yet, gone (`--gone`, verify at step 6). | 2: Catalogue, My items | 12 | Button, Text link | kept |
+| Event banner | `.banner` | 2 | One form. | 2: Home | 2 | Media slot, Button | kept |
+| Feed tile | `.feed-tile` | 2 | Data: the skin's tier; a rare drop's mark, set by the script. | 39: Case, Catalogue, Deposit, Home, My items, Provably fair, Sign in | 104 | Media slot, Avatar, Text link | kept |
+| Filter chip | `.chip` | 2 | One form. | 2: Catalogue | 2 | Button | kept |
+| Hero | `.hero` | 2 | One form. | 2: Home | 2 | Text link | kept |
+| Item card | `.item-card` | 2 | Data: tier. Content: my items, ledger, public shelf. Chosen and sold are states. | 3: My items | 6 | Media slot, Checkbox, Button, Figure, Icon | kept; its acts back to the Button S |
+| Mode card | `.mode-card` | 2 | Data: the mode. Content: side, stacked (`--stack`, verify at step 6). | 2: Home | 2 | Media slot, Button, Badge | kept |
+| Outcome card | `.outcome` | 2 | Data: tier. Content: one round, a batch. | 1: Case | 4 | Media slot, Button | kept |
+| Popover menu | `.popover` | 2 | Content: language list, select list (`--select`, the former Select). | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 133 | Button, Text link, Icon | kept; the Select merged in, the account form split out |
+| Account menu | `.account-menu` | 2 | One form: the head (avatar XL, name, two figures), the rows, Sign out. | 27: Case, Catalogue, Deposit, Home, My items, Responsible play | 85 | Avatar, Figure, Text link, Icon | new, split from the Popover menu by its head |
+| Recent drop card | `.recent-drop` | 2 | Data: tier. Its avatar is the Avatar L; the tier ring is the card's. | 11: Case, Deposit, Sign in | 13 | Media slot, Figure, Avatar | kept |
+| Section head | `.sec-head` | 2 | Size: M, L. Data: the mode's colour. | 38: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 59 | Text link, Badge | kept |
+| Withdraw item | `.withdraw-item` | 2 | One form. | none | 5 | Media slot, Figure, Key-value line | kept; stands on no coloured screen yet, waits for the rollout |
+| Money strip | `.money-strip` | 2 | Content: Before you spend (Home: the strip and the Every round plate), What this case pays (the case: the strip and four panels). | 13: Case, Deposit, Home, Sign in | 37 (`wf-figs`, generic) | Figure, Button, Icon, Note line | new, from the one-off `.spend` on two screens |
+| Payment record | `.payment-record` | 2 | One form: the payment's lines, the line that decides last, its acts. | 1: Deposit | 5 | Key-value line, Note line, Button | new, from the one-off `.record`, also support's upheld state |
+
+#### Level 3, organisms (25)
+
+| Component | Class | Level | Axes and values | Coloured | Grey pages | Contains | Since step 2 |
+|---|---|---|---|---|---|---|---|
+| Field | `.field` | 3 | Content: a label over a control, a row, a declaration. Size: M, roomy. | 28: Catalogue, Deposit, My items, Provably fair, Responsible play, Sign in | 29 | Text field, Popover menu, Text area, Checkbox, Switch, Button, Note line | kept; rises from 2 to 3: its select is now the Popover menu, a molecule |
+| Account head | `.account-head` | 3 | Content: plain (the other account pages), stage (My items, D-242). | 4: My items | 28 | Breadcrumb, Avatar, Figure, Button, Badge, Tabs, Media slot | kept |
+| Bottom bar | `.bottom-bar` | 3 | One form. | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 132 | Icon | kept |
+| Case grid | `.case-grid` | 3 | Content: Home's row of five, the catalogue's shelf. | 8: Catalogue, Home | 8 | Section head, Case tile | kept |
+| Case stage | `.case-stage` | 3 | One form. Data: the tier, set by the drop. | 11: Case, Deposit, Sign in | 13 | Media slot, Outcome card, Button | kept |
+| Commit block | `.commit` | 3 | One form. | 11: Case, Deposit, Sign in | 13 | Figure, Segmented control, Button, Copyable value, Text link | kept; its priced start moves into `button--priced` |
+| Data table | `.data-table` | 3 | Content: the drop table, a ledger (waits for history, 5.9). | 11: Case, Deposit, Sign in | 24 | Drop card, Figure, Text link, Badge | kept |
+| Footer | `.footer` | 3 | One form. | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 133 | Figure, Disclosure, Logo, Text link, Popover menu | kept |
+| Header | `.header` | 3 | Content: guest, signed in. | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 132 | Button, Figure, Badge, Account menu | kept; holds the Account menu |
+| Item grid | `.item-grid` | 3 | One form. | 4: My items | 6 | Item card, Segmented control | kept |
+| Mode row | `.mode-row` | 3 | One form. | 2: Home | 2 | Mode card | kept |
+| Rail | `.rail` | 3 | One form; open, closed. | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 132 | Logo, Icon, Button, Popover menu | kept |
+| Recent drops | `.recent-drops` | 3 | One form. | 11: Case, Deposit, Sign in | 13 | Recent drop card | kept |
+| Status notice | `.notice` | 3 | Tone: in progress, stopped, failed with a reference. | 6: Deposit, Sign in | 22 | Key-value line, Figure, Button, Copyable value, Status steps | kept |
+| Ticker | `.ticker` | 3 | One form; running, paused. | 39: Case, Catalogue, Deposit, Home, My items, Provably fair, Sign in | 104 | Feed tile | kept |
+| How this case works | `.case-how` | 3 | One form: the prose on its plate beside the ticket ruler. | 17: Case, Deposit, Provably fair, Sign in | 37 (`wf-prose`, generic) | Section head, Prose, Icon | new, from the one-off `.how` with `.ruler` on two screens |
+| Proof fields | `.proof-fields` | 3 | Content: what each field means (Provably fair), the round's own values with Copy (the public result). | 6: Provably fair | 11 | Key-value line, Copyable value | new, from the one-off `.fair-made`; the Proof block's field set |
+| Deposit dock | `.dock` | 3 | One form. | 5: Deposit | 6 | Figure, Key-value line, Field, Button, Note line | kept |
+| Limits panel | `.limits` | 3 | One form. | 5: Responsible play | 4 | Field, Key-value line, Button, Note line, Popover menu | kept |
+| Verify form | `.verify` | 3 | One form. | 6: Provably fair | 6 | Field, Copyable value, Button | kept |
+| Proof block | `.proof` | 3 | One form, on the public result (7.1). | none | 11 | Proof fields, Copyable value, Key-value line, Badge, Button | kept; holds the Proof fields |
+| Case head | `.case-head` | 3 | One form. | 11: Case, Deposit, Sign in | 13 | Favourite toggle, Note line, Case stage | kept |
+| Sign-in block | `.signin` | 3 | Content: page, dialog. | 7: Sign in | 7 | Field, Button, Status notice | kept |
+| Payment panel | `.pay-panel` | 3 | One form, two steps. | 9: Deposit | 9 | Chosen method, Amount field, Field, Copyable value, Deposit dock, Status notice | kept |
+| Dialog | `.dialog` | 3 | Content: sign in, a plain question, deposit, cash out, the filter drawer at the right edge. | 11: Catalogue, Deposit, My items, Responsible play, Sign in | 9 | Button, Sign-in block, Payment panel, Field, Copyable value | kept |
+
+### The rename map
+
+Step 6 executes it: each row says which class the screens wear today, what they wear after, which coloured states carry the old form and which grey pages stage 12 will meet it on. The kinds: a **merge** or **split** changes the count of components; **one-off to component** keeps the look and changes the name; a **local rule to variant** moves a rule written in one block on another component's class into that component as a named variant, so the block no longer restyles it; **back to the family** removes a local rule and lets the family's value stand; **value, merged drift** changes a value and is named in `tokens-audit.md`, "Merged drift (step 3)".
+
+| # | Today | After | Kind | Coloured, where the old form stands | Grey pages, for stage 12 |
+|---|---|---|---|---|---|
+| 1 | `.select`, `.select--l` | `.popover--select` | merge | none of the 51 states | `select` element, 24 pages |
+| 2 | `.popover--account` (its head, rows and Sign out) | `.account-menu` | split | 27 of 51 states: Case, Catalogue, Deposit, Home, My items, Responsible play | `wf-acct-wrap`, 85 pages |
+| 3 | `.spend`, `.spend--pays` and their elements | `.money-strip`, `.money-strip--pays` | one-off to component | 13 of 51 states: Case, Deposit, Home, Sign in | `wf-figs`, 37 pages, generic |
+| 4 | `.record` and its elements | `.payment-record` | one-off to component | 1 of 51 states: Deposit | `wf-total`, 5 pages |
+| 5 | `.how`, `.ruler` and their elements | `.case-how`, `.case-how__ruler` | one-off to component | 17 of 51 states: Case, Deposit, Provably fair, Sign in | `wf-prose`, 37 pages, generic |
+| 6 | `.fair-made` and its elements | `.proof-fields`; the Proof block's set `.proof-fields--values` | one-off to component | 6 of 51 states: Provably fair | `wf-proof-fields`, 11 pages |
+| 7 | `.selbar__a` at 360 (glyph over label, 11px) | `.button--stack` | local rule to variant | 3 of 51 states: My items | `wf-actb`, 2 pages |
+| 8 | `:is(.commit__go, .commit__wide).button--priced` start at 360 | the rule moves into `.button--priced` | local rule to variant | 9 of 51 states: Case, Deposit, Sign in | `wf-commit`, 20 pages |
+| 9 | `.daily__tier.is-live > .button` (sides 10px; 12px words at 360) | `.button--m` as the family draws it | back to the family | 9 of 51 states: Catalogue, Home | `wf-panel`, 15 pages |
+| 10 | `.item-card > .button`, `.item-card__acts > .button` (sides 4px) | `.button--s` as the family draws it (sides 14px) | back to the family | 3 of 51 states: My items | `wf-inv-card`, 2 pages |
+| 11 | `.catbar__acts > .button` (its own sides and glyph size) | `.button--icon` with `.button--tap` | local rule to variant | 7 of 51 states: Catalogue | `wf-catbar`, 7 pages |
+| 12 | `.catbar__run > .seg__opt[aria-current="true"]` | the chosen look of `.seg__opt` itself | rule moves into the atom | 7 of 51 states: Catalogue | `wf-catbar`, 7 pages |
+| 13 | `.button--fill` (width 100%) | width set by `.rail__amb-i`, the rail's sound cell | moved to its container | 51 of 51 states: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | `wf-rail-snd`, 132 pages |
+| 14 | `.fig--end` (align to the end) | alignment set by `.commit__act` | moved to its container | 10 of 51 states: Case, Deposit, Sign in | `wf-commit`, 20 pages |
+| 15 | `.recent-drop__who .avatar` (52px, `--recent-drop-avatar`) | `.avatar--l` | local rule to variant | 11 of 51 states: Case, Deposit, Sign in | `wf-r-art`, 20 pages |
+| 16 | `.avatar--l` (64px) on the account head | `.avatar--xl` | rename | 4 of 51 states: My items | `wf-ah`, 29 pages |
+| 17 | `.popover__head .avatar` (64px, `--popover-avatar`) | `.avatar--xl` inside `.account-menu` | local rule to variant | 27 of 51 states: Case, Catalogue, Deposit, Home, My items, Responsible play | `wf-acct-wrap`, 85 pages |
+| 18 | `.link--hi` (white at a chip's size) on the Steam state | `.link--hi` (tone only) with `.link--s` | one variant split in two axes | 4 of 51 states: My items | none, the grey's sub line (`D-240`) |
+| 19 | `.account-head__id .link` (quiet turned white) | `.link--hi` | local rule to variant | 4 of 51 states: My items | `wf-ah-id`, 29 pages |
+| 20 | `.sec-head__sub .link--arrow`, `.works__i > .link` (16px) | `.link--l` | local rule to variant | 15 of 51 states: Case, Deposit, My items, Sign in | `wf-sec-head`, 74 pages; `wf-open-list`, 1 page |
+| 21 | `.involves__acts .link`, `.faq__list .link`, `.fair-algo__go > .link` (press grown to 40px) | `.link--tap` | local rule to variant | 8 of 51 states: Home, Provably fair | `wf-faq`, 9 pages; `wf-algo`, 6 pages |
+| 22 | `.drop-card__mkt.link` (restyled pink link) | `.link--quiet` in its text | local rule to variant | 10 of 51 states: Case, Deposit, Sign in | `wf-d-weapon`, 20 pages |
+| 23 | `.drop-card .kv`, `.drop-card .kv__k`, `.drop-card__t .kv__v` | `.kv--fact` | local rule to variant | 11 of 51 states: Case, Deposit, Sign in | `wf-d-weapon`, 20 pages |
+| 24 | `.record__lines > .kv` (larger lines) | `.kv` at M inside `.payment-record` | local rule to variant | 1 of 51 states: Deposit | `wf-total`, 5 pages |
+| 25 | `.limits__answer:not(.note--refuse)` (a saved limit in white) | `.note--hi` | local rule to variant | 5 of 51 states: Responsible play; the panel stands there, its answer is written by `rp.js` after a press | `wf-rp`, 5 pages |
+| 26 | `.spend__note`, `.observed > .note` (16px) | `.note--l` | local rule to variant | 11 of 51 states: Case, Deposit, Sign in | `wf-figs`, 37 pages, generic; `wf-table`, 31 pages |
+| 27 | `.account-head` rules on its `.tabs` (the plate, the pink glow under the current tab) | `.tabs--plate` | local rule to variant | 4 of 51 states: My items | `wf-atabs`, 29 pages |
+| 28 | the Figure's value sized by seven containers (`.dock__sum`, `.drop-card__v`, `.recent-drop__v`, `.outcome__v`, `.withdraw-item__b`, `.account-head__figs`, the fig's own L) | Figure size variants by container, named on the typography page at step 4 against the type scale | local rules to variants, names at step 4 | 51 of 51 states: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | `wf-fig`, 133 pages |
+| 29 | `.input[aria-invalid="true"]`, `.textarea[aria-invalid="true"]` read `--color-down` | read `--color-error` | value, merged drift | 6 of 51 states: Provably fair; the Verify form stands there, the ring is set by `fair.js` on a malformed entry | `wf-vf`, 6 pages |
+| 30 | `--shadow-tile-edge` at white .05 | the tile edge at white .07, one role with `--shadow-edge` | value, merged drift | 51 of 51 states: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | every grey page, the edge has no grey form |
+
+**The screens' own blocks keep their classes and move house**, by `D-259`: seventeen blocks of `kit.css` part 4.4 go to `design/system/screens/`, loaded after the organisms and not listed on the stand as components.
+
+| File | Blocks (classes) |
+|---|---|
+| `design/system/screens/home.css` | What opening a case here involves `.involves`, Questions and answers `.faq`, About Clutch `.about` |
+| `design/system/screens/case.css` | Before you open `.before`, Published against observed `.observed` |
+| `design/system/screens/fair.css` | the page's head `.fair-head` with `.fair-scope`, If your check does not match ours `.fair-miss`, The algorithm published in full `.fair-algo` |
+| `design/system/screens/deposit.css` | The ways to pay `.methods`, What still works `.works` |
+| `design/system/screens/account.css` | the Selection bar `.selbar`, the Cash out form `.cashout`, the Steam state `.steam-state` |
+| `design/system/screens/catalogue.css` | the catalogue's head `.shelf-head`, Filters in force `.shelf-state`, the filter drawer `.filter-drawer` with its stepper `.stepper` and risk marks `.risk-marks` |
+| `design/system/screens/responsible.css` | Responsible play's head `.rp-head` |
+
+### What goes
+
+| Class | What happens | Evidence |
+|---|---|---|
+| `.button--arrow` | deleted | declared in BUTTON; worn by none of the 51 states; the grey has no button with an arrow after its label (the control census above, Variants by family) |
+| `.select`, `.select--l` | deleted, with `.select` in the refusal ring rule | worn by none of the 51 states; every grey `select` maps to the Popover menu's select form since `D-238` |
+| `.button--fill` | moved to `.rail__amb-i` | worn by 51 of 51 states: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in, always inside the rail's sound cell; width is layout, not an axis |
+| `.fig--end` | moved to `.commit__act` | worn by 10 of 51 states: Case, Deposit, Sign in, always inside the commit block's act; alignment is layout |
+
+**To verify at step 6**, declared and worn by no coloured state at load, but possibly set by a script or needed by a grey page drawn at the rollout; each is kept, wired or deleted there, by the third list of the reconcile: `.badge--bad`; `.fig--up`, `.fig--down`; the glyphs `calendar`, `close`, `crown`, `like`, `mute`, `rail`, `skull`; `.media--banner`, `.media--square`, `.media--wide`; `.crumb--back`; `.empty--gone`; `.mode-card--stack`; `.drop-card--row`.
+
+### Controls without a form, closed
+
+Step 1 found eleven grey variants with no form in colour, ten after the row on the ghost L was withdrawn at step 2 (`census.md`); the review pages of this step closed them with the Breadcrumb S, the large field label and the legal table of contents the walk named beside them. Six are closed by a form the kit already has; four go to `design/kit/docs/backlog.md` at step 6, drawn with their screen at the rollout.
+
+| Grey variant | Where | Closed by |
+|---|---|---|
+| Checkbox alone | the cookie layer, 0.4 | the Checkbox's form without a label, as the item card's tick |
+| Radio in a large row | a Steam offer, 5.3 | a radio in a choice tile, with the Payment panel's provider tile values |
+| Radio, small | a sticker count 0 to 3, 5.3 | the Segmented control S |
+| Text link L standing for a figure | withdraw, 5.3 | the Figure's link form |
+| Switch | settings, 5.11 | the kit's own form, on the showcase; settings arrives with the rollout |
+| Breadcrumb, small | support, 0.10 | the Breadcrumb as it is |
+| File picker | support, 0.10 | backlog, anatomy named: a read-only Text field with the file's name and a ghost S Choose a file |
+| Text area with an attached file | support, 0.10 | backlog: a Text area followed by the File picker, nothing new |
+| Field label, large | support's questions, 0.10 | backlog: the Field at its roomy size |
+| A legal page's table of contents | 0.9 | backlog: the Footer's link form in one column, the current section in white |
