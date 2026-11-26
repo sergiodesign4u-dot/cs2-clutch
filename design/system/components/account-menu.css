@@ -6,11 +6,10 @@
  *   tile's glyph, Sign out's); its own parts are the pill, the panel, the head, the ID plate with Copy, the tiles, Sign out and the sheet.
  * Reads: --text-hi, --text-on-plate, --text-base, --text-body, --text-meta, --text-error, --bg-veil, --bg-wash, --bg-tile, --bg-layer, --bg-lit,
  *   --bg-act-stripes, --bg-stripes-m, --bg-mode-cases, --bg-mode-battles, --line-edge, --line-lit, --line-lit-top-soft, --line-focus; the phone sheet's roles --bg-scrim-sheet, --bg-handle, --depth-menu (D-265);
- *   geometry, type and motion from the primitives. Read directly and waiting for step 9 (tokens-audit.md, "What the semantic level does not
- *   take yet"): --color-error-wash, listed as read in the Popover menu block only, the block this component is split from;
- *   --color-done, --color-done-wash, --color-fail and --color-fail-wash, whose origin comments
- *   name the Popover menu (v4 account-home.css), missing from that list because a script or a phone sheet sets the state, never a load;
- *   --color-fail and its wash are also read by the Status notice (.notice--failed), so they are a role candidate for the gate.
+ *   the roles --text-fail, --bg-fail-wash (Not copied, shared with the Status notice) and --bg-error-wash (Sign out under the pointer, shared with
+ *   the Data table), made at round 3's gate (D-266, Q1); geometry, type and motion from the primitives. Read directly and waiting for step 9
+ *   (tokens-audit.md, "What the semantic level does not take yet"): --color-done and --color-done-wash, whose origin comments name the Popover
+ *   menu (v4 account-home.css), missing from that list because a script or a phone sheet sets the state, never a load.
  * Carried from design/kit/kit.css part 4.2 (POPOVER MENU, lines 3625 to 3651 for the frame and 3652 to 3709 for --account) at stage 08 step 5,
  *   round 2, by the decisions of step 2 (D-260, Q3): split from the Popover menu as its own component (rename map row 2), .popover--account
  *   becomes .account-menu and each element .popover__x becomes .account-menu__x; the head's avatar is .avatar--xl, no longer sized here by
@@ -72,7 +71,7 @@
 .account-menu__copy.is-done { background: var(--color-done-wash); color: var(--color-done); }
 .account-menu__copy.is-done .account-menu__copy-i::before { opacity: 0; }
 .account-menu__copy.is-done .account-menu__copy-i::after { width: var(--space-1); height: var(--space-2); right: var(--size-edge); bottom: var(--size-edge); border-width: 0 var(--size-edge) var(--size-edge) 0; border-radius: 0; rotate: 45deg; }
-.account-menu__copy.is-fail { height: auto; padding: var(--space-1) var(--space-2); background: var(--color-fail-wash); color: var(--color-fail); white-space: normal; text-transform: none; letter-spacing: 0; }
+.account-menu__copy.is-fail { height: auto; padding: var(--space-1) var(--space-2); background: var(--bg-fail-wash); color: var(--text-fail); white-space: normal; text-transform: none; letter-spacing: 0; }
 
 /* the destinations: My items first and widest, four tiles two to a row, Responsible play in the battles blue */
 .account-menu__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
@@ -86,13 +85,13 @@
 .account-menu__tile--rp { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: var(--space-3); min-height: var(--account-menu-tile-rp); background: var(--bg-stripes-m), var(--bg-mode-battles); box-shadow: var(--line-lit-top-soft); color: var(--text-on-plate); }
 .account-menu__out { display: flex; align-items: center; justify-content: center; gap: var(--space-2-5); min-height: var(--size-button-m); margin-top: var(--space-2); padding: 0 var(--space-3); border-radius: var(--radius-s); color: var(--text-meta); font-size: var(--size-label); font-weight: 700; line-height: 1.2; text-decoration: none; transition: color .2s, background-color .2s; }
 .account-menu__out .icon { font-size: var(--size-title); }
-.account-menu__out:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); color: var(--text-error); background: var(--color-error-wash); }
+.account-menu__out:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); color: var(--text-error); background: var(--bg-error-wash); }
 @media (hover: hover) {
   .account-menu__tile:hover { background: var(--bg-act-stripes), var(--bg-mode-cases); box-shadow: none; color: var(--text-on-plate); }
   .account-menu__tile--items:hover, .account-menu__tile--rp:hover { filter: brightness(1.08); }
   .account-menu__tile--items:hover .account-menu__case { translate: calc(-1 * var(--space-1)) calc(-1 * var(--size-edge)); }
   .account-menu__tile--rp:hover { background: var(--bg-stripes-m), var(--bg-mode-battles); box-shadow: var(--line-lit-top-soft); }
-  .account-menu__out:hover { color: var(--text-error); background: var(--color-error-wash); }
+  .account-menu__out:hover { color: var(--text-error); background: var(--bg-error-wash); }
 }
 
 /* under 900px the menu rises from the bottom as a sheet over a dimmed page, with a handle and its own close */

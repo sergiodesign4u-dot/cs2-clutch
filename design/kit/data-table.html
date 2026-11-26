@@ -49,7 +49,7 @@
     <tr><td><b>A ledger row</b></td><td><code>tbody tr</code> with <code>__when</code>, <code>__num</code> (<code>.is-money</code>), <code>__ref</code>, <code>__state</code> with <code>__why</code>; <code>data-state="mismatch"</code></td><td>a band of the drop card's ground with its hairline; the moment and the references in mono, figures at the end, the state with its reason beside it, a mismatched proof in the error wash with the down edge</td></tr>
     <tr><td><b>The stamp</b></td><td><a href="note-line.html">Note line</a> (level 1) <code>.note--stamp.note--soft.data-table__stamp</code></td><td>as of when; the table only places it 14px under</td></tr>
   </tbody></table></div>
-  <p class="kt-note">It holds <a href="drop-card.html">Drop card</a> (level 2), <a href="note-line.html">Note line</a> and <a href="text-link.html">Text link</a> (level 1), and gives way to an <a href="empty-state.html">Empty state</a> (level 2), and restyles none. The Drop card holds the <a href="figure.html">Figure</a>, the <a href="key-value-line.html">Key-value line</a> and the market's Text link, so the table reaches them only through the card. The inventory lists a <a href="badge.html">Badge</a>: no coloured state wears one in a table, and the ledger's state is words with its reason (see the round's questions). What is the organism's own: the grid of cards, the ledger's bands, its keys and figures, and the mismatch.</p>
+  <p class="kt-note">It holds <a href="drop-card.html">Drop card</a> (level 2), <a href="note-line.html">Note line</a> and <a href="text-link.html">Text link</a> (level 1), and gives way to an <a href="empty-state.html">Empty state</a> (level 2), and restyles none. The Drop card holds the <a href="figure.html">Figure</a>, the <a href="key-value-line.html">Key-value line</a> and the market's Text link, so the table reaches them only through the card. The inventory listed a <a href="badge.html">Badge</a>: no coloured state wears one in a table, and the ledger's state is words with its reason; the row now lists what the coloured markup holds (D-266, Q6). What is the organism's own: the grid of cards, the ledger's bands, its keys and figures, and the mismatch.</p>
 </section>
 
 <section class="kt-sec" id="variants">
@@ -89,7 +89,7 @@
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry and type come straight from the primitives; the one pixel literal no primitive equals, the narrowest card of the grid, is a custom property of the block (<code>--data-table-card</code>, 176px) with its origin in the file. Three component tokens, each saying why no role fits: <code>--data-table-row-edge</code>, <code>--data-table-row-bg-mismatch</code>, <code>--data-table-line-mismatch</code> (see the round's questions). The ledger's row card under 600px takes the tile edge at white .07, the merged drift of step 3 (row 30).</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry and type come straight from the primitives; the one pixel literal no primitive equals, the narrowest card of the grid, is a custom property of the block (<code>--data-table-card</code>, 176px) with its origin in the file. One component token, saying why no role fits: <code>--data-table-row-edge</code>. A mismatched row reads the roles <code>--bg-error-wash</code>, shared with the Account menu's Sign out, and <code>--line-error</code>, a refusal's ring: its red moved from <code>--color-down</code> to <code>--color-error</code> by D-266 (Q1), as row 29 moved the fields' ring. The ledger's row card under 600px takes the tile edge at white .07, the merged drift of step 3 (row 30).</p>
   <p>File: <code>design/system/components/data-table.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group.</p>
   <pre>&lt;div class="data-table data-table--drops"&gt;&lt;table class="data-table__t"&gt;
   &lt;caption class="data-table__cap"&gt;Every item in Ironbound with its chance, value and ticket range&lt;/caption&gt;
@@ -108,7 +108,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.firstEl
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-base', '--text-body', '--text-hi', '--text-money', '--bg-card-deep', '--line-edge', '--depth-card', '--data-table-row-edge', '--data-table-row-bg-mismatch', '--data-table-line-mismatch'];
+  var T = ['--text-base', '--text-body', '--text-hi', '--text-money', '--bg-card-deep', '--line-edge', '--depth-card', '--data-table-row-edge', '--bg-error-wash', '--line-error'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = /^--(text|bg|line|depth)-/.test(n) ? 'semantic' : /^--(color|shadow|gradient|filter)-/.test(n) ? 'primitive, read in this block only' : 'component';

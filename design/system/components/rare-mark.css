@@ -21,7 +21,8 @@
 .rare-mark--bolt, .rare-mark--fire { overflow: hidden; background-repeat: no-repeat; background-size: 2400% 100%; animation: rare-mark-step var(--mark-loop) steps(24, jump-none) infinite; }
 @keyframes rare-mark-step { from { background-position: 0 0; } to { background-position: 100% 0; } }
 .rare-mark--bolt { --mark-loop: 1s; z-index: 4; inset: calc(-1 * var(--mark-bolt-out)); background-image: var(--art-fx-bolt); }
-/* C burns behind the host's ground (z-index -2): the host lends its ground to a ::before so the flame shows only round it */
+/* C burns behind the host's ground (z-index -2), and the host keeps it round itself: the Feed tile lends its ground to a ::before, the Drop card
+   masks the flame off its own box (D-266, Q2) */
 .rare-mark--fire { --mark-loop: 1.2s; z-index: -2; top: calc(-1 * var(--mark-fire-rise)); left: calc(-1 * var(--mark-fire-side)); width: calc(100% + 2 * var(--mark-fire-side)); height: calc(60% + var(--mark-fire-rise)); background-image: var(--art-fx-plasma-tall); }
 
 /* for whoever asked for less motion the mark stands still: the ring's light at its first turn, the first frame of the bolt and the plasma */

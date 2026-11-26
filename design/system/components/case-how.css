@@ -6,7 +6,7 @@
  *   before you click), and Deposit and Sign in as the case shown in their dialogs (design/kit/inventory.md, How this case works).
  * Holds: Section head (.sec-head, the block's title on its tile), Icon (the mark in that tile), Note line (.note, a line under the prose on
  *   Provably fair). It places them and never restyles them. The prose is the block's own type (.case-how__prose, 16px at 1.5 in the base ink),
- *   not the Prose atom, which reads 17px at 1.65 in the lead ink: see the round's questions.
+ *   not the Prose atom, which reads 17px at 1.65 in the lead ink (D-266, Q6).
  * States: none of its own, it is not interactive. The ruler plays once it is half in view: design/kit/motion.js (rulers) sets .is-on on
  *   .case-how__ruler, and for less motion .is-on with .is-still, so it stands at its end at once; without either it waits, the pin at its
  *   place, the ticket's number and the item hidden.

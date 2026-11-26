@@ -9,7 +9,7 @@
  *   they are a size read off the strip's width, which the Figure atom does not draw, so the Money strip holds no Figure (D-265, Q5).
  * Reads: --text-on-plate, --text-on-plate-soft, --text-money-on-plate, --text-match-on-plate, --text-link-on-plate, --text-on-accent, --bg-spend-strip,
  *   --bg-fair, --bg-act-stripes, --bg-hash-well-on-plate, --bg-mark-on-plate, --line-lit-top, --depth-plate-deep, --depth-fair, --depth-stub-text,
- *   --depth-figure-text, --depth-case-lift, --depth-skin-lift; its own --money-strip-* tokens (tokens.css, COMPONENT TOKENS); geometry, type and
+ *   --depth-figure-text, --depth-case-lift, --depth-skin-lift, --line-edge-lit-on-plate (the hash box's edge, shared with the Proof fields, D-266 Q1); its own --money-strip-* tokens (tokens.css, COMPONENT TOKENS); geometry, type and
  *   motion from the primitives. Colours read in this block only, waiting for step 9 (tokens-audit.md, "Before you spend"): --gradient-spend-stub,
  *   --shadow-card-drop, --shadow-word-text, --color-plate-ticket, --color-ruler, --color-ruler-range, --shadow-ruler-mark, --filter-card-skin;
  *   and --color-plate-rule, one of the six colours with one reader per surface (Before you spend, What this case pays).
@@ -94,7 +94,7 @@
 .money-strip__fig { display: block; }
 .money-strip__word { display: block; margin-top: var(--space-1-5); font-size: var(--money-strip-word); font-weight: 900; line-height: 1; white-space: nowrap; text-shadow: var(--shadow-word-text); }
 .money-strip__hash { box-sizing: border-box; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: var(--space-2-5); width: 100%; margin: var(--space-3) 0 var(--space-3-5);
-  padding: var(--money-strip-hash-pad) var(--space-3); border-radius: var(--radius-s); background: var(--bg-hash-well-on-plate); box-shadow: var(--money-strip-hash-edge); } /* Check in the hash's box, founder of 11 Nov 2026 */
+  padding: var(--money-strip-hash-pad) var(--space-3); border-radius: var(--radius-s); background: var(--bg-hash-well-on-plate); box-shadow: var(--line-edge-lit-on-plate); } /* Check in the hash's box, founder of 11 Nov 2026 */
 .money-strip__hash-t { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
 .money-strip__hash-t code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .money-strip__ok { display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--text-match-on-plate); font-size: var(--size-chip); font-weight: 700; } /* wraps to a second line where the column is narrow: nowrap ran it 40px under Check at 1280, stage 07 step 6, I6 */

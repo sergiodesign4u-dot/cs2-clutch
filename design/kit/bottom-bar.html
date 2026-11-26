@@ -99,7 +99,7 @@ node design/kit/tools/shoot-states.js http://localhost:8765/ bottom-bar --check 
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. No component token. One primitive read directly: <code>--color-ticker</code>, the bar's ground, one of the six with one reader per surface (the bar and the rail), waiting for step 9 (<code>tokens-audit.md</code>). Height, mark and type from the primitives.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. One component token, <code>--bottom-bar-edge</code>, the same in both themes (D-266, Q3). One primitive read directly: <code>--color-ticker</code>, the bar's ground, one of the six with one reader per surface (the bar and the rail), waiting for step 9 (<code>tokens-audit.md</code>). The bar is one of the shell's dark plates and keeps its near black in both themes (D-266, Q3): its words, marks, ring and its top edge read on-plate roles, the edge <code>--bottom-bar-edge</code> in the place of <code>--line-soft</code>, which turned light in the light theme, so the light column above repeats the dark one. The Icon it holds takes the colour of its item's words. Height, mark and type from the primitives.</p>
   <p>File: <code>design/system/components/bottom-bar.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group.</p>
   <pre>&lt;nav class="bottom-bar" aria-label="Shortcuts"&gt;
   &lt;a class="bottom-bar__i" href="index.html" aria-current="page"&gt;&lt;span class="bottom-bar__mark" aria-hidden="true"&gt;&lt;span class="icon icon--home"&gt;&lt;/span&gt;&lt;/span&gt;Home&lt;/a&gt;
@@ -119,7 +119,7 @@ dims(); addEventListener('load', dims);
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = [['--text-on-plate', 'semantic'], ['--text-meta-on-plate', 'semantic'], ['--text-link-on-plate', 'semantic'], ['--line-soft', 'semantic'], ['--line-focus-on-plate', 'semantic'],
+  var T = [['--text-on-plate', 'semantic'], ['--text-meta-on-plate', 'semantic'], ['--text-link-on-plate', 'semantic'], ['--bottom-bar-edge', 'component'], ['--line-focus-on-plate', 'semantic'],
     ['--color-ticker', 'primitive, read directly'], ['--size-bar', 'geometry'], ['--size-nav-mark', 'geometry']];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {

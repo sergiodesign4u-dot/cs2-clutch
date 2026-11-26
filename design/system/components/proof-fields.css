@@ -7,8 +7,8 @@
  * Holds: in --values, Copyable value (.copy-value, a seed with its Copy act) and Key-value line (.kv, a short value). It places them and never
  *   restyles them. The default form's keys and meanings are the block's own definition list (dt, dd).
  * States: none of its own, it is not interactive; a Copy act inside --values keeps the Copyable value's own states.
- * Reads: --text-on-plate, --bg-act-stripes, --bg-fair, --bg-hash-well-on-plate, --line-lit-top, --depth-fair; its own --proof-fields-key and
- *   --proof-fields-well-edge (tokens.css, COMPONENT TOKENS); geometry and type from the primitives. No colour primitive read directly.
+ * Reads: --text-on-plate, --bg-act-stripes, --bg-fair, --bg-hash-well-on-plate, --line-lit-top, --depth-fair; --line-edge-lit-on-plate (the well's edge, shared with the Money
+ *   strip, D-266 Q1); its own --proof-fields-key (tokens.css, COMPONENT TOKENS); geometry and type from the primitives. No colour primitive read directly.
  * Carried from design/kit/kit.css part 4.4 (Provably fair's one-off blocks, CHECK A ROUND, lines 5878 to 5883 and 5889) at stage 08 step 5,
  *   round 3, by rename map row 6: .fair-made becomes .proof-fields, its elements renamed the same way (.fair-made__h .proof-fields__h,
  *   .fair-made__list .proof-fields__list); a component since D-259. The --values form is built now from the Proof block's own well
@@ -26,7 +26,7 @@
 .proof-fields:not(.proof-fields--values) { padding: var(--space-5); border-radius: var(--radius-m); background: var(--bg-act-stripes), var(--bg-fair); box-shadow: var(--line-lit-top), var(--depth-fair); }
 @media (max-width: 599px) { .proof-fields:not(.proof-fields--values) { padding: var(--space-4); } }
 .proof-fields__h { margin: 0; color: var(--text-on-plate); font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.25; text-transform: uppercase; } /* .proof__h */
-.proof-fields__list { display: grid; gap: var(--space-3); min-width: 0; margin: 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-s); background: var(--bg-hash-well-on-plate); box-shadow: var(--proof-fields-well-edge); }
+.proof-fields__list { display: grid; gap: var(--space-3); min-width: 0; margin: 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-s); background: var(--bg-hash-well-on-plate); box-shadow: var(--line-edge-lit-on-plate); }
 .proof-fields__list > div:has(> dt) { display: grid; gap: var(--space-1); } /* a field of the default form, its key over its meaning; a held Copyable value or Key-value line in --values keeps its own layout */
 .proof-fields__list dt { color: var(--proof-fields-key); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.25; text-transform: uppercase; }
 .proof-fields__list dd { margin: 0; color: var(--text-on-plate); font-size: var(--size-label); font-weight: 700; line-height: 1.35; }

@@ -12,7 +12,7 @@
  * Carried from design/kit/kit.css part 4.3 (VERIFY FORM, lines 4981 to 5004) at stage 08 step 5, round 3, unchanged in look. The refusal ring a
  *   malformed entry takes is the atoms' (fair.js sets aria-invalid; rename map row 29 already reads --line-error there). The rules Provably
  *   fair writes on the form (.verify > .note--refuse[hidden], the phone padding again in .fair-check's @media) stay in kit.css for
- *   design/system/screens/. The green line .verify__ok is carried as kit.css declares it; no coloured state wears it (see the round's questions). */
+ *   design/system/screens/. The green line .verify__ok is carried as kit.css declares it; no coloured state wears it; deleted at step 6 with the reconcile's third list (D-266, Q5). */
 .verify {
   --verify-ok: 14px; /* v4 proof-home.css .x6-ok svg: the green disc before "Recomputed: matches" */
 }

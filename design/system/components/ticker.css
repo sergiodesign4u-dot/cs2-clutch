@@ -7,10 +7,11 @@
  * Holds: Feed tile (.feed-tile, one in each .ticker__i), a molecule with its own hover, focus and rare drop; the ticker places them in a row and
  *   writes nothing on them (kit.css has no .ticker__i .feed-tile rule). A rare drop's mark on a tile is the Rare mark atom, not drawn here. Its
  *   own: the strip, the chip with its label and the pause (an 18px round outside the button family, inventory.md), the clip and the run.
- * Reads: --text-base, --text-on-plate, --bg-page, --bg-lit, --bg-mark-on-plate, --line-focus-on-plate; no component token; geometry, type and
+ * Reads: --text-base, --text-on-plate, --bg-page, --bg-mark-on-plate, --line-focus-on-plate; its own --ticker-chip-lit (the chip's dot and pause, tokens.css COMPONENT TOKENS, D-266 Q3); geometry, type and
  *   motion from the primitives. Colour primitives read directly, read in this block only and waiting for step 9 (tokens-audit.md, "What the
  *   semantic level does not take yet"): --color-ticker-chip, --shadow-ticker-chip, --color-ticker-halo. The chip keeps its dark in both themes,
- *   so its words, its pause and its ring read the on-plate roles, which keep the white kit.css draws.
+ *   so its words, its dot, its pause and its ring read the on-plate roles, which keep the white and pink kit.css draws (D-266, Q3). The strip
+ *   itself stands on the page's ground (--bg-page, --text-base) and turns with the theme.
  * Carried from design/kit/kit.css part 4.3 (TICKER, lines 4926 to 4979) at stage 08 step 5, round 3. Part 3's "the live feed" (lines 1322 to
  *   1350) writes on the grey's .wf-feed*, which no coloured state wears: not carried. The keyframes ticker-live are also named by the Steam
  *   state (.steam-state__on::after, line 5744), a screen block that loads after the organisms: declared once, at the end of this file, its
@@ -41,10 +42,10 @@
 .ticker__head { position: absolute; z-index: 3; top: var(--ticker-chip-inset); right: var(--ticker-chip-inset); display: flex; align-items: center; gap: var(--space-1-5); box-sizing: border-box; min-height: var(--ticker-chip); padding: 0 var(--space-3) 0 var(--space-2); border-radius: var(--radius-pill);
   background: var(--color-ticker-chip); -webkit-backdrop-filter: blur(var(--blur-banner-clock)); backdrop-filter: blur(var(--blur-banner-clock)); box-shadow: var(--shadow-ticker-chip); }
 .ticker__lbl { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: var(--space-1-5); padding-left: var(--space-hair); color: var(--text-on-plate); font-size: var(--size-chip); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
-.ticker__lbl::before { content: ''; width: var(--ticker-dot); height: var(--ticker-dot); border-radius: 50%; background: var(--bg-lit); }
+.ticker__lbl::before { content: ''; width: var(--ticker-dot); height: var(--ticker-dot); border-radius: 50%; background: var(--ticker-chip-lit); }
 .ticker__lbl::after { content: ''; position: absolute; z-index: -1; left: var(--space-hair); top: 50%; width: var(--ticker-dot); height: var(--ticker-dot); margin-top: calc(var(--ticker-dot) / -2); border-radius: 50%; background: var(--color-ticker-halo); pointer-events: none; animation: ticker-live var(--ticker-pulse) ease-out infinite; }
 /* the pause, and once paused the play: a pink round in the dot's place */
-.ticker__pause { position: relative; display: inline-flex; flex: 0 0 var(--ticker-pause); align-items: center; justify-content: center; width: var(--ticker-pause); height: var(--ticker-pause); padding: 0; border: 0; border-radius: 50%; background: var(--bg-lit); color: transparent; font-size: 0; cursor: pointer; }
+.ticker__pause { position: relative; display: inline-flex; flex: 0 0 var(--ticker-pause); align-items: center; justify-content: center; width: var(--ticker-pause); height: var(--ticker-pause); padding: 0; border: 0; border-radius: 50%; background: var(--ticker-chip-lit); color: transparent; font-size: 0; cursor: pointer; }
 .ticker__pause::before { content: ''; position: absolute; inset: var(--ticker-pause-hit); }
 .ticker__pause::after { content: ''; flex: 0 0 auto; width: var(--ticker-pause-w); height: var(--ticker-pause-h); background: linear-gradient(90deg, var(--bg-mark-on-plate) 0 var(--ticker-pause-bar), transparent var(--ticker-pause-bar) calc(2 * var(--ticker-pause-bar)), var(--bg-mark-on-plate) calc(2 * var(--ticker-pause-bar))); }
 .ticker__pause[aria-pressed="true"]::after { width: 0; height: 0; margin-left: var(--space-hair); background: none; border-style: solid; border-width: var(--ticker-play) 0 var(--ticker-play) var(--ticker-play-w); border-color: transparent transparent transparent var(--bg-mark-on-plate); }

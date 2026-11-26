@@ -563,8 +563,8 @@ Written on 26 November 2026 after the founder accepted the three levels one gate
 | Case grid | `.case-grid` | 3 | Content: Home's row of five, the catalogue's shelf. | 8: Catalogue, Home | 8 | Section head, Case tile | kept |
 | Case stage | `.case-stage` | 3 | One form. Data: the tier, set by the drop. | 11: Case, Deposit, Sign in | 13 | Media slot, Outcome card, Button, Rare mark | kept; D-265: Contains read from the coloured markup |
 | Commit block | `.commit` | 3 | One form. | 11: Case, Deposit, Sign in | 13 | Figure, Segmented control, Button, Copyable value, Text link | kept; its priced start moves into `button--priced` |
-| Data table | `.data-table` | 3 | Content: the drop table, a ledger (waits for history, 5.9). | 11: Case, Deposit, Sign in | 24 | Drop card, Figure, Text link, Badge | kept |
-| Footer | `.footer` | 3 | One form. | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 133 | Figure, Disclosure, Logo, Text link, Popover menu | kept |
+| Data table | `.data-table` | 3 | Content: the drop table, a ledger (waits for history, 5.9). | 11: Case, Deposit, Sign in | 24 | Drop card, Note line, Text link, Empty state | kept; D-266 (Q6): read from the coloured markup, no Badge; the Figure is the Drop card's |
+| Footer | `.footer` | 3 | One form. | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 133 | Figure, Logo, Button, Icon, Popover menu (its links are its own) | kept; D-266 (Q6): read from the coloured markup, level 3 as shell |
 | Header | `.header` | 3 | Content: guest, signed in. | 51: Case, Catalogue, Deposit, Home, My items, Provably fair, Responsible play, Sign in | 132 | Button, Figure, Badge, Account menu | kept; holds the Account menu |
 | Item grid | `.item-grid` | 3 | One form. | 4: My items | 6 | Item card, Segmented control | kept |
 | Mode row | `.mode-row` | 3 | One form. | 2: Home | 2 | Mode card | kept |
@@ -572,7 +572,7 @@ Written on 26 November 2026 after the founder accepted the three levels one gate
 | Recent drops | `.recent-drops` | 3 | One form. | 11: Case, Deposit, Sign in | 13 | Recent drop card | kept |
 | Status notice | `.notice` | 3 | Tone: in progress, stopped, failed with a reference. | 6: Deposit, Sign in | 22 | Key-value line, Figure, Button, Copyable value, Status steps | kept |
 | Ticker | `.ticker` | 3 | One form; running, paused. | 39: Case, Catalogue, Deposit, Home, My items, Provably fair, Sign in | 104 | Feed tile | kept |
-| How this case works | `.case-how` | 3 | One form: the prose on its plate beside the ticket ruler. | 17: Case, Deposit, Provably fair, Sign in | 37 (`wf-prose`, generic) | Section head, Prose, Icon | new, from the one-off `.how` with `.ruler` on two screens |
+| How this case works | `.case-how` | 3 | One form: the prose on its plate beside the ticket ruler. | 17: Case, Deposit, Provably fair, Sign in | 37 (`wf-prose`, generic) | Section head, Icon, Note line (its prose is its own type) | D-266 (Q6): read from the coloured markup, no Prose; new, from the one-off `.how` with `.ruler` on two screens |
 | Proof fields | `.proof-fields` | 3 | Content: what each field means (Provably fair), the round's own values with Copy (the public result). | 6: Provably fair | 11 | Key-value line, Copyable value | new, from the one-off `.fair-made`; the Proof block's field set |
 | Deposit dock | `.dock` | 3 | One form. | 5: Deposit | 6 | Figure, Key-value line, Field, Button, Note line | kept |
 | Limits panel | `.limits` | 3 | One form. | 5: Responsible play | 4 | Field, Key-value line, Button, Note line, Popover menu | kept |

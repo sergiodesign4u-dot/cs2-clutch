@@ -5,12 +5,16 @@
  *   molecule draws its own key (.copy-value__k) and value (.copy-value__v). The molecule's own part is the key, the value's well, the answer line,
  *   the one-line strip and the address with its QR.
  * Reads: --bg-tile-veil, --line-edge, --text-hi, --text-body, --text-match, --bg-mark-on-plate and --text-on-accent (the QR's white tile and its ink);
- *   --font-mono and geometry and type from the primitives. No component token, no colour primitive read directly.
+ *   on a plate (--on-plate) --text-body-on-plate, --text-on-plate, --text-match-on-plate, --line-edge-on-plate and its own --copy-value-bg-on-plate; --font-mono and geometry and type from the primitives. No component
+ *   token, no colour primitive read directly.
  * Carried from design/kit/kit.css part 4.2, COPYABLE VALUE (lines 2670 to 2689) at stage 08 step 5, round 2, unchanged in look; the colours are read
  *   through the roles that hold them (--color-tile-veil, --shadow-edge, --color-text-hi, --color-text-soft, --color-green, and for the QR
  *   --color-text-hi and --color-ground). The look is the server seed hash under the case screen's open act, design/v4/case-page.css .v4c-hash, and the
  *   hash well of Home's Every round, design/v4/proof-home.css .x6-hash. The molecule has no state of its own: Copy has the Button's. The answer line
- *   (.copy-value__said) is written by the product's script (kit.js, Copy on a value, microcopy R155 and R34) and is empty at rest. */
+ *   (.copy-value__said) is written by the product's script (kit.js, Copy on a value, microcopy R155 and R34) and is empty at rest.
+ * The on-plate form (.copy-value--on-plate) is new before round 3b, D-266 (Q3): the Proof block's dark hash well on the fair blue keeps its
+ *   colour in both themes, so the key and the answer read the -on-plate roles. kit.css writes no rule of its own on .copy-value inside .proof
+ *   (the well draws the base lines 2675 to 2680). The value's chip keeps its dark veil and edge too (see below). */
 
 /* One form with three contents: a block (key over value over Copy), the one-line strip under the open act (--inline), and a wallet address with its QR (--address). */
 .copy-value { display: grid; gap: var(--space-2); min-width: 0; }
@@ -27,3 +31,12 @@
 .copy-value__qr > img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .copy-value__body { display: grid; gap: var(--space-2); min-width: 0; }
 @media (min-width: 600px) { .copy-value--address { grid-template-columns: calc(4 * var(--size-tap)) minmax(0, 1fr); } }
+
+/* Ground: on a plate that keeps its colour in both themes (D-266, Q3), the Proof block's dark hash well on the fair blue. Named for the roles it
+   reads (-on-plate), as .kv--on-plate. In the dark theme each equals the theme role it stands in for, so the block draws what kit.css draws in
+   the well. The value's chip keeps its dark veil through the block's own --copy-value-bg-on-plate (one block, so a token, not a role), its edge
+   through the role --line-edge-on-plate (shared with the Footer and the Case stage) and its ink through --text-on-plate. The Copy Button beside it
+   keeps the Button's own look, which turns light in the light theme: read again at step 7. */
+.copy-value--on-plate .copy-value__k { color: var(--text-body-on-plate); }
+.copy-value--on-plate .copy-value__v { background: var(--copy-value-bg-on-plate); box-shadow: var(--line-edge-on-plate); color: var(--text-on-plate); }
+.copy-value--on-plate .copy-value__said { color: var(--text-match-on-plate); }

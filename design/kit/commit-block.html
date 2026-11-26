@@ -105,7 +105,7 @@ node design/kit/tools/shoot-states.js http://localhost:8765/ commit-block --chec
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and motion come straight from the primitives; every pixel literal that no primitive equals is a custom property of the block (<code>--commit-*</code>), each with its origin in the file. One component token: <code>--commit-bolt-extreme</code>, the fourth band, which no role holds yet (see the round's questions). One colour read in this block only, waiting for step 9: <code>--color-skull-off-plate</code>, an unlit bolt.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and motion come straight from the primitives; every pixel literal that no primitive equals is a custom property of the block (<code>--commit-*</code>), each with its origin in the file. No component token: the fourth band's lit bolt reads the role <code>--text-risk-extreme</code>, shared with the Case tile (D-266, Q1). One colour read in this block only, waiting for step 9: <code>--color-skull-off-plate</code>, an unlit bolt.</p>
   <p>File: <code>design/system/components/commit-block.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group.</p>
   <pre>&lt;section class="commit" data-price="12.40" data-state="funded" aria-label="Open this case"&gt;
   &lt;div class="commit__plate"&gt;
@@ -129,7 +129,7 @@ window.KIT_SHOTS = [
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-base', '--text-body', '--text-hi', '--text-meta', '--text-risk-low', '--text-risk-mid', '--text-risk-high', '--bg-plate', '--line-plate-edge', '--line-focus', '--commit-bolt-extreme', '--color-skull-off-plate'];
+  var T = ['--text-base', '--text-body', '--text-hi', '--text-meta', '--text-risk-low', '--text-risk-mid', '--text-risk-high', '--bg-plate', '--line-plate-edge', '--line-focus', '--text-risk-extreme', '--color-skull-off-plate'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = /^--(text|bg|line|depth)-/.test(n) ? 'semantic' : /^--(color|shadow|gradient|filter)-/.test(n) ? 'primitive, read in this block only' : 'component';

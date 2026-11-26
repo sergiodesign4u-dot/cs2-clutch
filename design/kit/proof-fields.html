@@ -88,7 +88,7 @@
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry and type come straight from the primitives; the one pixel literal no primitive equals, the well's 9px in <code>--values</code>, is a custom property of the block (<code>--proof-fields-well-y</code>) with its origin in the file. The plate keeps its colours in both themes, so its words read the on-plate roles. Two component tokens, each saying why no role fits: <code>--proof-fields-key</code> and <code>--proof-fields-well-edge</code> (see the round's questions).</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry and type come straight from the primitives; the one pixel literal no primitive equals, the well's 9px in <code>--values</code>, is a custom property of the block (<code>--proof-fields-well-y</code>) with its origin in the file. The plate keeps its colours in both themes, so its words read the on-plate roles. One component token, saying why no role fits: <code>--proof-fields-key</code>. The well's lit edge reads the role <code>--line-edge-lit-on-plate</code>, shared with the Money strip's hash box (D-266, Q1).</p>
   <p>File: <code>design/system/components/proof-fields.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group.</p>
   <pre>&lt;section class="proof-fields" aria-labelledby="h2-made"&gt;&lt;h2 class="proof-fields__h" id="h2-made"&gt;What a round proof is made of&lt;/h2&gt;
   &lt;dl class="proof-fields__list"&gt;&lt;div&gt;&lt;dt&gt;Server seed hash&lt;/dt&gt;&lt;dd&gt;Published before the round runs&lt;/dd&gt;&lt;/div&gt;...&lt;/dl&gt;
@@ -106,7 +106,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.firstEl
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-on-plate', '--bg-act-stripes', '--bg-fair', '--bg-hash-well-on-plate', '--line-lit-top', '--depth-fair', '--proof-fields-key', '--proof-fields-well-edge'];
+  var T = ['--text-on-plate', '--bg-act-stripes', '--bg-fair', '--bg-hash-well-on-plate', '--line-lit-top', '--depth-fair', '--proof-fields-key', '--line-edge-lit-on-plate'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = /^--(text|bg|line|depth)-/.test(n) ? 'semantic' : /^--(color|shadow|gradient|filter)-/.test(n) ? 'primitive, read in this block only' : 'component';

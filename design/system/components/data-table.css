@@ -8,9 +8,9 @@
  * Holds: Drop card (.drop-card--fit, every row of the drop table), Note line (.note--stamp .note--soft, the stamp under it), Text link (.link, a
  *   way on in a ledger's reason), Empty state (where a ledger has no rows, the table gives way to it). It places them and never restyles them.
  * States: none of its own, it is not interactive. A row's state is data the product sets: data-state="mismatch" on a ledger row.
- * Reads: --text-base, --text-body, --text-hi, --text-money, --bg-card-deep, --line-edge, --depth-card; its own --data-table-row-edge,
- *   --data-table-row-bg-mismatch, --data-table-line-mismatch (tokens.css, COMPONENT TOKENS); geometry and type from the primitives. No colour
- *   primitive read directly.
+ * Reads: --text-base, --text-body, --text-hi, --text-money, --bg-card-deep, --line-edge, --depth-card, and for a mismatched row --bg-error-wash
+ *   (shared with the Account menu) and --line-error (a refusal's ring; the red moved from --color-down to --color-error, D-266 Q1); its own
+ *   --data-table-row-edge (tokens.css, COMPONENT TOKENS); geometry and type from the primitives. No colour primitive read directly.
  * Carried from design/kit/kit.css part 4.3 (DATA TABLE, lines 4347 to 4398) at stage 08 step 5, round 3. Nothing renamed; the merged drift of
  *   step 3 (tokens-audit.md, row 30: the tile edge at white .07, one role with --line-edge) is the one value that moves, on a ledger row's
  *   card under 600px. The screen's own placing of the block stays in kit.css until step 6. From design/v4/case-body.css row F
@@ -50,16 +50,16 @@
 .data-table__why { color: var(--text-body); font-size: var(--size-chip); font-weight: 400; line-height: 1.45; }
 
 /* a row whose proof does not check out: its band in the error wash with the down edge, the reason and the way on beside the state */
-.data-table--ledger tbody tr[data-state="mismatch"] td { background: linear-gradient(var(--data-table-row-bg-mismatch), var(--data-table-row-bg-mismatch)), var(--bg-card-deep); box-shadow: inset 0 var(--size-hairline) 0 var(--data-table-line-mismatch), inset 0 calc(-1 * var(--size-hairline)) 0 var(--data-table-line-mismatch); }
-.data-table--ledger tbody tr[data-state="mismatch"] td:first-child { box-shadow: inset var(--size-hairline) var(--size-hairline) 0 var(--data-table-line-mismatch), inset 0 calc(-1 * var(--size-hairline)) 0 var(--data-table-line-mismatch); }
-.data-table--ledger tbody tr[data-state="mismatch"] td:last-child { box-shadow: inset calc(-1 * var(--size-hairline)) var(--size-hairline) 0 var(--data-table-line-mismatch), inset 0 calc(-1 * var(--size-hairline)) 0 var(--data-table-line-mismatch); }
+.data-table--ledger tbody tr[data-state="mismatch"] td { background: linear-gradient(var(--bg-error-wash), var(--bg-error-wash)), var(--bg-card-deep); box-shadow: inset 0 var(--size-hairline) 0 var(--line-error), inset 0 calc(-1 * var(--size-hairline)) 0 var(--line-error); }
+.data-table--ledger tbody tr[data-state="mismatch"] td:first-child { box-shadow: inset var(--size-hairline) var(--size-hairline) 0 var(--line-error), inset 0 calc(-1 * var(--size-hairline)) 0 var(--line-error); }
+.data-table--ledger tbody tr[data-state="mismatch"] td:last-child { box-shadow: inset calc(-1 * var(--size-hairline)) var(--size-hairline) 0 var(--line-error), inset 0 calc(-1 * var(--size-hairline)) 0 var(--line-error); }
 
 /* under 600px a ledger row is a card of label and value lines, each label read from the cell's data-l */
 @media (max-width: 599px) {
   .data-table--ledger .data-table__t, .data-table--ledger tbody, .data-table--ledger tr, .data-table--ledger td { display: block; }
   .data-table--ledger .data-table__head { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .data-table--ledger tbody tr { display: grid; gap: var(--space-2); margin-bottom: var(--space-2); padding: var(--space-3) var(--space-3-5); border-radius: var(--radius-m); background: var(--bg-card-deep); box-shadow: var(--line-edge), var(--depth-card); }
-  .data-table--ledger tbody tr[data-state="mismatch"] { background: linear-gradient(var(--data-table-row-bg-mismatch), var(--data-table-row-bg-mismatch)), var(--bg-card-deep); box-shadow: inset 0 0 0 var(--size-hairline) var(--data-table-line-mismatch), var(--depth-card); }
+  .data-table--ledger tbody tr[data-state="mismatch"] { background: linear-gradient(var(--bg-error-wash), var(--bg-error-wash)), var(--bg-card-deep); box-shadow: inset 0 0 0 var(--size-hairline) var(--line-error), var(--depth-card); }
   .data-table--ledger tbody td, .data-table--ledger tbody td:first-child, .data-table--ledger tbody td:last-child,
   .data-table--ledger tbody tr[data-state="mismatch"] td, .data-table--ledger tbody tr[data-state="mismatch"] td:first-child, .data-table--ledger tbody tr[data-state="mismatch"] td:last-child { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-end; gap: var(--space-1) var(--space-2); padding: 0; border-radius: 0; background: none; box-shadow: none; text-align: right; }
   .data-table--ledger tbody td::before { content: attr(data-l); flex: none; margin-right: auto; color: var(--text-body); font-family: var(--font-family); font-size: var(--size-micro); font-weight: 700; letter-spacing: var(--tracking-snug); text-transform: uppercase; }

@@ -14,8 +14,8 @@
  *   window; --rail-page-x, the product column's left edge, where the overlay opens (the page layout sets both, .shell in kit.css).
  * Reads: --text-base, --text-hi, --text-on-plate (a row's words and mark on its lit card, the chips' words), --text-meta, --bg-stripes,
  *   --bg-mode-cases, --bg-mode-battles, --bg-mode-showdowns, --bg-case-gold, --bg-track, --bg-panel, --depth-shell, --bg-toggle,
- *   --bg-burger-bars, --bg-mark (the burger's lines drawn white under the pointer), --bg-scrim, --line-edge, --line-focus; its own
- *   --rail-toggle-bg-hover, --rail-foot-line and --rail-drawer-depth-open (tokens.css, COMPONENT TOKENS); geometry, type and motion from the
+ *   --bg-burger-bars, --bg-mark (the burger's lines drawn white under the pointer), --bg-scrim, --line-edge, --line-focus, the state token
+ *   --bg-toggle-hover (shared with the Header's burger, D-266 Q1); its own --rail-foot-line and --rail-drawer-depth-open (tokens.css, COMPONENT TOKENS); geometry, type and motion from the
  *   primitives; the pictures --art-case-coldfront, --art-mode-battles-crossed, --art-mode-showdowns, --art-mode-upgrade of art.css.
  *   Read directly and waiting for step 9: --gradient-rail-giveaways, --shadow-rail-peek, --shadow-rail-chip, --color-rail-chip-sub,
  *   --color-rail-tile-chip, --shadow-rail-drawer, read in this block only; --color-blue (a row's focus ring, kit.css's own look) and
@@ -150,7 +150,7 @@
     opacity: 0; translate: 0 -50%; clip-path: var(--rail-chip-hide); pointer-events: none; transition: opacity .12s, clip-path .26s var(--motion-ease-settle); }
   .rail.is-closed .rail__amb-i:has(:focus-visible)::after { opacity: 1; clip-path: var(--rail-chip-show); }
   @media (hover: hover) {
-    .rail__toggle:hover { background: var(--rail-toggle-bg-hover); }
+    .rail__toggle:hover { background: var(--bg-toggle-hover); }
     .rail.is-closed .rail__item:hover > .rail__label, .rail.is-closed .rail__amb-i:hover::after { opacity: 1; clip-path: var(--rail-chip-show); }
   }
 }

@@ -130,7 +130,7 @@ window.KIT_SHOTS = [
 <script>
 KitTokens.load().then(function () {
   var T = ['--text-on-plate', '--text-on-plate-soft', '--text-money-on-plate', '--text-match-on-plate', '--text-link-on-plate', '--text-on-accent', '--bg-spend-strip', '--bg-fair', '--bg-act-stripes', '--bg-hash-well-on-plate', '--bg-mark-on-plate', '--line-lit-top', '--depth-plate-deep', '--depth-fair', '--depth-stub-text', '--depth-figure-text', '--depth-case-lift', '--depth-skin-lift',
-    '--money-strip-panel-bg-hover', '--money-strip-card-filter-hover', '--line-focus-on-plate', '--money-strip-hash-edge'];
+    '--money-strip-panel-bg-hover', '--money-strip-card-filter-hover', '--line-focus-on-plate', '--line-edge-lit-on-plate'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = /^--money-strip-/.test(n) ? 'component' : 'semantic';

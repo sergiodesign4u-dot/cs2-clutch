@@ -1,10 +1,14 @@
 /* KEY-VALUE LINE, level 1 (atom). A key in small caps and its value: the facts of a drop (Chance, Tickets), a total, a payment's lines, a limit's rule.
  * Page: design/kit/key-value-line.html. Stands on six coloured screens: the case screen, Deposit, My items, Provably fair, Responsible play,
  * Sign in (design/kit/inventory.md, Key-value line).
- * Reads: --text-hi, --text-meta, --text-body, --text-money, --line-soft; geometry, type and tracking from the primitives.
+ * Reads: --text-hi, --text-meta, --text-body, --text-money, --line-soft; on a plate (--on-plate) --text-on-plate, --text-meta-on-plate,
+ *   --text-body-on-plate, --text-money-on-plate; geometry, type and tracking from the primitives.
  * Carried from design/kit/kit.css part 4.1 (lines 2443 to 2450) at stage 08 step 5, round 1, by the decisions of step 2 (D-260): the fact form
  *   (.kv--fact, rename map row 23, from .drop-card .kv, .drop-card .kv__k and .drop-card__t .kv__v) and the size M (.kv--m, row 24, from
- *   .record__lines > .kv). From design/v4/case-blocks.css. */
+ *   .record__lines > .kv). From design/v4/case-blocks.css.
+ * The on-plate form (.kv--on-plate) is new before round 3b, D-266 (Q3): the Proof block's dark hash well on the fair blue keeps its colour in
+ *   both themes, so the line there reads the -on-plate roles, which keep their value in both. It draws what kit.css draws in the well today
+ *   (.proof__fields holds a plain .kv and a .kv--rule, and kit.css writes no rule of its own on them there: the base lines 2444 to 2450). */
 
 /* One anatomy: the key (.kv__k) and its value (.kv__v) on one baseline, the value at the end. Content: a line, a total (a rule over it), a money
    total, a rule (the key on a fixed column, the value in the body ink, a limit's direction), a value nobody has (D-124). */
@@ -25,3 +29,14 @@
 .kv--fact { flex-wrap: wrap; justify-content: flex-end; gap: var(--size-edge) var(--space-2); margin: 0; padding: var(--space-3) 0 0; color: var(--text-hi); font-size: var(--size-label); font-weight: 900; line-height: 1.2; text-align: right; white-space: nowrap; }
 .kv--fact .kv__k { flex: none; margin-right: auto; color: var(--text-body); font-size: var(--size-badge-text); }
 :where(.kv--fact) .kv__v:where(:not(.kv__v--missing)) { color: color-mix(in srgb, var(--kv-tint, var(--text-hi)) 35%, var(--text-hi)); } /* zero weight: a missing or money value keeps its own colour */
+
+/* Ground: on a plate that keeps its colour in both themes (D-266, Q3), the Proof block's dark hash well on the fair blue. Named for the roles it
+   reads (-on-plate); .tabs--plate is another job, a ground the atom paints itself. Only the colours move; in the dark theme each role equals the
+   theme role it stands in for, so the line draws what kit.css draws in the well. Covers the forms the well wears (the line, the rule) and the two
+   value forms that have an on-plate role (missing, money). The total's hairline (--line-soft) and the fact (--text-body, --kv-tint over
+   --text-hi) have no on-plate role and stand on no plate: they are not worn with --on-plate. */
+.kv--on-plate .kv__k { color: var(--text-meta-on-plate); }
+.kv--on-plate .kv__v { color: var(--text-on-plate); }
+.kv--on-plate .kv__v--missing { color: var(--text-meta-on-plate); }
+.kv--on-plate.kv--money .kv__v { color: var(--text-money-on-plate); }
+.kv--on-plate.kv--rule .kv__v { color: var(--text-body-on-plate); }

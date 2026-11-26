@@ -6,8 +6,8 @@
  *   with its Icon), Badge, Account menu (level 2). It never redraws them; its file carries the strip, its light, the falling weapons, the
  *   burger under 900px and how it places the money and the account. The logo and the toggle on its strip from 900px are the Rail's.
  * Reads: --bg-page, --text-base, --bg-layer, --depth-shell, --bg-veil, --line-edge, --line-focus, --bg-toggle, --bg-burger-bars, --bg-mark
- *   (the plus on Add funds, a white glyph drawn as a fill); its own --header-menu-bg-hover (tokens.css, COMPONENT TOKENS: the burger under
- *   the pointer and while the drawer is open); geometry, type and motion from the primitives; the picture --art-fall-near and --art-fall-far
+ *   (the plus on Add funds, a white glyph drawn as a fill); the state token --bg-toggle-hover (shared with the Rail's toggle, D-266 Q1: the burger
+ *   under the pointer and while the drawer is open); geometry, type and motion from the primitives; the picture --art-fall-near and --art-fall-far
  *   of art.css. Read directly and waiting for step 9: --gradient-header-light, --gradient-header-edge, --shadow-header-edge and
  *   --shadow-header-fall, read in this block only (tokens-audit.md, "What the semantic level does not take yet").
  *   The fall's mask stops are written black: a mask reads only its alpha, so the colour is no colour of the system.
@@ -69,12 +69,12 @@
   .header__menu { display: flex; flex: none; align-items: center; justify-content: center; width: var(--size-tile); height: var(--size-tile); margin: calc(-1 * var(--size-hairline)) 0; padding: 0; border: 0; border-radius: var(--radius-tile); background: var(--bg-toggle); box-shadow: var(--line-edge); cursor: pointer; transition: background-color .2s; -webkit-tap-highlight-color: transparent; }
   .header__menu::after { content: ''; display: block; width: var(--size-burger-w); height: var(--size-burger-h); margin: auto; border-radius: calc(var(--radius-xs) / 4); background: var(--bg-burger-bars); }
   /* open: the drawer it opens is open, set by kit.js (aria-expanded) */
-  .header__menu[aria-expanded="true"] { background: var(--header-menu-bg-hover); }
+  .header__menu[aria-expanded="true"] { background: var(--bg-toggle-hover); }
   .header__end, .header__money { gap: var(--space-2); }
   .header__money { padding-left: var(--space-2-5); }
   /* the header's layer rises over the page while the account's sheet is open, under the rail's drawer (rename map row 2: the Account menu's trigger) */
   .header:has(.account-menu__trigger[aria-expanded="true"]) { z-index: 61; }
 }
 .header__menu:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
-@media (hover: hover) and (max-width: 899px) { .header__menu:hover { background: var(--header-menu-bg-hover); } }
+@media (hover: hover) and (max-width: 899px) { .header__menu:hover { background: var(--bg-toggle-hover); } }
 @media (prefers-reduced-motion: reduce) { .header__fall > i { animation: none; } .header__menu { transition: none; } }

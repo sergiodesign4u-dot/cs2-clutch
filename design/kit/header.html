@@ -102,7 +102,7 @@
   <div class="cp-shots" id="cp-shots"></div>
   <ul class="kt-list">
     <li><b>A figure</b> takes the ring on focus-visible, <code>--line-focus</code> at 2px with its 2px offset and a small corner; it has no hover face and no press face in <code>kit.css</code>, and none is added: it goes to Deposit or to My items.</li>
-    <li><b>The burger, under 900px only.</b> Under the pointer and while the drawer it opens is open (<code>aria-expanded="true"</code>, set by <code>kit.js</code>) its tile lifts to <code>--header-menu-bg-hover</code>; on focus-visible it takes the same ring. The tool shoots at 1440, where the burger is not drawn, so it has no snapshot here: narrow the window to see the second frame above, its burger open. The rail's toggle wears the same face from 900px and is shot on the <a href="rail.html">Rail</a>'s page.</li>
+    <li><b>The burger, under 900px only.</b> Under the pointer and while the drawer it opens is open (<code>aria-expanded="true"</code>, set by <code>kit.js</code>) its tile lifts to <code>--bg-toggle-hover</code>; on focus-visible it takes the same ring. The tool shoots at 1440, where the burger is not drawn, so it has no snapshot here: narrow the window to see the second frame above, its burger open. The rail's toggle wears the same face from 900px and is shot on the <a href="rail.html">Rail</a>'s page.</li>
     <li><b>The account's sheet open</b> (under 900px, <code>aria-expanded</code> on the Account menu's pill, set by <code>kit.js</code>) lifts the header's layer to 61, over the page and under the rail's drawer. Nothing on the strip changes.</li>
     <li><b>Not interactive:</b> the strip, the light and the falling weapons. The header has no disabled look (D-58).</li>
   </ul>
@@ -113,7 +113,7 @@ node design/kit/tools/shoot-states.js http://localhost:8765/ header --check   # 
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. One component token, <code>--header-menu-bg-hover</code>: the burger under the pointer and while the drawer is open, which no role holds (<code>--bg-hover</code> is a darker navy than the toggle and would dim it); the Rail's toggle has its twin, a question for the gate. The plus on Add funds is a white glyph drawn as a fill, <code>--bg-mark</code>. Under 900px the strip's edge is <code>--line-edge</code>, white at .07 where <code>kit.css</code> drew .05 (merged drift, rename map row 30). Read directly and waiting for step 9: <code>--gradient-header-light</code>, <code>--gradient-header-edge</code>, <code>--shadow-header-edge</code>, <code>--shadow-header-fall</code>, read in this block only. Geometry, type and motion come straight from the primitives; the weapons are the pictures <code>--art-fall-near</code> and <code>--art-fall-far</code> of <code>art.css</code>.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token. The burger under the pointer and while the drawer is open reads the state token <code>--bg-toggle-hover</code>, shared with the Rail's toggle (D-266, Q1); <code>--bg-hover</code> is a darker navy than the toggle and would dim it. The plus on Add funds is a white glyph drawn as a fill, <code>--bg-mark</code>. Under 900px the strip's edge is <code>--line-edge</code>, white at .07 where <code>kit.css</code> drew .05 (merged drift, rename map row 30). Read directly and waiting for step 9: <code>--gradient-header-light</code>, <code>--gradient-header-edge</code>, <code>--shadow-header-edge</code>, <code>--shadow-header-fall</code>, read in this block only. Geometry, type and motion come straight from the primitives; the weapons are the pictures <code>--art-fall-near</code> and <code>--art-fall-far</code> of <code>art.css</code>.</p>
   <p>File: <code>design/system/components/header.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group. The page layout that stands it across the top of the grid (<code>.shell &gt; .header</code>) stays in <code>kit.css</code> and moves to <code>design/system/screens/</code> at step 6.</p>
   <pre>&lt;header class="header"&gt;
   &lt;div class="header__fall" aria-hidden="true"&gt;&lt;i class="header__fall-far"&gt;&lt;/i&gt;&lt;i class="header__fall-near"&gt;&lt;/i&gt;&lt;/div&gt;
@@ -149,7 +149,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--bg-page', '--text-base', '--bg-layer', '--depth-shell', '--bg-veil', '--line-edge', '--line-focus', '--bg-toggle', '--bg-burger-bars', '--bg-mark', '--header-menu-bg-hover',
+  var T = ['--bg-page', '--text-base', '--bg-layer', '--depth-shell', '--bg-veil', '--line-edge', '--line-focus', '--bg-toggle', '--bg-burger-bars', '--bg-mark', '--bg-toggle-hover',
     '--gradient-header-light', '--gradient-header-edge', '--shadow-header-edge', '--shadow-header-fall'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {

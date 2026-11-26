@@ -7,8 +7,8 @@
  *   --bg-case-violet, --line-edge-lit, --line-lit, --line-focus; geometry, type and motion from the primitives. Colour primitives read directly,
  *   each named in the report of round 2: --color-blue and --color-gold (two of the six with one reader per surface), --color-rare-fire,
  *   --color-fav-plate, --gradient-case-violet, --gradient-fade-up and --shadow-tip (read in this block only, tokens-audit.md), --color-price-plate,
- *   --shadow-price-edge and --color-risk-extreme (this block's, no role yet), --color-disabled (the busy wash the Button's disabled look also
- *   reads); all wait for step 9.
+ *   --shadow-price-edge (this block's, no role yet), --color-disabled (the busy wash the Button's disabled look also
+ *   reads); all wait for step 9. The fourth band's bolt reads the role --text-risk-extreme, shared with the Commit block (D-266, Q1).
  * Carried from design/kit/kit.css part 4.2 (CASE TILE, lines 2545 to 2628) at stage 08 step 5, round 2, unchanged in look. Rules an organism or a
  *   screen writes on this class (.case-grid__cell > .case-tile and the like) stay in kit.css: the Case grid carries them in round 3.
  *   From design/v4/case-tiles.css and theme.css. */
@@ -35,7 +35,7 @@
 /* the risk: four bolts, one to four lit in the band's colour; its words stay for a screen reader */
 .case-tile__risk { --rc: var(--text-meta); --n: 0; position: relative; display: block; width: calc(4 * var(--size-check)); height: var(--case-tile-risk); margin-block: var(--space-hair) var(--space-2); overflow: visible; color: transparent; font-size: 0; }
 .case-tile__risk[data-risk="low"] { --rc: var(--text-risk-low); } .case-tile__risk[data-risk="medium"] { --rc: var(--text-risk-mid); }
-.case-tile__risk[data-risk="high"] { --rc: var(--text-risk-high); } .case-tile__risk[data-risk="extreme"] { --rc: var(--color-risk-extreme); }
+.case-tile__risk[data-risk="high"] { --rc: var(--text-risk-high); } .case-tile__risk[data-risk="extreme"] { --rc: var(--text-risk-extreme); }
 .case-tile__bolts { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: var(--size-check); }
 .case-tile__bolts > .icon { position: relative; display: block; color: var(--text-risk-off); transition: filter .2s, scale .2s; }
 .case-tile__bolts > .icon.is-on { color: var(--rc); }

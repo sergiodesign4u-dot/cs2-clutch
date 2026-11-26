@@ -91,30 +91,31 @@
 /* RARE MARKS ON THE CASE'S CARDS, D-236, the card's side: D-214's marks (the Rare mark atom, laid on by motion.js by the card's data-chance) on an
    item of What is in this case only while it is hovered or holds focus, founder of 10 Nov 2026: "давай тут при ховере показивать анимации редких
    скинов"; A's ring where the card draws its ring, B's lightning past the card's edge, C, the rarest, burning outside the card, "по самому редкому
-   скину пламя должно бути снаружи", behind its own ground: the card lends its ground to ::before so the flame shows only round it */
+   скину пламя должно бути снаружи", behind its own ground. kit.css lent the card's ground to ::before, which is already the 3px chance line, so under
+   the pointer only that line was drawn (round 3, Q2); the card now keeps its ground and the flame is masked off the card's box, so it still shows
+   only round it (D-266, Q2). The tier reaches the mark as --rarity, which A's arc reads (D-266, Q2: until then only the Feed tile set it). */
 .drop-card {
+  --rarity: var(--tier);
   --drop-card-fire-rise: 150px; /* kit.css RARE MARKS ON THE CASE'S CARDS, .drop-card.is-mark-c > .rare-mark--fire top, a literal in the rule: how far C's flame rises over the card; v4 rare-mark.css, D-236 */
   --drop-card-fire-h: 240px; /* the same rule's height: the flame's own height from there */
+  --drop-card-fire-side: 8%; /* the same rule's left, -8% with a width of 116%: how far the flame reaches past each side of the card */
 }
 .drop-card .rare-mark { display: none; }
 .drop-card:is(.is-mark-a, .is-mark-b, .is-mark-c):focus-within .rare-mark { display: block; }
 .drop-card:is(.is-mark-a, .is-mark-b, .is-mark-c):focus-within { overflow: visible; }
-.drop-card.is-mark-c:focus-within { background: none; }
 @media (hover: hover) {
   .drop-card:is(.is-mark-a, .is-mark-b, .is-mark-c):hover .rare-mark { display: block; }
   .drop-card:is(.is-mark-a, .is-mark-b, .is-mark-c):hover { overflow: visible; }
-  .drop-card.is-mark-c:hover { background: none; }
 }
 .drop-card__art > .rare-mark--ring { left: 50%; top: 50%; height: 86%; width: auto; aspect-ratio: 136 / 118; margin-left: 0; translate: -50% -50%; }
 .drop-card > .rare-mark--bolt { inset: calc(-1 * var(--space-3)); }
 .drop-card.is-mark-c { isolation: isolate; }
-.drop-card.is-mark-c:focus-within::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
-  background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 16%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 10%, var(--bg-card-deep)), var(--bg-card-deep) 60%); }
-@media (hover: hover) {
-  .drop-card.is-mark-c:hover::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
-    background: radial-gradient(70% 34% at 50% 100%, color-mix(in srgb, var(--tier) 16%, transparent), transparent), linear-gradient(100deg, color-mix(in srgb, var(--tier) 10%, var(--bg-card-deep)), var(--bg-card-deep) 60%); }
-}
-.drop-card.is-mark-c > .rare-mark--fire { inset: auto; top: calc(-1 * var(--drop-card-fire-rise)); left: -8%; width: 116%; height: var(--drop-card-fire-h); z-index: -2; border-radius: 0; opacity: 1; background-image: var(--art-fx-plasma-tall); }
+/* C's flame over the card's top and past its sides, masked off the card's own box: the band above the card (--drop-card-fire-rise tall), and the
+   two strips beside it; the card's sides stand at 8 / 116 = 6.9% and 108 / 116 = 93.1% of the flame's width (a mask's stops are the flame's) */
+.drop-card.is-mark-c > .rare-mark--fire { inset: auto; top: calc(-1 * var(--drop-card-fire-rise)); left: calc(-1 * var(--drop-card-fire-side)); width: calc(100% + 2 * var(--drop-card-fire-side)); height: var(--drop-card-fire-h);
+  z-index: -2; border-radius: 0; opacity: 1; background-image: var(--art-fx-plasma-tall);
+  -webkit-mask: linear-gradient(black, black) top / 100% var(--drop-card-fire-rise) no-repeat, linear-gradient(90deg, black 6.9%, transparent 6.9% 93.1%, black 93.1%);
+  mask: linear-gradient(black, black) top / 100% var(--drop-card-fire-rise) no-repeat, linear-gradient(90deg, black 6.9%, transparent 6.9% 93.1%, black 93.1%); }
 /* needed by .data-table, D-232: the card that takes its row form (.drop-card--row) where the table gives it the whole width, under 600px; the same
    values as --row, from design/v4/case-body.css row F @media (max-width: 599px). Its value is a --title Figure above 600px and an 18px one here, so
    the size is the card's to switch: the markup cannot change with the width. */

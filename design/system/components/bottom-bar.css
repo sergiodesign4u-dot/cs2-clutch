@@ -4,16 +4,16 @@
  * Page: design/kit/bottom-bar.html. Stands on all eight coloured screens under 900px: Home, the case screen, the catalogue, Deposit, My items,
  *   Provably fair, Responsible play, Sign in (design/kit/inventory.md, Bottom bar).
  * Holds: Icon (the mark of each item, .icon--home, .icon--box), placed and sized here in .bottom-bar__mark. Its own: the bar and its items.
- * Reads: --text-on-plate, --text-meta-on-plate, --text-link-on-plate, --line-soft, --line-focus-on-plate; no component token; geometry and type
+ * Reads: --text-on-plate, --text-meta-on-plate, --text-link-on-plate, --line-focus-on-plate; its own --bottom-bar-edge (its top edge, tokens.css COMPONENT TOKENS, D-266 Q3); geometry and type
  *   from the primitives. One colour primitive read directly: --color-ticker, the bar's ground, one of the six with one reader per surface
  *   (bottom bar, rail; tokens-audit.md, "What the semantic level does not take yet"), waiting for step 9. Because that ground keeps its near
- *   black in both themes, the words and marks on it read the on-plate inks, which keep theirs: the same white, grey and pink kit.css draws.
+ *   black in both themes, the words, marks and its top edge read the on-plate roles, which keep theirs: the same white, grey, pink and navy line kit.css draws (D-266, Q3).
  * Carried from design/kit/kit.css part 4.3 (BOTTOM BAR, lines 4002 to 4013) at stage 08 step 5, round 3. Part 3's "the bottom bar" (lines 1509
  *   to 1512) writes on the grey's .wf-bar, which no coloured state wears: not carried. The page's room for the bar (.shell padding-bottom under
  *   900px, line 5776) is the shell's and stays in kit.css until step 6. From kit.css parts 2 and 3 (.wf-bar), as Home v4 and the case screen
  *   draw it. */
 
-.bottom-bar { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-around; box-sizing: border-box; height: var(--size-bar); border-top: var(--size-hairline) solid var(--line-soft); background: var(--color-ticker); font-family: var(--font-family); }
+.bottom-bar { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-around; box-sizing: border-box; height: var(--size-bar); border-top: var(--size-hairline) solid var(--bottom-bar-edge); background: var(--color-ticker); font-family: var(--font-family); }
 .bottom-bar__i { display: flex; flex-direction: column; align-items: center; gap: var(--space-thin); padding: var(--space-1) var(--space-2); color: var(--text-meta-on-plate); font-size: var(--size-chip); font-weight: 500; line-height: 1.2; text-decoration: none; text-transform: uppercase; -webkit-tap-highlight-color: transparent; }
 /* the Icon it holds, at the bar's mark size */
 .bottom-bar__mark { display: block; width: var(--size-nav-mark); height: var(--size-nav-mark); font-size: var(--size-nav-mark); line-height: 1; }

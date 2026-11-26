@@ -22,8 +22,9 @@
 .dock__rate { display: inline-flex; align-items: center; gap: var(--space-1-5); padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--bg-well); box-shadow: var(--line-edge); color: var(--text-money); font-size: var(--size-chip); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1.2; white-space: nowrap; }
 .dock__sum { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1-5) var(--space-2-5); margin: 0; }
 .dock__plus { color: var(--text-meta); font-size: var(--size-title); font-weight: 900; line-height: 1; }
-/* the bonus at the sum's size (the Figure's --head), as the baseline's panel sets them */
-.dock__bonus-v { display: inline-flex; align-items: center; gap: var(--space-1-5); color: var(--text-up); font-size: var(--size-head-l); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+/* the bonus at the sum's size (the Figure's --head), as the baseline's panel sets them; its coin stands 8px from the figure, the sum's gap at that
+   size (D-265 sets the gap by size; kit.css drew 6px, D-266 Q4) */
+.dock__bonus-v { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-up); font-size: var(--size-head-l); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
 .dock__bonus-v small { align-self: flex-end; margin-left: var(--space-hair); font-size: var(--size-label); font-weight: 700; }
 .dock__cap { margin: 0; color: var(--text-money); font-size: var(--size-chip); line-height: 1.4; }
 .dock__total { display: grid; gap: var(--space-3); }

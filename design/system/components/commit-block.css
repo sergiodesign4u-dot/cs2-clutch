@@ -12,7 +12,7 @@
  *   "interrupted"; the act's aria-busy="true" while it rolls is the Button's own. Its own interactive part is the summary of Round details, a
  *   ring on :focus-visible.
  * Reads: --text-base, --text-body, --text-hi, --text-meta, --text-risk-low, --text-risk-mid, --text-risk-high, --bg-plate, --line-plate-edge,
- *   --line-focus; its own --commit-bolt-extreme (tokens.css, COMPONENT TOKENS); geometry, type and motion from the primitives. One colour read in
+ *   --line-focus, --text-risk-extreme (the fourth band, shared with the Case tile, D-266 Q1); geometry, type and motion from the primitives. One colour read in
  *   this block only, waiting for step 9 (tokens-audit.md, "Commit block"): --color-skull-off-plate, an unlit bolt on the plate.
  * Carried from design/kit/kit.css part 4.3 (COMMIT BLOCK, lines 4276 to 4345) and the Figure's .fig--end (lines 2306 to 2308) at stage 08 step 5,
  *   round 3, by the decisions of step 2 (D-260): rename map row 8, the priced act's label at its start on a phone is .button--priced's own (built
@@ -66,7 +66,7 @@
 /* the risk, larger: four bolts of 28px lit in the band's colour, its word beside them; "Risk" for a screen reader. Data: the band */
 .commit__risk { --rc: var(--text-meta); display: flex; flex: none; align-items: center; gap: var(--space-2); height: var(--commit-bolts-h); }
 .commit__risk[data-risk="low"] { --rc: var(--text-risk-low); } .commit__risk[data-risk="medium"] { --rc: var(--text-risk-mid); }
-.commit__risk[data-risk="high"] { --rc: var(--text-risk-high); } .commit__risk[data-risk="extreme"] { --rc: var(--commit-bolt-extreme); }
+.commit__risk[data-risk="high"] { --rc: var(--text-risk-high); } .commit__risk[data-risk="extreme"] { --rc: var(--text-risk-extreme); }
 .commit__bolts { display: flex; flex: none; align-items: center; justify-content: center; gap: var(--space-1); width: var(--commit-bolts-w); height: var(--commit-bolts-h); font-size: var(--commit-bolt); }
 .commit__bolts > .icon { display: block; color: var(--color-skull-off-plate); vertical-align: 0; } /* a primitive read directly: in this block only, step 9 */
 .commit__bolts > .icon.is-on { color: var(--rc); }

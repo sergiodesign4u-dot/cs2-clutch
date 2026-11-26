@@ -29,6 +29,11 @@
   .cp-empty { font-size: 12px; color: var(--text-meta); max-width: 200px; margin: 0 auto; }
   .cp-frame--addr { max-width: 640px; }
   .cp-state-row { display: grid; gap: 22px; }
+  /* the stand's frame for --on-plate: the Proof block's plate (kit.css .proof, the fair blue under the act's stripes) and its dark hash well
+     (.proof__fields), which the Proof block draws in round 3b; drawn here only so the block stands on the ground it is made for */
+  .cp-plate { box-sizing: border-box; width: min(100%, 560px); padding: 22px; border-radius: var(--radius-card); background: var(--bg-act-stripes), var(--bg-fair); box-shadow: var(--line-lit-top), var(--depth-fair); color: var(--text-on-plate); }
+  @media (max-width: 599px) { .cp-plate { padding: var(--space-3-5); } }
+  .cp-well { display: grid; gap: var(--space-3); padding: 9px var(--space-3); border-radius: var(--radius-s); background: var(--bg-hash-well-on-plate); box-shadow: var(--line-edge-lit-on-plate); }
 </style>
 <header class="kt-head">
   <span class="kt-eyebrow">Molecules &middot; Inputs and menus &middot; level 2</span>
@@ -48,21 +53,24 @@
     <tr><td><b>Copy</b></td><td>a <a href="button.html">Button</a>: <code>.button.button--ghost.button--m</code> in <code>.copy-value__row</code></td><td>the row only places the Button and its answer; the Button, its hover, focus and press are the Button's</td></tr>
     <tr><td><b>The answer</b></td><td><code>.copy-value__said</code></td><td>one green line, <code>--text-match</code>, written by the product's script after a press; empty, it takes no room. <i>The molecule's own.</i></td></tr>
     <tr><td><b>The QR</b></td><td><code>.copy-value__qr</code>, <code>.copy-value__body</code> (the address variant)</td><td>a white square of four tap sizes beside the address, the value and its row in the body next to it. <i>The molecule's own.</i></td></tr>
+    <tr><td><b>Ground</b></td><td><code>.copy-value--on-plate</code></td><td>on a plate that keeps its colour in both themes, the Proof block's dark well on the fair blue: the key reads <code>--text-body-on-plate</code> and the answer <code>--text-match-on-plate</code> (D-266); the value's chip keeps its dark veil (<code>--copy-value-bg-on-plate</code>), edge (<code>--line-edge-on-plate</code>) and white ink (<code>--text-on-plate</code>). <i>The molecule's own.</i></td></tr>
     <tr><td><b>Key-value line</b></td><td><a href="key-value-line.html">the atom</a></td><td>the step-2 inventory listed it as held (corrected at D-265), but no coloured state wears <code>.kv</code> inside this block: the molecule draws its own key and value. See the questions in the round's report</td></tr>
   </tbody></table></div>
 </section>
 
 <section class="kt-sec" id="variants">
   <h2>Variants and sizes</h2>
-  <p>One form with three contents. Content is the only axis: it decides which parts stand, never how a part looks. The QR's size is read from the rendered sample, not from the stylesheet.</p>
+  <p>One form, two axes. Content decides which parts stand, never how a part looks; ground decides which roles the key and the answer read. The QR's size is read from the rendered sample, not from the stylesheet.</p>
   <ul class="kt-list">
     <li><b>Block.</b> Key, value and Copy stacked: a ticket or reference id, a seed or hash the person reads whole.</li>
     <li><b>Inline (<code>--inline</code>).</b> The one-line strip under the open act: key and value on one centred line, no Copy. It stands under the case screen's open act as the server seed hash.</li>
     <li><b>Address (<code>--address</code>).</b> A wallet address with its QR: the QR beside the address from 600px up, over it under 600px. Narrow the window to see it stack.</li>
+    <li><b>Ground, on a plate (<code>--on-plate</code>).</b> The theme's ground is the default: in the light theme the key turns to dark ink. A plate that keeps its colour in both themes (the Proof block's dark hash well on the fair blue, round 3b) wears <code>.copy-value--on-plate</code>: the key, the value's chip and the answer keep the dark theme's look in light (D-266). The Copy Button beside it keeps the Button's own look, which turns light in the light theme: read again at step 7.</li>
   </ul>
   <div class="kt-scene"><div class="cp-state-row" style="padding:18px">
     <div class="copy-value"><span class="copy-value__k">Reference</span><code class="copy-value__v">ID 7F3K9Q2M</code><div class="copy-value__row"><button class="button button--ghost button--s" type="button">Copy</button><span class="copy-value__said"></span></div></div>
     <div class="copy-value copy-value--inline"><span class="copy-value__k">Server seed hash</span><code class="copy-value__v">60a523&hellip;e90ce6</code></div>
+    <div class="cp-plate"><div class="cp-well"><div class="copy-value copy-value--on-plate"><span class="copy-value__k">Server seed hash, published before the round</span><div class="copy-value__row"><code class="copy-value__v">4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208</code><button class="button button--ghost button--s" type="button">Copy</button></div><span class="copy-value__said" role="status" aria-live="polite">Copied</span></div><div class="kv kv--on-plate"><span class="kv__k">Nonce</span><span class="kv__v">41 207</span></div></div></div>
     <div class="cell" style="display:grid;gap:6px;justify-items:start"><div class="copy-value copy-value--address" style="width:100%"><span class="copy-value__qr" role="img" aria-label="QR code" data-dim>QR code</span><div class="copy-value__body"><span class="copy-value__k">Your deposit address</span><code class="copy-value__v">bc1q9h7x4k2m8d0v3s6n5r7t2w4y8z0p3a5c7e9x4k2</code><div class="copy-value__row"><button class="button button--ghost button--m" type="button">Copy</button><span class="copy-value__said"></span></div></div></div><span class="cp-dim">QR: </span></div>
   </div></div>
 </section>
@@ -89,6 +97,7 @@
     <div class="copy-value"><span class="copy-value__k">After a press the browser refused</span><code class="copy-value__v">bc1q9h7x4k2m8d0v3s6n5r7t2w4y8z0p3a5c7e9x4k2</code><div class="copy-value__row"><button class="button button--ghost button--m" type="button">Copy</button><span class="copy-value__said" role="status" aria-live="polite">Not copied. Select the address and copy it.</span></div></div>
   </div></div>
   <ul class="kt-list">
+    <li><b>On a plate, no state of its own either.</b> <code>.copy-value--on-plate</code> changes the key's ink, the chip's veil, edge and ink, and the answer's ink; the answer is written by the same script and reads <code>--text-match-on-plate</code>, the same green in both themes (the sample under Variants shows "Copied"). Copy keeps the Button's states, so no snapshot is added.</li>
     <li><b>The answer is the product's own.</b> The samples show the text as <code>pay.js</code> writes it into <code>.copy-value__said</code> (the address); <code>kit.js</code> writes the same two answers on a value with <code>data-copy</code>, the second as "Not copied, select it by hand". No script loads on this page, so the line is typed in, and its colour comes from <code>:empty</code> and the text alone.</li>
   </ul>
 </section>
@@ -96,7 +105,7 @@
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. The well reads the tile's veil and edge; the answer reads <code>--text-match</code>, the role for a copy done; the QR tile is white in both themes (<code>--bg-mark-on-plate</code>) with dark ink (<code>--text-on-accent</code>), because a code is read dark on white. Geometry and type come straight from the primitives, the monospace face included. No component token and no colour primitive is read directly.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. The well reads the tile's veil and edge; the answer reads <code>--text-match</code>, the role for a copy done; the QR tile is white in both themes (<code>--bg-mark-on-plate</code>) with dark ink (<code>--text-on-accent</code>), because a code is read dark on white. On a plate the key reads <code>--text-body-on-plate</code>, the chip <code>--copy-value-bg-on-plate</code>, <code>--line-edge-on-plate</code> and <code>--text-on-plate</code>, and the answer <code>--text-match-on-plate</code>, the last rows, the same in both themes. Geometry and type come straight from the primitives, the monospace face included. One component token, <code>--copy-value-bg-on-plate</code>, the chip's veil on a plate (D-266); no colour primitive is read directly.</p>
   <p>File: <code>design/system/components/copyable-value.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
   <pre>&lt;div class="copy-value copy-value--address"&gt;
   &lt;span class="copy-value__qr" role="img" aria-label="QR code of the deposit address"&gt;QR code&lt;/span&gt;
@@ -105,7 +114,8 @@
     &lt;code class="copy-value__v"&gt;bc1q9h7x4k2m8d0v3s6n5r7t2w4y8z0p3a5c7e9x4k2&lt;/code&gt;
     &lt;div class="copy-value__row"&gt;&lt;button class="button button--ghost button--m" type="button"&gt;Copy&lt;/button&gt;&lt;span class="copy-value__said" role="status" aria-live="polite"&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</pre>
+&lt;/div&gt;
+&lt;div class="copy-value copy-value--on-plate"&gt;&lt;span class="copy-value__k"&gt;Server seed hash, published before the round&lt;/span&gt;&lt;div class="copy-value__row"&gt;&lt;code class="copy-value__v"&gt;4f2a91c7&hellip;&lt;/code&gt;&lt;button class="button button--ghost button--s" type="button"&gt;Copy&lt;/button&gt;&lt;/div&gt;&lt;span class="copy-value__said" role="status" aria-live="polite"&gt;&lt;/span&gt;&lt;/div&gt;</pre>
   <p>Stands on: <a href="../deposit-crypto.html">Deposit, the crypto address</a>, <a href="../case.html">the case screen</a> (the server seed hash under the open act), <a href="../fair.html">Provably fair</a> and <a href="../signin-steam-refused.html">Sign in, when Steam refused</a> (the reference). Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
 </section>
 <script>
@@ -117,7 +127,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--bg-tile-veil', '--line-edge', '--text-hi', '--text-body', '--text-match', '--bg-mark-on-plate', '--text-on-accent'];
+  var T = ['--bg-tile-veil', '--line-edge', '--text-hi', '--text-body', '--text-match', '--bg-mark-on-plate', '--text-on-accent', '--text-body-on-plate', '--text-on-plate', '--line-edge-on-plate', '--copy-value-bg-on-plate', '--text-match-on-plate'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = /^--line-focus/.test(n) ? 'state' : 'semantic';

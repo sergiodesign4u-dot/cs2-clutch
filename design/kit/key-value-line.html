@@ -29,6 +29,11 @@
   .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
   .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
   .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  /* the stand's frame for --on-plate: the Proof block's plate (kit.css .proof, the fair blue under the act's stripes) and its dark hash well
+     (.proof__fields), which the Proof block draws in round 3b; drawn here only so the line stands on the ground it is made for */
+  .cp-plate { box-sizing: border-box; width: min(100%, 420px); padding: 22px; border-radius: var(--radius-card); background: var(--bg-act-stripes), var(--bg-fair); box-shadow: var(--line-lit-top), var(--depth-fair); color: var(--text-on-plate); }
+  @media (max-width: 599px) { .cp-plate { padding: var(--space-3-5); } }
+  .cp-well { display: grid; gap: var(--space-3); padding: 9px var(--space-3); border-radius: var(--radius-s); background: var(--bg-hash-well-on-plate); box-shadow: var(--line-edge-lit-on-plate); }
 </style>
 <header class="kt-head">
   <span class="kt-eyebrow">Atoms &middot; Figures and words &middot; level 1</span>
@@ -49,16 +54,18 @@
     <tr><td><b>Content</b></td><td><code>.kv--total</code>, <code>--money</code>, <code>--rule</code></td><td>a total under its rule, a value in the money colour, a key on a fixed column with a sentence for value</td></tr>
     <tr><td><b>Emphasis</b></td><td><code>.kv--fact</code></td><td>a card's fact: bold white, the key a step larger and soft, wrapping when the card is narrow</td></tr>
     <tr><td><b>Size</b></td><td><code>.kv--m</code></td><td>the line at the label's size, 14, for the payment record</td></tr>
+    <tr><td><b>Ground</b></td><td><code>.kv--on-plate</code></td><td>on a plate that keeps its colour in both themes, the Proof block's dark well on the fair blue: the key, the value, a missing value, money and a rule read the <code>-on-plate</code> roles (D-266)</td></tr>
   </tbody></table></div>
 </section>
 
 <section class="kt-sec" id="variants">
   <h2>Variants and sizes</h2>
-  <p>Three axes. The sizes below are read from the rendered lines, not from the stylesheet.</p>
+  <p>Four axes. The sizes below are read from the rendered lines, not from the stylesheet.</p>
   <ul class="kt-list">
     <li><b>Emphasis = how loud the line is in its container.</b> The record line is plain and quiet, a row among rows (a payment, a limit's rule). The fact is a line a card is read by, Chance and Tickets on a drop: bold white, its key larger and soft so the pair reads from a glance (rename map row 23).</li>
     <li><b>Content = what the line holds.</b> A line is a pair. A total carries a hairline over it and a step more size, the one that decides last. A money total is the same line with its value in gold. A rule holds a sentence for value, on a fixed key column.</li>
     <li><b>Size = the density of the container.</b> S 12 is the line; M 14 is the payment record's lines, written in a larger run than a card's facts (row 24). A total is 14 by its own rule.</li>
+    <li><b>Ground = what the line stands on.</b> The theme's ground is the default: in the light theme the key and the value turn to dark ink. A plate that keeps its colour in both themes (the Proof block's dark hash well on the fair blue) wears <code>.kv--on-plate</code>: the same look as the dark theme draws, kept in light (D-266). It covers the line, the rule, a missing value and money; the total's hairline and the fact have no on-plate role and stand on no plate, so they are not worn with it.</li>
   </ul>
   <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:760px">
     <thead><tr><th>Form</th><th>Sample, read from the render</th><th>Where it stands</th></tr></thead>
@@ -69,6 +76,7 @@
       <tr><td><b>Money total</b> <code>.kv--money</code></td><td><div class="cp-box" data-dim><div class="kv kv--money kv--total"><span class="kv__k">You receive</span><span class="kv__v">85.05 coins</span></div></div><span class="cp-dim"></span></td><td class="kt-note">You receive on a cash out</td></tr>
       <tr><td><b>Rule</b> <code>.kv--rule</code></td><td><div class="cp-box" data-dim><div class="kv kv--rule"><span class="kv__k">Extend</span><span class="kv__v">Immediately.</span></div></div><span class="cp-dim"></span></td><td class="kt-note">which way a limit moves and when, Responsible play</td></tr>
       <tr><td><b>Missing value</b></td><td><div class="cp-box" data-dim><div class="kv "><span class="kv__k">On sale</span><span class="kv__v kv__v--missing">Copies on sale cannot be read right now</span></div></div><span class="cp-dim"></span></td><td class="kt-note">a market with no copy on sale</td></tr>
+      <tr><td><b>On a plate</b> <code>.kv--on-plate</code></td><td><div class="cp-plate" data-dim><div class="cp-well"><div class="kv kv--on-plate"><span class="kv__k">Client seed</span><span class="kv__v">7d19f4a2</span></div><div class="kv kv--on-plate"><span class="kv__k">Nonce</span><span class="kv__v">41 207</span></div><div class="kv kv--on-plate"><span class="kv__k">Ticket range it landed in</span><span class="kv__v">1 to 640, AK-47 Redline</span></div><div class="kv kv--on-plate kv--rule"><span class="kv__k">Why</span><span class="kv__v">This round predates the published ledger</span></div></div></div><span class="cp-dim"></span></td><td class="kt-note">the Proof block's well on the fair blue (round 3b), in a stand frame here; switch the theme: it does not move</td></tr>
       <tr><td><b>Fact</b> <code>.kv--fact</code></td><td><div class="cp-card" data-dim><div class="kv kv--fact"><span class="kv__k">Chance</span><span class="kv__v">0.640&nbsp;%</span></div><div style="--kv-tint: var(--bg-lit)"><div class="kv kv--fact"><span class="kv__k">Tickets</span><span class="kv__v">1 to 640</span></div></div></div><span class="cp-dim"></span></td><td class="kt-note">the facts of a drop card, a tier's value tinted by the container</td></tr>
     </tbody>
   </table></div></div>
@@ -96,11 +104,12 @@
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and tracking come straight from the primitives. No colour primitive is read directly. The tier tint of a fact is a container's custom property, <code>--kv-tint</code>, not a token.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. The last four are the on-plate form's: the same value in both themes, because the plate under them does not change. Geometry, type and tracking come straight from the primitives. No colour primitive is read directly. The tier tint of a fact is a container's custom property, <code>--kv-tint</code>, not a token.</p>
   <p>File: <code>design/system/components/key-value-line.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
   <pre>&lt;div class="kv"&gt;&lt;span class="kv__k"&gt;Chance&lt;/span&gt;&lt;span class="kv__v"&gt;0.640&amp;nbsp;%&lt;/span&gt;&lt;/div&gt;
 &lt;div class="kv kv--total kv--money"&gt;&lt;span class="kv__k"&gt;You receive&lt;/span&gt;&lt;span class="kv__v"&gt;85.05 coins&lt;/span&gt;&lt;/div&gt;
-&lt;div class="kv kv--fact"&gt;&lt;span class="kv__k"&gt;Tickets&lt;/span&gt;&lt;span class="kv__v"&gt;1 to 640&lt;/span&gt;&lt;/div&gt;</pre>
+&lt;div class="kv kv--fact"&gt;&lt;span class="kv__k"&gt;Tickets&lt;/span&gt;&lt;span class="kv__v"&gt;1 to 640&lt;/span&gt;&lt;/div&gt;
+&lt;div class="kv kv--on-plate"&gt;&lt;span class="kv__k"&gt;Nonce&lt;/span&gt;&lt;span class="kv__v"&gt;41 207&lt;/span&gt;&lt;/div&gt;</pre>
   <p>Stands on six of the coloured screens: <a href="../case.html">the case screen</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
 </section>
 <script>
@@ -109,7 +118,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-hi', '--text-meta', '--text-body', '--text-money', '--line-soft'];
+  var T = ['--text-hi', '--text-meta', '--text-body', '--text-money', '--line-soft', '--text-on-plate', '--text-meta-on-plate', '--text-body-on-plate', '--text-money-on-plate'];
   var KIND = {};
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
