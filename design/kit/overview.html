@@ -13,7 +13,7 @@
 <!-- the stand: the project's panel palette, then the stand's own styles -->
 <link rel="stylesheet" href="../../_nav.css">
 <link rel="stylesheet" href="_page.css">
-<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'stands', label: 'Where it stands' }];</script>
+<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'review', label: 'For your review' }, { id: 'stands', label: 'Where it stands' }];</script>
 <script src="_nav.js"></script>
 </head>
 <body class="kt">
@@ -39,6 +39,18 @@
   <h2>Foundations</h2>
   <p>The values before the components: a change here costs one line and reaches everything through <code>var()</code>; after step 5 the same change costs every component's file and page. Architecture comes first because it holds the rules the rest is read by.</p>
   <div class="kc-grid" id="kit-cards"></div>
+</section>
+
+<section class="kt-sec" id="review">
+  <h2>For your review, step 4</h2>
+  <p>Open each page, narrow the window to a phone, switch the theme. Five things wait for your word; each answer that changes a value becomes one line in <code>tokens.css</code> and a row in <code>tokens-audit.md</code>, "Review of the foundations", before step 5 begins.</p>
+  <ol class="kt-list">
+    <li><b>The light theme's 28 new values</b>, on <a href="color.html#roles">Colour</a>: proposed at step 3 (D-261), every role holding its threshold on paper. Recommended: accept them as a stress test for step 7; whether the light theme stays in the product is decided at step 8.</li>
+    <li><b>A value declared twice</b>: <code>--shadow-tile-lit-soft</code>, white at .20 for the account menu's tile and .22 for the involves plate; the second wins, so both draw .22 today (<a href="depth.html#shadows">Depth</a>). Recommended: one value, .22, what every reader shows now, so nothing on screen moves.</li>
+    <li><b>Rarity 4 and rarity 6 at 2.9:1</b> on the dark tile, under the 3:1 a ring needs (<a href="color.html#contrast">Colour, contrast</a>). It is the baseline's ladder. Recommended: keep it, since the tier is also said in words on the item, and record the shortfall as a known cost.</li>
+    <li><b>The Figure's seven sizes</b>, on <a href="typography.html#figure">Typography</a>: named by the scale step each reads. Recommended: accept the names.</li>
+    <li><b>The 22px figure</b>, the one size off the scale. Recommended: keep it as the Figure's own value; moving it to 20 or 24 moves the price beside every act.</li>
+  </ol>
 </section>
 
 <section class="kt-sec" id="stands">
