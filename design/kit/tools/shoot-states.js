@@ -9,6 +9,7 @@
  * Since round 1: any other state name is a twin at rest under its own key ({ states: ['checked'], checked: '#x-on' }, a value the product
  * sets, as aria-invalid or aria-current); tab names the element Tab reaches when it is not sel (a native input under its drawn box), and
  * box the element whose box is shot when it is not the state's own (the drawn box around that input).
+ * Since round 2: at, the point the pointer rests on, {x, y} from the box's corner, where the centre would land on a part the hover reveals.
  * Each state is made the way a person makes it (the pointer over it, the pointer held down, Tab, the attribute the product sets), in the
  * dark and the light theme, at 1440, and saved as design/kit/screens/states/<component>-<id>-<state>-<theme>.png. Needs Playwright. */
 const path = require('path'), fs = require('fs');
@@ -30,8 +31,8 @@ const OUT = path.join(__dirname, '..', 'screens', 'states');
       await el.scrollIntoViewIfNeeded(); await p.mouse.move(0, 0); await p.evaluate(() => document.activeElement && document.activeElement.blur());
       const boxEl = (s.box && (await el.$(':scope ' + s.box) || await p.$(s.box))) || el;
       await boxEl.scrollIntoViewIfNeeded(); const box = await boxEl.boundingBox(), pad = s.pad != null ? s.pad : 14;
-      if (st === 'hover') await el.hover();
-      if (st === 'active') { await el.hover(); await p.mouse.down(); }
+      if (st === 'hover') await el.hover(s.at ? { position: s.at } : undefined);
+      if (st === 'active') { await el.hover(s.at ? { position: s.at } : undefined); await p.mouse.down(); }
       if (st === 'focus') { await p.keyboard.press('Shift'); await (s.tab ? await p.$(s.tab) : el).focus(); }
       await p.waitForTimeout(250);
       const file = path.join(OUT, `${COMP}-${s.id}-${st}-${theme}.png`);

@@ -150,7 +150,7 @@ node design/kit/tools/shoot-states.js http://localhost:8765/ item-card --check  
 </section>
 <script>
 window.KIT_SHOTS = [
-  { id: 'my', sel: '#s-item .item-card', states: ['hover', 'focus', 'checked'], checked: '#s-item-on .item-card', tab: '#s-item .item-card__top input' }
+  { id: 'my', sel: '#s-item .item-card', at: { x: 104, y: 60 }, states: ['hover', 'focus', 'checked'], checked: '#s-item-on .item-card', tab: '#s-item .item-card__top input' }
 ];
 document.querySelectorAll('[data-dim-of]').forEach(function (s) { var e = document.querySelector(s.getAttribute('data-dim-of')); if (e) { var r = e.getBoundingClientRect(); s.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); } });
 </script>
