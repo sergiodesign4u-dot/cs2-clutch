@@ -7,13 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
-<!-- the system, straight: index.css arrives with the first component at step 5 -->
-<link rel="stylesheet" href="../system/tokens.css">
-<link rel="stylesheet" href="../system/base.css">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
 <!-- the stand: the project's panel palette, then the stand's own styles -->
 <link rel="stylesheet" href="../../_nav.css">
 <link rel="stylesheet" href="_page.css">
-<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'review', label: 'The review' }, { id: 'stands', label: 'Where it stands' }];</script>
+<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'inventory', label: 'Inventory' }, { id: 'review', label: 'Round 0, for your review' }, { id: 'stands', label: 'Where it stands' }];</script>
 <script src="_nav.js"></script>
 </head>
 <body class="kt">
@@ -36,21 +35,28 @@
 </section>
 
 <section class="kt-sec" id="foundations">
-  <h2>Foundations</h2>
+  <h2>Foundations and components</h2>
   <p>The values before the components: a change here costs one line and reaches everything through <code>var()</code>; after step 5 the same change costs every component's file and page. Architecture comes first because it holds the rules the rest is read by.</p>
   <div class="kc-grid" id="kit-cards"></div>
 </section>
 
+<section class="kt-sec" id="inventory">
+  <h2>Inventory</h2>
+  <p>Every component built so far, read from the stand's registry: its level, its file in the system, its states and where it stands. The level comes from <code>design/kit/inventory.md</code>; a component without a row here does not exist yet.</p>
+  <div class="kt-tbl"><table style="min-width:760px"><thead><tr><th>Component</th><th class="n">Level</th><th>Group</th><th>File</th><th>States</th><th>Stands on</th></tr></thead><tbody id="kit-inventory"></tbody></table></div>
+</section>
+
 <section class="kt-sec" id="review">
-  <h2>The review of step 4</h2>
-  <p>Answered by the founder on 26 November 2026, "Q1 to Q5 as you recommend" (D-262). One file changed and no pixel moved; each answer is a row in <code>tokens-audit.md</code>, "Review of the foundations".</p>
-  <ol class="kt-list">
-    <li><b>The light theme's 28 values</b> (<a href="color.html#roles">Colour</a>): accepted as written, the stress test of step 7.</li>
-    <li><b><code>--shadow-tile-lit-soft</code></b>, declared twice: one declaration, white at .22, what every reader already drew (<a href="depth.html#shadows">Depth</a>).</li>
-    <li><b>Rarity 4 and 6 at 2.9:1</b> on the dark tile: kept, the baseline's ladder, a known cost printed in both roles (<a href="color.html#contrast">Colour, contrast</a>).</li>
-    <li><b>The Figure's seven sizes</b> (<a href="typography.html#figure">Typography</a>): named by the scale step each reads.</li>
-    <li><b>The 22px figure</b>: kept as the Figure's own value.</li>
-  </ol>
+  <h2>For your review, round 0: the Button</h2>
+  <p>The reference of step 5 is built: <a href="button.html">the Button's page</a> with its five blocks, three state tokens in both themes, <code>design/system/index.css</code>, and the foundation pages now loading through it. Walk it in the browser: Tab through it, switch the theme, narrow to a phone. Three things wait for your word before the other atoms. The review of step 4 is answered in D-262.</p>
+  <h3>Q1. The Button's component tokens</h3>
+  <p>A component token is made only where a state or a form finds no semantic role. Every row of the Button:</p>
+  <div class="kt-tbl"><table style="min-width:820px"><thead><tr><th>Variant</th><th>State or part</th><th>Lands on a role</th><th>If not, why</th><th>Reads</th></tr></thead><tbody><tr><td>Primary</td><td>hover, focus-visible</td><td>no</td><td>the fill lightens to a cut of the act pink; --bg-hover lifts a ground, this lights the act</td><td><code>--button-primary-bg-hover</code></td></tr><tr><td>Primary</td><td>hover, focus-visible: the glow</td><td>yes</td><td></td><td><code>--depth-act-glow</code></td></tr><tr><td>Primary, ghost</td><td>active</td><td>no</td><td>the glow drawn in, a press shadow only the act has</td><td><code>--button-depth-active</code></td></tr><tr><td>Ghost</td><td>rest: its ground</td><td>no</td><td>a translucent navy at .55; on paper it needs its own pair, the white tile veil</td><td><code>--button-ghost-bg</code></td></tr><tr><td>Ghost</td><td>rest: its 2px edge</td><td>no</td><td>the act pink as a line; --bg-act is a fill and a role paints one surface</td><td><code>--button-ghost-line</code></td></tr><tr><td>Ghost</td><td>hover, focus-visible</td><td>no</td><td>the pink at .20 and its own glow</td><td><code>--button-ghost-bg-hover, --button-ghost-depth-hover</code></td></tr><tr><td>Icon tile</td><td>rest</td><td>yes</td><td></td><td><code>--bg-tile, --line-edge, --text-body</code></td></tr><tr><td>Icon tile</td><td>hover</td><td>no, the fill; yes, the stripes and the ink</td><td>it lights as the act: the act's hover pink</td><td><code>--button-primary-bg-hover, --bg-act-stripes, --text-on-plate</code></td></tr><tr><td>Close</td><td>rest: its square</td><td>no</td><td>a soft navy veil; on a white dialog it needs its own pair</td><td><code>--button-close-bg</code></td></tr><tr><td>Close</td><td>hover</td><td>yes</td><td></td><td><code>--text-error</code></td></tr><tr><td>Every variant</td><td>focus-visible: the ring</td><td>yes</td><td></td><td><code>--line-focus (a state token)</code></td></tr><tr><td>Primary</td><td>disabled, busy</td><td>no</td><td>the product's one disabled look, a lavender wash (D-239)</td><td><code>--button-bg-disabled, with --text-meta or --text-body</code></td></tr></tbody></table></div>
+  <p>Eight component tokens, each with its pair in <code>tokens.css</code>; two take another value in the light theme (the ghost's ground and the close's square), the rest keep theirs. Recommended: accept the eight.</p>
+  <h3>Q2. The fourth state token, <code>--opacity-disabled</code></h3>
+  <p>The pack makes four state tokens on the reference. Three are made: <code>--bg-hover</code>, <code>--bg-active</code> and <code>--line-focus</code>. The fourth would have no reader. The product draws disabled once, on the Button, with its own look (D-239), and everywhere else a control stays live and refuses (D-58). Recommended: do not make it; if a component ever needs a dimmed disabled state, it is made then, in both themes, by a decision. The other choice is to make it now and redraw Exchange's disabled look as an opacity, which changes what My items shows.</p>
+  <h3>Q3. The page's format for the other 69</h3>
+  <p>Five blocks in this order: anatomy with a class for each part, the matrix of axes with each axis's rule and the sizes measured from the render, when to use, rule and anti-rule, states as live instances plus snapshots of named differences in both themes with the command that re-shoots them; then the tokens read live, the file, the markup, the screens. Recommended: keep the format for every component.</p>
 </section>
 
 <section class="kt-sec" id="stands">
@@ -58,7 +64,7 @@
   <ul class="kt-list">
     <li><b>Step 3, done</b> (<code>D-261</code>): <code>tokens.css</code> in two levels with a light pair for every role, <code>base.css</code>, <code>art.css</code>. Nothing in the product links them yet.</li>
     <li><b>Step 4, done</b> (<code>D-262</code>): these foundation pages and the founder's first review on screen, its answers in <code>design/kit/docs/tokens-audit.md</code>, "Review of the foundations".</li>
-    <li><b>Step 5, next</b>: the components in rounds, atoms, then molecules, then organisms; each with its file, its states in both themes and its page, added to this panel in the group of its level.</li>
+    <li><b>Step 5, now</b>: the components in rounds, atoms, then molecules, then organisms; each with its file, its states in both themes and its page, added to this panel in the group of its level. Round 0, the Button, is the reference.</li>
     <li><b>Kept as it was</b>: <a href="kit.html">kit.html</a>, the showcase of stage 07, frozen, on <code>kit.css</code> until step 8 moves the screens onto the system.</li>
   </ul>
 </section>

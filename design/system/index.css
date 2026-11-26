@@ -1,0 +1,18 @@
+/* design/system/index.css: THE ONE ENTRY POINT of the system, born at stage 08 step 5 with the Button (round 0).
+ * A screen links this file and nothing else. Order is the system's: the tokens first, then what belongs to no component, then the components
+ * BY LEVEL from the Level column of design/kit/inventory.md, then each screen's own blocks (D-259). Inside a level, a component that holds
+ * another loads after it. A new component's @import goes into its level's group below, never at the end of the file
+ * (design/kit/docs/architecture.md, "Adding a component"). */
+
+@import "tokens.css";
+@import "base.css";
+@import "art.css";
+
+/* ===== Level 1, atoms ===== */
+@import "components/button.css";
+
+/* ===== Level 2, molecules ===== */
+
+/* ===== Level 3, organisms: those holding no organism first, then those that hold one ===== */
+
+/* ===== The screens' own blocks, design/system/screens/ (D-259) ===== */

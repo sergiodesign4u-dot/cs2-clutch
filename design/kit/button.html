@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Button</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-empty { font-size: 12px; color: var(--text-meta); max-width: 180px; margin: 0 auto; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-parts { counter-reset: part; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Acts &middot; level 1 &middot; the reference of step 5</span>
+  <h1>Button</h1>
+  <p class="kt-lead">The act of a zone, its second act, a glyph on a tile and a dialog's close: one family in three sizes, one corner and one weight. Everything on this page is drawn by <code>design/system/components/button.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <a class="button button--primary button--l button--priced" href="#anatomy"><span class="button__label">Open</span><span class="button__price"><i class="icon icon--coin kt-coin" aria-hidden="true"></i>1 250</span></a>
+    <a class="button button--ghost button--l" href="#anatomy"><svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l9 5v10l-9 5-9-5V7z"/></svg>Sign in with Steam</a>
+    <button class="button button--icon" type="button" aria-label="Sound"><i class="icon icon--sound kt-ic" style="--i:var(--icon-sound)" aria-hidden="true"></i></button>
+    <button class="button button--close" type="button" aria-label="Close"></button>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The act itself</b></td><td><code>.button</code></td><td>shape (one 12px corner), the label's type: 900, uppercase, <code>--tracking-caps</code></td></tr>
+    <tr><td><b>Emphasis</b></td><td><code>.button--primary</code>, <code>--ghost</code>, <code>--icon</code>, <code>--close</code></td><td>the fill, the edge, the glow; the faint stripes and the band of light on the primary</td></tr>
+    <tr><td><b>Size</b></td><td><code>.button--s</code>, <code>--m</code>, <code>--l</code>; <code>--tap</code>, <code>--s-tap</code></td><td>height and sides; the 44px press an S carries without drawing it</td></tr>
+    <tr><td><b>Label</b></td><td><code>.button__label</code> (only where it folds)</td><td>the words; under 600px <code>--fold</code> hides them for the eye and keeps them for a screen reader</td></tr>
+    <tr><td><b>Glyph</b></td><td><code>.button__icon</code>, or an <code>.icon</code> in <code>--icon</code></td><td>the mark before the label, 1.25em; the tile's glyph at <code>--size-tile-icon</code></td></tr>
+    <tr><td><b>Price</b></td><td><code>.button__price</code> with <code>.icon--coin</code></td><td>the chip at the act's end on <code>--priced</code>: the coins in gold on a dark chip</td></tr>
+    <tr><td><b>Busy</b></td><td><code>[aria-busy="true"]</code>, <code>.button__dots</code></td><td>Rolling with three dots and a light running through; set by the product's script, never by a class</td></tr>
+    <tr><td><b>Pin</b></td><td><code>.button__pin</code></td><td>a figure pinned to the corner (a count)</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Three axes. Each carries its rule, so the next screen picks by the rule instead of finding a reason again. Heights and widths below are read from the rendered buttons, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Emphasis = one act per zone.</b> One primary in a zone, the act that spends or starts (D-226 row A2); a second act is a ghost; a glyph alone stands on a tile; the cross closes a layer.</li>
+    <li><b>Size = the density of the container, never the act's importance.</b> L 52 where the act is the zone (the commit, a dialog's act), M 40 in a bar or a panel, S 32 in a row, a card or a chip line. Below 44px the press area stays 44px.</li>
+    <li><b>Width = the layout, not the button.</b> A button never stretches itself: a one-column container or a cell sets its width (the rail's sound cell since D-260).</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:760px">
+    <thead><tr><th>Emphasis</th><th>S</th><th>M</th><th>L</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>Primary</b></td>
+        <td><div class="cell"><span class="button button--primary button--s" data-dim>Open</span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="button button--primary button--m" data-dim>Add funds</span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="button button--primary button--l" data-dim>Open again</span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the commit's open, Add funds, a dialog's act</td></tr>
+      <tr><td><b>Ghost</b></td>
+        <td><div class="cell"><span class="button button--ghost button--s" data-dim>Sell</span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="button button--ghost button--m" data-dim>Sign in</span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="button button--ghost button--l" data-dim>Check a round</span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the second act: Sign in beside Register, a card's act, a filter</td></tr>
+      <tr><td><b>Icon tile</b></td>
+        <td colspan="3"><div class="cell"><span class="button button--icon" data-dim><i class="icon icon--search kt-ic" style="--i:var(--icon-search)" aria-hidden="true"></i></span><span class="cp-dim"></span><span class="cp-empty">One size: the tile is <code>--size-tile</code>; at <code>--tap</code> it grows to the 44px floor in a toolbar.</span></div></td>
+        <td class="kt-note">the rail's sound and language, the catalogue's Search and Filters</td></tr>
+      <tr><td><b>Close</b></td>
+        <td colspan="3"><div class="cell"><span class="button button--close" data-dim aria-label="Close"></span><span class="cp-dim"></span><span class="cp-empty">One size: <code>--size-close</code>. A close never comes in S or L: it is the layer's, not the zone's.</span></div></td>
+        <td class="kt-note">every dialog and drawer</td></tr>
+    </tbody>
+  </table></div></div>
+  <h3>Content</h3>
+  <div class="kt-scene"><div class="cp-stage">
+    <span class="button button--primary button--m">Label</span>
+    <span class="button button--ghost button--m"><i class="icon icon--gift button__icon kt-ic" style="--i:var(--icon-gift)" aria-hidden="true"></i>Glyph and label</span>
+    <span class="button button--primary button--l button--priced"><span>Open</span><span class="button__price"><i class="icon icon--coin kt-coin" aria-hidden="true"></i>1 250</span></span>
+    <span class="button button--ghost button--m button--name"><i class="icon icon--steam button__icon kt-ic" style="--i:var(--icon-steam)" aria-hidden="true"></i>Steam</span>
+    <span class="button button--primary button--l button--priced" aria-busy="true"><span>Rolling</span><span class="button__dots"><i></i><i></i><i></i></span></span>
+  </div></div>
+  <ul class="kt-list">
+    <li><code>--priced</code>: the price rides in the act, only on the commit's open and Sell all (D-232).</li>
+    <li><code>--name</code>: a provider's proper name in its own case, only in sign in.</li>
+    <li><code>--stack</code> (new at D-260): a glyph over its label under 600px, the four acts of the selection bar. <code>--fold</code>: the label folds to the glyph under 600px, Add funds. Narrow the window to see both.</li>
+  </ul>
+  <div class="kt-scene"><div class="cp-stage">
+    <span class="button button--ghost button--s button--stack"><i class="icon icon--swap kt-ic" style="--i:var(--icon-swap)" aria-hidden="true"></i>Exchange</span>
+    <span class="button button--primary button--m button--fold"><i class="icon icon--dollar button__icon kt-ic" style="--i:var(--icon-dollar)" aria-hidden="true"></i><span class="button__label">Add funds</span></span>
+  </div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A button does something here and now: it opens a case, adds funds, signs in, sells, confirms, closes. The money act is the one primary of its state and carries the price where money is spent, so cost never hides inside the excitement (design principle 3). Its words are the voice's: a verb and its object, "Open for 1 250 coins" (microcopy 3.3-5), "Add funds", "Check a round" (1.2-13), never a word for the feeling. Every drawn button answers: it does what its label says, or refuses with the reason beside it, and stays live while it refuses (D-58).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The commit block's "Open for 1 250 coins": the one act of the zone, primary, L, with the price in it. Beside it, the second act of the same zone is a ghost.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>Going somewhere is a <b>Text link</b>, not a button ("How this case works"). Choosing one of a few is a <b>Segmented control</b> or <b>Tabs</b>. Choosing in a list is a <b>Radio</b> or a <b>Checkbox</b>. Keeping a case is the <b>Favourite toggle</b>. A question that opens its answer is a <b>Disclosure</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p class="kt-note">A glyph inside a button is the Icon atom's, built in round 1; until then the stand draws it with its own helper, the same mask.</p>
+  <p>Live at rest, on this page's theme: point at them, press them, reach them with Tab.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <button class="button button--primary button--l" type="button" id="s-primary">Open</button>
+    <button class="button button--primary button--l" type="button" id="s-primary-off" disabled>Exchange</button>
+    <button class="button button--primary button--l" type="button" id="s-primary-busy" aria-busy="true">Rolling<span class="button__dots"><i></i><i></i><i></i></span></button>
+    <button class="button button--ghost button--l" type="button" id="s-ghost">Sign in</button>
+    <button class="button button--icon" type="button" id="s-icon" aria-label="Search"><i class="icon icon--search kt-ic" style="--i:var(--icon-search)" aria-hidden="true"></i></button>
+    <button class="button button--close" type="button" id="s-close" aria-label="Close"></button>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot once on the primary; after it, only a named difference.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/button-primary-hover-dark.png" alt="Hover, dark theme" loading="lazy"></div><div><img src="screens/states/button-primary-hover-light.png" alt="Hover, light theme" loading="lazy"></div></div><figcaption><b>Hover</b> <code>--button-primary-bg-hover, --depth-act-glow</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/button-primary-active-dark.png" alt="Active, dark theme" loading="lazy"></div><div><img src="screens/states/button-primary-active-light.png" alt="Active, light theme" loading="lazy"></div></div><figcaption><b>Active</b> <code>--button-depth-active</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/button-primary-focus-dark.png" alt="Focus-visible, dark theme" loading="lazy"></div><div><img src="screens/states/button-primary-focus-light.png" alt="Focus-visible, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible</b> <code>--line-focus, with the hover face</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/button-primary-disabled-dark.png" alt="Disabled, dark theme" loading="lazy"></div><div><img src="screens/states/button-primary-disabled-light.png" alt="Disabled, light theme" loading="lazy"></div></div><figcaption><b>Disabled</b> <code>--button-bg-disabled, --text-meta, --line-edge</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/button-primary-busy-dark.png" alt="Busy, the product's own (aria-busy), dark theme" loading="lazy"></div><div><img src="screens/states/button-primary-busy-light.png" alt="Busy, the product's own (aria-busy), light theme" loading="lazy"></div></div><figcaption><b>Busy, the product's own (aria-busy)</b> <code>--button-bg-disabled, --text-body</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/button-ghost-hover-dark.png" alt="Ghost hover: the pink wash, the edge kept, dark theme" loading="lazy"></div><div><img src="screens/states/button-ghost-hover-light.png" alt="Ghost hover: the pink wash, the edge kept, light theme" loading="lazy"></div></div><figcaption><b>Ghost hover: the pink wash, the edge kept</b> <code>--button-ghost-bg-hover, --button-ghost-depth-hover</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/button-icon-hover-dark.png" alt="Icon tile hover: the tile lights as the act, dark theme" loading="lazy"></div><div><img src="screens/states/button-icon-hover-light.png" alt="Icon tile hover: the tile lights as the act, light theme" loading="lazy"></div></div><figcaption><b>Icon tile hover: the tile lights as the act</b> <code>--button-primary-bg-hover, --bg-act-stripes, --text-on-plate</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/button-close-hover-dark.png" alt="Close hover: the cross turns red and a quarter round, dark theme" loading="lazy"></div><div><img src="screens/states/button-close-hover-light.png" alt="Close hover: the cross turns red and a quarter round, light theme" loading="lazy"></div></div><figcaption><b>Close hover: the cross turns red and a quarter round</b> <code>--text-error</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> the ghost, the tile and the close press as the primary does (<code>--button-depth-active</code> on ghost and primary; tile and close keep their face). Their focus-visible is the same ring as the primary's, <code>--line-focus</code>, over their hover face.</li>
+    <li><b>Disabled lives on the primary only</b>, Exchange on My items (D-239). Everywhere else a button stays live and refuses with its reason (D-58), so no other variant is shot disabled.</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ button           # re-shoot after a change to button.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ button --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry (<code>--size-button-*</code>, <code>--radius-button</code>, <code>--space-*</code>), type and the 44px floor come straight from the primitives. Two colours read in this block only, <code>--gradient-button-sheen</code> and <code>--color-price-chip</code>, and the busy sweep wait for step 9.</p>
+  <p>File: <code>design/system/components/button.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;button class="button button--primary button--l" type="button"&gt;Open again&lt;/button&gt;
+&lt;a class="button button--ghost button--m" href="..."&gt;Sign in&lt;/a&gt;
+&lt;button class="button button--icon" type="button" aria-label="Search"&gt;&lt;i class="icon icon--search" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'primary', sel: '#s-primary', off: '#s-primary-off', busy: '#s-primary-busy', states: ['hover', 'active', 'focus', 'disabled', 'busy'] },
+  { id: 'ghost', sel: '#s-ghost', states: ['hover'] },
+  { id: 'icon', sel: '#s-icon', states: ['hover'] },
+  { id: 'close', sel: '#s-close', states: ['hover'] }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.nextElementSibling.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-hi', '--text-on-plate', '--text-body', '--text-meta', '--text-error', '--text-money-on-plate', '--bg-act', '--bg-act-stripes', '--bg-tile', '--line-edge', '--line-focus', '--depth-act-glow',
+    '--button-primary-bg-hover', '--button-ghost-bg', '--button-ghost-bg-hover', '--button-ghost-line', '--button-ghost-depth-hover', '--button-depth-active', '--button-close-bg', '--button-bg-disabled'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--button-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

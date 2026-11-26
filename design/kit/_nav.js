@@ -37,7 +37,13 @@
         { file: 'icons.html', label: 'Icons and art', mini: 'icons',
           about: 'The glyph set at working sizes in the roles\' colours, the payment and provider marks, and the 55 pictures of art.css.' },
         { file: 'depth.html', label: 'Depth and surface', mini: 'depth',
-          about: 'Every shadow, gradient, blur, filter and clip shape on a tile, with the roles that read them (D-259).' } ] }
+          about: 'Every shadow, gradient, blur, filter and clip shape on a tile, with the roles that read them (D-259).' } ] },
+      // Components by level, bottom up as index.css imports them; inside a level, subgroups by purpose only order this panel (step 5 estimate)
+      { label: 'Atoms', level: 1, pages: [
+        { file: 'button.html', label: 'Button', sub: 'Acts', css: 'components/button.css', states: 'hover, active, focus-visible, disabled; busy',
+          screens: 'all eight coloured screens', round: 0,
+          about: 'The act of a zone and its second act, a glyph tile, a dialog\'s close. The reference of step 5: the four states and the component tokens were decided on it.',
+          miniHtml: '<span class="button button--primary button--m">Open</span><span class="button button--ghost button--m">Sign in</span>' } ] }
     ]
   };
 
@@ -51,10 +57,11 @@
     h.push('<div class="kp-theme" role="group" aria-label="Theme"><button type="button" data-t="dark">Dark</button><button type="button" data-t="light">Light</button></div>');
     h.push('<nav class="kp-tree" aria-label="The stand">');
     window.KIT_NAV.groups.forEach(function (g, gi) {
-      var open = g.pages.some(function (p) { return p.file === cur; });
+      var open = g.pages.some(function (p) { return p.file === cur; }), lastSub = null;
       h.push('<div class="kp-group' + (open ? ' is-open' : '') + '"><button type="button" class="kp-gh" aria-expanded="' + open + '" aria-controls="kp-g' + gi + '">' + esc(g.label) + ' <span class="kp-n">' + g.pages.length + '</span></button><div class="kp-pages" id="kp-g' + gi + '">');
       g.pages.forEach(function (p) {
         var is = p.file === cur;
+        if (p.sub && p.sub !== lastSub) { h.push('<span class="kp-sub-h">' + esc(p.sub) + '</span>'); } lastSub = p.sub;
         h.push('<a class="kp-page' + (is ? ' is-current' : '') + '" href="' + p.file + '"' + (is ? ' aria-current="page"' : '') + '>' + esc(p.label) + '</a>');
         if (is && window.KIT_SECTIONS && window.KIT_SECTIONS.length) {
           h.push('<div class="kp-secs">' + window.KIT_SECTIONS.map(function (s) { return '<a class="kp-sec" href="#' + s.id + '">' + esc(s.label) + '</a>'; }).join('') + '</div>');
@@ -95,10 +102,15 @@
     window.KIT_NAV.groups.forEach(function (g) {
       g.pages.forEach(function (p) {
         if (p.file === 'overview.html') return;
-        h.push('<a class="kc" href="' + p.file + '"><div class="kc-mini" aria-hidden="true">' + (MINI[p.mini] || '') + '</div><span class="kt-eyebrow">' + esc(g.label) + '</span><b>' + esc(p.label) + '</b><p>' + esc(p.about) + '</p></a>');
+        h.push('<a class="kc" href="' + p.file + '"><div class="kc-mini" aria-hidden="true">' + (p.miniHtml || MINI[p.mini] || '') + '</div><span class="kt-eyebrow">' + esc(g.label) + '</span><b>' + esc(p.label) + '</b><p>' + esc(p.about) + '</p></a>');
       });
     });
     box.innerHTML = h.join('');
+    var inv = document.getElementById('kit-inventory'); if (!inv) return;
+    var rows = [];
+    window.KIT_NAV.groups.forEach(function (g) { if (!g.level) return; g.pages.forEach(function (p) {
+      rows.push('<tr><td><a href="' + p.file + '">' + esc(p.label) + '</a></td><td class="n">' + g.level + '</td><td>' + esc(p.sub || '') + '</td><td><code>design/system/' + esc(p.css) + '</code></td><td>' + esc(p.states) + '</td><td>' + esc(p.screens) + '</td></tr>'); }); });
+    inv.innerHTML = rows.join('');
   }
   function start() { panel(); cards(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();

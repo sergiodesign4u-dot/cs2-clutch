@@ -656,3 +656,11 @@ Step 1 found eleven grey variants with no form in colour, ten after the row on t
 | Text area with an attached file | support, 0.10 | backlog: a Text area followed by the File picker, nothing new |
 | Field label, large | support's questions, 0.10 | backlog: the Field at its roomy size |
 | A legal page's table of contents | 0.9 | backlog: the Footer's link form in one column, the current section in white |
+
+## Stage 08 step 5: the components built
+
+One row per component as each is built, in the order of its round: its level, its file in `design/system/`, its page in `design/kit/`, its states, where it stands. Its visible place is the hub, `design/kit/overview.html`, section "Inventory", which reads the stand's registry (`design/kit/_nav.js`).
+
+| Component | Level | Round | CSS file | Page | States | Stands on |
+|---|---|---|---|---|---|---|
+| Button | 1 | 0, the reference | `design/system/components/button.css` | `design/kit/button.html` | hover, active, focus-visible, disabled (primary only, D-239); busy | all eight coloured screens |

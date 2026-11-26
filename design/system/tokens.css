@@ -872,6 +872,15 @@
      glow carries colour but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
   --depth-stub-text: var(--shadow-stub-text); /* the shadow under the words of a ticket stub. Depth: 2 rules in 2 blocks (Payment panel, Before you spend). Depth: a shadow or a glow carries colour
      but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+
+  /* States: born at step 5 with the Button, the reference of round 0, each in both themes */
+  --bg-hover: var(--color-card); /* the ground a row or a tile takes under the pointer, a step lighter than the menu or plate it stands in, as the popover's options (D-238) and the item
+     card's share (D-241) draw it in kit.css; light, a step under the white menu. Fill. A ground: the ink on it is measured on it. Read from round 1 of
+     step 5 by the components that lift under the pointer. */
+  --bg-active: var(--color-card-hover); /* the ground while pressed, a step past the hover: dark, the baseline's own hover navy (--color-card-hover, deep walk of 20 Oct 2026), until now read by
+     nothing; light, the light tile. Fill. A ground. */
+  --line-focus: var(--color-text-hi); /* the focus ring, drawn on :focus-visible only, never on :focus, at --size-edge with its offset: white as 40 rules of kit.css draw it, navy on paper.
+     Line. Threshold 3:1 (a line that carries meaning, WCAG 1.4.11). Dark 19.4:1 on the tile, light 16.4:1 on the light tile. */
 }
 
 /* THE LIGHT THEME: the pair of every role above; only the semantic level is overridden. */
@@ -990,4 +999,38 @@
   --depth-skin-lift: var(--filter-skin-lift); /* the same for now, read at step 7 */
   --depth-figure-text: var(--shadow-figure-text); /* the same for now, read at step 7 */
   --depth-stub-text: var(--shadow-stub-text); /* the same for now, read at step 7 */
+
+  /* States */
+  --bg-hover: var(--color-paper); /* dark --color-card; light reuses --color-paper, a value the kit already has */
+  --bg-active: var(--color-paper-2); /* dark --color-card-hover; light reuses --color-paper-2, a value the kit already has */
+  --line-focus: var(--color-ground); /* dark --color-text-hi; light reuses --color-ground, a value the kit already has */
+}
+
+/* ===== COMPONENT TOKENS =====
+   Made only where a component's state or form finds no semantic role, each decided by the founder at its gate (step 5), each with its pair.
+   A component reads its own tokens and the semantic level; nothing else reads them. */
+:root, [data-theme="dark"] {
+  /* Button, round 0 of step 5 (design/system/components/button.css) */
+  --button-primary-bg-hover: var(--color-button-hover); /* the act's fill under the pointer and on focus, a lighter cut of the act pink (founder of 4 Nov 2026), also the icon tile's lit fill; not --bg-hover,
+     which lifts a ground, while this lights the act */
+  --button-ghost-bg: var(--color-button-ghost); /* the ghost's translucent ground; dark the navy at .55 kit.css draws, light the light tile veil */
+  --button-ghost-bg-hover: var(--color-button-ghost-hover); /* the ghost's fill under the pointer and on focus, the act pink at .20 */
+  --button-ghost-line: var(--color-button); /* the ghost's 2px edge in the act pink; a line, so not --bg-act, which is a fill */
+  --button-ghost-depth-hover: var(--shadow-button-ghost); /* the ghost's glow under the pointer */
+  --button-depth-active: var(--shadow-button-press); /* the press: the act's glow drawn in, .08s */
+  --button-close-bg: var(--color-veil-soft); /* the close cross's square, a soft veil over a dialog's art or ground */
+  --button-bg-disabled: var(--color-disabled); /* the one disabled look of the product, Exchange on My items (D-239): a lavender wash, the words muted; everywhere else a control stays live and refuses
+     (D-58) */
+}
+
+[data-theme="light"] {
+  /* Button, round 0 of step 5 (design/system/components/button.css) */
+  --button-primary-bg-hover: var(--color-button-hover); /* the same: the act keeps its pink in both themes */
+  --button-ghost-bg: var(--color-paper-veil-tile); /* dark --color-button-ghost; light reuses --color-paper-veil-tile, the white veil of a tile: a navy ghost on paper would read as a hole */
+  --button-ghost-bg-hover: var(--color-button-ghost-hover); /* the same: a pink wash reads on either ground */
+  --button-ghost-line: var(--color-button); /* the same: the act's pink in both themes */
+  --button-ghost-depth-hover: var(--shadow-button-ghost); /* the same: a glow, read again at step 7 */
+  --button-depth-active: var(--shadow-button-press); /* the same: a glow, read again at step 7 */
+  --button-close-bg: var(--color-navy-08); /* dark --color-veil-soft; light reuses --color-navy-08, the track's navy wash: the dark veil would sit on a white dialog as a dark square */
+  --button-bg-disabled: var(--color-disabled); /* the same: a lavender wash reads on either ground */
 }

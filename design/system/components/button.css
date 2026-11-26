@@ -1,0 +1,90 @@
+/* BUTTON, level 1 (atom). The act of a zone and its second act, a glyph tile, a dialog's close.
+ * Page: design/kit/button.html. Stands on every coloured screen: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
+ * Responsible play, Sign in (design/kit/inventory.md, Button).
+ * Reads: --text-hi, --text-on-plate, --text-body, --text-meta, --text-error, --text-money-on-plate, --bg-act, --bg-act-stripes, --bg-tile,
+ *   --line-edge, --line-focus, --depth-act-glow; its own --button-* tokens (tokens.css, COMPONENT TOKENS); geometry, type and motion from
+ *   the primitives; two colours read in this block only, --gradient-button-sheen and --color-price-chip, and --gradient-button-sweep,
+ *   wait for step 9 (tokens-audit.md).
+ * Carried from design/kit/kit.css part 4.1 (lines 2051 to 2119) at stage 08 step 5, round 0, by the decisions of step 2 (D-260): the arrow
+ *   variant deleted; the fill width moved to the rail's sound cell; the glyph over label variant (--stack) and the priced act's label at its
+ *   start on a phone moved in from the selection bar and the commit block. From design/v4/buttons.css, D-228. */
+
+/* One family, three sizes by its container, D-228 option A. Emphasis: primary is filled, the one act of its zone (D-226 row A2); ghost is
+   the second act; icon is a square tile; close is the dialog's cross. Content: a label, a glyph before it (.button__icon), a figure pinned to
+   its corner (.button__pin), a price in a chip (--priced), a proper name (--name), a glyph over its label (--stack). */
+.button { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); box-sizing: border-box; min-height: var(--size-button-m); padding: 0 var(--size-button-m-pad); border: 0; border-radius: var(--radius-button); background: none; color: var(--text-hi); font-family: inherit; font-size: var(--size-xs); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.2; text-decoration: none; text-transform: uppercase; white-space: nowrap; cursor: pointer; }
+
+/* size: chosen by the container's density, never by the act's importance */
+.button--l { min-height: var(--size-button-l); padding: 0 var(--size-button-l-pad); font-size: var(--size-text); }
+.button--m { min-height: var(--size-button-m); padding: 0 var(--size-button-m-pad); font-size: var(--size-xs); }
+.button--s { min-height: var(--size-button-s); padding: 0 var(--size-button-s-pad); font-size: var(--size-chip); }
+.button--s:not(.button--close)::after { content: ''; position: absolute; inset: calc((var(--size-button-s) - var(--size-tap)) / 2); } /* технічне рішення, D-232: press area 44px as v4 gave Add funds (account-home.css .ac2-dep::after, inset -6px); transparent, nothing is drawn; the close keeps its own ::after */
+.button--tap { min-height: var(--size-tap); } /* the 44px press at every width, for a row of acts a thumb works as a toolbar (the catalogue's bar, D-246) */
+@media (max-width: 599px) { .button--s-tap { min-height: var(--size-tap); } } /* the small button at the 44px floor on a phone, in a row of chips or a drawer's head (D-246) */
+
+/* emphasis */
+.button--primary { background-color: var(--bg-act); background-image: var(--gradient-button-sheen), var(--bg-act-stripes); background-size: 300% 100%, auto; background-position: 100% 0, 0 0; background-repeat: no-repeat, repeat; color: var(--text-on-plate); transition: background-color .2s, box-shadow .2s; }
+.button--ghost { background-color: var(--button-ghost-bg); background-image: var(--gradient-button-sheen); background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat; box-shadow: inset 0 0 0 var(--size-edge) var(--button-ghost-line); transition: background-color .2s, box-shadow .2s; }
+.button--icon { width: var(--size-tile); min-height: var(--size-tile); padding: 0; border-radius: var(--radius-tile); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-body); transition: background .2s, color .2s; }
+.button--icon .icon { font-size: var(--size-tile-icon); }
+.button--close { width: var(--size-close); min-height: var(--size-close); padding: 0; border-radius: var(--radius-s); background: var(--button-close-bg); transition: color .15s; }
+.button--close::before, .button--close::after { content: ''; position: absolute; left: 50%; top: 50%; width: 50%; height: var(--size-edge); translate: -50% -50%; border-radius: var(--radius-xs); background: currentColor; rotate: 45deg; transition: rotate .2s; }
+.button--close::after { rotate: -45deg; }
+
+/* STATES. Hover and focus-visible show the same lit face, so a keyboard sees what a pointer sees; the focus ring on top, never on :focus.
+   Active draws the glow in. Disabled is the one disabled look of the product (D-239); busy shares its wash and keeps its words readable. */
+@media (hover: hover) {
+  .button--primary:hover { background-color: var(--button-primary-bg-hover); background-position: 0 0, 0 0; box-shadow: var(--depth-act-glow); transition: background-position .6s cubic-bezier(.3, .6, .2, 1), background-color .2s, box-shadow .2s; }
+  .button--ghost:hover { background-color: var(--button-ghost-bg-hover); background-position: 0 0; box-shadow: inset 0 0 0 var(--size-edge) var(--button-ghost-line), var(--button-ghost-depth-hover); transition: background-position .6s cubic-bezier(.3, .6, .2, 1), background-color .2s, box-shadow .2s; }
+  .button--icon:hover { background: var(--bg-act-stripes), var(--button-primary-bg-hover); color: var(--text-on-plate); }
+  .button--close:hover { color: var(--text-error); }
+  .button--close:hover::before { rotate: 135deg; } .button--close:hover::after { rotate: 45deg; }
+}
+.button--primary:focus-visible { background-color: var(--button-primary-bg-hover); background-position: 0 0, 0 0; box-shadow: var(--depth-act-glow); }
+.button--ghost:focus-visible { background-color: var(--button-ghost-bg-hover); background-position: 0 0; box-shadow: inset 0 0 0 var(--size-edge) var(--button-ghost-line), var(--button-ghost-depth-hover); }
+.button--primary:active, .button--ghost:active { box-shadow: var(--button-depth-active); transition-duration: .08s; }
+.button:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+.button[aria-busy="true"] { background: var(--button-bg-disabled); box-shadow: var(--line-edge); color: var(--text-body); cursor: progress; }
+.button:disabled { background: var(--button-bg-disabled); box-shadow: var(--line-edge); color: var(--text-meta); cursor: not-allowed; pointer-events: none; } /* drawn disabled only where a founder decision keeps a way out that is not here yet and its reason stands beside it: Exchange on My items, node 5.1, D-239; everywhere else a control stays live and refuses, D-58 */
+
+/* content */
+.button__icon { flex: none; width: 1.25em; height: 1.25em; }
+.button__pin { position: absolute; top: calc(-1 * var(--space-2)); right: calc(-1 * var(--space-2)); }
+/* a glyph over its label under 600px, four short acts in a quarter of 328px each (the selection bar's acts, D-239); since step 2, D-260 */
+@media (max-width: 599px) { .button--stack { flex-direction: column; gap: var(--space-1); padding: var(--space-2) var(--space-1); font-size: var(--size-unit); letter-spacing: normal; } }
+/* under 600px the label folds away and the button is a square of its height, its words kept for a screen reader; Add funds on a phone, D-232 */
+@media (max-width: 599px) {
+  .button--fold { width: var(--size-button-s); padding: 0; }
+  .button--fold.button--m { width: var(--size-button-m); } .button--fold.button--l { width: var(--size-button-l); }
+  .button--fold .button__label { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+/* a proper name in its own case, the provider's mark before it (sign in, D-232) */
+.button--name { padding-inline: var(--space-2); font-size: var(--size-label); letter-spacing: var(--tracking-link); text-transform: none; }
+/* the price rides in the act, the coins in a chip at its end (the commit, D-232); busy, the act says Rolling with three dots */
+.button--priced {
+  --button-price-h: 36px; /* v4 case-stage.css: .v4c-go-price min-height, the chip inside a large button; рішення користувача, D-209 (v4) carried by D-232 */
+  --button-price-coin: 20px; /* v4 case-stage.css: .v4c-go-price img, the coin in the chip; рішення користувача, D-209 (v4) carried by D-232 */
+  --button-dot: 5px; /* v4 case-page.css: .v4c-roll i, a dot after Rolling; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.button--priced { gap: var(--space-3-5); padding-right: var(--space-2); }
+@media (max-width: 599px) { .button--priced:not([aria-busy="true"]) { justify-content: space-between; padding-left: var(--space-4-25); } } /* the label at the start, the price at the end on a phone, as v4 .v4c-go; moved in from the commit block at step 2, D-260; 18px, kit.css --commit-act-pad-s */
+.button__price { display: inline-flex; align-items: center; gap: var(--space-1-5); box-sizing: border-box; min-height: var(--button-price-h); padding: 0 var(--space-3) 0 var(--space-2); border-radius: var(--radius-button); background: var(--color-price-chip); color: var(--text-money-on-plate); font-size: var(--size-lead); font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-link); }
+.button__price > .icon--coin { width: var(--button-price-coin); height: var(--button-price-coin); }
+.button--priced[aria-busy="true"] { justify-content: center; padding-right: var(--space-4-25); }
+.button__dots { display: inline-flex; align-items: baseline; }
+.button__dots > i { width: var(--button-dot); height: var(--button-dot); margin-left: var(--space-1); border-radius: 50%; background: currentColor; animation: button-dot 1.2s ease-in-out infinite; }
+.button__dots > i:first-child { margin-left: var(--space-1-5); }
+.button__dots > i:nth-child(2) { animation-delay: .2s; } .button__dots > i:nth-child(3) { animation-delay: .4s; }
+@keyframes button-dot { 0%, 70%, 100% { opacity: .25; } 35% { opacity: 1; } }
+/* busy, D-236: a light runs through the act while it rolls, founder of 11 Nov 2026 */
+.button[aria-busy="true"] { position: relative; overflow: hidden; }
+.button[aria-busy="true"]::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: var(--gradient-button-sweep); translate: -100% 0; animation: button-sweep 1.6s cubic-bezier(.45, 0, .25, 1) infinite; }
+@keyframes button-sweep { to { translate: 100% 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .button, .button::before, .button::after { transition: none !important; }
+  .button--primary:hover, .button--primary:focus-visible { background-position: 100% 0, 0 0; }
+  .button--ghost:hover, .button--ghost:focus-visible { background-position: 100% 0; }
+  .button__dots > i { animation: none; opacity: .7; }
+  .button[aria-busy="true"]::after { display: none; animation: none; }
+}
