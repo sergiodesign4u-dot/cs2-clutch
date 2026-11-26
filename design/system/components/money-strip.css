@@ -6,7 +6,7 @@
  *   shown in their dialogs; design/kit/inventory.md, Money strip).
  * Holds: Button (the Check act in the hash's box, S primary), Icon (the coin before a money figure, the dollar mark), Note line (the line under
  *   the case's block, .note--l since rename map row 26). It places them and never restyles them. The figures are drawn by this block's own type:
- *   they are a size read off the strip's width, which the Figure atom does not draw (see the questions of the round).
+ *   they are a size read off the strip's width, which the Figure atom does not draw, so the Money strip holds no Figure (D-265, Q5).
  * Reads: --text-on-plate, --text-on-plate-soft, --text-money-on-plate, --text-match-on-plate, --text-link-on-plate, --text-on-accent, --bg-spend-strip,
  *   --bg-fair, --bg-act-stripes, --bg-hash-well-on-plate, --bg-mark-on-plate, --line-lit-top, --depth-plate-deep, --depth-fair, --depth-stub-text,
  *   --depth-figure-text, --depth-case-lift, --depth-skin-lift; its own --money-strip-* tokens (tokens.css, COMPONENT TOKENS); geometry, type and
@@ -50,7 +50,7 @@
 /* a link inside the strip keeps the strip's ink and loses its underline; its ring is drawn inside the panel, white on the plate in both themes.
    A Button inside keeps its own states (the atom), so the rule leaves it out. */
 .money-strip a:not(.button) { color: inherit; text-decoration: none; }
-.money-strip a:not(.button):focus-visible { outline: var(--size-edge) solid var(--money-strip-line-focus); outline-offset: calc(-1 * var(--space-thin)); }
+.money-strip a:not(.button):focus-visible { outline: var(--size-edge) solid var(--line-focus-on-plate); outline-offset: calc(-1 * var(--space-thin)); }
 .money-strip small { font-size: .56em; font-weight: 700; }
 .money-strip code { font-family: var(--font-mono); font-size: var(--size-chip); letter-spacing: var(--tracking-link); overflow-wrap: anywhere; }
 .money-strip__nw { white-space: nowrap; }

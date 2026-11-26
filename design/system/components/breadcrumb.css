@@ -1,11 +1,11 @@
-/* BREADCRUMB, level 2 (molecule). Where this page sits: its steps as soft links, the page itself in white, a slash between them; cut to its
+/* BREADCRUMB, level 1 (atom since D-265, Q5: built in round 2 as a molecule, it holds no component). Where this page sits: its steps as soft links, the page itself in white, a slash between them; cut to its
  * parent with a back mark it reads as one step back.
  * Page: design/kit/breadcrumb.html. Stands on seven coloured screens: the case screen (fit), the catalogue, Provably fair and Responsible play
  * (lit), My items (plain), and the pages above them (design/kit/inventory.md, Breadcrumb).
  * Reads: --text-base, --text-body, --text-hi (a crumb on the page's ground); --text-base-on-plate, --text-body-on-plate, --text-on-plate (a
  *   crumb on a coloured band or the case head's stage, which keep their colour in both themes); --line-focus; geometry, type and tracking
  *   from the primitives. No colour primitive and no component token: every state found its role.
- * Holds: no atom. The steps are plain anchors the molecule styles itself, as the screens wear them: the Text link atom is pink and 13px, a
+ * Holds: no atom. The steps are plain anchors the component styles itself, as the screens wear them: the Text link atom is pink and 13px, a
  *   step is soft grey in small capitals at the buttons' tracking, so the inventory's "holds Text link" is a question to the founder (the
  *   report, questions).
  * Carried from design/kit/kit.css part 4.2 (BREADCRUMB, lines 2522 to 2544) at stage 08 step 5, round 2, from the case screen's head, design/v4/case-page.css

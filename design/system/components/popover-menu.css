@@ -1,17 +1,16 @@
-/* POPOVER MENU, level 2 (molecule). A control that opens a panel of choices over the page: the language list and the select list.
+/* POPOVER MENU, level 1 (atom since D-265, Q5: built in round 2 as a molecule, it holds no component). A control that opens a panel of choices over the page: the language list and the select list.
  * Page: design/kit/popover-menu.html. Stands on every coloured screen: the rail's language control (Home, the case screen, the catalogue,
  *   Deposit, My items, Provably fair, Responsible play, Sign in), Deposit's country and network, Responsible play's limit periods
  *   (design/kit/inventory.md, Popover menu).
  * Holds: the inventory row lists Button, Text link and Icon; on the coloured screens the language and select forms hold none of them (the
- *   close and the glyphs were the account form's and left with it at the split), so every part here is the molecule's own: the trigger, the
+ *   close and the glyphs were the account form's and left with it at the split), so every part here is its own: the trigger, the
  *   panel, the options, the flag, the caret, the note and the phone's sheet.
  * Reads: --text-hi, --text-base, --text-body, --text-meta, --text-link, --bg-tile, --bg-menu, --bg-layer, --bg-lit (mixed at 16%, the chosen
  *   option's wash), --bg-hover, --line-edge, --line-lit, --line-focus; the flags from art.css (--art-flag-*); geometry, type and motion from
- *   the primitives. Read directly and waiting for step 9 (tokens-audit.md, "What the semantic level does not take yet"): --shadow-panel,
- *   --shadow-menu and --color-handle, listed as read in the Popover menu block only; --color-line, one of the six with one reader per surface
- *   (the panel's hairline here, the status steps' ring there); --color-scrim-sheet, the phone sheet's scrim, read by the Popover menu block
- *   of kit.css only and missing from that list because no state at load opens a sheet. Since the split (D-260, Q3) the sheet's three values
- *   (--shadow-menu, --color-handle, --color-scrim-sheet) are read here and by account-menu.css: a role at the gate or at step 9.
+ *   the primitives. The phone sheet's roles --bg-scrim-sheet, --bg-handle and --depth-menu,
+ *   read here and by account-menu.css since the split (D-265). Read directly and waiting for step 9 (tokens-audit.md, "What the semantic level
+ *   does not take yet"): --shadow-panel, listed as read in the Popover menu block only; --color-line, one of the six with one reader per surface
+ *   (the panel's hairline here, the status steps' ring there).
  * Carried from design/kit/kit.css part 4.2 (POPOVER MENU, lines 3619 to 3651 and 3711 to 3773) at stage 08 step 5, round 2, by the
  *   decisions of step 2 (D-260): the account form (lines 3652 to 3709, --account) left for design/system/components/account-menu.css
  *   (rename map row 2, Q3); the native Select (.select, .select--l, kit.css 2471 to 2479) is merged into --select and not carried (row 1);
@@ -94,9 +93,9 @@
    and the drawer dimmed by the popover's own scrim, so the drawer's edge never clips it; a press on the scrim or Escape closes it, D-232 */
 @media (max-width: 899px) {
   .popover--fit { position: static; }
-  .popover--fit .popover__panel { position: fixed; z-index: 61; inset: auto 0 0 0; width: auto; max-width: none; max-height: 88vh; overflow-y: auto; padding: var(--space-2) var(--space-3) var(--space-4); border: 0; border-radius: var(--radius-l) var(--radius-l) 0 0; background: var(--bg-layer); box-shadow: var(--line-edge), var(--shadow-menu); animation: popover-rise .28s cubic-bezier(.2, .7, .2, 1); }
-  .popover--fit .popover__panel::before { content: ''; display: block; flex: none; width: var(--popover-handle); height: var(--space-1); margin: 0 auto var(--space-2-5); border-radius: var(--radius-xs); background: var(--color-handle); }
-  .popover--fit .popover__trigger[aria-expanded="true"] ~ .popover__scrim { display: block; position: fixed; inset: 0; z-index: 60; background: var(--color-scrim-sheet); }
+  .popover--fit .popover__panel { position: fixed; z-index: 61; inset: auto 0 0 0; width: auto; max-width: none; max-height: 88vh; overflow-y: auto; padding: var(--space-2) var(--space-3) var(--space-4); border: 0; border-radius: var(--radius-l) var(--radius-l) 0 0; background: var(--bg-layer); box-shadow: var(--line-edge), var(--depth-menu); animation: popover-rise .28s cubic-bezier(.2, .7, .2, 1); }
+  .popover--fit .popover__panel::before { content: ''; display: block; flex: none; width: var(--popover-handle); height: var(--space-1); margin: 0 auto var(--space-2-5); border-radius: var(--radius-xs); background: var(--bg-handle); }
+  .popover--fit .popover__trigger[aria-expanded="true"] ~ .popover__scrim { display: block; position: fixed; inset: 0; z-index: 60; background: var(--bg-scrim-sheet); }
 }
 @media (prefers-reduced-motion: reduce) { .popover--fit .popover__panel { animation: none; } }
 

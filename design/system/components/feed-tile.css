@@ -6,7 +6,7 @@
  * Holds: Media slot (.media--skin, the skin), Avatar (.avatar--s, the winner; .avatar--bot for a bot's empty disc), Icon (.icon--box, the mode mark). The
  *   inventory also lists Text link: the two links of the tile (the face and the winner's name) are the tile's own forms, drawn here, and wear no .link.
  * Reads: --text-base, --text-hi, --text-base-on-plate, --text-on-plate, --bg-feed-plate, --bg-mark-on-plate, --bg-rarity-1 to --bg-rarity-7, --bg-lit,
- *   --line-focus; its own --feed-tile-* tokens (tokens.css, COMPONENT TOKENS); geometry, type and motion from the primitives. Colour primitives read
+ *   --line-focus, and on the back face the roles --text-meta-on-plate and --line-focus-on-plate (D-265); no component token; geometry, type and motion from the primitives. Colour primitives read
  *   directly, all waiting for step 9: --gradient-feed-back, --shadow-feed-tile, --shadow-feed-skin, --shadow-feed-text and --color-feed-ring-deep (read in
  *   this block only, tokens-audit.md), --color-gold (one of the six with one reader per surface), --color-rare-volt-light, --color-rare-zap,
  *   --color-rare-orbit-light, --color-rare-orbit-deep, --color-rare-plasma-light, --color-rare-chance, --color-crown-light and --color-crown-deep (each
@@ -84,7 +84,7 @@
 /* the mode mark, an Icon in the gold */
 .feed-tile__mode { position: absolute; z-index: 2; top: var(--space-2); right: var(--space-2); color: var(--color-gold); font-size: var(--feed-mark); opacity: .9; pointer-events: none; }
 /* the back face: the case it came from, its name, then who won it, on one centred column; hidden behind a slanted edge until it wipes in. Its plate is navy
-   in both themes (--gradient-feed-back has no light pair), so its words wear the plate inks and its ring the white one, --feed-tile-line-focus-back. */
+   in both themes (--gradient-feed-back has no light pair), so its words wear the plate inks and its ring the white one, --line-focus-on-plate. */
 .feed-tile__back { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: var(--feed-back-gap); box-sizing: border-box; padding: var(--feed-back-pad-top) var(--feed-back-pad-side) var(--feed-back-pad-foot); border-radius: var(--radius-s);
   background: radial-gradient(70% 42% at 50% 0%, color-mix(in srgb, var(--rarity) 34%, transparent), transparent), radial-gradient(70% 42% at 50% 100%, color-mix(in srgb, var(--rarity) 30%, transparent), transparent), var(--gradient-feed-back);
   clip-path: polygon(0 0, 0 0, -30% 100%, -30% 100%); pointer-events: none; transition: clip-path .42s cubic-bezier(.65, 0, .35, 1); }
@@ -97,8 +97,8 @@
 a.feed-tile__who { margin-block: calc(-1 * var(--space-1-5)); padding-block: var(--space-1-5); color: var(--text-on-plate); font-size: var(--size-chip); text-transform: uppercase; } /* a winner with a profile: 12 to 24px of hit area, WCAG 2.2 target size, critique row 11 */
 .feed-tile__whon { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--size-xs); }
 a.feed-tile__who .feed-tile__whon { text-decoration: underline; text-underline-offset: var(--feed-underline); }
-.feed-tile__bot { color: var(--feed-tile-text-bot); font-size: var(--size-chip); letter-spacing: var(--tracking-label); line-height: 1.25; text-transform: uppercase; }
-.feed-tile__case:focus-visible, a.feed-tile__who:focus-visible { outline: var(--size-edge) solid var(--feed-tile-line-focus-back); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+.feed-tile__bot { color: var(--text-meta-on-plate); font-size: var(--size-chip); letter-spacing: var(--tracking-label); line-height: 1.25; text-transform: uppercase; }
+.feed-tile__case:focus-visible, a.feed-tile__who:focus-visible { outline: var(--size-edge) solid var(--line-focus-on-plate); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
 
 /* STATES. The back face opens under the pointer and for a keyboard inside it; the skin turns a little with it. Each link of the face and the back takes the
    system's ring on :focus-visible, never on :focus. The avatar inside keeps its own look and adds no state. */

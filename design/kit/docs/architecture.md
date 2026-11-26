@@ -11,7 +11,7 @@ They are different axes, and mixing them is the commonest mistake (`CLAUDE.md`, 
 1. **Primitive.** A raw value with its origin comment beside it, carried from `design/kit/kit.css` line for line: `--color-*`, `--space-*`, `--radius-*`, `--size-*`, `--tracking-*`, `--font-*`, `--motion-*`, `--shadow-*`, `--gradient-*`, `--blur-*`, `--filter-*`, `--shape-*`, `--icon-*`. The pictures, `--art-*`, live beside it in `design/system/art.css` (`D-259`).
 2. **Semantic.** A role a component reads: a job that repeats in two blocks or more, may part from its neighbour, and paints one surface. Every role is a `var()` of a primitive, never a literal, and its comment says who reads it, its parent and its contrast in both themes.
 
-A component token, a third level, is made only at step 5 and only where a state finds no semantic role. A job that two components or more repeat is a role even when the components bring it, not a token of each: the atoms brought four (`--line-act`, `--line-lit`, `--line-control`, `--bg-error`, D-264).
+A component token, a third level, is made only at step 5 and only where a state finds no semantic role. A job that two components or more repeat is a role even when the components bring it, not a token of each: the atoms brought four (`--line-act`, `--line-lit`, `--line-control`, `--bg-error`, D-264), the molecules five (`--line-focus-on-plate`, `--text-meta-on-plate`, `--bg-scrim-sheet`, `--bg-handle`, `--depth-menu`, D-265).
 
 **The ladder of components: what contains what.** Level is one plus the highest level of what the component contains, capped at three:
 

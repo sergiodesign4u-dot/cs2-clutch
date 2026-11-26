@@ -7939,3 +7939,26 @@ The state token named `--color-focus` in the pack is `--line-focus` here: a ring
 - Keeping fifteen component tokens: a job shared by two or three blocks would part by accident the first time one of them is touched.
 - New art for the logo in the light theme now, before step 8 decides whether the theme stays.
 - Leaving tabs and segmented options without a hover because `kit.css` drew none: they are acts a person presses.
+
+## D-265. The molecules accepted: five more roles, row 11 withdrawn, "Open case", three molecules are atoms, the Rare mark
+
+**Date:** 2026-11-26. **Stage:** 08, step 5, round 2. **Decided by:** the founder, after the round's hub and the molecules' pages on the published stand: "Q1–Q6 как рекомендуешь" (Q1 to Q6 as you recommend).
+
+**Built.** The 23 molecules, each in one pass: its file in `design/system/components/`, its page of five blocks, its states in both themes (86 snapshots), its record in `design/kit/_nav.js`, its row in `design/kit/inventory.md`, its `@import`. On the way: the stand's own element rules made weightless and limited to the stand's text, so a sample draws its component alone; the Button's icon tile at the 44px press; three shared keyframes declared once, in their first reader; the card's lift the state token `--depth-card-hover`; a snapshot may name where the pointer rests.
+
+**Decided.**
+1. **Q1:** five roles join the semantic level, each in both themes, no value moved: `--line-focus-on-plate` (`--color-text-hi`; a link's focus ring on a plate that keeps its colour, the Money strip and the Feed tile's back) and `--text-meta-on-plate` (`--color-text-muted`; quiet words on such a plate, a locked Daily chip and the Feed tile's "bot"), in the place of four component tokens; `--bg-scrim-sheet`, `--bg-handle`, `--depth-menu`, the phone sheet of the Popover menu and the Account menu, read directly until now. Eleven component tokens stay, one block each.
+2. **Q2:** row 11 of the rename map is withdrawn. The category bar's acts stay the ghost Button M with `.button--tap`; the bar folds the word under 1200px and sizes the glyph, its own placing of what it holds.
+3. **Q3:** the Daily tier's act says "Open case" (microcopy 1.0-17, was "Open {d} case"), and its accessible name names the case, "Open case, Nova", beginning with the words on the button (WCAG 2.5.3). It fits every tier at 320, 360 and 1440.
+4. **Q4:** the lift under the pointer stays where `kit.css` draws it (the Daily tier, the Item card, the Drop card, the Recent drop card, the trust badge): a transform that moves no neighbour, motion accepted with v4; stage 11 owns its timing.
+5. **Q5:** the Contains column of eighteen rows is read again from the coloured markup. The Breadcrumb, the Hero and the Popover menu hold no component, so they are atoms; their files stay, their `@import` and their place in the panel move. The recount that follows moves two more: the Field holds only atoms once the Popover menu is one, and the Account head once the Breadcrumb is one, so both are molecules, built in round 3 before the organisms.
+6. **Q6:** the Rare mark, laid by the Feed tile, the Drop card and the Case stage, is an atom, built first in round 3.
+7. The points the hub listed as decided in the build stand: the coin's gap by the figure's size (8, 6, 4px), the Check button's own focus ring, the one-block list extended, the light theme's readings for step 7, "Not copied, select it by hand" as the string, the Mode card's 14px sides.
+
+**The count.** 72 components: 27 atoms (the File picker in the backlog among them), 22 molecules, 23 organisms.
+
+**Rejected.**
+- Fifteen component tokens, where two jobs repeat across blocks.
+- Row 11 as written: the icon tile would have dropped Search and Filters' words and pink edge from 1200px.
+- Letting the Daily act wrap or keep its local phone rule: the voice shortens a string rather than re-laying the block.
+- Keeping the three blocks that hold no component as molecules, and the Field and the Account head as organisms: the level is read from what a component holds.

@@ -1,11 +1,11 @@
-/* HERO, level 2 (molecule). Home's H1 in capitals and the Trustpilot line as a badge: a glass plate with a lit edge, five tiles filled to the
+/* HERO, level 1 (atom since D-265, Q5: built in round 2 as a molecule, it holds no component). Home's H1 in capitals and the Trustpilot line as a badge: a glass plate with a lit edge, five tiles filled to the
  * score in Trustpilot's green, the score large, the source and the count stacked; a light crosses it every few seconds and under the pointer
  * the tiles hop in turn. Centred under 900px, the badge under the H1; from 900px the H1 on the left and the badge beside it where both fit,
  * else under it. Signed in, the line is not drawn. The badge is a picture with its line as its name (role img) until a review page exists, so
  * it is not a control.
  * Page: design/kit/hero.html. Stands on Home (design/kit/inventory.md, Hero).
  * Holds: no atom as Home draws it today. The inventory row names a Text link; the badge is an <a role="img"> with no href and its own look, the
- *   molecule's own part, so no .link is worn (reported at round 2).
+ *   component's own part, so no .link is worn (reported at round 2).
  * Reads: --text-hi, --text-meta, --text-on-plate, --text-body-on-plate, --bg-mark-on-plate, --bg-sweep, --line-focus; one of its own tokens
  *   (tokens.css, COMPONENT TOKENS), --hero-trust-depth-hover; geometry, type and motion from the primitives and its own --hero-* block
  *   below. The badge is a dark glass plate in both themes, so its inks are on-plate roles. Colours read directly and waiting for step 9

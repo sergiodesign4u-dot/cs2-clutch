@@ -1,14 +1,14 @@
 /* CATEGORY BAR, level 2 (molecule). The shelf's sections as a run of options, one current, and the two acts on the shelf, Search and Filters
  * with its count. One row at every width and sticky: the run scrolls, fading where more waits, and the acts fold to their glyph under 1200px.
  * Page: design/kit/category-bar.html. Stands on the catalogue (design/kit/inventory.md, Category bar).
- * Holds: Segmented control (.seg__opt as a link, its chosen look is the atom's own, rename map row 12), Button (ghost M at the 44px press, --tap, as the screen wears it; row 11 is put to the founder, round 2 Q2),
+ * Holds: Segmented control (.seg__opt as a link, its chosen look is the atom's own, rename map row 12), Button (ghost M at the 44px press, --tap, as the screen wears it; row 11 withdrawn at D-265, Q2),
  *   Icon, Badge (--count, pinned to the Filters tile).
  * Reads: --bg-plate and --bg-page (the plate and the ground a stuck bar stands on), --line-plate-edge, --text-body; geometry from the
  *   primitives. No colour primitive and no component token: every part found its role.
  * Carried from design/kit/kit.css part 4.2 (CATEGORY BAR, lines 2630 to 2653) and part 5 (WHERE THE BAR STICKS, the bar's own .catbar--sticky,
  *   lines 5940 and 5949) at stage 08 step 5, round 2, by the decisions of step 2 (D-260): the chosen option's rule (line 2643, row 12) is the
  *   atom's, not carried; the acts' glyph size and their fold under 1200px
- *   (lines 2645 to 2649) are carried as the bar's placing of what it holds: row 11's icon tile would drop the words from 1200px (round 2, Q2). The screen's rules on the bar (.shell__main > .catbar,
+ *   (lines 2645 to 2649) are carried as the bar's placing of what it holds: row 11's icon tile would drop the words from 1200px, so it was withdrawn (D-265, Q2). The screen's rules on the bar (.shell__main > .catbar,
  *   the shelf sections' margins) stay in kit.css for the catalogue to carry at step 6. From design/v4/case-stage.css .v4c-plate, D-246. */
 
 /* One form: a plate with the run at its start and the acts at its end. At every width one row, because it sticks and stacked it took 124px of a

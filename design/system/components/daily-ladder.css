@@ -5,8 +5,8 @@
  * Holds: Media slot (a case as .media--case draws it), Button (the guest's Sign in at L, the live tier's open control at M), Icon (the coin).
  * Reads: --text-hi, --text-body, --text-meta, --text-money, --text-money-on-plate, --text-on-plate, --text-on-accent, --text-match-on-plate,
  *   --bg-daily-panel, --bg-plate-veil, --bg-stripes, --bg-act-stripes, --bg-mode-upgrade, --bg-mode-battles, --bg-case-violet,
- *   --bg-mark-on-plate, --line-edge, --line-edge-lit, --line-lit-top; five of its own tokens (tokens.css, COMPONENT TOKENS):
- *   --daily-chip-text-locked, --daily-hue-legend, --daily-tier-lit-hover, --daily-tier-lift-hover, --daily-tier-lift-live-hover; geometry, type
+ *   --bg-mark-on-plate, --line-edge, --line-edge-lit, --line-lit-top, --text-meta-on-plate (a locked chip's words, D-265); four of its own tokens (tokens.css,
+ *   COMPONENT TOKENS): --daily-hue-legend, --daily-tier-lit-hover, --daily-tier-lift-hover, --daily-tier-lift-live-hover; geometry, type
  *   and motion from the primitives and its own --daily-* block below. Colours read directly and waiting for step 9 (tokens-audit.md "What the
  *   semantic level does not take yet"): read in this block only, --color-daily-silver, --color-daily-chip, --shadow-tile-lit-live,
  *   --shadow-daily-lift, --shadow-daily-name, --shadow-daily-skin, --gradient-daily-fade, --gradient-daily-fade-s, --gradient-daily-silver,
@@ -124,7 +124,7 @@
 .daily__chip > svg { flex: 0 0 auto; width: 1em; height: 1em; font-size: var(--size-label); fill: currentColor; }
 .daily__chip--opened > svg { fill: var(--text-match-on-plate); }
 .daily__chip--open { background: var(--bg-mark-on-plate); color: var(--text-on-accent); }
-.daily__chip--locked { color: var(--daily-chip-text-locked); }
+.daily__chip--locked { color: var(--text-meta-on-plate); }
 .daily__say { order: 4; max-width: var(--size-measure); margin: var(--space-2-5) 0 0; color: var(--text-body); font-size: var(--size-xs); }
 .daily__say:empty { display: none; }
 

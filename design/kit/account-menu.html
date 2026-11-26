@@ -116,7 +116,7 @@ node design/kit/tools/shoot-states.js http://localhost:8765/ account-menu --chec
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. No component token. A tile that turns into a plate (My items, Responsible play, a tile under the pointer or on focus) carries its words in <code>--text-on-plate</code>, the same white in the dark theme, so the light theme keeps white on the pink and the blue. Read directly and waiting for step 9: <code>--shadow-menu</code>, <code>--color-handle</code> and <code>--color-error-wash</code> (read in the Popover menu block only, the block this one is split from), <code>--color-scrim-sheet</code>, and Copy's <code>--color-done</code>, <code>--color-done-wash</code>, <code>--color-fail</code>, <code>--color-fail-wash</code>, set by a script and so missing from the step 3 count. Geometry, type and motion come straight from the primitives.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token. A tile that turns into a plate (My items, Responsible play, a tile under the pointer or on focus) carries its words in <code>--text-on-plate</code>, the same white in the dark theme, so the light theme keeps white on the pink and the blue. The phone sheet reads the roles <code>--bg-scrim-sheet</code>, <code>--bg-handle</code> and <code>--depth-menu</code>, shared with the Popover menu (D-265). Read directly and waiting for step 9: <code>--color-error-wash</code> (read in the Popover menu block only, the block this one is split from), and Copy's <code>--color-done</code>, <code>--color-done-wash</code>, <code>--color-fail</code>, <code>--color-fail-wash</code>, set by a script and so missing from the step 3 count. Geometry, type and motion come straight from the primitives.</p>
   <p>File: <code>design/system/components/account-menu.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
   <pre>&lt;div class="account-menu"&gt;
   &lt;button class="account-menu__trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="acct-menu" aria-label="Account, nightjar_cs"&gt;
@@ -148,7 +148,7 @@ window.KIT_SHOTS = [
   { id: 'out', sel: '#s-out', states: ['hover'] }
 ];
 (function () {
-  var C = [['pill', 'focus', 'Pill focus-visible: the ring', '--line-focus'], ['pill', 'open', 'Open, the product\'s own (aria-expanded): the pink ring on the pill, the menu under it', '--line-lit, --bg-layer, --shadow-menu'],
+  var C = [['pill', 'focus', 'Pill focus-visible: the ring', '--line-focus'], ['pill', 'open', 'Open, the product\'s own (aria-expanded): the pink ring on the pill, the menu under it', '--line-lit, --bg-layer, --depth-menu'],
     ['copy', 'hover', 'Copy hover: the act\'s stripes on the pink', '--bg-act-stripes, --bg-lit, --text-on-plate'], ['copy', 'done', 'Copied, set by kit.js (.is-done): the squares become a tick', '--color-done, --color-done-wash'],
     ['copy', 'fail', 'Not copied, set by kit.js (.is-fail): the words in the failure red, in sentence case', '--color-fail, --color-fail-wash'],
     ['tile', 'hover', 'Tile hover: the tile lights as the Cases plate', '--bg-act-stripes, --bg-mode-cases, --text-on-plate'], ['tile', 'focus', 'Tile focus-visible: the ring over the lit plate', '--line-focus'],
@@ -163,7 +163,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script>
 KitTokens.load().then(function () {
   var T = ['--text-hi', '--text-on-plate', '--text-base', '--text-body', '--text-meta', '--text-error', '--bg-veil', '--bg-wash', '--bg-tile', '--bg-layer', '--bg-lit', '--bg-act-stripes', '--bg-stripes-m', '--bg-mode-cases', '--bg-mode-battles',
-    '--line-edge', '--line-lit', '--line-lit-top-soft', '--line-focus', '--depth-avatar', '--shadow-menu', '--color-handle', '--color-error-wash', '--color-scrim-sheet', '--color-done', '--color-done-wash', '--color-fail', '--color-fail-wash'];
+    '--line-edge', '--line-lit', '--line-lit-top-soft', '--line-focus', '--depth-avatar', '--depth-menu', '--bg-handle', '--color-error-wash', '--bg-scrim-sheet', '--color-done', '--color-done-wash', '--color-fail', '--color-fail-wash'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var kind = /^--(shadow|color)-/.test(n) ? 'primitive, waits for step 9' : /^--line-focus$/.test(n) ? 'state' : n === '--depth-avatar' ? 'semantic, read by the Avatar XL' : 'semantic';

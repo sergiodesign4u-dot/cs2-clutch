@@ -5,10 +5,10 @@
  * Holds: Avatar (M on the pill, XL at the head, .avatar--xl by rename map row 17), Button (the sheet's close, .button--close), Icon (each
  *   tile's glyph, Sign out's); its own parts are the pill, the panel, the head, the ID plate with Copy, the tiles, Sign out and the sheet.
  * Reads: --text-hi, --text-on-plate, --text-base, --text-body, --text-meta, --text-error, --bg-veil, --bg-wash, --bg-tile, --bg-layer, --bg-lit,
- *   --bg-act-stripes, --bg-stripes-m, --bg-mode-cases, --bg-mode-battles, --line-edge, --line-lit, --line-lit-top-soft, --line-focus;
+ *   --bg-act-stripes, --bg-stripes-m, --bg-mode-cases, --bg-mode-battles, --line-edge, --line-lit, --line-lit-top-soft, --line-focus; the phone sheet's roles --bg-scrim-sheet, --bg-handle, --depth-menu (D-265);
  *   geometry, type and motion from the primitives. Read directly and waiting for step 9 (tokens-audit.md, "What the semantic level does not
- *   take yet"): --shadow-menu, --color-handle and --color-error-wash, listed as read in the Popover menu block only, the block this
- *   component is split from; --color-scrim-sheet, --color-done, --color-done-wash, --color-fail and --color-fail-wash, whose origin comments
+ *   take yet"): --color-error-wash, listed as read in the Popover menu block only, the block this component is split from;
+ *   --color-done, --color-done-wash, --color-fail and --color-fail-wash, whose origin comments
  *   name the Popover menu (v4 account-home.css), missing from that list because a script or a phone sheet sets the state, never a load;
  *   --color-fail and its wash are also read by the Status notice (.notice--failed), so they are a role candidate for the gate.
  * Carried from design/kit/kit.css part 4.2 (POPOVER MENU, lines 3625 to 3651 for the frame and 3652 to 3709 for --account) at stage 08 step 5,
@@ -54,7 +54,7 @@
 
 /* the menu */
 .account-menu__panel { position: absolute; z-index: 10; top: calc(100% + var(--space-2-5)); right: 0; width: var(--account-menu-menu); box-sizing: border-box; padding: var(--space-3); border-radius: var(--radius-m);
-  background: var(--bg-layer); box-shadow: var(--line-edge), var(--shadow-menu); color: var(--text-base); font-size: var(--size-text); line-height: 1.2; text-align: left; }
+  background: var(--bg-layer); box-shadow: var(--line-edge), var(--depth-menu); color: var(--text-base); font-size: var(--size-text); line-height: 1.2; text-align: left; }
 .account-menu__x { display: none; }
 .account-menu__head { display: flex; align-items: center; gap: var(--space-3-5); padding: var(--space-1) var(--space-1) var(--space-3-5); }
 .account-menu__who { display: grid; gap: var(--space-1-75); min-width: 0; }
@@ -99,9 +99,9 @@
 @media (max-width: 899px) {
   .account-menu { position: static; }
   .account-menu__panel { position: fixed; z-index: 61; inset: auto 0 0 0; width: auto; max-height: 88vh; overflow-y: auto; padding: var(--space-2) var(--space-3) var(--space-4); border-radius: var(--radius-l) var(--radius-l) 0 0; animation: popover-rise .28s cubic-bezier(.2, .7, .2, 1); }
-  .account-menu__panel::before { content: ''; display: block; width: var(--account-menu-handle); height: var(--space-1); margin: 0 auto var(--space-2-5); border-radius: var(--radius-xs); background: var(--color-handle); }
+  .account-menu__panel::before { content: ''; display: block; width: var(--account-menu-handle); height: var(--space-1); margin: 0 auto var(--space-2-5); border-radius: var(--radius-xs); background: var(--bg-handle); }
   .account-menu__x { display: grid; position: absolute; top: var(--space-3); right: var(--space-3); z-index: 1; width: var(--size-button-m); min-height: var(--size-button-m); }
-  .account-menu__trigger[aria-expanded="true"] ~ .account-menu__scrim { display: block; position: fixed; inset: 0; z-index: 60; background: var(--color-scrim-sheet); }
+  .account-menu__trigger[aria-expanded="true"] ~ .account-menu__scrim { display: block; position: fixed; inset: 0; z-index: 60; background: var(--bg-scrim-sheet); }
 }
 /* under 600px the pill is the avatar alone */
 @media (max-width: 599px) { .account-menu__trigger { padding: 0 var(--space-1-75); } .account-menu :is(.account-menu__name, .account-menu__chev) { display: none; } }

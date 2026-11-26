@@ -9,7 +9,8 @@
 @import "art.css";
 
 /* ===== Level 1, atoms ===== */
-/* atoms hold no component, so their order is free; the Icon loads first because other atoms size and colour the glyph they place */
+/* atoms hold no component, so their order is free; the Icon loads first because other atoms size and colour the glyph they place. The Popover
+   menu, the Breadcrumb and the Hero were built in round 2 and are atoms since D-265 (Q5): they hold no component */
 @import "components/icon.css";
 @import "components/button.css";
 @import "components/text-link.css";
@@ -17,6 +18,8 @@
 @import "components/favourite-toggle.css";
 @import "components/tabs.css";
 @import "components/segmented-control.css";
+@import "components/popover-menu.css";
+@import "components/breadcrumb.css";
 @import "components/text-field.css";
 @import "components/text-area.css";
 @import "components/checkbox.css";
@@ -27,6 +30,7 @@
 @import "components/key-value-line.css";
 @import "components/note-line.css";
 @import "components/prose.css";
+@import "components/hero.css";
 @import "components/badge.css";
 @import "components/status-steps.css";
 @import "components/logo.css";
@@ -47,14 +51,11 @@
 @import "components/copyable-value.css";
 @import "components/filter-chip.css";
 @import "components/chosen-method.css";
-@import "components/popover-menu.css";
 @import "components/account-menu.css";
-@import "components/breadcrumb.css";
 @import "components/category-bar.css";
 @import "components/section-head.css";
 @import "components/daily-ladder.css";
 @import "components/event-banner.css";
-@import "components/hero.css";
 @import "components/empty-state.css";
 @import "components/money-strip.css";
 @import "components/payment-record.css";

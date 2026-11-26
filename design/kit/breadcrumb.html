@@ -32,7 +32,7 @@
   .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
 </style>
 <header class="kt-head">
-  <span class="kt-eyebrow">Molecules &middot; Heads and ways &middot; level 2</span>
+  <span class="kt-eyebrow">Atoms &middot; Acts &middot; level 1</span>
   <h1>Breadcrumb</h1>
   <p class="kt-lead">Where this page sits: the steps above it as soft links, the page itself in white, a slash between them. Cut to its parent it reads as one step back, as the case screen draws it under 900px. Everything on this page is drawn by <code>design/system/components/breadcrumb.css</code> through <code>index.css</code>, the same file a screen will load.</p>
 </header>
@@ -45,14 +45,14 @@
     <div class="cp-fit"><nav class="crumb crumb--fit" aria-label="Breadcrumb"><ol><li><a href="#anatomy">Home</a></li><li><a href="#anatomy">Cases</a></li><li><span aria-current="page">Ironbound</span></li></ol></nav></div>
   </div></div>
   <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
-    <tr><td><b>The trail</b> (the molecule's own)</td><td><code>nav.crumb</code> &gt; <code>ol</code></td><td>the type: 12px, 700, uppercase, <code>--tracking-caps</code>; the 6px gap between steps; one line that wraps</td></tr>
-    <tr><td><b>A step</b> (the molecule's own)</td><td><code>li</code> &gt; <code>a</code></td><td>the soft grey, no underline; white under the pointer; the 2px ring on keyboard focus</td></tr>
-    <tr><td><b>The separator</b> (the molecule's own)</td><td><code>li + li::before</code></td><td>the slash, at 60% of its ink, 6px before the next step</td></tr>
-    <tr><td><b>The page</b> (the molecule's own)</td><td><code>[aria-current]</code></td><td>white, not a link: a page is never its own way out</td></tr>
+    <tr><td><b>The trail</b> (the atom's own)</td><td><code>nav.crumb</code> &gt; <code>ol</code></td><td>the type: 12px, 700, uppercase, <code>--tracking-caps</code>; the 6px gap between steps; one line that wraps</td></tr>
+    <tr><td><b>A step</b> (the atom's own)</td><td><code>li</code> &gt; <code>a</code></td><td>the soft grey, no underline; white under the pointer; the 2px ring on keyboard focus</td></tr>
+    <tr><td><b>The separator</b> (the atom's own)</td><td><code>li + li::before</code></td><td>the slash, at 60% of its ink, 6px before the next step</td></tr>
+    <tr><td><b>The page</b> (the atom's own)</td><td><code>[aria-current]</code></td><td>white, not a link: a page is never its own way out</td></tr>
     <tr><td><b>Ground</b></td><td><code>.crumb--lit</code>, <code>.crumb--fit</code></td><td>the ink on a coloured band or on the case head's stage; none for the page's ground</td></tr>
     <tr><td><b>The way back</b></td><td><code>.crumb--back</code>, <code>.crumb--fit</code> under 900px</td><td>every step but the one above the page is hidden from sight, never from the markup, and a back mark <code>&lsaquo;</code> stands before it</td></tr>
   </tbody></table></div>
-  <p><b>Holds:</b> the inventory lists the <a href="text-link.html">Text link</a>, and a step is a link, but no step wears <code>.link</code>: the atom is pink at 13px and the step is soft grey in small capitals, so the screens draw the step as a plain anchor and the molecule styles it. This page keeps what the screens draw. Whether the step should become a Text link tone is a question for the founder (the report).</p>
+  <p><b>Holds no component</b>, so it is an atom (D-265, Q5). The step-2 inventory listed the <a href="text-link.html">Text link</a>, and a step is a link, but no step wears <code>.link</code>: the atom is pink at 13px and the step is soft grey in small capitals, so the screens draw the step as a plain anchor and the Breadcrumb styles it. This page keeps what the screens draw.</p>
 </section>
 
 <section class="kt-sec" id="variants">
@@ -116,7 +116,7 @@ node design/kit/tools/shoot-states.js http://localhost:8765/ breadcrumb --check 
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
   <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and tracking come straight from the primitives. No colour primitive is read and no component token is made: the plain trail reads the ground roles, the lit and fit trails the on-plate roles (<code>--text-base-on-plate</code> names this block).</p>
-  <p>File: <code>design/system/components/breadcrumb.css</code>, loaded by <code>design/system/index.css</code> in the molecules' group.</p>
+  <p>File: <code>design/system/components/breadcrumb.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group: built in round 2 as a molecule, it holds no component, so it is an atom since D-265 (Q5).</p>
   <pre>&lt;nav class="crumb" aria-label="Breadcrumb"&gt;&lt;ol&gt;
   &lt;li&gt;&lt;a href="..."&gt;Home&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="..."&gt;Cases&lt;/a&gt;&lt;/li&gt;
