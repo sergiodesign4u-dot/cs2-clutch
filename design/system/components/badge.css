@@ -1,0 +1,19 @@
+/* BADGE, level 1 (atom). Short text in a pill: a count or a bonus pinned to a control, a ribbon on a tile, a status.
+ * Page: design/kit/badge.html. Stands on Home, the case screen, the catalogue, Deposit, My items, Provably fair (design/kit/inventory.md, Badge).
+ * Reads: --text-body, --text-on-plate, --text-on-accent, --bg-tile, --bg-act, --bg-match, --line-edge; its own --badge-bg-bonus and
+ *   --badge-bg-bad (tokens.css, COMPONENT TOKENS); geometry, type from the primitives; one colour read in this block only,
+ *   --color-badge-ink, waits for step 9 (tokens-audit.md).
+ * Carried from design/kit/kit.css part 4.1 (BADGE, lines 2310 to 2320) at stage 08 step 5, round 1, unchanged in look. From the 5 % badge,
+ *   account-home.css. Not interactive: no states. */
+
+/* One shape for every badge, D-230: the tones change the colour only, never the size, the case or the spacing. Tone: the unmarked badge is
+   the bonus, gold with its dark ink; status is a quiet tile, count the act's pink, good a green, bad a red. Size: S 16 (the default), L 24. */
+.badge { display: inline-grid; place-items: center; height: var(--size-badge); padding: 0 var(--size-badge-pad); border-radius: var(--radius-s); background: var(--badge-bg-bonus); color: var(--color-badge-ink); font-size: var(--size-badge-text); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1; text-transform: uppercase; white-space: nowrap; }
+.badge--status { background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-body); }
+.badge--count { background: var(--bg-act); color: var(--text-on-plate); }
+.badge--l { align-self: center; height: var(--space-5); padding: 0 var(--space-2); font-size: var(--size-chip); } /* the count of a section's things beside its title; declared at stage 07 step 6, it was .sec-head__title > .badge */
+.badge--good { background: var(--bg-match); color: var(--text-on-accent); }
+/* needed by .proof, D-232: a round whose recomputation does not match is our failure, in the red of the refusal's mark with the ground's dark
+   ink, as .badge--good is green with it; one badge shape, the colour only (D-230). The failure wash of Not copied was tried first and read
+   at 3.5:1 on the blue plate; this reads 6.1:1. Stands on no coloured state yet: kept, wired or deleted at step 6 (inventory.md, "To verify") */
+.badge--bad { background: var(--badge-bg-bad); color: var(--text-on-accent); }

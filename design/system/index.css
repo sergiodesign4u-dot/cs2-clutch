@@ -9,7 +9,29 @@
 @import "art.css";
 
 /* ===== Level 1, atoms ===== */
+/* atoms hold no component, so their order is free; the Icon loads first because other atoms size and colour the glyph they place */
+@import "components/icon.css";
 @import "components/button.css";
+@import "components/text-link.css";
+@import "components/disclosure.css";
+@import "components/favourite-toggle.css";
+@import "components/tabs.css";
+@import "components/segmented-control.css";
+@import "components/text-field.css";
+@import "components/text-area.css";
+@import "components/checkbox.css";
+@import "components/radio.css";
+@import "components/switch.css";
+@import "components/range.css";
+@import "components/figure.css";
+@import "components/key-value-line.css";
+@import "components/note-line.css";
+@import "components/prose.css";
+@import "components/badge.css";
+@import "components/status-steps.css";
+@import "components/logo.css";
+@import "components/avatar.css";
+@import "components/media-slot.css";
 
 /* ===== Level 2, molecules ===== */
 

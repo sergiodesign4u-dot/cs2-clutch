@@ -1,0 +1,30 @@
+/* TABS, level 1 (atom). Peers in a row, one current, with a count where the grey has one; plain on the page, or on a plate (--plate).
+ * Page: design/kit/tabs.html. Stands on My items (the account head's tabs and the cash out's network tabs); the other coloured screens do not wear it
+ * (design/kit/inventory.md, Tabs).
+ * Reads: --text-hi, --text-body, --text-link, --line-soft, --line-edge, --line-focus, --bg-lit, --bg-plate, --bg-hover, --bg-active,
+ *   --depth-shell; geometry, type from the primitives. No component token, no colour primitive read directly.
+ * Carried from design/kit/kit.css part 4.1 (lines 2462 to 2467) at stage 08 step 5, round 1, and, for --plate, from the account head's rules
+ *   on its .tabs (lines 3944 to 3948, rename map row 27), which stay in kit.css until step 8 and which the variant equals (parity test).
+ *   Hover and active are new at this step, from the state tokens of D-263: kit.css drew none. */
+
+/* The row: peers side by side, scrolling sideways rather than wrapping. Content: a label, a glyph before it (.icon), a count (.tabs__n, a Badge). */
+.tabs { display: flex; gap: var(--space-1); overflow-x: auto; border-bottom: var(--size-hairline) solid var(--line-soft); }
+.tabs__t { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--size-tap); padding: 0 var(--space-4); border: 0; background: none; color: var(--text-body); font-family: inherit; font-size: var(--size-label); font-weight: 700; text-decoration: none; white-space: nowrap; box-shadow: inset 0 calc(-1 * var(--size-edge)) 0 transparent; cursor: pointer; }
+/* current: set by the product, aria-current on a link or a span, aria-selected on a button; the pink under it, DESIGN-artifacts.md zone 8 */
+.tabs__t[aria-current="page"], .tabs__t[aria-selected="true"] { color: var(--text-hi); box-shadow: inset 0 calc(-1 * var(--size-edge)) 0 var(--bg-lit); }
+.tabs__n { min-width: var(--size-badge); }
+
+/* ground: on a plate, the account head's bar. Equals .account-head > .tabs of kit.css, rename map row 27 */
+.tabs--plate { --tabs-plate-pad: var(--space-4); /* the account head's --account-head-pad: its 12px padding stepped up a rung for a page band; 24px from 900px */ padding: 0 var(--tabs-plate-pad); border-bottom: 0; border-radius: 0 0 var(--radius-l) var(--radius-l); background: var(--bg-plate); box-shadow: var(--line-edge), var(--depth-shell); }
+@media (min-width: 900px) { .tabs--plate { --tabs-plate-pad: var(--space-5); } }
+.tabs--plate .tabs__t > .icon { font-size: var(--size-m); }
+.tabs--plate .tabs__t[aria-current="page"] { background: linear-gradient(to top, color-mix(in srgb, var(--bg-lit) 22%, transparent), transparent); } /* the current one lit from its foot in pink */
+.tabs--plate .tabs__t[aria-current="page"] > .icon { color: var(--text-link); }
+
+/* STATES. A tab that is a link or a button lifts its ground under the pointer and its words turn white; the current one is already lit and
+   keeps its face. The ring is on :focus-visible only, drawn inside the tab as kit.css draws it, because the row scrolls and an outer ring is cut. */
+@media (hover: hover) {
+  .tabs__t:is(a, button):not([aria-current="page"], [aria-selected="true"]):hover { background: var(--bg-hover); color: var(--text-hi); }
+}
+.tabs__t:is(a, button):not([aria-current="page"], [aria-selected="true"]):active { background: var(--bg-active); color: var(--text-hi); }
+.tabs__t:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: calc(-1 * var(--size-edge)); }

@@ -7903,3 +7903,20 @@ Each answer is a row in `design/kit/docs/tokens-audit.md`, "Review of the founda
 - Moving 22px to 20 or 24: it moves the price beside every act.
 - Keeping .20 for the account menu's tile: it was never drawn.
 - Lifting rarity 4 and 6: it changes the baseline's ladder for one contrast figure.
+
+## D-263. The Button accepted as the reference of step 5: eight component tokens, three state tokens, no opacity for disabled
+
+**Date:** 2026-11-26. **Stage:** 08, step 5, round 0. **Decided by:** the founder, after the Button's page on the published stand: "Q1–Q3 как рекомендуешь" (Q1 to Q3 as you recommend).
+
+**Built.** `design/system/index.css`, the system's one entry point, with its groups by level; `design/system/components/button.css`; `design/kit/button.html` with its five blocks and sixteen state snapshots; the tool that re-shoots and checks them, `design/kit/tools/shoot-states.js`. The foundation pages load through `index.css`. Three state tokens in both themes: `--bg-hover`, `--bg-active` and `--line-focus`, the focus ring at 19.4:1 dark and 16.4:1 light against the 3:1 a line needs.
+
+**Decided.**
+1. **Q1:** the Button's eight component tokens are accepted as the hub's table gave them: `--button-primary-bg-hover`, `--button-ghost-bg`, `--button-ghost-bg-hover`, `--button-ghost-line`, `--button-ghost-depth-hover`, `--button-depth-active`, `--button-close-bg`, `--button-bg-disabled`. Two take another value in the light theme, the ghost's ground and the close's square.
+2. **Q2:** no `--opacity-disabled`. The product draws disabled once, on the Button's Exchange (D-239), with its own look, and everywhere else a control stays live and refuses (D-58). If a component ever needs a dimmed disabled state, the token is made then, in both themes, by a decision.
+3. **Q3:** every other component's page keeps the Button's format: anatomy with a class for each part, the axes with each axis's rule and sizes read from the render, when to use, rule and anti-rule, states live and as snapshots of named differences in both themes with the command that re-shoots them, then the tokens read live, the file, the markup and the screens.
+
+The state token named `--color-focus` in the pack is `--line-focus` here: a ring is a line, and a role is named by the surface it paints (`design/kit/docs/architecture.md`, "Roles and their names").
+
+**Rejected.**
+- Making `--opacity-disabled` now and redrawing Exchange as an opacity: it would change what My items shows, for a token with no other reader.
+- A component token for every state: a state that lands on a role reads the role (the close's red, the tile's ink, the ring).

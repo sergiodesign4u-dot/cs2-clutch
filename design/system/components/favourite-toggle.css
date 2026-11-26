@@ -1,0 +1,31 @@
+/* FAVOURITE TOGGLE, level 1 (atom). The heart with its count; pressed, it turns pink and takes a pink edge.
+ * Page: design/kit/favourite-toggle.html. Stands on Home, the case screen, the catalogue, Deposit and Sign in, in a case tile's corner and in
+ * the case head (design/kit/inventory.md, Favourite toggle).
+ * Reads: --bg-veil, --bg-tile-veil, --line-edge, --line-focus, --text-hi, --text-link; its own --fav-line-pressed (tokens.css, COMPONENT
+ *   TOKENS); geometry, type and motion from the primitives. No colour primitive.
+ * Carried from design/kit/kit.css part 4.1 (FAVOURITE TOGGLE, lines 2391 to 2411) at stage 08 step 5, round 1, unchanged in look. The tile
+ *   corner's own look (.case-tile__fav, a dark pill behind the count, hidden until the tile is pointed at) is the Case tile's rule and stays
+ *   in kit.css until step 6. From the case tile's corner, case-tiles.css; D-232 for the square, D-235 for the burst. */
+
+/* One form in two emphases. With its count (the base): a veiled pill, the count and the heart. On a tile (--square): the heart alone in a square
+   of the medium height, its word kept for a screen reader (.fav__sr), the case head's (D-232). Pressed is aria-pressed, the product's own. */
+.fav { position: relative; display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--size-button-m); padding: 0 var(--space-2); border: 0; border-radius: var(--radius-s); background: var(--bg-veil); box-shadow: var(--line-edge); color: var(--text-hi); font-family: inherit; font-size: var(--size-label); font-weight: 700; font-variant-numeric: tabular-nums; cursor: pointer; }
+.fav .icon { font-size: var(--size-title); transition: scale .2s; }
+.fav--square { justify-content: center; width: var(--size-button-m); min-height: var(--size-button-m); padding: 0; border-radius: var(--radius-button); background: var(--bg-tile-veil); }
+.fav__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* STATES. Hover grows the heart by 12 percent, no more; pressed turns the count and heart pink and draws the pink edge in; focus-visible is the ring,
+   never on :focus. No press look beyond pressed itself (kit.css draws none). */
+@media (hover: hover) { .fav:hover .icon { scale: 1.12; } }
+.fav[aria-pressed="true"] { color: var(--text-link); box-shadow: inset 0 0 0 var(--size-edge) var(--fav-line-pressed); }
+.fav:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+@media (prefers-reduced-motion: reduce) { .fav .icon { transition: none; } }
+
+/* its burst, D-235, v4 case-tiles.js and case-tiles.css .v4-burst, founder of 2 Nov 2026: "сердечки полосочки звездочки разних размеров и
+   рандомно ... аккуратной и симпотичной". Turning on, the heart pops and nine small pieces of three kinds and three sizes leave it in random
+   directions and fade within .7s; motion.js lays them in .fav__burst at the heart's centre and takes them away. Not for less motion */
+.fav__burst { position: absolute; z-index: 3; width: 0; height: 0; pointer-events: none; }
+.fav__burst > i { position: absolute; left: 0; top: 0; display: block; background: var(--bc); }
+.fav__burst > i[data-s="heart"] { -webkit-mask: var(--icon-heart) center / contain no-repeat; mask: var(--icon-heart) center / contain no-repeat; }
+.fav__burst > i[data-s="star"] { clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%); }
+.fav__burst > i[data-s="stroke"] { border-radius: var(--space-hair); }

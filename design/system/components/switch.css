@@ -1,0 +1,20 @@
+/* SWITCH, level 1 (atom). A track and a thumb that hold an on or an off.
+ * Page: design/kit/switch.html. Stands on no coloured screen yet: settings (node 5.11) arrive with the rollout (design/kit/inventory.md, Switch).
+ * Reads: --text-body, --bg-tile, --bg-act, --bg-mark-on-plate, --line-focus; its own --switch-line and --switch-thumb (tokens.css, COMPONENT
+ *   TOKENS); geometry, type and motion from the primitives. No colour primitive is read directly.
+ * Carried from design/kit/kit.css part 4.1, FORM CONTROLS (lines 2492 to 2497 and the reduced-motion line 2508) at stage 08 step 5, round 1,
+ *   unchanged in look. */
+
+/* One form, the kit's own. The label is the press; the track is the native input drawn by this file, so the keyboard and a screen reader keep a
+   real checkbox. The thumb is the track's ::after and slides by the difference of the two sizes. */
+.switch { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--text-body); font-size: var(--size-label); cursor: pointer; }
+.switch > input { appearance: none; position: relative; flex: none; width: var(--size-switch-w); height: var(--size-switch-h); margin: 0; border-radius: var(--radius-pill); background: var(--bg-tile); box-shadow: inset 0 0 0 var(--size-edge) var(--switch-line); cursor: pointer; transition: background .2s; }
+.switch > input::after { content: ''; position: absolute; top: var(--space-1); left: var(--space-1); width: calc(var(--size-switch-h) - 2 * var(--space-1)); height: calc(var(--size-switch-h) - 2 * var(--space-1)); border-radius: 50%; background: var(--switch-thumb); transition: translate .2s; }
+
+/* STATES. On: the track fills with the act and the thumb goes white to the far end. Focus ring on :focus-visible only. kit.css draws no hover
+   on it, so none is added. No disabled look: a control stays live and refuses, D-58. */
+.switch > input:checked { background: var(--bg-act); box-shadow: none; }
+.switch > input:checked::after { translate: calc(var(--size-switch-w) - var(--size-switch-h)) 0; background: var(--bg-mark-on-plate); }
+.switch > input:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+
+@media (prefers-reduced-motion: reduce) { .switch > input, .switch > input::after { transition: none; } }

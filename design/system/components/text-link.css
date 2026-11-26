@@ -1,0 +1,34 @@
+/* TEXT LINK, level 1 (atom). The pink link that leads onward, in running text or standing alone with an arrow after it.
+ * Page: design/kit/text-link.html. Stands on every coloured screen: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
+ * Responsible play, Sign in (design/kit/inventory.md, Text link).
+ * Reads: --text-link (rest), --text-hi (hover), --text-body (quiet), --text-on-plate (hi), --line-focus; geometry, type and motion from
+ *   the primitives. No colour primitive and no component token: every state found its role.
+ * Carried from design/kit/kit.css part 4.1 (TEXT LINK, lines 2360 to 2367) at stage 08 step 5, round 1, by the decisions of step 2 (D-260,
+ *   rename map rows 18 to 22): --hi is a tone only and --s (12px) is its own size; --l (16px) and --tap (the 40px press) are new, written
+ *   here from the local rules the sections' blocks kept on the link (.sec-head__sub .link--arrow, .works__i > .link, .involves__acts .link,
+ *   .faq__list .link, .fair-algo__go > .link), and .account-head__id .link and .drop-card__mkt.link map onto --hi and --quiet. Those
+ *   local rules stay in kit.css until step 6 moves the screens' markup. From faq-home.css, "What this case pays". */
+
+/* One form in three axes. Tone: pink leads onward (the default), quiet is soft grey underlined for a source or a market, hi is white for a
+   plate of its own colour. Content: in running text the link takes its text's size; standing alone it carries an arrow (--arrow). Size of a
+   standing link: S 12, M 13 (the arrow's own), L 16. The press floor is --tap. */
+.link { color: var(--text-link); font-weight: 700; letter-spacing: var(--tracking-link); text-decoration: none; transition: color .2s; }
+@media (hover: hover) { .link:hover { color: var(--text-hi); } }
+.link:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
+
+/* content */
+.link--arrow { font-size: var(--size-xs); }
+.link--arrow::after { content: ' \2192'; }
+
+/* tone */
+.link--quiet { color: var(--text-body); font-weight: 400; text-decoration: underline; }
+/* white on a plate of its own colour (the Steam state, D-243; the account head's name line): it reads --text-on-plate, which the light theme leaves white, and it keeps its colour under the pointer */
+.link--hi { color: var(--text-on-plate); }
+@media (hover: hover) { .link--hi:hover { color: var(--text-on-plate); } }
+
+/* size, for a standing link; written after --arrow so it wins. Row 18 gave --s the 12px that --hi used to carry; row 20 gave --l the 16px of a sub line's link and of an answer's on What still works */
+.link--s { font-size: var(--size-chip); }
+.link--l { font-size: var(--size-text); }
+
+/* the press grown by 12px above and below (40px at a 16px line) and the room given back, for a link that sits in a row of acts or under an answer (row 21): vertical padding makes the target, the negative margin keeps the layout where it was */
+.link--tap { display: inline-block; padding: var(--space-3) 0; margin-block: calc(-1 * var(--space-3)); }

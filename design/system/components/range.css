@@ -1,0 +1,19 @@
+/* RANGE, level 1 (atom). A slider between two ends: the highest price in the filter drawer.
+ * Page: design/kit/range.html. Stands on Catalogue (the filter drawer) (design/kit/inventory.md, Range).
+ * Reads: --bg-act, --bg-act-stripes, --bg-tile, --line-edge, --line-focus, --depth-act-glow; its own --range-thumb-line (tokens.css, COMPONENT TOKENS);
+ *   geometry from the primitives. No colour primitive is read here.
+ * Carried from design/kit/kit.css part 4.1, FORM CONTROLS (lines 2498 to 2505, the .range rules) at stage 08 step 5, round 1, by the decisions of
+ *   step 2 (D-260), nothing changed in a value. */
+
+/* One form, with the 44px press. --fill is the share of the track lit, set by the page as the value moves; the track is drawn in two engines. */
+.range { --fill: 50%; width: 100%; height: var(--size-check); margin: 0; background: none; -webkit-appearance: none; appearance: none; cursor: pointer; }
+.range--tap { height: var(--size-tap); } /* the slider's press at the 44px floor (the filter drawer, D-246); declared at stage 07 step 6 */
+.range::-webkit-slider-runnable-track { height: var(--space-2); border-radius: var(--radius-pill); background: linear-gradient(var(--bg-act), var(--bg-act)) 0 0 / var(--fill) 100% no-repeat, var(--bg-tile); box-shadow: var(--line-edge); }
+.range::-moz-range-track { height: var(--space-2); border-radius: var(--radius-pill); background: var(--bg-tile); box-shadow: var(--line-edge); }
+.range::-moz-range-progress { height: var(--space-2); border-radius: var(--radius-pill); background: var(--bg-act); }
+.range::-webkit-slider-thumb { -webkit-appearance: none; width: var(--size-check); height: var(--size-check); margin-top: calc((var(--space-2) - var(--size-check)) / 2); border-radius: 50%; background: var(--bg-act-stripes), var(--bg-act); box-shadow: inset 0 0 0 var(--size-edge) var(--range-thumb-line), var(--depth-act-glow); }
+.range::-moz-range-thumb { width: var(--size-check); height: var(--size-check); border: 0; border-radius: 50%; background: var(--bg-act-stripes), var(--bg-act); box-shadow: inset 0 0 0 var(--size-edge) var(--range-thumb-line), var(--depth-act-glow); }
+
+/* STATES. The one state kit.css draws is the focus ring, which stays as it is: farther from the thumb than the other controls' (--space-1, not
+   --size-edge), so it clears the glow; its colour is --line-focus. There is no hover face: the thumb already carries the glow at rest. */
+.range:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--space-1); border-radius: var(--radius-xs); }

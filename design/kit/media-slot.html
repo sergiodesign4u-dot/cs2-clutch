@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Media slot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-empty { font-size: 12px; color: var(--text-meta); max-width: 180px; margin: 0 auto; }
+  .cp-w1 { width: 200px; } .cp-w2 { width: 150px; } .cp-w3 { width: 240px; }
+  .cp-plate { padding: 14px; border-radius: 12px; background: var(--bg-card); box-shadow: var(--line-edge); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Marks and pictures &middot; level 1</span>
+  <h1>Media slot</h1>
+  <p class="kt-lead">One framed area for a picture, with its aspect: a skin floats on whatever it lies on, a case fills its picture and lets the skin lie in its tray. Everything on this page is drawn by <code>design/system/components/media-slot.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <span class="media media--skin cp-w2" style="aspect-ratio:3/2"><img src="../concept/assets/skins/ak-47-redline.png" alt=""></span>
+    <span class="media media--case cp-w1" style="--case-art:var(--art-case-ironbound)"><img src="../concept/assets/skins/awp-asiimov.png" alt=""></span>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The slot</b></td><td><code>.media</code></td><td>the frame: a 12px corner, the menu's ground behind a picture, the picture cropped to fill. It takes its width from its container</td></tr>
+    <tr><td><b>Content</b></td><td><code>.media--skin</code>, <code>.media--case</code></td><td>a skin floats on no plate and is never cropped; a case fills its picture and the skin lies inside its tray</td></tr>
+    <tr><td><b>The picture</b></td><td><code>&lt;img&gt;</code> or <code>&lt;video&gt;</code> in the slot</td><td>the skin, or the clip of a story; always <code>alt=""</code> when a name beside it says what it is</td></tr>
+    <tr><td><b>The case's art</b></td><td><code>--case-art</code>, <code>--case-glow</code> (custom properties set by the screen)</td><td>which case: <code>--case-art</code> is an <code>--art-*</code> picture from <code>art.css</code>, <code>--case-glow</code> the case's light round the skin; with no glow set the slot takes <code>--media-case-glow</code></td></tr>
+    <tr><td><b>The front</b></td><td><code>.media--case::after</code></td><td>a copy of the case's picture cut at its rim, in front of the skin so the skin lies inside; not drawn when the case holds no skin (a daily case)</td></tr>
+    <tr><td><b>Aspect</b></td><td><code>.media--square</code>, <code>--wide</code>, <code>--banner</code></td><td>1 : 1, 3 : 2 and 16 : 7. Declared and worn by no coloured state: kept, wired or deleted at step 6</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One axis, content, and no size of its own: the slot has the width of the container that holds it and takes its height from its aspect.</p>
+  <ul class="kt-list">
+    <li><b>Skin = a thing on a card.</b> A skin floats: no plate, no clipping, the image fitted whole. Its frame, the tier's edge and the plate under it belong to the card around it (the item card, the feed tile, the withdraw item), which also draws the skin's shadow and its tilt under the pointer.</li>
+    <li><b>Case = a case with its skin.</b> 3 : 2, the picture of the case behind, the skin tilted across its tray, and the front of the case cut at the rim over it. The case's name and colour are data set by the screen.</li>
+    <li><b>Width = the layout.</b> The slot never sets its own width, as the Button never does.</li>
+  </ul>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="cp-plate"><span class="media media--skin cp-w2" style="aspect-ratio:3/2"><img src="../concept/assets/skins/ak-47-redline.png" alt=""></span></div>
+    <span class="media media--case cp-w1" style="--case-art:var(--art-case-ironbound)"><img src="../concept/assets/skins/ak-47-redline.png" alt=""></span>
+    <span class="media media--case cp-w1" style="--case-art:var(--art-case-warsteel);--case-glow:var(--color-blue)"><img src="../concept/assets/skins/awp-asiimov.png" alt=""></span>
+    <span class="media media--case cp-w1" style="--case-art:var(--art-case-coldfront)"></span>
+  </div></div>
+  <p class="kt-note">Left to right: a skin on its card's plate, a case with a skin and the default light, a case with a skin and its own light (blue), a case with no skin, which draws no front copy.</p>
+  <h3>The frame, with its aspects</h3>
+  <p>The three aspect modifiers on the default frame, for the grey pages that will need them; no coloured screen wears them yet.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <span class="media media--square cp-w2"><img src="../concept/assets/skins/ak-47-redline.png" alt=""></span>
+    <span class="media media--wide cp-w2"><img src="../concept/assets/skins/awp-asiimov.png" alt=""></span>
+    <span class="media media--banner cp-w3"><img src="../concept/assets/skins/awp-asiimov.png" alt=""></span>
+  </div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A media slot holds a picture of a thing the player can win or open: a skin, a case, a mode's art, the clip of a story. It carries no words and no state; the name, the price and the tier are the card's. Where the drop is shown, the skin is shown as it is, whole and uncropped, because what is won must be what is seen (design principle 1).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The skin on an item card and in the live-drops ticker, the case on a case tile and in the case head. A picture that is data, in a frame the container sizes.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A person's picture is an <b>Avatar</b>. The product's own mark is the <b>Logo</b>. A glyph is an <b>Icon</b>. A picture that is a button is a <b>Button</b> with a label, never a slot with a click. A card's frame, edge and plate are the card's, not the slot's.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states: it is not interactive. The skin that straightens and rises under the pointer on an item card is that card's own rule on the picture inside the slot, so the card's page shows it.</p>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. One component token, <code>--media-case-glow</code>, the case's light when its screen names none; no role is a light colour. The slot's ground is <code>--bg-menu</code>, the role named for it, and the skin's shadow <code>--depth-skin-drop</code>. No colour primitive is read directly. The shape of the case's front is <code>--shape-case-rim</code>, a primitive; the blur of the case's light, 10px, is a custom property of the block (<code>--media-case-blur</code>), a literal in <code>kit.css</code>.</p>
+  <p>File: <code>design/system/components/media-slot.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;span class="media media--skin"&gt;&lt;img src="skin.png" alt=""&gt;&lt;/span&gt;
+&lt;span class="media media--case" style="--case-art: var(--art-case-ironbound)"&gt;&lt;img src="skin.png" alt=""&gt;&lt;/span&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--bg-menu', '--depth-skin-drop', '--media-case-glow'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--media-/.test(n) ? 'component' : /^--(color|shadow|gradient)-/.test(n) ? 'primitive' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

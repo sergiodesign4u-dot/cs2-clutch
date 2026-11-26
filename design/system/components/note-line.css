@@ -1,0 +1,27 @@
+/* NOTE LINE, level 1 (atom). One small line that qualifies a block; the refusal beside a control says what is missing (D-58); the stamp says as of when.
+ * Page: design/kit/note-line.html. Stands on seven coloured screens: the case screen, the catalogue, Deposit, My items, Provably fair, Responsible
+ * play, Sign in (design/kit/inventory.md, Note line).
+ * Reads: --text-meta, --text-body, --text-base, --text-hi, --text-on-plate, its own --note-refuse-mark (tokens.css, COMPONENT TOKENS); geometry and
+ *   type from the primitives. One colour read in this block only, --color-refuse (the refusal line's words), waits for step 9 (tokens-audit.md).
+ * Carried from design/kit/kit.css part 4.1 (lines 2413 to 2424) at stage 08 step 5, round 1, by the decisions of step 2 (D-260): the saved limit's
+ *   tone (.note--hi, rename map row 25, from .limits__answer:not(.note--refuse)) and the size L (.note--l, row 26, from .spend__note and
+ *   .observed > .note). The refusal is the one that carries the "!" mark, D-231. */
+
+/* Tone: muted (the line), soft (a quieter grey), hi (a saved answer in white), refusal (the line that says what is missing). */
+.note { margin: 0; color: var(--text-meta); font-size: var(--size-chip); line-height: 1.5; }
+.note--stamp { font-variant-numeric: tabular-nums; } /* an as-of stamp: the figures stand in columns */
+.note--soft { color: var(--text-body); } /* the case's one line, the drop table's stamp */
+
+/* Size: S 12 is the plain line; M 14 is .note--label (the case's one line, a label's size); L 16 is .note--l (rename map row 26: the line under a block
+   of the case screen, at the page's text size, in the base ink as v4 drew it). Measure and the gap above stay the container's. */
+.note--label { font-size: var(--size-label); line-height: 1.2; }
+.note--l { color: var(--text-base); font-size: var(--size-text); line-height: 1.4; }
+
+/* A saved answer in white (rename map row 25): a saved limit is said at the row's size, 14, so the tone carries that size; line height stays the note's. */
+.note--hi { color: var(--text-hi); font-size: var(--size-label); }
+
+/* the refusal: one line in a light error red led by a round "!" mark, no box and no side stripe; рішення користувача, D-231, "carried from v4's sign in",
+   design/v4/signin-home.css .sd--e.is-asked .sd-why and its ::before; the line is as tall as the mark with a hairline over and under it */
+.note--refuse { position: relative; padding-left: calc(var(--size-refuse-mark) + var(--space-2)); color: var(--color-refuse); font-size: var(--size-label); font-weight: 400; line-height: calc(var(--size-refuse-mark) + 2 * var(--size-hairline)); }
+.note--refuse :is(b, strong) { font-weight: 700; }
+.note--refuse::before { content: '!'; position: absolute; left: 0; top: var(--size-hairline); display: grid; place-items: center; width: var(--size-refuse-mark); height: var(--size-refuse-mark); border-radius: 50%; background: var(--note-refuse-mark); color: var(--text-on-plate); font-size: var(--size-chip); font-weight: 900; line-height: 1; }

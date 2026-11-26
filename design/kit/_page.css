@@ -6,7 +6,7 @@
 :root { --kp-w: 248px; }
 * { box-sizing: border-box; }
 body.kt { margin: 0; background: var(--bg-page); color: var(--text-body); font-family: var(--font-family); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
-.kt-main a { color: var(--text-link); }
+.kt-main a:where(:not([class])) { color: var(--text-link); } /* the stand's own words only: a link wearing a component class keeps the component's ink (round 1) */
 .kt code, .kt pre { font-family: var(--font-mono); }
 .kt code { font-size: .86em; color: var(--text-hi); overflow-wrap: anywhere; }
 

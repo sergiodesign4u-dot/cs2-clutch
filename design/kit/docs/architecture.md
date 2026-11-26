@@ -38,7 +38,7 @@ The suffix `-on-plate` marks the same job standing on a coloured plate or a pict
 
 - **Colour only through the semantic level.** The theme and a rebrand override colour, and a component that reads a colour primitive is a hole the first theme finds. The exception is named: a colour read in one block only stays a primitive until step 9 decides (`tokens-audit.md`, "What the semantic level does not take yet").
 - **Geometry, type and motion straight from the primitives.** A radius, a gap or a duration has nothing to override.
-- **No literal.** No hex and no pixel value in a component's file; a state reads a state token (`--bg-hover`, `--bg-active`, `--color-focus`, `--opacity-disabled`), made at step 5 in both themes.
+- **No literal.** No hex and no pixel value in a component's file; a state reads a state token (`--bg-hover`, `--bg-active`, `--line-focus`), made at step 5 in both themes, or, where it lands on no role, a component token (`--button-bg-disabled`) made by the founder's decision at the round's gate (`D-263`). There is no opacity for disabled: disabled is drawn once, on the Button, and a control otherwise stays live and refuses (`D-58`).
 
 ## The themes
 

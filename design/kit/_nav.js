@@ -43,7 +43,71 @@
         { file: 'button.html', label: 'Button', sub: 'Acts', css: 'components/button.css', states: 'hover, active, focus-visible, disabled; busy',
           screens: 'all eight coloured screens', round: 0,
           about: 'The act of a zone and its second act, a glyph tile, a dialog\'s close. The reference of step 5: the four states and the component tokens were decided on it.',
-          miniHtml: '<span class="button button--primary button--m">Open</span><span class="button button--ghost button--m">Sign in</span>' } ] }
+          miniHtml: '<span class="button button--primary button--m">Open</span><span class="button button--ghost button--m">Sign in</span>' },
+        // round 1, the other atoms, in the panel's order of subgroups
+        { file: 'text-link.html', label: 'Text link', sub: 'Acts', css: 'components/text-link.css', states: 'hover, focus-visible', screens: 'all eight coloured screens', round: 1,
+          about: 'The link that leads onward: pink in a sentence or with an arrow when it stands alone, quiet for a source, white on a plate; three sizes and a grown press.',
+          miniHtml: '<a class="link link--arrow" href="#">What this case pays</a>' },
+        { file: 'disclosure.html', label: 'Disclosure', sub: 'Acts', css: 'components/disclosure.css', states: 'focus-visible, open ([open])', screens: 'Home, Deposit, Provably fair (and the footer\'s questions)', round: 1,
+          about: 'A question that opens its answer: the details row with its plus turning to a minus and the pink edge when open.',
+          miniHtml: '<details class="disclosure"><summary>How do I know a round was fair?</summary></details>' },
+        { file: 'favourite-toggle.html', label: 'Favourite toggle', sub: 'Acts', css: 'components/favourite-toggle.css', states: 'hover, focus-visible, pressed (aria-pressed)', screens: 'Home, the case screen, the catalogue, Deposit, Sign in', round: 1,
+          about: 'The heart with its count, a veiled pill or a square of the heart alone; pressed it turns pink and draws a pink edge.',
+          miniHtml: '<button class="fav" type="button" aria-pressed="true">830<i class="icon icon--heart" aria-hidden="true"></i></button>' },
+        { file: 'tabs.html', label: 'Tabs', sub: 'Acts', css: 'components/tabs.css', states: 'hover, active, focus-visible', screens: 'My items', round: 1,
+          about: 'Peers in a row, one of them current: the account\'s pages and a cash out\'s networks, plain on the page or on the account head\'s plate.',
+          miniHtml: '<div class="tabs"><span class="tabs__t" aria-current="page">My items</span><a class="tabs__t" href="#">History</a><a class="tabs__t" href="#">Profile</a></div>' },
+        { file: 'segmented-control.html', label: 'Segmented control', sub: 'Acts', css: 'components/segmented-control.css', states: 'hover, active, focus-visible', screens: 'Case, Deposit, My items, Catalogue (the category bar, an option as a link)', round: 1,
+          about: 'Exclusive options in a row, one chosen and filled: the count of cases to open, a preset amount, the sort, the category bar\'s run. Sizes M 44 and S 32.',
+          miniHtml: '<div class="seg"><span class="seg__opt" aria-pressed="true">1</span><span class="seg__opt" aria-pressed="false">2</span><span class="seg__opt" aria-pressed="false">3</span></div>' },
+        { file: 'text-field.html', label: 'Text field', sub: 'Inputs', css: 'components/text-field.css', states: 'focus-visible, refusal (aria-invalid); no hover, as kit.css', screens: 'Catalogue, Deposit, My items, Provably fair, Responsible play', round: 1,
+          about: 'One line of typed text on the tile\'s dark fill: M 40 or L 52, boxed or bare, with an optional unit; its edge turns pink under focus and red when it refuses.',
+          miniHtml: '<input class="input" type="text" value="nightjar" aria-label="Client seed">' },
+        { file: 'text-area.html', label: 'Text area', sub: 'Inputs', css: 'components/text-area.css', states: 'focus-visible, refusal (aria-invalid); no hover, as kit.css', screens: 'Provably fair', round: 1,
+          about: 'Several lines of typed text, the Text field\'s twin on the same tile: three rows tall, free to grow downward; its edge turns pink under focus and red when it refuses.',
+          miniHtml: '<textarea class="textarea" rows="2" aria-label="Server seed hash">4f2a91c7e0b83d56</textarea>' },
+        { file: 'checkbox.html', label: 'Checkbox', sub: 'Inputs', css: 'components/checkbox.css', states: 'hover, focus-visible; ticked (:checked)', screens: 'Catalogue, Deposit, My items (the Field\'s declaration also stands on the case screen and Sign in, inside dialogs)', round: 1,
+          about: 'A box that holds a yes, with its label or alone: the Field\'s declaration, a card\'s tick, a filter\'s row.',
+          miniHtml: '<label class="check"><input type="checkbox" checked><span>Terms</span></label><label class="check"><input type="checkbox" aria-label="Select"></label>' },
+        { file: 'radio.html', label: 'Radio', sub: 'Inputs', css: 'components/radio.css', states: 'hover, focus-visible; chosen (:checked)', screens: 'Deposit', round: 1,
+          about: 'A round mark that holds one choice among a few, inside the tile that is its label: a provider, a Steam offer.',
+          miniHtml: '<span class="radio"><input type="radio" name="m" aria-label="A"></span><span class="radio"><input type="radio" name="m" checked aria-label="B"></span>' },
+        { file: 'switch.html', label: 'Switch', sub: 'Inputs', css: 'components/switch.css', states: 'focus-visible; on (:checked); no hover', screens: 'none yet: settings (5.11) arrive with the rollout', round: 1,
+          about: 'A track and a thumb for an on or an off that takes effect at once; the kit\'s own form, on no coloured screen yet.',
+          miniHtml: '<label class="switch"><input type="checkbox" checked aria-label="On"></label><label class="switch"><input type="checkbox" aria-label="Off"></label>' },
+        { file: 'range.html', label: 'Range', sub: 'Inputs', css: 'components/range.css', states: 'focus-visible', screens: 'Catalogue', round: 1,
+          about: 'A slider between two ends: a pill track in the tile\'s fill, the act pink up to a round thumb with a white rim, at the 20px of its thumb or the 44px floor of a finger.',
+          miniHtml: '<input class="range" type="range" min="0" max="100" value="40" style="--fill:40%" aria-label="Maximum price">' },
+        { file: 'figure.html', label: 'Figure', sub: 'Figures and words', css: 'components/figure.css', states: 'focus-visible (the link form only); the figure itself is not interactive', screens: 'all eight coloured screens', round: 1,
+          about: 'A value with its unit and its caption: a price, a balance, a stake, a gain, a counter, in seven sizes by container.',
+          miniHtml: '<span class="fig fig--money fig--l"><span class="fig__v">12.40 coins</span><span class="fig__c">Price, one open</span></span>' },
+        { file: 'key-value-line.html', label: 'Key-value line', sub: 'Figures and words', css: 'components/key-value-line.css', states: 'none, not interactive', screens: 'Case, Deposit, My items, Provably fair, Responsible play, Sign in', round: 1,
+          about: 'A key in small caps and its value: the facts of a drop, a total, the lines of a payment, a limit\'s rule.',
+          miniHtml: '<div class="kv kv--total"><span class="kv__k">Total charged</span><span class="kv__v">50.00 coins</span></div>' },
+        { file: 'note-line.html', label: 'Note line', sub: 'Figures and words', css: 'components/note-line.css', states: 'none, not interactive', screens: 'Case, Catalogue, Deposit, My items, Provably fair, Responsible play, Sign in', round: 1,
+          about: 'One small line that qualifies a block; the refusal beside a control says what is missing, the stamp says as of when.',
+          miniHtml: '<p class="note note--refuse">A nonce is a whole number.</p>' },
+        { file: 'prose.html', label: 'Prose', sub: 'Figures and words', css: 'components/prose.css', states: 'none, not interactive', screens: 'Catalogue, Responsible play', round: 1,
+          about: 'The page\'s own text, the SEO layer among it, set to a measure of 68ch: lead 17 or text 16.',
+          miniHtml: '<div class="prose prose--text"><p>Four limits you set yourself.</p></div>' },
+        { file: 'badge.html', label: 'Badge', sub: 'Figures and words', css: 'components/badge.css', states: 'none, not interactive', screens: 'Home, Case, Catalogue, Deposit, My items, Provably fair (6 of 8 coloured screens)', round: 1,
+          about: 'Short text in a pill: a bonus pinned to an act, a ribbon on a tile, a status, a count beside a title; one shape, the tone changes the colour only.',
+          miniHtml: '<span class="badge">5%</span><span class="badge badge--status">USDT</span><span class="badge badge--count">3</span><span class="badge badge--good">No fee</span>' },
+        { file: 'status-steps.html', label: 'Status steps', sub: 'Figures and words', css: 'components/status-steps.css', states: 'none, not interactive', screens: 'Deposit', round: 1,
+          about: 'Ordered steps of something that takes time, each with whom it waits on and the time gone: done is green, now is lit, later is quiet.',
+          miniHtml: '<ol class="steps"><li class="steps__i is-done"><span class="steps__n">Sent</span></li><li class="steps__i is-now"><span class="steps__n">Crediting</span></li></ol>' },
+        { file: 'icon.html', label: 'Icon', sub: 'Marks and pictures', css: 'components/icon.css', states: 'story form on the host\'s hover and focus-visible; the plain glyph is not interactive', screens: 'all eight coloured screens', round: 1,
+          about: 'A glyph by name in the colour and at the size of the words around it, and its story form, a mark that plays a small story under its host\'s pointer or focus.',
+          miniHtml: '<i class="icon icon--shield" aria-hidden="true"></i> <i class="icon icon--steam" aria-hidden="true"></i> <i class="icon icon--gift" aria-hidden="true"></i> <i class="icon icon--coin" aria-hidden="true"></i>' },
+        { file: 'logo.html', label: 'Logo', sub: 'Marks and pictures', css: 'components/logo.css', states: 'none, not interactive', screens: 'all eight coloured screens', round: 1,
+          about: 'The product\'s mark, the logo art on a link\'s line, small in the rail and large in the footer.',
+          miniHtml: '<span class="logo logo--s"><span class="logo__mark"></span></span>' },
+        { file: 'avatar.html', label: 'Avatar', sub: 'Marks and pictures', css: 'components/avatar.css', states: 'none, not interactive', screens: 'all eight coloured screens', round: 1,
+          about: 'A player\'s Steam picture in a circle with a hairline ring, a bot\'s empty disc, in four sizes by the container: 16, 32, 52, 64.',
+          miniHtml: '<img class="avatar avatar--xl" src="../visuals/avatars/a1.webp" alt=""><img class="avatar" src="../visuals/avatars/a2.webp" alt=""><span class="avatar avatar--bot"></span>' },
+        { file: 'media-slot.html', label: 'Media slot', sub: 'Marks and pictures', css: 'components/media-slot.css', states: 'none, not interactive', screens: 'Home, Case, Catalogue, Deposit, My items, Provably fair, Sign in (7 of 8 coloured screens)', round: 1,
+          about: 'One framed area for a picture with its aspect: a skin floats on no plate, a case fills its picture and lets the skin lie in its tray.',
+          miniHtml: '<span class="media media--case" style="--case-art:var(--art-case-ironbound);width:120px"><img src="../concept/assets/skins/ak-47-redline.png" alt=""></span>' } ] }
     ]
   };
 
@@ -96,13 +160,14 @@
     icons: ['box', 'battle', 'shield', 'steam', 'gift', 'crown', 'bolt', 'skull'].map(function (n) { return '<i class="kt-ic" style="--i:var(--icon-' + n + ');font-size:24px;color:var(--text-hi)"></i>'; }).join(''),
     depth: '<i style="width:44px;height:44px;border-radius:10px;background:var(--bg-card);box-shadow:var(--depth-card)"></i><i style="width:44px;height:44px;border-radius:10px;background:var(--bg-mode-cases);box-shadow:var(--line-lit-top)"></i><i style="width:44px;height:44px;border-radius:10px;background:var(--bg-fair);box-shadow:var(--depth-fair)"></i>'
   };
+  // a card is a link, so a link in its sample is drawn as a span: a link inside a link breaks the card in two
   function cards() {
     var box = document.getElementById('kit-cards'); if (!box) return;
     var h = [];
     window.KIT_NAV.groups.forEach(function (g) {
       g.pages.forEach(function (p) {
         if (p.file === 'overview.html') return;
-        h.push('<a class="kc" href="' + p.file + '"><div class="kc-mini" aria-hidden="true">' + (p.miniHtml || MINI[p.mini] || '') + '</div><span class="kt-eyebrow">' + esc(g.label) + '</span><b>' + esc(p.label) + '</b><p>' + esc(p.about) + '</p></a>');
+        h.push('<a class="kc" href="' + p.file + '"><div class="kc-mini" aria-hidden="true">' + (p.miniHtml || MINI[p.mini] || '').replace(/<a\b[^>]*?(class="[^"]*")[^>]*>/g, '<span $1>').replace(/<\/a>/g, '</span>') + '</div><span class="kt-eyebrow">' + esc(g.label) + '</span><b>' + esc(p.label) + '</b><p>' + esc(p.about) + '</p></a>');
       });
     });
     box.innerHTML = h.join('');

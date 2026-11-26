@@ -1,0 +1,20 @@
+/* CHECKBOX, level 1 (atom). A box that holds a yes: with its label, or alone (a card's tick, the cookie layer).
+ * Page: design/kit/checkbox.html. Stands on the item cards of My items and the catalogue's filter drawer (the box as its own label), and in the
+ *   Field's declaration on Deposit, the case screen's commit and Sign in (design/kit/inventory.md, Checkbox).
+ * Reads: --text-body, --text-on-plate, --bg-tile, --bg-act, --line-focus; its own --check-line and --check-line-lit (tokens.css, COMPONENT
+ *   TOKENS); geometry, type and motion from the primitives. No colour primitive is read directly.
+ * Carried from design/kit/kit.css part 4.1, FORM CONTROLS (lines 2483 to 2491, the checkbox half of the rules it shares with the Radio) at
+ *   stage 08 step 5, round 1, unchanged in look; the hover now sits in @media (hover: hover). The rules other blocks write on it stay in
+ *   kit.css: the filter drawer's row, the Field's declaration (.field--declare.check). */
+
+/* One form. The label is the press: a line of the body ink after the box, or nothing at all; the box is the native input drawn by this file, so
+   the keyboard and a screen reader keep a real checkbox. The box keeps one shape in every state; a refusal is said in the line beside it, D-58. */
+.check { display: inline-flex; align-items: flex-start; gap: var(--space-3); color: var(--text-body); font-size: var(--size-label); line-height: 1.45; cursor: pointer; }
+.check > input { appearance: none; flex: none; display: grid; place-items: center; width: var(--size-check); height: var(--size-check); margin: 0; border-radius: var(--radius-xs); background: var(--bg-tile); box-shadow: inset 0 0 0 var(--size-hairline) var(--check-line); cursor: pointer; transition: background .15s, box-shadow .15s; }
+
+/* STATES. Hover lights the ring of an unticked box in the act's pink; ticked, the box fills with the act and the tick is a drawn corner. The
+   focus ring is on the native input, on :focus-visible only. No disabled look: a control stays live and refuses, D-58. */
+@media (hover: hover) { .check:hover > input:not(:checked) { box-shadow: inset 0 0 0 var(--size-hairline) var(--check-line-lit); } }
+.check > input:checked { background: var(--bg-act); box-shadow: none; }
+.check > input:checked::after { content: ''; width: 30%; height: 55%; margin-top: -10%; box-sizing: border-box; border: solid var(--text-on-plate); border-width: 0 var(--size-edge) var(--size-edge) 0; rotate: 45deg; }
+.check > input:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }

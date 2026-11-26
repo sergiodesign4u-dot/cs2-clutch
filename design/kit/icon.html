@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Icon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-ink td { text-align: center; }
+  .cp-ink td:first-child { text-align: left; }
+  .cp-ink .icon { font-size: var(--size-title); }
+  .cp-pic { font-size: 28px; color: var(--text-hi); }
+  .cp-unused { display: flex; flex-wrap: wrap; gap: 10px; }
+  .cp-unused > span { display: grid; gap: 6px; justify-items: center; min-width: 76px; padding: 10px 8px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-unused .icon { font-size: 28px; color: var(--text-hi); }
+  .cp-unused b { font-size: 11px; font-weight: 600; color: var(--text-hi); }
+  .cp-hosts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 104px), 1fr)); gap: 12px; }
+  .cp-cell { display: grid; gap: 14px; justify-items: center; }
+  .cp-cell > b { font-size: 11px; font-weight: 600; color: var(--text-meta); }
+  /* the host is the stand's stand-in for a rail row: the product's marker is the class has-story, the pointer or the keyboard lands on it */
+  .cp-host { display: inline-grid; place-items: center; width: 64px; height: 64px; padding: 0; border: 0; border-radius: var(--radius-tile); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-body); font-size: 30px; font-family: inherit; cursor: pointer; }
+  .cp-host:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Marks and pictures &middot; level 1</span>
+  <h1>Icon</h1>
+  <p class="kt-lead">A glyph by name, drawn in the colour of the words around it and at their size, and its story form, a mark that plays a small story while its row is pointed at. Everything on this page is drawn by <code>design/system/components/icon.css</code> through <code>index.css</code>, the same file a screen will load. The whole sheet of glyphs, with the art, is on <a href="icons.html">Icons and art</a>; this page documents the component and does not repeat it.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <i class="icon icon--shield cp-pic" aria-hidden="true"></i>
+    <i class="icon icon--steam cp-pic" style="color:var(--text-link)" aria-hidden="true"></i>
+    <i class="icon icon--gift cp-pic" style="color:var(--text-meta)" aria-hidden="true"></i>
+    <span style="font-size:28px;color:var(--text-money);display:inline-flex;align-items:center;gap:6px;font-weight:900">1 250<i class="icon icon--coin" aria-hidden="true"></i></span>
+    <button class="cp-host has-story" type="button" aria-label="A case opening"><i class="icon icon--box" aria-hidden="true"></i></button>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The glyph</b></td><td><code>.icon</code> with <code>.icon--&lt;name&gt;</code></td><td>which glyph: the name sets <code>--i</code> to one of the <code>--icon-*</code> primitives; one em wide and high, drawn as a mask over <code>currentColor</code></td></tr>
+    <tr><td><b>Size</b></td><td>the <code>font-size</code> of its container</td><td>nothing on the icon: it is one em, so a container sets the size once for its words and its glyph</td></tr>
+    <tr><td><b>Colour</b></td><td>the <code>color</code> of its container</td><td>an ink role, <code>--text-hi</code>, <code>--text-link</code>, <code>--text-meta</code>; the glyph takes the role of the words around it</td></tr>
+    <tr><td><b>The coin</b></td><td><code>.icon--coin</code></td><td>a picture, not a mask: gold, with its own shading, and it does not take the text colour (<code>--art-coin</code>)</td></tr>
+    <tr><td><b>Story form</b></td><td><code>.icon.is-story</code> holding an <code>svg.icon-story</code></td><td>set by <code>motion.js</code>, never by a screen: it redraws the glyph in parts inside the same box; its parts are <code>.icon-story__*</code></td></tr>
+    <tr><td><b>Story host</b></td><td><code>.has-story</code> on the row, counter or plate that holds it</td><td>the marker <code>motion.js</code> sets; the story plays on the host's hover and keyboard focus, so the host owns its own ring</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Four axes, none of them a size class. Each carries its rule, so the next screen picks by the rule instead of finding a reason again.</p>
+  <ul class="kt-list">
+    <li><b>Glyph = what it says, by name.</b> 44 glyphs and the coin, one filled style (D-227). The set is on <a href="icons.html">Icons and art</a>; a new glyph is a new <code>--icon-*</code> primitive and one rule here.</li>
+    <li><b>Size = the words' size, never the icon's.</b> The icon is one em, so the container's <code>font-size</code> sets it. The sizes the product uses are below, read from the render.</li>
+    <li><b>Colour = the role of the words around it.</b> A glyph takes an ink role through <code>color</code>, so a theme moves it with its words. The coin is the exception: it is gold in both.</li>
+    <li><b>Form = plain or story.</b> Plain is the mask. The story form is the same glyph redrawn in parts, and at rest it is the plain glyph.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:640px">
+    <thead><tr><th>Size token</th><th>The glyph</th><th>Rendered</th><th>Where the product sets it</th></tr></thead>
+    <tbody>
+      <tr><td><code>--size-xs</code></td><td><div class="cell"><span style="font-size:var(--size-xs)"><i class="icon icon--box" data-dim aria-hidden="true"></i></span></div></td><td class="cp-dim"></td><td class="kt-note">the coin in a Daily ladder's money line</td></tr>
+      <tr><td><code>--size-text</code></td><td><div class="cell"><span style="font-size:var(--size-text)"><i class="icon icon--box" data-dim aria-hidden="true"></i></span></div></td><td class="cp-dim"></td><td class="kt-note">the mark in an account head's line</td></tr>
+      <tr><td><code>--size-m</code></td><td><div class="cell"><span style="font-size:var(--size-m)"><i class="icon icon--box" data-dim aria-hidden="true"></i></span></div></td><td class="cp-dim"></td><td class="kt-note">a tab's glyph, a selection bar's act</td></tr>
+      <tr><td><code>--size-title</code></td><td><div class="cell"><span style="font-size:var(--size-title)"><i class="icon icon--box" data-dim aria-hidden="true"></i></span></div></td><td class="cp-dim"></td><td class="kt-note">the favourite's heart, a menu's tile</td></tr>
+      <tr><td><code>--size-tile-icon</code></td><td><div class="cell"><span style="font-size:var(--size-tile-icon)"><i class="icon icon--box" data-dim aria-hidden="true"></i></span></div></td><td class="cp-dim"></td><td class="kt-note">the Button's tile, a section head's tile</td></tr>
+    </tbody>
+  </table></div></div>
+  <h3>Colour</h3>
+  <p>The same glyph in the ink roles it appears in, on the dark and the light ground.</p>
+  <div class="kt-pair">
+    <div><span class="kt-theme-lbl">Dark</span><div class="kt-scene" data-theme="dark"><div class="kt-tbl"><table class="cp-ink"><thead><tr><th>Role</th><th>Glyph</th></tr></thead><tbody>
+      <tr><td><code>--text-hi</code></td><td style="color:var(--text-hi)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+      <tr><td><code>--text-body</code></td><td style="color:var(--text-body)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+      <tr><td><code>--text-meta</code></td><td style="color:var(--text-meta)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+      <tr><td><code>--text-link</code></td><td style="color:var(--text-link)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+      <tr><td><code>--text-money</code></td><td style="color:var(--text-money)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+    </tbody></table></div></div></div>
+    <div><span class="kt-theme-lbl">Light</span><div class="kt-scene" data-theme="light"><div class="kt-tbl"><table class="cp-ink"><thead><tr><th>Role</th><th>Glyph</th></tr></thead><tbody>
+      <tr><td><code>--text-hi</code></td><td style="color:var(--text-hi)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+      <tr><td><code>--text-body</code></td><td style="color:var(--text-body)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+      <tr><td><code>--text-meta</code></td><td style="color:var(--text-meta)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+      <tr><td><code>--text-link</code></td><td style="color:var(--text-link)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+      <tr><td><code>--text-money</code></td><td style="color:var(--text-money)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
+    </tbody></table></div></div></div>
+  </div>
+  <h3>Glyphs to verify at step 6</h3>
+  <p>Seven glyphs are declared and worn by none of the eight coloured screens' markup (<code>mute</code> only by the stand's script, <code>kit.js</code>): they are on the inventory's list "To verify at step 6" (<code>design/kit/inventory.md</code>), and each is kept, wired or deleted there, by what the grey pages need.</p>
+  <div class="kt-scene"><div class="cp-unused">
+    <span><i class="icon icon--calendar" aria-hidden="true"></i><b>calendar</b></span>
+    <span><i class="icon icon--close" aria-hidden="true"></i><b>close</b></span>
+    <span><i class="icon icon--crown" aria-hidden="true"></i><b>crown</b></span>
+    <span><i class="icon icon--like" aria-hidden="true"></i><b>like</b></span>
+    <span><i class="icon icon--mute" aria-hidden="true"></i><b>mute</b></span>
+    <span><i class="icon icon--rail" aria-hidden="true"></i><b>rail</b></span>
+    <span><i class="icon icon--skull" aria-hidden="true"></i><b>skull</b></span>
+  </div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A glyph names a thing at a glance beside its words: a destination in the rail, an act on a tile, a provider on its sign in button, a footer counter. It adds recognition and never replaces the label where the thing is an act or a destination: a glyph alone sits on a tile that carries its words for a screen reader, and a glyph beside a label is decoration and stays hidden from one (<code>aria-hidden</code>). The story form is the product's liveness: a row that answers the pointer with the thing it promises, a case opens, swords clash, a scope locks, a coin is tossed (design principle 2, D-235). It never carries meaning that the plain glyph and the label do not, because it plays only under a pointer or the keyboard, and not at all for anyone who asked for less motion.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The rail's row, a glyph on a tile at 22px, a provider's mark on its sign in button, a counter in the footer: one em of mask in the colour of the words beside it. A row of the rail wears the story form, because the row is where a person points.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A money amount with its coin is a <b>Figure</b>, which holds the coin and the number. A status or a count in a pill is a <b>Badge</b>. A picture of a skin or a case is a <b>Media slot</b>. The product's own mark is the <b>Logo</b>. A glyph that does something is the <b>Button</b>'s tile, which holds the glyph and owns the press. A payment method's coloured mark is a picture from <code>design/kit/marks/</code>, not a glyph.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>The plain glyph is not interactive: it takes the states of the control that holds it, through the colour it inherits. The story form is the Icon's one state, and it is played by the host: its hover and its keyboard focus, <code>.has-story:is(:hover, :focus-visible)</code>. It plays only where a pointer can hover and where the person has not asked for less motion; elsewhere every mark stays the plain glyph.</p>
+  <p>Live, on this page's theme: point at a host or reach it with Tab. Each plays once, in <code>--motion-rail-icon</code>, and the parts a story adds are out of sight at rest. These are the eleven stories of the glyphs; the sound's speaker plays its own in the Rail, on its own host.</p>
+  <div class="kt-scene"><div class="cp-hosts">
+    <div class="cp-cell"><button class="cp-host has-story" type="button" id="s-host-box" aria-label="Case story"><i class="icon icon--box" aria-hidden="true"></i></button><b>box</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Battle story"><i class="icon icon--battle" aria-hidden="true"></i></button><b>battle</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Target story"><i class="icon icon--target" aria-hidden="true"></i></button><b>target</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Upgrade story"><i class="icon icon--arrow-up" aria-hidden="true"></i></button><b>arrow-up</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Gem story"><i class="icon icon--diamond" aria-hidden="true"></i></button><b>diamond</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Gift story"><i class="icon icon--gift" aria-hidden="true"></i></button><b>gift</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Cup story"><i class="icon icon--cup" aria-hidden="true"></i></button><b>cup</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Coin story"><i class="icon icon--dollar" aria-hidden="true"></i></button><b>dollar</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Exchange story"><i class="icon icon--swap" aria-hidden="true"></i></button><b>swap</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Players story"><i class="icon icon--users" aria-hidden="true"></i></button><b>users</b></div>
+    <div class="cp-cell"><button class="cp-host has-story" type="button" aria-label="Online story"><i class="icon icon--pulse" aria-hidden="true"></i></button><b>pulse</b></div>
+  </div></div>
+  <p>Snapshots of the first host, dark on the left and light on the right, taken with reduced motion on, so each shows the face the state settles on: with less motion the story does not play and the mark stays the plain glyph, so what changes in the shot is the host's own face and ring, which the stand draws. The motion itself is seen live above.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/icon-story-hover-dark.png" alt="Story host under the pointer with reduced motion, dark theme" loading="lazy"></div><div><img src="screens/states/icon-story-hover-light.png" alt="Story host under the pointer with reduced motion, light theme" loading="lazy"></div></div><figcaption><b>Hover</b> <code>.has-story:hover</code>: the story is stilled, the plain glyph stays</figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/icon-story-focus-dark.png" alt="Story host with keyboard focus, reduced motion, dark theme" loading="lazy"></div><div><img src="screens/states/icon-story-focus-light.png" alt="Story host with keyboard focus, reduced motion, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible</b> <code>.has-story:focus-visible</code>, the ring is the host's <code>--line-focus</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> the other ten stories settle the same way under reduced motion, on the plain glyph, so they are not shot again. Hover and focus-visible start the same story; there is no pressed look, because a story is not an act.</li>
+    <li><b>The glyph owns no ring.</b> The focus ring belongs to the host, the row or the tile, as the product draws it; the stand's tile above draws the system's ring, <code>--line-focus</code>.</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ icon           # re-shoot after a change to icon.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ icon --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code> and <code>art.css</code>. The plain glyph reads <code>currentColor</code> only. The story paints its parts through four roles; <code>--color-blue</code> and <code>--color-gold</code> are two of the six primitives with one reader per surface, and <code>--color-rail-icon-red</code> and <code>--color-rail-icon-cyan</code> are read in this block only: all four stay primitives until step 9 (<code>tokens-audit.md</code>). No component token was made.</p>
+  <p>File: <code>design/system/components/icon.css</code>, loaded by <code>design/system/index.css</code>, first in the atoms' group because other atoms size and colour the glyph they place. A host's own story rules stay with the host: the Footer's white light, and the Rail's speaker, flag and burger lines, which play keyframes declared in this file.</p>
+  <pre>&lt;i class="icon icon--search" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;i class="icon icon--coin" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;a class="rail__item has-story" href="..."&gt;&lt;i class="icon icon--box" aria-hidden="true"&gt;&lt;/i&gt;Cases&lt;/a&gt;   &lt;!-- motion.js redraws the glyph as .icon.is-story --&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map. The Button's page still draws its glyphs with the stand's own helper, which the same step switches to this atom.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'story', sel: '#s-host-box', states: ['hover', 'focus'], pad: 8 }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.parentNode.parentNode.parentNode.nextElementSibling.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="motion.js"></script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = [['--bg-lit', 'semantic'], ['--bg-mark-on-plate', 'semantic'], ['--text-on-plate', 'semantic'], ['--bg-match', 'semantic'],
+    ['--color-blue', 'primitive, read directly'], ['--color-gold', 'primitive, read directly'], ['--color-rail-icon-red', 'primitive, read directly'], ['--color-rail-icon-cyan', 'primitive, read directly'],
+    ['--motion-rail-icon', 'motion'], ['--motion-ease-rail-icon', 'motion'], ['--art-coin', 'picture']];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n[0]).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n[0] + '</code></td><td>' + n[1] + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

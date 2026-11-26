@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Figure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; justify-content: center; padding: 36px 18px; }
+  .cp-matrix td, .cp-matrix th { vertical-align: middle; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: start; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-box { width: min(100%, 340px); }
+  .cp-card { box-sizing: border-box; width: min(100%, 320px); padding: 14px; border-radius: 12px; background: var(--bg-card-deep); box-shadow: var(--line-edge); }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Figures and words &middot; level 1</span>
+  <h1>Figure</h1>
+  <p class="kt-lead">A value with its unit and its caption: a price, a balance, a stake, a gain, a counter. Money is gold at 900 and never moves. Everything on this page is drawn by <code>design/system/components/figure.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <span class="fig fig--money"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>74.20</span><span class="fig__c">Balance</span></span>
+    <span class="fig fig--soft"><span class="fig__v"><i class="icon icon--pistol" aria-hidden="true"></i>140.95</span><span class="fig__c">Value of items held</span></span>
+    <span class="fig fig--money fig--l"><span class="fig__v">12.40&nbsp;coins</span><span class="fig__c">Price, one open</span></span>
+    <span class="fig fig--stat" style="--fig-stat-v: var(--size-stat)"><span class="fig__v">367 013 504</span><span class="fig__c">Total users</span></span>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The figure</b></td><td><code>.fig</code></td><td>the column of a value and its caption; its ink is the quiet grey the caption wears</td></tr>
+    <tr><td><b>Value</b></td><td><code>.fig__v</code></td><td>the number: weight 900, tabular figures, one line; its tone and its size</td></tr>
+    <tr><td><b>Unit</b></td><td><code>.icon--coin</code> inside the value</td><td>the coin before the number, at the number's size; a figure that is not money carries no coin</td></tr>
+    <tr><td><b>Caption</b></td><td><code>.fig__c</code></td><td>what the number is, 11px; optional, and a figure in a row of figures leaves it out</td></tr>
+    <tr><td><b>Tone</b></td><td><code>.fig--money</code>, <code>--soft</code>, <code>--up</code>, <code>--down</code>, <code>--missing</code></td><td>the colour of the value: gold, quiet, green, red, grey</td></tr>
+    <tr><td><b>Size</b></td><td><code>.fig--xs</code>, <code>--m</code>, <code>--title</code>, <code>--l</code>, <code>--head</code>, <code>--win</code></td><td>the value's size, seven steps with the plain 14 (D-262)</td></tr>
+    <tr><td><b>Counter</b></td><td><code>.fig--stat</code></td><td>pink with its light, the caption in small spaced capitals; its size is the container's</td></tr>
+    <tr><td><b>Link</b></td><td><code>a.fig</code></td><td>the whole figure is the target</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Three axes, and a counter form beside them. Each carries its rule, so the next screen picks by the rule. Sizes below are read from the rendered figures, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Tone = what the number is.</b> Money is gold at 900 and never moves (the Money Is Calm Rule). A gain is green, a fall is red, and the second figure of a pair is the soft one. A value nobody has is the missing form, never a zero (D-124).</li>
+    <li><b>Size = the density of the container, never the importance of the number.</b> Seven steps, each named by the type step it reads (D-262, Q4). 22 is the Figure's own value, the one step off the scale: it is the price beside an act, and moving it to 20 or 24 moves the price beside every act (D-262, Q5).</li>
+    <li><b>Spacing and alignment = the layout.</b> The gap between a coin and its number, and whether a figure sits at the start or the end of its cell, are the container's. <code>.fig--end</code> is not carried: the commit block's act aligns its own figure (rename map row 14).</li>
+  </ul>
+  <h3>Tone</h3>
+  <div class="kt-scene"><div class="cp-stage">
+    <span class="fig "><span class="fig__v">1 250</span><span class="fig__c">Tickets</span></span>
+    <span class="fig fig--money"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span><span class="fig__c">Price</span></span>
+    <span class="fig fig--soft"><span class="fig__v"><i class="icon icon--pistol" aria-hidden="true"></i>140.95</span><span class="fig__c">Value of items held</span></span>
+    <span class="fig fig--up"><span class="fig__v">+4.85</span><span class="fig__c">Out to Steam</span></span>
+    <span class="fig fig--down"><span class="fig__v">-4.85</span><span class="fig__c">Against the price</span></span>
+    <span class="fig fig--missing"><span class="fig__v">None</span><span class="fig__c">On sale</span></span>
+  </div></div>
+  <h3>Size</h3>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:760px">
+    <thead><tr><th>Variant</th><th>Type step it reads</th><th>Sample, read from the render</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><code>.fig--xs</code></td><td><code>--size-xs</code> 13</td><td><div class="cell"><span class="fig fig--money fig--xs" data-dim="font"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span></span><span class="cp-dim"></span></div></td><td class="kt-note">a batch of rounds on a narrow outcome card</td></tr>
+      <tr><td><code>.fig</code></td><td><code>--size-label</code> 14</td><td><div class="cell"><span class="fig fig--money " data-dim="font"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span></span><span class="cp-dim"></span></div></td><td class="kt-note">the header money plate, any figure in a row</td></tr>
+      <tr><td><code>.fig--m</code></td><td><code>--size-m</code> 18</td><td><div class="cell"><span class="fig fig--money fig--m" data-dim="font"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span></span><span class="cp-dim"></span></div></td><td class="kt-note">a drop price on a phone, on a row</td></tr>
+      <tr><td><code>.fig--title</code></td><td><code>--size-title</code> 20</td><td><div class="cell"><span class="fig fig--money fig--title" data-dim="font"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span></span><span class="cp-dim"></span></div></td><td class="kt-note">a drop card, a recent drop, an item, the selection's sum, the account head</td></tr>
+      <tr><td><code>.fig--l</code></td><td>its own, 22 (<code>--fig-l</code>)</td><td><div class="cell"><span class="fig fig--money fig--l" data-dim="font"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span></span><span class="cp-dim"></span></div></td><td class="kt-note">the price beside an act, the net of an open</td></tr>
+      <tr><td><code>.fig--head</code></td><td><code>--size-head-l</code> 26</td><td><div class="cell"><span class="fig fig--money fig--head" data-dim="font"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span></span><span class="cp-dim"></span></div></td><td class="kt-note">the deposit dock's sum</td></tr>
+      <tr><td><code>.fig--win</code></td><td><code>--size-stat</code> 30</td><td><div class="cell"><span class="fig fig--money fig--win" data-dim="font"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span></span><span class="cp-dim"></span></div></td><td class="kt-note">the worth of the skin won, on the outcome card</td></tr>
+    </tbody>
+  </table></div></div>
+  <p class="kt-note">Where a container steps a figure down on a phone (a recent drop's 20 to 18, an outcome batch's 22 to 13), the step is the container's own rule reading these same sizes; the Figure has no responsive variant.</p>
+  <h3>Content</h3>
+  <div class="kt-scene"><div class="cp-stage">
+    <span class="fig fig--stat"><span class="fig__v">2 481 902</span><span class="fig__c">Total users</span></span>
+    <span class="fig fig--stat" style="--fig-stat-v: var(--size-stat); --fig-stat-c: var(--size-unit); --fig-stat-gap: var(--space-2)"><span class="fig__v">367 013 504</span><span class="fig__c">Rounds opened</span></span>
+    <span class="fig fig--missing"><span class="fig__v">None</span><span class="fig__c">Market</span></span>
+  </div></div>
+  <ul class="kt-list">
+    <li><code>.fig--stat</code>: a counter in the footer, pink with a light under it. The footer sets its sizes through <code>--fig-stat-v</code>, <code>--fig-stat-c</code> and <code>--fig-stat-gap</code>; without them the number is 40 and the caption 12.</li>
+    <li>The missing form is a word in place of the number, "None" here, "Copies on sale cannot be read right now" in a row of a drop table. It says the value is not known; it never draws a zero.</li>
+  </ul>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A figure is a number the player reads to decide: a price, a balance, a stake, a gain. Every number about money carries its unit, the coin, and the peg is printed wherever money is spent (D-28). It is read, never summed into a score: the header's two figures, balance and the value of items held, stay two (CLAUDE.md, "Information architecture"). A figure that cannot be known is drawn as the missing form, so an unknown never looks like a zero (D-124).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The header's Balance beside Value of items held. The price beside the commit's act: <code>.fig--money.fig--l</code>, with its caption "Price, one open". A drop's price on its card at 20. A counter in the footer as <code>.fig--stat</code>.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A key with its value in a list (Chance, Tickets, Total charged) is a <b>Key-value line</b>. A number riding inside an act is the <b>Button</b>'s price chip. A count pinned to a mark is a <b>Badge</b>. A sentence that holds a number is <b>Prose</b> or a <b>Note line</b>, with the number in the sentence.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p><b>No states: it is not interactive.</b> The figure is read, never pressed. Only its link form has one: kit.css draws a focus ring on <code>a.fig</code> and nothing on hover or press, so the pointer shows the link cursor and the figure keeps its look. The Text link's hover is not borrowed here: the whole figure is the target and it has no underline to change.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <a class="fig fig--money fig--l" href="#states" id="s-link"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>12.40</span><span class="fig__c">to withdraw</span></a>
+  </div></div>
+  <p>One snapshot of that instance, dark on the left and light on the right, taken with reduced motion.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/figure-link-focus-dark.png" alt="The link form, focus-visible, dark theme" loading="lazy"></div><div><img src="screens/states/figure-link-focus-light.png" alt="The link form, focus-visible, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible</b> <code>--line-focus</code>, 2px, offset 2px, a 4px corner</figcaption></figure></div>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ figure           # re-shoot after a change to figure.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ figure --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and tracking come straight from the primitives. Two colours are read directly and wait for step 9: <code>--shadow-fig-stat</code> (the counter's pink light, read in this block only) and <code>--color-down</code> (the fall: no <code>--text-down</code> role yet, though its ink now has two readers, this block and Published against observed).</p>
+  <p>File: <code>design/system/components/figure.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;span class="fig fig--money"&gt;&lt;span class="fig__v"&gt;&lt;i class="icon icon--coin" aria-hidden="true"&gt;&lt;/i&gt;74.20&lt;/span&gt;&lt;span class="fig__c"&gt;Balance&lt;/span&gt;&lt;/span&gt;
+&lt;span class="fig fig--money fig--l"&gt;&lt;span class="fig__v"&gt;12.40&amp;nbsp;coins&lt;/span&gt;&lt;span class="fig__c"&gt;Price, one open&lt;/span&gt;&lt;/span&gt;
+&lt;a class="fig fig--money" href="..."&gt;&lt;span class="fig__v"&gt;12.40&lt;/span&gt;&lt;/a&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'link', sel: '#s-link', states: ['focus'] }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(), v = b.querySelector('.fig__v') || b, c = getComputedStyle(v), t = b.nextElementSibling; if (t) t.textContent = (b.dataset.dim === 'font' ? Math.round(parseFloat(c.fontSize)) + 'px value, ' : '') + Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-hi', '--text-meta', '--text-body', '--text-money', '--text-up', '--text-link', '--line-focus'];
+  var KIND = {};
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = KIND[n] || (/^--line-focus/.test(n) ? 'state' : 'semantic');
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

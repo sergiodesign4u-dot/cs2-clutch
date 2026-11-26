@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Favourite toggle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-empty { font-size: 12px; color: var(--text-meta); max-width: 180px; margin: 0 auto; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-parts { counter-reset: part; }
+  .cp-tile { position: relative; display: grid; align-content: start; justify-items: end; width: 200px; height: 120px; padding: 8px; border-radius: 12px; background: var(--bg-mode-cases); }
+  .cp-fav-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: center; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Acts &middot; level 1</span>
+  <h1>Favourite toggle</h1>
+  <p class="kt-lead">The heart with its count: press it to keep a case, press it again to let go. A veiled pill beside a count, or a square of the heart alone on a tile; pressed, it turns pink and draws a pink edge. Everything on this page is drawn by <code>design/system/components/favourite-toggle.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage cp-fav-row">
+    <button class="fav" type="button" aria-pressed="false" aria-label="Favorite, marked by 829 people">829<i class="icon icon--heart" aria-hidden="true"></i></button>
+    <button class="fav" type="button" aria-pressed="true" aria-label="Favorite, marked by 830 people, yours included">830<i class="icon icon--heart" aria-hidden="true"></i></button>
+    <button class="fav fav--square" type="button" aria-pressed="false"><i class="icon icon--heart" aria-hidden="true"></i><span class="fav__sr">Favorite</span></button>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The toggle</b></td><td><code>.fav</code></td><td>a button: the veil (<code>--bg-veil</code>), a 1px edge, a 12px corner, a height of 40px</td></tr>
+    <tr><td><b>The count</b></td><td>the text before the heart</td><td>how many people marked the case, 14px 700, tabular figures; read by a screen reader in the label</td></tr>
+    <tr><td><b>The heart</b></td><td><code>.icon--heart</code> inside</td><td>the Icon at 20px; it grows 12 percent under the pointer</td></tr>
+    <tr><td><b>On a tile</b></td><td><code>.fav--square</code></td><td>the heart alone in a square of the button's height, on a tile veil</td></tr>
+    <tr><td><b>Its word</b></td><td><code>.fav__sr</code></td><td>the label a screen reader reads when the count is not drawn</td></tr>
+    <tr><td><b>Pressed</b></td><td><code>[aria-pressed="true"]</code></td><td>the count and the heart in the link pink, a pink edge drawn inside; the product sets it</td></tr>
+    <tr><td><b>The burst</b></td><td><code>.fav__burst</code></td><td>nine small pieces the product's script lays at the heart when it turns on; not drawn for reduced motion</td></tr>
+  </tbody></table></div>
+</section>
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One axis, the emphasis; pressed is a state of either. Sizes are read from the rendered toggles.</p>
+  <ul class="kt-list">
+    <li><b>Emphasis = where it stands.</b> With its count (the base) on a card or a row, where the count is a fact worth reading. On a tile (<code>--square</code>) in the case head, where the heart alone is the act.</li>
+    <li><b>Size is the Button M's height</b>, 40px, in both emphases.</li>
+    <li><b>A tile's corner wears its own look.</b> On a case tile the toggle sits over the art as a dark pill that appears when the tile is pointed at; that look belongs to the Case tile and stays there until its page.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:560px">
+    <thead><tr><th>Emphasis</th><th>At rest</th><th>Pressed</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>With its count</b></td>
+        <td><div class="cell"><button class="fav" type="button" aria-pressed="false" data-dim>829<i class="icon icon--heart" aria-hidden="true"></i></button><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><button class="fav" type="button" aria-pressed="true" data-dim>830<i class="icon icon--heart" aria-hidden="true"></i></button><span class="cp-dim"></span></div></td>
+        <td class="kt-note">a case tile's corner, the catalogue and Home</td></tr>
+      <tr><td><b>On a tile</b></td>
+        <td><div class="cell"><button class="fav fav--square" type="button" aria-pressed="false" data-dim><i class="icon icon--heart" aria-hidden="true"></i><span class="fav__sr">Favorite</span></button><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><button class="fav fav--square" type="button" aria-pressed="true" data-dim><i class="icon icon--heart" aria-hidden="true"></i><span class="fav__sr">Favorite</span></button><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the case head</td></tr>
+    </tbody>
+  </table></div></div>
+
+</section>
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>The toggle keeps a case for later and says how many others did. It is a plain preference, so pressing it is never an act that spends: it carries no price, no streak and no reward, and the count is a fact, never a score. Its label is the product's word, "Favorite", with the count named in the accessible name ("Favorite, marked by 829 people").</p>
+
+</section>
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>On a case tile, the heart with the number of people who marked the case; in the case head, the heart alone on its tile. Pressing it flips <code>aria-pressed</code> and nothing else changes.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>Anything that does something now (open, sell, sign in, close) is a <b>Button</b>, whatever it looks like. Choosing one of a few is a <b>Segmented control</b>. Turning a setting on is a <b>Switch</b>. A mark that only reports a count is a <b>Badge</b>.</p></div>
+  </div>
+
+</section>
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at them, press them, reach them with Tab. The page does not run the product's script, so pressing does not flip the state and no burst plays; the pressed twin below is set in the markup, as the product sets it.</p>
+  <div class="kt-scene"><div class="cp-stage cp-fav-row">
+    <button class="fav" type="button" id="s-fav" aria-pressed="false" aria-label="Favorite, marked by 829 people">829<i class="icon icon--heart" aria-hidden="true"></i></button>
+    <button class="fav" type="button" id="s-fav-on" aria-pressed="true" aria-label="Favorite, marked by 830 people, yours included">830<i class="icon icon--heart" aria-hidden="true"></i></button>
+    <button class="fav fav--square" type="button" id="s-sq" aria-pressed="false"><i class="icon icon--heart" aria-hidden="true"></i><span class="fav__sr">Favorite</span></button>
+    <button class="fav fav--square" type="button" id="s-sq-on" aria-pressed="true"><i class="icon icon--heart" aria-hidden="true"></i><span class="fav__sr">Favorite</span></button>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot once on the toggle with its count; after it, only a named difference.</p>
+<div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/favourite-toggle-count-hover-dark.png" alt="Hover: the heart grows 12 percent, nothing else moves, dark theme" loading="lazy"></div><div><img src="screens/states/favourite-toggle-count-hover-light.png" alt="Hover: the heart grows 12 percent, nothing else moves, light theme" loading="lazy"></div></div><figcaption><b>Hover: the heart grows 12 percent, nothing else moves</b> <code>--text-hi on --bg-veil</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/favourite-toggle-count-focus-dark.png" alt="Focus-visible: the ring outside the pill, dark theme" loading="lazy"></div><div><img src="screens/states/favourite-toggle-count-focus-light.png" alt="Focus-visible: the ring outside the pill, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible: the ring outside the pill</b> <code>--line-focus</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/favourite-toggle-count-pressed-dark.png" alt="Pressed, the product's own (aria-pressed): the count and heart pink, the edge drawn in, dark theme" loading="lazy"></div><div><img src="screens/states/favourite-toggle-count-pressed-light.png" alt="Pressed, the product's own (aria-pressed): the count and heart pink, the edge drawn in, light theme" loading="lazy"></div></div><figcaption><b>Pressed, the product's own (aria-pressed): the count and heart pink, the edge drawn in</b> <code>--text-link, --fav-line-pressed</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/favourite-toggle-square-pressed-dark.png" alt="On a tile, pressed: the same pink on the tile veil, dark theme" loading="lazy"></div><div><img src="screens/states/favourite-toggle-square-pressed-light.png" alt="On a tile, pressed: the same pink on the tile veil, light theme" loading="lazy"></div></div><figcaption><b>On a tile, pressed: the same pink on the tile veil</b> <code>--bg-tile-veil, --text-link, --fav-line-pressed</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> the toggle on a tile hovers and takes its focus ring as the one with its count does (the heart grows, the ring is <code>--line-focus</code> outside the box), so only its pressed face is shot again.</li>
+    <li><b>No press look beyond pressed.</b> kit.css draws no active face, so none is shot. <b>No disabled look:</b> a favourite that cannot be set refuses with its reason beside it, and stays live (D-58).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ favourite-toggle           # re-shoot after a change to favourite-toggle.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ favourite-toggle --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Every part but one found a semantic role. The pressed edge is a line in pink and no <code>--line-*</code> role is pink, so it reads the one component token this atom made, <code>--fav-line-pressed</code>, with its pair. No colour primitive is read. Geometry and type come from the primitives (<code>--size-button-m</code>, <code>--size-title</code>, <code>--radius-s</code>, <code>--space-*</code>).</p>
+  <p>File: <code>design/system/components/favourite-toggle.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;button class="fav" type="button" aria-pressed="false" aria-label="Favorite, marked by 829 people"&gt;
+  829&lt;i class="icon icon--heart" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button class="fav fav--square" type="button" aria-pressed="false"&gt;
+  &lt;i class="icon icon--heart" aria-hidden="true"&gt;&lt;/i&gt;&lt;span class="fav__sr"&gt;Favorite&lt;/span&gt;
+&lt;/button&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'count', sel: '#s-fav', pressed: '#s-fav-on', states: ['hover', 'focus', 'pressed'] },
+  { id: 'square', sel: '#s-sq', pressed: '#s-sq-on', states: ['pressed'] }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.closest('.cell').querySelector('.cp-dim').textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ["--bg-veil", "--bg-tile-veil", "--line-edge", "--line-focus", "--text-hi", "--text-link", "--fav-line-pressed"];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(fav|button)-/.test(n) ? 'component' : /^--(line-focus|bg-hover|bg-active)/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/* TEXT FIELD, level 1 (atom). One line of typed text: a name, an amount, an e-mail, a seed.
+ * Page: design/kit/text-field.html. Stands on Catalogue (the filter drawer), Deposit, My items (cash out), Provably fair (Verify), Responsible play
+ * (design/kit/inventory.md, Text field).
+ * Reads: --text-hi, --text-meta, --text-body, --bg-tile, --bg-menu, --line-edge, --line-error; its own --text-field-line-focus
+ *   (tokens.css, COMPONENT TOKENS); geometry and type from the primitives. No colour primitive is read here.
+ * Carried from design/kit/kit.css part 4.1, FORM CONTROLS (lines 2471 to 2482, the .input rules and .input-unit) at stage 08 step 5, round 1, by the
+ *   decisions of step 2 (D-260): the refusal ring reads --line-error (its --color-error) where kit.css drew --color-down, rename map row 29, merged
+ *   drift; .select and .select--l left it, they merge into the Popover menu in round 2. No hover: kit.css draws none and nothing is redrawn here;
+   whether a field answers the pointer is put to the founder at the atoms' gate. */
+
+/* One form, two sizes by the container's density: M 40 is a field in a panel, L 52 is an amount, the figure of a zone. Emphasis: boxed (the tile's
+   dark fill and its edge) or bare (no plate of its own, inside a control that draws one). */
+.input { box-sizing: border-box; width: 100%; min-height: var(--size-button-m); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-button); background: var(--bg-tile); box-shadow: var(--line-edge); color: var(--text-hi); font-family: inherit; font-size: var(--size-label); }
+.input.input--bare { min-width: 0; padding: 0; background: none; box-shadow: none; text-align: center; font-variant-numeric: tabular-nums; } /* a field with no plate of its own, inside a control that draws one (the number stepper, D-246); declared at stage 07 step 6 */
+.input--l { min-height: var(--size-button-l); font-size: var(--size-text); }
+.input::placeholder { color: var(--text-meta); }
+.input[readonly] { background: var(--bg-menu); color: var(--text-body); }
+
+/* STATES. No hover (as kit.css). Focus-visible, which a text field always shows when it is focused, swaps the edge for the pink ring inside the box, on :focus-visible only;
+   the refusal is the product's own, aria-invalid, and is ringed in --line-error. A field stays live while it refuses and the reason stands beside it (D-58).
+   The refusal comes after the focus, so a refused field keeps its red ring while it is focused. */
+.input:focus-visible { outline: none; box-shadow: inset 0 0 0 var(--size-edge) var(--text-field-line-focus); }
+.input[aria-invalid="true"] { box-shadow: inset 0 0 0 var(--size-edge) var(--line-error); }
+
+/* with a unit: the plate and the edge belong to the wrapper, the field inside draws none, the unit's word stands at its end (an amount in coins, a limit in days) */
+.input-unit { display: flex; align-items: center; border-radius: var(--radius-button); background: var(--bg-tile); box-shadow: var(--line-edge); }
+.input-unit > .input { flex: 1 1 auto; min-width: 0; box-shadow: none; background: none; } .input-unit > span { padding: 0 var(--space-3); color: var(--text-meta); font-size: var(--size-chip); white-space: nowrap; }
+.input-unit:focus-within { box-shadow: inset 0 0 0 var(--size-edge) var(--text-field-line-focus); }

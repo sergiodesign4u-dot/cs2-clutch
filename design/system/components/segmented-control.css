@@ -1,0 +1,27 @@
+/* SEGMENTED CONTROL, level 1 (atom). Exclusive options in a row, one chosen and filled: the count switch 1 to 5, the amount presets, the sort keys,
+ * the category bar's run. Sizes M 44 (the default) and S 32 (--s, the sort and a sticker count).
+ * Page: design/kit/segmented-control.html. Stands on the case screen (the count), Deposit (the presets), My items (the sort) and the catalogue
+ * (the category bar's run, an option as a link).
+ * Reads: --bg-tile-veil, --bg-act, --bg-act-stripes, --bg-hover, --bg-active, --text-hi, --text-on-plate, --line-edge, --line-edge-lit,
+ *   --line-focus, --depth-act-glow; geometry and type from the primitives. No component token, no colour primitive read directly.
+ * Carried from design/kit/kit.css part 4.1 (lines 2433 to 2441) at stage 08 step 5, round 1. The category bar's chosen rule (kit.css line 2643,
+ *   rename map row 12) moves in: it draws the very values of the option's own chosen rule, so the chosen look is one, written once for
+ *   aria-pressed (a button the product sets) and aria-current (a link to a section). The old rule stays in kit.css until step 8.
+ *   Hover and active are new at this step, from the state tokens of D-263: kit.css drew none. */
+
+.seg { display: inline-flex; gap: var(--space-2); }
+.seg__opt { display: inline-grid; place-items: center; min-width: var(--size-tap); min-height: var(--size-tap); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-button); background: var(--bg-tile-veil); box-shadow: var(--line-edge); color: var(--text-hi); font-family: inherit; font-size: var(--size-s); font-weight: 900; font-variant-numeric: tabular-nums; cursor: pointer; }
+/* chosen: set by the product, aria-pressed on a button, aria-current on a link; the act's fill with its stripes and glow. Its words are on a plate in both themes */
+.seg__opt[aria-pressed="true"], .seg__opt[aria-current="true"] { background: var(--bg-act-stripes), var(--bg-act); box-shadow: var(--depth-act-glow); color: var(--text-on-plate); }
+
+/* size S: the sort is a quiet key beside a list, not the count switch beside Open: the small button's height and label (.button--s), its press area kept at 44px; D-243 */
+.seg--s .seg__opt { position: relative; min-height: var(--size-button-s); padding: 0 var(--size-button-s-pad); font-size: var(--size-chip); letter-spacing: var(--tracking-link); text-transform: uppercase; }
+.seg--s .seg__opt::after { content: ''; position: absolute; inset: calc((var(--size-button-s) - var(--size-tap)) / 2) 0; } /* nothing is drawn, as .button--s */
+
+/* STATES. An option that is not chosen lifts its ground and brightens its edge under the pointer, and takes the pressed ground while pressed;
+   the chosen one keeps its face. The ring is on :focus-visible only. */
+@media (hover: hover) {
+  .seg__opt:not([aria-pressed="true"], [aria-current="true"]):hover { background: var(--bg-hover); box-shadow: var(--line-edge-lit); }
+}
+.seg__opt:not([aria-pressed="true"], [aria-current="true"]):active { background: var(--bg-active); box-shadow: var(--line-edge-lit); }
+.seg__opt:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }

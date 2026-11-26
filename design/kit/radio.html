@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Radio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-tile { position: relative; display: grid; justify-items: center; gap: 8px; width: 150px; box-sizing: border-box; padding: 16px 12px 12px; border-radius: var(--radius-card); background: var(--bg-tile-veil); box-shadow: var(--line-edge); color: var(--text-body); font-size: 14px; font-weight: 700; cursor: pointer; }
+  .cp-tile > .radio { position: absolute; top: 10px; right: 10px; }
+  .cp-tile .cp-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--bg-veil); box-shadow: var(--line-edge); color: var(--text-hi); font-size: 20px; font-weight: 900; }
+  .cp-tile > b { color: var(--text-hi); font-weight: 700; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Inputs &middot; level 1</span>
+  <h1>Radio</h1>
+  <p class="kt-lead">A round mark that holds one choice among a few, inside the tile that is its label: a payment provider, a Steam offer. It is the native radio drawn by one file, so a group keeps arrow-key travel and a screen reader keeps its set. Everything on this page is drawn by <code>design/system/components/radio.css</code> through <code>index.css</code>.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <label class="cp-tile"><span class="radio"><input type="radio" name="a-prov" aria-label="Provider A"></span><span class="cp-mark" aria-hidden="true">A</span><b>Provider A</b></label>
+    <label class="cp-tile"><span class="radio"><input type="radio" name="a-prov" checked aria-label="Provider B"></span><span class="cp-mark" aria-hidden="true">B</span><b>Provider B</b></label>
+  </div></div>
+  <p class="kt-note">The tile is this page's own stand-in for the Payment panel's provider tile (sample providers, D-124); the radio is the atom.</p>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The press</b></td><td><code>.radio</code> (the tile's inner span, or a <code>label</code>)</td><td>the gap and the body ink when it carries words of its own; in a tile it draws only the mark</td></tr>
+    <tr><td><b>The ring</b></td><td><code>.radio &gt; input</code></td><td>the native input drawn by the file: <code>--size-check</code>, a circle, the tile's fill and a hairline ring</td></tr>
+    <tr><td><b>The dot</b></td><td><code>input:checked::after</code></td><td>half the ring's width, in the act's pink; the ring thickens to 2px in the same pink</td></tr>
+    <tr><td><b>The group</b></td><td>one <code>name</code> on every input</td><td>which radios exclude each other; the page's markup, not a class</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form, no size and no emphasis. The size below is read from the rendered ring, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Content = in a choice tile.</b> The tile is the label and the press; the radio is its mark, pinned in a corner by the tile. A radio with a line of words of its own takes the Checkbox's row and is the same atom.</li>
+    <li><b>The tile's colours on its lit face are the tile's.</b> On the Payment panel's chosen tile the ring and the dot turn white over the pink to violet plate; that rule is written by the tile, and this atom keeps its own pink.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:520px">
+    <thead><tr><th>Content</th><th>Unchosen</th><th>Chosen</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>In a choice tile</b></td>
+        <td><div class="cell"><span class="radio"><input type="radio" name="v1" aria-label="Sample" data-dim></span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="radio"><input type="radio" name="v2" checked aria-label="Sample" data-dim></span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">a provider on Deposit; a Steam offer (node 5.3) when it is drawn</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A radio holds one choice of a short, visible set where every option should be seen before one is picked: which provider takes the card ("Provider A", "Provider B", microcopy 4.1-17 and 4.1-18). Every option is on screen at once, so the person compares them where they stand. The words name the option, not the feeling, and where the choice costs money the cost is in the tile (design principle 3).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>Select provider on Deposit: two or three tiles, one name, one chosen. A choice the person makes once, in a form, before pressing the act.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A short run that changes what is shown at once, such as a sort or a sticker count 0 to 3, is a <b>Segmented control</b>. A yes that several rows may hold is a <b>Checkbox</b>. A long list is the <b>Popover menu</b> in its select form. A press that does something is a <b>Button</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at the radio, press it, reach it with Tab and move with the arrow keys.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <label class="cp-tile"><span class="radio" id="s-radio"><input type="radio" name="s-prov" aria-label="Provider A"></span><span class="cp-mark" aria-hidden="true">A</span><b>Provider A</b></label>
+    <label class="cp-tile"><span class="radio" id="s-radio-on"><input type="radio" name="s-prov-b" checked aria-label="Provider B"></span><span class="cp-mark" aria-hidden="true">B</span><b>Provider B</b></label>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The radio itself is shot, not its tile; the chosen ring is a twin at rest, set by the product's own <code>:checked</code>, and focus is shot on the native input, the element Tab reaches.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/radio-tile-hover-dark.png" alt="Hover: the ring of an unchosen radio turns pink, dark theme" loading="lazy"></div><div><img src="screens/states/radio-tile-hover-light.png" alt="Hover: the ring of an unchosen radio turns pink, light theme" loading="lazy"></div></div><figcaption><b>Hover: the ring of an unchosen radio turns pink</b> <code>--radio-line-lit</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/radio-tile-focus-dark.png" alt="Focus-visible: the ring on the native input, dark theme" loading="lazy"></div><div><img src="screens/states/radio-tile-focus-light.png" alt="Focus-visible: the ring on the native input, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible: the ring on the native input</b> <code>--line-focus</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/radio-tile-checked-dark.png" alt="Chosen: a 2px ring and a dot, the product's own state (:checked), dark theme" loading="lazy"></div><div><img src="screens/states/radio-tile-checked-light.png" alt="Chosen: a 2px ring and a dot, the product's own state (:checked), light theme" loading="lazy"></div></div><figcaption><b>Chosen: a 2px ring and a dot, the product's own state (:checked)</b> <code>--radio-line-lit, --bg-act</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> a radio with words of its own has the states of the Checkbox on the same rules, and a chosen radio under the pointer keeps its ring: hover lights only an unchosen one.</li>
+    <li><b>No active state and no disabled look.</b> <code>kit.css</code> draws no press on a radio and none is added. A radio stays live and refuses with its reason beside it (D-58), so it draws no refusal ring.</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ radio           # re-shoot after a change to radio.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ radio --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. The ground, the dot and the ring's focus come from the semantic level; the ring at rest and the pink ring under the pointer and on a chosen radio are component tokens because no line role is lavender or pink (decided at the round's gate). Geometry, type and motion come straight from the primitives.</p>
+  <p>File: <code>design/system/components/radio.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;label class="pay-panel__prov"&gt;&lt;span class="radio"&gt;&lt;input type="radio" name="prov" checked&gt;&lt;/span&gt; ... &lt;/label&gt;
+&lt;label class="radio"&gt;&lt;input type="radio" name="offer"&gt;&lt;span&gt;Steam offer&lt;/span&gt;&lt;/label&gt;</pre>
+  <p>Stands on: <a href="../deposit.html">Deposit</a>, in the Payment panel's provider tiles. Until step 8 that screen still reads <code>kit.css</code>; step 6 moves its markup onto this file's forms by the rename map. The tile that holds the radio, with its pinned corner and its lit face, is the Payment panel's (step 7), not this atom's.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'tile', sel: '#s-radio', states: ['hover', 'focus', 'checked'], checked: '#s-radio-on', tab: '#s-radio input' }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.closest('.cell').querySelector('.cp-dim').textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-body', '--bg-tile', '--bg-act', '--line-focus', '--radio-line', '--radio-line-lit'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(check|radio|switch)-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

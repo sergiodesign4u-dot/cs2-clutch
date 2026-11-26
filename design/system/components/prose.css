@@ -1,0 +1,13 @@
+/* PROSE, level 1 (atom). The page's own text, the SEO layer among it; a measure of 68ch.
+ * Page: design/kit/prose.html. Stands on two coloured screens: the catalogue, Responsible play (design/kit/inventory.md, Prose).
+ * Reads: --text-lead, --text-hi, --text-link; geometry and type from the primitives.
+ * Carried from design/kit/kit.css part 4.1 (lines 2426 to 2431) at stage 08 step 5, round 1. Nothing renamed or changed. From the Home SEO block,
+ *   seo-home.css. */
+
+/* One anatomy: a column of paragraphs, its headings (h2, h3) in white at 900, its links in the brand pink. Size: lead 17 (a lead that argues, the
+   default) and text 16 (.prose--text, plain lines that state: Responsible play, D-248). */
+.prose { max-width: var(--size-measure); color: var(--text-lead); font-size: var(--size-lead); line-height: 1.65; }
+.prose > * + * { margin-top: var(--space-4); }
+.prose--text { font-size: var(--size-text); }
+.prose h2, .prose h3 { color: var(--text-hi); font-weight: 900; line-height: 1.2; }
+.prose a { color: var(--text-link); }

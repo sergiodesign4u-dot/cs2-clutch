@@ -1,0 +1,33 @@
+/* DISCLOSURE, level 1 (atom). A row that opens its answer, the plus turning to a minus; open, its edge takes the pink.
+ * Page: design/kit/disclosure.html. Stands on Home, Deposit and Provably fair, and in the footer's own questions
+ * (design/kit/inventory.md, Disclosure).
+ * Reads: --bg-row, --line-edge, --line-pink-fade, --line-focus, --text-hi, --text-link, --text-body, --bg-well; geometry, type and motion from
+ *   the primitives. No colour primitive and no component token: every part found its role.
+ * Carried from design/kit/kit.css part 4.1 (DISCLOSURE, lines 2369 to 2389) at stage 08 step 5, round 1, unchanged in look. D-235 for its
+ *   motion, the FAQ's in v4 (faq-home.css). Markup is details and summary, so it opens without a script; open is [open], the product's own,
+ *   never a class. .is-sliding and .is-closing are set by design/kit/motion.js while an answer slides, the product's script, and kept as it
+ *   writes them. */
+
+/* One form: the question row that opens its answer. */
+.disclosure { position: relative; border-radius: var(--radius-card); background: var(--bg-row); box-shadow: var(--line-edge); }
+.disclosure > summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: var(--size-row); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5); color: var(--text-hi); font-size: var(--size-lead); font-weight: 700; line-height: 1.3; list-style: none; cursor: pointer; }
+.disclosure > summary::-webkit-details-marker { display: none; }
+.disclosure > summary::after { --bar: calc(var(--size-edge) + var(--size-hairline)); --len: calc(var(--size-check) - var(--size-edge)); content: ''; flex: none; width: var(--size-mark); height: var(--size-mark); background: linear-gradient(currentColor, currentColor) center / var(--len) var(--bar) no-repeat, linear-gradient(currentColor, currentColor) center / var(--bar) var(--len) no-repeat; }
+.disclosure__body { margin: 0 var(--space-3) var(--space-3); padding: var(--space-4); border-radius: var(--radius-s); background: var(--bg-well); color: var(--text-body); font-size: var(--size-text); line-height: 1.55; }
+.disclosure__body > p { margin: 0; max-width: 62ch; }
+.disclosure__body > .link { display: inline-block; margin-top: var(--space-3); }
+.disclosure__body > .link--tap { margin-top: 0; } /* a link with the 40px press already carries its 12px above it as padding, as the FAQ's answer link did (.faq__list .link, margin 0 0 -12px) */
+
+/* STATES. The row draws no hover and no press (kit.css draws none); keyboard focus is the ring inside the row's own corner, never on :focus. */
+.disclosure > summary:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: calc(-1 * var(--size-edge)); border-radius: var(--radius-card); }
+
+/* its motion, D-235, the FAQ's in v4 (faq-home.css .fq-a, .fq-in, .fq-x, .fq-i::before): the pink edges fade in, the plus turns half round
+   as its upright bar shrinks to a minus, and motion.js slides the answer open and shut in --motion-disclosure, its words rising in after it.
+   In a group (name) one is open at a time: opening one slides the other shut. While one slides shut it is .is-closing and already looks shut */
+.disclosure::before, .disclosure::after { content: ''; position: absolute; left: 0; right: 0; height: var(--size-edge); background: var(--line-pink-fade); pointer-events: none; opacity: 0; transition: opacity .3s; }
+.disclosure::before { top: 0; } .disclosure::after { bottom: 0; }
+.disclosure[open]:not(.is-closing)::before, .disclosure[open]:not(.is-closing)::after { opacity: 1; }
+.disclosure > summary::after { transition: rotate .35s var(--motion-ease-disclosure), background-size .35s var(--motion-ease-disclosure), color .3s; }
+.disclosure[open]:not(.is-closing) > summary::after { rotate: 180deg; color: var(--text-link); background: linear-gradient(currentColor, currentColor) center / var(--len) var(--bar) no-repeat, linear-gradient(currentColor, currentColor) center / var(--bar) 0 no-repeat; }
+.disclosure.is-sliding > .disclosure__body { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .disclosure::before, .disclosure::after, .disclosure > summary::after { transition: none; } }

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Avatar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-empty { font-size: 12px; color: var(--text-meta); max-width: 180px; margin: 0 auto; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Marks and pictures &middot; level 1</span>
+  <h1>Avatar</h1>
+  <p class="kt-lead">A player's Steam picture in a circle with a hairline ring; a bot has no picture and draws an empty disc. Four sizes by the container, one circle. Everything on this page is drawn by <code>design/system/components/avatar.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <img class="avatar avatar--xl" src="../visuals/avatars/a1.webp" alt="">
+    <img class="avatar avatar--l" src="../visuals/avatars/a2.webp" alt="">
+    <img class="avatar" src="../visuals/avatars/a3.webp" alt="">
+    <img class="avatar avatar--s" src="../visuals/avatars/a5.webp" alt="">
+    <span class="avatar avatar--bot" aria-hidden="true"></span>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The circle</b></td><td><code>.avatar</code></td><td>the shape (a circle, the picture cropped to fill it), the ground behind a picture that has not loaded, the 1px ring</td></tr>
+    <tr><td><b>Size</b></td><td><code>.avatar--s</code>, the default, <code>--l</code>, <code>--xl</code></td><td>the diameter, and the ring where the size asks for another: the small one's is stronger so it reads at 16px, the XL one wears the white ring with a lift</td></tr>
+    <tr><td><b>Data</b></td><td><code>.avatar--bot</code></td><td>the empty disc and its soft ring: set by what is shown, a bot, not by the designer</td></tr>
+    <tr><td><b>Picture</b></td><td><code>&lt;img&gt;</code> or an empty <code>&lt;span&gt;</code></td><td>the Steam picture, a square image; a bot is a <code>&lt;span&gt;</code> with no picture and <code>aria-hidden</code></td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Two axes. Diameters below are read from the rendered circles, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Size = the container's density.</b> S 16 in the live-drops ticker, M 32 on the header's account trigger (the default), L 52 over a best drop card, XL 64 at the head of the account page and of the account menu. By D-260 the old L (64) is renamed XL (row 16) and the best drop card's own 52 becomes the new L (row 15); the account menu's head, which sized the avatar itself, takes XL (row 17).</li>
+    <li><b>Data = who is shown.</b> A player has a picture; a bot has none, and its disc stays empty on purpose, so a bot is not dressed up as a person.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:760px">
+    <thead><tr><th>Data</th><th>S 16</th><th>M 32</th><th>L 52</th><th>XL 64</th></tr></thead>
+    <tbody>
+      <tr><td><b>Player</b></td>
+        <td><div class="cell"><img class="avatar avatar--s" src="../visuals/avatars/a1.webp" alt="" data-dim><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><img class="avatar" src="../visuals/avatars/a2.webp" alt="" data-dim><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><img class="avatar avatar--l" src="../visuals/avatars/a3.webp" alt="" data-dim><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><img class="avatar avatar--xl" src="../visuals/avatars/a5.webp" alt="" data-dim><span class="cp-dim"></span></div></td></tr>
+      <tr><td><b>Bot</b></td>
+        <td><div class="cell"><span class="avatar avatar--s avatar--bot" aria-hidden="true" data-dim></span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="avatar avatar--bot" aria-hidden="true" data-dim></span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="avatar avatar--l avatar--bot" aria-hidden="true" data-dim></span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="avatar avatar--xl avatar--bot" aria-hidden="true" data-dim></span><span class="cp-dim"></span></div></td></tr>
+      <tr><td><b>Where it stands</b></td>
+        <td class="kt-note">the ticker's winner</td>
+        <td class="kt-note">the header's account trigger</td>
+        <td class="kt-note">the winner over a best drop card; the tier ring and the gap under it are the card's</td>
+        <td class="kt-note">the account head, the account menu's head</td></tr>
+    </tbody>
+  </table></div></div>
+  <p class="kt-note">The bot at L and XL is drawn here to show the data axis; today only the ticker draws a bot, at S, by the Feed tile's own class <code>.feed-tile__av--bot</code>. That rule stays in <code>kit.css</code> until step 6 moves the markup onto <code>.avatar--bot</code>. The account head's own 88px picture on a wide screen is the account head's rule, not a size of this atom.</p>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>An avatar says who: the player who won a drop, the account that is signed in. It is a person's mark and nothing else; it carries no status, no level and no count. A bot is shown as a bot, an empty disc, never a made-up face.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The winner's picture in a live drop, and the signed-in account's picture on the header and at the head of My items. One circle, one size from the container's density.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A skin or a case is a <b>Media slot</b>, never a circle. The product's own mark is the <b>Logo</b>. A glyph is an <b>Icon</b>. A badge on a person is a <b>Badge</b> beside the avatar, not drawn into it.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states: it is not interactive. An avatar that leads to a profile is wrapped by a Text link, which has its own states; the circle itself never changes under the pointer.</p>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. One component token, <code>--avatar-bg-bot</code>, for the bot's disc, which no fill role holds; its ring is the role <code>--line-ring-soft</code>, with its own light value. The large ring is <code>--depth-avatar</code>. Three colours are read in this block only, <code>--color-raised</code>, <code>--shadow-avatar</code> and <code>--shadow-avatar-s</code>, and wait for step 9. The diameters are <code>--size-avatar-s</code>, <code>--size-avatar-m</code> and the block's own <code>--avatar-l</code> (52) and <code>--avatar-xl</code> (64), declared on their modifiers.</p>
+  <p>File: <code>design/system/components/avatar.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;img class="avatar avatar--s" src="visuals/avatars/a1.webp" alt="" aria-hidden="true"&gt;
+&lt;img class="avatar avatar--xl" src="visuals/avatars/a5.webp" alt=""&gt;
+&lt;span class="avatar avatar--s avatar--bot" aria-hidden="true"&gt;&lt;/span&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.nextElementSibling.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--depth-avatar', '--line-ring-soft', '--avatar-bg-bot', '--color-raised', '--shadow-avatar', '--shadow-avatar-s'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--avatar-/.test(n) ? 'component' : /^--(color|shadow|gradient)-/.test(n) ? 'primitive' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

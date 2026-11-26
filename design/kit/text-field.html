@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Text field</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: grid; gap: 14px; max-width: 340px; margin: 0 auto; padding: 28px 0; }
+  .cp-stage--row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; max-width: none; padding: 28px 18px; }
+  .cp-matrix td, .cp-matrix th { vertical-align: middle; }
+  .cp-matrix .cell { display: grid; gap: 6px; width: 200px; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .kt .cp-why { margin: 12px 0 0; font-size: 13px; line-height: 1.4; color: var(--text-error); }
+  .cp-stepper { width: 120px; border-radius: var(--radius-button); background: var(--bg-tile); box-shadow: var(--line-edge); } /* a stand-in for the number stepper's plate, which is what a bare field sits in */
+  .cp-label { display: block; margin-bottom: 6px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-meta); }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Inputs &middot; level 1</span>
+  <h1>Text field</h1>
+  <p class="kt-lead">One line of typed text: a name, an amount, an e-mail, a nonce. It takes the dark tile of every control, the button's corner and a hairline at rest; under focus the edge turns pink. Everything on this page is drawn by <code>design/system/components/text-field.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <input class="input" type="text" value="nightjar" aria-label="Client seed">
+    <input class="input input--l" type="text" inputmode="decimal" value="40.00" aria-label="Amount, in US dollars">
+    <div class="input-unit"><input class="input" type="text" inputmode="decimal" value="40.00" aria-label="Amount"><span>coins</span></div>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The box</b></td><td><code>.input</code> on an <code>&lt;input&gt;</code></td><td>the tile's fill, the 1px edge, the button's 12px corner, the label size of type; it fills its container's width</td></tr>
+    <tr><td><b>Size</b></td><td><code>.input--l</code></td><td>height and type: M 40 at the label size, L 52 at the text size</td></tr>
+    <tr><td><b>Emphasis</b></td><td><code>.input--bare</code></td><td>no plate, no edge, centred figures: for a field inside a control that draws its own (the number stepper)</td></tr>
+    <tr><td><b>The typed text</b></td><td><code>.input</code>, <code>::placeholder</code></td><td>white for what is typed, the muted grey for the hint</td></tr>
+    <tr><td><b>Read-only</b></td><td><code>[readonly]</code></td><td>the menu's ground and the body ink: a value to read and copy, not to change</td></tr>
+    <tr><td><b>A unit</b></td><td><code>.input-unit</code> with a <code>&lt;span&gt;</code></td><td>the wrapper owns the plate and the edge, the span is the word at the end (coins, days)</td></tr>
+    <tr><td><b>Refusal</b></td><td><code>[aria-invalid="true"]</code></td><td>the red ring inside the box; set by the product's script, never by a class (D-260)</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Three axes. Each carries its rule, so the next screen picks by the rule. Heights are read from the rendered fields, not from the stylesheet; the width is always the container's.</p>
+  <ul class="kt-list">
+    <li><b>Size = the density of the container, never the field's importance.</b> M 40 is a field in a panel or a form, L 52 is an amount, the figure of a zone (the deposit's amount, the cash out). The size follows the Button's, so a field and the act beside it share a height.</li>
+    <li><b>Emphasis = who draws the plate.</b> Boxed is the field's own. Bare is for a field inside a control that already draws one, and it is never used on its own.</li>
+    <li><b>Content = a unit or none.</b> A unit is a word the field cannot say itself: the currency of an amount, the days of a limit.</li>
+    <li><b>Width = the layout, not the field.</b> A field takes the whole width of its cell; a grid or a row sets how wide that is.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:620px">
+    <thead><tr><th>Emphasis</th><th>M</th><th>L</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>Boxed</b></td>
+        <td><div class="cell"><input class="input" type="text" value="nightjar" aria-label="M" data-dim><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><input class="input input--l" type="text" value="40.00" aria-label="L" data-dim><span class="cp-dim"></span></div></td>
+        <td class="kt-note">a seed, a nonce, an e-mail; the amount in the deposit</td></tr>
+      <tr><td><b>With a unit</b></td>
+        <td><div class="cell"><div class="input-unit" data-dim><input class="input" type="text" value="40.00" aria-label="M with a unit"><span>coins</span></div><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><div class="input-unit" data-dim><input class="input input--l" type="text" value="40.00" aria-label="L with a unit"><span>coins</span></div><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the filter drawer's prices, the limits</td></tr>
+      <tr><td><b>Bare</b></td>
+        <td colspan="2"><div class="cell"><div class="cp-stepper"><input class="input input--bare" type="text" value="12" aria-label="Bare" data-dim></div><span class="cp-dim"></span></div></td>
+        <td class="kt-note">inside the number stepper; it has no plate to measure by, so it is one size</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A text field takes one line the person types: a number, a name, a seed, an address. Its label is not its own: a Field (the organism) puts a noun above it that names what to enter ("Billing email", "Amount, in US dollars", microcopy 4.1-19 and 4.1-21) and the reason below it when it refuses. A field stays live while it refuses and says why beside itself (D-58), so a person can correct it where they are. The unit, where there is one, is part of the plate and not a second control.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The Verify form's nonce: one line, a number, a label above it, and when it holds a decimal point the red ring and "A nonce is a whole number. This one has a decimal point in it." beside it (microcopy 1.2-35).</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>Several lines or a pasted block is a <b>Text area</b>. A figure on a scale where the place matters more than the digits is a <b>Range</b>. Choosing one of a few is a <b>Segmented control</b>, one from a long list a <b>Popover menu</b>, a yes or a no a <b>Checkbox</b> or a <b>Switch</b>. An amount with its presets is the <b>Amount field</b>, which holds this one.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at them, type in them, reach them with Tab. A text field always shows its focus when it is focused, with the keyboard or the pointer.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <div><span class="cp-label">Rest</span><input class="input" type="text" id="s-field" value="nightjar" aria-label="Client seed"></div>
+    <div><span class="cp-label">Refused</span><input class="input" type="text" id="s-field-bad" value="30411.5" aria-invalid="true" aria-describedby="s-field-why" aria-label="Nonce"><p class="cp-why" id="s-field-why">A nonce is a whole number. This one has a decimal point in it.</p></div>
+    <div><span class="cp-label">Large</span><input class="input input--l" type="text" id="s-field-l" value="40.00" aria-label="Amount, in US dollars"></div>
+    <div><span class="cp-label">With a unit</span><div class="input-unit" id="s-unit"><input class="input" type="text" id="s-unit-input" value="40.00" aria-label="Amount"><span>coins</span></div></div>
+    <div><span class="cp-label">Read-only</span><input class="input" type="text" id="s-field-ro" value="4f2a91c7e0b83d56" readonly aria-label="Server seed hash"></div>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot once on the M field; after it, only a named difference.</p>
+<div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/text-field-field-focus-dark.png" alt="Focus-visible: the pink ring inside the box, dark theme" loading="lazy"></div><div><img src="screens/states/text-field-field-focus-light.png" alt="Focus-visible: the pink ring inside the box, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible: the pink ring inside the box</b> <code>--text-field-line-focus</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/text-field-field-invalid-dark.png" alt="Refusal: the red ring (aria-invalid), dark theme" loading="lazy"></div><div><img src="screens/states/text-field-field-invalid-light.png" alt="Refusal: the red ring (aria-invalid), light theme" loading="lazy"></div></div><figcaption><b>Refusal: the red ring (aria-invalid)</b> <code>--line-error</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/text-field-bad-focus-dark.png" alt="Refused and focused: the red ring is kept, dark theme" loading="lazy"></div><div><img src="screens/states/text-field-bad-focus-light.png" alt="Refused and focused: the red ring is kept, light theme" loading="lazy"></div></div><figcaption><b>Refused and focused: the red ring is kept</b> <code>--line-error over --text-field-line-focus</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/text-field-unit-focus-dark.png" alt="With a unit, focus: the ring is the wrapper's, dark theme" loading="lazy"></div><div><img src="screens/states/text-field-unit-focus-light.png" alt="With a unit, focus: the ring is the wrapper's, light theme" loading="lazy"></div></div><figcaption><b>With a unit, focus: the ring is the wrapper's</b> <code>--text-field-line-focus</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> the L field answers as the M field does; the Text area (own page) answers as this one does. A field has no hover face: <code>kit.css</code> draws none, and whether it should answer the pointer waits for the atoms' gate.</li>
+    <li><b>Inside a unit</b> the wrapper's edge takes the ring, the field inside draws none. A refused field keeps its red ring while it is focused.</li>
+    <li><b>No disabled look:</b> a field stays live and refuses with its reason (D-58); only the Button draws disabled (D-239, D-263).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ text-field           # re-shoot after a change to text-field.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ text-field --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry (<code>--size-button-m</code>, <code>--size-button-l</code>, <code>--radius-button</code>, <code>--space-3</code>), type and the focus ring width come straight from the primitives. <code>--text-field-line-focus</code> is the one component token: the pink ring a field has drawn since stage 07, which no line role holds.</p>
+  <p>File: <code>design/system/components/text-field.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;input class="input" id="nonce" type="text" inputmode="numeric" aria-describedby="nonce-why"&gt;
+&lt;input class="input input--l" id="amount" type="text" inputmode="decimal" value="40.00"&gt;
+&lt;div class="input-unit"&gt;&lt;input class="input" type="text" inputmode="decimal"&gt;&lt;span&gt;coins&lt;/span&gt;&lt;/div&gt;
+&lt;!-- refused: the script sets aria-invalid="true" and aria-describedby, and writes the reason beside it --&gt;</pre>
+  <p>Stands on: <a href="../catalogue.html">the catalogue</a> (the filter drawer), <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'field', sel: '#s-field', pad: 5, states: ['focus', 'invalid'], invalid: '#s-field-bad' },
+  { id: 'bad', sel: '#s-field-bad', pad: 5, states: ['focus'] },
+  { id: 'unit', sel: '#s-unit-input', box: '#s-unit', pad: 5, states: ['focus'] }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); (b.closest('.cell') || b.parentNode).querySelector('.cp-dim').textContent = Math.round(r.height) + ' high'; });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-hi', '--text-meta', '--text-body', '--bg-tile', '--bg-menu', '--line-edge', '--line-error', '--text-field-line-focus'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--text-field-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

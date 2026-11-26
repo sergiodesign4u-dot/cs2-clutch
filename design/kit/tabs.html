@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Tabs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-stack { display: grid; gap: 22px; justify-items: stretch; padding: 28px 18px; }
+  .cp-cap { font-size: 11px; color: var(--text-meta); }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-plate-ground { background: var(--bg-page); padding: 18px 0 0; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Acts &middot; level 1</span>
+  <h1>Tabs</h1>
+  <p class="kt-lead">Peers in a row, one of them current: the account's pages, the networks of a cash out. A plain row on the page or a bar on its plate, a label, a glyph before it, a count. Everything on this page is drawn by <code>design/system/components/tabs.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stack">
+    <nav class="tabs" aria-label="Account"><span class="tabs__t" aria-current="page"><i class="icon icon--box" aria-hidden="true"></i>My items</span><a class="tabs__t" href="#anatomy"><i class="icon icon--history" aria-hidden="true"></i>History</a><a class="tabs__t" href="#anatomy"><i class="icon icon--user" aria-hidden="true"></i>Profile</a><a class="tabs__t" href="#anatomy"><i class="icon icon--settings" aria-hidden="true"></i>Settings</a></nav>
+    <nav class="tabs" aria-label="Network"><button class="tabs__t" type="button" aria-selected="true">Ethereum <span class="badge badge--status tabs__n">ETH</span></button><button class="tabs__t" type="button" aria-selected="false">Litecoin <span class="badge badge--status tabs__n">LTC</span></button><button class="tabs__t" type="button" aria-selected="false">Tether <span class="badge badge--status tabs__n">USDT</span></button></nav>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The row</b></td><td><code>.tabs</code></td><td>the hairline under the row (<code>--line-soft</code>), the gap between peers; the row scrolls sideways rather than wrapping</td></tr>
+    <tr><td><b>A tab</b></td><td><code>.tabs__t</code> on a link, a button or, for the current page, a span</td><td>the height (the 44px press, <code>--size-tap</code>), the sides, the label's size and weight, its quiet ink (<code>--text-body</code>)</td></tr>
+    <tr><td><b>Current</b></td><td><code>[aria-current="page"]</code> on a link or a span, <code>[aria-selected="true"]</code> on a button</td><td>the white ink and the pink under the tab (<code>--bg-lit</code>); set by the product, never by a class</td></tr>
+    <tr><td><b>Glyph</b></td><td><code>.icon</code> inside the tab</td><td>the mark before the label; takes the tab's ink, 18px on a plate</td></tr>
+    <tr><td><b>Count</b></td><td><code>.tabs__n</code> on a Badge</td><td>the floor of the badge's width (<code>--size-badge</code>) so a one digit count does not squeeze</td></tr>
+    <tr><td><b>Plate</b></td><td><code>.tabs--plate</code></td><td>the bar under the account's band: its ground, its edge, its rounded foot and the pink glow from the current tab's foot</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One size and two axes. The height of a tab is <code>--size-tap</code>, 44px, because a tab is pressed with a thumb; there is no small tab. The measured figure below is read from the render, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Ground = where the row stands.</b> Plain is a row on the page, with a hairline under it. A plate (<code>--plate</code>) is the bar that closes a band, the account head's: it carries the plate ground, its edge and shadow, and the current tab lights from its foot. It stands only under a band, never in the middle of a page.</li>
+    <li><b>Content = what a tab carries.</b> A label always. A glyph before it on the plate, where each page has a mark. A count in a Badge where the grey has one. The current tab is a span where the page is the one you are on (D-58: the current one is not a link), a link or a button elsewhere.</li>
+    <li><b>Width = the row, not the tab.</b> A tab never stretches; a row that is wider than its container scrolls sideways.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:560px">
+    <thead><tr><th>Ground</th><th>Current tab</th><th>Other tab</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>Plain</b></td>
+        <td><div class="cell"><nav class="tabs" style="overflow:visible"><button class="tabs__t" type="button" aria-selected="true" data-dim>Ethereum</button></nav><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><nav class="tabs" style="overflow:visible"><button class="tabs__t" type="button" aria-selected="false" data-dim>Litecoin</button></nav><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the cash out's network</td></tr>
+      <tr><td><b>Plate</b></td>
+        <td><div class="cell"><nav class="tabs tabs--plate" style="overflow:visible"><span class="tabs__t" aria-current="page" data-dim><i class="icon icon--box" aria-hidden="true"></i>My items</span></nav><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><nav class="tabs tabs--plate" style="overflow:visible"><a class="tabs__t" href="#variants" data-dim><i class="icon icon--history" aria-hidden="true"></i>History</a></nav><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the account head, under its band</td></tr>
+    </tbody>
+  </table></div></div>
+  <div class="kt-scene"><div class="cp-plate-ground">
+    <nav class="tabs tabs--plate" aria-label="Account"><span class="tabs__t" aria-current="page"><i class="icon icon--box" aria-hidden="true"></i>My items</span><a class="tabs__t" href="#variants"><i class="icon icon--history" aria-hidden="true"></i>History</a><a class="tabs__t" href="#variants"><i class="icon icon--user" aria-hidden="true"></i>Profile</a><a class="tabs__t" href="#variants"><i class="icon icon--settings" aria-hidden="true"></i>Settings</a></nav>
+  </div></div>
+  <p class="kt-note">The plate variant is the account head's own rules (<code>.account-head &gt; .tabs</code>, rename map row 27) turned into a variant of the atom: its computed style equals what the account head draws today, apart from the tile edge's step from 5% to 7% (D-260, Q1), which the plate's shadow reads through <code>--depth-shell</code>.</p>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>Tabs switch between sibling views of one subject while the person stays in it: the account's four pages under the band (My items, History, Profile, Settings), the three networks of a crypto cash out. The row tells where you are before it tells where you could go, so the current tab is lit and the others are quiet. Words are the screen's nouns as microcopy gives them ("My items", "History", "Network"), never a verb: a tab shows a view, it does not do anything.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The account's four pages: the same band above them, one of the four current, the others a tap away. Or the networks of a cash out, where picking one changes the address the screen asks for.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>Choosing one value of a few, such as how many cases to open, a preset amount or the sort key, is a <b>Segmented control</b>. A destination of the whole site is the <b>Rail</b>. Going somewhere else is a <b>Text link</b>. An act is a <b>Button</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at them, press them, reach them with Tab. The current tab is set by the product (<code>aria-current</code>, <code>aria-selected</code>) and is not a pointer state, so it is shown at rest above and not shot.</p>
+  <div class="kt-scene"><div class="cp-stack">
+    <nav class="tabs" aria-label="Plain tabs, live"><button class="tabs__t" type="button" aria-selected="true" id="s-sel">Ethereum</button><button class="tabs__t" type="button" aria-selected="false" id="s-link">Litecoin</button><button class="tabs__t" type="button" aria-selected="false">Tether</button></nav>
+    <nav class="tabs tabs--plate" aria-label="Plate tabs, live"><span class="tabs__t" aria-current="page"><i class="icon icon--box" aria-hidden="true"></i>My items</span><a class="tabs__t" href="#states" id="s-plate-link"><i class="icon icon--history" aria-hidden="true"></i>History</a><a class="tabs__t" href="#states"><i class="icon icon--user" aria-hidden="true"></i>Profile</a></nav>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot once on a plain tab that is not current; after it, only a named difference.</p>
+<div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/tabs-link-hover-dark.png" alt="Hover, dark theme" loading="lazy"></div><div><img src="screens/states/tabs-link-hover-light.png" alt="Hover, light theme" loading="lazy"></div></div><figcaption><b>Hover</b> <code>--bg-hover, --text-hi</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/tabs-link-active-dark.png" alt="Active, dark theme" loading="lazy"></div><div><img src="screens/states/tabs-link-active-light.png" alt="Active, light theme" loading="lazy"></div></div><figcaption><b>Active</b> <code>--bg-active, --text-hi</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/tabs-link-focus-dark.png" alt="Focus-visible, dark theme" loading="lazy"></div><div><img src="screens/states/tabs-link-focus-light.png" alt="Focus-visible, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible</b> <code>--line-focus, inside the tab</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/tabs-sel-focus-dark.png" alt="Focus-visible on the current tab: the ring over the pink, dark theme" loading="lazy"></div><div><img src="screens/states/tabs-sel-focus-light.png" alt="Focus-visible on the current tab: the ring over the pink, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible on the current tab: the ring over the pink</b> <code>--line-focus, --bg-lit</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/tabs-plate-link-hover-dark.png" alt="Plate, hover: the same lift on the bar, dark theme" loading="lazy"></div><div><img src="screens/states/tabs-plate-link-hover-light.png" alt="Plate, hover: the same lift on the bar, light theme" loading="lazy"></div></div><figcaption><b>Plate, hover: the same lift on the bar</b> <code>--bg-hover, --text-hi</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/tabs-plate-link-focus-dark.png" alt="Plate, focus-visible: the ring inside the tab, dark theme" loading="lazy"></div><div><img src="screens/states/tabs-plate-link-focus-light.png" alt="Plate, focus-visible: the ring inside the tab, light theme" loading="lazy"></div></div><figcaption><b>Plate, focus-visible: the ring inside the tab</b> <code>--line-focus</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> active on the plate is the same <code>--bg-active</code> ground as on the plain row, and a button tab answers as a link tab does. A tab that is current has no hover, no press: it is already lit, and a span is not pressed at all (D-58).</li>
+    <li><b>New at this step.</b> <code>kit.css</code> drew no hover or press on tabs; the two states here are the state tokens of D-263 applied to a peer in a row, a ground and a white ink. Nothing else moves, no border is added and the pink under the current tab stays where it is.</li>
+    <li><b>No disabled look.</b> A tab that cannot open stays live and refuses with its reason beside it (D-58).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ tabs           # re-shoot after a change to tabs.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ tabs --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token and no colour primitive: every colour is a role. Geometry (<code>--size-tap</code>, <code>--size-badge</code>, <code>--radius-l</code>, <code>--space-*</code>) and type come straight from the primitives. The plate's pink glow is the lit mark <code>--bg-lit</code> at 22% over transparent, mixed in the rule.</p>
+  <p>File: <code>design/system/components/tabs.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;nav class="tabs" aria-label="Network"&gt;
+  &lt;button class="tabs__t" type="button" aria-selected="true"&gt;Ethereum &lt;span class="badge badge--status tabs__n"&gt;ETH&lt;/span&gt;&lt;/button&gt;
+  &lt;button class="tabs__t" type="button" aria-selected="false"&gt;Litecoin&lt;/button&gt;
+&lt;/nav&gt;
+&lt;nav class="tabs tabs--plate" aria-label="Account"&gt;
+  &lt;span class="tabs__t" aria-current="page"&gt;&lt;i class="icon icon--box" aria-hidden="true"&gt;&lt;/i&gt;My items&lt;/span&gt;
+  &lt;a class="tabs__t" href="history.html"&gt;&lt;i class="icon icon--history" aria-hidden="true"&gt;&lt;/i&gt;History&lt;/a&gt;
+&lt;/nav&gt;</pre>
+  <p>Stands on: <a href="../account.html">My items</a>. The other seven coloured screens do not wear it. Until step 8 My items still reads <code>kit.css</code>; step 6 moves its markup onto this file's forms by the rename map (row 27: the account head's <code>.tabs</code> rules become <code>.tabs--plate</code>).</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'link', sel: '#s-link', states: ['hover', 'active', 'focus'] },
+  { id: 'sel', sel: '#s-sel', states: ['focus'] },
+  { id: 'plate-link', sel: '#s-plate-link', states: ['hover', 'focus'] }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.closest('.cell').querySelector('.cp-dim').textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ["--text-hi", "--text-body", "--text-link", "--line-soft", "--line-edge", "--line-focus", "--bg-lit", "--bg-plate", "--bg-hover", "--bg-active", "--depth-shell"];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(steps|tabs|seg)-/.test(n) ? 'component' : /^--line-focus|^--bg-(hover|active)$/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

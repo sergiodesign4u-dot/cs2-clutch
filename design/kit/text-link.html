@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Text link</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-empty { font-size: 12px; color: var(--text-meta); max-width: 180px; margin: 0 auto; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-parts { counter-reset: part; }
+  .cp-plate { display: inline-block; padding: 10px 16px; border-radius: 12px; background: var(--bg-mode-cases); color: var(--text-on-plate); }
+  .cp-line { margin: 0; max-width: 56ch; color: var(--text-body); font-size: 16px; line-height: 1.55; }
+  .cp-press .link { outline: 1px dashed var(--line-soft); }
+  .cp-press .link:focus-visible { outline: var(--size-edge) solid var(--line-focus); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Acts &middot; level 1</span>
+  <h1>Text link</h1>
+  <p class="kt-lead">The link that leads onward: in a sentence it takes its text's size, standing alone it carries an arrow. One weight, one tracking, three tones and three sizes. Everything on this page is drawn by <code>design/system/components/text-link.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage" style="flex-direction:column;align-items:flex-start">
+    <p class="cp-line">Counted since this case launched, never reset. <a class="link" href="#anatomy">How rounds are checked</a></p>
+    <a class="link link--arrow" href="#anatomy">What this case pays</a>
+    <span class="cp-plate"><a class="link link--quiet" href="#variants">Steam price</a> &nbsp; <a class="link link--arrow link--hi link--s" href="#variants">Settings</a></span>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The link</b></td><td><code>.link</code></td><td>ink (<code>--text-link</code>), weight 700, tracking <code>--tracking-link</code>, no underline; white under the pointer</td></tr>
+    <tr><td><b>Arrow</b></td><td><code>.link--arrow</code></td><td>standing alone, the link ends in an arrow and takes the 13px of a meta line</td></tr>
+    <tr><td><b>Tone</b></td><td><code>.link--quiet</code>, <code>.link--hi</code></td><td>quiet: soft grey, 400, underlined; white: the words of a plate of its own colour</td></tr>
+    <tr><td><b>Size</b></td><td><code>.link--s</code>, <code>.link--l</code></td><td>S 12 and L 16; M is the arrow's own 13; in running text no size at all</td></tr>
+    <tr><td><b>Press</b></td><td><code>.link--tap</code></td><td>the target grown by 12px above and below, the room given back so the line does not move</td></tr>
+  </tbody></table></div>
+</section>
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Four axes. Each carries its rule, so the next screen picks by the rule instead of finding a reason again. Sizes and heights below are read from the rendered links, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Tone = where it stands.</b> Pink leads onward and is the default. Quiet is for a source or a market line, a link the eye should not chase (the Steam price on a drop). White is only for a plate of its own colour, where the pink would not hold: the Steam state, the account head.</li>
+    <li><b>Content = how it sits.</b> In running text the link takes the text's size and has no arrow. Standing alone, under an answer or at the end of a block, it carries the arrow and leaves the block.</li>
+    <li><b>Size = the line it stands in.</b> S 12 for a chip's line, M 13 for a meta line (the arrow's own), L 16 for a sub line or an answer on a plate. Never a size to make a link louder.</li>
+    <li><b>Press = the container.</b> <code>--tap</code> (12px of press above and below the line) where the link is a row's only target: under an answer, in a row of acts. A link in a sentence keeps its line.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:760px">
+    <thead><tr><th>Tone</th><th>In text</th><th>S 12</th><th>M 13</th><th>L 16</th></tr></thead>
+    <tbody>
+      <tr><td><b>Pink</b></td>
+        <td><div class="cell"><a class="link" href="#variants">the rules</a><span class="cp-dim">its text's size</span></div></td>
+        <td><div class="cell"><a class="link link--arrow link--s" href="#variants" data-dim>Settings</a><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><a class="link link--arrow" href="#variants" data-dim>What this case pays</a><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><a class="link link--arrow link--l" href="#variants" data-dim>How it works</a><span class="cp-dim"></span></div></td></tr>
+      <tr><td><b>Quiet</b></td>
+        <td><div class="cell"><a class="link link--quiet" href="#variants">Steam price</a><span class="cp-dim">its text's size</span></div></td>
+        <td><div class="cell"><a class="link link--quiet link--s" href="#variants" data-dim>Steam price</a><span class="cp-dim"></span></div></td>
+        <td colspan="2"><div class="cell"><span class="cp-empty">Not used at M or L: a source is read inside its line, in its text's size.</span></div></td></tr>
+      <tr><td><b>White, on a plate</b></td>
+        <td><div class="cell"><span class="cp-plate"><a class="link link--hi" href="#variants">Sign out</a></span><span class="cp-dim">its text's size</span></div></td>
+        <td><div class="cell"><span class="cp-plate"><a class="link link--arrow link--hi link--s" href="#variants" data-dim>Settings</a></span><span class="cp-dim"></span></div></td>
+        <td colspan="2"><div class="cell"><span class="cp-empty">Not used at M or L: a plate carries a small line.</span></div></td></tr>
+    </tbody>
+  </table></div></div>
+  <h3>Press</h3>
+  <div class="kt-scene"><div class="cp-stage cp-press" style="gap:48px">
+    <div class="cell" style="display:grid;gap:6px;justify-items:center"><a class="link link--arrow" href="#variants" data-dim>Without a grown press</a><span class="cp-dim"></span></div>
+    <div class="cell" style="display:grid;gap:6px;justify-items:center"><a class="link link--arrow link--tap" href="#variants" data-dim>With the grown press</a><span class="cp-dim"></span></div>
+  </div></div>
+  <p class="kt-note">The dashed line is the link's own box. Padding makes the target and a negative margin of the same size takes the room back, so a row of acts keeps its height.</p>
+
+</section>
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A link goes somewhere: another page, another place on this one, a source. It is named for where it goes, in the destination's own words ("What this case pays", "How a withdrawal settles", "Provably fair"), never for the feeling ("Learn more", "Click here"). It is the way the product shows its numbers are checkable (design principle 1): the chance, the return and the round's proof are one link away from where they matter, and a link that sits beside a money figure never hides inside the excitement (principle 3).</p>
+
+</section>
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>Under an answer on Home: "What this case pays" with its arrow, <code>--tap</code>. In a sentence: "RTP 94.2 %, expected value 11.68 coins" going to the table that proves it.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>Doing something here and now (open, sell, sign in) is a <b>Button</b>, even when it is drawn flat. A row that opens its answer is a <b>Disclosure</b>. The way back above a page is a <b>Breadcrumb</b>. A figure that is also a link is the <b>Figure</b> as a link.</p></div>
+  </div>
+
+</section>
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at them, reach them with Tab.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <a class="link link--arrow" href="#states" id="s-link">What this case pays</a>
+    <a class="link link--quiet" href="#variants" id="s-quiet">Steam price</a>
+    <span class="cp-plate"><a class="link link--arrow link--hi link--s" href="#variants" id="s-hi">Settings</a></span>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot once on the pink link; after it, only a named difference.</p>
+<div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/text-link-link-hover-dark.png" alt="Hover: the words turn to the theme's white (navy on paper), dark theme" loading="lazy"></div><div><img src="screens/states/text-link-link-hover-light.png" alt="Hover: the words turn to the theme's white (navy on paper), light theme" loading="lazy"></div></div><figcaption><b>Hover: the words turn to the theme's white (navy on paper)</b> <code>--text-hi</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/text-link-link-focus-dark.png" alt="Focus-visible: the ring round the link, a 4px corner, dark theme" loading="lazy"></div><div><img src="screens/states/text-link-link-focus-light.png" alt="Focus-visible: the ring round the link, a 4px corner, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible: the ring round the link, a 4px corner</b> <code>--line-focus</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/text-link-quiet-hover-dark.png" alt="Quiet hover: the soft grey lifts to the same white, dark theme" loading="lazy"></div><div><img src="screens/states/text-link-quiet-hover-light.png" alt="Quiet hover: the soft grey lifts to the same white, light theme" loading="lazy"></div></div><figcaption><b>Quiet hover: the soft grey lifts to the same white</b> <code>--text-body to --text-hi</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>No press look.</b> A link changes colour under the pointer and draws the ring on focus-visible, as kit.css has it; it has no pressed face, so no snapshot is shot for active.</li>
+    <li><b>The white tone is the same on every state.</b> On a plate it keeps its colour under the pointer and takes the same ring (<code>--line-focus</code>), so it is not shot again.</li>
+    <li><b>No disabled look.</b> A link that cannot go anywhere is not drawn as a link; it is text (D-58).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ text-link           # re-shoot after a change to text-link.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ text-link --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Colour comes from four ink roles and the focus ring; no colour primitive is read and no component token was needed. Type and motion come straight from the primitives (<code>--tracking-link</code>, <code>--size-xs</code>, <code>--size-chip</code>, <code>--size-text</code>, <code>--space-3</code>).</p>
+  <p>File: <code>design/system/components/text-link.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;a class="link" href="..."&gt;How rounds are checked&lt;/a&gt;
+&lt;a class="link link--arrow" href="..."&gt;What this case pays&lt;/a&gt;
+&lt;a class="link link--arrow link--l" href="..."&gt;How it works&lt;/a&gt;
+&lt;a class="link link--arrow link--tap" href="..."&gt;What this case pays&lt;/a&gt;
+&lt;a class="link link--quiet" href="..."&gt;Steam price&lt;/a&gt;
+&lt;a class="link link--arrow link--hi link--s" href="..."&gt;Settings&lt;/a&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>, <a href="../signin.html">Sign in</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'link', sel: '#s-link', states: ['hover', 'focus'] },
+  { id: 'quiet', sel: '#s-quiet', states: ['hover'] }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(), fs = getComputedStyle(b).fontSize; b.closest('.cell').querySelector('.cp-dim').textContent = parseFloat(fs) + 'px, ' + Math.round(r.height) + ' high'; });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ["--text-link", "--text-hi", "--text-body", "--text-on-plate", "--line-focus"];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(fav|button)-/.test(n) ? 'component' : /^--(line-focus|bg-hover|bg-active)/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

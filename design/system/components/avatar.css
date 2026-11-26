@@ -1,0 +1,26 @@
+/* AVATAR, level 1 (atom). The Steam picture in a circle with a hairline ring; a bot's is the empty disc.
+ * Page: design/kit/avatar.html. Stands on every coloured screen: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
+ *   Responsible play, Sign in (design/kit/inventory.md, Avatar).
+ * Reads: --depth-avatar, --line-ring-soft; its own --avatar-bg-bot (tokens.css, COMPONENT TOKENS); geometry from the primitives; three
+ *   colours read in this block only, --color-raised, --shadow-avatar and --shadow-avatar-s, wait for step 9 (tokens-audit.md).
+ * Carried from design/kit/kit.css part 4.1 (AVATAR, lines 2322 to 2331) at stage 08 step 5, round 1, by the decisions of step 2 (D-260, rename
+ *   map rows 15 to 17): the old .avatar--l (64) is renamed .avatar--xl; the new .avatar--l is 52, the best drop card's own rule
+ *   (.recent-drop__who .avatar, --recent-drop-avatar) moved in; the bot's disc, drawn today by the Feed tile's .feed-tile__av--bot, is the
+ *   data value .avatar--bot. From account-home.css and the ticker. Not interactive: no states. */
+
+/* Size by its container: S 16 the ticker's, M 32 the header's trigger (the default), L 52 the best drop card's, XL 64 the account head's and the
+   account menu's. Data: the player's picture, or a bot's empty disc. */
+.avatar { display: block; flex: none; width: var(--size-avatar-m); height: var(--size-avatar-m); border-radius: 50%; background: var(--color-raised); box-shadow: var(--shadow-avatar); object-fit: cover; }
+.avatar--s { width: var(--size-avatar-s); height: var(--size-avatar-s); box-shadow: var(--shadow-avatar-s); }
+.avatar--l {
+  --avatar-l: 52px; /* v4 case-blocks.css: .v4d-av, the winner over a best drop (was --recent-drop-avatar on the Recent drop card); on the modifier, not in :root: one component reads it, D-231 point 1; рішення користувача, D-209 (v4) carried by D-232; named .avatar--l by D-260, row 15. The tier ring and the gap under it stay the card's */
+}
+.avatar--l { width: var(--avatar-l); height: var(--avatar-l); }
+/* needed by .account-head and the account menu, D-232: the account's picture at the head of its page, 64px in the white ring the account menu draws,
+   v4 account-home.css .am3-ava; was .avatar--l, renamed by D-260, rows 16 and 17 */
+.avatar--xl {
+  --avatar-xl: 64px; /* v4 account-home.css: .am3-ava, the account at the head of its menu; on the modifier, not in :root: one component reads it, D-231 point 1; рішення користувача, D-209 (v4) carried by D-232; was --avatar-l */
+}
+.avatar--xl { width: var(--avatar-xl); height: var(--avatar-xl); box-shadow: var(--depth-avatar); }
+/* a bot has no picture: the avatar's disc, empty; was .feed-tile__av--bot */
+.avatar--bot { background: var(--avatar-bg-bot); box-shadow: var(--line-ring-soft); }

@@ -664,3 +664,24 @@ One row per component as each is built, in the order of its round: its level, it
 | Component | Level | Round | CSS file | Page | States | Stands on |
 |---|---|---|---|---|---|---|
 | Button | 1 | 0, the reference | `design/system/components/button.css` | `design/kit/button.html` | hover, active, focus-visible, disabled (primary only, D-239); busy | all eight coloured screens |
+| Text link | 1 | 1, the atoms | `design/system/components/text-link.css` | `design/kit/text-link.html` | hover, focus-visible | all eight coloured screens |
+| Disclosure | 1 | 1, the atoms | `design/system/components/disclosure.css` | `design/kit/disclosure.html` | focus-visible, open ([open]) | Home, Deposit, Provably fair (and the footer's questions) |
+| Favourite toggle | 1 | 1, the atoms | `design/system/components/favourite-toggle.css` | `design/kit/favourite-toggle.html` | hover, focus-visible, pressed (aria-pressed) | Home, the case screen, the catalogue, Deposit, Sign in |
+| Tabs | 1 | 1, the atoms | `design/system/components/tabs.css` | `design/kit/tabs.html` | hover, active, focus-visible | My items |
+| Segmented control | 1 | 1, the atoms | `design/system/components/segmented-control.css` | `design/kit/segmented-control.html` | hover, active, focus-visible | Case, Deposit, My items, Catalogue (the category bar, an option as a link) |
+| Text field | 1 | 1, the atoms | `design/system/components/text-field.css` | `design/kit/text-field.html` | focus-visible, refusal (aria-invalid); no hover, as kit.css | Catalogue, Deposit, My items, Provably fair, Responsible play |
+| Text area | 1 | 1, the atoms | `design/system/components/text-area.css` | `design/kit/text-area.html` | focus-visible, refusal (aria-invalid); no hover, as kit.css | Provably fair |
+| Checkbox | 1 | 1, the atoms | `design/system/components/checkbox.css` | `design/kit/checkbox.html` | hover, focus-visible; ticked (:checked) | Catalogue, Deposit, My items (the Field's declaration also stands on the case screen and Sign in, inside dialogs) |
+| Radio | 1 | 1, the atoms | `design/system/components/radio.css` | `design/kit/radio.html` | hover, focus-visible; chosen (:checked) | Deposit |
+| Switch | 1 | 1, the atoms | `design/system/components/switch.css` | `design/kit/switch.html` | focus-visible; on (:checked); no hover | none yet: settings (5.11) arrive with the rollout |
+| Range | 1 | 1, the atoms | `design/system/components/range.css` | `design/kit/range.html` | focus-visible | Catalogue |
+| Figure | 1 | 1, the atoms | `design/system/components/figure.css` | `design/kit/figure.html` | focus-visible (the link form only); the figure itself is not interactive | all eight coloured screens |
+| Key-value line | 1 | 1, the atoms | `design/system/components/key-value-line.css` | `design/kit/key-value-line.html` | none, not interactive | Case, Deposit, My items, Provably fair, Responsible play, Sign in |
+| Note line | 1 | 1, the atoms | `design/system/components/note-line.css` | `design/kit/note-line.html` | none, not interactive | Case, Catalogue, Deposit, My items, Provably fair, Responsible play, Sign in |
+| Prose | 1 | 1, the atoms | `design/system/components/prose.css` | `design/kit/prose.html` | none, not interactive | Catalogue, Responsible play |
+| Badge | 1 | 1, the atoms | `design/system/components/badge.css` | `design/kit/badge.html` | none, not interactive | Home, Case, Catalogue, Deposit, My items, Provably fair (6 of 8 coloured screens) |
+| Status steps | 1 | 1, the atoms | `design/system/components/status-steps.css` | `design/kit/status-steps.html` | none, not interactive | Deposit |
+| Icon | 1 | 1, the atoms | `design/system/components/icon.css` | `design/kit/icon.html` | story form on the host's hover and focus-visible; the plain glyph is not interactive | all eight coloured screens |
+| Logo | 1 | 1, the atoms | `design/system/components/logo.css` | `design/kit/logo.html` | none, not interactive | all eight coloured screens |
+| Avatar | 1 | 1, the atoms | `design/system/components/avatar.css` | `design/kit/avatar.html` | none, not interactive | all eight coloured screens |
+| Media slot | 1 | 1, the atoms | `design/system/components/media-slot.css` | `design/kit/media-slot.html` | none, not interactive | Home, Case, Catalogue, Deposit, My items, Provably fair, Sign in (7 of 8 coloured screens) |

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Text area</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: grid; gap: 14px; max-width: 340px; margin: 0 auto; padding: 28px 0; }
+  .cp-stage--row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; max-width: none; padding: 28px 18px; }
+  .cp-matrix td, .cp-matrix th { vertical-align: middle; }
+  .cp-matrix .cell { display: grid; gap: 6px; width: 200px; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .kt .cp-why { margin: 12px 0 0; font-size: 13px; line-height: 1.4; color: var(--text-error); }
+  .cp-stepper { width: 120px; border-radius: var(--radius-button); background: var(--bg-tile); box-shadow: var(--line-edge); } /* a stand-in for the number stepper's plate, which is what a bare field sits in */
+  .cp-label { display: block; margin-bottom: 6px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-meta); }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Inputs &middot; level 1</span>
+  <h1>Text area</h1>
+  <p class="kt-lead">Several lines of typed text: a pasted seed, a hash. The Text field's twin, three rows tall and free to grow downward. Everything on this page is drawn by <code>design/system/components/text-area.css</code> through <code>index.css</code>.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <textarea class="textarea" rows="3" spellcheck="false" aria-label="Server seed hash">4f2a91c7e0b83d5619ac7f20d8e4b1664f2a91c7e0b83d5619ac7f20d8e4b166</textarea>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The box</b></td><td><code>.textarea</code> on a <code>&lt;textarea&gt;</code></td><td>the tile's fill, the 1px edge and the button's 12px corner, as the Text field has them; padding all round</td></tr>
+    <tr><td><b>Height</b></td><td><code>min-height</code>, <code>rows</code></td><td>never under three rows of the field (120px); the <code>rows</code> attribute grows it for a longer value</td></tr>
+    <tr><td><b>The handle</b></td><td><code>resize: vertical</code></td><td>the corner a person drags down; never sideways, so the layout keeps its width</td></tr>
+    <tr><td><b>The typed text</b></td><td><code>.textarea</code>, <code>::placeholder</code></td><td>white for what is typed, the muted grey for the hint; 1.5 line height</td></tr>
+    <tr><td><b>Refusal</b></td><td><code>[aria-invalid="true"]</code></td><td>the red ring inside the box; set by the product's script, never by a class (D-260)</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form. It has no size axis: its height is set by the number of rows it is given, and its width is the container's.</p>
+  <ul class="kt-list">
+    <li><b>One form on purpose.</b> A text area differs from a Text field by what it holds, not by how it looks, so it shares the plate, the corner and the states and has no emphasis or size of its own.</li>
+    <li><b>Height = the value's length.</b> Three rows at least; set <code>rows</code> for a value that is longer when it arrives (a 64 character hash fits two lines of the Verify form).</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:560px">
+    <thead><tr><th>Form</th><th>Measured</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>Text area</b></td>
+        <td><div class="cell"><textarea class="textarea" aria-label="A text area" placeholder="Client seed" data-dim></textarea><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the Verify form's hash and seed on Provably fair</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A text area takes a value that is long or arrives pasted: the server seed hash and the server seed of a round, both 64 characters, that a person checks by eye against ours (design principle 1: its numbers are checkable). Its label and its reason belong to the Field, the reason a plain sentence that says what is wrong and how to put it right ("This is 32 characters. A server seed hash is 64.", microcopy 1.2-34 and the Verify form). It stays live while it refuses (D-58).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The Verify form's "Server seed hash, published before the round": a pasted 64 character value that wraps over two lines, with the red ring and its reason beneath it when it is the wrong length.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A value that fits on one line is a <b>Text field</b>, even a long one such as a nonce. A value that is only read and copied is a <b>Copyable value</b>, not a field. Free writing by a person is not drawn anywhere in the product today (microcopy, "User content").</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at it, type in it, reach it with Tab.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <div><span class="cp-label">Rest</span><textarea class="textarea" id="s-area" rows="3" spellcheck="false" aria-label="Server seed hash">4f2a91c7e0b83d5619ac7f20d8e4b1664f2a91c7e0b83d5619ac7f20d8e4b166</textarea></div>
+    <div><span class="cp-label">Refused</span><textarea class="textarea" id="s-area-bad" rows="3" spellcheck="false" aria-invalid="true" aria-describedby="s-area-why" aria-label="Server seed hash">4f2a91c7e0b83d5619ac7f20d8e4b166</textarea><p class="cp-why" id="s-area-why">This is 32 characters. A server seed hash is 64.</p></div>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion. The base set is the Text field's, shot there once; here only the refusal, the state this atom's decision names (D-260, Q2).</p>
+<div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/text-area-area-invalid-dark.png" alt="Refusal: the red ring (aria-invalid), dark theme" loading="lazy"></div><div><img src="screens/states/text-area-area-invalid-light.png" alt="Refusal: the red ring (aria-invalid), light theme" loading="lazy"></div></div><figcaption><b>Refusal: the red ring (aria-invalid)</b> <code>--line-error</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> no hover, and focus-visible takes the pink ring (<code>--text-field-line-focus</code>), exactly as on the Text field, on its page.</li>
+    <li><b>The refusal moved from <code>--color-down</code> to <code>--color-error</code></b> (rename map row 29, merged drift, D-260): the Field's declaration and this ring were two reds for one refusal. It reads the role <code>--line-error</code>.</li>
+    <li><b>No disabled look:</b> a text area stays live and refuses with its reason (D-58).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ text-area           # re-shoot after a change to text-area.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ text-area --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry (<code>--size-button-m</code>, <code>--radius-button</code>, <code>--space-3</code>) and type come straight from the primitives. <code>--text-field-line-focus</code> is the Text field's component token, read here so the two draw one focus.</p>
+  <p>File: <code>design/system/components/text-area.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;textarea class="textarea" id="v-hash" rows="2" spellcheck="false" aria-invalid="true" aria-describedby="v-hash-e"&gt;4f2a...&lt;/textarea&gt;
+&lt;p class="note note--refuse" id="v-hash-e"&gt;This is 32 characters. A server seed hash is 64.&lt;/p&gt;</pre>
+  <p>Stands on: <a href="../fair.html">Provably fair</a>, the Verify form. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'area', sel: '#s-area', pad: 5, states: ['invalid'], invalid: '#s-area-bad' }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); (b.closest('.cell') || b.parentNode).querySelector('.cp-dim').textContent = Math.round(r.height) + ' high'; });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-hi', '--text-meta', '--bg-tile', '--line-edge', '--line-error', '--text-field-line-focus'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--text-field-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

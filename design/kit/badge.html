@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Badge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-empty { font-size: 12px; color: var(--text-meta); max-width: 180px; margin: 0 auto; }
+  .cp-host { display: inline-flex; align-items: center; gap: 10px; color: var(--text-hi); font-weight: 700; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Figures and words &middot; level 1</span>
+  <h1>Badge</h1>
+  <p class="kt-lead">Short text in a pill: a bonus pinned to an act, a ribbon on a tile, a status, a count beside a title. One shape for every badge; the tone changes the colour and nothing else. Everything on this page is drawn by <code>design/system/components/badge.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <span class="button button--primary button--m">Add funds<span class="badge button__pin" aria-hidden="true">5%</span></span>
+    <span class="badge badge--good">No fee</span>
+    <span class="badge badge--status">USDT</span>
+    <span class="cp-host">Your items <span class="badge badge--count badge--l">6</span></span>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The pill</b></td><td><code>.badge</code></td><td>the shape (an 8px corner), the words: 10px, 900, uppercase, <code>--tracking-caps</code>; the unmarked badge is the bonus, gold with a dark ink</td></tr>
+    <tr><td><b>Tone</b></td><td><code>.badge--status</code>, <code>--count</code>, <code>--good</code>, <code>--bad</code></td><td>the fill and the ink only: a quiet tile, the act's pink, a green, a red</td></tr>
+    <tr><td><b>Size</b></td><td><code>.badge--l</code></td><td>the height and the sides, and the words at 12px: the count of a section's things beside its title</td></tr>
+    <tr><td><b>Place</b></td><td>the host's rule, for example <code>.button__pin</code></td><td>where the badge sits is the host's: the Button pins it to its corner, a tile ribbon is the tile's. The badge never positions itself</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>Two axes. Heights and widths below are read from the rendered badges, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Tone = what the badge says.</b> Bonus (the unmarked badge) is an offer, status a quiet fact about a thing, count a number of things, good an agreement, bad a mismatch. The tone never changes the size, the case or the spacing (D-230).</li>
+    <li><b>Size = where it stands.</b> S 16 on a control or a tile, L 24 beside a section's title.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:760px">
+    <thead><tr><th>Tone</th><th>S 16</th><th>L 24</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>Bonus</b> (unmarked)</td>
+        <td><div class="cell"><span class="badge" data-dim>5%</span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="badge badge--l" data-dim>5%</span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">pinned to Add funds, a ribbon on Instant</td></tr>
+      <tr><td><b>Status</b></td>
+        <td><div class="cell"><span class="badge badge--status" data-dim>USDT</span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="badge badge--status badge--l" data-dim>USDT</span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">a coin on a payment method, a version on the fairness page</td></tr>
+      <tr><td><b>Count</b></td>
+        <td><div class="cell"><span class="badge badge--count" data-dim>3</span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="badge badge--count badge--l" data-dim>6</span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">a pinned count; the count beside My items</td></tr>
+      <tr><td><b>Good</b></td>
+        <td><div class="cell"><span class="badge badge--good" data-dim>No fee</span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="badge badge--good badge--l" data-dim>No fee</span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">a payment method with no fee</td></tr>
+      <tr><td><b>Bad</b></td>
+        <td><div class="cell"><span class="badge badge--bad" data-dim>Mismatch</span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="badge badge--bad badge--l" data-dim>Mismatch</span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">kept for the Proof block; <b>stands on no coloured state yet</b> (<code>design/kit/inventory.md</code>, "To verify at step 6"). The word is a sample</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A badge labels a thing that is already there: a bonus on an act, a coin on a method, a number of items. It is a few words or a number, never a sentence, and it is not a control. Its words state a fact and do not shout: "No fee" is a fact about the card total, not a superlative (the voice, principle 2). <b>Bad</b> carries one rule more: it says our recomputation did not match, so it is never used for the user's own mistake, which is a refusal beside its field (<b>Note line</b>).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>"No fee" in green on a payment method, and the count of the user's items beside the title of My items. A few words or a number, the same shape in every tone, placed by its host.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A word that acts is a <b>Button</b> or a <b>Text link</b>. A refusal beside a field is a <b>Note line</b>. A choice between a few is a <b>Segmented control</b> or <b>Tabs</b>. A figure with a unit is a <b>Figure</b>. A badge is not pressed and does not carry a sentence.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states: it is not interactive. A badge is read, never pressed; the one pinned to a Button is part of the Button's act, and the Button's own states cover it.</p>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Two component tokens, <code>--badge-bg-bonus</code> and <code>--badge-bg-bad</code>, because no fill role holds the coin's gold or the refusal's red (the founder decides them at the round's gate). <code>--bg-match</code> takes a deeper green in the light theme and <code>--text-on-accent</code> stays the ground's dark ink on every plate. One colour is read in this block only, <code>--color-badge-ink</code>, the ink on the gold; it waits for step 9. Geometry (<code>--size-badge</code>, <code>--size-badge-pad</code>, <code>--size-badge-text</code>, <code>--radius-s</code>) and type come straight from the primitives.</p>
+  <p>File: <code>design/system/components/badge.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;span class="badge badge--good"&gt;No fee&lt;/span&gt;
+&lt;span class="badge badge--status"&gt;USDT&lt;/span&gt;
+&lt;h2&gt;Your items &lt;span class="badge badge--count badge--l"&gt;6&lt;/span&gt;&lt;/h2&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.nextElementSibling.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-body', '--text-on-plate', '--text-on-accent', '--bg-tile', '--bg-act', '--bg-match', '--line-edge', '--badge-bg-bonus', '--badge-bg-bad', '--color-badge-ink'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--badge-/.test(n) ? 'component' : /^--(color|shadow|gradient)-/.test(n) ? 'primitive' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

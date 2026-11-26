@@ -1,0 +1,26 @@
+/* MEDIA SLOT, level 1 (atom). One framed image area with its aspect; a skin floats with no plate, a case fills its picture.
+ * Page: design/kit/media-slot.html. Stands on Home, the case screen, the catalogue, Deposit, My items, Provably fair, Sign in
+ *   (design/kit/inventory.md, Media slot).
+ * Reads: --bg-menu, --depth-skin-drop; its own --media-case-glow (tokens.css, COMPONENT TOKENS); geometry and shape from the primitives; the
+ *   picture of a case is --case-art, set by its screen from an --art-* value (art.css). No colour primitive read directly.
+ * Carried from design/kit/kit.css part 4.1 (MEDIA SLOT and A CASE AS HOME DRAWS IT, lines 2346 to 2358) at stage 08 step 5, round 1, unchanged in
+ *   look; the case light's blur, a literal 10px in the filter, is a variable of the block so the rule holds no px. The slot's ground reads
+ *   --bg-menu, the role named for it. Not interactive: no states; the item card's skin that rises under the pointer is the card's own rule. */
+
+/* Content: a frame that fills (the default), a skin that floats (--skin: no plate, its frame belongs to the card around it), a case as Home draws it
+   (--case). The aspect modifiers --square, --wide and --banner are declared and worn by no coloured state: kept, wired or deleted at step 6. */
+.media { position: relative; display: block; overflow: hidden; border-radius: var(--radius-card); background: var(--bg-menu); }
+.media > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.media--skin { background: none; overflow: visible; } .media--skin > img { object-fit: contain; }
+.media--square { aspect-ratio: 1; } .media--wide { aspect-ratio: 3 / 2; } .media--banner { aspect-ratio: 16 / 7; }
+.media > video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* A CASE AS HOME DRAWS IT, D-230: the picture, the skin across the tray, and a copy of the picture cut at the rim in front of the skin.
+   theme.css and case-tiles.css on the case tile, proof-home.css on What this case pays. The picture is --case-art, its light --case-glow;
+   with no skin inside (a daily case) the front copy is not drawn */
+.media--case {
+  --media-case-blur: 10px; /* kit.css part 4.1, .media--case > img: the blur of the case's light round the skin, a literal in the filter; on the block, not in :root: one component reads it; D-230 */
+  overflow: visible; aspect-ratio: 3 / 2; border-radius: 0; background: var(--case-art) center / 100% auto no-repeat; isolation: isolate;
+}
+.media--case::after { content: ''; position: absolute; inset: 0; z-index: 2; background: var(--case-art) center / 100% auto no-repeat; clip-path: var(--shape-case-rim); pointer-events: none; }
+.media--case:not(:has(> img))::after { content: none; }
+.media--case > img { position: absolute; z-index: 1; top: -4%; left: 20%; width: 62%; height: 70%; object-fit: contain; rotate: 7deg; filter: var(--depth-skin-drop) drop-shadow(0 0 var(--media-case-blur) color-mix(in srgb, var(--case-glow, var(--media-case-glow)) 70%, transparent)); }

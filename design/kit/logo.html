@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 36px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Marks and pictures &middot; level 1</span>
+  <h1>Logo</h1>
+  <p class="kt-lead">The product's mark, the logo art on a link's line, in two sizes: the small one in the rail, the large one in the footer. Everything on this page is drawn by <code>design/system/components/logo.css</code> through <code>index.css</code>, the same file a screen will load. The picture is <code>--art-logo</code> of <code>art.css</code>, the file <code>design/v4/art/brand/logo2-10.svg</code>, the founder's pick since <code>D-209</code>.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <a class="logo logo--s" href="#anatomy" aria-label="CS2 Clutch, home"><span class="logo__mark"></span></a>
+    <a class="logo logo--l" href="#anatomy" aria-label="CS2 Clutch, home"><span class="logo__mark"></span></a>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The logo</b></td><td><code>.logo</code></td><td>the line it stands on: an inline flex row with its gap and the ink a word beside it would take, <code>--text-hi</code>; the link that holds it is the host's</td></tr>
+    <tr><td><b>The mark</b></td><td><code>.logo__mark</code></td><td>the picture, <code>--art-logo</code>, contained at the left of a box of 3.74 to 1; its height is the size</td></tr>
+    <tr><td><b>Size</b></td><td><code>.logo--s</code>, <code>.logo--l</code></td><td>the mark's height through <code>--logo-s</code> and <code>--logo-l</code>, set on the modifier, not in <code>:root</code>: one component reads each</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One axis. Its rule: the container chooses, the mark is never stretched to fit. Widths and heights below are read from the rendered marks, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Size = the container.</b> S in the rail, at the head of the strip and at the drawer's top; L in the footer. The ratio, 3.74 to 1, holds in both, so the width follows the height.</li>
+    <li><b>No colour axis.</b> The mark is a picture and has no theme: it is the same art on the dark and the light ground (<code>art.css</code>). Its wordmark is white, so on the light ground, in the light theme of this page, it reads weakly: the art has no light form yet, a question for the founder and not a change made here.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:640px">
+    <thead><tr><th>Size</th><th>The mark</th><th>Rendered</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>S</b></td><td><div class="cell"><a class="logo logo--s" href="#variants" aria-label="CS2 Clutch, home"><span class="logo__mark" data-dim></span></a></div></td><td class="cp-dim"></td><td class="kt-note">the rail, the header strip, the drawer's top</td></tr>
+      <tr><td><b>L</b></td><td><div class="cell"><a class="logo logo--l" href="#variants" aria-label="CS2 Clutch, home"><span class="logo__mark" data-dim></span></a></div></td><td class="cp-dim"></td><td class="kt-note">the footer</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>The logo says whose place this is, once on each surface, at the two corners a visitor looks at first and last: the top of the rail and the foot of the page. Trust is the product (design principle 1), and a mark in the same place on every page is the cheapest sign that the page is the one the person came for. It is the mark of the product and nothing else: it is not a loading picture, a background or a decoration between sections.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>At the top of the rail, size S, inside the link to Home; in the footer, size L. It stands on its own line with room around it, and its link, not the logo, owns the hover and the keyboard focus.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A glyph that names a thing is an <b>Icon</b>. A provider's or a payment method's mark in its own colours is a picture from <code>design/kit/marks/</code>. A picture of a case or a skin is a <b>Media slot</b>. An avatar is an <b>Avatar</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>No states: it is not interactive. The rail's link holds the logo, and the link's hover and focus are the link's; the logo itself draws the same at rest, under the pointer and with the keyboard on it.</p>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code> and <code>art.css</code>. Geometry comes straight from the primitives; <code>--logo-s</code> and <code>--logo-l</code> are the block's own custom properties on its two modifiers, carried from <code>kit.css</code> with their origin comments (<code>D-231</code> point 1). No colour primitive is read and no component token was made. The mark's one path is in <code>art.css</code>, written relative to <code>design/system/</code>, and it reaches the same file as before.</p>
+  <p>File: <code>design/system/components/logo.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;a class="logo logo--s" href="/" aria-label="CS2 Clutch, home"&gt;&lt;span class="logo__mark"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="logo logo--l" href="/" aria-label="CS2 Clutch, home"&gt;&lt;span class="logo__mark"&gt;&lt;/span&gt;&lt;/a&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../case.html">the case screen</a>, <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../fair.html">Provably fair</a>, <a href="../responsible.html">Responsible play</a>, <a href="../signin.html">Sign in</a>, in the Rail (S) and the Footer (L). Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.parentNode.parentNode.parentNode.nextElementSibling.textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = [['--text-hi', 'semantic'], ['--art-logo', 'picture'], ['--size-tile', 'geometry'], ['--space-2', 'geometry'], ['--logo-s', "the block's own, on .logo--s"], ['--logo-l', "the block's own, on .logo--l"]];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  var s = document.createElement('span'); s.className = 'logo logo--s'; d.append(s); var m = document.createElement('span'); m.className = 'logo logo--l'; l.append(m);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var v = function (el) { var host = n[0] === '--logo-s' ? s : n[0] === '--logo-l' ? m : el; return KitTokens.esc(getComputedStyle(host).getPropertyValue(n[0]).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n[0] + '</code></td><td>' + n[1] + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

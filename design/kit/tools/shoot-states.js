@@ -6,6 +6,9 @@
  *
  * A page declares its snapshots in window.KIT_SHOTS: [{ id, sel, states: ['hover', 'active', 'focus', 'disabled', 'busy'], off, busy }],
  * where sel is the live instance at rest, off a disabled twin and busy an aria-busy twin, all on the page itself, on the system's own css.
+ * Since round 1: any other state name is a twin at rest under its own key ({ states: ['checked'], checked: '#x-on' }, a value the product
+ * sets, as aria-invalid or aria-current); tab names the element Tab reaches when it is not sel (a native input under its drawn box), and
+ * box the element whose box is shot when it is not the state's own (the drawn box around that input).
  * Each state is made the way a person makes it (the pointer over it, the pointer held down, Tab, the attribute the product sets), in the
  * dark and the light theme, at 1440, and saved as design/kit/screens/states/<component>-<id>-<state>-<theme>.png. Needs Playwright. */
 const path = require('path'), fs = require('fs');
@@ -22,13 +25,14 @@ const OUT = path.join(__dirname, '..', 'screens', 'states');
     await p.goto(BASE + 'design/kit/' + COMP + '.html', { waitUntil: 'networkidle' }); await p.evaluate(() => document.fonts.ready);
     const shots = await p.evaluate(() => window.KIT_SHOTS || []);
     for (const s of shots) for (const st of s.states) {
-      const sel = st === 'disabled' ? s.off : st === 'busy' ? s.busy : s.sel;
-      const el = await p.$(sel); if (!el) { console.error('missing', sel); continue; }
+      const ACT = ['hover', 'active', 'focus'], sel = ACT.includes(st) ? s.sel : st === 'disabled' ? (s.disabled || s.off) : s[st];
+      const el = await p.$(sel); if (!el) { console.error('missing', st, sel); continue; }
       await el.scrollIntoViewIfNeeded(); await p.mouse.move(0, 0); await p.evaluate(() => document.activeElement && document.activeElement.blur());
-      const box = await el.boundingBox(), pad = 14;
+      const boxEl = (s.box && (await el.$(':scope ' + s.box) || await p.$(s.box))) || el;
+      await boxEl.scrollIntoViewIfNeeded(); const box = await boxEl.boundingBox(), pad = s.pad != null ? s.pad : 14;
       if (st === 'hover') await el.hover();
       if (st === 'active') { await el.hover(); await p.mouse.down(); }
-      if (st === 'focus') { await p.keyboard.press('Shift'); await el.focus(); }
+      if (st === 'focus') { await p.keyboard.press('Shift'); await (s.tab ? await p.$(s.tab) : el).focus(); }
       await p.waitForTimeout(250);
       const file = path.join(OUT, `${COMP}-${s.id}-${st}-${theme}.png`);
       const buf = await p.screenshot({ clip: { x: box.x - pad, y: box.y - pad, width: box.width + 2 * pad, height: box.height + 2 * pad } });

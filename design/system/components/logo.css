@@ -1,0 +1,22 @@
+/* LOGO, level 1 (atom). The mark of the product: the logo art on a link's line, in two sizes.
+ * Page: design/kit/logo.html. Stands on every coloured screen: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
+ * Responsible play, Sign in (design/kit/inventory.md, Logo), inside the Rail (S) and the Footer (L).
+ * Reads: --text-hi (the colour its link would draw a word in), --art-logo of art.css (the picture, stage 06's logo as design/v4 drew it:
+ *   art.css writes its url() relative to design/system/, which resolves to the same file kit.css reached from design/kit/); geometry from
+ *   the primitives. No colour primitive.
+ * Carried from design/kit/kit.css part 4.1 (LOGO, lines 2332 to 2344) at stage 08 step 5, round 1, unchanged: kit.css's block holds no
+ *   url() of its own, the one path is the --art-logo primitive (art.css), so nothing was rewritten here. D-209, D-232.
+ * Not interactive by itself: the Rail's link holds it, and the link's focus and hover are the link's. */
+
+.logo { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-hi); text-decoration: none; }
+.logo__mark { display: block; height: var(--size-tile); aspect-ratio: 3.74; background: var(--art-logo) left center / contain no-repeat; } /* the mark is the logo art, v4's logo2-10 */
+/* the logo on the header strip and at the drawer's top, 142 by 38, v4 theme.css .wf-rail .wf-logo-mark */
+.logo--s {
+  --logo-s: 38px; /* v4 theme.css: .wf-rail .wf-logo-mark, 142 by 38, the logo on the header strip and at the drawer's top; on the modifier, not in :root: one component reads it, D-231 point 1; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.logo--s .logo__mark { height: var(--logo-s); }
+/* the logo in the footer, 46px tall, v4 footer-home.css .fl-logo */
+.logo--l {
+  --logo-l: 46px; /* v4 footer-home.css: .fl-logo, 168 by 46, the logo in the footer; on the modifier, not in :root: one component reads it, D-231 point 1; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.logo--l .logo__mark { height: var(--logo-l); }

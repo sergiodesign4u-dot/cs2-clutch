@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Range</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: grid; gap: 14px; max-width: 340px; margin: 0 auto; padding: 28px 0; }
+  .cp-stage--row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; max-width: none; padding: 28px 18px; }
+  .cp-matrix td, .cp-matrix th { vertical-align: middle; }
+  .cp-matrix .cell { display: grid; gap: 6px; width: 200px; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .kt .cp-why { margin: 12px 0 0; font-size: 13px; line-height: 1.4; color: var(--text-error); }
+  .cp-stepper { width: 120px; border-radius: var(--radius-button); background: var(--bg-tile); box-shadow: var(--line-edge); } /* a stand-in for the number stepper's plate, which is what a bare field sits in */
+  .cp-label { display: block; margin-bottom: 6px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-meta); }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Inputs &middot; level 1</span>
+  <h1>Range</h1>
+  <p class="kt-lead">A slider between two ends, the highest price in the filter drawer. A pill track, a lit run up to the thumb and a pink thumb with a white rim. Everything on this page is drawn by <code>design/system/components/range.css</code> through <code>index.css</code>.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <div><span class="cp-label">Maximum price <output id="a-out">55</output></span><input class="range range--tap" type="range" min="0" max="55" step="0.05" value="55" style="--fill:100%" aria-label="Maximum price" id="a-range"></div>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The control</b></td><td><code>.range</code> on an <code>&lt;input type="range"&gt;</code></td><td>the full width of its container and the height of its press; the track and the thumb are drawn inside</td></tr>
+    <tr><td><b>The track</b></td><td><code>::-webkit-slider-runnable-track</code>, <code>::-moz-range-track</code></td><td>an 8px pill in the tile's fill with its hairline edge</td></tr>
+    <tr><td><b>The lit run</b></td><td><code>--fill</code> (WebKit), <code>::-moz-range-progress</code> (Firefox)</td><td>the act pink up to the thumb; the page sets <code>--fill</code> as the value moves, Firefox draws it itself</td></tr>
+    <tr><td><b>The thumb</b></td><td><code>::-webkit-slider-thumb</code>, <code>::-moz-range-thumb</code></td><td>a 20px round, the act's pink with its stripes, a white rim and the act's glow</td></tr>
+    <tr><td><b>The press</b></td><td><code>.range--tap</code></td><td>the control's height at the 44px floor, so a thumb is easy to catch; the track keeps its 8px</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form, with one axis the container sets. The height is read from the render, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Press = the pointer of the container.</b> The plain range is 20px high, the thumb's size. Wherever a thumb is caught by a finger, the control wears <code>--tap</code> at 44px, which is the floor (WCAG 2.5.5, <code>--size-tap</code>); the filter drawer does.</li>
+    <li><b>Width = the layout.</b> A range takes the whole width of its cell.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:560px">
+    <thead><tr><th>Form</th><th>Measured</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>Plain</b></td>
+        <td><div class="cell"><input class="range" type="range" min="0" max="100" value="40" style="--fill:40%" aria-label="Plain range" data-dim><span class="cp-dim"></span></div></td>
+        <td class="kt-note">where a pointer works it and nothing needs the floor; no coloured screen draws it today</td></tr>
+      <tr><td><b>Tap</b></td>
+        <td><div class="cell"><input class="range range--tap" type="range" min="0" max="100" value="40" style="--fill:40%" aria-label="Tap range" data-dim><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the filter drawer's maximum price</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A range is for a value on a scale where the place on the scale says more than the digits: the highest price a person will look at. It does not replace the figure: the drawer pairs it with a Text field that shows the exact number and follows the thumb, so the slider answers "about where" and the field answers "exactly". Its label names the quantity ("Maximum price", microcopy 3.1-42), and the figure beside it is in the coin.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>The filter drawer's "Maximum price", at <code>--tap</code>, with its figure in a Text field beside it. One thumb, one end of a scale.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>An exact figure that is typed is a <b>Text field</b>. Choosing one of a few set values is a <b>Segmented control</b>. Turning something on or off is a <b>Switch</b>. A range of two ends is not built: two thumbs on one track would be a new component, and the drawer draws its two ends as two fields.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: drag it, press the arrow keys on it, reach it with Tab.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <div><span class="cp-label">Maximum price <output id="s-out">20</output></span><input class="range range--tap" type="range" min="0" max="55" step="0.05" value="20" style="--fill:36.4%" aria-label="Maximum price" id="s-range"></div>
+  </div></div>
+  <p>Snapshots of the same instance, dark on the left and light on the right, taken with reduced motion.</p>
+<div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/range-range-focus-dark.png" alt="Focus-visible: the ring stands off the thumb, dark theme" loading="lazy"></div><div><img src="screens/states/range-range-focus-light.png" alt="Focus-visible: the ring stands off the thumb, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible: the ring stands off the thumb</b> <code>--line-focus</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>Focus-visible is the one state <code>kit.css</code> draws</b>: a 2px ring set <code>--space-1</code> off the control, farther than the other controls' so it clears the thumb's glow. Its colour is <code>--line-focus</code>, white on the dark theme and navy on paper.</li>
+    <li><b>No hover face:</b> the thumb already carries the glow at rest, and a pointer's press is the drag itself. A range never draws a refusal: its value is always inside its ends.</li>
+    <li><b>No disabled look:</b> the range stays live (D-58); only the Button draws disabled (D-239, D-263).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ range           # re-shoot after a change to range.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ range --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry (<code>--size-check</code>, <code>--size-tap</code>, <code>--space-2</code>, <code>--radius-pill</code>) comes straight from the primitives. <code>--range-thumb-line</code> is the one component token: the white rim of the thumb on the act pink, which no line role holds.</p>
+  <p>File: <code>design/system/components/range.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;input class="range range--tap" type="range" min="0" max="55" step="0.05" value="55" style="--fill:100%" aria-label="Maximum price"&gt;
+&lt;!-- the page sets --fill on input: range.style.setProperty('--fill', (range.value / range.max * 100) + '%') --&gt;</pre>
+  <p>Stands on: <a href="../catalogue.html">the catalogue</a>, in the filter drawer. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'range', sel: '#s-range', pad: 5, states: ['focus'] }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); (b.closest('.cell') || b.parentNode).querySelector('.cp-dim').textContent = Math.round(r.height) + ' high'; });
+[['a-range', 'a-out'], ['s-range', 's-out']].forEach(function (p) { var r = document.getElementById(p[0]), o = document.getElementById(p[1]); r.addEventListener('input', function () { r.style.setProperty('--fill', (r.value / r.max * 100) + '%'); o.textContent = Math.round(r.value * 100) / 100; }); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--bg-act', '--bg-act-stripes', '--bg-tile', '--line-edge', '--line-focus', '--depth-act-glow', '--range-thumb-line'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--range-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

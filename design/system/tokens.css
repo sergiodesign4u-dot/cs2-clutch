@@ -15,8 +15,8 @@
  *   on the 51 coloured states at 1440 and 360 (a reference is counted by what lies under it: the theme's dark ground, or a coloured plate
  *   or a picture; a role on a plate keeps its value in both themes), the parent from DESIGN.md where it names one, and the threshold
  *   with the contrast measured in both themes against the grounds it can sit on (page, card, tile; paper, white card, light tile).
- *   No state tokens yet: --bg-hover, --bg-active, --color-focus and --opacity-disabled arrive at step 5 with the first component that
- *   wears them, in both themes.
+ *   The state tokens close this block: --bg-hover, --bg-active and --line-focus, made at step 5 with the Button in both themes (D-263).
+ *   There is no --opacity-disabled: disabled is drawn once, on the Button, and a control otherwise stays live and refuses (D-58).
  *
  * [data-theme="light"], the third block. The pair of every semantic role. The product is dark from its first day (design principle 4),
  *   so :root holds the dark values and the light theme overrides the semantic level only (D-258 point 1). A role whose ground does not
@@ -1010,7 +1010,7 @@
    Made only where a component's state or form finds no semantic role, each decided by the founder at its gate (step 5), each with its pair.
    A component reads its own tokens and the semantic level; nothing else reads them. */
 :root, [data-theme="dark"] {
-  /* Button, round 0 of step 5 (design/system/components/button.css) */
+  /* Button, round 0 of step 5, accepted at D-263 (design/system/components/button.css) */
   --button-primary-bg-hover: var(--color-button-hover); /* the act's fill under the pointer and on focus, a lighter cut of the act pink (founder of 4 Nov 2026), also the icon tile's lit fill; not --bg-hover,
      which lifts a ground, while this lights the act */
   --button-ghost-bg: var(--color-button-ghost); /* the ghost's translucent ground; dark the navy at .55 kit.css draws, light the light tile veil */
@@ -1021,10 +1021,53 @@
   --button-close-bg: var(--color-veil-soft); /* the close cross's square, a soft veil over a dialog's art or ground */
   --button-bg-disabled: var(--color-disabled); /* the one disabled look of the product, Exchange on My items (D-239): a lavender wash, the words muted; everywhere else a control stays live and refuses
      (D-58) */
+  /* Avatar, round 1 of step 5 (design/system/components/avatar.css) */
+  --avatar-bg-bot: var(--color-avatar-bot); /* the empty disc of a bot, which has no picture; no fill role holds it, and --color-avatar-bot is listed in tokens-audit.md under the Feed tile block,
+     not under Avatar, so it is read through this token */
+  /* Badge, round 1 of step 5 (design/system/components/badge.css) */
+  --badge-bg-bonus: var(--color-money); /* the badge's own gold fill, the tone of the unmarked badge (the 5 % pinned to Add funds, Instant); no fill role holds the coin's gold: --text-money is
+     ink and the audit counts this the one fill read of --color-money */
+  --badge-bg-bad: var(--color-error); /* the fill of a badge that says a round did not match (the Proof block, D-232); no fill role holds the refusal's red: --text-error is ink and
+     --line-error a line, and a role paints one surface */
+  /* Checkbox, round 1 of step 5 (design/system/components/checkbox.css) */
+  --check-line: var(--color-text-muted); /* the 1px ring of an unticked box: a line in the lavender of the quiet ink. No --line-* role holds it: --line-soft is the navy hairline of a divider and
+     --line-edge the white .07 edge of a tile, both fainter than the 3:1 a box needs against its tile (this ring measures 7.3:1 dark, 5.6:1 light);
+     --text-meta has the value but paints ink, not a line */
+  --check-line-lit: var(--color-button); /* the ring of an unticked box under the pointer: the act's pink as a line. --bg-act and --bg-lit are fills, and no --line-* role is pink */
+  /* Favourite toggle, round 1 of step 5 (design/system/components/favourite-toggle.css) */
+  --fav-line-pressed: var(--color-pink); /* the pink edge a pressed favourite draws in, a line at --size-edge; no --line-* role is pink (--line-pink-fade is a gradient that fades out, and
+     --text-link is ink, which a line may not read); the same pink as the pressed count, so the edge and the words read as one mark */
+  /* Media slot, round 1 of step 5 (design/system/components/media-slot.css) */
+  --media-case-glow: var(--color-pink); /* the light round a skin in a case when its screen names none: the case tile and the daily case set --case-glow, the others take the act pink; no role
+     is a light colour and --color-pink is read on several surfaces */
+  /* Note line, round 1 of step 5 (design/system/components/note-line.css) */
+  --note-refuse-mark: var(--color-error); /* the fill of the round "!" that leads a refusal line: a fill, so not --text-error (ink) or --line-error (line), and no --bg-* role carries the refusal
+     red (the Badge's bad tone is the only other fill that reads it) */
+  /* Radio, round 1 of step 5 (design/system/components/radio.css) */
+  --radio-line: var(--color-text-muted); /* the 1px ring of an unchosen radio: a line in the lavender of the quiet ink. No --line-* role holds it (--line-soft and --line-edge are fainter than
+     the 3:1 the ring needs, this one measures 7.3:1 dark, 5.6:1 light); --text-meta has the value but paints ink */
+  --radio-line-lit: var(--color-button); /* the ring of a radio under the pointer and the 2px ring of a chosen one: the act's pink as a line. --bg-act and --bg-lit are fills, and no --line-*
+     role is pink */
+  /* Range, round 1 of step 5 (design/system/components/range.css) */
+  --range-thumb-line: var(--color-text-hi); /* the white rim of the thumb, a ring drawn in solid white on the act pink; no line role is solid white on a plate (--line-focus turns navy on paper,
+     --line-lit-top is white at .25), and the thumb's pink does not change with the theme */
+  /* Status steps, round 1 of step 5 (design/system/components/status-steps.css) */
+  --steps-halo-now: var(--color-button-ghost-hover); /* the 4px halo round the step that is now, the act pink at .20 over the page; no role fits: a depth role is a shadow under art, and the Button's
+     --button-ghost-bg-hover is the Button's own token, which no other component reads; kit.css drew it with --color-button-ghost-hover, so the value does
+     not move */
+  /* Switch, round 1 of step 5 (design/system/components/switch.css) */
+  --switch-line: var(--color-line); /* the 2px ring of the track at rest, the edge of a control at rest (D-191). --line-soft is a different, bluer navy (#262950) and would redraw the track;
+     --line-edge is the white .07 edge of a tile. Measured 1.6:1 dark and 1.2:1 light against the tile: a known cost, the thumb carries the state */
+  --switch-thumb: var(--color-text-soft); /* the thumb while the switch is off, the mist grey of the body ink painted as a fill. A fill role would have to be a white mark (--bg-mark) or a plate;
+     --text-body has the value but paints ink. 12.4:1 dark, 9.2:1 light against the tile */
+  /* Text field and Text area, round 1 of step 5 (design/system/components/text-field.css, text-area.css) */
+  --text-field-line-focus: var(--color-pink); /* the pink ring a field draws inside its box under focus-visible, which kit.css has drawn in the brand pink since stage 07 (--color-pink, 5.7:1 on the
+     dark tile); no line role is pink (--line-focus is white, --bg-lit is a fill) and a role paints one surface; read by the Text field, its unit wrapper
+     and the Text area */
 }
 
 [data-theme="light"] {
-  /* Button, round 0 of step 5 (design/system/components/button.css) */
+  /* Button, round 0 of step 5, accepted at D-263 (design/system/components/button.css) */
   --button-primary-bg-hover: var(--color-button-hover); /* the same: the act keeps its pink in both themes */
   --button-ghost-bg: var(--color-paper-veil-tile); /* dark --color-button-ghost; light reuses --color-paper-veil-tile, the white veil of a tile: a navy ghost on paper would read as a hole */
   --button-ghost-bg-hover: var(--color-button-ghost-hover); /* the same: a pink wash reads on either ground */
@@ -1033,4 +1076,30 @@
   --button-depth-active: var(--shadow-button-press); /* the same: a glow, read again at step 7 */
   --button-close-bg: var(--color-navy-08); /* dark --color-veil-soft; light reuses --color-navy-08, the track's navy wash: the dark veil would sit on a white dialog as a dark square */
   --button-bg-disabled: var(--color-disabled); /* the same: a lavender wash reads on either ground */
+  /* Avatar, round 1 of step 5 (design/system/components/avatar.css) */
+  --avatar-bg-bot: var(--color-avatar-bot); /* the same: a navy disc on either ground; its ring is the role --line-ring-soft, which already has a light value */
+  /* Badge, round 1 of step 5 (design/system/components/badge.css) */
+  --badge-bg-bonus: var(--color-money); /* the same: the plate keeps its gold in both themes, and its ink --color-badge-ink is fixed, so the pair is measured on the plate itself */
+  --badge-bg-bad: var(--color-error); /* the same: the red keeps its value in both themes; the ground's dark ink on it reads 6.1:1 as kit.css measured it; the badge stands on no coloured state yet */
+  /* Checkbox, round 1 of step 5 (design/system/components/checkbox.css) */
+  --check-line: var(--color-ink-lavender); /* dark --color-text-muted; light takes --color-ink-lavender, the pair --text-meta takes, so the ring keeps its weight on paper */
+  --check-line-lit: var(--color-button); /* the same: the act's pink in both themes (4.0:1 on the dark tile, 4.1:1 on the light one) */
+  /* Favourite toggle, round 1 of step 5 (design/system/components/favourite-toggle.css) */
+  --fav-line-pressed: var(--color-pink-deep); /* dark --color-pink; light takes --color-pink-deep as --text-link does: the brand pink holds only 3.1:1 on the paper, the deep one 4.9:1 on the light tile */
+  /* Media slot, round 1 of step 5 (design/system/components/media-slot.css) */
+  --media-case-glow: var(--color-pink); /* the same: a glow in the brand pink reads on either ground; read again at step 7 with the depth roles */
+  /* Note line, round 1 of step 5 (design/system/components/note-line.css) */
+  --note-refuse-mark: var(--color-error); /* the same: the red plate holds its white mark in both themes, as the act's pink does; the plate does not change with the ground */
+  /* Radio, round 1 of step 5 (design/system/components/radio.css) */
+  --radio-line: var(--color-ink-lavender); /* dark --color-text-muted; light takes --color-ink-lavender, the pair --text-meta takes */
+  --radio-line-lit: var(--color-button); /* the same: the act's pink in both themes (4.0:1 on the dark tile, 4.1:1 on the light one) */
+  /* Range, round 1 of step 5 (design/system/components/range.css) */
+  --range-thumb-line: var(--color-text-hi); /* the same: the thumb is the act pink in both themes, so its white rim stays white; 4.9:1 white on --color-button, measured */
+  /* Status steps, round 1 of step 5 (design/system/components/status-steps.css) */
+  --steps-halo-now: var(--color-button-ghost-hover); /* the same: a pink wash at .20 reads on either ground */
+  /* Switch, round 1 of step 5 (design/system/components/switch.css) */
+  --switch-line: var(--color-line-light); /* dark --color-line; light takes --color-line-light, the pair --line-soft takes */
+  --switch-thumb: var(--color-ink-soft); /* dark --color-text-soft; light takes --color-ink-soft, the pair --text-body takes: a dark thumb on a light track */
+  /* Text field and Text area, round 1 of step 5 (design/system/components/text-field.css, text-area.css) */
+  --text-field-line-focus: var(--color-pink-deep); /* dark --color-pink; light takes the deep pink the link takes (--text-link): the brand pink holds 2.8:1 on the light tile, under the 3:1 a ring needs, the deep one 4.9:1; measured against #E8EAF4 */
 }

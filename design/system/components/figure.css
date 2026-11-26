@@ -1,0 +1,48 @@
+/* FIGURE, level 1 (atom). A value with its unit and its caption: a price, a balance, a stake, a gain, a counter. Money is gold at 900 and never moves
+ * (DESIGN.md, The Money Is Calm Rule); the missing form stands in for a value nobody has (D-124).
+ * Page: design/kit/figure.html. Stands on every coloured screen: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
+ * Responsible play, Sign in (design/kit/inventory.md, Figure).
+ * Reads: --text-hi, --text-meta, --text-body, --text-money, --text-up, --text-link, --line-focus; geometry, type and tracking from the
+ *   primitives. Two colours read in this block only, --color-down (the fall; its ink has a second reader, Published against observed, and no
+ *   role yet: see the questions of the round) and --shadow-fig-stat, wait for step 9 (tokens-audit.md).
+ * Carried from design/kit/kit.css part 4.1 (lines 2282 to 2308) at stage 08 step 5, round 1, by the decisions of step 2 (D-260) and step 4 (D-262):
+ *   the seven sizes by container named as variants (rename map row 28), the alignment variant .fig--end not carried (row 14, the commit block's
+ *   act sets its own alignment). From design/v4/account-home.css (the header's money plate), footer-home.css (the counter), case-page.css
+ *   (the figure beside an act). */
+
+/* One anatomy: the value (.fig__v) over its caption (.fig__c), the caption optional. Tone: plain (white), money (gold), soft (a quiet grey, the
+   small figure of a drop's side), up and down (a gain, a fall), missing (no value, D-124). */
+.fig { display: inline-flex; flex-direction: column; gap: var(--space-1); color: var(--text-meta); font-size: var(--size-chip); line-height: 1.2; }
+.fig__v { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-hi); font-size: var(--size-label); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.fig__c { color: var(--text-meta); font-size: var(--size-unit); }
+.fig--money .fig__v { color: var(--text-money); }
+.fig--soft .fig__v { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; }
+.fig--up .fig__v { color: var(--text-up); }
+.fig--down .fig__v { color: var(--color-down); } /* a primitive read directly: no --text-down role yet, see the report of round 1 */
+.fig--missing .fig__v { color: var(--text-meta); font-weight: 700; }
+
+/* Size is the container's density, seven steps named by the type step each reads (D-262, Q4); the plain figure is 14. 22 is the Figure's own value,
+   off the scale, the price beside an act (D-262, Q5). Each variant equals what its container drew before (rename map row 28). Spacing between
+   the coin and the number stays the container's. */
+.fig--xs .fig__v { font-size: var(--size-xs); } /* 13: a batch's figure on a narrow outcome */
+.fig--m .fig__v { font-size: var(--size-m); } /* 18: a drop's price on a phone and on a row */
+.fig--title .fig__v { font-size: var(--size-title); font-weight: 900; } /* 20: the price on a drop card and an item, the selection's sum (D-239), the account head's figures */
+.fig--l { /* 22: the money figure standing beside an act */
+  --fig-l: 22px; /* v4 case-page.css: .v4c-cost b and .v4c-net b, a money figure standing beside an act (the guest's price, the net of an open); on the modifier, not in :root: one component reads it, D-231 point 1; рішення користувача, D-209 (v4) carried by D-232 */
+}
+.fig--l { gap: var(--space-hair); }
+.fig--l .fig__v { gap: var(--space-1-5); font-size: var(--fig-l); line-height: 1.2; }
+.fig--l .fig__v > .icon--coin { font-size: var(--size-title); }
+.fig--l .fig__c { color: var(--text-body); font-size: var(--size-chip); }
+.fig--head .fig__v { font-size: var(--size-head-l); } /* 26: the deposit dock's sum */
+.fig--win .fig__v { font-size: var(--size-stat); line-height: 1.1; } /* 30: the won skin's worth on the outcome card */
+
+/* a counter: its figure large in pink with its light and its caption in small spaced capitals; the size is the container's, set by the footer on
+   --fig-stat-v, --fig-stat-c and --fig-stat-gap (v4 footer-home.css .ff-stat b and b + span, D-232) */
+.fig--stat { gap: var(--fig-stat-gap, var(--space-1-5)); }
+.fig--stat .fig__v { color: var(--text-link); font-size: var(--fig-stat-v, var(--size-xl)); text-shadow: var(--shadow-fig-stat); }
+.fig--stat .fig__c { color: var(--text-body); font-size: var(--fig-stat-c, var(--size-chip)); font-weight: 700; letter-spacing: var(--tracking-wide); line-height: 1.2; text-transform: uppercase; }
+
+/* as a link: the whole figure is the target, its colours kept; the ring is the system's on :focus-visible only, never on :focus */
+a.fig { color: inherit; text-decoration: none; }
+a.fig:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }

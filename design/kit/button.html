@@ -40,9 +40,9 @@
 <section class="kt-sec" id="anatomy">
   <h2>Anatomy</h2>
   <div class="kt-scene"><div class="cp-stage">
-    <a class="button button--primary button--l button--priced" href="#anatomy"><span class="button__label">Open</span><span class="button__price"><i class="icon icon--coin kt-coin" aria-hidden="true"></i>1 250</span></a>
-    <a class="button button--ghost button--l" href="#anatomy"><svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l9 5v10l-9 5-9-5V7z"/></svg>Sign in with Steam</a>
-    <button class="button button--icon" type="button" aria-label="Sound"><i class="icon icon--sound kt-ic" style="--i:var(--icon-sound)" aria-hidden="true"></i></button>
+    <a class="button button--primary button--l button--priced" href="#anatomy"><span class="button__label">Open</span><span class="button__price"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span></a>
+    <a class="button button--ghost button--l" href="#anatomy"><i class="icon icon--steam button__icon" aria-hidden="true"></i>Sign in with Steam</a>
+    <button class="button button--icon" type="button" aria-label="Sound"><i class="icon icon--sound" aria-hidden="true"></i></button>
     <button class="button button--close" type="button" aria-label="Close"></button>
   </div></div>
   <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
@@ -79,7 +79,7 @@
         <td><div class="cell"><span class="button button--ghost button--l" data-dim>Check a round</span><span class="cp-dim"></span></div></td>
         <td class="kt-note">the second act: Sign in beside Register, a card's act, a filter</td></tr>
       <tr><td><b>Icon tile</b></td>
-        <td colspan="3"><div class="cell"><span class="button button--icon" data-dim><i class="icon icon--search kt-ic" style="--i:var(--icon-search)" aria-hidden="true"></i></span><span class="cp-dim"></span><span class="cp-empty">One size: the tile is <code>--size-tile</code>; at <code>--tap</code> it grows to the 44px floor in a toolbar.</span></div></td>
+        <td colspan="3"><div class="cell"><span class="button button--icon" data-dim><i class="icon icon--search" aria-hidden="true"></i></span><span class="cp-dim"></span><span class="cp-empty">One size: the tile is <code>--size-tile</code>; at <code>--tap</code> it grows to the 44px floor in a toolbar.</span></div></td>
         <td class="kt-note">the rail's sound and language, the catalogue's Search and Filters</td></tr>
       <tr><td><b>Close</b></td>
         <td colspan="3"><div class="cell"><span class="button button--close" data-dim aria-label="Close"></span><span class="cp-dim"></span><span class="cp-empty">One size: <code>--size-close</code>. A close never comes in S or L: it is the layer's, not the zone's.</span></div></td>
@@ -89,9 +89,9 @@
   <h3>Content</h3>
   <div class="kt-scene"><div class="cp-stage">
     <span class="button button--primary button--m">Label</span>
-    <span class="button button--ghost button--m"><i class="icon icon--gift button__icon kt-ic" style="--i:var(--icon-gift)" aria-hidden="true"></i>Glyph and label</span>
-    <span class="button button--primary button--l button--priced"><span>Open</span><span class="button__price"><i class="icon icon--coin kt-coin" aria-hidden="true"></i>1 250</span></span>
-    <span class="button button--ghost button--m button--name"><i class="icon icon--steam button__icon kt-ic" style="--i:var(--icon-steam)" aria-hidden="true"></i>Steam</span>
+    <span class="button button--ghost button--m"><i class="icon icon--gift button__icon" aria-hidden="true"></i>Glyph and label</span>
+    <span class="button button--primary button--l button--priced"><span>Open</span><span class="button__price"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span></span>
+    <span class="button button--ghost button--m button--name"><i class="icon icon--steam button__icon" aria-hidden="true"></i>Steam</span>
     <span class="button button--primary button--l button--priced" aria-busy="true"><span>Rolling</span><span class="button__dots"><i></i><i></i><i></i></span></span>
   </div></div>
   <ul class="kt-list">
@@ -100,8 +100,8 @@
     <li><code>--stack</code> (new at D-260): a glyph over its label under 600px, the four acts of the selection bar. <code>--fold</code>: the label folds to the glyph under 600px, Add funds. Narrow the window to see both.</li>
   </ul>
   <div class="kt-scene"><div class="cp-stage">
-    <span class="button button--ghost button--s button--stack"><i class="icon icon--swap kt-ic" style="--i:var(--icon-swap)" aria-hidden="true"></i>Exchange</span>
-    <span class="button button--primary button--m button--fold"><i class="icon icon--dollar button__icon kt-ic" style="--i:var(--icon-dollar)" aria-hidden="true"></i><span class="button__label">Add funds</span></span>
+    <span class="button button--ghost button--s button--stack"><i class="icon icon--swap" aria-hidden="true"></i>Exchange</span>
+    <span class="button button--primary button--m button--fold"><i class="icon icon--dollar button__icon" aria-hidden="true"></i><span class="button__label">Add funds</span></span>
   </div></div>
 </section>
 
@@ -120,14 +120,13 @@
 
 <section class="kt-sec" id="states">
   <h2>States</h2>
-  <p class="kt-note">A glyph inside a button is the Icon atom's, built in round 1; until then the stand draws it with its own helper, the same mask.</p>
   <p>Live at rest, on this page's theme: point at them, press them, reach them with Tab.</p>
   <div class="kt-scene"><div class="cp-stage">
     <button class="button button--primary button--l" type="button" id="s-primary">Open</button>
     <button class="button button--primary button--l" type="button" id="s-primary-off" disabled>Exchange</button>
     <button class="button button--primary button--l" type="button" id="s-primary-busy" aria-busy="true">Rolling<span class="button__dots"><i></i><i></i><i></i></span></button>
     <button class="button button--ghost button--l" type="button" id="s-ghost">Sign in</button>
-    <button class="button button--icon" type="button" id="s-icon" aria-label="Search"><i class="icon icon--search kt-ic" style="--i:var(--icon-search)" aria-hidden="true"></i></button>
+    <button class="button button--icon" type="button" id="s-icon" aria-label="Search"><i class="icon icon--search" aria-hidden="true"></i></button>
     <button class="button button--close" type="button" id="s-close" aria-label="Close"></button>
   </div></div>
   <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot once on the primary; after it, only a named difference.</p>

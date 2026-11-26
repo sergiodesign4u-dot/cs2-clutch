@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Checkbox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-tile { position: relative; display: grid; justify-items: center; gap: 8px; width: 150px; box-sizing: border-box; padding: 16px 12px 12px; border-radius: var(--radius-card); background: var(--bg-tile-veil); box-shadow: var(--line-edge); color: var(--text-body); font-size: 14px; font-weight: 700; cursor: pointer; }
+  .cp-tile > .radio { position: absolute; top: 10px; right: 10px; }
+  .cp-tile .cp-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--bg-veil); box-shadow: var(--line-edge); color: var(--text-hi); font-size: 20px; font-weight: 900; }
+  .cp-tile > b { color: var(--text-hi); font-weight: 700; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Inputs &middot; level 1</span>
+  <h1>Checkbox</h1>
+  <p class="kt-lead">A box that holds a yes, with its label or alone: the Field's declaration, a card's tick, a filter's row. It is the native checkbox drawn by one file, so the keyboard and a screen reader keep a real control. Everything on this page is drawn by <code>design/system/components/checkbox.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <label class="check"><input type="checkbox"><span>I agree to the Terms of use and the Privacy policy.</span></label>
+    <label class="check"><input type="checkbox" checked><span>AK-47 Slate, Field-Tested</span></label>
+    <label class="check"><input type="checkbox" aria-label="Select AWP Asiimov"></label>
+    <label class="check"><input type="checkbox" checked aria-label="Select M4A4 Temukau"></label>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The press</b></td><td><code>.check</code> (a <code>label</code>)</td><td>the gap to the words, the body ink, the 14px line; the whole label is the target</td></tr>
+    <tr><td><b>The box</b></td><td><code>.check &gt; input</code></td><td>the native input drawn by the file: size <code>--size-check</code>, corner <code>--radius-xs</code>, the tile's fill and a hairline ring</td></tr>
+    <tr><td><b>The tick</b></td><td><code>input:checked::after</code></td><td>a drawn corner in white on the act's pink; the box fills when it is ticked</td></tr>
+    <tr><td><b>The words</b></td><td>any element after the input, or none</td><td>the line beside the box: a name, a declaration with its links, a price in a Figure</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form, no size and no emphasis: the box is the same everywhere, and the container sets the row around it. The size below is read from the rendered box, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Content = with its label, or alone.</b> With a label the words ride in the press, so a thumb has a wide target. Alone (an item card's tick, the cookie layer) the box carries an <code>aria-label</code> and nothing else.</li>
+    <li><b>Width and the 44px press = the container's.</b> The filter drawer lifts its rows to <code>--size-tap</code>; the Field's declaration is a roomy row of its own. Neither is a variant of the box.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:560px">
+    <thead><tr><th>Content</th><th>At rest</th><th>Ticked</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>With its label</b></td>
+        <td><div class="cell"><label class="check"><input type="checkbox" data-dim><span>Sample</span></label><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><label class="check"><input type="checkbox" checked data-dim><span>Sample</span></label><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the filter drawer's rows, the Field's declaration</td></tr>
+      <tr><td><b>Alone</b></td>
+        <td><div class="cell"><label class="check"><input type="checkbox" aria-label="Select" data-dim></label><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><label class="check"><input type="checkbox" checked aria-label="Select" data-dim></label><span class="cp-dim"></span></div></td>
+        <td class="kt-note">an item card's tick; the cookie layer's yes (node 0.4)</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A checkbox holds a yes that stays until the person changes it and that several rows may hold at once: "I agree to the Terms of use and the Privacy policy", a skin picked for the selection bar, a filter that narrows the shelf. An 18+ declaration and the terms are two checkboxes and no press goes through until both are set (D-26, D-58); the control stays live so the refusal can say what is missing. The words say what the yes is for, in the voice's plain verbs, never a word for the feeling.</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>A declaration before sign in: the box and the sentence it confirms, in one label. Or a skin picked in My items: the box alone on the card's corner, named for a screen reader.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>One choice among a few is a <b>Radio</b> in a tile, or a <b>Segmented control</b> for a short run. A setting that takes effect the moment it flips is a <b>Switch</b>. A press that does something is a <b>Button</b>. A question that opens its answer is a <b>Disclosure</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at them, press them, reach them with Tab.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <label class="check" id="s-check"><input type="checkbox"><span>I agree to the Terms of use</span></label>
+    <label class="check" id="s-check-on"><input type="checkbox" checked><span>I agree to the Terms of use</span></label>
+    <label class="check" id="s-check-alone"><input type="checkbox" aria-label="Select AWP Asiimov"></label>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot once on the label form; the ticked box is a twin at rest, set by the product's own <code>:checked</code>, and focus is shot on the native input, the element Tab reaches.</p>
+  <div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/checkbox-label-hover-dark.png" alt="Hover: the ring of an unticked box turns pink, dark theme" loading="lazy"></div><div><img src="screens/states/checkbox-label-hover-light.png" alt="Hover: the ring of an unticked box turns pink, light theme" loading="lazy"></div></div><figcaption><b>Hover: the ring of an unticked box turns pink</b> <code>--check-line-lit</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/checkbox-label-focus-dark.png" alt="Focus-visible: the ring on the native box, dark theme" loading="lazy"></div><div><img src="screens/states/checkbox-label-focus-light.png" alt="Focus-visible: the ring on the native box, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible: the ring on the native box</b> <code>--line-focus</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/checkbox-label-checked-dark.png" alt="Ticked: the product's own state (:checked), dark theme" loading="lazy"></div><div><img src="screens/states/checkbox-label-checked-light.png" alt="Ticked: the product's own state (:checked), light theme" loading="lazy"></div></div><figcaption><b>Ticked: the product's own state (:checked)</b> <code>--bg-act, --text-on-plate</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> the box alone has the same states as the box with its label, and the press is the same ring on the same input. A ticked box under the pointer keeps its fill: hover lights only an unticked ring.</li>
+    <li><b>No active state and no disabled look.</b> <code>kit.css</code> draws no press on a checkbox and none is added. A checkbox stays live and refuses with its reason in the line beside it (D-58), so it draws no refusal ring of its own: the refusal ring (<code>--line-error</code>, D-260) belongs to the Field's declaration row.</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ checkbox           # re-shoot after a change to checkbox.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ checkbox --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. The box's fill, the label's ink, the act's fill and the tick come from the semantic level; the two rings, at rest and under the pointer, are component tokens because no line role is lavender or pink (decided at the round's gate). Geometry, type and motion come straight from the primitives.</p>
+  <p>File: <code>design/system/components/checkbox.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;label class="check"&gt;&lt;input type="checkbox"&gt;&lt;span&gt;I agree to the Terms of use and the Privacy policy.&lt;/span&gt;&lt;/label&gt;
+&lt;label class="check"&gt;&lt;input type="checkbox" aria-label="Select AK-47 Slate, Field-Tested"&gt;&lt;/label&gt;</pre>
+  <p>Stands on: <a href="../catalogue.html">the catalogue</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>. The Field's declaration (Deposit, the case screen's commit, Sign in) wears the same class with its own row around it. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'label', sel: '#s-check', states: ['hover', 'focus', 'checked'], checked: '#s-check-on', tab: '#s-check input' }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.closest('.cell').querySelector('.cp-dim').textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ['--text-body', '--text-on-plate', '--bg-tile', '--bg-act', '--line-focus', '--check-line', '--check-line-lit'];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(check|radio|switch)-/.test(n) ? 'component' : /^--line-focus/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

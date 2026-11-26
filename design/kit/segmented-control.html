@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Segmented control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-stack { display: grid; gap: 22px; justify-items: stretch; padding: 28px 18px; }
+  .cp-cap { font-size: 11px; color: var(--text-meta); }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-run { display: flex; gap: var(--space-2); overflow-x: auto; max-width: 100%; }
+  .cp-run > .seg__opt { flex: none; text-decoration: none; white-space: nowrap; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Acts &middot; level 1</span>
+  <h1>Segmented control</h1>
+  <p class="kt-lead">Exclusive options in a row, one chosen and filled: how many cases to open, a preset amount, the sort. In two sizes. Everything on this page is drawn by <code>design/system/components/segmented-control.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="seg" role="group" aria-label="Cases to open"><button class="seg__opt" type="button" aria-pressed="true">1</button><button class="seg__opt" type="button" aria-pressed="false">2</button><button class="seg__opt" type="button" aria-pressed="false">3</button><button class="seg__opt" type="button" aria-pressed="false">4</button><button class="seg__opt" type="button" aria-pressed="false">5</button></div>
+    <div class="seg seg--s" role="group" aria-label="Sort by"><button class="seg__opt" type="button" aria-pressed="true">Newest first</button><button class="seg__opt" type="button" aria-pressed="false">Highest value</button></div>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The row</b></td><td><code>.seg</code></td><td>the gap between options (8px); the row hugs its options and never stretches</td></tr>
+    <tr><td><b>An option</b></td><td><code>.seg__opt</code> on a button, or on a link where the option goes to a section</td><td>the dark tile veil, its edge (<code>--line-edge</code>), the corner (the Button's), the label's weight, digits that stay one width</td></tr>
+    <tr><td><b>Chosen</b></td><td><code>[aria-pressed="true"]</code> on a button, <code>[aria-current="true"]</code> on a link</td><td>the act's pink with its stripes and glow, the label white on it; set by the product, never by a class</td></tr>
+    <tr><td><b>Size</b></td><td><code>.seg--s</code> on the row</td><td>the small button's height and label (32px, small caps), the press area kept at 44px</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One axis, size, and one content rule. Heights below are read from the rendered options, not from the stylesheet.</p>
+  <ul class="kt-list">
+    <li><b>Size = the weight of the choice beside it.</b> M 44 is the choice that sits beside the act it feeds: the count of cases beside Open, the presets of an amount. S 32 is a quiet key beside a list: the sort over the items (D-243, the founder at My items called the sort buttons "such huge buttons"). Below 44px the press area stays 44px.</li>
+    <li><b>Content = a number, a word or a section.</b> A count or an amount is a digit that keeps its width. A key is a short phrase. A section is a link, so the option is an anchor and its chosen state is <code>aria-current</code>: the category bar's run.</li>
+    <li><b>Width = the layout.</b> An option never grows to fill; a row of six presets wraps to a second row at 360 rather than leave the page, which its container asks for (<code>.amount__presets</code>).</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:560px">
+    <thead><tr><th>Size</th><th>Chosen</th><th>Not chosen</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>M 44</b></td>
+        <td><div class="cell"><span class="seg"><span class="seg__opt" aria-pressed="true" data-dim>1</span></span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="seg"><span class="seg__opt" aria-pressed="false" data-dim>2</span></span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the case screen's count, the deposit's presets</td></tr>
+      <tr><td><b>S 32</b></td>
+        <td><div class="cell"><span class="seg seg--s"><span class="seg__opt" aria-pressed="true" data-dim>Newest first</span></span><span class="cp-dim"></span></div></td>
+        <td><div class="cell"><span class="seg seg--s"><span class="seg__opt" aria-pressed="false" data-dim>Highest value</span></span><span class="cp-dim"></span></div></td>
+        <td class="kt-note">the sort over My items</td></tr>
+    </tbody>
+  </table></div></div>
+  <h3>Content</h3>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="seg amount__presets" role="group" aria-label="Presets"><button class="seg__opt" type="button" aria-pressed="false">$5</button><button class="seg__opt" type="button" aria-pressed="true">$10</button><button class="seg__opt" type="button" aria-pressed="false">$20</button><button class="seg__opt" type="button" aria-pressed="false">$50</button></div>
+    <div class="cp-run" role="group" aria-label="Categories"><a class="seg__opt" href="#variants" aria-current="true">Daily</a><a class="seg__opt" href="#variants">Featured</a><a class="seg__opt" href="#variants">New</a></div>
+  </div></div>
+  <p class="kt-note">The second row is the category bar's run, an option as a link. Its chosen look used to be a rule of the category bar (<code>.catbar__run &gt; .seg__opt[aria-current="true"]</code>, rename map row 12). It draws the very background and shadow of the option's own chosen rule, measured identical at rest and in focus, so it moved into the atom: the chosen look is written once and answers to <code>aria-pressed</code> and <code>aria-current</code>. The bar keeps its own scroller rules (no wrap, no underline, an inner ring), which are its layout.</p>
+</section>
+
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>Use it for a choice where exactly one of a few stands and the answer is visible at once: 1 to 5 cases, $5 to $200, newest or highest value. The chosen option shows the answer, so nothing else repeats it. Its words are short, the numbers the case's own, and the money amounts carry their sign. A choice that changes what is shown below it, such as a sort, is applied at once; a choice that feeds an act, such as the count, waits for the act (design principle 3: cost never hides inside the excitement, so the price beside the count reads the count).</p>
+</section>
+
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>"Cases to open" with 1 to 5 beside the open act: one chosen, the rest a tap away, the price following the choice. Or the sort over the items: Newest first, Highest value.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>Switching between sibling views of one subject, with a hairline under the row, is <b>Tabs</b>. Narrowing a list by many conditions at once is a <b>Filter chip</b> and a <b>Checkbox</b>. One value out of a long list is a <b>Popover menu</b>. A number you type is a <b>Text field</b>. An act is a <b>Button</b>.</p></div>
+  </div>
+</section>
+
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: point at them, press them, reach them with Tab. Chosen is set by the product (<code>aria-pressed</code>, <code>aria-current</code>) and is not a pointer state, so it is shown at rest above and shot only where it carries the ring.</p>
+  <div class="kt-scene"><div class="cp-stage">
+    <div class="seg" role="group" aria-label="Cases to open, live"><button class="seg__opt" type="button" aria-pressed="true" id="s-on">1</button><button class="seg__opt" type="button" aria-pressed="false" id="s-off">2</button><button class="seg__opt" type="button" aria-pressed="false">3</button></div>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on. The base set is shot once on an option that is not chosen at size M; after it, only a named difference.</p>
+<div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/segmented-control-off-hover-dark.png" alt="Hover, dark theme" loading="lazy"></div><div><img src="screens/states/segmented-control-off-hover-light.png" alt="Hover, light theme" loading="lazy"></div></div><figcaption><b>Hover</b> <code>--bg-hover, --line-edge-lit</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/segmented-control-off-active-dark.png" alt="Active, dark theme" loading="lazy"></div><div><img src="screens/states/segmented-control-off-active-light.png" alt="Active, light theme" loading="lazy"></div></div><figcaption><b>Active</b> <code>--bg-active, --line-edge-lit</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/segmented-control-off-focus-dark.png" alt="Focus-visible, dark theme" loading="lazy"></div><div><img src="screens/states/segmented-control-off-focus-light.png" alt="Focus-visible, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible</b> <code>--line-focus</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/segmented-control-on-focus-dark.png" alt="Focus-visible on the chosen option: the ring round the pink, dark theme" loading="lazy"></div><div><img src="screens/states/segmented-control-on-focus-light.png" alt="Focus-visible on the chosen option: the ring round the pink, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible on the chosen option: the ring round the pink</b> <code>--line-focus, --bg-act, --depth-act-glow</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>The same answer, said once:</b> size S and the link form press, lift and ring as size M does; the ring is the same <code>--line-focus</code> two pixels off the edge. Only the category bar draws its ring inside the option, because its run scrolls and an outer ring is cut (the bar's own rule).</li>
+    <li><b>The chosen option has no hover and no press.</b> It is already the answer; a lift on it would say it is not.</li>
+    <li><b>New at this step.</b> <code>kit.css</code> drew no hover or press on an option; the two states here are the state tokens of D-263 applied to a key: a ground and a brighter edge, the face does not move and no border appears.</li>
+    <li><b>No disabled look.</b> An option that cannot be chosen stays live and refuses with its reason beside it (D-58).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ segmented-control           # re-shoot after a change to segmented-control.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ segmented-control --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token and no colour primitive: every colour is a role. The chosen label is <code>--text-on-plate</code>, white on the act's pink in both themes (the same white as <code>--text-hi</code> in dark, which is why nothing moves there). Geometry (<code>--size-tap</code>, <code>--size-button-s</code>, <code>--radius-button</code>, <code>--space-*</code>) and type come straight from the primitives.</p>
+  <p>File: <code>design/system/components/segmented-control.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;div class="seg" role="group" aria-label="Cases to open"&gt;
+  &lt;button class="seg__opt" type="button" aria-pressed="true"&gt;1&lt;/button&gt;
+  &lt;button class="seg__opt" type="button" aria-pressed="false"&gt;2&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="seg seg--s" role="group" aria-labelledby="sort-l"&gt;...&lt;/div&gt;
+&lt;a class="seg__opt" href="#cat-daily" aria-current="true"&gt;Daily&lt;/a&gt;</pre>
+  <p>Stands on: <a href="../case.html">the case screen</a>, <a href="../deposit.html">Deposit</a>, <a href="../account.html">My items</a>, <a href="../catalogue.html">the catalogue</a>. The catalogue wears the option as a link inside its category bar. Until step 8 those screens still read <code>kit.css</code>; step 6 moves them onto this file by the rename map (row 12: the category bar's chosen rule is the option's own).</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'off', sel: '#s-off', states: ['hover', 'active', 'focus'] },
+  { id: 'on', sel: '#s-on', states: ['focus'] }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.closest('.cell').querySelector('.cp-dim').textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ["--bg-tile-veil", "--bg-act", "--bg-act-stripes", "--bg-hover", "--bg-active", "--text-hi", "--text-on-plate", "--line-edge", "--line-edge-lit", "--line-focus", "--depth-act-glow"];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(steps|tabs|seg)-/.test(n) ? 'component' : /^--line-focus|^--bg-(hover|active)$/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>

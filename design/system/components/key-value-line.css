@@ -1,0 +1,27 @@
+/* KEY-VALUE LINE, level 1 (atom). A key in small caps and its value: the facts of a drop (Chance, Tickets), a total, a payment's lines, a limit's rule.
+ * Page: design/kit/key-value-line.html. Stands on six coloured screens: the case screen, Deposit, My items, Provably fair, Responsible play,
+ * Sign in (design/kit/inventory.md, Key-value line).
+ * Reads: --text-hi, --text-meta, --text-body, --text-money, --line-soft; geometry, type and tracking from the primitives.
+ * Carried from design/kit/kit.css part 4.1 (lines 2443 to 2450) at stage 08 step 5, round 1, by the decisions of step 2 (D-260): the fact form
+ *   (.kv--fact, rename map row 23, from .drop-card .kv, .drop-card .kv__k and .drop-card__t .kv__v) and the size M (.kv--m, row 24, from
+ *   .record__lines > .kv). From design/v4/case-blocks.css. */
+
+/* One anatomy: the key (.kv__k) and its value (.kv__v) on one baseline, the value at the end. Content: a line, a total (a rule over it), a money
+   total, a rule (the key on a fixed column, the value in the body ink, a limit's direction), a value nobody has (D-124). */
+.kv { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); font-size: var(--size-chip); }
+.kv__k { color: var(--text-meta); font-size: var(--size-micro); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.kv__v { color: var(--text-hi); font-weight: 900; font-variant-numeric: tabular-nums; text-align: right; }
+.kv__v--missing { color: var(--text-meta); font-weight: 700; } /* a value that cannot be read, or has no market, the Figure's missing form (D-124): None on sale, no copy on sale to buy; D-239 */
+.kv--money .kv__v { color: var(--text-money); } /* a value that is money, in the money colour (the cash out's You receive, D-239) */
+.kv--total { padding-top: var(--space-2); border-top: var(--size-hairline) solid var(--line-soft); font-size: var(--size-label); }
+.kv--rule { justify-content: flex-start; } .kv--rule .kv__k { flex: 0 0 calc(2 * var(--size-tap)); } .kv--rule .kv__v { color: var(--text-body); font-weight: 400; text-align: left; } /* which way a limit moves and when, Responsible play */
+
+/* Size: S is the plain line (12); M reads at the label's size, 14, the payment record's lines (rename map row 24). */
+.kv--m { font-size: var(--size-label); }
+
+/* Emphasis: fact (rename map row 23). The line of a card's facts, white and bold, the key a step larger and soft, the key pushed to the start and the
+   figure to the end; wraps when the card is narrow. A container with a tier sets --kv-tint to the tier's colour on the cell that carries it, and the
+   value takes 35 % of it into its white (the drop card's tier cell); with no tint the value is plain white. */
+.kv--fact { flex-wrap: wrap; justify-content: flex-end; gap: var(--size-edge) var(--space-2); margin: 0; padding: var(--space-3) 0 0; color: var(--text-hi); font-size: var(--size-label); font-weight: 900; line-height: 1.2; text-align: right; white-space: nowrap; }
+.kv--fact .kv__k { flex: none; margin-right: auto; color: var(--text-body); font-size: var(--size-badge-text); }
+:where(.kv--fact) .kv__v:where(:not(.kv__v--missing)) { color: color-mix(in srgb, var(--kv-tint, var(--text-hi)) 35%, var(--text-hi)); } /* zero weight: a missing or money value keeps its own colour */

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Design system, Disclosure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<!-- the system through its one entry point, as a screen links it (since step 5, round 0) -->
+<link rel="stylesheet" href="../system/index.css">
+<!-- the stand: the project's panel palette, then the stand's own styles -->
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="_page.css">
+<script>window.KIT_SECTIONS = [{ id: 'anatomy', label: 'Anatomy' }, { id: 'variants', label: 'Variants and sizes' }, { id: 'when', label: 'When to use' }, { id: 'rule', label: 'Rule and anti-rule' }, { id: 'states', label: 'States' }, { id: 'tech', label: 'In the code' }];</script>
+<script src="_nav.js"></script>
+</head>
+<body class="kt">
+<main class="kt-main"><div class="kt-wrap">
+
+<style>
+  .cp-stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: center; padding: 40px 18px; }
+  .cp-matrix td, .cp-matrix th { text-align: center; vertical-align: middle; }
+  .cp-matrix td:first-child, .cp-matrix th:first-child { text-align: left; }
+  .cp-matrix .cell { display: grid; gap: 6px; justify-items: center; }
+  .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
+  .cp-empty { font-size: 12px; color: var(--text-meta); max-width: 180px; margin: 0 auto; }
+  .cp-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+  .cp-shot { margin: 0; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); box-shadow: var(--line-edge); }
+  .cp-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+  .cp-shot figcaption { font-size: 12px; color: var(--text-meta); }
+  .cp-parts { counter-reset: part; }
+  .cp-col { display: grid; gap: 10px; width: min(100%, 640px); margin: 0 auto; padding: 24px 0; }
+  .cp-col.cp-wide { width: min(100%, 720px); }
+  .cp-matrix .disclosure { text-align: left; }
+</style>
+<header class="kt-head">
+  <span class="kt-eyebrow">Atoms &middot; Acts &middot; level 1</span>
+  <h1>Disclosure</h1>
+  <p class="kt-lead">A question that opens its answer: one row, a plus that turns to a minus, and the pink edge when it is open. It is the native <code>details</code>, so it opens without a script. Everything on this page is drawn by <code>design/system/components/disclosure.css</code> through <code>index.css</code>, the same file a screen will load.</p>
+</header>
+<section class="kt-sec" id="anatomy">
+  <h2>Anatomy</h2>
+  <div class="kt-scene"><div class="cp-col">
+    <details class="disclosure" name="cp-anatomy" open><summary>Where can I see the chance of each item?</summary><div class="disclosure__body"><p>On the case itself, before you open it: every item with its chance and its value, and the case's tested return.</p><a class="link link--arrow link--tap" href="#anatomy">What this case pays</a></div></details>
+    <details class="disclosure" name="cp-anatomy"><summary>How do I know a round was fair?</summary><div class="disclosure__body"><p>Every round has a proof you can check yourself, against the hash published before the round.</p></div></details>
+  </div></div>
+  <div class="kt-tbl"><table style="min-width:620px"><thead><tr><th>Part</th><th>Class or element</th><th>What to change there</th></tr></thead><tbody>
+    <tr><td><b>The row</b></td><td><code>.disclosure</code></td><td>the 12px corner, the row's fill (<code>--bg-row</code>) and its 1px edge</td></tr>
+    <tr><td><b>The question</b></td><td><code>summary</code></td><td>the question in 17px 700, a row of at least 64px; the whole row is the target</td></tr>
+    <tr><td><b>The mark</b></td><td><code>summary::after</code></td><td>a plus that turns half round into a minus as the answer opens, pink while open</td></tr>
+    <tr><td><b>The edges</b></td><td><code>::before</code>, <code>::after</code> of the row</td><td>two pink hairlines that fade in at the top and bottom of an open row</td></tr>
+    <tr><td><b>The answer</b></td><td><code>.disclosure__body</code></td><td>the sunken plate (<code>--bg-well</code>) and the body ink at 16px; one paragraph</td></tr>
+    <tr><td><b>A link in it</b></td><td><code>.disclosure__body &gt; .link</code></td><td>one onward link at the foot, a Text link with <code>--arrow</code> and <code>--tap</code></td></tr>
+  </tbody></table></div>
+</section>
+<section class="kt-sec" id="variants">
+  <h2>Variants and sizes</h2>
+  <p>One form: no emphasis and no size to pick. The rules below are what stays the same, so a screen does not invent a second kind of question row. Heights are read from the rendered rows.</p>
+  <ul class="kt-list">
+    <li><b>Open is the product's own.</b> <code>[open]</code> on the <code>details</code>, set by the reader or by the page; never a class. While the product's script slides an answer shut the row carries <code>.is-closing</code> and already looks shut.</li>
+    <li><b>A group opens one at a time.</b> Rows that share a <code>name</code> attribute close each other; the first one may start open.</li>
+    <li><b>Width is the layout.</b> The row fills its container and never sets its own width; its height is the question's lines plus the answer.</li>
+    <li><b>The answer holds one paragraph and at most one link.</b> More than that is a page, and the row links to it.</li>
+  </ul>
+  <div class="kt-scene"><div class="kt-tbl"><table class="cp-matrix" style="min-width:680px">
+    <thead><tr><th>Row</th><th>Closed</th><th>Open, one paragraph</th><th>Open, with a link</th></tr></thead>
+    <tbody><tr><td><b>Disclosure</b></td>
+      <td><div class="cell"><details class="disclosure" style="width:240px" data-dim><summary>How is it counted?</summary></details><span class="cp-dim"></span></div></td>
+      <td><div class="cell"><details class="disclosure" style="width:240px" open data-dim><summary>How is it counted?</summary><div class="disclosure__body"><p>Counted since launch.</p></div></details><span class="cp-dim"></span></div></td>
+      <td><div class="cell"><details class="disclosure" style="width:240px" open data-dim><summary>How is it counted?</summary><div class="disclosure__body"><p>Counted since launch.</p><a class="link link--arrow link--tap" href="#variants">What this case pays</a></div></details><span class="cp-dim"></span></div></td></tr></tbody>
+  </table></div></div>
+
+</section>
+<section class="kt-sec" id="when">
+  <h2>When to use</h2>
+  <p>A disclosure holds the questions a person asks before they trust the place: where the chance of an item is, how a round is checked, what happens to a win. The answer is short and the row stays a question in the reader's own words (voice: a straight answer from someone on the scene). It is the one place where the product may fold text, so what is folded must be an explanation, never the price: odds, cost and expected value stand open wherever money is about to be spent (design principle 3), and a disclosure only leads to them with its link.</p>
+
+</section>
+<section class="kt-sec" id="rule">
+  <h2>Rule and anti-rule</h2>
+  <div class="kt-pair">
+    <div class="kt-panel"><h3>Use it</h3><p>Home's "Questions and answers": a stack of rows in one group, each with a paragraph and one onward link ("What this case pays"). The footer's questions are the same row.</p></div>
+    <div class="kt-panel"><h3>Take another component</h3><p>A row that only goes somewhere is a <b>Text link</b>. An act (open, sell, sign in) is a <b>Button</b>. A fact that must be read before spending, the chance or the cost, is <b>Prose</b> or a <b>Key-value line</b> left open. Choosing one of a few is a <b>Segmented control</b> or <b>Tabs</b>.</p></div>
+  </div>
+
+</section>
+<section class="kt-sec" id="states">
+  <h2>States</h2>
+  <p>Live at rest, on this page's theme: press the row, reach it with Tab. Open is the product's own state, the <code>[open]</code> attribute.</p>
+  <div class="kt-scene"><div class="cp-col cp-wide">
+    <details class="disclosure" id="s-closed"><summary>How do I know a round was fair?</summary><div class="disclosure__body"><p>Every round has a proof you can check yourself, against the hash published before the round.</p></div></details>
+    <details class="disclosure" id="s-open" open><summary>Where can I see the chance of each item?</summary><div class="disclosure__body"><p>On the case itself, before you open it: every item with its chance and its value, and the case's tested return.</p><a class="link link--arrow link--tap" href="#states">What this case pays</a></div></details>
+  </div></div>
+  <p>Snapshots of the same instances, dark on the left and light on the right, taken with reduced motion so each shows the face the state settles on.</p>
+<div class="cp-shots"><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/disclosure-row-focus-dark.png" alt="Focus-visible: the ring inside the row's corner, dark theme" loading="lazy"></div><div><img src="screens/states/disclosure-row-focus-light.png" alt="Focus-visible: the ring inside the row's corner, light theme" loading="lazy"></div></div><figcaption><b>Focus-visible: the ring inside the row's corner</b> <code>--line-focus</code></figcaption></figure><figure class="cp-shot"><div class="kt-pair"><div><img src="screens/states/disclosure-row-open-dark.png" alt="Open, the product's own ([open]): the pink edges, the minus, the answer in its well, dark theme" loading="lazy"></div><div><img src="screens/states/disclosure-row-open-light.png" alt="Open, the product's own ([open]): the pink edges, the minus, the answer in its well, light theme" loading="lazy"></div></div><figcaption><b>Open, the product's own ([open]): the pink edges, the minus, the answer in its well</b> <code>--line-pink-fade, --text-link, --bg-well, --text-body</code></figcaption></figure></div>
+  <ul class="kt-list">
+    <li><b>No hover and no press.</b> kit.css draws neither on the row, so none is shot: the row answers the pointer with the cursor alone, and the 64px row is the target. Whether a row should light under the pointer is a question for the founder (<code>--bg-hover</code> exists); until it is answered the stand shows what the product draws.</li>
+    <li><b>No disabled look.</b> A question that cannot open is not drawn; the page leaves it out (D-58).</li>
+  </ul>
+  <pre>node design/kit/tools/shoot-states.js http://localhost:8765/ disclosure           # re-shoot after a change to disclosure.css or its tokens
+node design/kit/tools/shoot-states.js http://localhost:8765/ disclosure --check   # step 9: fails if a snapshot drifted</pre>
+</section>
+
+<section class="kt-sec" id="tech">
+  <h2>In the code</h2>
+  <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Every part found a semantic role, so no colour primitive is read and no component token was needed. Geometry and type come from the primitives (<code>--size-row</code>, <code>--size-mark</code>, <code>--size-lead</code>, <code>--radius-card</code>, <code>--space-*</code>), the motion from <code>--motion-ease-disclosure</code>. The slide of the answer is the product's script (<code>motion.js</code>); without it the row opens at once.</p>
+  <p>File: <code>design/system/components/disclosure.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
+  <pre>&lt;details class="disclosure" name="faq" open&gt;
+  &lt;summary&gt;Where can I see the chance of each item?&lt;/summary&gt;
+  &lt;div class="disclosure__body"&gt;
+    &lt;p&gt;On the case itself, before you open it ...&lt;/p&gt;
+    &lt;a class="link link--arrow link--tap" href="..."&gt;What this case pays&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/details&gt;</pre>
+  <p>Stands on: <a href="../index.html">Home</a>, <a href="../deposit.html">Deposit</a>, <a href="../fair.html">Provably fair</a>. Until step 8 those screens still read <code>kit.css</code>; step 6 moves their markup onto this file's forms by the rename map.</p>
+</section>
+<script>
+window.KIT_SHOTS = [
+  { id: 'row', sel: '#s-closed', tab: '#s-closed > summary', open: '#s-open', states: ['focus', 'open'] }
+];
+document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoundingClientRect(); b.closest('.cell').querySelector('.cp-dim').textContent = Math.round(r.width) + ' x ' + Math.round(r.height); });
+</script>
+<script src="_tokens.js"></script>
+<script>
+KitTokens.load().then(function () {
+  var T = ["--bg-row", "--line-edge", "--line-pink-fade", "--line-focus", "--text-hi", "--text-link", "--text-body", "--bg-well"];
+  var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
+  document.getElementById('tok-body').innerHTML = T.map(function (n) {
+    var kind = /^--(fav|button)-/.test(n) ? 'component' : /^--(line-focus|bg-hover|bg-active)/.test(n) ? 'state' : 'semantic';
+    var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };
+    return '<tr><td><code>' + n + '</code></td><td>' + kind + '</td><td><code>' + v(d) + '</code></td><td><code>' + v(l) + '</code></td></tr>'; }).join('');
+  d.remove(); l.remove();
+});
+</script>
+
+</div></main>
+</body>
+</html>
