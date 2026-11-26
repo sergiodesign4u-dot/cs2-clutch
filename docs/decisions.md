@@ -7845,3 +7845,33 @@ The tested RTP, 94.2 %, and the expected value, 11.68, hold, so Home's and the c
 - White .05 for the edge: three families would keep it, nine would change.
 - `--color-down` for a refusal: it is the colour of money that fell.
 - Keeping the item card's and Daily's own button padding: a block restyling an atom is the drift this stage removes.
+
+## D-261. The values in two levels: tokens.css with 101 roles and a light pair, base.css and art.css
+
+**Date:** 2026-11-26. **Stage:** 08, step 3. **Decided by:** the founder, on the step's review page: "принято" (accepted).
+
+**Decided.**
+1. **`design/system/tokens.css` in two levels.** The primitive level carries the 498 values of `kit.css` `:root` line for line with their origin comments. Three changes, each named in `tokens-audit.md`:
+   - `--shadow-tile-edge` at .07, by `D-260`; it reaches `--shadow-shell` too.
+   - `--size-banner-v4` and `--size-drop` dropped; nothing alive reads them.
+   - The 55 `--art-*` pictures moved to `design/system/art.css`, by `D-259`.
+   The browser read all 554 names in both files at 1440 and 360: 550 identical, the other 4 exactly these changes.
+2. **101 semantic roles.** A role is a job that repeats in two blocks or more and paints one surface. The counts are four kinds:
+   - ink: 22 `--text-*`;
+   - fill: 55 `--bg-*`;
+   - line: 9 `--line-*`;
+   - depth: 15 `--depth-*`, colour with no contrast threshold.
+   Each role's comment carries its readers, measured on the 51 states, its parent from `DESIGN.md`, and its threshold with the contrast in both themes. A reference was counted by what lies under it, so white on the theme's ground (`--text-hi`) and white on a coloured plate (`--text-on-plate`) are two roles.
+3. **The light pair, `[data-theme="light"]`, for every role.**
+   - 44 roles take another value: 28 of them a new one, named in `tokens-audit.md`, and 9 a value the kit already has.
+   - 57 keep theirs, each saying why: a plate, the rarity ladder but its ends, the scrim, the foil, depth until step 7.
+   The new light values are proposed, not decided: they are reviewed at step 4 before any component reads them.
+4. **`design/system/base.css`:** the reset, the page's type and ground, the shell's layout and column, and the idle pause, carried rule for rule. `.page` reads `--bg-page` and `--text-base`. The stand's `--nav-w` and `#sidebar` stay until step 6 decides.
+5. **Not taken yet.** 13 states wait for step 5. 151 colours read in one block wait for step 9. 6 colours with one reader per surface stay primitives.
+
+**Found, for step 4, not decided:** `--shadow-tile-lit-soft` is declared twice in `kit.css`, at .20 and at .22, and the second wins everywhere. Rarity 4 and 6 hold 2.9:1 on the dark tile, under 3:1. The step 1 audit counted `.r1` to `.r7`, `[data-icon]`, `[data-art]` and `[data-flag]` as alive; no state wears them, and the audit is corrected in place.
+
+**Rejected.**
+- Renaming the primitives to hue steps: a third layer of renames that no theme needs.
+- Leaving shadows and brand plates outside the semantic level: components would read colour around it.
+- Mirroring the dark values for the light theme: the brand pink, the money gold and the greens fail 4.5:1 on paper.

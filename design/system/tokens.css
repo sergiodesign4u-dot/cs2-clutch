@@ -1,0 +1,990 @@
+/* design/system/tokens.css, stage 08 step 3 (D-258, D-260). The values of the product in two levels, and the second theme.
+ *
+ * PRIMITIVE, the first :root block. Every value of design/kit/kit.css :root, line for line with the origin comment beside it, as stage 07
+ *   carried it from design/_theme.css (CLAUDE.md, "Values migrate"). Three changes, each named in design/kit/docs/tokens-audit.md:
+ *   --shadow-tile-edge at .07 (merged drift, D-260 Q1); --size-banner-v4 and --size-drop dropped (one of each pair stage 07 handed over,
+ *   the one nothing reads); the 55 --art-* pictures moved to art.css beside this file (D-259 point 2). At its end, the light theme's new
+ *   values, D-258, each with why: light grounds did not exist in kit.css.
+ *   Primitive names stay the kit's (--color-*, --size-*, --space-*, --radius-*, --shadow-*, --gradient-*, --motion-* and the rest):
+ *   renaming 500 values now would be a third layer of renames that no theme needs. Geometry, type, motion and depth are read from here.
+ *
+ * SEMANTIC, the second :root block. The colour roles a component reads, each a var() of a primitive, never a literal. A role is a job
+ *   that repeats (two blocks or more), may part from its neighbour, and paints one surface: ink (--text-*: words and glyphs), fill
+ *   (--bg-*: grounds, plates, marks) or line (--line-*: rules, edges, rings); a fourth kind, depth (--depth-*: a lift, a glow, a shadow
+ *   under art), carries colour and no contrast threshold, and is a role because components read colour only through this level. Its comment says how many rules and blocks read it, measured
+ *   on the 51 coloured states at 1440 and 360 (a reference is counted by what lies under it: the theme's dark ground, or a coloured plate
+ *   or a picture; a role on a plate keeps its value in both themes), the parent from DESIGN.md where it names one, and the threshold
+ *   with the contrast measured in both themes against the grounds it can sit on (page, card, tile; paper, white card, light tile).
+ *   No state tokens yet: --bg-hover, --bg-active, --color-focus and --opacity-disabled arrive at step 5 with the first component that
+ *   wears them, in both themes.
+ *
+ * [data-theme="light"], the third block. The pair of every semantic role. The product is dark from its first day (design principle 4),
+ *   so :root holds the dark values and the light theme overrides the semantic level only (D-258 point 1). A role whose ground does not
+ *   change (a word on a coloured plate, a rarity) names its pair too, the same primitive, and says why.
+ *
+ * Not linked to anything yet: the product and kit.html still read kit.css until step 8.
+ */
+
+/* ===== PRIMITIVE ===== */
+:root {
+
+  /* Grounds and surfaces */
+  --color-ground: #060A1E; /* page ground; наявний бренд, baseline.md 5 */
+  --color-ticker: #020C17; /* live drop ticker plate; наявний бренд, baseline.md 5 */
+  --color-card: #0F0E2B; /* card, primary; наявний бренд, baseline.md 5 */
+  --color-card-2: #090827; /* card, secondary; the rail; наявний бренд, baseline.md 5 */
+  --color-raised: #223660; /* panel, raised; hover; наявний бренд, baseline.md 5 */
+
+  /* Accents */
+  --color-pink: #FB3F8A; /* the one lit action, the logo; рішення користувача, D-185 */
+  --color-blue: #65A3FF; /* links, secondary accent; наявний бренд, baseline.md 5 */
+  --color-gold: #FADA62; /* the coin and every price; наявний бренд, baseline.md 5 */
+  --color-money: #FFC44D; /* money is the coin's gold on v4, the price, the balance, the coin; рішення користувача, D-209 update of 2 Nov 2026 ("да"); --color-gold keeps its other jobs; moved here from design/v4/case-tiles.css, stage 06 critique of 10 Nov 2026 */
+  --color-green: #33CC66; /* success; наявний бренд, baseline.md 5 */
+
+  /* Text and edges */
+  --color-text-hi: #FFFFFF; /* high emphasis, figures; наявний бренд, baseline.md 5 */
+  --color-text: #9F9F9F; /* body; наявний бренд; рішення користувача, D-186 */
+  --color-text-muted: #9E9DB1; /* meta, labels; наявний бренд; рішення користувача, D-186 */
+
+  /* Rarity ladder, rarest first */
+  --color-rarity-1: #F6C915; /* rarity step 1; наявний бренд, baseline.md 13.4 */
+  --color-rarity-2: #D1273E; /* rarity step 2; наявний бренд, baseline.md 13.4 */
+  --color-rarity-3: #D22BCE; /* rarity step 3; наявний бренд, baseline.md 13.4 */
+  --color-rarity-4: #6B42B9; /* rarity step 4; наявний бренд, baseline.md 13.4 */
+  --color-rarity-5: #3955E8; /* rarity step 5; наявний бренд, baseline.md 13.4 */
+  --color-rarity-6: #305F8D; /* rarity step 6; наявний бренд, baseline.md 13.4 */
+
+  /* Type, the scale 13 15 18 24 40 */
+  --size-xl: 40px; /* case name, the screen title, weight 900; рішення користувача, D-187 */
+  --size-l: 24px; /* section heading, a figure in a panel, weight 900; рішення користувача, D-187 */
+  --size-m: 18px; /* skin name on a card, price on the act, weight 700; рішення користувача, D-187 */
+  --size-s: 15px; /* body, figures in a card, weight 400; рішення користувача, D-187 */
+  --size-xs: 13px; /* meta, labels, the peg, weight 400; рішення користувача, D-187 */
+
+  /* Shape, glow and the one family */
+  --radius-s: 8px; /* small: chips, ticker tiles; наявний бренд, baseline.md 13.2 */
+  --radius-m: 16px; /* medium: cards, flanks, fields; наявний бренд, baseline.md 13.2 */
+  --radius-l: 24px; /* large: the stage, panels; рішення користувача, D-186 */
+  --radius-pill: 999px; /* every text button, the price chip; наявний бренд, baseline.md 13.2 */
+  --font-family: Roboto, sans-serif; /* the one family, 400 500 700 900; наявний бренд, baseline.md 5; D-182 point 5 */
+
+  /* Space, proposed at step 5 from the gaps The stage drew, D-187; confirmed or changed on this screen, DESIGN-artifacts 9 point 2 */
+  --space-1: 4px; /* the hairline gap, an icon to its label; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-2: 8px; /* inside a chip, between a label and its value; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-3: 12px; /* a card's inner padding at its tightest, the gap between cards; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-4: 16px; /* a card's padding, the phone gutter; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-5: 24px; /* between blocks inside a section; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-6: 32px; /* a section's top, the desktop gutter; підібрано під характер, from the gaps The stage drew, D-187 */
+  --space-7: 56px; /* between sections; підібрано під характер, from the gaps The stage drew, D-187 */
+
+  /* Lines, proposed at step 6, open until the founder picks, DESIGN-artifacts 9 point 1 */
+  --color-line-soft: #262950; /* a divider, the edge of a quiet surface; наявний бренд, baseline.md 13.2, the welcome dialog edge; proposed, рішення користувача, D-191 */
+  --color-line: #353446; /* the edge of a control at rest; наявний бренд, baseline.md 13.2, the rail toggle edge; proposed, рішення користувача, D-191 */
+
+  /* Depth, proposed at step 6, open, DESIGN-artifacts 9 point 3 */
+  --shadow-panel: 0 24px 48px -24px rgba(0, 0, 0, .7); /* a container over the ground: a dialog, a menu, the drawer; proposed, рішення користувача, D-191; technique S2 */
+
+  /* Light, the lit stage of D-188 moved here */
+
+  /* The baseline look, taken as it is, D-192: computed styles of the baseline site read on 20 Oct 2026 */
+  --size-unit: 11px; /* a countdown unit; наявний бренд, baseline walk of 20 Oct 2026, computed style, banner-timer__countdown-unit */
+  --size-chip: 12px; /* a small button label, a case name on a phone; наявний бренд, baseline walk of 20 Oct 2026, computed style, small-button, case-card__name at 390 */
+  --size-label: 14px; /* a case name, a button label, a description; наявний бренд, baseline walk of 20 Oct 2026, computed style, case-card__name, game-preview__description */
+  --size-text: 16px; /* a mode name, a section line, a tier name, a large button; наявний бренд, baseline walk of 20 Oct 2026, computed style, game-preview__name, header__description */
+  --size-title: 20px; /* a section title, a price; наявний бренд, baseline walk of 20 Oct 2026, computed style, header__title, case-card__price */
+  --size-panel: 24px; /* the Daily cases heading; наявний бренд, baseline walk of 20 Oct 2026, computed style, daily-case-progress-home__main-header */
+  --size-stat: 30px; /* a footer counter; наявний бренд, baseline walk of 20 Oct 2026, computed style, statistic-score; 22px at 390 */
+  --size-btn-s: 28px; /* a small button; наявний бренд, baseline walk of 20 Oct 2026, computed style, small-button */
+  --size-btn-m: 40px; /* a button: Sign in, Support, Available cases; наявний бренд, baseline walk of 20 Oct 2026, computed style, sign-in-btn */
+  --size-btn-l: 48px; /* a large button: All cases; наявний бренд, baseline walk of 20 Oct 2026, computed style, large-button */
+  --size-ticker: 120px; /* the live drop ticker; наявний бренд, baseline walk of 20 Oct 2026, computed style, drops-live-feed */
+  --size-banner: 340px; /* the event banner at 1440; наявний бренд, baseline walk of 20 Oct 2026, computed style, banner-content */
+  --size-mode: 160px; /* a mode card; наявний бренд, baseline walk of 20 Oct 2026, computed style, game-preview */
+  --size-edge: 2px; /* the edge of a pill, filled or ghost; наявний бренд, baseline walk of 20 Oct 2026, computed style, rose-button border */
+  --color-text-soft: #CECED4; /* a description on a mode card; наявний бренд, baseline walk of 20 Oct 2026, computed style, game-preview__description */
+  --color-mode: #100F2C; /* a mode card; наявний бренд, baseline walk of 20 Oct 2026, computed style, game-preview */
+  --color-timer: rgba(2, 12, 23, .7); /* a countdown plate over art; наявний бренд, baseline walk of 20 Oct 2026, computed style, banner-timer */
+  --color-risk-low: #33CC66; /* a low-risk mark; наявний бренд, baseline walk of 20 Oct 2026, computed style, risk-level__skull */
+  --color-risk-mid: #65A3FF; /* a medium-risk mark; наявний бренд, baseline walk of 20 Oct 2026, computed style, risk-level__skull */
+  --color-risk-high: #D22BCE; /* a high-risk mark; наявний бренд, baseline walk of 20 Oct 2026, computed style drew #7E2DC8, 2.89:1, so rarity step 3 carries it */
+
+  /* The baseline look, second pass, D-193: what the computed styles did not carry, read from the founder screenshots of 20 Oct 2026 */
+  --color-skull-off: #272D3F; /* a risk skull not lit; наявний бренд, founder screenshots of 20 Oct 2026, pixel, the dark skulls under a case */
+
+  /* The baseline look, third pass, D-194: every block walked element by element, pseudo-elements included */
+  --size-micro: 9px; /* a skin name under its weapon in the ticker; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, cases-live-tape-item h6 */
+  --shape-hex-fill: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22%3E%3Cpath d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the inner hexagon behind a drop, filled with its rarity; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, hex-bg path.color-fill, viewBox 136 by 118 */
+  --shape-hex-line: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3Cpath stroke-width=%221%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the three hexagon lines behind a drop, one dashed; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, hex-bg path.outer-stroke, color-stroke, color-fill-stroke */
+  --color-mode-light: #7E2DC8; /* the purple light behind a mode card art, blurred 40px at 80 %; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, game-preview::before */
+  --color-card-hover: #17144B; /* a case card under the pointer; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, case-card:hover */
+  --blur-mode: 40px; /* the blur of the light behind a mode card art; наявний бренд, deep walk of the baseline site on 20 Oct 2026, computed style, game-preview::before filter */
+
+  /* Motion of the event banner, D-194: the founder asked for a banner that moves as the baseline video does; motion is ours, not inherited, CLAUDE.md "Baseline" */
+  --motion-drift: 26s; /* the arena drifting behind everything; підібрано під характер, D-194; slow enough to read as air, not as movement */
+  --motion-float: 6s; /* the case rising and settling; підібрано під характер, D-194; one breath */
+  --motion-sway: 9s; /* the operator shifting his weight; підібрано під характер, D-194 */
+  --motion-snow: 14s; /* snow falling through the banner; підібрано під характер, D-194 */
+
+  /* Structure, carried from the grey screen */
+  --size-rail: 250px; /* the rail, open; наявний бренд, baseline.md 13, the rail measured above 1440; структура, wireframes/_wf.css, stage 04 drew 220 */
+  --size-rail-collapsed: 70px; /* the rail, closed to icons; наявний бренд, baseline.md 13, the rail measured at 1440 and below; структура, wireframes/_wf.css, stage 04 drew 64 */
+  --size-header: 64px; /* the header strip; наявний бренд, baseline walk of 20 Oct 2026, main-header, D-192; D-191 drew 72 */
+  --size-content: 1298px; /* the content column at the 1440 reference; наявний бренд, deep walk of the baseline site on 20 Oct 2026, ul.game-previews and the section heads, 1298 wide at 1440, D-194; структура, wireframes/_wf.css, stage 04 drew 1220 */
+  --size-bar: 64px; /* the bottom bar on mobile; рішення користувача, D-191, an icon over a 13px label; структура, wireframes/_wf.css, stage 04 drew 56 */
+  --size-measure: 68ch; /* the longest line of prose; структура, wireframes/_wf.css, stage 04 */
+  --size-tap: 44px; /* the smallest target, WCAG 2.5.5; структура, wireframes/_wf.css, stage 04 */
+
+  /* Icons, Solar Bold and four drawn marks since D-193, DESIGN-artifacts 7; drawn as a mask, so they take the colour of the text */
+  --icon-box: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22 fill-rule=%22evenodd%22%3E%3Cpath d=%22M3 12.6V11.2C3 9.4 4.4 8 6.2 8h11.6C19.6 8 21 9.4 21 11.2v1.4zM8.4 8h1.3v4.6H8.4zM14.3 8h1.3v4.6h-1.3z%22/%3E%3Cpath d=%22M3 13.8h18v6.4c0 .5-.4.8-.8.8H3.8c-.5 0-.8-.3-.8-.8zM7.2 13.8h1.3V21H7.2zM15.5 13.8h1.3V21h-1.3zM9.7 13.8h4.6v5.4H9.7z%22/%3E%3C/g%3E%3Cpath d=%22M10.9 13.8v2.4a1.1 1.1 0 0 0 2.2 0v-2.4%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.3%22/%3E%3Cg stroke=%22%23000%22 stroke-width=%221.4%22%3E%3Cpath d=%22M12 2v2.6M7.3 3.2l1.1 2.1M16.7 3.2l-1.1 2.1M3.6 5.5l2 1.1M20.4 5.5l-2 1.1%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026 */
+  --icon-battle: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cdefs%3E%3Cmask id=%22sw%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%23fff%22/%3E%3Cpath d=%22M21.5 2.5L18.4 3.2 8.8 12.8 11.2 15.2 20.8 5.6z%22 fill=%22%23000%22 stroke=%22%23000%22 stroke-width=%222.4%22 stroke-linejoin=%22round%22/%3E%3C/mask%3E%3C/defs%3E%3Cg fill=%22%23000%22%3E%3Cpath mask=%22url%28%23sw%29%22 d=%22M2.5 2.5L5.6 3.2 15.2 12.8 12.8 15.2 3.2 5.6z%22/%3E%3Cpath d=%22M21.5 2.5L18.4 3.2 8.8 12.8 11.2 15.2 20.8 5.6z%22/%3E%3Cpath d=%22M12 17.4l5.4-5.4 1.6 1.6-5.4 5.4zM16.2 16.2l1.5-1.5 3.6 3.6-1.5 1.5zM12 17.4l-5.4-5.4-1.6 1.6 5.4 5.4zM7.8 16.2l-1.5-1.5-3.6 3.6 1.5 1.5z%22/%3E%3Ccircle cx=%2221%22 cy=%2221%22 r=%221.5%22/%3E%3Ccircle cx=%223%22 cy=%2221%22 r=%221.5%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026 */
+  --icon-target: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath fill-rule=%22evenodd%22 d=%22M12 1.8a10.2 10.2 0 1 1 0 20.4a10.2 10.2 0 0 1 0-20.4zm0 3.4a6.8 6.8 0 1 0 0 13.6a6.8 6.8 0 0 0 0-13.6z%22/%3E%3Cpath d=%22M10.9.6h2.2v7.2h-2.2zM10.9 16.2h2.2v7.2h-2.2zM.6 10.9h7.2v2.2H.6zM16.2 10.9h7.2v2.2h-7.2z%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%222.9%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026; redrawn filled by D-233, the founder's pick A of step 4, D-227 point 6: a ring, four ticks and a centre disc */
+  --icon-arrow-up: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Crect x=%222%22 y=%2218.5%22 width=%223%22 height=%224.5%22 rx=%22.4%22/%3E%3Crect x=%226.5%22 y=%2215.5%22 width=%223%22 height=%227.5%22 rx=%22.4%22/%3E%3Crect x=%2211%22 y=%2212.5%22 width=%223%22 height=%2210.5%22 rx=%22.4%22/%3E%3Cpath d=%22M15.6 10.2H13L17.6 3l4.6 7.2h-2.6V23h-4z%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026 */
+  --icon-users: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cdefs%3E%3Cmask id=%22k%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%23fff%22/%3E%3Cg fill=%22%23000%22 stroke=%22%23000%22 stroke-width=%223%22%3E%3Ccircle cx=%228.8%22 cy=%227.4%22 r=%224.1%22/%3E%3Cpath d=%22M1.6 21.2c0-4.3 3.2-7.4 7.2-7.4s7.2 3.1 7.2 7.4z%22/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Cg fill=%22%23000%22%3E%3Cg mask=%22url(%23k)%22%3E%3Ccircle cx=%2216.2%22 cy=%226.9%22 r=%223.6%22/%3E%3Cpath d=%22M14 13.6c4.6 0 8.4 2.9 8.4 7v.6H14z%22/%3E%3C/g%3E%3Cg%3E%3Ccircle cx=%228.8%22 cy=%227.4%22 r=%224.1%22/%3E%3Cpath d=%22M1.6 20.6c0-4 3.2-6.8 7.2-6.8s7.2 2.8 7.2 6.8v.2c0 .4-.3.7-.7.7H2.3c-.4 0-.7-.3-.7-.7z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026; redrawn filled by D-233, the founder's pick A of step 4, D-227 point 6: two people, the one behind cut clear of the one in front */
+  --icon-pulse: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cdefs%3E%3Cmask id=%22m%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%23fff%22/%3E%3Ccircle cx=%2218%22 cy=%2216%22 r=%226.8%22 fill=%22%23000%22/%3E%3C/mask%3E%3C/defs%3E%3Cg fill=%22%23000%22%3E%3Cg mask=%22url(%23m)%22%3E%3Ccircle cx=%229%22 cy=%227.4%22 r=%224.1%22/%3E%3Cpath d=%22M1.8 20.6c0-4 3.2-6.8 7.2-6.8s7.2 2.8 7.2 6.8v.2c0 .4-.3.7-.7.7H2.5c-.4 0-.7-.3-.7-.7z%22/%3E%3C/g%3E%3Cpath fill-rule=%22evenodd%22 d=%22M18 10.6a5.4 5.4 0 1 1 0 10.8a5.4 5.4 0 0 1 0-10.8zm2.5 3.4a.8.8 0 0 0-1.1 0l-2.2 2.3-1-1a.8.8 0 1 0-1.1 1.1l1.6 1.6c.3.3.8.3 1.1 0l2.7-2.9a.8.8 0 0 0 0-1.1z%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026; redrawn filled by D-233, the founder's pick A of step 4, D-227 point 6: a person and a tick in a disc, online */
+  --icon-star: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z%22/%3E%3C/svg%3E"); /* solar:star-bold, D-193 */
+  --icon-home: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M2.5192 7.82274C2 8.77128 2 9.91549 2 12.2039V13.725C2 17.6258 2 19.5763 3.17157 20.7881C4.34315 22 6.22876 22 10 22H14C17.7712 22 19.6569 22 20.8284 20.7881C22 19.5763 22 17.6258 22 13.725V12.2039C22 9.91549 22 8.77128 21.4808 7.82274C20.9616 6.87421 20.0131 6.28551 18.116 5.10812L16.116 3.86687C14.1106 2.62229 13.1079 2 12 2C10.8921 2 9.88939 2.62229 7.88403 3.86687L5.88403 5.10813C3.98695 6.28551 3.0384 6.87421 2.5192 7.82274ZM11.25 18C11.25 18.4142 11.5858 18.75 12 18.75C12.4142 18.75 12.75 18.4142 12.75 18V15C12.75 14.5858 12.4142 14.25 12 14.25C11.5858 14.25 11.25 14.5858 11.25 15V18Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:home-2-bold, D-193 */
+  --icon-user: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM15 9C15 10.6569 13.6569 12 12 12C10.3431 12 9 10.6569 9 9C9 7.34315 10.3431 6 12 6C13.6569 6 15 7.34315 15 9ZM12 20.5C13.784 20.5 15.4397 19.9504 16.8069 19.0112C17.4108 18.5964 17.6688 17.8062 17.3178 17.1632C16.59 15.8303 15.0902 15 11.9999 15C8.90969 15 7.40997 15.8302 6.68214 17.1632C6.33105 17.8062 6.5891 18.5963 7.19296 19.0111C8.56018 19.9503 10.2159 20.5 12 20.5Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:user-circle-bold, D-193 */
+  --icon-history: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M5.07868 5.06891C8.87402 1.27893 15.0437 1.31923 18.8622 5.13778C22.6824 8.95797 22.7211 15.1313 18.9262 18.9262C15.1312 22.7211 8.95793 22.6824 5.13774 18.8622C2.87389 16.5984 1.93904 13.5099 2.34047 10.5812C2.39672 10.1708 2.775 9.88377 3.18537 9.94002C3.59575 9.99627 3.88282 10.3745 3.82658 10.7849C3.4866 13.2652 4.27782 15.881 6.1984 17.8016C9.44288 21.0461 14.6664 21.0646 17.8655 17.8655C21.0646 14.6664 21.046 9.44292 17.8015 6.19844C14.5587 2.95561 9.33889 2.93539 6.13935 6.12957L6.88705 6.13333C7.30126 6.13541 7.63535 6.47288 7.63327 6.88709C7.63119 7.3013 7.29372 7.63539 6.87951 7.63331L4.33396 7.62052C3.92269 7.61845 3.58981 7.28556 3.58774 6.8743L3.57495 4.32874C3.57286 3.91454 3.90696 3.57707 4.32117 3.57498C4.73538 3.5729 5.07285 3.907 5.07493 4.32121L5.07868 5.06891ZM11.9999 7.24992C12.4141 7.24992 12.7499 7.58571 12.7499 7.99992V11.6893L15.0302 13.9696C15.3231 14.2625 15.3231 14.7374 15.0302 15.0302C14.7373 15.3231 14.2624 15.3231 13.9696 15.0302L11.2499 12.3106V7.99992C11.2499 7.58571 11.5857 7.24992 11.9999 7.24992Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:history-bold, D-193 */
+  --icon-send: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M5.46967 17.4697C5.17678 17.7626 5.17678 18.2374 5.46967 18.5303C5.76256 18.8232 6.23744 18.8232 6.53033 18.5303L13.5 11.5607L17.4697 15.5303C17.6842 15.7448 18.0068 15.809 18.287 15.6929C18.5673 15.5768 18.75 15.3033 18.75 15V6C18.75 5.58579 18.4142 5.25 18 5.25L9 5.25C8.69665 5.25 8.42318 5.43273 8.30709 5.71299C8.19101 5.99324 8.25517 6.31583 8.46967 6.53033L12.4393 10.5L5.46967 17.4697Z%22/%3E%3C/svg%3E"); /* solar:arrow-right-up-bold, D-193 */
+  --icon-share: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M17 2.25C18.7949 2.25 20.25 3.70507 20.25 5.5C20.25 7.29493 18.7949 8.75 17 8.75C16.1304 8.75 15.343 8.40587 14.7598 7.84961C13.1933 8.8679 11.6271 9.88698 10.0605 10.9053C10.1829 11.2474 10.25 11.6158 10.25 12C10.25 12.3843 10.182 12.7525 10.0596 13.0947C11.6262 14.1131 13.1931 15.1311 14.7598 16.1494C15.343 15.5934 16.1306 15.25 17 15.25C18.7949 15.25 20.25 16.7051 20.25 18.5C20.25 20.2949 18.7949 21.75 17 21.75C15.2051 21.75 13.75 20.2949 13.75 18.5C13.75 18.1158 13.8171 17.7474 13.9395 17.4053C12.3728 16.387 10.8059 15.3688 9.23926 14.3506C8.65611 14.9063 7.86912 15.25 7 15.25C5.20507 15.25 3.75 13.7949 3.75 12C3.75 10.2051 5.20507 8.75 7 8.75C7.86887 8.75 8.65616 9.09301 9.23926 9.64844C10.8059 8.63012 12.3728 7.61206 13.9395 6.59375C13.8173 6.25189 13.75 5.88385 13.75 5.5C13.75 3.70507 15.2051 2.25 17 2.25Z%22/%3E%3C/svg%3E"); /* solar:share-bold, the set of D-193 and D-227; рішення користувача, D-244, "просто иконку share поставим" (just put a share icon) on the item card */
+  --icon-search: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M11.5 2C16.7467 2 21 6.25329 21 11.5C21 13.8541 20.1417 16.0064 18.7236 17.666C18.7315 17.6732 18.7404 17.6799 18.748 17.6875L22.5303 21.4697C22.8228 21.7626 22.8228 22.2384 22.5303 22.5312C22.2375 22.8236 21.7625 22.8237 21.4697 22.5312L17.6875 18.748C17.6797 18.7403 17.6724 18.7317 17.665 18.7236C16.0055 20.1414 13.8538 21 11.5 21C6.25329 21 2 16.7467 2 11.5C2 6.25329 6.25329 2 11.5 2ZM11.5 5.5a6 6 0 1 0 0 12a6 6 0 1 0 0-12Z%22/%3E%3C/svg%3E"); /* Search on the category bar; solar:magnifer-bold with its lens cut out, for at 20px the solid glyph read as a dot with no lens, filled as every icon is (D-227, D-233); технічне рішення, D-246 */
+  --icon-filter: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M19 3H5C3.58579 3 2.87868 3 2.43934 3.4122C2 3.8244 2 4.48782 2 5.81466V6.50448C2 7.54232 2 8.06124 2.2596 8.49142C2.5192 8.9216 2.99347 9.18858 3.94202 9.72255L6.85504 11.3624C7.49146 11.7206 7.80967 11.8998 8.03751 12.0976C8.51199 12.5095 8.80408 12.9935 8.93644 13.5872C9 13.8722 9 14.2058 9 14.8729L9 17.5424C9 18.452 9 18.9067 9.25192 19.2613C9.50385 19.6158 9.95128 19.7907 10.8462 20.1406C12.7248 20.875 13.6641 21.2422 14.3321 20.8244C15 20.4066 15 19.4519 15 17.5424V14.8729C15 14.2058 15 13.8722 15.0636 13.5872C15.1959 12.9935 15.488 12.5095 15.9625 12.0976C16.1903 11.8998 16.5085 11.7206 17.145 11.3624L20.058 9.72255C21.0065 9.18858 21.4808 8.9216 21.7404 8.49142C22 8.06124 22 7.54232 22 6.50448V5.81466C22 4.48782 22 3.8244 21.5607 3.4122C21.1213 3 20.4142 3 19 3Z%22/%3E%3C/svg%3E"); /* Filters on the category bar; solar:filter-bold; технічне рішення, D-246 */
+  --icon-settings: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M14.2788 2.15224C13.9085 2 13.439 2 12.5 2C11.561 2 11.0915 2 10.7212 2.15224C10.2274 2.35523 9.83509 2.74458 9.63056 3.23463C9.53719 3.45834 9.50065 3.7185 9.48635 4.09799C9.46534 4.65568 9.17716 5.17189 8.69017 5.45093C8.20318 5.72996 7.60864 5.71954 7.11149 5.45876C6.77318 5.2813 6.52789 5.18262 6.28599 5.15102C5.75609 5.08178 5.22018 5.22429 4.79616 5.5472C4.47814 5.78938 4.24339 6.1929 3.7739 6.99993C3.30441 7.80697 3.06967 8.21048 3.01735 8.60491C2.94758 9.1308 3.09118 9.66266 3.41655 10.0835C3.56506 10.2756 3.77377 10.437 4.0977 10.639C4.57391 10.936 4.88032 11.4419 4.88029 12C4.88026 12.5581 4.57386 13.0639 4.0977 13.3608C3.77372 13.5629 3.56497 13.7244 3.41645 13.9165C3.09108 14.3373 2.94749 14.8691 3.01725 15.395C3.06957 15.7894 3.30432 16.193 3.7738 17C4.24329 17.807 4.47804 18.2106 4.79606 18.4527C5.22008 18.7756 5.75599 18.9181 6.28589 18.8489C6.52778 18.8173 6.77305 18.7186 7.11133 18.5412C7.60852 18.2804 8.2031 18.27 8.69012 18.549C9.17714 18.8281 9.46533 19.3443 9.48635 19.9021C9.50065 20.2815 9.53719 20.5417 9.63056 20.7654C9.83509 21.2554 10.2274 21.6448 10.7212 21.8478C11.0915 22 11.561 22 12.5 22C13.439 22 13.9085 22 14.2788 21.8478C14.7726 21.6448 15.1649 21.2554 15.3694 20.7654C15.4628 20.5417 15.4994 20.2815 15.5137 19.902C15.5347 19.3443 15.8228 18.8281 16.3098 18.549C16.7968 18.2699 17.3914 18.2804 17.8886 18.5412C18.2269 18.7186 18.4721 18.8172 18.714 18.8488C19.2439 18.9181 19.7798 18.7756 20.2038 18.4527C20.5219 18.2105 20.7566 17.807 21.2261 16.9999C21.6956 16.1929 21.9303 15.7894 21.9827 15.395C22.0524 14.8691 21.9088 14.3372 21.5835 13.9164C21.4349 13.7243 21.2262 13.5628 20.9022 13.3608C20.4261 13.0639 20.1197 12.558 20.1197 11.9999C20.1197 11.4418 20.4261 10.9361 20.9022 10.6392C21.2263 10.4371 21.435 10.2757 21.5836 10.0835C21.9089 9.66273 22.0525 9.13087 21.9828 8.60497C21.9304 8.21055 21.6957 7.80703 21.2262 7C20.7567 6.19297 20.522 5.78945 20.2039 5.54727C19.7799 5.22436 19.244 5.08185 18.7141 5.15109C18.4722 5.18269 18.2269 5.28136 17.8887 5.4588C17.3915 5.71959 16.7969 5.73002 16.3099 5.45096C15.8229 5.17191 15.5347 4.65566 15.5136 4.09794C15.4993 3.71848 15.4628 3.45833 15.3694 3.23463C15.1649 2.74458 14.7726 2.35523 14.2788 2.15224ZM12.5 15C14.1695 15 15.5228 13.6569 15.5228 12C15.5228 10.3431 14.1695 9 12.5 9C10.8305 9 9.47716 10.3431 9.47716 12C9.47716 13.6569 10.8305 15 12.5 15Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:settings-bold, D-193 */
+  --icon-shield: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M3.37752 5.08241C3 5.62028 3 7.21907 3 10.4167V11.9914C3 17.6294 7.23896 20.3655 9.89856 21.5273C10.62 21.8424 10.9807 22 12 22C13.0193 22 13.38 21.8424 14.1014 21.5273C16.761 20.3655 21 17.6294 21 11.9914V10.4167C21 7.21907 21 5.62028 20.6225 5.08241C20.245 4.54454 18.7417 4.02996 15.7351 3.00079L15.1623 2.80472C13.595 2.26824 12.8114 2 12 2C11.1886 2 10.405 2.26824 8.83772 2.80472L8.26491 3.00079C5.25832 4.02996 3.75503 4.54454 3.37752 5.08241ZM15.0595 10.4995C15.3353 10.1905 15.3085 9.71642 14.9995 9.44055C14.6905 9.16467 14.2164 9.19151 13.9405 9.50049L10.9286 12.8739L10.0595 11.9005C9.78358 11.5915 9.30947 11.5647 9.00049 11.8405C8.69151 12.1164 8.66467 12.5905 8.94055 12.8995L10.3691 14.4995C10.5114 14.6589 10.7149 14.75 10.9286 14.75C11.1422 14.75 11.3457 14.6589 11.488 14.4995L15.0595 10.4995Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:shield-check-bold, D-193 */
+  --icon-out: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath fill-rule=%22evenodd%22 d=%22M16.125 12C16.125 11.5858 15.7892 11.25 15.375 11.25L4.40244 11.25L6.36309 9.56944C6.67759 9.29988 6.71401 8.8264 6.44444 8.51191C6.17488 8.19741 5.7014 8.16099 5.38691 8.43056L1.88691 11.4306C1.72067 11.573 1.625 11.7811 1.625 12C1.625 12.2189 1.72067 12.427 1.88691 12.5694L5.38691 15.5694C5.7014 15.839 6.17488 15.8026 6.44444 15.4881C6.71401 15.1736 6.67759 14.7001 6.36309 14.4306L4.40244 12.75L15.375 12.75C15.7892 12.75 16.125 12.4142 16.125 12Z%22 clip-rule=%22evenodd%22/%3E%3Cpath d=%22M9.375 8C9.375 8.70219 9.375 9.05329 9.54351 9.3055C9.61648 9.41471 9.71025 9.50848 9.81946 9.58145C10.0717 9.74996 10.4228 9.74996 11.125 9.74996L15.375 9.74996C16.6176 9.74996 17.625 10.7573 17.625 12C17.625 13.2426 16.6176 14.25 15.375 14.25L11.125 14.25C10.4228 14.25 10.0716 14.25 9.8194 14.4185C9.71023 14.4915 9.6165 14.5852 9.54355 14.6944C9.375 14.9466 9.375 15.2977 9.375 16C9.375 18.8284 9.375 20.2426 10.2537 21.1213C11.1324 22 12.5464 22 15.3748 22L16.3748 22C19.2032 22 20.6174 22 21.4961 21.1213C22.3748 20.2426 22.3748 18.8284 22.3748 16L22.3748 8C22.3748 5.17158 22.3748 3.75736 21.4961 2.87868C20.6174 2 19.2032 2 16.3748 2L15.3748 2C12.5464 2 11.1324 2 10.2537 2.87868C9.375 3.75736 9.375 5.17157 9.375 8Z%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:logout-2-bold, D-193 */
+  --icon-close: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM8.96963 8.96965C9.26252 8.67676 9.73739 8.67676 10.0303 8.96965L12 10.9393L13.9696 8.96967C14.2625 8.67678 14.7374 8.67678 15.0303 8.96967C15.3232 9.26256 15.3232 9.73744 15.0303 10.0303L13.0606 12L15.0303 13.9696C15.3232 14.2625 15.3232 14.7374 15.0303 15.0303C14.7374 15.3232 14.2625 15.3232 13.9696 15.0303L12 13.0607L10.0303 15.0303C9.73742 15.3232 9.26254 15.3232 8.96965 15.0303C8.67676 14.7374 8.67676 14.2625 8.96965 13.9697L10.9393 12L8.96963 10.0303C8.67673 9.73742 8.67673 9.26254 8.96963 8.96965Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:close-circle-bold, filled, D-227; was solar:close-circle-linear; solar:close-circle-linear */
+  --icon-like: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M2 11h3.6v10.4H2zM7 21.4V11.2l3.3-5.4c.6-1 2.1-.9 2.5.2.2.5.2 1 0 1.5L12 10h6.2c1.4 0 2.4 1.3 2 2.7l-1.9 7c-.3 1-1.1 1.7-2.1 1.7z%22/%3E%3C/g%3E%3Cg stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M16.6 1.6v2.2M20.6 3l-1.4 1.6M13 3l1.3 1.6%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026 */
+  --icon-cup: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M21.9999 8.16234L21.9999 8.23487C21.9999 9.09561 21.9999 9.52598 21.7927 9.8781C21.5855 10.2302 21.2093 10.4392 20.4569 10.8572L19.6636 11.298C20.2102 9.44984 20.3926 7.46414 20.4601 5.76597C20.4629 5.69316 20.4662 5.61945 20.4695 5.54497L20.4718 5.49279C21.1231 5.71896 21.4887 5.88758 21.7168 6.20408C22 6.59692 22 7.11873 21.9999 8.16234Z%22/%3E%3Cpath d=%22M2 8.16234L2 8.23487C2.00003 9.09561 2.00004 9.52598 2.20723 9.8781C2.41442 10.2302 2.79063 10.4392 3.54305 10.8572L4.33681 11.2982C3.79007 9.45001 3.60767 7.46422 3.54025 5.76597C3.53736 5.69316 3.5341 5.61945 3.53081 5.54497L3.5285 5.49266C2.87701 5.7189 2.51126 5.88752 2.2831 6.20408C1.99996 6.59692 1.99997 7.11873 2 8.16234Z%22/%3E%3Cpath fill-rule=%22evenodd%22 d=%22M12.0002 2C13.7837 2 15.2531 2.15709 16.3771 2.34674C17.5159 2.53887 18.0852 2.63494 18.5609 3.22083C19.0367 3.80673 19.0115 4.43998 18.9612 5.70647C18.7886 10.0545 17.8503 15.4853 12.75 15.9657V19.5H14.1802C14.6569 19.5 15.0673 19.8365 15.1608 20.3039L15.35 21.25H18C18.4142 21.25 18.75 21.5858 18.75 22C18.75 22.4142 18.4142 22.75 18 22.75H6C5.58579 22.75 5.25 22.4142 5.25 22C5.25 21.5858 5.58579 21.25 6 21.25H8.65L8.83922 20.3039C8.93271 19.8365 9.34312 19.5 9.8198 19.5H11.25V15.9657C6.14996 15.4851 5.21169 10.0544 5.03907 5.70647C4.98879 4.43998 4.96365 3.80673 5.43937 3.22083C5.91508 2.63494 6.48445 2.53887 7.62318 2.34674C8.74724 2.15709 10.2166 2 12.0002 2ZM12.9524 6.19887L12.8541 6.02251C12.4741 5.34084 12.2841 5 12 5C11.7159 5 11.5259 5.34084 11.1459 6.02251L11.0476 6.19887C10.9397 6.39258 10.8857 6.48944 10.8015 6.55334C10.7173 6.61725 10.6125 6.64097 10.4028 6.68841L10.2119 6.73161C9.47396 6.89857 9.10501 6.98205 9.01723 7.26432C8.92945 7.54659 9.18097 7.84072 9.68403 8.42898L9.81418 8.58117C9.95713 8.74833 10.0286 8.83191 10.0608 8.93532C10.0929 9.03872 10.0821 9.15023 10.0605 9.37327L10.0408 9.57632C9.96476 10.3612 9.92674 10.7536 10.1565 10.9281C10.3864 11.1025 10.7318 10.9435 11.4227 10.6254L11.6014 10.5431C11.7978 10.4527 11.8959 10.4075 12 10.4075C12.1041 10.4075 12.2022 10.4527 12.3986 10.5431L12.5773 10.6254C13.2682 10.9435 13.6136 11.1025 13.8435 10.9281C14.0733 10.7536 14.0352 10.3612 13.9592 9.57632L13.9395 9.37327C13.9179 9.15023 13.9071 9.03872 13.9392 8.93532C13.9714 8.83191 14.0429 8.74833 14.1858 8.58117L14.316 8.42898C14.819 7.84072 15.0706 7.54659 14.9828 7.26432C14.895 6.98205 14.526 6.89857 13.7881 6.73161L13.5972 6.68841C13.3875 6.64097 13.2827 6.61725 13.1985 6.55334C13.1143 6.48944 13.0603 6.39258 12.9524 6.19887Z%22 clip-rule=%22evenodd%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:cup-star-bold, D-193 */
+  --icon-calendar: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M7.75 2.5C7.75 2.08579 7.41421 1.75 7 1.75C6.58579 1.75 6.25 2.08579 6.25 2.5V4.07926C4.81067 4.19451 3.86577 4.47737 3.17157 5.17157C2.47737 5.86577 2.19451 6.81067 2.07926 8.25H21.9207C21.8055 6.81067 21.5226 5.86577 20.8284 5.17157C20.1342 4.47737 19.1893 4.19451 17.75 4.07926V2.5C17.75 2.08579 17.4142 1.75 17 1.75C16.5858 1.75 16.25 2.08579 16.25 2.5V4.0129C15.5847 4 14.839 4 14 4H10C9.16097 4 8.41527 4 7.75 4.0129V2.5Z%22/%3E%3Cpath fill-rule=%22evenodd%22 d=%22M2 12C2 11.161 2 10.4153 2.0129 9.75H21.9871C22 10.4153 22 11.161 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12ZM17 14C17.5523 14 18 13.5523 18 13C18 12.4477 17.5523 12 17 12C16.4477 12 16 12.4477 16 13C16 13.5523 16.4477 14 17 14ZM17 18C17.5523 18 18 17.5523 18 17C18 16.4477 17.5523 16 17 16C16.4477 16 16 16.4477 16 17C16 17.5523 16.4477 18 17 18ZM13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13ZM13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17ZM7 14C7.55228 14 8 13.5523 8 13C8 12.4477 7.55228 12 7 12C6.44772 12 6 12.4477 6 13C6 13.5523 6.44772 14 7 14ZM7 18C7.55228 18 8 17.5523 8 17C8 16.4477 7.55228 16 7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18Z%22 clip-rule=%22evenodd%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:calendar-bold, D-193 */
+  --icon-skull: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M12 2a9 9 0 0 0-9 9a8.99 8.99 0 0 0 4 7.47V22h2v-3h2v3h2v-3h2v3h2v-3.54c2.47-1.65 4-4.46 4-7.46a9 9 0 0 0-9-9m-4 9a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m8 0a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m-4 3l1.5 3h-3z%22/%3E%3C/svg%3E"); /* mdi:skull, D-193 */
+  --icon-rail: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M21 15.61L19.59 17l-5.01-5l5.01-5L21 8.39L17.44 12zM3 6h13v2H3zm0 7v-2h10v2zm0 5v-2h13v2z%22/%3E%3C/svg%3E"); /* mdi:menu-open, D-193 */
+  --icon-sound: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M3 9.2h3.6L11.5 5v14l-4.9-4.2H3z%22/%3E%3C/g%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M15 9a4.2 4.2 0 0 1 0 6M17.8 6.4a8 8 0 0 1 0 11.2%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026 */
+  --icon-mute: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M3 9.2h3.6L11.5 5v14l-4.9-4.2H3z%22/%3E%3C/g%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M15.5 9.5l5 5M20.5 9.5l-5 5%22/%3E%3C/g%3E%3C/svg%3E"); /* drawn for D-193 after the baseline's icon of the same job, founder screenshots of 20 Oct 2026 */
+  --icon-gift: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M11.2498 2C7.03145 2.00411 4.84888 2.07958 3.46423 3.46423C2.07958 4.84888 2.00411 7.03145 2 11.2498H6.91352C6.56255 10.8114 6.30031 10.2943 6.15731 9.72228C5.61906 7.56926 7.56926 5.61906 9.72228 6.15731C10.2943 6.30031 10.8114 6.56255 11.2498 6.91352V2Z%22/%3E%3Cpath d=%22M2 12.7498C2.00411 16.9681 2.07958 19.1506 3.46423 20.5353C4.84888 21.9199 7.03145 21.9954 11.2498 21.9995V14.1234C10.4701 15.6807 8.8598 16.7498 6.99976 16.7498C6.58555 16.7498 6.24976 16.414 6.24976 15.9998C6.24976 15.5856 6.58555 15.2498 6.99976 15.2498C8.53655 15.2498 9.82422 14.1831 10.1628 12.7498H2Z%22/%3E%3Cpath d=%22M12.7498 21.9995C16.9681 21.9954 19.1506 21.9199 20.5353 20.5353C21.9199 19.1506 21.9954 16.9681 21.9995 12.7498H13.8367C14.1753 14.1831 15.463 15.2498 16.9998 15.2498C17.414 15.2498 17.7498 15.5856 17.7498 15.9998C17.7498 16.414 17.414 16.7498 16.9998 16.7498C15.1397 16.7498 13.5294 15.6807 12.7498 14.1234V21.9995Z%22/%3E%3Cpath d=%22M21.9995 11.2498C21.9954 7.03145 21.9199 4.84888 20.5353 3.46423C19.1506 2.07958 16.9681 2.00411 12.7498 2V6.91352C13.1882 6.56255 13.7053 6.30031 14.2772 6.15731C16.4303 5.61906 18.3805 7.56926 17.8422 9.72228C17.6992 10.2943 17.437 10.8114 17.086 11.2498H21.9995Z%22/%3E%3Cpath d=%22M9.35847 7.61252C10.47 7.8904 11.2498 8.88911 11.2498 10.0348V11.2498H10.0348C8.88911 11.2498 7.8904 10.47 7.61252 9.35847C7.34891 8.30403 8.30403 7.34891 9.35847 7.61252Z%22/%3E%3Cpath d=%22M12.7498 10.0348V11.2498H13.9647C15.1104 11.2498 16.1091 10.47 16.387 9.35847C16.6506 8.30403 15.6955 7.34891 14.6411 7.61252C13.5295 7.8904 12.7498 8.88911 12.7498 10.0348Z%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:gift-bold, D-193 */
+  --icon-dollar: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12.75 6C12.75 5.58579 12.4142 5.25 12 5.25C11.5858 5.25 11.25 5.58579 11.25 6V6.31673C9.61957 6.60867 8.25 7.83361 8.25 9.5C8.25 11.4172 10.0628 12.75 12 12.75C13.3765 12.75 14.25 13.6557 14.25 14.5C14.25 15.3443 13.3765 16.25 12 16.25C10.6235 16.25 9.75 15.3443 9.75 14.5C9.75 14.0858 9.41421 13.75 9 13.75C8.58579 13.75 8.25 14.0858 8.25 14.5C8.25 16.1664 9.61957 17.3913 11.25 17.6833V18C11.25 18.4142 11.5858 18.75 12 18.75C12.4142 18.75 12.75 18.4142 12.75 18V17.6833C14.3804 17.3913 15.75 16.1664 15.75 14.5C15.75 12.5828 13.9372 11.25 12 11.25C10.6235 11.25 9.75 10.3443 9.75 9.5C9.75 8.65573 10.6235 7.75 12 7.75C13.3765 7.75 14.25 8.65573 14.25 9.5C14.25 9.91421 14.5858 10.25 15 10.25C15.4142 10.25 15.75 9.91421 15.75 9.5C15.75 7.83361 14.3804 6.60867 12.75 6.31673V6Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); /* solar:dollar-minimalistic-bold, D-193 */
+  --icon-swap: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M10.25 4.00003C10.25 3.69074 10.0602 3.41317 9.77191 3.30105C9.48366 3.18892 9.15614 3.26524 8.94715 3.49324L3.44715 9.49324C3.24617 9.71248 3.19374 10.0298 3.3135 10.302C3.43327 10.5743 3.70259 10.75 4.00002 10.75H20C20.4142 10.75 20.75 10.4142 20.75 10C20.75 9.58582 20.4142 9.25003 20 9.25003L10.25 9.25003V4.00003Z%22/%3E%3Cpath d=%22M13.75 20L13.75 14.75H4.00002C3.5858 14.75 3.25002 14.4142 3.25002 14C3.25002 13.5858 3.5858 13.25 4.00002 13.25L20 13.25C20.2974 13.25 20.5668 13.4258 20.6865 13.698C20.8063 13.9703 20.7539 14.2876 20.5529 14.5068L15.0529 20.5068C14.8439 20.7348 14.5164 20.8111 14.2281 20.699C13.9399 20.5869 13.75 20.3093 13.75 20Z%22/%3E%3C/g%3E%3C/svg%3E"); /* solar:transfer-horizontal-bold, D-193 */
+  --icon-diamond: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M6 2L2 8l10 14L22 8l-4-6z%22/%3E%3C/svg%3E"); /* mdi:diamond, filled, D-227; was mdi:diamond-stone, facets in outline; mdi:diamond-stone, D-193 */
+  --icon-pistol: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M7 5h16v4h-1v1h-6a1 1 0 0 0-1 1v1a2 2 0 0 1-2 2H9.62c-.38 0-.73.22-.9.56l-2.45 4.89c-.17.34-.51.55-.89.55H2s-3 0 1-6c0 0 3-4-1-4V5h1l.5-1h3zm7 7v-1a1 1 0 0 0-1-1h-1s-1 1 0 2a2 2 0 0 1-2-2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1%22/%3E%3C/svg%3E"); /* mdi:pistol, the mark of the items held beside their value, as the baseline's header, founder screenshot of 30 Oct 2026; D-204 */
+  --icon-facebook: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978c.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036a27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103l-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647%22/%3E%3C/svg%3E"); /* simple-icons:facebook, the provider's own mark on its own sign in button */
+  --icon-youtube: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z%22/%3E%3C/svg%3E"); /* simple-icons:youtube, the provider's own mark on its own sign in button */
+  --icon-instagram: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008%22/%3E%3C/svg%3E"); /* simple-icons:instagram, the provider's own mark on its own sign in button */
+  --icon-tiktok: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M12.525.02c1.31-.02 2.61-.01 3.91-.02c.08 1.53.63 3.09 1.75 4.17c1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97c-.57-.26-1.1-.59-1.62-.93c-.01 2.92.01 5.84-.02 8.75c-.08 1.4-.54 2.79-1.35 3.94c-1.31 1.92-3.58 3.17-5.91 3.21c-1.43.08-2.86-.31-4.08-1.03c-2.02-1.19-3.44-3.37-3.65-5.71c-.02-.5-.03-1-.01-1.49c.18-1.9 1.12-3.72 2.58-4.96c1.66-1.44 3.98-2.13 6.15-1.72c.02 1.48-.04 2.96-.04 4.44c-.99-.32-2.15-.23-3.02.37c-.63.41-1.11 1.04-1.36 1.75c-.21.51-.15 1.07-.14 1.61c.24 1.64 1.82 3.02 3.5 2.87c1.12-.01 2.19-.66 2.77-1.61c.19-.33.4-.67.41-1.06c.1-1.79.06-3.57.07-5.36c.01-4.03-.01-8.05.02-12.07%22/%3E%3C/svg%3E"); /* simple-icons:tiktok, the provider's own mark on its own sign in button */
+  --icon-telegram: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024q-.159.037-5.061 3.345q-.72.495-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789q.04-.324.893-.663q5.247-2.286 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635%22/%3E%3C/svg%3E"); /* simple-icons:telegram, the provider's own mark on its own sign in button */
+  --icon-steam: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.4 3.4 0 0 1 1.912-.59q.094.001.188.006l2.861-4.142V8.91a4.53 4.53 0 0 1 4.524-4.524c2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911l.004.159a3.39 3.39 0 0 1-3.39 3.396a3.41 3.41 0 0 1-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0M7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25a2.551 2.551 0 0 0 3.337-3.324a2.547 2.547 0 0 0-3.255-1.413l1.523.63a1.878 1.878 0 0 1-1.445 3.467zm11.415-9.303a3.02 3.02 0 0 0-3.015-3.015a3.015 3.015 0 1 0 3.015 3.015m-5.273-.005a2.264 2.264 0 1 1 4.531 0a2.267 2.267 0 0 1-2.266 2.265a2.264 2.264 0 0 1-2.265-2.265%22/%3E%3C/svg%3E"); /* simple-icons:steam, the provider's own mark on its own sign in button */
+  --icon-google: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133c-1.147 1.147-2.933 2.4-6.053 2.4c-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0C5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36c2.16-2.16 2.84-5.213 2.84-7.667c0-.76-.053-1.467-.173-2.053z%22/%3E%3C/svg%3E"); /* simple-icons:google, the provider's own mark on its own sign in button */
+  --icon-discord: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M20.317 4.37a19.8 19.8 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.3 18.3 0 0 0-5.487 0a13 13 0 0 0-.617-1.25a.08.08 0 0 0-.079-.037A19.7 19.7 0 0 0 3.677 4.37a.1.1 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.08.08 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.08.08 0 0 0 .084-.028a14 14 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13 13 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10 10 0 0 0 .372-.292a.07.07 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.07.07 0 0 1 .078.01q.181.149.373.292a.077.077 0 0 1-.006.127a12.3 12.3 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.08.08 0 0 0 .084.028a19.8 19.8 0 0 0 6.002-3.03a.08.08 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03M8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418m7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418%22/%3E%3C/svg%3E"); /* simple-icons:discord, the provider's own mark on its own sign in button */
+  --icon-x: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 d=%22M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z%22/%3E%3C/svg%3E"); /* simple-icons:x, the provider's own mark on its own sign in button */
+  /* ===== v4, FOLDED AT STAGE 07, D-224. The values of Home v4 and the case screen v4, D-209 to D-221, moved here from
+     design/v4/theme.css and nine block sheets beside it, renamed by kind, every value byte for byte. A comment carried from
+     the sheet the value stood in is kept as it was; the origin after it names the record. ===== */
+
+  /* v4: Colours */
+  --color-button: #DF055C; /* a filled button's pink, founder pick A of 4 Nov 2026, buttons-lab.html Contrast: the brand pink var(--color-pink) carried a 13px white label at 3.1:1 on its light stripe, this deeper pink of the same hue at 4.5:1, WCAG AA; the brand pink itself is unchanged everywhere else; from buttons.css as --btn-fill */
+  --color-button-hover: #E8156A; /* the fill a little lighter under the pointer, founder of 4 Nov 2026: "на кнопках при ховери фон робити трохи світлишим"; the label holds 4.4:1 on it and 4.1:1 on its light stripe while hovered, under AA's 4.5, accepted as the cost; from buttons.css as --btn-fill-hover */
+  --color-fair: #0B6A8C; /* the light end of the provably fair blue, Every round on Home and in the footer; was #0F7EA6, where white 13px sat at 3.3 to 3.9:1 under the plates' stripes; #0B6A8C holds white at 4.9:1 with the stripes over it, stage 06 critique of 10 Nov 2026, rows 4 and 5; рішення користувача, D-209 (Every round, footer I of 3 Nov 2026); value set by D-215; from theme.css as --v4-fair-blue */
+  --color-tile: #0B0A22; /* the rail's tile fill, 31 Oct 2026, a dark near the page ground; рішення користувача, D-209, the side menu's tile marked OK by the founder on 4 Nov 2026; from theme.css as --v4-tile-bg */
+  --color-rail-icon-red: color-mix(in srgb, var(--color-rarity-2) 72%, var(--color-text-hi)); /* the rarity red lifted until it holds on a dark tile, as the Showdowns card's colour; підібрано під характер, D-209, the side menu's icons; from rail-icons.css as --ri-red */
+  --color-rail-icon-cyan: color-mix(in srgb, var(--color-blue) 70%, var(--color-text-hi)); /* a gem's cold light, from the secondary accent; підібрано під характер, D-209, the side menu's icons; from rail-icons.css as --ri-cyan */
+  /* A RARITY TIER'S PLATE, the round cards' two ends, read by proof-home.js and case-blocks.js as var(), stage 06 critique of 10 Nov 2026,
+     row 15, D-215. r2, r4, r5 start on --color-rarity-2, -4, -5 and end on the mode cards' darks; r1 starts on the Upgrade card's gold, where
+     white type holds; r3 is a violet between rarity 3 and 4 */
+  --color-plate-r2-a: var(--color-rarity-2); /* from theme.css as --v4-plate-r2-a */
+  --color-plate-r2-b: #7A0F22; /* from theme.css as --v4-plate-r2-b */
+  --color-plate-r4-a: var(--color-rarity-4); /* from theme.css as --v4-plate-r4-a */
+  --color-plate-r4-b: #2E1A63; /* from theme.css as --v4-plate-r4-b */
+
+  /* v4: Sizes */
+  --size-drop-v4: 104px; /* a live drop tile; comp B, founder pick, a dark card round the hexagon; 124px until the founder, "карточки сделать меньше, сейчас они сильно много места занимают"; рішення користувача, D-209; the same job as --size-drop, 92px, direction 2: one of the two goes at step 3, D-224; from theme.css as --v4-drop */
+  --size-tile: 42px; /* the rail tile's height; рішення користувача, D-209, the side menu's tile marked OK by the founder on 4 Nov 2026; from theme.css as --v4-tile-h */
+  --size-button-l: 52px; /* рішення користувача, D-209 update of 2 Nov 2026, buttons.css: "кнопки везде сделать одинаковые ... большая средняя и маленькая"; from buttons.css as --btn-l */
+  --size-button-m: 40px; /* рішення користувача, D-209 update of 2 Nov 2026, buttons.css, the medium button; from buttons.css as --btn-m */
+  --size-button-s: 32px; /* рішення користувача, D-209 update of 2 Nov 2026, buttons.css, the small button; from buttons.css as --btn-s */
+
+  /* v4: Corners */
+  --radius-card: 12px; /* card and banner corner; comp A and B, founder pick; рішення користувача, D-209; from theme.css as --v4-radius */
+  --radius-tile: var(--radius-card); /* the tile's corner is the card's; рішення користувача, D-209; from theme.css as --v4-tile-radius */
+  --radius-button: 12px; /* рішення користувача, D-209 update of 2 Nov 2026, "одинаковые по закруглениям"; 10 to 12px by the founder on 11 Nov 2026 of 8, 10 and 12: "10 I don't like", D-218; from buttons.css as --btn-radius */
+
+  /* v4: Shadows */
+  --shadow-button: 0 4px 14px rgba(223, 5, 92, .32); /* the filled button's glow under the pointer, in --color-button; рішення користувача, D-209 update of 4 Nov 2026, buttons-lab.html; from buttons.css as --btn-glow */
+  --shadow-tile-edge: inset 0 0 0 1px rgba(255, 255, 255, .07); /* stage 08 step 2, D-260 (Q1), the founder: "Q1 и Q2 как рекомендуешь": .05 becomes .07, one role with --shadow-edge, the alpha most families draw (census.md, Line colours); was the tile's hairline, white at 5 %, read off the rail's tile, 31 Oct 2026; рішення користувача, D-209, the side menu's tile marked OK by the founder on 4 Nov 2026; from theme.css as --v4-tile-edge */
+
+  /* v4: Motion */
+  --motion-ease-pop: cubic-bezier(.34, 1.56, .64, 1); /* a lift that overshoots and settles; підібрано під характер, design principle 2; from theme.css as --v4-ease-pop */
+
+  /* v4: Gradients, a kind of their own since D-224: a value that paints a surface and is neither a picture (--art-*) nor a percentage (--mix-*) */
+  --gradient-mode-cases: linear-gradient(120deg, var(--color-pink), #8E2BC9); /* pink to violet; comp A, founder pick; from --color-pink to a violet between rarity 3 and 4; from theme.css as --v4-mode-cases */
+  --gradient-mode-cases-deep: linear-gradient(120deg, var(--color-button), #8E2BC9); /* the Cases mode's pink to violet starting from the filled button's deeper pink, for a white label on it: the brand pink holds white at 3.5:1, the button pink at 4.5:1 on its light stripe (the founder's pick A of 4 Nov 2026, --color-button); the chosen provider tile, stage 07 step 6, I1 */
+  --gradient-mode-battles: linear-gradient(120deg, var(--color-rarity-5), #1B2A8F); /* blue; comp A, founder pick; from --color-rarity-5; from theme.css as --v4-mode-battles */
+  --gradient-mode-showdowns: linear-gradient(120deg, var(--color-rarity-2), #7A0F22); /* red; comp A, founder pick; from --color-rarity-2; from theme.css as --v4-mode-showdowns */
+  --gradient-mode-upgrade: linear-gradient(120deg, #9E6905, #B4400F); /* gold to orange; comp A, founder pick; from --color-rarity-1, darkened until white type holds on it: #B57A06 held white 12px at 3.65:1, so the gold end went to #9E6905, 4.7:1, stage 06 critique of 10 Nov 2026, row 6; from theme.css as --v4-mode-upgrade */
+  --gradient-panel: linear-gradient(180deg, #120F33, #0B0A22 60%, #08071C); /* the footer's own panel, footer I of 3 Nov 2026; the rail's panel took it too as a trial and kept it on 4 Nov 2026, founder: "более темний мне больше нравится как в футере давай поставим на главной в боковом меню", D-209; the rail was linear-gradient(180deg, #16133C, #0D0C28), the header strip's navy; from theme.css as --v4-panel-ground */
+  --gradient-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 8px, transparent 8px 16px); /* faint diagonal stripes on a filled button; comp A and C, founder pick; also the section headings' tile, heading-home.css, founder of 2 Nov 2026: "о вот это прикольно смотрится - берем"; from theme.css as --v4-stripes */
+  --gradient-button-stripes: repeating-linear-gradient(135deg, rgba(255, 255, 255, .1) 0 14px, transparent 14px 28px); /* the stripes of a filled button; рішення користувача, D-209 update of 2 Nov 2026, buttons.css; from buttons.css as --btn-stripes */
+  --gradient-button-sheen: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .26) 50%, transparent 58%); /* the light that crosses a filled button under the pointer; рішення користувача, D-209 update of 4 Nov 2026, buttons-lab.html; from buttons.css as --btn-sheen */
+
+  /* v4: Shapes and masks, an outline a layer is cut to */
+  --shape-hex-outer: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%22.5%22 d=%22M135,58 L102,117 L34,117 L1,58 L34,1 L102,1 Z%22/%3E%3Cpath stroke-width=%221%22 stroke-dasharray=%224 2%22 d=%22M5,58 L36,4 L100,4 L131,58 L100,114 L36,114 Z%22/%3E%3C/svg%3E"); /* the outer two of --shape-hex-line, the same paths; рішення користувача, D-209, founder of 31 Oct 2026: "как у нас сейчас плюс как на дедди скинс подложку для скинов"; also the rare drops' hexagon, rare-drops.css; from theme.css as --v4-hex-outer */
+  --shape-hex-inner: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 136 118%22 fill=%22none%22 stroke=%22%23000%22%3E%3Cpath stroke-width=%221.6%22 d=%22M123,58 L96,106 L40,106 L13,58 L40,12 L96,12 Z%22/%3E%3C/svg%3E"); /* the inner line of --shape-hex-line, drawn a little heavier to carry the gradient; рішення користувача, D-209, founder of 31 Oct 2026: "самый внутренний бордер сделаем градиентом"; from theme.css as --v4-hex-inner */
+  --shape-feed-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); /* a live drop's ring and its light in one mask, no filter; технічне рішення, the performance pass of 10 Nov 2026, D-214; from theme.css as --v4-feed-ring */
+  --shape-ring-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 136 118'%3E%3Cpath d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z' fill='none' stroke='%23000' stroke-width='7' stroke-linejoin='round'/%3E%3C/svg%3E"); /* the ring a rare mark's current runs round; рішення користувача, D-214, rare-mark.css, founder of 10 Nov 2026; from rare-mark.css as --rm-ringmask */
+  --shape-hex-glow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 176 158'%3E%3Cdefs%3E%3Cfilter id='a' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='1.4'/%3E%3C/filter%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='-20' y='-20' width='176' height='158'%3E%3CfeGaussianBlur stdDeviation='6.9'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='3.6' stroke-linejoin='round'%3E%3Cpath filter='url(%23b)' stroke-opacity='.28' transform='translate(-4.2 -4.2)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3Cpath filter='url(%23a)' stroke-opacity='.55' transform='translate(-2.1 -2.1)' d='M128 59L98 110.96L38 110.96L8 59L38 7.04L98 7.04Z'/%3E%3C/g%3E%3C/svg%3E"); /* the ring's light on W7's band and reel cards in one mask; технічне рішення, the performance pass of 10 Nov 2026, D-214; from case-stage.css as --v4-hex-glow */
+
+  /* v4: Icons drawn for v4, a mask as the set above */
+  --icon-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.4-4.5-9.6-9.1C.9 8.6 3 4.6 6.8 4.6c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 4 4.4 7.3C19.4 16.5 12 21 12 21z'/%3E%3C/svg%3E"); /* the favourite's heart and its burst; рішення користувача, D-209 update of 2 Nov 2026, round 4; from case-tiles.css as --v4-heart */
+  --icon-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M3 13 17 27 32 5 47 27 61 13 55 38H9Z'/%3E%3Crect x='9' y='40' width='46' height='6' rx='2'/%3E%3Ccircle cx='3' cy='11' r='3.5'/%3E%3Ccircle cx='32' cy='4' r='4'/%3E%3Ccircle cx='61' cy='11' r='3.5'/%3E%3C/svg%3E"); /* the rare drop's crown, the golden orbit tier; рішення користувача, D-209 rare drops of 1 Nov 2026; from rare.css as --v4-crown */
+  --icon-bolt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.6 1 4 11.2h5l-1.6 7.8L16 8.6h-5.2z'/%3E%3C/svg%3E"); /* the risk bolts, founder of 2 Nov 2026: "черепа нам ни к чему, давай сделаем молнии"; D-209; from case-tiles.css as --icon-bolt */
+  --icon-question: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.2 8.6a3.8 3.8 0 1 1 5.7 3.3c-1.2.7-1.9 1.4-1.9 2.8v.5' fill='none' stroke='%23000' stroke-width='2.8' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='19.4' r='1.9'/%3E%3C/svg%3E"); /* the FAQ heading's mark; рішення користувача, D-209 update of 2 Nov 2026, round 8; from faq-home.css as --icon-question */
+
+  /* ===== Added at stage 07 step 3, batch 1, atoms. Each value is read from v4's code or decided by the founder; the decision is D-228 ===== */
+  --radius-xs: 4px; /* thin lines and small marks; рішення користувача, D-228, the corner ladder 4 8 12 16 24, option A */
+  --color-up: #35E08A; /* a figure that went up, the net of a gain; рішення користувача, D-226 row B2, was a literal in four v4 block sheets */
+  --color-down: #FF5C7A; /* a figure that went down; рішення користувача, D-226 row B2, was a literal in four v4 block sheets */
+  --color-button-ghost: rgba(11, 10, 34, .55); /* the ghost button's fill, the tile at 55 %; рішення користувача, D-209 update of 2 Nov 2026, buttons.css */
+  --color-button-ghost-hover: rgba(223, 5, 92, .2); /* the ghost under the pointer, the button pink at 20 %; рішення користувача, D-209 update of 4 Nov 2026, buttons.css */
+  --shadow-button-ghost: 0 4px 14px rgba(223, 5, 92, .2); /* the ghost's glow under the pointer; рішення користувача, D-209 update of 4 Nov 2026, buttons.css */
+  --shadow-button-press: 0 2px 8px rgba(223, 5, 92, .3); /* pressed, the glow tightens; рішення користувача, D-209 update of 4 Nov 2026, buttons.css */
+  --color-disabled: rgba(150, 160, 215, .14); /* the wash of a control that is busy; buttons.css; D-58 keeps controls live, so it shows only while a round rolls */
+  --shadow-edge: inset 0 0 0 1px rgba(255, 255, 255, .07); /* the inner hairline of a plate, a FAQ row, a chip; v4 drew .05 to .08 for the one role, D-228 takes .07, the header plate's and the FAQ row's */
+  --color-veil: rgba(6, 8, 24, .78); /* a dark plate over art, the header's money plate; account-home.css, рішення користувача, D-209 */
+  --color-veil-soft: rgba(6, 8, 24, .45); /* the close button's see-through tile; buttons.css, founder of 3 Nov 2026 */
+  --color-error: #FF4D6A; /* the close cross under the pointer; buttons.css, founder of 3 Nov 2026: "крестик становится красным" */
+  --color-badge-ink: #3A2600; /* рішення користувача, D-209; the text on a gold badge; account-home.css, the 5 % bonus badge */
+  --gradient-row: linear-gradient(180deg, #16133C, #100E2E); /* a FAQ row's fill; faq-home.css, D-209 round 8 */
+  --shadow-avatar: 0 0 0 1px rgba(255, 255, 255, .12); /* рішення користувача, D-209; an avatar's ring; account-home.css */
+  --shadow-avatar-s: 0 0 0 1px rgba(255, 255, 255, .25); /* рішення користувача, D-209; a 16px avatar's ring, stronger to read at that size; the ticker, v4 theme */
+  --size-hairline: 1px; /* технічне рішення; a hairline rule or ring; the 1px of every inset edge the screens draw */
+  --tracking-caps: .06em; /* the letter spacing of an uppercase button label; buttons.css, D-209 update of 2 Nov 2026 */
+  --tracking-label: .08em; /* наявний бренд, DESIGN.md typography; an uppercase field label or key; DESIGN.md typography, label */
+  --size-button-l-pad: 28px; /* рішення користувача, D-209; the large button's side padding; buttons.css */
+  --size-button-m-pad: 20px; /* рішення користувача, D-209; the medium button's side padding; buttons.css */
+  --size-button-s-pad: 14px; /* рішення користувача, D-209; the small button's side padding; buttons.css */
+  --size-badge: 16px; /* рішення користувача, D-209; a badge's height; account-home.css */
+  --size-avatar-s: 16px; /* рішення користувача, D-209; the ticker's avatar; v4 theme */
+  --size-avatar-m: 32px; /* рішення користувача, D-209; the header's avatar; account-home.css */
+  --size-close: 40px; /* 40px, carried from v4 signin-home.css close button; founder pick D-232, was 36; рішення користувача, D-232 */
+  --size-row: 64px; /* рішення користувача, D-209; a FAQ row's height on a desktop; faq-home.css */
+  --size-mark: 28px; /* рішення користувача, D-209; the plus and minus mark of a FAQ row; faq-home.css */
+  --size-check: 20px; /* підібрано під характер; a checkbox or radio box; the fav glyph's size, case-tiles.css, so a box reads as one size with the icons */
+  --size-switch-w: 40px; /* a switch's track; підібрано під характер, the medium button's height laid flat */
+  --size-lead: 17px; /* рішення користувача, D-209; a lead paragraph and a FAQ question, seo-home.css and faq-home.css */
+  --color-text-lead: rgba(255, 255, 255, .9); /* рішення користувача, D-209; a lead paragraph's white at 90 %, seo-home.css */
+  --color-well: rgba(6, 8, 24, .6); /* рішення користувача, D-209 round 8; the sunken panel an open FAQ answer sits in, Home v4 */
+  --color-tile-veil: rgba(11, 10, 34, .7); /* рішення користувача, D-213; a count option not chosen, case-stage.css */
+  --gradient-edge-pink: linear-gradient(90deg, transparent, var(--color-pink) 50%, transparent); /* рішення користувача, D-209 round 8; the lit edges of an open FAQ row, Home v4 */
+  --tracking-link: .02em; /* рішення користувача, D-209; the onward link, theme.css ONE TEXT LINK */
+  --size-switch-h: 24px; /* a switch's track height; підібрано під характер, the check box plus its 2px edges */
+
+  /* ===== The founder's review of the atoms, 19 Nov 2026, D-230: the badge, the sound tile and the case art as Home draws them ===== */
+  --size-badge-text: 10px; /* a badge's words; рішення користувача, D-209, account-home.css, the 5 % bonus badge on Add funds, the one badge v4 draws */
+  --size-badge-pad: 5px; /* a badge's sides; рішення користувача, D-209, account-home.css, the same badge */
+  --size-tile-icon: 22px; /* the mark on a square icon tile; рішення користувача, D-209, theme.css, the sound and the flag on the closed rail */
+  --color-case-violet: #A35CFF; /* Nightfall's light behind its skin; рішення користувача, D-209, theme.css, the case tile's --case */
+  --shadow-skin-drop: drop-shadow(0 6px 6px rgba(0, 0, 0, .7)); /* a skin's shadow on the case it lies in, a filter; рішення користувача, D-209, theme.css, the case tile's skin */
+  --shape-case-rim: polygon(0 49%, 9.6% 50.5%, 70% 59%, 77% 56%, 100% 47%, 100% 100%, 0 100%); /* the case's front below its rim, cut so the skin lies inside the tray; рішення користувача, D-209, case-tiles.css and proof-home.css */
+  /* ===== Kept at the cleanup of stage 07 step 3, D-229: v4's own scripts and rules reach these, some only for a rarity, a hover or a risk the
+     twelve measured loads did not draw (case-blocks.js builds the rarity plates by name), so they are the product's and stay ===== */
+  --color-scrim: rgba(6, 10, 30, .72); /* the ground behind a dialog; the ground at 72 %; структура, wireframes/_wf.css, stage 04 drew it black at 66 % */
+  --color-footer-base: #030214; /* the strip under the footer, the copyright row; наявний бренд, walk of the baseline site on 22 Oct 2026, computed style, copyright-wrapper, D-196 */
+  --color-mode-glow: #2B1751; /* the purple glow at the art end of a mode card; наявний бренд, founder screenshots of 20 Oct 2026, pixel at the foot of the Cases card */
+  --color-rare-gold: var(--color-rarity-1); /* the rare drop's colour, --color-rarity-1, the top of the ladder, written as its variable since D-224; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-gold */
+  --color-rare-fire: #FF5A2E; /* ember, as Emberforge's light in v4; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-fire */
+  --color-rare-zap: #8FD3FF; /* lightning, --color-blue lifted; підібрано під характер, D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-zap */
+  --color-field-edge: #CECED4; /* edge of a field or a checkbox, never text; наявний бренд; рішення користувача, D-186 */
+  --color-footer-edge: #65A3FF; /* the 2px line across the top of the footer; наявний бренд, baseline.md 13.2 */
+  --color-rarity-7: #DDDDDD; /* rarity step 7; наявний бренд, baseline.md 13.4 */
+  --color-risk-extreme: #FF4D3D; /* the fourth band of the risk bolts, founder of 2 Nov 2026 in case-tiles.css: "4 штуки: Low, Medium, High и Extreme"; D-209; no case carries it yet, its threshold not decided; from case-tiles.css as --color-risk-extreme */
+  --color-plate-r1-a: #9E6905; /* from theme.css as --v4-plate-r1-a */
+  --color-plate-r1-b: #B4400F; /* from theme.css as --v4-plate-r1-b */
+  --color-plate-r3-a: #A62BC4; /* from theme.css as --v4-plate-r3-a */
+  --color-plate-r3-b: #4A1260; /* from theme.css as --v4-plate-r3-b */
+  --color-plate-r5-a: var(--color-rarity-5); /* from theme.css as --v4-plate-r5-a */
+  --color-plate-r5-b: #1B2A8F; /* from theme.css as --v4-plate-r5-b */
+  --size-daily: 344px; /* the Daily cases panel; наявний бренд, baseline walk of 20 Oct 2026, computed style, daily-cases-bg */
+  --motion-rail-icon: .95s; /* one story; longer than a state change because it is the event, shorter than a wait; підібрано під характер, design principle 2; D-209, the side menu's icons; from rail-icons.css as --ri-play */
+  --motion-ease-rail-icon: cubic-bezier(.3, .7, .3, 1); /* підібрано під характер; the side menu's icons, D-209; from rail-icons.css as --ri-ease */
+  --motion-rare-drop: 4s; /* one landing and its afterglow, then again; підібрано під характер, long enough to watch, short enough to compare; D-209 rare drops of 1 Nov 2026; from rare-drops.css as --rd-loop */
+  --shape-case-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FF8DBD'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3ClinearGradient id='r' x1='1' y1='0' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23FB3F8A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FB3F8A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='22' height='2' fill='url(%23l)'/%3E%3Crect x='50' y='0' width='22' height='2' fill='url(%23r)'/%3E%3Cpath d='M22 0h28L36 17z' fill='url(%23g)'/%3E%3Cpath d='M29 3h14l-7 8z' fill='%23140F36'/%3E%3Ccircle cx='36' cy='21.5' r='2.2' fill='%23FB3F8A'/%3E%3C/svg%3E"); /* the reel's pointer, a cut chevron in the pink; рішення користувача, D-213, stage-lab.html rows H to J: "стрелочки сделай интереснее, визуальнее"; from case-stage.css as --v4c-mark */
+
+  /* ===== Stage 07 step 3 batch 2, the molecules' language, D-231 ===== */
+  /* the geometry two or more molecules read: the half steps of the ladder (a quarter, a half or three quarters of the way to the next step,
+     --space-4-25 being 16 and a quarter of the step to 24), and the stage card's parts; the geometry one molecule reads is at the head of its block */
+  --space-hair: 2px; /* kit.css part 2 .wf-tile-link gap and theme.css .wf-tile-risk margin-block, case-tiles.css .wf-tile .wf-fav top and right: the smallest gap between stacked lines / a figure to its unit on a phone; v4 banner.css: .wf-event-cell span, margin-top; рішення користувача, D-209 (v4) carried by D-231 */
+  --space-thin: 3px; /* trust-badge.css .v4-trust-tiles gap and its svg inset, the Trustpilot star tiles / a cell's top and foot on a phone; v4 banner.css: .wf-event-cell, padding; рішення користувача, D-209 (v4) carried by D-231 */
+  --space-1-5: 6px; /* case-tiles.css .wf-tile .wf-fav padding and its ::before inset, .v4-risk-tip padding, kit.css .wf-tile-cost::before margin-right: the coin to its price, a small plate's height padding / рішення користувача, D-209; a status chip's icon to its words; design/v4/daily-home.css: .dc-chip gap / the same on a phone, "more compact"; v4 banner.css: .wf-event-clock, padding / the step v4 draws between --space-1 and --space-2: theme.css .wf-feed-hit padding and .wf-feed-back gap, modes.css .wf-grid .wf-mode p margin / v4 case-page.css: .v4c-nav .wf-crumb ol gap; case-blocks.css: .v4d-p gap; case-body.css: row F tickets padding-top. Breadcrumb, Drop card, Recent drop card */
+  --space-1-75: 7px; /* v4 case-stage.css: z7 .v4c-won-x padding-top; account-home.css: .ac2-btn padding-left. Outcome card, Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --space-2-5: 10px; /* trust-badge.css .v4-trust gap and padding, .v4-trust-meta padding-left; case-tiles.css .v4-risk-tip padding and offset, .v4-fx bottom and translate / рішення користувача, D-209; the Daily head's row and box gaps, a chip's sides, the line under the cards; design/v4/daily-home.css: .dc-row, .dc-boxes, .dc-box, .dc-chip, .dc-say / the title's top on a phone; v4 banner.css: .wf-event .wf-event-name, top / the countdown plate's padding; v4 theme.css: .wf-event-clock, padding / v4 case-body.css: row F .wf-art-c margin-top; case-stage.css: z7 card column-gap; account-home.css: .am3 top offset, .am3-t gap. Drop card, Recent drop card, Outcome card, Popover menu */
+  --space-3-5: 14px; /* heading-home.css .wf-sec-head h2 gap, the section tile to its title; case-tiles.css .wf-tile:hover .wf-tile-price padding, the price plate's sides / рішення користувача, D-209; a Daily card's inset and the lead's distance under a wide head; design/v4/daily-home.css: .dc-card padding, .dc-head.has-title .dc-l / v4 case-body.css: row F .v4b-row padding-inline, th margin-bottom; account-home.css: .am3-head gap. Drop card, Popover menu */
+  --space-4-25: 18px; /* v4 case-body.css: row F .v4b-row padding-bottom; case-blocks.css: .v4d-w7 a padding-bottom; case-stage.css: z7 card padding-inline. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --space-5-5: 28px; /* рішення користувача, D-209; the Daily panel's inset; design/v4/daily-home.css: .dc padding / the title's and the countdown's top and the act's foot from 900px; v4 banner.css: .wf-event .wf-event-name, .wf-event-clock, .wf-event-go */
+  --size-head-l: 26px; /* theme.css .wf-sec-head:has(+ .wf-grid .wf-tile) h2, the Featured cases title; trust-badge.css .v4-trust-score, the Trustpilot score / a countdown figure; v4 theme.css: .wf-event-cell b, font-size; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-lift: 3px; /* v4 case-blocks.css: .v4d-w7 a:hover translateY; case-body.css row F :hover, a card rising under the pointer. Drop card, Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-tier-bar: 3px; /* v4 case-blocks.css: .v4d-w7 a::after height, the tier's short bar at the card's foot; case-body.css row F ::before, the line of the 100 000. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-tier-bar-w: 44px; /* v4 case-blocks.css: .v4d-w7 a::after width. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-ring-stroke: 3.6px; /* v4 case-blocks.css: .v4d-art .v4o-hex .hx-grad-d stroke-width, in the ring's own 136 by 118 units. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-ring-glow-near: 1.5px; /* the ring's near light, cast up and left; case-blocks.css .v4d-art .v4o-hex filter, case-body.css row F, case-stage.css w5 and w7; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-ring-glow-far: 3px; /* the ring's far light, cast up and left; the same rules; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-card-art: 112px; /* v4 case-blocks.css: .v4d-art height; case-body.css: row F .wf-art-c height. Drop card, Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-card-art-s: 96px; /* v4 case-blocks.css: .v4d-art height at 599px. Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  /* Home's molecules: Case tile, Daily ladder, Event banner, Feed tile, Hero, Mode card, Section head, read from Home v4 */
+  --tracking-title: .02em; /* theme.css .wf-hero--short h1, Home's H1; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-case-name: .04em; /* theme.css .wf-tile-name, a case's name on its tile; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-score: -.01em; /* trust-badge.css .v4-trust-score; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-head-upgrade: #F0A21B; /* case-blocks.css .wf-sec-head:has(#h2-recent) --hx-c, the line of a head in the Upgrade colour; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-head-battles: #4A6BFF; /* case-blocks.css .wf-sec-head:has(#h2-pays) --hx-c, the line of a head in the Case battles colour; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-head-showdowns: #E5394F; /* case-blocks.css .wf-sec-head:has(#h2-observed) --hx-c, the line of a head in the Showdowns colour; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-trustpilot: #00B67A; /* trust-badge.css .v4-trust-tiles i, Trustpilot's own green, kept so the mark is known at a glance; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-trust-plate: rgba(12, 16, 44, .82); /* trust-badge.css a.v4-trust background, the badge's glass under its tint; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-trust-off: rgba(150, 160, 215, .24); /* trust-badge.css .v4-trust-tiles i, the unfilled part of a star tile; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-trust-rule: rgba(255, 255, 255, .16); /* trust-badge.css .v4-trust-meta border-left, the rule before the source; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-fav-plate: rgba(11, 10, 34, .78); /* case-tiles.css .wf-tile .wf-fav::before, the favourite's dark pill over a tile; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-price-plate: rgba(11, 10, 34, .82); /* case-tiles.css .wf-tile:hover .wf-tile-price, the price's plate under the pointer; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-trust: linear-gradient(135deg, rgba(0, 182, 122, .16), rgba(101, 163, 255, .08) 45%, rgba(251, 63, 138, .12)); /* trust-badge.css a.v4-trust, the tint over the badge's glass; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-trust-edge: linear-gradient(120deg, var(--color-trustpilot), rgba(101, 163, 255, .5) 45%, var(--color-pink)); /* trust-badge.css a.v4-trust::before, the lit edge; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-trust-sweep: linear-gradient(105deg, transparent 23%, rgba(255, 255, 255, .22) 50%, transparent 77%); /* trust-badge.css .v4-trust::after, the light that crosses the badge; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-case-gold: linear-gradient(120deg, #B57A06, #B4400F); /* case-tiles.css .wf-tile:has([data-art="case-gold"]) --tile-g, a gold case's card under the pointer; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-case-violet: linear-gradient(120deg, #8E2BC9, #3B1A8F); /* case-tiles.css .wf-tile:has([data-art="case-violet"]) --tile-g, a violet case's card under the pointer; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-fade-up: linear-gradient(to top, #000 30%, transparent 100%); /* case-tiles.css .v4-fx mask, the case's card fading out toward the case; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-tile-lit: inset 0 1px 0 rgba(255, 255, 255, .25); /* heading-home.css .wf-sec-head h2::before, the light along a striped tile's top edge / рішення користувача, D-209; the lit top edge of a striped tile: a tier card, the title's calendar tile; design/v4/daily-home.css: .dc-card, heading-home.css: .dc-t::before */
+  --shadow-edge-lit: inset 0 0 0 1px rgba(255, 255, 255, .1); /* case-tiles.css .wf-tile .wf-fav::before and trust-badge.css a.v4-trust, the hairline of a plate over art, brighter than --shadow-edge / рішення користувача, D-209; the hairline of a Daily head box, brighter than --shadow-edge's .07 because it sits on art; design/v4/daily-home.css: .dc-box box-shadow */
+  --shadow-price-edge: inset 0 0 0 1px rgba(255, 255, 255, .14); /* case-tiles.css .wf-tile:hover .wf-tile-price, the price plate's hairline; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-trust: var(--shadow-edge-lit), 0 8px 24px rgba(6, 10, 30, .5); /* trust-badge.css a.v4-trust box-shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-trust-hover: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 12px 30px rgba(0, 182, 122, .25); /* trust-badge.css a.v4-trust:hover box-shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-tip: 0 8px 18px rgba(4, 6, 20, .5); /* case-tiles.css .v4-risk-tip, the risk tooltip's drop; рішення користувача, D-209 (v4) carried by D-231 */
+  --shape-tip-tail: polygon(100% 0, 100% 100%, 0 50%); /* case-tiles.css .v4-risk-tip::after, the tooltip's tail; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-ease-settle: cubic-bezier(.22, 1, .36, 1); /* case-tiles.css .v4-fx and .v4-risk-tip, trust-badge.css a.v4-trust: a move that arrives fast and settles / a long settle for the lean; v4 banner.css: .wf-event --scene-ease; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-ease-bounce: cubic-bezier(.3, 1.6, .5, 1); /* case-tiles.css .wf-tile .wf-fav-i and the bolts' strike: a pop that overshoots; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-trust-sweep: 7s; /* trust-badge.css .v4-trust::after, one pass of the light and its rest; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-stagger: 45ms; /* trust-badge.css .v4-trust-tiles i, the delay from one star tile to the next; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-stagger-bolt: 70ms; /* case-tiles.css .wf-tile-risk:hover .v4-bolts i, the delay from one bolt to the next; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-daily-silver: #C9D2E3; /* рішення користувача, D-209; Silver's hue, its light and its live edge; design/v4/daily-home.css: .dc-t1 --hue */
+  --color-plate-veil: rgba(11, 10, 34, .72); /* рішення користувача, D-209; the dark plate of a Daily head box; design/v4/daily-home.css: .dc-box background */
+  --color-daily-chip: rgba(6, 10, 30, .62); /* рішення користувача, D-209; a tier's status chip on its colour; design/v4/daily-home.css: .dc-chip background */
+  --shadow-tile-lit-hover: inset 0 1px 0 rgba(255, 255, 255, .3); /* the same edge under the pointer; design/v4/daily-home.css: .dc-card:hover; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-tile-lit-live: inset 0 1px 0 rgba(255, 255, 255, .4); /* the same edge on the card with the open control; design/v4/daily-home.css: .dc-card.is-hero; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-lift: 0 18px 30px rgba(6, 10, 30, .55); /* the card with the open control standing off the panel; design/v4/daily-home.css: .dc-card.is-hero; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-lift-hover: 0 18px 30px rgba(6, 10, 30, .6); /* a card lifted under the pointer; design/v4/daily-home.css: .dc-card:hover; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-lift-live-hover: 0 24px 36px rgba(6, 10, 30, .6); /* the live card lifted under the pointer; design/v4/daily-home.css: .dc-card.is-hero:hover; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-name: 0 2px 8px rgba(6, 10, 30, .4); /* a tier name's text shadow on its stripes; design/v4/daily-home.css: .dc-name; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-daily-skin: drop-shadow(0 6px 6px rgba(0, 0, 0, .65)); /* a skin's shadow in a daily case, a filter; .65 where --shadow-skin-drop is .7; design/v4/daily-home.css: .dc-skin; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-daily-panel: linear-gradient(180deg, #16133C, #0D0C28); /* рішення користувача, D-209; the Daily panel's fill; design/v4/daily-home.css: .dc background */
+  --gradient-daily-fade: linear-gradient(90deg, transparent 18%, #000 64%); /* the mask that fades the warehouse ground out to the left; design/v4/daily-home.css: .dc::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-daily-fade-s: linear-gradient(180deg, #000 0, transparent 440px); /* the same, downward, on a phone; design/v4/daily-home.css: @container dc (max-width: 760px) .dc::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-daily-silver: linear-gradient(120deg, #7D88A8, #333C5A); /* рішення користувача, D-209; Silver's card; design/v4/daily-home.css: .dc-t1 --g1 --g2 */
+  --gradient-daily-guardian: linear-gradient(120deg, #8E2BC9, #41157A); /* рішення користувача, D-209; Guardian's card; design/v4/daily-home.css: .dc-t3 --g1 --g2 */
+  --gradient-daily-legend: linear-gradient(120deg, var(--color-pink), #8E1F5E); /* рішення користувача, D-209; Legend's card; design/v4/daily-home.css: .dc-t4 --g1 --g2 */
+  --gradient-daily-elite: linear-gradient(120deg, #B07806, var(--color-plate-r1-b)); /* Elite's card; #B07806 holds ELITE in white at 3.3:1, stage 06 critique of 10 Nov 2026 row 7; design/v4/daily-home.css: .dc-t5 --g1 --g2; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-tight: .03em; /* the open control's label when it takes two lines on a phone card; design/v4/daily-home.css: @container dc (max-width: 760px) .dc-card.is-hero .v4-btn / v4 modes.css .wf-mode > .wf-fig-missing: Not launched yet, tracked less so it fits a narrow plate; рішення користувача, D-209 (v4) carried by D-231 */
+  --shape-daily-rim: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); /* a daily case's front wall, level at 55 % in every tier picture, cut so the skins lie in the tray; design/v4/daily-home.css: .dc-front; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-banner: #0B0F2A; /* the night behind the scene before its pictures load; v4 banner.css: .wf-event, background; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-banner-clock-phone: rgba(6, 10, 30, .78); /* the countdown's plate on a phone, without the blur; v4 theme.css: .wf-event-clock, background; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-banner-cell: rgba(15, 14, 43, .9); /* a countdown cell, the card at 90 %; v4 theme.css: .wf-event-cell, background; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-banner-rule: rgba(101, 163, 255, .14); /* the line under the end date, the blue at 14 %; v4 theme.css: .wf-event-end, border-bottom; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-banner: 0 14px 34px rgba(0, 0, 0, .4); /* the banner's drop as a block from 900px; v4 banner.css: .wf-main > .wf-event, box-shadow (its inset .06 hairline is --shadow-edge, D-228); рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-banner-clock: inset 0 0 0 1px rgba(101, 163, 255, .18), 0 10px 30px rgba(6, 10, 30, .5); /* the countdown's blue hairline and drop; v4 theme.css: .wf-event-clock, box-shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-banner-title: drop-shadow(0 1px 2px rgba(6, 10, 30, .9)) drop-shadow(0 6px 18px rgba(6, 10, 30, .75)); /* the title art's shadow on the sky, a filter; v4 theme.css: .wf-event .wf-event-name, filter; рішення користувача, D-209 (v4) carried by D-231 */
+  --filter-banner-plate: brightness(1.08) saturate(1.1); /* the plate lit a step, "brighter as in B"; v4 banner.css: .wf-event::before, filter; рішення користувача, D-209 (v4) carried by D-231 */
+  --filter-banner-flare: brightness(1.5); /* the case's light under the pointer or with the act focused; v4 banner.css: .wf-event:hover::after, filter; рішення користувача, D-209 (v4) carried by D-231 */
+  --filter-banner-flare-still: brightness(1.15); /* the same flare, still, for reduced motion; v4 banner.css: @media (prefers-reduced-motion) .wf-event:hover::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-banner-clock: 6px; /* the countdown plate's backdrop blur from 600px; v4 banner.css: .wf-event-clock, backdrop-filter; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-banner-unit-phone: .04em; /* the unit's tracking on a phone, so Seconds fits 76px at 360; v4 banner.css: .wf-event-cell span, letter-spacing; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-shade: linear-gradient(90deg, rgba(6, 10, 30, .5), rgba(6, 10, 30, .12) 30%, transparent 46%); /* the shade that keeps the title legible, from 600px; v4 banner.css: .wf-event::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-shade-phone: linear-gradient(to bottom, rgba(6, 10, 30, .45), transparent 26%); /* the same under the phone's title; v4 banner.css: @media (max-width: 599px) .wf-event::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-foot: linear-gradient(to top, var(--color-ground), transparent 14%); /* the plate melting into the page at its foot; v4 banner.css: .wf-event::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-foot-phone: linear-gradient(to top, var(--color-ground) 16%, transparent 34%); /* the same on a phone, behind the countdown; v4 banner.css: @media (max-width: 599px) .wf-event::before; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-hero-mask: linear-gradient(to top, transparent, #000 14%); /* the soldier's foot melting as the plate's; v4 banner.css: .wf-event .wf-banner-art::after, mask; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-hero-mask-phone: linear-gradient(to top, transparent 22%, #000 36%); /* the same on a phone; v4 banner.css: @media (max-width: 599px) .wf-event .wf-banner-art::after, mask; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-story-mask-phone: linear-gradient(to bottom, #000 68%, transparent); /* the phone story melting behind the countdown; v4 banner.css: @media (max-width: 599px) .v4-story, mask; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-art-mask: radial-gradient(closest-side, #000 72%, transparent); /* the soldier and the aurora fading at the corners; kit.css part 3: [data-art^="case-"] on the banner's art, which Home v4 draws; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-sweep: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, .45) 50%, transparent 80%); /* the light crossing the act; v4 banner.css: .wf-event-go::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-snow-near: radial-gradient(circle at 12% 18%, rgba(255, 255, 255, .95) 0 2px, transparent 2.6px), radial-gradient(circle at 63% 9%, rgba(255, 255, 255, .8) 0 1.6px, transparent 2.2px), radial-gradient(circle at 38% 57%, rgba(255, 255, 255, .9) 0 2.4px, transparent 3px), radial-gradient(circle at 86% 44%, rgba(255, 255, 255, .75) 0 1.8px, transparent 2.4px), radial-gradient(circle at 21% 83%, rgba(255, 255, 255, .85) 0 1.5px, transparent 2.1px), radial-gradient(circle at 72% 76%, rgba(255, 255, 255, .95) 0 2.2px, transparent 2.8px); /* falling snow, near; v4 banner.css: .wf-event --snow-near; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-banner-snow-far: radial-gradient(circle at 8% 31%, rgba(220, 230, 255, .7) 0 1px, transparent 1.5px), radial-gradient(circle at 47% 14%, rgba(220, 230, 255, .6) 0 .8px, transparent 1.3px), radial-gradient(circle at 77% 61%, rgba(220, 230, 255, .7) 0 1.1px, transparent 1.6px), radial-gradient(circle at 29% 72%, rgba(220, 230, 255, .55) 0 .9px, transparent 1.4px), radial-gradient(circle at 91% 22%, rgba(220, 230, 255, .65) 0 1px, transparent 1.5px), radial-gradient(circle at 58% 92%, rgba(220, 230, 255, .6) 0 .8px, transparent 1.3px); /* falling snow, far; v4 banner.css: .wf-event --snow-far; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-pulse: 3.2s; /* the case's light pulsing; v4 banner.css: .wf-event::after, animation; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-pulse-fast: 1.4s; /* the pulse under the pointer; v4 banner.css: .wf-event:hover::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-snow-near: 11s; /* v4 banner.css: .wf-event::after, animation; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-snow-far: 22s; /* v4 banner.css: .wf-event .wf-banner-art::before, animation; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-sweep: 4.5s; /* the act's light, every few seconds; v4 banner.css: .wf-event-go::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-sweep-fast: .8s; /* the act's light at once under the pointer; v4 banner.css: .wf-event-go:hover::after; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-lean: .9s; /* the layers leaning apart; v4 banner.css: .wf-event::before, transition; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-banner-fade: .6s; /* the story fading in, the flare settling; v4 banner.css: .v4-story and .wf-event::after, transition; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-feed-plate: linear-gradient(to bottom, #191842, var(--color-card)); /* v4 theme.css .wf-feed-i: the drop's plate, --color-card lifted a step at its top, comp B; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-feed-back: linear-gradient(to bottom, #1D1B4A, #110F31); /* v4 theme.css .wf-feed-back: the back face's opaque navy; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-feed-tile: 0 6px 14px rgba(0, 0, 0, .35); /* v4 theme.css .wf-feed-i: the drop's shadow on the strip; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-feed-skin: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); /* a filter; v4 theme.css .wf-feed-hit .wf-feed-art: the skin's shadow over its ring; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-feed-text: 0 1px 2px rgba(0, 0, 0, .6); /* a text shadow; v4 theme.css .wf-feed-hit .wf-feed-w and .wf-feed-s: the names over the ring's light; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-feed-ring-deep: #12001C; /* v4 theme.css .wf-feed-hit::after: the dark the ring's colour is mixed into at its foot; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-avatar-bot: #2B2A63; /* v4 account-home.css .wf-feed-av.is-bot: a bot's empty avatar disc; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-avatar-bot: inset 0 0 0 1px rgba(255, 255, 255, .18); /* v4 account-home.css .wf-feed-av.is-bot: its ring; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-mode-cases-card: linear-gradient(120deg, var(--color-button), #8E2BC9); /* v4 theme.css .wf-mode:has([data-icon="box"]) --mode-fill: the Cases card starts on the button's pink, not --gradient-mode-cases's brand pink; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-mode-foot: linear-gradient(to top, rgba(8, 6, 30, .6), transparent 48%); /* v4 modes.css .wf-grid .wf-mode: comp A's cards darken towards the foot; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-card: inset 0 1px 0 rgba(255, 255, 255, .25), 0 10px 30px rgba(6, 10, 30, .45); /* v4 theme.css .wf-mode: the card's lit top edge and its shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-art: drop-shadow(0 8px 10px rgba(6, 10, 30, .5)); /* a filter; v4 modes.css .wf-grid .wf-mode .wf-mode-art: the floating object's shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-art-warm: drop-shadow(0 4px 8px rgba(90, 40, 0, .55)); /* a filter; v4 modes.css, the Upgrade object: a warm shadow on the gold card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-knife: drop-shadow(0 6px 8px rgba(6, 10, 30, .55)); /* a filter; v4 modes.css, Case battles' two knives; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-name: 0 2px 4px rgba(6, 10, 30, .6), 0 2px 14px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode h3; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-mode-line: 0 1px 6px rgba(6, 10, 30, .5); /* a text shadow; v4 modes.css .wf-grid .wf-mode p; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-mode-later: rgba(66, 74, 128, .7); /* v4 modes.css .wf-mode > .wf-fig-missing: the Not launched plate, a pale glass over the art; рішення користувача, D-209 (v4) carried by D-231; alpha .6 to .7 at stage 07 step 7, D-254: over Upgrade's gold the white label measured 4.47:1 at its lightest pixel, now 5.2 */
+  --shadow-mode-later: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 6px 16px rgba(6, 10, 30, .3); /* the same plate's edge and shadow; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-mode-later: 8px; /* the same plate's backdrop blur; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-mode-scrim: rgba(8, 6, 30, .7); /* the soft shade under a mode card's words where the art runs under them: the ink of --gradient-mode-foot (v4 modes.css) at .7; рішення користувача, stage 07 step 7, D-255: "1 а" (a scrim, of three ways) */
+  --blur-mode-scrim: 12px; /* the same shade's soft edge; D-255 */
+  --tracking-mode-name: .01em; /* v4 theme.css .wf-grid .wf-mode h3: a mode's name; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-mode-float: 4.6s; /* v4 modes.css v4-float: the object's breath; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-mode-burst: 5s; /* v4 modes.css v4-burst: the rim copy's breath; рішення користувача, D-209 (v4) carried by D-231 */
+  --motion-mode-strike: .7s; /* v4 modes.css v4-strike-l and -r: the knives drawing apart under the pointer; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-bolt: 4px; /* the light round a lit risk bolt under the pointer; рішення користувача, D-209, case-tiles.css .wf-tile:hover .v4-bolts i.is-on; made a variable at the merge, D-231 */
+  --blur-bolt-strike: 6px; /* the same light while the bolts strike; case-tiles.css .wf-tile-risk:hover .v4-bolts i.is-on; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-tier-bar: 10px; /* the light a tier's foot bar casts, with a 1px spread: a live drop, a drop card, a best drop, the prize; theme.css .wf-feed-hit::after and .wf-feed-back::before, case-blocks.css .v4d-w7 a::after, case-body.css row F ::after, case-stage.css .v4c-won-card::before; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-feed-sub: .4px; /* a live drop's skin name; kit.css part 3 .wf-feed-hit .wf-feed-s, v4 theme.css live drops; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  /* the case screen's molecules and the two menus: Breadcrumb, Drop card, Recent drop card, Outcome card, Popover menu */
+  --tracking-tile: .03em; /* v4 account-home.css: .am3-t.is-items letter-spacing, My items in capitals. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --tracking-snug: .04em; /* v4 case-body.css: row F td::before at 599px, the label of Chance and Tickets on a phone. Drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-rarity-4-lit: #8F63E6; /* v4 case-body.css: .r4 --r-lit; case-blocks.css .v4d-w7 > li.r4; case-page.css .v4c-won.r4: Restricted lit on a dark card, rarity step 4 read too dark there. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-rarity-5-lit: #4F6BFF; /* v4 case-body.css: .r5 --r-lit; case-blocks.css .v4d-w7 > li.r5; case-page.css .v4c-won.r5: Mil-Spec lit. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-card-deep: #0D0C2C; /* v4 case-blocks.css: .v4d-w7 a background, the stage's own card W7; case-body.css row F; case-stage.css z7 card. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-ring-deep: #12001C; /* v4 case-blocks.css: .v4d-art .hs3, the foot of the ring's gradient. Drop card, Recent drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-track: rgba(255, 255, 255, .08); /* v4 case-body.css: row F ::before, the 100 000 behind the item's stretch; case-stage.css z7 .v4c-won-x inset edge. Drop card, Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-foil: rgba(255, 255, 255, .45); /* v4 case-stage.css: .v4c-won-card::after, the band of light that crosses the prize once. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-tab: #1A1940; /* v4 case-stage.css: z .v4c-won-x background, the multiple's tab. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-up-tab: #0F2E33; /* v4 case-stage.css: z .v4c-won-x.is-up background, the tab of an item worth more than the open. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-wash: rgba(255, 255, 255, .07); /* v4 account-home.css: .am3-copy background. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-done: #7BE8A0; /* v4 account-home.css: .am3-copy.is-done color, Copied. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-done-wash: rgba(51, 204, 102, .18); /* v4 account-home.css: .am3-copy.is-done background. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-fail: #FF8FA3; /* v4 account-home.css: .am3-copy.is-fail color, Not copied. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-fail-wash: rgba(209, 39, 62, .2); /* v4 account-home.css: .am3-copy.is-fail background. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-error-wash: rgba(255, 77, 106, .08); /* v4 account-home.css: .am3-out:hover background, under Sign out. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-scrim-sheet: rgba(3, 5, 16, .6); /* v4 account-home.css: .v4-ac-scrim at 899px, the page dimmed under the sheet. Popover menu, account on a phone; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-handle: rgba(255, 255, 255, .25); /* v4 account-home.css: .am3::before at 899px, the sheet's handle. Popover menu, account on a phone; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-card: 0 10px 22px rgba(3, 3, 16, .45); /* v4 case-blocks.css: .v4d-w7 a, under the stage's own card; case-body.css row F. Drop card, Recent drop card / an item card lifted off the ground; design/v4/case-body.css .wf-drops[data-v="f"] .v4b-row, What is in this case; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-card-hover: 0 14px 28px rgba(3, 3, 16, .55); /* v4 case-blocks.css: .v4d-w7 a:hover. Drop card, Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-outcome: 0 24px 40px rgba(3, 3, 16, .55); /* v4 case-stage.css: w7 .v4c-won-card, under the prize. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-skin-card: drop-shadow(0 8px 6px rgba(0, 0, 0, .7)); /* v4 case-blocks.css: .v4d-img filter; case-body.css row F .v4b-img. Drop card, Recent drop card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-skin-prize: drop-shadow(0 14px 12px rgba(0, 0, 0, .7)); /* v4 case-stage.css: .v4c-won-art img filter. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-up-tab: inset 0 0 0 1px rgba(53, 224, 138, .35), 0 0 14px rgba(53, 224, 138, .22); /* v4 case-stage.css: z .v4c-won-x.is-up. Outcome card; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-menu: 0 24px 48px rgba(0, 0, 0, .5); /* v4 account-home.css: .am3, under the account menu. Popover menu, account; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-avatar-l: 0 0 0 2px rgba(255, 255, 255, .85), 0 6px 14px rgba(6, 10, 30, .45); /* v4 account-home.css: .am3-ava. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-tile-lit-soft: inset 0 1px 0 rgba(255, 255, 255, .2); /* v4 account-home.css: .am3-t.is-items and .is-rp, the light along a lit tile's top. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-menu: linear-gradient(180deg, #16133C, #0D0C28); /* v4 account-home.css: .am3 background. Popover menu, account; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-stripes-m: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 10px, transparent 10px 20px); /* v4 account-home.css: .am3-t.is-rp, the stripes on Responsible play, wider than --gradient-stripes. Popover menu; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-ring-glow-near: 2px; /* the near light's blur; the same rules; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-ring-glow-far: 10px; /* the far light's blur; the same rules; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-card-hover: 22px; /* a stage card's light in its tier under the pointer; case-blocks.css .v4d-w7 a:hover, case-body.css row F :hover; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-winner-ring: 16px; /* the light round the winner's avatar over a best drop; case-blocks.css .v4d-av; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  --blur-outcome: 40px; /* the prize's light in its tier; case-stage.css w7 .v4c-won-card; made a variable at the merge, D-231; рішення користувача, D-209 (v4) carried by D-231 */
+  /* the molecules drawn only in grey so far, from their nearest v4 relatives: Category bar, Copyable value, Deposit dock, Empty state, Field, Item card, Withdraw item */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace; /* a value read one character at a time: a seed, a hash, an id, an address; design/v4/case-page.css .v4c-hash code, the server seed hash under the case screen's open act; рішення користувача, D-209 (v4) carried by D-231 */
+  --gradient-plate: linear-gradient(180deg, #100F33, #0B0A26); /* the plate a bar of controls stands on; design/v4/case-stage.css .v4c-plate, the case screen's open bar; рішення користувача, D-209 (v4) carried by D-231 */
+  --shadow-plate-edge: inset 0 0 0 1px rgba(139, 124, 255, .16); /* the violet hairline round that plate; design/v4/case-stage.css .v4c-plate; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-pink-edge: rgba(251, 63, 138, .45); /* the edge of a declaration that is made; design/v4/signin-home.css .sd-cbx.is-set; рішення користувача, D-209 (v4) carried by D-231 */
+  --color-pink-on-dark: color-mix(in srgb, var(--color-pink) 40%, var(--color-text-hi)); /* the brand pink lightened for small type on a dark card: the pink itself holds 11px at 3.7:1 on the item card's navy; the item on its way to Steam, stage 07 step 6, I2 */
+  /* the refusal line, the atom .note--refuse of part 4.1, decision 4 of D-231 */
+  --color-refuse: #FF8297; /* the refusal line's words, a light error red; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why; рішення користувача, D-209 (v4) carried by D-231 */
+  --size-refuse-mark: 18px; /* the round "!" that leads a refusal line, in --color-error; рішення користувача, D-231, "carried from v4's sign in", design/v4/signin-home.css .sd--e.is-asked .sd-why::before; рішення користувача, D-209 (v4) carried by D-231 */
+
+  /* ===== Stage 07 step 3 batch 3, the organisms' language, D-232 ===== */
+  /* the shell's: values two or more of Rail, Header, Footer and Bottom bar read, or a Figure modifier the footer needs */
+  --shadow-lift: 0 10px 26px rgba(0, 0, 0, .35); /* v4 theme.css: .wf-header::before and .wf-rail::before, the lift under the header strip, the rail's panel and the open drawer. Header, Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-shell: var(--shadow-tile-edge), var(--shadow-lift); /* v4 theme.css: .wf-header::before and .wf-rail::before, the strip's and the panel's hairline and lift. Header, Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-burger: #1A1945; /* v4 theme.css: .wf-rail .wf-rail-toggle and .wf-header .wf-menu, the burger tile. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-burger-hover: #241F58; /* the same, under the pointer and, on a phone, while the drawer it opens is open. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --size-burger-w: 20px; /* v4 theme.css: .wf-rail-toggle::after and .wf-menu::after, the burger's three lines, width. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --size-burger-h: 14px; /* the same, height: three 2px lines 4px apart. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-burger: linear-gradient(var(--color-text-hi) 0 var(--space-hair), transparent var(--space-hair) var(--space-1-5), var(--color-text-hi) var(--space-1-5) var(--space-2), transparent var(--space-2) var(--space-3), var(--color-text-hi) var(--space-3) var(--size-burger-h)); /* v4 theme.css: the same, the three lines. Rail, Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --size-nav-mark: 24px; /* v4 rail-b1.css .wf-rail-item .wf-rail-ico and kit.css part 3 .wf-bar-i: a destination's mark in the rail and in the bottom bar. Rail, Bottom bar; рішення користувача, D-209 (v4) carried by D-232 */
+  --tracking-wide: .1em; /* v4 footer-home.css: .fl-col h3 and .ff-stat b + span, the footer's column heads and the counters' captions. Footer, Figure (--stat); рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-fig-stat: 0 0 22px rgba(251, 63, 138, .45); /* v4 footer-home.css: .ff-stat b, the pink light round a counter. Figure (--stat), read by Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  /* the case screen's and Home's shelves: Case head, Case stage, Commit block */
+  --color-stage: #100F33; /* v4 case-page.css: .v4c-stage[data-light="d"] background, the case block's ground behind the stage; the first stop of --gradient-plate; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-stage: 0 24px 60px rgba(2, 4, 16, .5); /* v4 case-page.css: .v4c-stage box-shadow, the case block's fall onto the page (its inset hairline is --shadow-edge, D-228); рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-case-name: 0 2px 0 rgba(0, 0, 0, .35); /* a text shadow; v4 case-stage.css: .v4c-title h1, the case's name over the stage; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-stage-band: linear-gradient(180deg, rgba(8, 7, 30, .35), rgba(8, 7, 30, .6)); /* v4 case-stage.css: .v4c-band background, the band the nine run through; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-stage-edge: linear-gradient(90deg, transparent, rgba(139, 124, 255, .55) 30%, rgba(251, 63, 138, .55) 50%, rgba(139, 124, 255, .55) 70%, transparent); /* v4 case-stage.css: .v4c-band::before and ::after, the line along the band's top and foot; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-stage-cell: linear-gradient(180deg, transparent, rgba(139, 124, 255, .45) 25%, rgba(251, 63, 138, .5) 50%, rgba(139, 124, 255, .45) 75%, transparent); /* v4 case-stage.css: .v4c-cells i, the line between two cases' cells; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-pointer-deep: #2A0018; /* v4 case-stage.css: .v4c-ptr-a .h-s3, the deep end the pointer's pink runs to at its tip; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-case-stage: drop-shadow(0 24px 22px rgba(0, 0, 0, .75)) drop-shadow(0 0 40px rgba(6, 5, 24, .9)); /* a filter; v4 case-stage.css: .v4c-top[data-v="m"] .v4c-box img, the case standing over the band; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-price-chip: rgba(46, 4, 26, .45); /* v4 case-stage.css: .v4c-go-price background, the price riding at the end of the open act and the sum at the end of Sell all; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-skull-off-plate: #1D1B4A; /* v4 case-stage.css: .v4c-plate .v4c-risk --color-skull-off, an unlit bolt on the commit plate, the plate's own navy and not a grey; рішення користувача, D-209 (v4) carried by D-232 */
+  --motion-ease-unfold: cubic-bezier(.2, 1, .3, 1); /* v4 case-stage.css: .v4c-band transition, the band unfolding a beat after the columns close; рішення користувача, D-209 (v4) carried by D-232 */
+  --motion-ease-fold: cubic-bezier(.5, 0, .75, 0); /* v4 case-stage.css: .v4c-frame:not([data-count="1"]) .v4c-band and .v4c-col transitions, a fold that starts slow and shuts fast; рішення користувача, D-209 (v4) carried by D-232 */
+  --motion-ease-open: cubic-bezier(.2, 1.1, .3, 1); /* v4 case-stage.css: .v4c-frame[data-count] .v4c-col:nth-child scale, a column opening from the middle with a little give; рішення користувача, D-209 (v4) carried by D-232 */
+  /* money, sign in and trust: Proof block, Verify form, Status notice, Sign-in block, Dialog */
+  --gradient-fair: linear-gradient(160deg, var(--color-fair), #1F55C9 58%, #24359E); /* v4 proof-home.css: .x6-plate background under its stripes, the provably fair blue of Every round on Home. Proof block; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-fair: 0 14px 34px rgba(6, 10, 30, .5); /* v4 proof-home.css: .x6-plate box-shadow, the drop under the Every round plate (its lit top edge is --shadow-tile-lit). Proof block; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-hash-well: rgba(6, 10, 30, .6); /* v4 proof-home.css: .x6-hash background, the dark well a hash and "Recomputed: matches" sit in on the blue plate. Proof block, Verify form; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-dialog: 0 30px 60px rgba(0, 0, 0, .45); /* v4 signin-home.css: .sd at 760px of dialog and up, the drop under the dialog card (its .06 inner hairline is --shadow-edge, D-228). Dialog; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-note-plate: rgba(6, 8, 24, .7); /* v4 signin-home.css: .sd-note background, the dark foot plate of the sign in dialog, "the footer strip's dark ground". Sign-in block, Status notice; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-stripes-s: repeating-linear-gradient(135deg, rgba(255, 255, 255, .09) 0 6px, transparent 6px 12px); /* v4 signin-home.css: .sd-note .is-guard .sd-note-i, the stripes of a 30px tile, the small step of --gradient-stripes. Sign-in block, Status notice; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-steam: linear-gradient(140deg, #2A475E, #171D25); /* v4 signin-home.css: .sd-note .is-steam .sd-note-i, Steam's own dark blue under its mark. Sign-in block; рішення користувача, D-209 (v4) carried by D-232 */
+  /* one organism's colours, shadows, gradients and tracking, declared at the head of its block in the fragments and moved here at the merge:
+     the language lives in :root and only the geometry one component reads stays in its block, D-231 point 1 */
+  --gradient-rail-giveaways: linear-gradient(120deg, #2C7FD6, var(--color-plate-r5-b)); /* v4 rail-b1.css :has([data-icon="diamond"]): Giveaways' fill. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-rail-peek: drop-shadow(0 4px 5px rgba(6, 10, 30, .5)); /* v4 rail-b1.css .wf-rail-item::after: the object's shadow. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-rail-chip: 0 10px 24px rgba(4, 6, 20, .45); /* v4 rail-b1.css: every closed chip's lift. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-rail-chip-sub: rgba(255, 255, 255, .78); /* v4 rail-b1.css: "Not launched yet" on a chip. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-rail-tile-chip: #08091B; /* v4 rail-b1.css: the sound and language chips, the footer strip's dark made solid. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-rail-drawer: inset calc(-1 * var(--size-hairline)) 0 0 rgba(255, 255, 255, .05); /* v4 theme.css @media (max-width: 899px) .wf-rail: the drawer's hairline on the side that faces the page. Rail; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-header-light: radial-gradient(34% 130% at 50% 0%, rgba(251, 63, 138, .36), transparent 72%); /* v4 theme.css .wf-header::before: --color-pink's light falling from the strip's top onto the logo. Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-header-edge: linear-gradient(90deg, transparent, #FF6FA8 50%, transparent); /* v4 theme.css .wf-row::before: the pink edge, --color-pink lifted a step. Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-header-edge: 0 0 10px rgba(251, 63, 138, .6); /* v4 theme.css .wf-row::before: the pink edge's light. Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-header-fall: drop-shadow(0 0 4px rgba(251, 63, 138, .6)); /* v4 theme.css .v4-fall i: the weapons' pink glow. Header; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-footer-light: radial-gradient(50% 100% at 50% 100%, rgba(74, 107, 255, .26), rgba(74, 107, 255, .1) 45%, transparent 100%); /* v4 footer-home.css #wf-footer.v4-foot .ft-h::before: the blue light rising off the block's top. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-footer-lift: 0 20px 40px rgba(4, 6, 20, .5); /* v4 footer-home.css .ft-h: the block's lift. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-footer-band: radial-gradient(50% 120% at 50% 0%, rgba(74, 107, 255, .2), transparent 70%); /* v4 footer-home.css .ff-band: the blue falling into the counters' band. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-footer-fade: linear-gradient(90deg, transparent, rgba(5, 6, 20, .85) 22%, rgba(5, 6, 20, .85) 78%, transparent); /* v4 footer-home.css .ff-band::before and .ff-foot::before: the dark ground fading to both sides. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-edge-blue: linear-gradient(90deg, transparent, var(--color-head-battles) 50%, transparent); /* v4 footer-home.css .ff-band > .ff-stats::before: the band's top line. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-footer-plate: var(--shadow-tile-lit), 0 10px 24px rgba(6, 10, 30, .4); /* v4 footer-home.css .fl-plate: a trust plate's lit top (--shadow-tile-lit) and lift. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --gradient-footer-fair: linear-gradient(140deg, var(--color-fair), #1F55C9 60%, #24359E); /* v4 footer-home.css .fl-plate.is-pf: Every round's blue. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-footer-pt: rgba(6, 10, 30, .35); /* v4 footer-home.css .fl-pt: the target's tile. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-footer-age: #B4142E; /* v4 footer-home.css .ff-18: 18+ in red on white. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-footer-age: 0 4px 10px rgba(60, 0, 10, .35); /* v4 footer-home.css .ff-18: its shadow. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --tracking-footer-age: -.02em; /* v4 footer-home.css .ff-18: 18+ set tight. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-footer-pay: rgba(215, 215, 240, .8); /* v4 footer-home.css .fe-pay li: the marks' one muted tone. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-footer-pay-hover: rgba(255, 255, 255, .08); /* v4 footer-home.css .fh-pay:hover: a card under the pointer. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-footer-pay: 0 8px 16px rgba(4, 6, 20, .45); /* v4 footer-home.css .fh-pay:hover: a payment card's lift under the pointer. Footer; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-ticker-chip: rgba(6, 10, 30, .82); /* v4 theme.css .wf-feed-head: the live chip's dark, with no edge. Ticker; рішення користувача, D-209 (v4) carried by D-232 */
+  --shadow-ticker-chip: 0 4px 14px rgba(0, 0, 0, .4); /* v4 theme.css .wf-feed-head: the live chip's lift. Ticker; рішення користувача, D-209 (v4) carried by D-232 */
+  --color-ticker-halo: color-mix(in srgb, var(--color-pink) 70%, transparent); /* v4 theme.css .wf-feed-lbl::after: the dot's halo. Ticker; рішення користувача, D-209 (v4) carried by D-232 */
+  /* Stage 07 step 5, Home in colour assembled from the kit, D-234: the language of Home's one-off blocks (part 4.4), carried from v4's sheets as they
+     stand. Each names its v4 file and rule. */
+  --icon-percent: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill-rule='evenodd'%3E%3Cpath d='M7 2.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 2.7a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM17 12.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 2.7a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8z'/%3E%3Cpath d='M18.3 2.6l2.6 2.6L5.7 21.4l-2.6-2.6z'/%3E%3C/g%3E%3C/svg%3E"); /* a published chance, drawn in the set's solid style for What opening a case here involves; v4 seo-home.css .sx-ic--pct; рішення користувача, D-209 (v4) carried by D-234 */
+  --gradient-spend-strip: linear-gradient(100deg, #2B3FD6 0%, #4A2BC0 38%, #7A2BB8 70%, #B02F8C 100%); /* the money strip of Before you spend, blue to violet to pink; v4 proof-home.css .x6-strip background; рішення користувача, D-209 (v4) carried by D-234 */
+  --gradient-spend-stub: linear-gradient(160deg, var(--color-pink), var(--color-button) 55%, #B8044E); /* the strip's striped pink stub under its title, holding 3.2:1 at the worst stripe; v4 proof-home.css .x6-stub; рішення користувача, D-209, critique of 10 Nov 2026 row 3, carried by D-234 */
+  --shadow-plate-deep: 0 14px 34px rgba(6, 10, 30, .55); /* the money strip's drop; v4 proof-home.css .x6-strip box-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-card-drop: 0 10px 30px rgba(6, 10, 30, .45); /* a checked round's card, its drop; v4 proof-home.css .x6-card box-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-stub-text: 0 2px 8px rgba(120, 10, 60, .35); /* the stub's title lifted off its pink; v4 proof-home.css .x6-stub h2 text-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-figure-text: 0 2px 10px rgba(6, 10, 30, .3); /* a large figure on a plate; v4 proof-home.css .x6-v text-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-word-text: 0 2px 8px rgba(6, 10, 30, .35); /* Every round, the word on the blue plate; v4 proof-home.css .x6-word text-shadow; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-plate-rule: rgba(255, 255, 255, .18); /* the rule between two panels of the money strip; v4 proof-home.css .x6-p + .x6-p::before; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-plate-say: rgba(255, 255, 255, .86); /* the line under a figure on the strip; v4 proof-home.css .x6-say; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-plate-ticket: rgba(255, 255, 255, .88); /* a ticket's line on a round card; v4 proof-home.css .x6-t; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-ruler: rgba(6, 10, 30, .38); /* the ruler of 100 000 under a ticket; v4 proof-home.css .x6-ruler; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-ruler-range: rgba(255, 255, 255, .62); /* the round's range on the ruler; v4 proof-home.css .x6-ruler i; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-ruler-mark: 0 0 0 2px rgba(6, 10, 30, .3); /* the ticket's mark standing off the range; v4 proof-home.css .x6-ruler b; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-plate-hover: rgba(255, 255, 255, .06); /* a strip panel under the pointer, and a dark fact tile's fill; v4 proof-home.css a.x6-p:hover and seo-home.css .sx-tile; рішення користувача, D-209 (v4) carried by D-234 */
+  --filter-case-lift: drop-shadow(0 10px 14px rgba(6, 10, 30, .55)); /* a case standing on a plate; v4 proof-home.css .x6-case .b and seo-home.css .sl-case .b; рішення користувача, D-209 (v4) carried by D-234 */
+  --filter-skin-lift: drop-shadow(0 10px 10px rgba(0, 0, 0, .6)); /* a skin lying in that case; v4 proof-home.css .x6-case .sk and seo-home.css .sl-case .sk; рішення користувача, D-209 (v4) carried by D-234 */
+  --filter-card-skin: drop-shadow(0 10px 10px rgba(6, 10, 30, .55)); /* a skin rising off a round's card; v4 proof-home.css .x6-skin; рішення користувача, D-209 (v4) carried by D-234 */
+  --filter-card-hover: brightness(1.08); /* a round's card under the pointer; v4 proof-home.css .x6-card:hover; рішення користувача, D-209 (v4) carried by D-234 */
+  --gradient-involves-stage: linear-gradient(150deg, #8E2BC9, #3B1A8F); /* the plate Nightfall stands on, the case tile's violet; v4 seo-home.css .v4-seo --c1 --c2 and .sx-stage; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-tile-lit-soft: inset 0 1px 0 rgba(255, 255, 255, .22); /* that plate's lit top edge, a step under --shadow-tile-lit; v4 seo-home.css .sx-stage; рішення користувача, D-209 (v4) carried by D-234 */
+  --shadow-edge-bright: inset 0 0 0 1px rgba(255, 255, 255, .12); /* a dark pill's edge over the plate; v4 seo-home.css .sl-pill; рішення користувача, D-209 (v4) carried by D-234 */
+  --color-rule-faint: rgba(255, 255, 255, .08); /* the hairline over each part of About Clutch; v4 faq-home.css .ab-i border-top; the same value as --color-track, a pair for stage 08; рішення користувача, D-209 (v4) carried by D-234 */
+  /* Stage 07 step 5, the motion v4 Home was approved with, carried into the kit, D-235: the rare drops' colours and shadows and the pace an
+     answer opens at. Each names its v4 file and rule. */
+  --color-rare-volt-light: #F2FBFF; /* lightning's white core, the first of the volt tier's three; v4 rare.css .v4-rare-volt --rd-c1; рішення користувача, D-209 (v4) carried by D-235 */
+  --color-rare-orbit-light: #FFF6CF; /* the golden orbit's pale core; v4 rare.css .v4-rare-orbit --rd-c1; рішення користувача, D-209 (v4) carried by D-235 */
+  --color-rare-orbit-deep: #FF9A1F; /* its orange rim; v4 rare.css .v4-rare-orbit --rd-c3; рішення користувача, D-209 (v4) carried by D-235 */
+  --color-rare-plasma-light: #FFE0F4; /* plasma's pale core; v4 rare.css .v4-rare-plasma --rd-c1; рішення користувача, D-209 (v4) carried by D-235 */
+  --color-rare-chance: #FFF8D6; /* the top of a rare drop's chance figure, which fades to its tier; v4 rare.css .v4-rare-chance; рішення користувача, D-209 (v4) carried by D-235 */
+  --color-crown-light: #FFE27A; /* the crown's lit edge over the rarest drop; v4 rare.css .v4-rare-crown::before; рішення користувача, D-209 (v4) carried by D-235 */
+  --color-crown-deep: #B87800; /* its shaded foot; the same; рішення користувача, D-209 (v4) carried by D-235 */
+  --shadow-rare-volt: inset 0 0 0 1px rgba(143, 211, 255, .55), 0 0 12px rgba(57, 85, 232, .4); /* a lightning drop's edge and glow, live or calmed; v4 rare.css .v4-rare-volt:is(.is-live, .is-calm)::before; рішення користувача, D-209 (v4) carried by D-235 */
+  --shadow-rare-orbit: inset 0 0 0 1px rgba(246, 201, 21, .4), 0 0 12px rgba(246, 201, 21, .22); /* the golden orbit's; v4 rare.css .v4-rare-orbit:is(.is-live, .is-calm)::before; рішення користувача, D-209 (v4) carried by D-235 */
+  --shadow-rare-plasma-glow: 0 0 12px rgba(210, 43, 206, .45); /* plasma's glow, its edge the tile's own tier; v4 rare.css .v4-rare-plasma:is(.is-live, .is-calm)::before; рішення користувача, D-209 (v4) carried by D-235 */
+  --filter-rare-skin: drop-shadow(0 6px 5px rgba(0, 0, 0, .75)); /* a live rare drop's skin lifted off its plate; v4 rare.css .v4-rare.is-live .wf-feed-art; рішення користувача, D-209 (v4) carried by D-235 */
+  --motion-disclosure: .4s; /* an answer sliding open or shut; v4 faq-home.css .fq-a, grid-template-rows .4s; рішення користувача, D-209 (v4) carried by D-235 */
+  --motion-ease-disclosure: cubic-bezier(.2, .7, .2, 1); /* the same, and the plus turning; v4 faq-home.css .fq-a and .fq-x::before; рішення користувача, D-209 (v4) carried by D-235 */
+  /* Stage 07 step 5, the case screen in colour assembled from the kit, D-236: the language of its four one-off blocks (part 4.4) and of the open as
+     v4 plays it, carried from v4's sheets as they stand; the values are v4's, the names the kit's */
+  --gradient-before-plate: linear-gradient(180deg, #14123A, #0E0C2A); /* a Before you open plate; v4 case-blocks.css .wf-case-info[data-v="d"] > p; рішення користувача, D-209 (v4) carried by D-236 */
+  --shadow-before-plate: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 10px 24px rgba(3, 3, 16, .35); /* its edge and its drop; the same rule; рішення користувача, D-209 (v4) carried by D-236 */
+  --color-head-steam: #6F8BFF; /* the Steam plate's light, the battles blue lifted; v4 case-blocks.css .wf-case-info .v4i-steam --c; рішення користувача, D-209 (v4) carried by D-236 */
+  --shadow-observed-row: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 10px 22px rgba(3, 3, 16, .35); /* a tier's row of Published against observed; v4 case-blocks.css .wf-table[data-v="d"] .v4b-tier; рішення користувача, D-209 (v4) carried by D-236 */
+  --color-bar-track: rgba(255, 255, 255, .06); /* the empty track under a published rate's bar; v4 case-blocks.css .v4o-bar; the same value as --color-plate-hover, a pair for stage 08; рішення користувача, D-209 (v4) carried by D-236 */
+  --shadow-bar-inset: inset 0 1px 2px rgba(0, 0, 0, .4); /* the track sunk into its row; the same rule; рішення користувача, D-209 (v4) carried by D-236 */
+  --shadow-tick: 0 0 8px rgba(255, 255, 255, .8); /* the observed rate's tick, white and lit; v4 case-blocks.css .v4o-bar b, .v4o-tk; рішення користувача, D-209 (v4) carried by D-236 */
+  --color-ruler-ground: rgba(6, 5, 24, .6); /* the ticket ruler's plate under its tier's light; v4 case-blocks.css .v4t; рішення користувача, D-209 (v4) carried by D-236 */
+  --shadow-ruler-plate: inset 0 0 0 1px rgba(255, 255, 255, .07), 0 14px 30px rgba(3, 3, 16, .4); /* its edge and drop; the same rule; рішення користувача, D-209 (v4) carried by D-236 */
+  --color-ruler-track: rgba(255, 255, 255, .05); /* the line of 100 000 tickets under its items; v4 case-blocks.css .v4t-line; рішення користувача, D-209 (v4) carried by D-236 */
+  --color-ruler-gap: #0B0A26; /* the cut between two items on the line, and the pin's figure; v4 case-blocks.css .v4t-line i border-right, .v4t-n color; рішення користувача, D-209 (v4) carried by D-236 */
+  --color-ruler-notch: #120F33; /* the two notches where the ruler's ticket tears; v4 case-blocks.css .v4t-cut::before; рішення користувача, D-209 (v4) carried by D-236 */
+  --color-ruler-tear: rgba(255, 255, 255, .14); /* the dashed tear across the ruler; v4 case-blocks.css .v4t-cut border-top; рішення користувача, D-209 (v4) carried by D-236 */
+  --color-ruler-step: rgba(255, 255, 255, .22); /* a step of 5 000 tickets on the scale; v4 case-blocks.css .v4u-scale i; рішення користувача, D-209 (v4) carried by D-236 */
+  --color-ruler-quarter: rgba(255, 255, 255, .5); /* a quarter on the scale; v4 case-blocks.css .v4u-scale i.is-q; рішення користувача, D-209 (v4) carried by D-236 */
+  --shadow-ruler-pin: 0 0 12px rgba(255, 255, 255, .9); /* the pin that runs to the ticket; v4 case-blocks.css .v4t-pin; рішення користувача, D-209 (v4) carried by D-236 */
+  --gradient-stage-bam: radial-gradient(closest-side, var(--color-text-hi), color-mix(in srgb, var(--color-pink) 70%, var(--color-text-hi)) 18%, rgba(251, 63, 138, .35) 45%, transparent 72%); /* the flash where a case hits the stage's middle; v4 case-stage.css .v4c-bam; рішення користувача, D-209 (v4) carried by D-236 */
+  --shadow-stage-wave: 0 0 0 3px var(--color-pink), 0 0 26px var(--color-pink), inset 0 0 22px rgba(251, 63, 138, .6); /* the wave the hit sends out; v4 case-stage.css .v4c-wave; рішення користувача, D-209 (v4) carried by D-236 */
+  --gradient-button-sweep: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .16) 50%, transparent 70%); /* the light running through a busy act, Rolling; v4 case-page.css .v4c-go.is-rolling::after; рішення користувача, D-209 (v4) carried by D-236 */
+
+  /* ===== The light theme's values, new at stage 08 step 3, D-258 point 1: "each light value step 3 writes is a new value, named
+     'variable, value, why' in tokens-audit.md and shown at step 4's review before any component reads it". Proposed, not yet seen. ===== */
+  --color-paper: #F2F3F9; /* the page ground of the light theme: the navy of --color-ground (hue 230) lifted to paper, so the light page keeps the product's blue cast rather than a neutral grey; technical, the light pair of D-258 */
+  --color-paper-2: #E8EAF4; /* a step under the paper, the light tile and the stage's deep card: the dark theme draws them a step off the card, the light one a step off the page; technical, the light pair of D-258 */
+  --color-paper-3: #E2E5F1; /* the light square of the burger toggle, a step under --color-paper-2 as --color-burger stands a step over the tile; technical, the light pair of D-258 */
+  --color-ink-soft: #3B3A52; /* the body of the light theme, the pair of --color-text-soft: navy grey at 8.7:1 on the darkest light ground, where the dark body holds 12:1; technical, the light pair of D-258 */
+  --color-ink-grey: #5F5F66; /* the pair of --color-text, the baseline's neutral grey kept neutral: 5.0:1 on the darkest light ground; technical, the light pair of D-258 */
+  --color-ink-lavender: #5A5974; /* the pair of --color-text-muted, kept a lavender a step off --color-ink-grey as the dark pair is: 5.4:1 on the darkest light ground; technical, the light pair of D-258 */
+  --color-ink-lead: rgba(6, 10, 30, .86); /* the pair of --color-text-lead (white at .90): the ground's navy at .86, the lead line a shade under the heading as in the dark theme; technical, the light pair of D-258 */
+  --color-pink-deep: #C8004F; /* the link and the current item on a light ground: the brand pink holds 3.1:1 on the paper and --color-button 4.1:1 on the light tile, both under 4.5:1; this one holds 4.7:1; technical, the light pair of D-258 */
+  --color-money-deep: #7F5300; /* money on a light ground: --color-money holds 1.6:1 on paper; a deep cut of the same gold at 5.3:1 keeps the One Job Rule (gold counts); technical, the light pair of D-258 */
+  --color-green-deep: #116B35; /* a gain, a match and the low risk mark on a light ground: --color-up and --color-green hold 1.7 to 2.1:1 on paper; this one 5.3:1; technical, the light pair of D-258 */
+  --color-green-mid: #1A9450; /* the green fill on a light ground: --color-green holds 1.8:1 on the light tile; this one 3.2:1 there, as a fill needs, and the dark ink on it still 5.0:1; technical, the light pair of D-258 */
+  --color-grey-mid: #7A7A88; /* rarity 7, the commonest, on a light card: #DDDDDD holds 1.4:1 there; this grey 3.4:1. No sample item is rarity 7 today; technical, the light pair of D-258 */
+  --color-skull-off-light: #C5C9DA; /* an unlit risk mark on a light ground: drawn as faint as the dark one, 1.3 to 1.6:1 against 1.4:1 in the dark, so lit and unlit read the same way round; technical, the light pair of D-258 */
+  --color-line-light: #D5D8E8; /* the soft hairline on a light ground, at the dark pair's own faintness (1.2 to 1.4:1 against 1.4:1); technical, the light pair of D-258 */
+  --color-paper-veil: rgba(255, 255, 255, .82); /* the veil over a picture in the light theme, the pair of --color-veil (.78): white instead of navy, a step thicker because dark words sit on it; technical, the light pair of D-258 */
+  --color-paper-veil-tile: rgba(255, 255, 255, .72); /* the pair of --color-tile-veil (.70), white for navy; technical, the light pair of D-258 */
+  --color-paper-veil-plate: rgba(255, 255, 255, .74); /* the pair of --color-plate-veil (.72), white for navy; technical, the light pair of D-258 */
+  --color-navy-05: rgba(6, 10, 30, .05); /* a wash and a note plate on a light ground: the navy at .05 where the dark theme lays white at .07 or a navy plate at .70; technical, the light pair of D-258 */
+  --color-navy-06: rgba(6, 10, 30, .06); /* a sunken well on a light ground, a hair deeper than the wash; technical, the light pair of D-258 */
+  --color-navy-08: rgba(6, 10, 30, .08); /* a track on a light ground, the pair of --color-track (white at .08); technical, the light pair of D-258 */
+  --gradient-paper: linear-gradient(180deg, var(--color-text-hi), var(--color-paper)); /* a raised layer, a row and the Daily panel in the light theme: white falling to paper, as the dark ones fall from a lit navy to a deep one; technical, the light pair of D-258 */
+  --gradient-paper-panel: linear-gradient(180deg, var(--color-text-hi), var(--color-paper) 60%, var(--color-paper-2)); /* the rail's and the footer's panel in the light theme, the three stops of --gradient-panel on paper; technical, the light pair of D-258 */
+  --gradient-paper-plate: linear-gradient(180deg, var(--color-paper), var(--color-paper-2)); /* the plate a bar of controls stands on, light; technical, the light pair of D-258 */
+  --gradient-paper-feed: linear-gradient(to bottom, var(--color-paper-2), var(--color-text-hi)); /* a drop's plate in the ticker, light: a step under the card at its top falling to the card, as --gradient-feed-plate does in navy; technical, the light pair of D-258 */
+  --gradient-burger-ink: linear-gradient(var(--color-ground) 0 var(--space-hair), transparent var(--space-hair) var(--space-1-5), var(--color-ground) var(--space-1-5) var(--space-2), transparent var(--space-2) var(--space-3), var(--color-ground) var(--space-3) var(--size-burger-h)); /* the burger's three lines in navy: --gradient-burger stop for stop with the ground for the white; technical, the light pair of D-258 */
+  --shadow-edge-ink: inset 0 0 0 1px rgba(6, 10, 30, .1); /* the 1px edge of a tile on a light ground: the white .07 edge vanishes on paper, the navy at .10 draws the same faint edge; technical, the light pair of D-258 */
+  --shadow-edge-lit-ink: inset 0 0 0 1px rgba(6, 10, 30, .14); /* the brighter edge (white .10 in the dark) light: navy at .14, a step over --shadow-edge-ink as the dark pair is; technical, the light pair of D-258 */
+  --shadow-ring-ink: inset 0 0 0 1px rgba(6, 10, 30, .16); /* the soft ring of a bot's avatar (white .18 in the dark) light; technical, the light pair of D-258 */
+}
+
+/* the live drop tile on a phone, founder of 4 Nov 2026: "лайв фид в раза два меньше по высоте"; D-209; from design/v4/theme.css */
+@media (max-width: 599px) {
+  :root { --size-drop-v4: 86px; }
+}
+
+/* ===== SEMANTIC ===== */
+:root {
+  /* Ink: words and glyphs */
+  --text-hi: var(--color-text-hi); /* the words on the theme's ground: figures, names, headings, the label of an act on a dark tile. Ink: 117 rules in 61 blocks (Popover menu, Drop card,
+     Hero). Parent: атрибут A5. Threshold 4.5:1 (ink). Dark 18.8:1 on the card, light 16.4:1 on the light tile. */
+  --text-on-plate: var(--color-text-hi); /* white on a coloured plate or a picture (the act's pink, a mode's gradient, the fair blue, a case's art). Value the same as --text-hi, role different:
+     a theme moves the ground and leaves the plate. Ink: 41 rules in 20 blocks (The page's head, Before you spend, Mode card). Parent: атрибут A5. Not a
+     theme pair: the plate under it keeps its colour in both themes, so its contrast is measured against each plate in its component's file, step 5. */
+  --text-body: var(--color-text-soft); /* the body and most secondary lines, Mist, the body colour since D-226. Ink: 75 rules in 45 blocks (Outcome card, Published against observed, Figure).
+     Parent: наявний бренд. Threshold 4.5:1 (ink). Dark 12.0:1 on the card, light 9.2:1 on the light tile. */
+  --text-body-on-plate: var(--color-text-soft); /* the body on a coloured plate. Value the same as --text-body, role different. Ink: 2 rules in 2 blocks (Limits panel, Sign-in block). Parent: наявний
+     бренд. Not a theme pair: the plate under it keeps its colour in both themes, so its contrast is measured against each plate in its component's file,
+     step 5. */
+  --text-base: var(--color-text); /* the base ink a block sets on its root and its plain lines inherit, the baseline's grey (D-186). Ink: 26 rules in 22 blocks (Popover menu, Feed tile,
+     Data table). Parent: атрибут A5. Threshold 4.5:1 (ink). Dark 7.1:1 on the card, light 5.3:1 on the light tile. */
+  --text-base-on-plate: var(--color-text); /* the base ink on a coloured plate. Value the same as --text-base, role different. Ink: 2 rules in 2 blocks (Breadcrumb, Mode card). Parent: атрибут A5.
+     Not a theme pair: the plate under it keeps its colour in both themes, so its contrast is measured against each plate in its component's file, step 5. */
+  --text-meta: var(--color-text-muted); /* labels, meta, the quiet half of a pair, Lavender Grey. Ink: 33 rules in 18 blocks (Footer, Rail, Figure). Parent: атрибут A3. Threshold 4.5:1 (ink).
+     Dark 7.1:1 on the card, light 5.6:1 on the light tile. */
+  --text-lead: var(--color-text-lead); /* the lead line of prose and of a page head. Ink: 6 rules in 5 blocks (The page's head, Prose, What opening a case here involves). Threshold 4.5:1
+     (ink). Dark 15.2:1 on the card, light 12.0:1 on the light tile. */
+  --text-link: var(--color-pink); /* a text link, the current item, an open disclosure, Brand Pink (D-185). Ink: 9 rules in 9 blocks (Figure, Text link, Disclosure). Parent: атрибут A3.
+     Threshold 4.5:1 (ink). Dark 5.5:1 on the card, light 4.9:1 on the light tile. */
+  --text-link-on-plate: var(--color-pink); /* the same pink words on a plate or a picture. Value the same as --text-link, role different. Ink: 3 rules in 3 blocks (After its third look, What
+     opening a case here involves, About Clutch). Parent: атрибут A3. Not a theme pair: the plate under it keeps its colour in both themes, so its contrast
+     is measured against each plate in its component's file, step 5. */
+  --text-money: var(--color-money); /* every price, balance and stake, Coin Gold (D-209); The Money Is Calm Rule. Ink: 12 rules in 9 blocks (Daily ladder, Deposit dock, After its third
+     look). Parent: смак. Threshold 4.5:1 (ink). Dark 11.9:1 on the card, light 5.6:1 on the light tile. */
+  --text-money-on-plate: var(--color-money); /* money on a plate (the spend strip, the payment panel). Value the same as --text-money, role different. Ink: 4 rules in 2 blocks (Payment panel, Before
+     you spend). Parent: смак. Not a theme pair: the plate under it keeps its colour in both themes, so its contrast is measured against each plate in its
+     component's file, step 5. */
+  --text-up: var(--color-up); /* a value that went up, a gain. Ink: 3 rules in 3 blocks (Deposit dock, Outcome card, Published against observed). Threshold 4.5:1 (ink). Dark 10.9:1 on
+     the card, light 5.5:1 on the light tile. */
+  --text-match: var(--color-green); /* a match, a copy done, a check that agrees. Value close to --text-up, role different: a gain and a match may part. Ink: 2 rules in 2 blocks (Copyable
+     value, Before you spend). Parent: атрибут A5. Threshold 4.5:1 (ink). Dark 8.9:1 on the card, light 5.5:1 on the light tile. */
+  --text-match-on-plate: var(--color-green); /* the same green on a plate. Value the same as --text-match, role different. Ink: 2 rules in 2 blocks (What opening a case here involves, The Steam
+     state). Parent: атрибут A5. Not a theme pair: the plate under it keeps its colour in both themes, so its contrast is measured against each plate in
+     its component's file, step 5. */
+  --text-error: var(--color-error); /* a refusal said in words; light takes the deep red the kit already has, the footer's 18+ mark. Ink: 3 rules in 2 blocks (Popover menu, Button).
+     Threshold 4.5:1 (ink). Dark 5.8:1 on the card, light 5.7:1 on the light tile. */
+  --text-on-accent: var(--color-ground); /* dark words on a bright plate (a gold or green badge, a copied value's mark). Ink: 2 rules in 2 blocks (Badge, Copyable value). Parent: атрибут A3. Not
+     a theme pair: the plate under it keeps its colour in both themes, so its contrast is measured against each plate in its component's file, step 5. */
+  --text-on-plate-soft: var(--color-plate-say); /* the softer line on a coloured plate, white at .86. Ink: 2 rules in 2 blocks (Payment panel, Before you spend). Not a theme pair: the plate under it
+     keeps its colour in both themes, so its contrast is measured against each plate in its component's file, step 5. */
+  --text-risk-low: var(--color-risk-low); /* a lit risk mark, low. Ink: 2 rules in 2 blocks (Case tile, Risk marks). Parent: наявний бренд. Threshold 3:1 (a glyph, non-text, WCAG 1.4.11). Dark
+     8.9:1 on the card, light 5.5:1 on the light tile. */
+  --text-risk-mid: var(--color-risk-mid); /* a lit risk mark, medium; light takes the deeper blue the kit already has, rarity 5. Ink: 3 rules in 3 blocks (Case tile, Commit block, Risk marks).
+     Parent: наявний бренд. Threshold 3:1 (a glyph, non-text, WCAG 1.4.11). Dark 7.4:1 on the card, light 4.8:1 on the light tile. */
+  --text-risk-high: var(--color-risk-high); /* a lit risk mark, high, rarity step 3: the baseline's own violet failed 3:1. Ink: 2 rules in 2 blocks (Case tile, Risk marks). Parent: наявний бренд.
+     Threshold 3:1 (a glyph, non-text, WCAG 1.4.11). Dark 4.5:1 on the card, light 3.5:1 on the light tile. */
+  --text-risk-off: var(--color-skull-off); /* an unlit risk mark, faint by design: the lit ones carry the count. Ink: 2 rules in 2 blocks (Case tile, Risk marks). Parent: наявний бренд. No
+     threshold: the lit marks carry the count and the unlit ones stay faint on purpose. Dark 1.4:1 on the card, light 1.4:1 on the light tile. */
+
+  /* Fill: grounds and surfaces */
+  --bg-page: var(--color-ground); /* the page. Fill: 6 rules in 6 blocks (After my items' second gate, The stage form, Header). Parent: атрибут A3. A ground: the ink roles are measured on
+     it. */
+  --bg-card: var(--color-card); /* a card; light takes the kit's white. Fill: 9 rules in 6 blocks (After my items' second gate, The stage form, Popover menu). Parent: атрибут A2. A
+     ground: the ink roles are measured on it. */
+  --bg-card-deep: var(--color-card-deep); /* the stage's own card: a drop, an outcome, a recent drop. Value a step off --bg-card, role different (step 2 kept both). Fill: 11 rules in 5 blocks
+     (Published against observed, Drop card, Outcome card). A ground: the ink roles are measured on it. */
+  --bg-menu: var(--color-card-2); /* an open menu's and a media slot's ground. Fill: 3 rules in 2 blocks (Popover menu, Media slot). Parent: атрибут A2. A ground: the ink roles are
+     measured on it. */
+  --bg-tile: var(--color-tile); /* the dark tile under every control. Fill: 15 rules in 9 blocks (Form controls, Popover menu, Case tile). Parent: смак. A ground: the ink roles are
+     measured on it. */
+  --bg-toggle: var(--color-burger); /* the square of the burger toggle. Fill: 2 rules in 2 blocks (Header, Rail). A ground: the ink roles are measured on it. */
+  --bg-veil: var(--color-veil); /* a plate over a picture that words sit on. Fill: 10 rules in 8 blocks (Popover menu, After its third look, Favourite toggle). A translucent ground
+     under words: the ink on it is measured composited, step 5. */
+  --bg-tile-veil: var(--color-tile-veil); /* a translucent tile over art (a chip, a segment, a step button). Fill: 8 rules in 8 blocks (Favourite toggle, Segmented control, Copyable value). A
+     translucent ground under words: the ink on it is measured composited, step 5. */
+  --bg-plate-veil: var(--color-plate-veil); /* the veil of a Daily or an involves plate. Value a hair off --bg-tile-veil, role different (step 2 kept both). Fill: 2 rules in 2 blocks (Daily ladder,
+     What opening a case here involves). A translucent ground under words: the ink on it is measured composited, step 5. */
+  --bg-well: var(--color-well); /* a sunken field: a limit, the dock, an open disclosure. Fill: 4 rules in 3 blocks (Limits panel, Disclosure, Deposit dock). A translucent ground under
+     words: the ink on it is measured composited, step 5. */
+  --bg-hash-well: var(--color-hash-well); /* the dark well a hash sits in, on the theme's ground. Fill: 2 rules in 2 blocks (Verify form, The algorithm, published in full). A translucent ground
+     under words: the ink on it is measured composited, step 5. */
+  --bg-hash-well-on-plate: var(--color-hash-well); /* the same well on the fair blue plate. Value the same as --bg-hash-well, role different. Fill: 3 rules in 3 blocks (Before you spend, The page's head,
+     Check a round). Not a theme pair: the plate under it keeps its colour in both themes, so its contrast is measured against each plate in its
+     component's file, step 5. */
+  --bg-note-plate: var(--color-note-plate); /* the dark foot plate of a notice, a sign in block, the footer. Fill: 3 rules in 3 blocks (Footer, Status notice, Sign-in block). A translucent ground
+     under words: the ink on it is measured composited, step 5. */
+  --bg-scrim: var(--color-scrim); /* the page dimmed behind a layer; it dims in both themes. Fill: 3 rules in 3 blocks (Event banner, Rail, Dialog). Parent: атрибут A3. Not a theme pair:
+     the plate under it keeps its colour in both themes, so its contrast is measured against each plate in its component's file, step 5. */
+  --bg-wash: var(--color-wash); /* a faint wash under a row or a line. Fill: 3 rules in 3 blocks (Popover menu, Status notice, Sign-in block). A translucent ground under words: the ink
+     on it is measured composited, step 5. */
+  --bg-track: var(--color-track); /* the track a bar fills. Fill: 2 rules in 2 blocks (Drop card, Rail). A translucent ground under words: the ink on it is measured composited, step 5. */
+  --bg-foil: var(--color-foil); /* the foil's shine on a card; a light catch, the same in both themes. Fill: 2 rules in 2 blocks (Outcome card, The stage form). Not a theme pair: the
+     plate under it keeps its colour in both themes, so its contrast is measured against each plate in its component's file, step 5. */
+  --bg-panel: var(--gradient-panel); /* the rail's and the footer's panel. Fill: 3 rules in 2 blocks (Rail, Footer). Parent: смак. A ground drawn as a gradient: the ink on it is measured at
+     its lightest stop, step 5. */
+  --bg-row: var(--gradient-row); /* a row's fill: a question, a disclosure, a field, a limit. Fill: 5 rules in 5 blocks (Disclosure, Empty state, Field). A ground drawn as a gradient:
+     the ink on it is measured at its lightest stop, step 5. */
+  --bg-layer: var(--gradient-menu); /* a raised layer: a menu, a dialog, the selection bar. Fill: 7 rules in 5 blocks (Popover menu, Header, Verify form). A ground drawn as a gradient: the
+     ink on it is measured at its lightest stop, step 5. */
+  --bg-plate: var(--gradient-plate); /* the plate a bar of controls stands on. Fill: 6 rules in 6 blocks (Category bar, Deposit dock, After its third look). A ground drawn as a gradient: the
+     ink on it is measured at its lightest stop, step 5. */
+  --bg-daily-panel: var(--gradient-daily-panel); /* the Daily panel and the involves plate. Value the same as --bg-layer, role different. Fill: 2 rules in 2 blocks (Daily ladder, What opening a case
+     here involves). A ground drawn as a gradient: the ink on it is measured at its lightest stop, step 5. */
+  --bg-feed-plate: var(--gradient-feed-plate); /* a drop's plate in the ticker. Fill: 2 rules in 2 blocks (Feed tile, Rare marks on a drop). A ground drawn as a gradient: the ink on it is measured at
+     its lightest stop, step 5. */
+
+  /* Fill: marks, plates and lights */
+  --bg-act: var(--color-button); /* the one lit act of a zone, Act Pink (D-226); its white label holds 4.5:1 on it in both themes. Fill: 9 rules in 5 blocks (Form controls, Button,
+     Badge). Parent: технічне рішення. Threshold 3:1 (a fill that carries meaning, WCAG 1.4.11). Dark 4.0:1 on the tile, light 4.1:1 on the light tile. */
+  --bg-lit: var(--color-pink); /* a lit mark in the brand pink: the current step, a live dot, a chosen option's bar. Fill: 11 rules in 6 blocks (Popover menu, Ticker, Icon story).
+     Parent: атрибут A3. Threshold 3:1 (a fill that carries meaning, WCAG 1.4.11). Dark 5.7:1 on the tile, light 4.1:1 on the light tile. */
+  --bg-match: var(--color-green); /* a green fill: a done badge, a live dot. Fill: 4 rules in 4 blocks (Badge, Daily ladder, Footer). Parent: атрибут A5. Threshold 3:1 (a fill that
+     carries meaning, WCAG 1.4.11). Dark 9.2:1 on the tile, light 3.2:1 on the light tile. */
+  --bg-mark: var(--color-text-hi); /* a white mark on the theme's ground: a dot, a pin, a bar, a hexagon. Fill: 21 rules in 13 blocks (Header, Published against observed, Feed tile).
+     Parent: атрибут A5. Threshold 3:1 (a fill that carries meaning, WCAG 1.4.11). Dark 19.4:1 on the tile, light 16.4:1 on the light tile. */
+  --bg-mark-on-plate: var(--color-text-hi); /* a white mark on a plate or a picture. Value the same as --bg-mark, role different. Fill: 6 rules in 5 blocks (Ticker, Hero, Footer). Parent: атрибут
+     A5. Not a theme pair: the plate under it keeps its colour in both themes, so its contrast is measured against each plate in its component's file, step
+     5. */
+  --bg-prose-light: var(--color-mode-light); /* the violet light at the edge of a prose plate (How this case works, the algorithm). Fill: 2 rules in 2 blocks (How this case works, The algorithm,
+     published in full). Parent: наявний бренд. A light, not a mark: no threshold. */
+  --bg-burger-bars: var(--gradient-burger); /* the burger's three lines, a glyph drawn as a fill. Fill: 2 rules in 2 blocks (Header, Rail). Threshold 3:1 (a fill that carries meaning, WCAG 1.4.11).
+     Dark 16.5:1 on the toggle, light 15.6:1 on the light toggle. */
+
+  /* Fill: the rarity ladder, the baseline's seven steps (baseline.md 13.4) */
+  --bg-rarity-1: var(--color-rarity-1); /* rarity 1, the rarest: a ring, a hexagon, a plate. Fill: no state draws it yet. Parent: атрибут A4. Threshold 3:1 (a ring or a plate, WCAG 1.4.11).
+     Dark 12.3:1 on the tile, light 3.9:1 on the light tile. */
+  --bg-rarity-2: var(--color-rarity-2); /* rarity 2. Fill: 6 rules in 5 blocks (How this case works, The stage's own card, Feed tile). Parent: атрибут A4. Threshold 3:1 (a ring or a plate, WCAG
+     1.4.11). Dark 3.8:1 on the tile, light 4.3:1 on the light tile. */
+  --bg-rarity-3: var(--color-rarity-3); /* rarity 3. Fill: 5 rules in 5 blocks (The stage's own card, Feed tile, Case stage). Parent: атрибут A4. Threshold 3:1 (a ring or a plate, WCAG 1.4.11).
+     Dark 4.6:1 on the tile, light 3.5:1 on the light tile. */
+  --bg-rarity-4: var(--color-rarity-4); /* rarity 4. Fill: 2 rules in 2 blocks (Feed tile, The stage form). Parent: атрибут A4. Threshold 3:1 (a ring or a plate, WCAG 1.4.11). Dark 2.9:1 on the
+     tile, light 5.6:1 on the light tile. Below the threshold in the dark theme: named for step 4. */
+  --bg-rarity-4-lit: var(--color-rarity-4-lit); /* rarity 4 lit, its glow on the stage. Fill: 5 rules in 4 blocks (Case stage, The stage's own card, Published against observed). Threshold 3:1 (a ring
+     or a plate, WCAG 1.4.11). Dark 4.7:1 on the tile, light 3.4:1 on the light tile. */
+  --bg-rarity-5: var(--color-rarity-5); /* rarity 5. Fill: 3 rules in 3 blocks (Feed tile, After my items' second gate, The stage form). Parent: атрибут A4. Threshold 3:1 (a ring or a plate,
+     WCAG 1.4.11). Dark 3.4:1 on the tile, light 4.8:1 on the light tile. */
+  --bg-rarity-5-lit: var(--color-rarity-5-lit); /* rarity 5 lit, its glow on the stage. Fill: 5 rules in 4 blocks (How this case works, The stage's own card, Case stage). Threshold 3:1 (a ring or a
+     plate, WCAG 1.4.11). Dark 4.5:1 on the tile, light 3.6:1 on the light tile. */
+  --bg-rarity-6: var(--color-rarity-6); /* rarity 6. Fill: 1 rule in 1 block (Feed tile). Parent: атрибут A4. Threshold 3:1 (a ring or a plate, WCAG 1.4.11). Dark 2.9:1 on the tile, light 5.6:1
+     on the light tile. Below the threshold in the dark theme: named for step 4. */
+  --bg-rarity-7: var(--color-rarity-7); /* rarity 7, the commonest; no sample item has it, so no state draws it yet. Fill: no state draws it yet. Parent: атрибут A4. Threshold 3:1 (a ring or a
+     plate, WCAG 1.4.11). Dark 14.3:1 on the tile, light 3.5:1 on the light tile. */
+
+  /* Fill: coloured plates, the same in both themes */
+  --bg-mode-cases: var(--gradient-mode-cases); /* Cases' own plate, pink to violet: a mode card, a section head's tile, the empty state. Fill: 9 rules in 7 blocks (Popover menu, Case tile, Empty
+     state). Parent: смак. A coloured plate, its own ground: the same in both themes, the words on it measured against it in its component's file, step 5. */
+  --bg-mode-cases-card: var(--gradient-mode-cases-card); /* Cases' card, from the act pink: the mode card and the account head. Fill: 4 rules in 4 blocks (Mode card, After its third look, The stage form). A
+     coloured plate, its own ground: the same in both themes, the words on it measured against it in its component's file, step 5. */
+  --bg-mode-battles: var(--gradient-mode-battles); /* Battles' plate, blue. Fill: 14 rules in 12 blocks (Popover menu, Rail, Case tile). Parent: смак. A coloured plate, its own ground: the same in both
+     themes, the words on it measured against it in its component's file, step 5. */
+  --bg-mode-showdowns: var(--gradient-mode-showdowns); /* Showdowns' plate, red. Fill: 6 rules in 5 blocks (Footer, Case tile, Mode card). Parent: смак. A coloured plate, its own ground: the same in both
+     themes, the words on it measured against it in its component's file, step 5. */
+  --bg-mode-upgrade: var(--gradient-mode-upgrade); /* Upgrade's plate, amber. Fill: 4 rules in 4 blocks (Daily ladder, Mode card, Section head). Parent: технічне рішення. A coloured plate, its own ground:
+     the same in both themes, the words on it measured against it in its component's file, step 5. */
+  --bg-case-gold: var(--gradient-case-gold); /* a gold case's plate. Fill: 3 rules in 2 blocks (Rail, Case tile). A coloured plate, its own ground: the same in both themes, the words on it measured
+     against it in its component's file, step 5. */
+  --bg-fair: var(--gradient-fair); /* the provably fair blue plate. Fill: 3 rules in 3 blocks (Before you spend, The page's head, Check a round). A coloured plate, its own ground: the same
+     in both themes, the words on it measured against it in its component's file, step 5. */
+  --bg-steam: var(--gradient-steam); /* Steam's own dark blue under its mark. Fill: 2 rules in 2 blocks (Sign-in block, The Steam state). A coloured plate, its own ground: the same in both
+     themes, the words on it measured against it in its component's file, step 5. */
+  --bg-spend-strip: var(--gradient-spend-strip); /* the strip of what is spent, blue to pink. Fill: 2 rules in 2 blocks (Payment panel, Before you spend). A coloured plate, its own ground: the same in
+     both themes, the words on it measured against it in its component's file, step 5. */
+  --bg-case-violet: var(--color-case-violet); /* a violet case's own colour, the light behind its art. Fill: 2 rules in 2 blocks (Case tile, Daily ladder). A coloured plate, its own ground: the same
+     in both themes, the words on it measured against it in its component's file, step 5. */
+  --bg-ring-deep: var(--color-ring-deep); /* the deep heart of a rarity hexagon behind a skin. Fill: 3 rules in 3 blocks (The stage's own card, Case stage, How this case works). A coloured plate,
+     its own ground: the same in both themes, the words on it measured against it in its component's file, step 5. */
+  --bg-act-stripes: var(--gradient-button-stripes); /* the faint diagonal stripes on the act and on the plates that wear them. Fill: 21 rules in 13 blocks (Popover menu, Button, Payment panel). Parent:
+     смак. A coloured plate, its own ground: the same in both themes, the words on it measured against it in its component's file, step 5. */
+  --bg-stripes: var(--gradient-stripes); /* the stripes of a mode's plate, the large step. Fill: 14 rules in 9 blocks (Footer, The stage form, Rail). Parent: смак. A coloured plate, its own
+     ground: the same in both themes, the words on it measured against it in its component's file, step 5. */
+  --bg-stripes-m: var(--gradient-stripes-m); /* the stripes, the middle step. Fill: 5 rules in 3 blocks (Popover menu, Footer, The page's head). A coloured plate, its own ground: the same in both
+     themes, the words on it measured against it in its component's file, step 5. */
+  --bg-stripes-s: var(--gradient-stripes-s); /* the stripes of a small tile. Fill: 2 rules in 2 blocks (Status notice, Sign-in block). A coloured plate, its own ground: the same in both themes, the
+     words on it measured against it in its component's file, step 5. */
+  --bg-sweep: var(--gradient-trust-sweep); /* the light that runs across a trust plate. Fill: 2 rules in 2 blocks (Hero, Payment panel). A coloured plate, its own ground: the same in both themes,
+     the words on it measured against it in its component's file, step 5. */
+
+  /* Line: rules, edges and rings */
+  --line-soft: var(--color-line-soft); /* the hairline between rows and around plates. Line: 9 rules in 7 blocks (After my items' second gate, The filter drawer, Key-value line). Parent:
+     атрибут A2. A decorative divider, which 1.4.11 does not bind. Drawn at: dark 1.4:1 on the tile, light 1.2:1 on the light tile. */
+  --line-error: var(--color-error); /* the ring of a control that refuses: the Field's declaration and, by D-260 (Q2), the Text field's and Text area's, which drew it in --color-down. Line:
+     3 rules in 3 blocks (Field, Form controls, Published against observed). Threshold 3:1 (a line that carries meaning, WCAG 1.4.11). Dark 6.0:1 on the
+     tile, light 5.7:1 on the light tile. */
+  --line-edge: var(--shadow-edge); /* the 1px edge of a dark tile, a plate, a chip, a field; one role with the tile edge since D-260 (Q1). Line: 61 rules in 39 blocks (Popover menu, Form
+     controls, Footer). An edge beside a fill that already differs from its ground; no threshold of its own. */
+  --line-edge-lit: var(--shadow-edge-lit); /* the brighter edge of a plate over art. Line: 7 rules in 7 blocks (Case tile, Daily ladder, Verify form). An edge beside a fill that already differs
+     from its ground; no threshold of its own. */
+  --line-lit-top: var(--shadow-tile-lit); /* the lit top edge of a plate, white at .25. Line: 15 rules in 10 blocks (Payment panel, Before you spend, Daily ladder). A light or an edge on a
+     coloured plate: the same in both themes, no threshold of its own. */
+  --line-lit-top-soft: var(--shadow-tile-lit-soft); /* the softer lit top edge. The kit declares --shadow-tile-lit-soft twice, white at .20 (the account menu's tile) and at .22 (the involves plate); the
+     second wins everywhere, so every reader draws .22 today. Carried as it stands and named for step 4. Line: 5 rules in 3 blocks (Popover menu, What
+     opening a case here involves, The page's head). A light or an edge on a coloured plate: the same in both themes, no threshold of its own. */
+  --line-plate-edge: var(--shadow-plate-edge); /* the violet edge of a bar's plate. Line: 4 rules in 4 blocks (Category bar, Deposit dock, Commit block). A light or an edge on a coloured plate: the
+     same in both themes, no threshold of its own. */
+  --line-pink-fade: var(--gradient-edge-pink); /* a pink line fading out at both ends. Line: 3 rules in 2 blocks (Footer, Disclosure). A light or an edge on a coloured plate: the same in both themes,
+     no threshold of its own. */
+  --line-ring-soft: var(--shadow-avatar-bot); /* the soft ring round a bot's avatar. Line: 2 rules in 2 blocks (Feed tile, Footer). An edge beside a fill that already differs from its ground; no
+     threshold of its own. */
+
+  /* Depth: lifts, glows and the shadows under art */
+  --depth-card: var(--shadow-card); /* the lift under a card. Depth: 7 rules in 5 blocks (After my items' second gate, Drop card, Empty state). Depth: a shadow or a glow carries colour but
+     no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-shell: var(--shadow-shell); /* the edge and lift of the header strip, the rail's panel, the selection bar and the account head. Depth: 4 rules in 4 blocks (After its third look,
+     Header, Rail). Depth: a shadow or a glow carries colour but no contrast threshold. The same in both themes for now; step 7 reads whether the light
+     theme needs it softer. */
+  --depth-fair: var(--shadow-fair); /* the drop under the fair blue plate. Depth: 3 rules in 3 blocks (Before you spend, The page's head, Check a round). Depth: a shadow or a glow carries
+     colour but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-plate-deep: var(--shadow-plate-deep); /* the deeper drop under a money plate. Depth: 3 rules in 2 blocks (Payment panel, Before you spend). Depth: a shadow or a glow carries colour but no
+     contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-mode-card: var(--shadow-mode-card); /* a mode card's lit top and lift. Depth: 2 rules in 2 blocks (Mode card, The page's head). Depth: a shadow or a glow carries colour but no contrast
+     threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-mode-art: var(--shadow-mode-art); /* the shadow under a mode card's art. Depth: 2 rules in 2 blocks (Mode card, The page's head). Depth: a shadow or a glow carries colour but no contrast
+     threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-avatar: var(--shadow-avatar-l); /* the white ring and lift of a large avatar. Depth: 2 rules in 2 blocks (Avatar, Popover menu). Depth: a shadow or a glow carries colour but no contrast
+     threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-act-glow: var(--shadow-button); /* the pink glow under the act. Depth: 5 rules in 4 blocks (Button, Segmented control, Form controls). Parent: смак. Depth: a shadow or a glow carries
+     colour but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-skin-drop: var(--shadow-skin-drop); /* the shadow under a skin on a case. Depth: 2 rules in 2 blocks (A case as home draws it, After my items' second gate). Depth: a shadow or a glow
+     carries colour but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-skin-card: var(--shadow-skin-card); /* the shadow under a skin on a card. Depth: 3 rules in 3 blocks (Drop card, Case stage, How this case works). Depth: a shadow or a glow carries colour
+     but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-skin-prize: var(--shadow-skin-prize); /* the shadow under the won skin. Depth: 2 rules in 2 blocks (Outcome card, The stage form). Depth: a shadow or a glow carries colour but no contrast
+     threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-case-lift: var(--filter-case-lift); /* the lift of a case picture. Depth: 2 rules in 2 blocks (Before you spend, What opening a case here involves). Depth: a shadow or a glow carries colour
+     but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-skin-lift: var(--filter-skin-lift); /* the lift of a skin picture. Depth: 2 rules in 2 blocks (Before you spend, What opening a case here involves). Depth: a shadow or a glow carries colour
+     but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-figure-text: var(--shadow-figure-text); /* the soft shadow under a figure on a plate. Depth: 5 rules in 4 blocks (After its third look, Payment panel, Before you spend). Depth: a shadow or a
+     glow carries colour but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+  --depth-stub-text: var(--shadow-stub-text); /* the shadow under the words of a ticket stub. Depth: 2 rules in 2 blocks (Payment panel, Before you spend). Depth: a shadow or a glow carries colour
+     but no contrast threshold. The same in both themes for now; step 7 reads whether the light theme needs it softer. */
+}
+
+/* THE LIGHT THEME: the pair of every role above; only the semantic level is overridden. */
+[data-theme="light"] {
+  /* Ink: words and glyphs */
+  --text-hi: var(--color-ground); /* dark --color-text-hi; light reuses --color-ground, a value the kit already has; 16.4:1 on the light tile */
+  --text-on-plate: var(--color-text-hi); /* the same: the plate under it does not change */
+  --text-body: var(--color-ink-soft); /* dark --color-text-soft; a new light value, its why at the end of the primitives; 9.2:1 on the light tile */
+  --text-body-on-plate: var(--color-text-soft); /* the same: the plate under it does not change */
+  --text-base: var(--color-ink-grey); /* dark --color-text; a new light value, its why at the end of the primitives; 5.3:1 on the light tile */
+  --text-base-on-plate: var(--color-text); /* the same: the plate under it does not change */
+  --text-meta: var(--color-ink-lavender); /* dark --color-text-muted; a new light value, its why at the end of the primitives; 5.6:1 on the light tile */
+  --text-lead: var(--color-ink-lead); /* dark --color-text-lead; a new light value, its why at the end of the primitives; 12.0:1 on the light tile */
+  --text-link: var(--color-pink-deep); /* dark --color-pink; a new light value, its why at the end of the primitives; 4.9:1 on the light tile */
+  --text-link-on-plate: var(--color-pink); /* the same: the plate under it does not change */
+  --text-money: var(--color-money-deep); /* dark --color-money; a new light value, its why at the end of the primitives; 5.6:1 on the light tile */
+  --text-money-on-plate: var(--color-money); /* the same: the plate under it does not change */
+  --text-up: var(--color-green-deep); /* dark --color-up; a new light value, its why at the end of the primitives; 5.5:1 on the light tile */
+  --text-match: var(--color-green-deep); /* dark --color-green; a new light value, its why at the end of the primitives; 5.5:1 on the light tile */
+  --text-match-on-plate: var(--color-green); /* the same: the plate under it does not change */
+  --text-error: var(--color-footer-age); /* dark --color-error; light reuses --color-footer-age, a value the kit already has; 5.7:1 on the light tile */
+  --text-on-accent: var(--color-ground); /* the same: the plate under it does not change */
+  --text-on-plate-soft: var(--color-plate-say); /* the same: the plate under it does not change */
+  --text-risk-low: var(--color-green-deep); /* dark --color-risk-low; a new light value, its why at the end of the primitives; 5.5:1 on the light tile */
+  --text-risk-mid: var(--color-rarity-5); /* dark --color-risk-mid; light reuses --color-rarity-5, a value the kit already has; 4.8:1 on the light tile */
+  --text-risk-high: var(--color-risk-high); /* the same: it holds 3:1 on the light ground */
+  --text-risk-off: var(--color-skull-off-light); /* dark --color-skull-off; a new light value, its why at the end of the primitives; 1.4:1 on the light tile */
+
+  /* Fill: grounds and surfaces */
+  --bg-page: var(--color-paper); /* dark --color-ground; a new light value, its why at the end of the primitives */
+  --bg-card: var(--color-text-hi); /* dark --color-card; light reuses --color-text-hi, a value the kit already has */
+  --bg-card-deep: var(--color-paper-2); /* dark --color-card-deep; a new light value, its why at the end of the primitives */
+  --bg-menu: var(--color-text-hi); /* dark --color-card-2; light reuses --color-text-hi, a value the kit already has */
+  --bg-tile: var(--color-paper-2); /* dark --color-tile; a new light value, its why at the end of the primitives */
+  --bg-toggle: var(--color-paper-3); /* dark --color-burger; a new light value, its why at the end of the primitives */
+  --bg-veil: var(--color-paper-veil); /* dark --color-veil; a new light value, its why at the end of the primitives */
+  --bg-tile-veil: var(--color-paper-veil-tile); /* dark --color-tile-veil; a new light value, its why at the end of the primitives */
+  --bg-plate-veil: var(--color-paper-veil-plate); /* dark --color-plate-veil; a new light value, its why at the end of the primitives */
+  --bg-well: var(--color-navy-06); /* dark --color-well; a new light value, its why at the end of the primitives */
+  --bg-hash-well: var(--color-navy-06); /* dark --color-hash-well; a new light value, its why at the end of the primitives */
+  --bg-hash-well-on-plate: var(--color-hash-well); /* the same: it is not a ground of the theme */
+  --bg-note-plate: var(--color-navy-05); /* dark --color-note-plate; a new light value, its why at the end of the primitives */
+  --bg-scrim: var(--color-scrim); /* the same: it is not a ground of the theme */
+  --bg-wash: var(--color-navy-05); /* dark --color-wash; a new light value, its why at the end of the primitives */
+  --bg-track: var(--color-navy-08); /* dark --color-track; a new light value, its why at the end of the primitives */
+  --bg-foil: var(--color-foil); /* the same: it is not a ground of the theme */
+  --bg-panel: var(--gradient-paper-panel); /* dark --gradient-panel; a new light value, its why at the end of the primitives */
+  --bg-row: var(--gradient-paper); /* dark --gradient-row; a new light value, its why at the end of the primitives */
+  --bg-layer: var(--gradient-paper); /* dark --gradient-menu; a new light value, its why at the end of the primitives */
+  --bg-plate: var(--gradient-paper-plate); /* dark --gradient-plate; a new light value, its why at the end of the primitives */
+  --bg-daily-panel: var(--gradient-paper); /* dark --gradient-daily-panel; a new light value, its why at the end of the primitives */
+  --bg-feed-plate: var(--gradient-paper-feed); /* dark --gradient-feed-plate; a new light value, its why at the end of the primitives */
+
+  /* Fill: marks, plates and lights */
+  --bg-act: var(--color-button); /* the same: it holds its threshold on the light ground too */
+  --bg-lit: var(--color-button); /* dark --color-pink; light reuses --color-button, a value the kit already has; 4.1:1 on the light tile */
+  --bg-match: var(--color-green-mid); /* dark --color-green; a new light value, its why at the end of the primitives; 3.2:1 on the light tile */
+  --bg-mark: var(--color-ground); /* dark --color-text-hi; light reuses --color-ground, a value the kit already has; 16.4:1 on the light tile */
+  --bg-mark-on-plate: var(--color-text-hi); /* the same: the plate under it does not change */
+  --bg-prose-light: var(--color-mode-light); /* the same: a light, not a ground */
+  --bg-burger-bars: var(--gradient-burger-ink); /* dark --gradient-burger; a new light value, its why at the end of the primitives; 15.6:1 on the light toggle */
+
+  /* Fill: the rarity ladder, the baseline's seven steps (baseline.md 13.4) */
+  --bg-rarity-1: var(--color-plate-r1-a); /* dark --color-rarity-1; light reuses --color-plate-r1-a, a value the kit already has; 3.9:1 on the light tile */
+  --bg-rarity-2: var(--color-rarity-2); /* the same: a rarity is the item's own colour, the baseline's ladder */
+  --bg-rarity-3: var(--color-rarity-3); /* the same: a rarity is the item's own colour, the baseline's ladder */
+  --bg-rarity-4: var(--color-rarity-4); /* the same: a rarity is the item's own colour, the baseline's ladder */
+  --bg-rarity-4-lit: var(--color-rarity-4-lit); /* the same: a rarity is the item's own colour, the baseline's ladder */
+  --bg-rarity-5: var(--color-rarity-5); /* the same: a rarity is the item's own colour, the baseline's ladder */
+  --bg-rarity-5-lit: var(--color-rarity-5-lit); /* the same: a rarity is the item's own colour, the baseline's ladder */
+  --bg-rarity-6: var(--color-rarity-6); /* the same: a rarity is the item's own colour, the baseline's ladder */
+  --bg-rarity-7: var(--color-grey-mid); /* dark --color-rarity-7; a new light value, its why at the end of the primitives; 3.5:1 on the light tile */
+
+  /* Fill: coloured plates, the same in both themes */
+  --bg-mode-cases: var(--gradient-mode-cases); /* the same: a coloured plate is its own ground */
+  --bg-mode-cases-card: var(--gradient-mode-cases-card); /* the same: a coloured plate is its own ground */
+  --bg-mode-battles: var(--gradient-mode-battles); /* the same: a coloured plate is its own ground */
+  --bg-mode-showdowns: var(--gradient-mode-showdowns); /* the same: a coloured plate is its own ground */
+  --bg-mode-upgrade: var(--gradient-mode-upgrade); /* the same: a coloured plate is its own ground */
+  --bg-case-gold: var(--gradient-case-gold); /* the same: a coloured plate is its own ground */
+  --bg-fair: var(--gradient-fair); /* the same: a coloured plate is its own ground */
+  --bg-steam: var(--gradient-steam); /* the same: a coloured plate is its own ground */
+  --bg-spend-strip: var(--gradient-spend-strip); /* the same: a coloured plate is its own ground */
+  --bg-case-violet: var(--color-case-violet); /* the same: a coloured plate is its own ground */
+  --bg-ring-deep: var(--color-ring-deep); /* the same: a coloured plate is its own ground */
+  --bg-act-stripes: var(--gradient-button-stripes); /* the same: a coloured plate is its own ground */
+  --bg-stripes: var(--gradient-stripes); /* the same: a coloured plate is its own ground */
+  --bg-stripes-m: var(--gradient-stripes-m); /* the same: a coloured plate is its own ground */
+  --bg-stripes-s: var(--gradient-stripes-s); /* the same: a coloured plate is its own ground */
+  --bg-sweep: var(--gradient-trust-sweep); /* the same: a coloured plate is its own ground */
+
+  /* Line: rules, edges and rings */
+  --line-soft: var(--color-line-light); /* dark --color-line-soft; a new light value, its why at the end of the primitives; 1.2:1 on the light tile */
+  --line-error: var(--color-footer-age); /* dark --color-error; light reuses --color-footer-age, a value the kit already has; 5.7:1 on the light tile */
+  --line-edge: var(--shadow-edge-ink); /* dark --shadow-edge; a new light value, its why at the end of the primitives */
+  --line-edge-lit: var(--shadow-edge-lit-ink); /* dark --shadow-edge-lit; a new light value, its why at the end of the primitives */
+  --line-lit-top: var(--shadow-tile-lit); /* the same: it lights a coloured plate */
+  --line-lit-top-soft: var(--shadow-tile-lit-soft); /* the same: it lights a coloured plate */
+  --line-plate-edge: var(--shadow-plate-edge); /* the same: it lights a coloured plate */
+  --line-pink-fade: var(--gradient-edge-pink); /* the same: it lights a coloured plate */
+  --line-ring-soft: var(--shadow-ring-ink); /* dark --shadow-avatar-bot; a new light value, its why at the end of the primitives */
+
+  /* Depth: lifts, glows and the shadows under art */
+  --depth-card: var(--shadow-card); /* the same for now, read at step 7 */
+  --depth-shell: var(--shadow-shell); /* the same for now, read at step 7 */
+  --depth-fair: var(--shadow-fair); /* the same for now, read at step 7 */
+  --depth-plate-deep: var(--shadow-plate-deep); /* the same for now, read at step 7 */
+  --depth-mode-card: var(--shadow-mode-card); /* the same for now, read at step 7 */
+  --depth-mode-art: var(--shadow-mode-art); /* the same for now, read at step 7 */
+  --depth-avatar: var(--shadow-avatar-l); /* the same for now, read at step 7 */
+  --depth-act-glow: var(--shadow-button); /* the same for now, read at step 7 */
+  --depth-skin-drop: var(--shadow-skin-drop); /* the same for now, read at step 7 */
+  --depth-skin-card: var(--shadow-skin-card); /* the same for now, read at step 7 */
+  --depth-skin-prize: var(--shadow-skin-prize); /* the same for now, read at step 7 */
+  --depth-case-lift: var(--filter-case-lift); /* the same for now, read at step 7 */
+  --depth-skin-lift: var(--filter-skin-lift); /* the same for now, read at step 7 */
+  --depth-figure-text: var(--shadow-figure-text); /* the same for now, read at step 7 */
+  --depth-stub-text: var(--shadow-stub-text); /* the same for now, read at step 7 */
+}

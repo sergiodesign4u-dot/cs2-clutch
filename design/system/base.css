@@ -1,0 +1,91 @@
+/* design/system/base.css, stage 08 step 3: what belongs to no component. The reset, the page's type and ground, the shell's layout and
+ * the screen's column, and the pause of a block off the screen; carried from design/kit/kit.css rule for rule with their comments (the
+ * line ranges below). One change: .page reads its ground and its ink through the semantic level (--bg-page, --text-base) instead of the
+ * primitives, so a theme reaches the page. The font is loaded by each page's <link> to Google Fonts, as now; this file names it through
+ * --font-family. Not linked to anything yet.
+ *
+ * Two things here are the design pipeline's, not the product's, carried so the pixel proof of step 8 matches: --nav-w, the width of
+ * the stand's panel (_nav.css), and .page:has(> #sidebar). Step 6 decides whether they stay.
+ */
+
+/* THE RESET, kit.css lines 679 to 682 and 1160: the box model, the text size a phone may not inflate, and hidden means hidden */
+*,
+::before,
+::after { box-sizing: border-box; }
+html { text-size-adjust: 100%; }
+[hidden] { display: none; }
+
+/* kit.css lines 5756 to 5822 */
+/* THE SHELL'S PAGE LAYOUT, D-232. Where the organisms stand on a page, nothing of their look: the header across the top, the rail beside the
+   page from the header's top, the live drops under the header, the screen's slot, the footer; as Home v4 lays them out (kit.css part 2, the
+   grey screen body, and v4 theme.css). design/kit/shell.html carries it as markup; a screen copy keeps body.page and .shell and fills #screen.
+   The page keeps clear of the design pipeline's own panel by --nav-w (_nav.css), 0 where that panel is absent. */
+.page { margin: 0; background: var(--bg-page); color: var(--text-base); font-family: var(--font-family); font-size: var(--size-s); line-height: 1.55; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.shell { min-height: 100vh; }
+.shell__main { min-width: 0; padding: var(--space-6) var(--space-3) var(--space-6) var(--space-2); }
+.shell > .footer { margin-top: var(--space-7); }
+@media (min-width: 900px) {
+  .shell { --rail-page-x: var(--nav-w, 0px); --rail-logo-x: calc((100vw - var(--nav-w, 0px)) / 2 - var(--space-3));
+    display: grid; grid-template-columns: var(--size-rail-collapsed) minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; grid-template-areas: "header header" "rail feed" "rail main" "rail footer"; margin-left: var(--nav-w, 0px); }
+  .shell.is-wide { grid-template-columns: calc(var(--size-rail) + var(--space-3)) minmax(0, 1fr); }
+  .shell > .rail { grid-row: 1 / -1; grid-column: 1; }
+  .shell > .header { grid-row: 1; grid-column: 1 / -1; }
+  .shell > .ticker { grid-area: feed; min-width: 0; }
+  .shell > .shell__main { grid-area: main; }
+  .shell > .footer { grid-area: footer; margin-top: calc(var(--space-7) + var(--space-5)); }
+}
+@media (max-width: 899px) {
+  .page:has(> #sidebar) .shell { padding-top: var(--space-6); } /* the design pipeline panel's strip, 32px, scrolls away at the page's top */
+  .shell { padding-bottom: var(--size-bar); }
+  .shell__main { padding: var(--space-4); }
+}
+
+/* THE SCREEN'S COLUMN AND RHYTHM, D-234: how a screen's blocks stand in the slot, as Home v4 stands them (v4 theme.css "ONE SPACING FOR THE
+   FRAME" and the column rule of 1 Nov 2026, banner.css "THE BANNER AS A BLOCK", the .wf-sec padding of kit.css part 2). From 900px the
+   banner is a block with the header strip's 8px and 12px, and every other block stands clear of the column's edges, 32px and from 1200px
+   56px, centred past 1560px; under 900px the banner runs edge to edge. A block stands 32px under the one above; the hero 24px under the
+   banner and the ways to play straight on the hero; a panel with its own title, Daily cases and Before you spend, 48px; the closing
+   sections, What opening a case here involves, Questions and answers and About Clutch, 64px. */
+.shell__main { overflow-x: clip; /* a case's art may reach past a tile at the column's edge and never past the page, v4 theme.css .wf-main */
+  --shell-gutter: var(--space-6); /* v4 theme.css --v4-gutter, 32px from 900px */
+  --shell-column: 1560px; } /* v4 theme.css .wf-main > :not(.wf-event), the widest column, centred past it; the case head lines up with it (--case-head-page) */
+.shell__main > * + * { margin-top: var(--space-6); }
+.shell__main > .banner + .hero { margin-top: var(--space-5); }
+.shell__main > .hero + * { margin-top: 0; }
+.shell__main > :is(.daily, [data-when], .spend) { margin-top: calc(var(--space-6) + var(--space-4)); }
+.shell__main > :is(.involves, .faq, .about) { margin-top: calc(2 * var(--space-6)); }
+/* the case screen, D-236, as v4 stands its blocks (the measured gaps of design/v4/case.html at every width): the commit 14px under the stage,
+   Before you open 28px under the commit, Best drops 32px, What is in this case 18px under Best drops' cards (they reach 14px past their block),
+   What this case pays 48px, Published against observed 40px, How this case works 32px; the case head and the commit keep the banner's insets */
+.shell__main > .commit { margin-top: var(--space-3-5); }
+.shell__main > .before { margin-top: var(--space-5-5); }
+.shell__main > .spend--pays { margin-top: calc(var(--space-6) + var(--space-4)); }
+.shell__main > .observed { margin-top: calc(var(--space-6) + var(--space-2)); }
+/* Deposit, D-237: its H1 is a large Section head standing alone, its content 16px under it (the head's own margin); a section with its own
+   title, What still works and This deposit, 48px under the notice, as Home's panels with their own titles */
+.shell__main > .sec-head + * { margin-top: 0; }
+.shell__main > :is(.works, .record) { margin-top: calc(var(--space-6) + var(--space-4)); }
+/* My items, D-239: the account head first, standing as the case head stands; the inventory's head 32px under it; the line under the grid
+   and the selection bar 16px apart, the bar following the line it qualifies */
+.shell__main > :is(.item-grid, .empty) + .note, .shell__main > .note + .selbar { margin-top: var(--space-4); }
+@media (min-width: 900px) {
+  .shell__main { padding-inline: 0; }
+  .shell__main > .commit { width: auto; } /* the commit stands in the slot with the case head's insets, not across its full width */
+  .shell__main > * { margin-inline: max(var(--shell-gutter), (100% - var(--shell-column)) / 2); }
+  .shell__main > :is(.banner, .case-head, .commit, .account-head) { margin-inline: var(--space-2) var(--space-3); }
+  .shell__main > :is(.banner, .case-head, .account-head):first-child { margin-top: calc(var(--space-2) - var(--space-6)); } /* 8px under the live drops, as they sit 8px under the header */
+}
+@media (min-width: 1200px) { .shell__main { --shell-gutter: var(--space-7); } } /* 56px, v4 theme.css --v4-gutter from 1200px */
+@media (max-width: 899px) {
+  .shell__main > :is(.banner, .case-head) { margin-inline: calc(-1 * var(--space-4)); }
+  .shell__main > .commit { margin-inline: 0; } /* the commit on the content edge, the column's own 16px */
+  .shell__main > .before { margin-inline: var(--space-3); } /* 12px inside it, v4 .wf-case-info margin-inline max(var(--v4-gutter, 12px), ...) */
+  .shell__main > :is(.banner, .case-head):first-child { margin-top: calc(-1 * var(--space-4)); }
+}
+[data-when][hidden] { display: none; } /* a block of one state only, guest or account, shown by kit.js on ?account, D-234 */
+
+/* kit.css lines 5824 to 5827 */
+/* A BLOCK OFF THE SCREEN PAUSES ITS LOOPS, D-235, v4 idle.js, performance pass of 4 Nov 2026, the founder: "если откріть в нескольких
+   браузерах одноверменно на разних єкранах то начинает подлагивать". motion.js marks a block of the screen .is-idle while no part of it is
+   within 120px of the window, and its animations wait until it scrolls back; what is on screen never changes. The banner's story pauses too. */
+.is-idle, .is-idle *, .is-idle::before, .is-idle::after, .is-idle *::before, .is-idle *::after { animation-play-state: paused !important; }
