@@ -8003,3 +8003,21 @@ The state token named `--color-focus` in the pack is `--line-focus` here: a ring
 - Two one-block tokens for one white on one plate.
 - A Contains column that leaves out what the markup holds.
 - The light readings of what the plates hold fixed now, one block at a time, before step 7 reads the light theme whole.
+
+## D-268. Step 5 closed; kit.html and shell.html move onto the system at the end of step 6
+
+**Date:** 2026-11-27. **Stage:** 08, step 5, its close. **Decided by:** the founder, after the measurement below and three options: "давай а вариант" (let's go with option A).
+
+**Measured.** Each page was loaded on `kit.css` and on `design/system/index.css` by a route swap, and the computed style of every block (`.cmp[id]` on `kit.html`) compared at 1440.
+- `shell.html` differs only in the screen column's margins: the column and rhythm rules (`.shell__main > *`, D-234) are still in `kit.css` and not in the system. The Header, the Rail, the Drops strip and the Footer match.
+- `kit.html`, the components: 37 of 60 blocks match or differ in 1 to 5 values. The rest differ for three named reasons: rows of the rename map the page's markup still waits for (the account menu `.popover--account` to `.account-menu`, `.select` to `.popover--select`, the Drop card's facts, the Figure's sizes), which on the system draw as plain browser buttons; the tile edge at .07 (row 30, accepted); the stand's own frames (the `.sc-shell` header, 64px on `kit.css`, 724px on the system).
+- `kit.html`, the screens' one-off blocks: all 21 differ. Their rules move into `design/system/screens/*.css` by D-259, and those files do not exist yet.
+
+**Decided.**
+1. Step 5 is closed as it stands: 71 of the 72 components on paper are built and accepted (D-263 to D-267), each compared with the screens that draw it on its own page; the File picker is in the backlog.
+2. `kit.html` and `shell.html` move onto `design/system/index.css` at the end of step 6, after the rename map is carried out on the product and the screens' blocks reach `design/system/screens/`. They are then measured once, before step 7 walks them in the dark, and every difference left names its row in one of the three lists (the drift, the review of the foundations, the reconcile).
+3. The README and the hub say so; the promise "the step closes when kit.html and shell.html load the system's index.css" was an estimate made in the build, never a decision, and it is withdrawn.
+
+**Rejected.**
+- Moving the two pages now with the rename map and the 17 screen blocks pulled forward from step 6 (option B): half of step 6 done twice, once on two showcase pages and again on the product.
+- Moving `shell.html` alone now, with the column rules in `base.css` (option C): the rules belong with the screens' blocks, and the two pages are measured together.
