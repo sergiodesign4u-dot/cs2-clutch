@@ -20,7 +20,8 @@
  *   After them, four roles the atoms brought at step 5, a job two or three atoms repeat (D-264, Q1): --line-act, --line-lit, --line-control, --bg-error;
  *   and five the molecules brought (D-265, Q1): --line-focus-on-plate, --text-meta-on-plate, --bg-scrim-sheet, --bg-handle, --depth-menu;
  *   and five the organisms brought (D-266, Q1): --text-fail, --bg-fail-wash, --text-risk-extreme, --bg-error-wash, --line-edge-lit-on-plate,
- *   with the state token --bg-toggle-hover.
+ *   with the state token --bg-toggle-hover; two the shell's plates need (D-266, Q3): --line-edge-on-plate, --line-lit-on-plate;
+ *   and one the organisms that hold another brought (D-267, Q2): --text-lead-on-plate.
  *   There is no --opacity-disabled: disabled is drawn once, on the Button, and a control otherwise stays live and refuses (D-58).
  *
  * [data-theme="light"], the third block. The pair of every semantic role. The product is dark from its first day (design principle 4),
@@ -938,6 +939,11 @@
   --line-lit-on-plate: var(--color-pink); /* the brand pink as a line where something is lit on a plate that stays dark: a payment card's edge under the pointer on the Footer's block, the line
      the runs stop on and the landing ring on the Case stage's band. Two blocks; it took the place of --line-lit there, which turns deep pink for paper
      (D-266, Q3). Line; no value moved. */
+
+  /* Roles the organisms that hold another brought at step 5 (D-267, Q2) */
+  --text-lead-on-plate: var(--color-text-lead); /* the lead white at .9 on the fair blue plate that keeps its colour in both themes: a field's key in the Proof fields' well, the Proof block's scope
+     line. Two blocks; it took the place of --proof-fields-key and --proof-scope-ink, no value moved (D-267, Q2). Ink; --text-lead turns to the dark ink
+     for paper, this plate does not. */
 }
 
 /* THE LIGHT THEME: the pair of every role above; only the semantic level is overridden. */
@@ -1087,6 +1093,9 @@
   /* Roles the shell's plates need at step 5 (D-266, Q3) */
   --line-edge-on-plate: var(--shadow-edge); /* the same: the plate keeps its colour in both themes, no value moved, read again at step 7 */
   --line-lit-on-plate: var(--color-pink); /* the same: the plate keeps its colour in both themes, no value moved, read again at step 7 */
+
+  /* Roles the organisms that hold another brought at step 5 (D-267, Q2) */
+  --text-lead-on-plate: var(--color-text-lead); /* the same: the plate keeps its colour in both themes, no value moved, read again at step 7 */
 }
 
 /* ===== COMPONENT TOKENS =====
@@ -1184,17 +1193,6 @@
      Radio draws on its own ground, --line-focus turns to the ground's navy in the light theme and its job is focus, and --line-focus-on-plate and
      --line-lit-on-plate are a focus ring and a pink line; one block draws a white ring on a plate, so by D-266 it is the block's own token, not a role.
      kit.css drew it with --color-text-hi, so the value does not move */
-  /* Proof block, round 3b of step 5 (design/system/components/proof-block.css) */
-  --proof-scope-ink: var(--color-text-lead); /* the scope line's words, white at .9, on the fair blue plate that keeps its colour in both themes (D-266, Q3), in the place of --text-lead there.
-     --text-lead holds the same value in the dark theme but turns to the dark ink in the light theme (--color-ink-lead), written for a light ground, and
-     would turn dark on a blue that does not; --text-on-plate-soft is white at .86 and would move the value; --text-on-plate is full white and would move
-     it too. A job one block has is its own token, never a new role (D-266): the Proof fields' --proof-fields-key reads the same white on the same plate,
-     so the two together are the role --text-lead-on-plate proposed at round 3a, put to the founder in this round's questions; no value moved */
-  /* Proof fields, round 3 of step 5 (design/system/components/proof-fields.css) */
-  --proof-fields-key: var(--color-text-lead); /* a field's key in capitals, white at .9, in the dark hash well on the fair blue plate. --text-lead holds the same value in the dark theme but turns to
-     the dark ink in the light theme (--color-ink-lead), written for a light ground, and would vanish in a well that stays dark; --text-on-plate-soft is
-     white at .86 and would move the value. The Proof block's scope line and Provably fair's head read the same white on the same plate: proposed as the
-     role --text-lead-on-plate in the round's questions */
   /* Rail, round 3 of step 5 (design/system/components/rail.css) */
   --rail-foot-line: var(--color-track); /* the 1px hairline over the rail's foot, drawn as an inset shadow: a line. --bg-track has the value but paints a fill; --line-soft is a bluer navy
      (#262950) and --line-edge a whole box's edge, so either would redraw it; kit.css drew it with --color-track, so the value does not move */
@@ -1270,10 +1268,6 @@
   --outcome-tab-up-ink: var(--color-up); /* the same: the plate keeps its colour in both themes, so its words keep theirs */
   /* Payment panel, round 3b of step 5 (design/system/components/payment-panel.css) */
   --pay-panel-prov-ring: var(--color-text-hi); /* the same: the chosen tile's plate keeps its pink in both themes, so its ring stays white */
-  /* Proof block, round 3b of step 5 (design/system/components/proof-block.css) */
-  --proof-scope-ink: var(--color-text-lead); /* the same: the plate keeps its colour in both themes (D-266, Q3), so the line keeps its white */
-  /* Proof fields, round 3 of step 5 (design/system/components/proof-fields.css) */
-  --proof-fields-key: var(--color-text-lead); /* the same: the well and the plate keep their colours in both themes, so the key keeps its white */
   /* Rail, round 3 of step 5 (design/system/components/rail.css) */
   --rail-foot-line: var(--color-navy-08); /* dark --color-track; light takes --color-navy-08, the pair --bg-track takes */
   --rail-drawer-depth-open: var(--shadow-lift); /* the same: a lift, read again at step 7 */

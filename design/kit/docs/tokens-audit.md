@@ -99,7 +99,7 @@ Proposed on the hub, `design/kit/overview.html` section "Round 3a", 26 November 
 
 | Variable or class | Was | Becomes | Why |
 |---|---|---|---|
-| Twelve component tokens made by the round | none | made at D-266 (Q1): six roles, `--bg-toggle-hover` (state; in the place of `--header-menu-bg-hover`, `--rail-toggle-bg-hover`), `--text-fail` and `--bg-fail-wash` (the primitives `--color-fail`, `--color-fail-wash`), `--text-risk-extreme` (`--commit-bolt-extreme` and the Case tile's primitive), `--bg-error-wash` (`--data-table-row-bg-mismatch` and the Account menu's primitive), `--line-edge-lit-on-plate` (`--money-strip-hash-edge`, `--proof-fields-well-edge`); six tokens kept, one block each: `--rail-foot-line`, `--rail-drawer-depth-open`, `--account-head-contact-bg`, `--footer-pay-bg-hover`, `--data-table-row-edge`, `--proof-fields-key` | a job in two blocks is a role (D-264). |
+| Twelve component tokens made by the round | none | made at D-266 (Q1): six roles, `--bg-toggle-hover` (state; in the place of `--header-menu-bg-hover`, `--rail-toggle-bg-hover`), `--text-fail` and `--bg-fail-wash` (the primitives `--color-fail`, `--color-fail-wash`), `--text-risk-extreme` (`--commit-bolt-extreme` and the Case tile's primitive), `--bg-error-wash` (`--data-table-row-bg-mismatch` and the Account menu's primitive), `--line-edge-lit-on-plate` (`--money-strip-hash-edge`, `--proof-fields-well-edge`); six tokens kept, one block each: `--rail-foot-line`, `--rail-drawer-depth-open`, `--account-head-contact-bg`, `--footer-pay-bg-hover`, `--data-table-row-edge`, `--proof-fields-key` (it left this list at D-267, Q2, for the role `--text-lead-on-plate`) | a job in two blocks is a role (D-264). |
 | `--data-table-line-mismatch` | `--color-down` | made at D-266 (Q1): `--line-error`, `--color-error` | the same job as a refusal's ring; row 29 moved the fields' ring the same way. |
 | `.drop-card`, `.case-stage__card` and mark A | the ring's light mixes `--rarity`, which they do not set: nothing drawn | fixed at D-266 (Q2): each host sets `--rarity: var(--tier)` | a defect of the screens found in the build. |
 | `.drop-card.is-mark-c` under the pointer | its ground lent to `::before`, the 3px chance line | fixed at D-266 (Q2): the card keeps its ground | a defect of the screens found in the build. |
@@ -111,18 +111,18 @@ Proposed on the hub, `design/kit/overview.html` section "Round 3a", 26 November 
 | `--footer-pay-bg-hover`, light | `--color-navy-05`, a navy wash for a paper card | `--color-footer-pay-hover`, the dark theme's white .08 | Q3: the payment card stays on the dark block in both themes. |
 | `.kv--on-plate`, `.copy-value--on-plate` | none | made at D-266 (Q3): the Key-value line's and the Copyable value's form on a plate that stays dark, reading on-plate inks | the Proof block's well in round 3b; parity 0 in the dark theme against `kit.css`'s well. |
 
-### The components built (step 5), round 3b, for review
+### The components built (step 5), round 3b, accepted at D-267
 
-Proposed on the hub, `design/kit/overview.html` section "Round 3b, for review", 27 November 2026. Nothing below is accepted yet; rename map row 6 (`.proof__fields` as the Proof fields' `--values` form) and row 28 (the dock's sum at `.fig--head`) are applied and not asked again.
+Proposed on the hub, `design/kit/overview.html` section "Round 3b", 27 November 2026, and accepted the same day by the founder, "Q1 to Q5 as you recommend" (translated), D-267: every row below stands as written, the role of Q2 is made and the glyph of Q1 is 1em. Rename map row 6 (`.proof__fields` as the Proof fields' `--values` form) and row 28 (the dock's sum at `.fig--head`) are applied and not asked again.
 
 | Variable or class | Was | Becomes | Why |
 |---|---|---|---|
-| `--proof-scope-ink` | `--color-text-lead` read on the fair plate by `.proof__scope` | a Proof block token, `--color-text-lead` in both themes; proposed (Q2): one role, `--text-lead-on-plate`, in its place and in the place of `--proof-fields-key` | the white at .9 on the blue now has two readers in two blocks; no value moves. |
-| `--pay-panel-prov-ring` | `--color-text-hi`, the ring of the Radio on the chosen provider tile | a Payment panel token, the same in both themes | one block draws it (D-266); whether the Radio gains an on-plate form is for step 9 (Q5). |
+| `--proof-scope-ink` | `--color-text-lead` read on the fair plate by `.proof__scope` | made at D-267 (Q2): the role `--text-lead-on-plate`, `--color-text-lead` in both themes, in its place and in the place of `--proof-fields-key` (round 3a); neither token is made | the white at .9 on the blue has two readers in two blocks (D-264); no value moved. |
+| `--pay-panel-prov-ring` | `--color-text-hi`, the ring of the Radio on the chosen provider tile | a Payment panel token, the same in both themes; kept at D-267 (Q5) | one block draws it (D-266); whether the Radio gains an on-plate form is decided at step 9. |
 | `.pay-panel__prov` name on the chosen tile, light | `--text-hi`, dark on the pink plate | `--text-on-plate` | the plate keeps its pink in both themes (D-266, Q3); the same white in dark. |
 | `.dialog__proof` lines and hairline, light | `--text-hi` from the card and `--line-edge`, dark on the art column's dark plate | `--text-on-plate`, `--line-edge-on-plate` | the same reason; the same values in dark. |
 | `--filter-drawer-w` (the catalogue's) | read by the Dialog's drawer form from the screen's block | the Dialog's own `--dialog-w-drawer`, 420px | three rules on the Dialog's own classes came from the catalogue block; the screen's rule on its close stays for step 6. |
-| `.button__icon` size | 1em on every coloured screen (kit.css's later `.icon` wins) | 1.25em in the system (`icon.css` loads before `button.css`) | found in the build; proposed (Q1): 1em, what the screens show. |
+| `.button__icon` size | 1em on every coloured screen (kit.css's later `.icon` wins) | made at D-267 (Q1): 1em, what the screens show (it drew 1.25em in the system, where `icon.css` loads before `button.css`) | found in the build; the Sign in acts' glyphs do not grow at step 8. |
 
 ### Moved onto the system's classes (step 6)
 

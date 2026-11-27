@@ -7983,3 +7983,23 @@ The state token named `--color-focus` in the pack is `--line-focus` here: a ring
 - Carrying the two defects as they are: mark A drew nothing on two of its three hosts.
 - A semantic role for a job one block has, even when the plate needs it in both themes: thirteen were first proposed in the build and eleven became the block's own token.
 - Keeping the dock's bonus coin at 6px beside a sum at 8px.
+
+## D-267. Round 3b accepted: the Button's glyph at 1em, one role for the white on the fair blue, the Case head's Contains
+
+**Date:** 2026-11-27. **Stage:** 08, step 5, round 3b. **Decided by:** the founder, after the round's hub and the five organisms' pages on the published stand: "Q1–Q5 как рекомендуешь" (Q1 to Q5 as you recommend).
+
+**Built.** The five organisms that hold another, each in one pass: the Proof block (holds the Proof fields), the Case head (the Case stage), the Sign-in block (the Status notice), the Payment panel (the Deposit dock and the Status notice) and the Dialog (the Sign-in block and the Payment panel, built last). Each has its file in `design/system/components/`, its page of five blocks, its states in both themes (16 snapshots), its record in `design/kit/_nav.js`, its row in `design/kit/inventory.md`, its `@import` at the end of the organisms' group. 71 of the 72 components on paper are built; the File picker waits in the backlog.
+
+**Decided.**
+1. **Q1:** `.button__icon` is 1em, what every coloured screen draws (in `kit.css` the later `.icon` rule won over the Button's 1.25em; in the system `icon.css` loads first and the Button's own rule would win). Variable `.button__icon` width and height, 1.25em to 1em, why: the system draws what the screens show, so the Sign in acts' glyphs do not grow at step 8. No snapshot of the Button carries a glyph, so none is shot again.
+2. **Q2:** one role joins the semantic level, `--text-lead-on-plate` (`--color-text-lead` in both themes), in the place of `--proof-fields-key` (round 3a) and `--proof-scope-ink` (round 3b): the white at .9 on the fair blue plate is one job two blocks repeat (D-264). No value moved.
+3. **Q3:** the Case head's Contains is read from the coloured markup: it holds a Breadcrumb (`.crumb--fit`) and a Text link (How it works, `.link--arrow`) besides the Favourite toggle, the Note line and the Case stage. No level moves.
+4. **Q4:** the light theme on the new plates goes to step 7, as listed on the pages: the Case head's Note line, How it works and Favourite toggle on its navy; the Proof block's Copy, ghost act, status and matched badges; the Sign-in block's refusal line and Note line.
+5. **Q5:** the provider tile keeps its 2px lift under the pointer, as motion, as D-265 kept the cards'. The Radio on the chosen tile keeps the panel's rule and its token `--pay-panel-prov-ring`; whether the Radio gains an on-plate form is decided at step 9 with every focus and ring.
+6. The points the hub listed as decided in the build stand: the Proof block waits for the public result (7.1) at the rollout; the Dialog's scrim is `--bg-scrim`; Deposit's ways to pay stay the screen's block until step 6; the Sign-in block's two columns are shown in a frame that names the Dialog as their container. The two light-theme fixes made in the build stand (the chosen provider's name and the Dialog's proof lines read on-plate inks), as does the Dialog's own `--dialog-w-drawer`.
+
+**Rejected.**
+- The Button's glyph at 1.25em: the Sign in acts' glyphs would grow 3.5 to 4px when the screens move onto the system, a change no one asked for.
+- Two one-block tokens for one white on one plate.
+- A Contains column that leaves out what the markup holds.
+- The light readings of what the plates hold fixed now, one block at a time, before step 7 reads the light theme whole.

@@ -578,7 +578,7 @@ Written on 26 November 2026 after the founder accepted the three levels one gate
 | Limits panel | `.limits` | 3 | One form. | 5: Responsible play | 4 | Field, Key-value line, Button, Note line, Popover menu | kept |
 | Verify form | `.verify` | 3 | One form. | 6: Provably fair | 6 | Field, Copyable value, Button | kept |
 | Proof block | `.proof` | 3 | One form, on the public result (7.1). | none | 11 | Proof fields, Copyable value, Key-value line, Badge, Button | kept; holds the Proof fields |
-| Case head | `.case-head` | 3 | One form. | 11: Case, Deposit, Sign in | 13 | Favourite toggle, Note line, Case stage | kept |
+| Case head | `.case-head` | 3 | One form. | 11: Case, Deposit, Sign in | 13 | Favourite toggle, Note line, Case stage, Breadcrumb, Text link | kept; D-267 (Q3): read from the coloured markup, the trail (`.crumb--fit`) and How it works (`.link--arrow`) added; no level moves |
 | Sign-in block | `.signin` | 3 | Content: page, dialog. | 7: Sign in | 7 | Field, Button, Status notice | kept |
 | Payment panel | `.pay-panel` | 3 | One form, two steps. | 9: Deposit | 9 | Chosen method, Amount field, Field, Copyable value, Deposit dock, Status notice | kept |
 | Dialog | `.dialog` | 3 | Content: sign in, a plain question, deposit, cash out, the filter drawer at the right edge. | 11: Catalogue, Deposit, My items, Responsible play, Sign in | 9 | Button, Sign-in block, Payment panel, Field, Copyable value | kept |

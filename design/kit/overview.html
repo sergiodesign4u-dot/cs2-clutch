@@ -12,7 +12,7 @@
 <!-- the stand: the project's panel palette, then the stand's own styles -->
 <link rel="stylesheet" href="../../_nav.css">
 <link rel="stylesheet" href="_page.css">
-<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'inventory', label: 'Inventory' }, { id: 'review3b', label: 'Round 3b, for review' }, { id: 'review3', label: 'Round 3a' }, { id: 'review2', label: 'Round 2, the molecules' }, { id: 'review', label: 'Round 1, the atoms' }, { id: 'stands', label: 'Where it stands' }];</script>
+<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'inventory', label: 'Inventory' }, { id: 'review3b', label: 'Round 3b' }, { id: 'review3', label: 'Round 3a' }, { id: 'review2', label: 'Round 2, the molecules' }, { id: 'review', label: 'Round 1, the atoms' }, { id: 'stands', label: 'Where it stands' }];</script>
 <script src="_nav.js"></script>
 </head>
 <body class="kt">
@@ -47,7 +47,7 @@
 </section>
 
 <section class="kt-sec" id="review3b">
-  <h2>For your review, round 3b: the five organisms that hold another</h2>
+  <h2>Round 3b, the five organisms that hold another: accepted</h2>
   <p>5 components are built, each in one pass: its file in <code>design/system/components/</code>, its page with the five blocks, its states in both themes, its record in this panel and in <code>design/kit/inventory.md</code>, its <code>@import</code> at the end of the organisms' group. The Proof block holds the Proof fields; the Case head holds the Case stage; the Sign-in block holds the Status notice; the Payment panel holds the Deposit dock and the Status notice; the Dialog holds the Sign-in block and the Payment panel, so it was built last. An organism inside an organism keeps its own look; the holder only places it. With this round every component on paper is built but the File picker, which waits in the backlog: 71 of 72.</p>
   <h3>What was checked</h3>
   <ul class="kt-list">
@@ -79,7 +79,15 @@
     <li><b>Its lift.</b> The tile rises 2px under the pointer, as <code>kit.css</code> draws it and as the cards' lift D-265 kept. Recommended: keep, as motion.</li>
     <li><b>The Radio on the chosen tile</b> turns white by a rule the panel writes on it, its ring the panel's own token <code>--pay-panel-prov-ring</code>. Recommended: keep it so now; whether the Radio gains an on-plate form, as the Key-value line and the Copyable value did, is decided at step 9 with every focus and ring.</li>
   </ul>
-  <h3>Decided in the build, say if not</h3>
+  <h3>The founder's answers, D-267</h3>
+  <ul class="kt-list">
+    <li><b>Q1, the Button's glyph at 1em.</b> <code>.button__icon</code> draws what every screen draws; the Sign in acts do not grow at step 8. No Button snapshot carries a glyph, so none was shot again; the Sign-in block and the Dialog now draw their glyphs as the screens do.</li>
+    <li><b>Q2, one role.</b> <code>--text-lead-on-plate</code>, the white at .9, the same in both themes, in the place of <code>--proof-fields-key</code> and <code>--proof-scope-ink</code>; no value moved.</li>
+    <li><b>Q3, the Case head's Contains.</b> It holds a Breadcrumb and a Text link too, read from the coloured markup; no level moves.</li>
+    <li><b>Q4, the light theme on the new plates</b> goes to step 7, as listed above.</li>
+    <li><b>Q5, the provider tile</b> keeps its 2px lift; the Radio's on-plate form is decided at step 9 with every focus and ring.</li>
+  </ul>
+  <h3>Decided in the build, standing</h3>
   <ul class="kt-list">
     <li>The Proof block stands on no coloured screen yet; it is built from <code>kit.css</code> and waits for the public result (7.1) at the rollout.</li>
     <li>The Dialog's scrim is <code>--bg-scrim</code>, as drawn; <code>--bg-scrim-sheet</code> is the lighter dim of the menus' phone sheets.</li>
@@ -180,7 +188,7 @@
   <ul class="kt-list">
     <li><b>Step 3, done</b> (<code>D-261</code>): <code>tokens.css</code> in two levels with a light pair for every role, <code>base.css</code>, <code>art.css</code>. Nothing in the product links them yet.</li>
     <li><b>Step 4, done</b> (<code>D-262</code>): these foundation pages and the founder's first review on screen, its answers in <code>design/kit/docs/tokens-audit.md</code>, "Review of the foundations".</li>
-    <li><b>Step 5, now</b>: the components in rounds, atoms, then molecules, then organisms; each with its file, its states in both themes and its page, added to this panel in the group of its level. Round 0, the Button, is the reference (D-263); round 1, the other 21 atoms, is accepted (D-264); round 2, the 23 molecules, is accepted (D-265), three of them atoms since; round 3a, the Rare mark, the Field, the Account head and the 18 organisms that hold no organism, is accepted (D-266); round 3b, the five organisms that hold one, is built for review.</li>
+    <li><b>Step 5, now</b>: the components in rounds, atoms, then molecules, then organisms; each with its file, its states in both themes and its page, added to this panel in the group of its level. Round 0, the Button, is the reference (D-263); round 1, the other 21 atoms, is accepted (D-264); round 2, the 23 molecules, is accepted (D-265), three of them atoms since; round 3a, the Rare mark, the Field, the Account head and the 18 organisms that hold no organism, is accepted (D-266); round 3b, the five organisms that hold one, is accepted (D-267). The step closes when <code>kit.html</code> and <code>shell.html</code> load the system's <code>index.css</code>.</li>
     <li><b>Kept as it was</b>: <a href="kit.html">kit.html</a>, the showcase of stage 07, frozen, on <code>kit.css</code> until step 8 moves the screens onto the system.</li>
   </ul>
 </section>

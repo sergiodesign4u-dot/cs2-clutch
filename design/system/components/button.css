@@ -49,7 +49,7 @@
 .button:disabled { background: var(--button-bg-disabled); box-shadow: var(--line-edge); color: var(--text-meta); cursor: not-allowed; pointer-events: none; } /* drawn disabled only where a founder decision keeps a way out that is not here yet and its reason stands beside it: Exchange on My items, node 5.1, D-239; everywhere else a control stays live and refuses, D-58 */
 
 /* content */
-.button__icon { flex: none; width: 1.25em; height: 1.25em; }
+.button__icon { flex: none; width: 1em; height: 1em; } /* 1em, what every coloured screen draws (kit.css's later .icon rule won over its 1.25em), D-267 Q1 */
 .button__pin { position: absolute; top: calc(-1 * var(--space-2)); right: calc(-1 * var(--space-2)); }
 /* a glyph over its label under 600px, four short acts in a quarter of 328px each (the selection bar's acts, D-239); since step 2, D-260 */
 @media (max-width: 599px) { .button--stack { flex-direction: column; gap: var(--space-1); padding: var(--space-2) var(--space-1); font-size: var(--size-unit); letter-spacing: normal; } }
