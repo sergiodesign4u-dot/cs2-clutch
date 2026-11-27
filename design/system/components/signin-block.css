@@ -1,0 +1,64 @@
+/* SIGN-IN BLOCK, level 3 (organism). The two declarations, each its own row and its own act (D-26), the refusal under them (D-58), Sign in with
+ * Steam, the three other providers, and the foot plate that answers the fear and says what Steam is needed for; on the page form, the way to keep
+ * looking around without an account. No press is disabled: a press with a declaration missing marks that row, names it in the refusal and
+ * takes the keyboard to it (kit.js, "the sign in declarations, D-58").
+ * Page: design/kit/signin-block.html. Stands on Sign in: the page form (signin.html, signin-consent-partial, signin-consent-given, signin-blocked,
+ *   the refused press, signin-steam-refused, signin-steam-unavailable) and the dialog form every guest screen opens (signin-dialog.html and the
+ *   hidden #signin-layer), 7 coloured pages (design/kit/inventory.md, Sign-in block).
+ * Holds: Field (.field--declare with its Checkbox, the two declarations, .field--roomy where the dialog has two columns; level 2), Note line
+ *   (.note and .note--refuse in the refusal's place, written by kit.js), Button (Sign in with Steam, primary L; the three providers, ghost M
+ *   with --name), Icon (the providers' marks, the tiles' glyphs), Status notice (a failure in the providers' place, level 3), Text link (the page
+ *   form's two links). Its own parts are the column, the consent group, the refusal's place, the act's cell, the "or" rule, the providers' row,
+ *   the foot plate with its lines and tiles, the failure's place and the page form's words; it places what it holds and never redraws it.
+ * Reads: --text-hi, --text-body, --text-meta, --text-on-plate (the glyph on the striped blue and on Steam's blue, plates that keep their colour
+ *   in both themes), --bg-note-plate, --bg-wash, --bg-stripes-s, --bg-mode-battles, --bg-steam, --line-soft, --line-edge; geometry and type
+ *   from the primitives. No colour primitive read directly, no component token.
+ * Carried from design/kit/kit.css part 4.3 (SIGN-IN BLOCK, lines 5110 to 5153) at stage 08 step 5, round 3b, unchanged in look. Its five
+ *   container rules read the Dialog's container (container: dialog, declared by dialog.css): outside a dialog of 760px the block is its one
+ *   column. No rename map row applies. The block has no state of its own: the refusal is the class and the attributes kit.js sets on what it
+ *   holds (.is-missing on the row, aria-invalid and aria-describedby on its box, the Note line in .signin__why). */
+.signin {
+  --signin-tile: 30px; /* v4 signin-home.css .sd-note-i: a tile on the foot plate */
+  --signin-go-above: var(--space-4); /* v4 signin-home.css .sd--e .sd-steam margin-top; 22px where the dialog has two columns */
+  --signin-or-above: var(--space-4-25); /* v4 signin-home.css .sd--e .sd-or margin-top; 24px where the dialog has two columns */
+  --signin-or-below: var(--space-3); /* the same, margin-bottom; 16px where the dialog has two columns */
+  --signin-note-above: var(--space-5); /* v4 signin-home.css .sd-note margin-top; auto where the dialog has two columns, so the plate sits at its foot */
+  --signin-go-above-wide: 22px; /* v4 signin-home.css @container dlg (min-width: 760px) .sd--e .sd-steam margin-top */
+  --signin-or-above-wide: var(--space-5); /* the same, .sd--e .sd-or margin-top */
+}
+
+/* One form, the column; the dialog's two columns give it more air (the container rules below). */
+.signin { display: flex; flex-direction: column; min-width: 0; }
+.signin__consent { display: grid; gap: var(--space-2); }
+.signin__why { margin-top: var(--space-3); } /* .sd--e.is-asked .sd-why margin-top */
+.signin__why:empty { display: none; } /* .sd--e .sd-why: the form breathes, no standing line until there is a refusal */
+.signin__go { margin-top: var(--signin-go-above); }
+.signin__go > .button { width: 100%; } /* the act across the column, as .dock__act > .button */
+.signin__or { display: flex; align-items: center; gap: var(--space-3); margin: var(--signin-or-above) 0 var(--signin-or-below); color: var(--text-meta); font-size: var(--size-xs); line-height: 1.2; }
+.signin__or::before, .signin__or::after { content: ''; flex: 1; height: var(--size-hairline); background: var(--line-soft); }
+.signin__provs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+
+/* the foot plate: the line that guards in white beside the striped blue tile, the line about Steam beside Steam's own blue */
+.signin__note { display: grid; gap: var(--space-2-5); margin-top: var(--signin-note-above); padding: var(--space-3-5); border-radius: var(--radius-card); background: var(--bg-note-plate); box-shadow: var(--line-edge); } /* .sd-note, its 14px corner on the ladder's 12 */
+.signin__line { display: flex; align-items: center; gap: var(--space-3); margin: 0; color: var(--text-meta); font-size: var(--size-xs); line-height: 1.4; }
+.signin__line b { color: var(--text-hi); }
+.signin__line--guard { color: var(--text-hi); font-weight: 700; }
+.signin__tile { flex: none; display: grid; place-items: center; width: var(--signin-tile); height: var(--signin-tile); border-radius: var(--radius-s); background: var(--bg-wash); color: var(--text-body); font-size: var(--size-text); } /* .sd-note-i: 9px corner on the ladder's 8; the glyph inset 7px is a 16px icon */
+.signin__tile--guard { background: var(--bg-stripes-s), var(--bg-mode-battles); color: var(--text-on-plate); }
+.signin__tile--steam { background: var(--bg-steam); color: var(--text-on-plate); font-size: var(--size-m); } /* inset 6px: an 18px glyph */
+
+/* a failure (the Status notice) stands where the providers were, above the declarations it keeps in view */
+.signin__fail { margin-bottom: var(--space-4); }
+
+/* the page form only: keep looking around without an account */
+.signin__away { display: grid; gap: var(--space-2); margin-top: var(--space-5); color: var(--text-body); font-size: var(--size-label); line-height: 1.5; }
+.signin__away-h { margin: 0; color: var(--text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; text-wrap: balance; } /* balance: two even lines, stage 07 step 7, D-254, audit N16 */
+.signin__away p { margin: 0; }
+
+/* where the dialog has two columns: signin-home.css @container dlg (min-width: 760px) .sd--e */
+@container dialog (min-width: 760px) {
+  .signin { --signin-go-above: var(--signin-go-above-wide); --signin-or-above: var(--signin-or-above-wide); --signin-or-below: var(--space-4); flex: 1 1 auto; }
+  .signin__consent { gap: var(--space-2-5); }
+  .signin__provs { margin-bottom: var(--space-5); }
+  .signin__note { margin-top: auto; }
+}

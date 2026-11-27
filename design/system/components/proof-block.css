@@ -1,0 +1,42 @@
+/* PROOF BLOCK, level 3 (organism). The round and how to check it, on its public page: its title and its state, the round's values in the dark
+ * hash well (the seeds with Copy, the client seed, the nonce, the result and its ticket range), the one line that says what the proof does and
+ * does not cover, and the act. States of the round: settled, matched, mismatched (our failure, said so, the two results both printed), no proof
+ * (predates the ledger), failed (the source cannot be read this minute). No state draws a verified mark: the state is a badge in words
+ * (wireframes/fair.html, 0.14).
+ * Page: design/kit/proof-block.html. Stands on no coloured screen yet: the public result (node 7.1, wireframes/result.html, result-checked.html,
+ *   result-mismatched.html, result-noproof.html, result.html?round=glockfn) waits for the rollout (design/kit/inventory.md, Proof block).
+ * Holds: Proof fields (.proof-fields.proof-fields--values, level 3, the well with the round's values, rename map row 6), which holds Copyable value
+ *   (.copy-value--on-plate, level 2, a seed with Copy) and Key-value line (.kv--on-plate, level 1, a short value; .kv--rule for Why), each in the
+ *   on-plate form made for this well at D-266; Badge (.badge--status, --good, --bad, level 1, the round's state in words); Button (.button--primary
+ *   and .button--ghost at M, level 1, the act). It places them in its column and its head and never restyles them. Its own: the plate, the head,
+ *   the title, the scope line and its link, the row of acts.
+ * States: the scope line's link has a focus-visible ring of its own (kit.css draws it white with a 4px corner); no hover (kit.css draws none). The
+ *   round's state is content, the badge's words and the well's lines the product writes, not a pointer state. Copy and the acts keep the Button's.
+ * Reads: the plate keeps its colour in both themes (D-266, Q3), so it reads roles the same in both themes: --bg-act-stripes, --bg-fair,
+ *   --line-lit-top, --depth-fair, --text-on-plate (the title, the link), --line-focus-on-plate (the link's ring); its own --proof-scope-ink
+ *   (tokens.css, COMPONENT TOKENS), the scope line's white at .9; geometry and type from the primitives. No colour primitive read directly.
+ * Carried from design/kit/kit.css part 4.3, PROOF BLOCK (lines 4704 to 4723) at stage 08 step 5, round 3b, unchanged in look: .proof__fields is
+ *   the held Proof fields' --values form by rename map row 6 (its 9px well, --proof-well-y, is that organism's --proof-fields-well-y); the colours
+ *   are read through the roles that hold them (--gradient-button-stripes, --gradient-fair, --shadow-tile-lit, --shadow-fair, --color-text-hi) and
+ *   the scope line's --color-text-lead through the block's own token, since --text-lead turns to a dark ink in the light theme. No other rule of
+ *   kit.css is written on .proof. The look is Home's Every round plate, design/v4/proof-home.css .x6-plate and .x6-hash, D-232.
+ * Every pixel literal of kit.css that no primitive equals is a custom property of the block below, with its origin: the rules hold no px. */
+
+.proof {
+  --proof-pad: 22px; /* v4 proof-home.css .x6: --pad at its widest, clamp(14px, 1.86cqw, 22px); 14px on a phone */
+}
+@media (max-width: 599px) { .proof { --proof-pad: var(--space-3-5); } }
+
+/* One form: the provably fair blue under the act's stripes, its lit top edge and its drop, its words white; a column of four parts 12px apart:
+   the head (the title and the state's badge, apart on one line, the badge wrapping under the title where the line is short), the well (the held
+   Proof fields), the scope line (a measure of 68ch, its link white and underlined, as .x6-go is), the acts (wrapping). Its sides 22px, 14px on a phone */
+.proof { display: grid; gap: var(--space-3); min-width: 0; box-sizing: border-box; padding: var(--proof-pad); border-radius: var(--radius-card); background: var(--bg-act-stripes), var(--bg-fair); box-shadow: var(--line-lit-top), var(--depth-fair); color: var(--text-on-plate); }
+.proof__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-3); }
+.proof__h { margin: 0; color: var(--text-on-plate); font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.25; text-transform: uppercase; } /* .x6-k, the plate's key in full white */
+.proof__scope { margin: 0; max-width: var(--size-measure); color: var(--proof-scope-ink); font-size: var(--size-label); line-height: 1.4; } /* .x6-say, white at .86 to .9 */
+.proof__scope a { color: var(--text-on-plate); font-weight: 700; text-decoration: underline; } /* on the blue plate the link is white, as .x6-go is */
+.proof__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+
+/* STATES. The link in the scope line: the ring on focus-visible, never on :focus, white on the plate in both themes, with its own 4px corner as
+   kit.css draws it. No hover: kit.css draws none, and the underline already says it is a link. */
+.proof__scope a:focus-visible { outline: var(--size-edge) solid var(--line-focus-on-plate); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }

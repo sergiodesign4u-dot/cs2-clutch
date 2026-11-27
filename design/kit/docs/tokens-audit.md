@@ -111,6 +111,19 @@ Proposed on the hub, `design/kit/overview.html` section "Round 3a", 26 November 
 | `--footer-pay-bg-hover`, light | `--color-navy-05`, a navy wash for a paper card | `--color-footer-pay-hover`, the dark theme's white .08 | Q3: the payment card stays on the dark block in both themes. |
 | `.kv--on-plate`, `.copy-value--on-plate` | none | made at D-266 (Q3): the Key-value line's and the Copyable value's form on a plate that stays dark, reading on-plate inks | the Proof block's well in round 3b; parity 0 in the dark theme against `kit.css`'s well. |
 
+### The components built (step 5), round 3b, for review
+
+Proposed on the hub, `design/kit/overview.html` section "Round 3b, for review", 27 November 2026. Nothing below is accepted yet; rename map row 6 (`.proof__fields` as the Proof fields' `--values` form) and row 28 (the dock's sum at `.fig--head`) are applied and not asked again.
+
+| Variable or class | Was | Becomes | Why |
+|---|---|---|---|
+| `--proof-scope-ink` | `--color-text-lead` read on the fair plate by `.proof__scope` | a Proof block token, `--color-text-lead` in both themes; proposed (Q2): one role, `--text-lead-on-plate`, in its place and in the place of `--proof-fields-key` | the white at .9 on the blue now has two readers in two blocks; no value moves. |
+| `--pay-panel-prov-ring` | `--color-text-hi`, the ring of the Radio on the chosen provider tile | a Payment panel token, the same in both themes | one block draws it (D-266); whether the Radio gains an on-plate form is for step 9 (Q5). |
+| `.pay-panel__prov` name on the chosen tile, light | `--text-hi`, dark on the pink plate | `--text-on-plate` | the plate keeps its pink in both themes (D-266, Q3); the same white in dark. |
+| `.dialog__proof` lines and hairline, light | `--text-hi` from the card and `--line-edge`, dark on the art column's dark plate | `--text-on-plate`, `--line-edge-on-plate` | the same reason; the same values in dark. |
+| `--filter-drawer-w` (the catalogue's) | read by the Dialog's drawer form from the screen's block | the Dialog's own `--dialog-w-drawer`, 420px | three rules on the Dialog's own classes came from the catalogue block; the screen's rule on its close stays for step 6. |
+| `.button__icon` size | 1em on every coloured screen (kit.css's later `.icon` wins) | 1.25em in the system (`icon.css` loads before `button.css`) | found in the build; proposed (Q1): 1em, what the screens show. |
+
 ### Moved onto the system's classes (step 6)
 
 None yet.

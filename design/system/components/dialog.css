@@ -1,0 +1,110 @@
+/* DIALOG, level 3 (organism). One layer over the page with a close, a heading and its content; the page behind is dimmed by the scrim and inert.
+ * Ways out: the close, a press on the scrim, Escape (the modal contract of 0.1 section 6). On open the keyboard goes to the close and runs
+ * through the content in the order of the markup, Tab walks the layer's own controls only, and on close it returns to the control that opened
+ * it (design/kit/kit.js, "layers", D-251). Content: sign in (--signin: the art column with its title, the three lines Home already shows and
+ * the Operators art, then the Sign-in block), a plain question (--plain: cash out 5.1, confirm a limit 6.2, the geo gate 2.1 and 2.2 in the
+ * grey, which has no close, its acts its ways out), deposit (--pay: Add funds 4.1, the Payment panel) and the filter drawer at the right edge
+ * (--drawer, the catalogue 3.1). At 360 it is a sheet from edge to edge; from 600px a card on the ground's rounded corner with its drop; the
+ * sign in dialog takes its two columns where it has 760px.
+ * Page: design/kit/dialog.html. Stands on Sign in (the page form drawn without a layer, and #signin-layer on every guest screen), Deposit
+ *   (#deposit-layer, deposit-dialog.html), My items (cashout-dialog.html), Responsible play (responsible-confirm.html) and the catalogue
+ *   (catalogue-filter.html), 11 kinds of page (design/kit/inventory.md, Dialog).
+ * Holds: Button (the close, .button--close as .dialog__close; the acts), Sign-in block (.signin, level 3), Payment panel (.pay-panel, level 3),
+ *   Field, Copyable value, Key-value line, Tabs, Note line, Icon. Its own parts are the layer and its scrim, the card or sheet, the close's
+ *   place, the art band with its title, the Operators and the three lines, the body, the heading, the sentences, what still works and the act
+ *   line; it places what it holds and never redraws it. It writes nothing on the Sign-in block or the Payment panel: it declares the
+ *   container (container: dialog) their own rules and the Field's roomy row read.
+ * Reads: --text-hi, --text-body, --text-on-plate and --text-body-on-plate (on the art band and its three lines, plates that keep their colour in
+ *   both themes), --bg-layer, --bg-act-stripes, --bg-mode-battles, --bg-lit, --bg-scrim, --line-edge, --line-edge-on-plate; geometry and type
+ *   from the primitives. Two colours read in this block only, --shadow-dialog (the card's drop) and --color-price-plate (the plate of a line
+ *   Home already shows), wait for step 9 (tokens-audit.md, "What the semantic level does not take yet"). No component token.
+ * Carried from design/kit/kit.css part 4.3 (DIALOG, lines 5155 to 5241) and the drawer's three rules on the Dialog's own classes from the
+ *   catalogue's FILTER DRAWER (lines 5968, 5969, 5981) at stage 08 step 5, round 3b, unchanged in look. The drawer's width was the screen's
+ *   --filter-drawer-w; the Dialog reads it as its own --dialog-w-drawer so the file stands alone. Two rules added for the light theme with no
+ *   change in the dark: the three lines on the art column read --text-on-plate, and their plate's hairline --line-edge-on-plate. Open and
+ *   closed are [hidden] on .dialog__layer, set by kit.js; a layer drawn open on arrival takes the keyboard as a press would. */
+.dialog {
+  --dialog-w: 900px; /* v4 signin-home.css .sd max-width: the sign in dialog in two columns */
+  --dialog-w-card: 520px; /* v4 signin-home.css .wf-auth-host .wf-dlg.sd from 600px while its host is under 760px: the one-column card; the plain dialog's width, wireframes/_wf.css .wf-dlg--plain */
+  --dialog-w-pay: 940px; /* wireframes/_wf.css .wf-dlg--pay from 600px: Add funds holds the form and the dock side by side; технічне рішення carried from the grey */
+  --dialog-w-drawer: 420px; /* kit.css .filter-drawer --filter-drawer-w: wireframes/_wf.css .wf-drawer drew 360px; two steppers with a 44px press each side want 420; технічне рішення */
+  --dialog-art-w: 400px; /* v4 signin-home.css .sd--e: the art column, grid-template-columns minmax(0, 400px) */
+  --dialog-min-h: 600px; /* v4 signin-home.css .sd--e min-height in two columns */
+  --dialog-art-h: 168px; /* v4 signin-home.css .sd--e .sd-art min-height: the art band over the sheet on a phone */
+  --dialog-art-title: 58%; /* v4 signin-home.css .sd--e .sd-art-h max-width on a phone; 340px in two columns */
+  --dialog-art-pad-top: 22px; /* v4 signin-home.css .sd--e .sd-art-h padding, top; 34px in two columns */
+  --dialog-art-pad-side: var(--space-4); /* the same, sides; 30px in two columns */
+  --dialog-agents-out: -36px; /* v4 signin-home.css .sd--e .sd-agents right on a phone: the operators run off the band's edge */
+  --dialog-agents-wide: -30px; /* v4 signin-home.css .sd--e .sd-agents in two columns: left, and 60px wider than the column */
+  --dialog-proofs-top: 190px; /* v4 signin-home.css .sd--e > .sd-proofs margin-top in two columns, under the art title */
+  --dialog-proof-tile: 34px; /* v4 signin-home.css .sd-pf-i: the tile of a line Home already shows */
+  --dialog-pad-top: 20px; /* v4 signin-home.css .sd--e .sd-body padding, top on a phone; 34px in two columns */
+  --dialog-pad-side: var(--space-4); /* the same, sides; 36px in two columns */
+  --dialog-pad-foot: var(--space-4); /* the same, foot; 28px in two columns */
+  --dialog-close-top: var(--space-2); /* v4 signin-home.css .sd--e .sd-close top on a phone; 32px (--space-6) in two columns */
+  --dialog-close-side: var(--space-2); /* the same, right; 26px in two columns */
+  --dialog-head-clear: 48px; /* v4 signin-home.css .sd--e .sd-h padding-right in two columns: the heading clears the close at the end of its line */
+  --dialog-art-title-wide: 340px; /* v4 signin-home.css .sd--e .sd-art-h max-width in two columns */
+  --dialog-art-pad-top-wide: 34px; /* the same, padding top in two columns; the body's top too, so the two headings share a top */
+  --dialog-art-side-wide: 30px; /* the same, padding sides in two columns; the side padding of the three lines under it, .sd--e > .sd-proofs */
+  --dialog-pad-side-wide: 36px; /* v4 signin-home.css .sd--e .sd-body padding, sides in two columns */
+  --dialog-close-side-wide: 26px; /* v4 signin-home.css .sd--e .sd-close right in two columns */
+}
+
+/* the card, or the sheet at 360; its width by its content */
+.dialog { container: dialog / inline-size; position: relative; isolation: isolate; box-sizing: border-box; width: 100%; max-width: var(--dialog-w); margin: auto; overflow: hidden; background: var(--bg-layer); box-shadow: var(--line-edge); color: var(--text-hi); text-align: left; } /* .sd: the panel gradient and its .06 hairline (--shadow-edge, D-228) */
+.dialog[hidden] { display: none; }
+.dialog--plain { max-width: var(--dialog-w-card); }
+.dialog--pay { max-width: var(--dialog-w-pay); }
+@media (min-width: 600px) { .dialog { border-radius: var(--radius-m); box-shadow: var(--line-edge), var(--shadow-dialog); } } /* a card from 600px, its 18px corner on the ladder's 16 */
+@media (min-width: 600px) and (max-width: 807px) { .dialog--signin { max-width: var(--dialog-w-card); } } /* signin-home.css: one column as a 520px card until its host holds 760px, a window of 808px */
+
+/* the close: the kit's close button, placed */
+.dialog__close { position: absolute; z-index: 5; top: var(--dialog-close-top); right: var(--dialog-close-side); }
+
+/* the art band, sign in only: the Battles blue panel (signin-home.js PANEL), a plate that keeps its colour in both themes */
+.dialog__art { position: relative; overflow: hidden; min-height: var(--dialog-art-h); background: var(--bg-act-stripes), var(--bg-mode-battles); }
+.dialog__art-h { position: relative; z-index: 1; max-width: var(--dialog-art-title); box-sizing: border-box; margin: 0; padding: var(--dialog-art-pad-top) var(--dialog-art-pad-side); color: var(--text-on-plate); font-size: var(--size-title); font-weight: 900; line-height: 1.12; text-transform: uppercase; }
+.dialog__agents { position: absolute; right: var(--dialog-agents-out); bottom: 0; width: auto; height: 100%; }
+.dialog__proofs { display: none; gap: var(--space-2); margin: 0; padding: 0; list-style: none; } /* the three lines Home already shows; only where the art is a column */
+.dialog__proof { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-card); background: var(--color-price-plate); box-shadow: var(--line-edge-on-plate); color: var(--text-on-plate); } /* .sd-pf: the price plate at .82, its .08 hairline as --shadow-edge; the words on the dark plate over the blue, in both themes */
+.dialog__proof-tile { flex: none; display: grid; place-items: center; width: var(--dialog-proof-tile); height: var(--dialog-proof-tile); border-radius: var(--radius-s); background: var(--bg-act-stripes), var(--bg-lit); color: var(--text-on-plate); font-size: var(--size-m); } /* .sd-pf-i: 10px corner on the ladder's 8; inset 8px, an 18px glyph */
+.dialog__proof-t { display: grid; min-width: 0; font-size: var(--size-label); line-height: 1.3; }
+.dialog__proof-t b { font-weight: 700; }
+.dialog__proof-s { color: var(--text-body-on-plate); font-size: var(--size-xs); }
+
+/* the body */
+.dialog__body { position: relative; z-index: 1; display: grid; align-content: start; gap: var(--space-4); min-width: 0; box-sizing: border-box; padding: var(--dialog-pad-top) var(--dialog-pad-side) var(--dialog-pad-foot); }
+.dialog--signin .dialog__body { display: block; }
+.dialog__h { margin: 0; color: var(--text-hi); font-size: var(--size-l); font-weight: 900; line-height: 1.1; text-transform: uppercase; } /* .sd-h */
+.dialog--signin .dialog__h { margin-bottom: var(--space-4); }
+.dialog:not(.dialog--signin):has(> .dialog__close) .dialog__h { padding-right: var(--dialog-head-clear); } /* the heading clears the close at the end of its line */
+.dialog__p { margin: 0; max-width: var(--size-measure); color: var(--text-body); font-size: var(--size-label); line-height: 1.5; } /* wireframes/_wf.css .wf-dlg-sub and .wf-gate-p, the dialog's own sentences */
+.dialog__p :is(b, strong) { color: var(--text-hi); font-weight: 700; }
+.dialog__open { margin: 0; color: var(--text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.5; } /* what still works, said last before the acts */
+.dialog__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-1); }
+
+/* the sign in dialog in two columns, where it has 760px: signin-home.css @container dlg (min-width: 760px) .sd--e */
+@container dialog (min-width: 760px) {
+  .dialog--signin .dialog__art { position: absolute; top: 0; bottom: 0; left: 0; width: var(--dialog-art-w); min-height: 0; }
+  .dialog--signin .dialog__art-h { --dialog-art-title: var(--dialog-art-title-wide); --dialog-art-pad-top: var(--dialog-art-pad-top-wide); --dialog-art-pad-side: var(--dialog-art-side-wide); padding-bottom: 0; font-size: var(--size-stat); }
+  .dialog--signin .dialog__agents { right: auto; left: var(--dialog-agents-wide); width: calc(100% - 2 * var(--dialog-agents-wide)); height: auto; }
+  .dialog--signin .dialog__proofs { position: absolute; z-index: 2; top: var(--dialog-proofs-top); left: 0; display: grid; width: var(--dialog-art-w); box-sizing: border-box; padding: 0 var(--dialog-art-side-wide); }
+  .dialog--signin .dialog__body { --dialog-pad-top: var(--dialog-art-pad-top-wide); --dialog-pad-side: var(--dialog-pad-side-wide); --dialog-pad-foot: var(--space-5-5); display: flex; flex-direction: column; gap: 0; min-height: var(--dialog-min-h); margin-left: var(--dialog-art-w); }
+  .dialog--signin .dialog__h { margin-bottom: var(--space-5-5); padding-right: var(--dialog-head-clear); font-size: var(--size-stat); line-height: 1.12; }
+  .dialog--signin .dialog__close { --dialog-close-top: var(--space-6); --dialog-close-side: var(--dialog-close-side-wide); }
+}
+
+/* the layer: the scrim and the frame that centres the dialog; at 360 the sheet takes the window */
+.dialog__layer {
+  --dialog-layer-z: 81; /* kit.css part 2 .wf-dlg-wrap z-index, the scrim at 80 under it in the grey; технічне рішення */
+}
+.dialog__layer { position: fixed; inset: 0; z-index: var(--dialog-layer-z); display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: var(--space-5); overflow-y: auto; background: var(--bg-scrim); } /* .wf-dlg-scrim and .wf-dlg-wrap in one: the ground at 72 % */
+.dialog__layer[hidden] { display: none; } /* a layer waits hidden until a data-layer opens it, kit.js, D-234 */
+@media (max-width: 599px) { .dialog__layer { align-items: stretch; padding: 0; } .dialog__layer > .dialog { min-height: 100%; } }
+
+/* the drawer: the Dialog at the right edge, the whole window on a phone (the catalogue's filters, D-246); what it holds, its head, its body
+   that scrolls and its foot, is the catalogue's own (.filter-drawer, kit.css part 4.4, design/system/screens/catalogue.css at step 6) */
+.dialog__layer:has(> .dialog--drawer) { justify-content: flex-end; align-items: stretch; padding: 0; overflow: hidden; }
+.dialog.dialog--drawer { display: flex; flex-direction: column; max-width: var(--dialog-w-drawer); height: 100%; min-height: 0; margin: 0; border-radius: 0; }
+@media (max-width: 599px) { .dialog__layer > .dialog--drawer { max-width: none; min-height: 0; } }

@@ -82,5 +82,10 @@
 @import "components/limits-panel.css";
 @import "components/verify-form.css";
 @import "components/status-notice.css";
+@import "components/proof-block.css";
+@import "components/case-head.css";
+@import "components/signin-block.css";
+@import "components/payment-panel.css";
+@import "components/dialog.css";
 
 /* ===== The screens' own blocks, design/system/screens/ (D-259) ===== */

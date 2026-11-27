@@ -1,0 +1,53 @@
+/* CASE HEAD, level 3 (organism). The case block's head and the ground the stage stands on: the breadcrumb and How it works at the left, the case's
+ * name (the page's H1) with its one line in the middle, the favourite at the right, and under them the Case stage on the head's navy. Under 900px
+ * the crumb cuts to its parent with How it works beside it, and the name and the favourite share a row; the block runs edge to edge with no corner.
+ * Page: design/kit/case-head.html. Stands on the case screen (design/case.html and its states case-degraded.html, case-interrupted.html,
+ *   case-nocounter.html), and under the layers Deposit and Sign in open over it (deposit-dialog.html, signin-dialog.html) (design/kit/inventory.md,
+ *   Case head).
+ * Holds: Case stage (.case-stage, level 3, the stage and its band, which take this block's navy as their ground), Favourite toggle (.fav.fav--square,
+ *   level 1, the heart alone in a square), Note line (.note.note--soft.note--label, level 1, the case's one line), Breadcrumb (.crumb.crumb--fit,
+ *   level 1, the trail that cuts to its parent under 900px), Text link (.link.link--arrow, level 1, How it works). It places them (the grid of the
+ *   head, the line's distance under the name, the column of the crumb and the link) and never restyles them. Its own: the block, its navy, its
+ *   fall, the head's grid, the name.
+ * States: none of its own, it is not interactive. The favourite, the crumb's links and How it works keep their own states; the stage's phases are
+ *   set by stage.js on the stage, not on this block.
+ * Reads: the block's navy stays dark in both themes, as the Case stage's band it carries (D-266, Q3), so it reads roles the same in both themes:
+ *   --text-base-on-plate (the base ink), --text-on-plate (the name), --line-edge-on-plate (its inner hairline, shared with the Footer, the run card
+ *   and the Copyable value's chip); geometry and type from the primitives and the block's --case-head-* custom properties, each with its origin.
+ *   Colour primitives read directly, all waiting for step 9: --color-stage (the navy), --shadow-stage (its fall onto the page), --shadow-case-name
+ *   (the name's lift), read in this block only (tokens-audit.md, "Colours read in one block only", Case head). No component token.
+ * Carried from design/kit/kit.css part 4.3, CASE HEAD (lines 5082 to 5108) at stage 08 step 5, round 3b, unchanged in look; the colours are read
+ *   through the roles that hold them (--color-text, --color-text-hi, --shadow-edge). kit.css writes no rule from this block on the stage it holds.
+ *   The screen's placing of it in the shell (.shell__main > :is(.banner, .case-head ...) and its :first-child, kit.css 5812, 5813, 5817, 5820) is
+ *   the screen's and stays in kit.css (and base.css) until step 6. From design/v4/case-page.css (.v4c-stage, .v4c-head, .v4c-nav, .v4c-title,
+ *   .v4c-flanks, .v4c-fav) and case-stage.css (row M), D-232; the 24px corner of the ladder, D-228. */
+
+.case-head {
+  --case-head-name: clamp(30px, 4vw, 46px); /* v4 case-page.css: .v4c-title h1 font-size, the case's name, the page's H1; рішення користувача, D-209 (v4) carried by D-232 */
+  --case-head-inset-l: 48px; /* v4 case-stage.css: @media (min-width: 1200px) .v4c-head padding-left max(48px, ...), the crumb on the content edge below; рішення користувача, D-209 (v4) carried by D-232 */
+  --case-head-page: 1560px; /* v4 theme.css: .wf-main > :not(.wf-event) margin-inline max(gutter, (100% - 1560px) / 2), the page's widest column, which the crumb lines up with; рішення користувача, D-209 (v4) carried by D-232 */
+}
+
+/* One form. The block: the stage's navy with its inner hairline and its fall, a 24px corner, 18px under the stage; edge to edge under 900px */
+.case-head { position: relative; isolation: isolate; overflow: hidden; padding-bottom: var(--space-4-25); border-radius: var(--radius-l); background: var(--color-stage); box-shadow: var(--line-edge-on-plate), var(--shadow-stage); color: var(--text-base-on-plate); font-size: var(--size-text); line-height: 1.2; } /* v4 drew 20px corners, the ladder's 24, D-228 */
+@media (max-width: 899px) { .case-head { border-radius: 0; box-shadow: none; } }
+
+/* The head: three columns over the stage, the crumb and How it works at the left, the name and its line in the middle, the favourite at the right;
+   from 1200px the crumb stands on the page's content edge below */
+.case-head__head { position: relative; z-index: 3; display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; gap: var(--space-3); padding: var(--space-4) var(--space-5) 0; }
+@media (min-width: 1200px) { .case-head__head { padding-left: max(var(--case-head-inset-l), (100% - var(--case-head-page)) / 2); } }
+.case-head__nav { display: flex; flex-direction: column; gap: var(--space-1-5); }
+.case-head__how { margin: 0; }
+.case-head__title { min-width: 0; text-align: center; }
+.case-head__name { margin: 0; color: var(--text-on-plate); font-size: var(--case-head-name); font-weight: 900; letter-spacing: var(--tracking-mode-name); line-height: 1; text-shadow: var(--shadow-case-name); text-transform: uppercase; }
+.case-head__line { margin: var(--space-2) 0 0; } /* the held Note line, 8px under the name; 4px on a phone */
+.case-head__flank { display: flex; justify-content: flex-end; align-items: center; gap: var(--space-3); }
+
+/* under 900px: the crumb (cut to its parent by .crumb--fit) and How it works share the first row, the name and the favourite the second */
+@media (max-width: 899px) {
+  .case-head__head { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'nav nav' 'title fav'; align-items: center; row-gap: var(--space-2-5); padding: var(--space-3-5) var(--space-3-5) var(--space-2-5); text-align: left; }
+  .case-head__nav { grid-area: nav; flex-direction: row; justify-content: space-between; align-items: center; }
+  .case-head__title { grid-area: title; text-align: left; }
+  .case-head__flank { grid-area: fav; }
+}
+@media (max-width: 599px) { .case-head__line { margin-top: var(--space-1); } }

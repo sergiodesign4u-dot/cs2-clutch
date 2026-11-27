@@ -1179,6 +1179,17 @@
   --outcome-tab-up-ink: var(--color-up); /* the words of the tab when the item is worth more than the open, the up green on the up-tab's dark teal plate. --text-up is the role of the same value
      but it flips to the deep green in the light theme (--color-green-deep, written for a light ground) and would read about 2:1 on a plate that stays
      dark; --text-match-on-plate is a different green (--color-green) and would redraw the dark theme. No -on-plate role exists for the gain */
+  /* Payment panel, round 3b of step 5 (design/system/components/payment-panel.css) */
+  --pay-panel-prov-ring: var(--color-text-hi); /* the 2px ring of the Radio on the chosen provider tile, white on the Cases mode's pink to violet; no line role fits: --line-act is the act pink the
+     Radio draws on its own ground, --line-focus turns to the ground's navy in the light theme and its job is focus, and --line-focus-on-plate and
+     --line-lit-on-plate are a focus ring and a pink line; one block draws a white ring on a plate, so by D-266 it is the block's own token, not a role.
+     kit.css drew it with --color-text-hi, so the value does not move */
+  /* Proof block, round 3b of step 5 (design/system/components/proof-block.css) */
+  --proof-scope-ink: var(--color-text-lead); /* the scope line's words, white at .9, on the fair blue plate that keeps its colour in both themes (D-266, Q3), in the place of --text-lead there.
+     --text-lead holds the same value in the dark theme but turns to the dark ink in the light theme (--color-ink-lead), written for a light ground, and
+     would turn dark on a blue that does not; --text-on-plate-soft is white at .86 and would move the value; --text-on-plate is full white and would move
+     it too. A job one block has is its own token, never a new role (D-266): the Proof fields' --proof-fields-key reads the same white on the same plate,
+     so the two together are the role --text-lead-on-plate proposed at round 3a, put to the founder in this round's questions; no value moved */
   /* Proof fields, round 3 of step 5 (design/system/components/proof-fields.css) */
   --proof-fields-key: var(--color-text-lead); /* a field's key in capitals, white at .9, in the dark hash well on the fair blue plate. --text-lead holds the same value in the dark theme but turns to
      the dark ink in the light theme (--color-ink-lead), written for a light ground, and would vanish in a well that stays dark; --text-on-plate-soft is
@@ -1257,6 +1268,10 @@
   /* Outcome card, round 2 of step 5 (design/system/components/outcome-card.css) */
   --outcome-tab-edge: var(--color-track); /* the same: the plate keeps its colour in both themes, so its edge keeps its white */
   --outcome-tab-up-ink: var(--color-up); /* the same: the plate keeps its colour in both themes, so its words keep theirs */
+  /* Payment panel, round 3b of step 5 (design/system/components/payment-panel.css) */
+  --pay-panel-prov-ring: var(--color-text-hi); /* the same: the chosen tile's plate keeps its pink in both themes, so its ring stays white */
+  /* Proof block, round 3b of step 5 (design/system/components/proof-block.css) */
+  --proof-scope-ink: var(--color-text-lead); /* the same: the plate keeps its colour in both themes (D-266, Q3), so the line keeps its white */
   /* Proof fields, round 3 of step 5 (design/system/components/proof-fields.css) */
   --proof-fields-key: var(--color-text-lead); /* the same: the well and the plate keep their colours in both themes, so the key keeps its white */
   /* Rail, round 3 of step 5 (design/system/components/rail.css) */

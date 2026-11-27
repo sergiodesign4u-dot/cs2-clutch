@@ -1,0 +1,104 @@
+/* PAYMENT PANEL, level 3 (organism). Add funds as one form in two steps. Step 1: the bonus strip, the code and the country, then the ways to pay.
+ * Step 2, a route: the chosen method with Back, a notice where one stands, then the route's form beside the dock that says what arrives, at the
+ * peg, what is charged and the one act that pays (D-238). Routes and states: card, crypto, crypto with no wallet yet, gift cards, skins,
+ * declined (the notice, the form kept, Try again), a limit raise pending (the notice with its moment, the form inside the limit in force).
+ * Two columns from 900px, the dock sticky beside the form; under 900px the dock follows the form.
+ * Page: design/kit/payment-panel.html. Stands on Deposit: the ways to pay, the card, crypto, crypto with no wallet, gift card and skin routes,
+ *   declined and a raise pending, and the Add funds dialog every signed-in screen can open (#deposit-layer), 9 pages (inventory.md, Payment panel).
+ * Holds: Chosen method (.chosen, the route's head, level 2), Amount field (.amount, level 2), Field (.field, the code, the country, the e-mail,
+ *   level 2), Copyable value (.copy-value--address, the crypto address, level 2), Deposit dock (.dock, level 3), Status notice (.notice, level 3),
+ *   Radio (in a provider tile), Disclosure (a gift card seller), Checkbox (a skin to deposit), Button, Text link, Note line, Icon. Its own parts
+ *   are the column, the bonus strip with its figure, words, sweep and coins, the head's pair, the code's row, the body's two columns, the form,
+ *   a group's heading, the provider tiles with their mark and name, the facts, the dock's side, the route's list, a seller's denominations
+ *   and the panes the steps show and hide; it places what it holds and never redraws it.
+ * Reads: --text-hi, --text-body, --text-on-plate, --text-on-plate-soft and --text-money-on-plate (on the bonus strip and the chosen tile, plates
+ *   that keep their colour in both themes), --bg-act-stripes, --bg-spend-strip, --bg-sweep, --bg-stripes, --bg-tile-veil, --bg-veil,
+ *   --bg-mark-on-plate, --line-lit-top, --line-edge, --line-act, --line-focus, --depth-plate-deep, --depth-figure-text, --depth-stub-text;
+ *   its own --pay-panel-prov-ring (tokens.css, COMPONENT TOKENS); the coin art --art-coin of art.css; geometry, type and motion from the
+ *   primitives. One colour read in this block only, --gradient-mode-cases-deep (the chosen tile's plate), waits for step 9 (tokens-audit.md,
+ *   "What the semantic level does not take yet").
+ * Carried from design/kit/kit.css part 4.3 (PAYMENT PANEL, lines 5006 to 5080) at stage 08 step 5, round 3b, unchanged in look. No rename map
+ *   row applies. The rules it writes on the Radio inside a provider tile (the pinned corner, the white ring and dot on the chosen tile) are the
+ *   tile's own (radio.css says so) and come here. One rule added for the light theme with no change in the dark: on the chosen tile the
+ *   provider's name reads --text-on-plate, the plate staying pink in both themes. The keyframes hero-trust-sweep are declared once, in hero.css;
+ *   offer-coin is this block's alone and is carried. The steps are set by design/kit/pay.js with [hidden] on the panes. */
+.pay-panel {
+  --pay-dock: 320px; /* wireframes/_wf.css .wf-fund-grid: the dock's column from 900px */
+  --pay-head: 260px; /* wireframes/_wf.css .wf-pay-head > *: the code and the country each take at least this, so the pair stacks on a phone */
+  --pay-offer: 96px; /* the bonus strip's height, a banner cut to a strip, the founder's correction of 20 Nov 2026 (D-238); технічне рішення */
+  --pay-offer-art: 168px; /* the coins' room at the strip's right, three of the brand's coin 6; технічне рішення, D-238 */
+  --pay-offer-art-phone: 96px; /* the same on a phone, so the words keep 232px at 360; технічне рішення, D-238 */
+  --pay-prov: 136px; /* a provider tile's least width, two to a row at 360 (2 by 136 and the 12px gap in 296); технічне рішення, D-238 */
+  --pay-prov-wide: 180px; /* the same from 600px, three to the form's row at 1440, near the reference's tile; технічне рішення, D-238 */
+  --pay-prov-h: 104px; /* a provider tile's height, the baseline's SELECT PROVIDER tile of the founder's reference of 20 Nov 2026 read at the panel's scale; D-238 */
+}
+.pay-panel { display: grid; gap: var(--space-5); min-width: 0; }
+
+/* step 1: the bonus strip, Before you spend's money strip (.spend__strip) at a strip of a banner's height, D-238 */
+.pay-panel__offer { position: relative; overflow: hidden; isolation: isolate; display: flex; align-items: center; gap: var(--space-4); min-width: 0; min-height: var(--pay-offer); box-sizing: border-box; padding: var(--space-3) var(--pay-offer-art) var(--space-3) var(--space-5);
+  border-radius: var(--radius-card); background: var(--bg-act-stripes), var(--bg-spend-strip); box-shadow: var(--line-lit-top), var(--depth-plate-deep); color: var(--text-on-plate-soft); font-size: var(--size-label); line-height: 1.4; }
+.pay-panel__offer::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: var(--bg-sweep); transform: translateX(-110%); animation: hero-trust-sweep var(--motion-banner-sweep) ease-in-out infinite; } /* the light that crosses the trust badge, .hero__trust, at the banner act's pace */
+.pay-panel__offer-v { flex: none; color: var(--text-money-on-plate); font-size: var(--size-xl); font-weight: 900; line-height: 1; text-shadow: 0 0 var(--space-5) color-mix(in srgb, var(--text-money-on-plate) 55%, transparent), var(--depth-figure-text); } /* the 5 % at the screen title's size in the coin's gold, lit as a counter is lit (--shadow-fig-stat) */
+.pay-panel__offer p { display: grid; gap: var(--space-1); margin: 0; min-width: 0; }
+.pay-panel__offer strong { color: var(--text-on-plate); font-size: var(--size-text); font-weight: 900; letter-spacing: var(--tracking-caps); line-height: 1.2; text-transform: uppercase; text-shadow: var(--depth-stub-text); }
+.pay-panel__offer-art { position: absolute; z-index: -1; top: 0; right: 0; bottom: 0; width: var(--pay-offer-art); pointer-events: none; }
+.pay-panel__offer-art > i { position: absolute; aspect-ratio: 1; background: var(--art-coin) center / contain no-repeat; filter: drop-shadow(0 var(--space-1) var(--space-3) color-mix(in srgb, var(--text-money-on-plate) 45%, transparent)); animation: offer-coin var(--motion-float) ease-in-out infinite alternate; }
+.pay-panel__offer-art > i:nth-child(1) { width: 52%; top: 18%; right: 34%; rotate: -14deg; }
+.pay-panel__offer-art > i:nth-child(2) { width: 34%; top: 8%; right: 10%; rotate: 18deg; animation-delay: -2s; opacity: .9; }
+.pay-panel__offer-art > i:nth-child(3) { width: 24%; bottom: 8%; right: 12%; rotate: 32deg; animation-delay: -4s; opacity: .75; }
+@keyframes offer-coin { from { translate: 0 var(--space-1); } to { translate: 0 calc(-1 * var(--space-1-5)); } }
+@media (max-width: 599px) {
+  .pay-panel__offer { align-items: flex-start; flex-direction: column; gap: var(--space-2); padding: var(--space-4) var(--pay-offer-art-phone) var(--space-4) var(--space-4); }
+  .pay-panel__offer-art { width: var(--pay-offer-art-phone); }
+}
+
+/* step 1: the code and the country, each a Field, side by side where both fit */
+.pay-panel__head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-4); }
+.pay-panel__head > * { flex: 1 1 var(--pay-head); }
+.pay-panel__code { display: flex; align-items: center; gap: var(--space-2); }
+.pay-panel__code-in { flex: 1 1 auto; min-width: 0; }
+
+/* step 2: the route's form beside the dock */
+.pay-panel__body { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5); align-items: start; }
+.pay-panel__form { display: grid; align-content: start; gap: var(--space-5); min-width: 0; }
+.pay-panel__h { margin: 0; color: var(--text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.4; }
+.pay-panel__h span { color: var(--text-body); font-weight: 400; }
+.pay-panel__group { display: grid; gap: var(--space-2); min-width: 0; }
+
+/* a provider's tile, the baseline's SELECT PROVIDER tiles of the founder's reference (D-238) drawn with the kit's stripes; the tile is the
+   Radio's label, so the press, the keyboard and a screen reader keep a real radio */
+.pay-panel__provs { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--pay-prov), 1fr)); gap: var(--space-3); }
+.pay-panel__prov { position: relative; display: grid; justify-items: center; align-content: center; gap: var(--space-2); min-height: var(--pay-prov-h); box-sizing: border-box; padding: var(--space-4) var(--space-3) var(--space-3);
+  border-radius: var(--radius-card); background: var(--bg-stripes), var(--bg-tile-veil); box-shadow: var(--line-edge); color: var(--text-body); cursor: pointer; transition: box-shadow .2s, translate .2s var(--motion-ease-settle); }
+.pay-panel__prov > .radio { position: absolute; top: var(--space-2-5); right: var(--space-2-5); } /* placing: the Radio pinned to the tile's corner */
+.pay-panel__prov-mark { display: grid; place-items: center; width: var(--size-tile); height: var(--size-tile); border-radius: 50%; background: var(--bg-veil); box-shadow: var(--line-lit-top), var(--line-edge); color: var(--text-hi); font-size: var(--size-title); font-weight: 900; line-height: 1; } /* a sample provider's mark: its letter in a ring, until real providers are named (D-124) */
+.pay-panel__prov-n { color: var(--text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.2; }
+
+/* STATES of the tile. Chosen is the Radio's own :checked, the person's press: lit in the Cases mode's pink to violet, as the reference's
+   chosen tile is lit in its brand, and the Radio on it turns white (the tile's own, radio.css). Focus-visible: the Radio's input takes the
+   keyboard and the whole tile takes the ring. Hover, on a tile not chosen: it rises a step and takes the act's pink edge, as kit.css draws it. */
+.pay-panel__prov:has(input:checked) { background: var(--bg-act-stripes), var(--gradient-mode-cases-deep); box-shadow: var(--line-lit-top), var(--depth-plate-deep); color: var(--text-on-plate); }
+.pay-panel__prov:has(input:checked) .pay-panel__prov-n { color: var(--text-on-plate); } /* the name on the pink plate in both themes: the light theme's fix, the same white in the dark */
+.pay-panel__prov .radio > input:checked { box-shadow: inset 0 0 0 var(--size-edge) var(--pay-panel-prov-ring); }
+.pay-panel__prov .radio > input:checked::after { background: var(--bg-mark-on-plate); }
+.pay-panel__prov:has(input:focus-visible) { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); }
+@media (hover: hover) { .pay-panel__prov:hover:not(:has(input:checked)) { translate: 0 calc(-1 * var(--size-lift)); box-shadow: inset 0 0 0 var(--size-hairline) var(--line-act); } }
+
+.pay-panel__facts { display: grid; gap: var(--space-1-5); margin: 0; padding: 0; list-style: none; color: var(--text-body); font-size: var(--size-label); line-height: 1.45; }
+.pay-panel__facts :is(b, strong) { color: var(--text-hi); font-weight: 700; font-variant-numeric: tabular-nums; }
+.pay-panel__side { min-width: 0; }
+@media (min-width: 600px) { .pay-panel__provs { grid-template-columns: repeat(auto-fill, minmax(var(--pay-prov-wide), 1fr)); } }
+@media (min-width: 900px) {
+  .pay-panel__body { grid-template-columns: minmax(0, 1fr) var(--pay-dock); gap: var(--space-6); }
+  .pay-panel__side { position: sticky; top: var(--space-4); }
+}
+@media (prefers-reduced-motion: reduce) { .pay-panel__prov { transition: none; } .pay-panel__offer::after, .pay-panel__offer-art > i { animation: none; } }
+
+/* modifiers needed by Deposit, D-237. A column of a route's rows, the gift card sellers or the skins to pick, 12px apart, as the grey's
+   wf-stack and wf-skindep stand them; a seller's denominations in a row that wraps, as the Amount field's presets; a route's pane, its chosen
+   method over its form, and the list of ways to pay, each standing as the panel's own rows do, 20px apart. The deposit layer holds the list
+   and every route and shows one at a time (design/kit/pay.js), so a pane it does not show waits hidden. */
+.pay-panel__list { display: grid; gap: var(--space-3); min-width: 0; }
+.pay-panel__denoms { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.pay-panel__route, .pay-panel__pick { display: grid; gap: var(--space-5); min-width: 0; }
+.pay-panel [hidden] { display: none; }
