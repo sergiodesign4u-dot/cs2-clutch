@@ -1,0 +1,75 @@
+/* design/system/screens/account.css, stage 08 step 6: My items' own blocks (node 5.1). the Selection bar (.selbar), the Cash out form (.cashout) and the Steam state (.steam-state).
+ * Not components: each block stands on one IA node, its markup stays on its screen, and the stand lists none of them (D-259). Loaded
+ * after the organisms and the screen's column (index.css, layout.css), so a block's rule is read after what it holds.
+ * Carried from design/kit/kit.css part 4.4, My items' one-off blocks (D-239, D-240) rule for rule with their comments; no value changed. Moved out with a
+ * component or a variant, not carried: the bar's four acts stand glyph over label under 600px by the Button's .button--stack (row 7) (design/kit/inventory.md, "The rename map"; tokens-audit.md, "Translations onto the
+ * system's classes (step 6)").
+ * Colours are read from the primitive level as kit.css read them, 11 variables, waiting for their roles (tokens-audit.md, "The screens'
+ * own blocks on the primitive level (step 6)"). */
+
+/* THE SELECTION BAR: what is ticked, counted and summed, and the four ways out of an inventory, kept on screen while the grid scrolls under
+   it, the baseline's sticky bar (research/docs/baseline-account.md section 2) and the grey's (D-85, D-128). With nothing ticked it counts and
+   sums everything held and its acts answer "Tick an item first."; with something ticked (no edge of its own: the founder at its gate, D-240) its
+   sum lights as the 5 % of the bonus strip is lit. On the account head's plate, the account menu's gradient and the shell's lift. Under
+   600px the four acts stand in one row, a mark over a short word, the full name kept for a screen reader (D-119); from 600px the names.
+   Contains Figure, Button. */
+.selbar {
+  --selbar-gap: var(--space-2); /* the bar's offset from the window's foot and from the bottom bar, the header strip's 8px; технічне рішення */
+}
+html:has(.selbar) { scroll-padding-bottom: calc(var(--selbar-room, 0px) + var(--size-bar) + var(--space-2) + var(--space-3)); } /* a card focused under the sticky Selection bar is scrolled clear of it: its height (items.js) plus its offset and a gap; stage 07 step 7, D-254, audit N2 */
+.selbar { position: sticky; z-index: 20; bottom: calc(var(--size-bar) + var(--selbar-gap)); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); box-sizing: border-box; padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5); border-radius: var(--radius-m); background: var(--gradient-menu); box-shadow: var(--shadow-shell); transition: box-shadow .2s; }
+.selbar__sum { display: grid; gap: var(--space-1); min-width: 0; }
+.selbar__n { color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
+.selbar__sum > .fig .fig__v { transition: text-shadow .2s; }
+.selbar.is-picking .selbar__sum > .fig .fig__v { text-shadow: 0 0 var(--space-5) color-mix(in srgb, var(--color-money) 55%, transparent), var(--shadow-figure-text); } /* lit as .pay-panel__offer-v */
+.selbar__top { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-1) var(--space-4); }
+.selbar__pk { position: relative; padding: 0; border: 0; background: none; font-family: inherit; font-size: var(--size-chip); cursor: pointer; } /* Select all and Deselect all as Text links beside the count, so the four acts keep one row */
+.selbar__pk::after { content: ''; position: absolute; inset: calc(-1 * var(--space-2)) calc(-1 * var(--space-1)); } /* a press area past its words, as .button--s draws one; nothing is drawn */
+.selbar__pk[hidden] { display: none; }
+.selbar__acts { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-left: auto; }
+.selbar__a > .icon { font-size: var(--size-m); }
+.selbar__a > .icon--coin { width: 1em; height: 1em; }
+.selbar__s { display: none; }
+.selbar__say { flex-basis: 100%; }
+.selbar__say[hidden] { display: none; }
+@media (max-width: 599px) {
+  .selbar { gap: var(--space-2) var(--space-3); padding: var(--space-3); }
+  .selbar__acts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); flex-basis: 100%; margin-left: 0; }
+  .selbar__s { display: block; }
+  .selbar__f { display: none; }
+}
+@media (min-width: 900px) { .selbar { bottom: var(--selbar-gap); } }
+@media (prefers-reduced-motion: reduce) { .selbar, .selbar__sum > .fig .fig__v { transition: none; } }
+
+/* THE CASH OUT FORM: inside the Dialog, what goes out read from what is ticked on the grid and never typed (the grey's coPicked), the fee
+   and the smallest cash out of the network chosen, what arrives in coins at the peg and in the coin, under its title; on the Deposit dock's
+   plate and its lines (.dock, .record). Contains Key-value line. */
+.cashout__calc { display: grid; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-card); background: var(--color-veil); box-shadow: var(--shadow-edge); }
+.cashout__h { margin: 0 0 var(--space-1); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 900; line-height: 1.2; text-transform: uppercase; }
+
+/* THE INVENTORY'S HEAD, D-240, after the founder's "слишком просто и скучно" at My items' gate: the Section head with the count of what is
+   held on a pink badge beside its title, the hint under it, and the Steam state as a card at the line's end, where the grey wrote a chip, a
+   link and the hint on one line with dots: Steam's own dark blue (--gradient-steam, the sign in block's Steam note), its mark on a dark
+   round, "Steam connected" in the gain's green with a live dot breathing as the drops ticker's does, and the way to Settings under it.
+   Contains Section head, Badge, Link. */
+/* D-243: the founder, "огромная кнопка settings" (a huge Settings button). The card goes to one line, the small button's height: the mark at
+   32px, the state and the way to Settings side by side, Settings a Text link at a chip's size. */
+.steam-state {
+  --steam-state-pulse: 1.6s; /* the live dot's halo loop, the drops ticker's --ticker-pulse; рішення користувача, D-209 (v4) carried by D-240 */
+}
+.steam-state { display: inline-flex; align-items: center; gap: var(--space-3); width: fit-content; box-sizing: border-box; margin-top: var(--space-3); padding: var(--space-1-5) var(--space-4) var(--space-1-5) var(--space-1-5); border-radius: var(--radius-card); background: var(--gradient-steam); box-shadow: var(--shadow-edge), var(--shadow-tile-lit); }
+.steam-state__mark { display: grid; flex: none; place-items: center; width: var(--size-button-s); height: var(--size-button-s); border-radius: 50%; background: var(--color-veil); color: var(--color-text-hi); }
+.steam-state__mark > .icon { font-size: var(--size-text); }
+.steam-state__t { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-4); }
+.steam-state__on { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-green); font-size: var(--size-chip); font-weight: 900; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.steam-state__on::before { content: ''; flex: none; width: var(--space-2); height: var(--space-2); border-radius: 50%; background: var(--color-green); }
+.steam-state__on::after { content: ''; position: absolute; z-index: -1; left: 0; top: 50%; width: var(--space-2); height: var(--space-2); margin-top: calc(var(--space-2) / -2); border-radius: 50%; background: color-mix(in srgb, var(--color-green) 60%, transparent); animation: ticker-live var(--steam-state-pulse) ease-out infinite; pointer-events: none; } /* the drops ticker's live dot, .ticker__lbl::after, in the gain's green */
+@media (min-width: 900px) {
+  .sec-head:has(> .steam-state) { grid-template-columns: auto minmax(var(--sec-head-line), 1fr) auto; }
+  .sec-head > .steam-state { grid-area: 1 / 3; margin-top: 0; }
+}
+@media (min-width: 1200px) {
+  .sec-head:has(> .steam-state):has(.sec-head__sub) { grid-template-columns: auto auto minmax(var(--sec-head-line), 1fr) auto; }
+  .sec-head:has(.sec-head__sub) > .steam-state { grid-area: 1 / 4; }
+}
+@media (prefers-reduced-motion: reduce) { .steam-state__on::after { animation: none; opacity: 0; } }

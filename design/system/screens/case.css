@@ -1,0 +1,80 @@
+/* design/system/screens/case.css, stage 08 step 6: the case screen's own blocks (node 3.3). Before you open (.before) and Published against observed (.observed); and the case's own placing of a Section head over the flame of a Drop card with mark C (Q1).
+ * Not components: each block stands on one IA node, its markup stays on its screen, and the stand lists none of them (D-259). Loaded
+ * after the organisms and the screen's column (index.css, layout.css), so a block's rule is read after what it holds.
+ * Carried from design/kit/kit.css part 4.4, the case screen's one-off blocks (D-236), and part 4.2, DROP CARD (the head over the flame) rule for rule with their comments; no value changed. Moved out with a
+ * component or a variant, not carried: the line under Published against observed takes its size, ink and line height from the Note line's .note--l (row 26), its measure and its gap staying here (design/kit/inventory.md, "The rename map"; tokens-audit.md, "Translations onto the
+ * system's classes (step 6)").
+ * Colours are read from the primitive level as kit.css read them, 22 variables, waiting for their roles (tokens-audit.md, "The screens'
+ * own blocks on the primitive level (step 6)"). */
+
+/* BEFORE YOU OPEN: two plates side by side, each with a striped tile in a mode colour and its mark, a heading, its line and its route; one
+   column under 760px. The plate takes a light from its corner in the tile's colour. Contains Icon and Text link. */
+.before { display: grid; grid-template-columns: repeat(2, minmax(0, 600px)); justify-content: center; gap: var(--space-3); }
+.before__p { --before-g: var(--gradient-mode-cases); --before-c: var(--color-pink); position: relative; display: flex; align-items: flex-start; gap: var(--space-4); margin: 0; padding: 20px 22px; border-radius: var(--radius-m); overflow: hidden;
+  background: radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--before-c) 14%, transparent), transparent 55%), var(--gradient-before-plate); box-shadow: var(--shadow-before-plate);
+  color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.55; } /* 20px 22px: v4 .wf-case-info[data-v="d"] > p padding */
+.before__p--steam { --before-g: var(--gradient-mode-battles); --before-c: var(--color-head-steam); }
+.before__tile { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; border-radius: var(--radius-tile); background: var(--gradient-stripes), var(--before-g);
+  box-shadow: var(--shadow-tile-lit), 0 6px 16px color-mix(in srgb, var(--before-c) 30%, transparent); color: var(--color-text-hi); font-size: var(--size-tile-icon); } /* 44px: v4 .v4i-ic */
+.before__body { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.before__h { color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.before__go { align-self: flex-start; margin-top: var(--space-2); }
+@media (max-width: 759px) { .before { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 599px) {
+  .before__p { gap: var(--space-3); padding: var(--space-4); }
+  .before__tile { flex-basis: 38px; width: 38px; height: 38px; font-size: var(--size-m); }
+}
+.observed > .note { max-width: var(--size-measure); margin-top: var(--space-4); } /* row 26: its size, ink and line height are .note--l; its measure and its gap stay with the block */
+
+/* PUBLISHED AGAINST OBSERVED: one row a tier on its tier's light, the published rate over a bar of its width, the observed rate as a tick on
+   that bar and as a figure with its change, green in your favour and red against you, an arrow for the direction; the rounds counted;
+   a key under it. Under 760px a row is a card of labelled cells. The tier's colour is --tier on the row (the -lit pair for 4 and 5) */
+.observed__t { display: block; width: 100%; margin: 0; border: 0; border-spacing: 0; color: var(--color-text); font-size: var(--size-text); line-height: 1.2; } /* the grey body's 16px at 1.2, which v4's table inherited */
+.observed__t thead, .observed__t tbody { display: grid; gap: var(--space-2); }
+.observed__t tr { display: grid; grid-template-columns: minmax(150px, 1.1fr) minmax(0, 3fr) minmax(110px, .8fr) minmax(90px, .6fr); align-items: center; gap: 0 var(--space-5-5); }
+.observed__t thead tr { padding: 0 22px; }
+.observed__t thead th { padding: 0 0 var(--space-1); color: var(--color-text-soft); font-size: var(--size-unit); font-weight: 700; letter-spacing: var(--tracking-label); text-align: left; text-transform: uppercase; }
+.observed__tier { --tier: var(--color-rarity-5-lit); padding: var(--space-4) 22px; border-radius: var(--radius-m); box-shadow: var(--shadow-observed-row);
+  background: radial-gradient(50% 140% at 0% 50%, color-mix(in srgb, var(--tier) 18%, transparent), transparent 70%), linear-gradient(100deg, color-mix(in srgb, var(--tier) 8%, var(--color-card-deep)), var(--color-card-deep) 60%); }
+.observed__tier--r2 { --tier: var(--color-rarity-2); }
+.observed__tier--r3 { --tier: var(--color-rarity-3); }
+.observed__tier--r4 { --tier: var(--color-rarity-4-lit); }
+.observed__tier > * { padding: 0; color: var(--color-text-hi); font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums; text-align: left; } /* 15px: v4 .wf-table[data-v="d"] .v4b-tier > * */
+.observed__tier > th { display: flex; align-items: center; gap: var(--space-3); font-size: var(--size-text); }
+.observed__tier > :last-child { color: var(--color-text-soft); font-weight: 700; }
+.observed__hex { flex: 0 0 auto; width: 22px; height: 19px; background: linear-gradient(135deg, color-mix(in srgb, var(--tier) 55%, var(--color-text-hi)), var(--tier));
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--tier) 70%, transparent)); -webkit-mask: var(--shape-hex-fill) center / 100% 100% no-repeat; mask: var(--shape-hex-fill) center / 100% 100% no-repeat; }
+.observed__pub { display: grid; gap: var(--space-2); }
+.observed__pv { line-height: 1; }
+.observed__bar { position: relative; display: block; height: var(--space-2); border-radius: var(--radius-xs); background: var(--color-bar-track); box-shadow: var(--shadow-bar-inset); }
+.observed__bar i { position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--p) * 1%); min-width: 6px; border-radius: var(--radius-xs);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--tier) 70%, var(--color-card-deep)), color-mix(in srgb, var(--tier) 80%, var(--color-text-hi))); box-shadow: 0 0 12px color-mix(in srgb, var(--tier) 55%, transparent); }
+.observed__bar b, .observed__tick { width: var(--space-thin); border-radius: var(--space-hair); background: var(--color-text-hi); box-shadow: var(--shadow-tick); }
+.observed__bar b { position: absolute; top: -5px; bottom: -5px; left: calc(var(--o) * 1%); margin-left: -1.5px; }
+.observed__tick { display: inline-block; height: var(--space-3-5); margin-right: var(--space-2-5); vertical-align: calc(-1 * var(--space-hair)); }
+.observed__obs { display: flex; flex-direction: column; gap: 5px; }
+.observed__dl { display: inline-flex; align-items: center; gap: 5px; margin-left: 13px; font-size: var(--size-chip); font-weight: 900; font-variant-numeric: tabular-nums; } /* 13px: the tick's width and its gap, so the change stands under the figure */
+.observed__dl > span[aria-hidden] { font-size: var(--size-micro); }
+.observed__dl.is-up { color: var(--color-up); }
+.observed__dl.is-dn { color: var(--color-down); }
+.observed__t td[data-l]::before { display: none; content: attr(data-l); color: var(--color-text-soft); font-size: var(--size-badge-text); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.observed__key { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-1-5) var(--space-4); max-width: var(--size-measure); margin: var(--space-4) 0 0; color: var(--color-text-soft); font-size: var(--size-xs); line-height: 1.55; }
+.observed__sw { display: inline-flex; align-items: center; gap: var(--space-1-75); color: var(--color-text-hi); font-weight: 900; white-space: nowrap; }
+.observed__sw::before { content: ''; width: var(--space-2); height: var(--space-2); border-radius: 50%; }
+.observed__sw.is-up::before { background: var(--color-up); box-shadow: 0 0 8px color-mix(in srgb, var(--color-up) 50%, transparent); }
+.observed__sw.is-dn::before { background: var(--color-down); box-shadow: 0 0 8px color-mix(in srgb, var(--color-down) 50%, transparent); }
+.observed__why { flex: 1 1 100%; max-width: 72ch; }
+.observed--off > .note { margin-top: 0; }
+.observed__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 759px) {
+  .observed__t thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .observed__t tr { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "n n" "p p" "o k"; gap: var(--space-3) var(--space-4); }
+  .observed__tier { padding: var(--space-3-5) var(--space-4); }
+  .observed__tier > th { grid-area: n; }
+  .observed__pub { grid-area: p; }
+  .observed__obs { grid-area: o; }
+  .observed__n { grid-area: k; text-align: right; }
+  .observed__t td[data-l]::before { display: block; margin-bottom: var(--space-1); }
+  .observed__t td.observed__pub::before { margin: 0; } /* its label sits on the gap the cell already keeps */
+}
+.contents:has(.drop-card.is-mark-c) .sec-head { position: relative; z-index: 1; } /* the section's head stays over the flame */

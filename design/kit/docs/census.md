@@ -282,3 +282,35 @@ A walk does not see what a state turns on, so the rows above were checked agains
 - **Select, kept as another form.** No native `select` stands on a coloured page; every choice from a short list is the Popover menu (D-238).
 - **Hidden controls.** 13105 of 21990 controls were not visible at load (closed menus and layers, the other width's carrier). They are not counted as missing: every family they belong to is measured visible on another state.
 
+
+## Measure after the system (step 6)
+
+**Taken on 28 Nov 2026** by the same `census.js`, run with `--sys` (stage 08 step 6, `D-269`): each of the 51 states drawn on `design/system/index.css` by a route swap of its link, with the rename map applied after load (`.playwright-mcp/s08/rename.js`, the 30 rows of `design/kit/inventory.md` and `D-264`'s bot disc). The screens' own markup is not changed until step 8, when it moves with its link; this is the measure of what they will show. Folded by the same `census_an.py`, which now also knows the five names the map gives.
+
+- **Corpus.** The same: 8 screens, 51 addresses, 1440 and 360, 102 loads, none failed, no script error. 360 measured on all 51 narrow loads, and no horizontal scroll on any.
+- **The same controls.** 21990 taken, 8885 of them visible, the numbers of step 1 to the control: the rename changes classes, never the tree.
+- **Families.** Of the 36 families the two measures name together, 27 read exactly as at step 1, every property and every count. The nine that differ, each by a named row:
+
+| Family | Visible, step 1 to step 6 | Forms | What moved | Row |
+|---|---|---|---|---|
+| Button | 1452 to 1452 | 26 to 24 | the live daily tier's act and the item card's acts drawn as the family draws them (sides 10 to 20px, 4 to 14px; at 360 the tier's words 12 to 13px); the tile edge at .07 | rename map rows 9, 10, 30 (`tokens-audit.md`, "Merged drift") |
+| Popover menu | 312 to 258 | 5 to 3 | the account menu's 54 controls leave it | row 2, the split |
+| Account menu | 0 to 54 | 0 to 2 | the same 54 controls under their own name, their look unchanged | row 2 |
+| one-off: spend | 46 to 0 | 12 to 0 | Before you spend and What this case pays leave the one-offs | row 3 |
+| Money strip | 0 to 46 | 0 to 12 | the same 46 controls, the same 12 forms | row 3 |
+| Text link | 300 to 300 | 11 to 10 | the local rules on links become named variants (`.link--tap`, `.link--l`, `.link--quiet`, `.link--hi`, `.link--s`); what the census reads moves only in the padding of the 40px press, now `.link--tap`'s 12px with the room given back; the colours are the same, and the market line's new underline is a property this census does not take | rows 18 to 22 (`tokens-audit.md`, "Moved onto the system's classes") |
+| Recent drop card | 132 to 132 | 6 to 6 | the tile edge at .07 | row 30 |
+| Text field, Text area | 60 and 24 | 4 and 2 | the refusal ring in the error red | row 29 |
+
+**Section 1 closed.** The line colours, the costliest drift: the tile edge was drawn at .05 on 1166 visible controls and at .07 on 592; after, at .07 on all 1758. A refusal was ringed in two reds, 4 controls in the fall's and 6 in the error's; after, all 10 in the error red. The check and the radio keep their meta grey box, a named difference since step 2 (`D-260`). Every other drift row of step 1 is either a variant step 2 named on an axis (rank, content, size) or one of the rows above.
+
+**Section 2 closed.** The jobs drawn in several forms are the jobs of step 1, each form now a named variant of its family (`D-260`); 70 such jobs before and after. One left: "Open Nova case" is "Open case" with the case in its accessible name (row 9, microcopy 1.0-17). One appears because a link's variant is now its own class: Check this round, `.link--tap` on Home's What opening a case here involves and the plain arrow link elsewhere, the same look.
+
+**Section 3 closed.** The eleven grey variants with no form in colour: one withdrawn at step 2, six closed by a form the kit has, four in `design/kit/docs/backlog.md` (rows 1 to 4), which step 6 wrote (`D-269`, Q5); the backlog's fifth row is the Account head's plain form at a phone (`D-266`).
+
+### Checked before believing it, step 6
+
+- **The same tree.** The walk pairs elements by their place; the rename changes no element, so a pair is always the same element. Checked by count on every load.
+- **Read after the transitions.** A class the rename adds after load starts a link's colour transition; the first run read some colours mid-way (a white at 253 253 254). The walk now turns transitions off before the rename, and the numbers above are from that run.
+- **The account menu, closed and open.** It is closed at load on all 27 states, so its panel was compared hidden; the open menu was compared on its own page at step 5 (`design/kit/account-menu.html`).
+- **What scripts set after a press** (a saved limit's answer, the case's outcome, a copied seed) is not in a load. `rp.js` now writes the saved answer with `.note--hi` (row 25) and `stage.js` the outcome's figure with `.fig--win` (row 28); on `kit.css`, where neither variant exists, nothing changes.

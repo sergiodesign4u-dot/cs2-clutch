@@ -18,14 +18,16 @@
 
 /* One form: a glyph by name at its text's size and colour, one style, filled (D-227). */
 .icon { display: inline-block; flex: none; width: 1em; height: 1em; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; vertical-align: -.125em; }
+/* the glyphs by name; close and skull were drawn nowhere and are deleted with their primitives, crown's class with them (its primitive stays,
+   the Feed tile's crown masks it): stage 08 step 6, the reconcile's third list, D-269 (Q4) */
 .icon--box { --i: var(--icon-box); } .icon--battle { --i: var(--icon-battle); } .icon--target { --i: var(--icon-target); } .icon--arrow-up { --i: var(--icon-arrow-up); }
 .icon--users { --i: var(--icon-users); } .icon--pulse { --i: var(--icon-pulse); } .icon--star { --i: var(--icon-star); } .icon--home { --i: var(--icon-home); }
 .icon--user { --i: var(--icon-user); } .icon--history { --i: var(--icon-history); } .icon--send { --i: var(--icon-send); } .icon--settings { --i: var(--icon-settings); }
-.icon--shield { --i: var(--icon-shield); } .icon--out { --i: var(--icon-out); } .icon--close { --i: var(--icon-close); } .icon--like { --i: var(--icon-like); }
-.icon--cup { --i: var(--icon-cup); } .icon--calendar { --i: var(--icon-calendar); } .icon--skull { --i: var(--icon-skull); } .icon--rail { --i: var(--icon-rail); }
+.icon--shield { --i: var(--icon-shield); } .icon--out { --i: var(--icon-out); } .icon--like { --i: var(--icon-like); }
+.icon--cup { --i: var(--icon-cup); } .icon--calendar { --i: var(--icon-calendar); } .icon--rail { --i: var(--icon-rail); }
 .icon--sound { --i: var(--icon-sound); } .icon--mute { --i: var(--icon-mute); } .icon--gift { --i: var(--icon-gift); } .icon--dollar { --i: var(--icon-dollar); }
 .icon--swap { --i: var(--icon-swap); } .icon--diamond { --i: var(--icon-diamond); } .icon--pistol { --i: var(--icon-pistol); } .icon--heart { --i: var(--icon-heart); }
-.icon--crown { --i: var(--icon-crown); } .icon--bolt { --i: var(--icon-bolt); } .icon--question { --i: var(--icon-question); } .icon--steam { --i: var(--icon-steam); }
+.icon--bolt { --i: var(--icon-bolt); } .icon--question { --i: var(--icon-question); } .icon--steam { --i: var(--icon-steam); }
 .icon--percent { --i: var(--icon-percent); } /* a published chance, D-234 */
 .icon--share { --i: var(--icon-share); } /* Share this round on an item card, D-244 */
 .icon--search { --i: var(--icon-search); } .icon--filter { --i: var(--icon-filter); } /* the category bar, D-246 */

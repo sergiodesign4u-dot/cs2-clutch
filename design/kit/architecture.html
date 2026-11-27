@@ -95,8 +95,8 @@
   <h2>Two folders</h2>
   <div class="ar-folders">
     <div class="kt-panel"><h3><code>design/system/</code>: what the product loads</h3><p class="kt-note">A package that can be lifted out whole.</p><ul>
-      <li><code>tokens.css</code>: primitive, semantic, the light pair</li><li><code>base.css</code>: the reset, the page's type and ground, the shell's layout</li><li><code>art.css</code>: the pictures</li>
-      <li><code>index.css</code>, from step 5: tokens, base, art, then <code>@import</code> by level</li><li><code>components/</code>: one file per component</li><li><code>screens/</code>: a screen's own blocks, one file per screen (D-259)</li></ul></div>
+      <li><code>tokens.css</code>: primitive, semantic, the light pair</li><li><code>base.css</code>: the reset, the page's type and ground</li><li><code>art.css</code>: the pictures</li>
+      <li><code>index.css</code>, from step 5: tokens, base, art, then <code>@import</code> by level, then layout, then the screens</li><li><code>layout.css</code>: the shell's layout and the screen's column, after the components (step 6, D-269)</li><li><code>components/</code>: one file per component</li><li><code>screens/</code>: a screen's own blocks and their placing, one file per screen (D-259; written at step 6)</li></ul></div>
     <div class="kt-panel"><h3><code>design/kit/</code>: what shows the system to a person</h3><p class="kt-note">Never loaded by a screen.</p><ul>
       <li><code>_nav.js</code>: the one registry of the stand, panel and cards; <code>_page.css</code>: the stand's styles; <code>_tokens.js</code>: reads tokens.css for these pages</li>
       <li><code>overview.html</code>: the hub</li><li>a page per foundation and, from step 5, per component</li>
@@ -111,8 +111,9 @@
 /* atoms */      @import "components/button.css";  ...
 /* molecules */  @import "components/case-tile.css";  ...
 /* organisms */  @import "components/field.css";  ...  @import "components/dialog.css";
-/* screens */    @import "screens/home.css";  ...</pre>
-  <p>Bottom up: a container loads after what it holds, so the cascade lets a container adjust its parts and never the other way round. Alphabetical order would load the Button after the Dialog that styles it.</p>
+/* the column */ @import "layout.css";
+/* screens */    @import "screens/home.css";  ...  @import "screens/responsible.css";</pre>
+  <p>Bottom up: a container loads after what it holds, so the cascade lets a container adjust its parts and never the other way round. Alphabetical order would load the Button after the Dialog that styles it. The column comes after every component: it sets a block's margins at the weight a component may set its own, and loaded first, from <code>base.css</code>, it lost to the Note line's <code>margin: 0</code>, the Dialog's <code>margin: auto</code> and the Limits panel (found at step 6, D-269).</p>
 </section>
 
 <section class="kt-sec" id="five">

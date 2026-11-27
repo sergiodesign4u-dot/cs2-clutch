@@ -215,8 +215,8 @@
      ticket, the other items step back, and after 1.3s the ticket's number counts up from 1 over 0.9s; kit.css times the rest. For less motion
      it stands at its end at once */
   function rulers(r) {
-    r.querySelectorAll('.ruler').forEach(function (v) {
-      var n = v.querySelector('.ruler__n'); if (!n || v._ruler) return; v._ruler = true;
+    r.querySelectorAll('.ruler, .case-how__ruler').forEach(function (v) { /* its old name and its own, .case-how__ruler (rename map row 5, D-269) */
+      var n = v.querySelector('.ruler__n, .case-how__n'); if (!n || v._ruler) return; v._ruler = true;
       if (still) { v.classList.add('is-on', 'is-still'); return; }
       var to = +n.getAttribute('data-to'), fin = n.innerHTML;
       function go() {

@@ -27,7 +27,7 @@
   function answer(row, text, refuse) {
     var p = row.querySelector('.limits__answer');
     if (!p) { p = d.createElement('p'); p.setAttribute('aria-live', 'polite'); row.appendChild(p); }
-    p.className = 'limits__answer note' + (refuse ? ' note--refuse' : ''); p.textContent = text;
+    p.className = 'limits__answer note' + (refuse ? ' note--refuse' : ' note--hi'); /* a saved limit is the Note line's .note--hi (rename map row 25, D-269) */ p.textContent = text;
   }
   var state = page.getAttribute('data-rp'), say = d.querySelector('[data-rp-say]' + (account ? '[data-when="account"], [data-rp-say]:not([data-when])' : ''));
   var coolEnds = d.querySelector('[data-rp-cool-ends]'), exEnds = d.querySelector('[data-rp-ex-ends]');

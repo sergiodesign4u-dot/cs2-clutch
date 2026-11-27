@@ -102,6 +102,11 @@
 .account-head__skin { position: absolute; z-index: 1; left: 6%; top: calc(-1 * var(--account-head-lift)); width: var(--account-head-skin); aspect-ratio: 4 / 3; transform-origin: 60% 55%; animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; pointer-events: none; } /* breathing as the mode objects breathe; placed by left, since the float animates translate */
 .account-head__skin.is-short { scale: var(--account-head-short); } /* set by items.js on a pistol */
 .account-head__skin > img { display: block; width: 100%; height: 100%; object-fit: contain; rotate: var(--account-head-tilt); filter: var(--depth-skin-prize); }
+/* the skin's own picture, handed in by the markup (style="--skin: url(...)"), registered as a <url> so it resolves once, against the page that
+   declares it, as art.css registers its pictures: unregistered, a url() is resolved where var() reads it, here in design/system/components/, and
+   the foil's mask looked for design/system/concept/ (a 404 found by the reconcile's walk of kit.html, stage 08 step 6, D-269). The path in the
+   markup is the page's own: ../concept/ from design/kit/, concept/ from design/ (the screens' markup moves with their link at step 8) */
+@property --skin { syntax: '<url> | none'; inherits: true; initial-value: none; }
 .account-head__foil { position: absolute; inset: 0; overflow: hidden; rotate: var(--account-head-tilt); -webkit-mask: var(--skin) center / contain no-repeat; mask: var(--skin) center / contain no-repeat; }
 .account-head__foil::after { content: ''; position: absolute; inset: -30%; opacity: 0; background: linear-gradient(115deg, transparent 42%, var(--bg-foil) 49%, color-mix(in srgb, var(--item-tier) 55%, var(--text-hi)) 51%, transparent 58%); animation: outcome-foil 4.2s ease-in-out 1s infinite; } /* the outcome card's foil (.outcome__card::after), on the skin's own shape and again every 4.2s */
 .account-head__cap { position: absolute; z-index: 3; right: 0; bottom: 0; display: flex; align-items: center; gap: var(--space-2); padding: var(--space-1-5) var(--space-2-5); border-radius: var(--radius-s); background: var(--bg-veil); box-shadow: var(--line-edge); color: var(--text-hi); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; } /* over the skin, never under it: the founder, "что бы цена была сверху" (the price on top) */

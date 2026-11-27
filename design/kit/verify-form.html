@@ -79,7 +79,7 @@
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. No component token and no colour primitive: the plate is a raised layer (<code>--bg-layer</code>), the result Home's hash well (<code>--bg-hash-well</code>, <code>--line-edge-lit</code>), each value the translucent chip (<code>--bg-tile-veil</code>). Its own geometry, <code>--verify-ok</code> 14px, belongs to a green line kit.css declares and no coloured state wears (<code>.verify__ok</code>, put to the founder). Geometry and type otherwise come straight from the primitives.</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. No component token and no colour primitive: the plate is a raised layer (<code>--bg-layer</code>), the result Home's hash well (<code>--bg-hash-well</code>, <code>--line-edge-lit</code>), each value the translucent chip (<code>--bg-tile-veil</code>). It has no geometry of its own: <code>--verify-ok</code> 14px left with the green line it sized (<code>.verify__ok</code>, worn by no coloured state), deleted at step 6 (D-266, Q5; D-269). Geometry and type come straight from the primitives.</p>
   <p>File: <code>design/system/components/verify-form.css</code>, loaded by <code>design/system/index.css</code> in the organisms' group.</p>
   <pre>&lt;form class="verify" action="#check" novalidate&gt;
   &lt;div class="field"&gt;&lt;label class="field__l" for="v-hash"&gt;Server seed hash, published before the round&lt;/label&gt;&lt;textarea class="textarea" id="v-hash" rows="2"&gt;&lt;/textarea&gt;&lt;/div&gt;
@@ -95,7 +95,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-body', '--text-hi', '--text-match', '--text-on-accent', '--bg-layer', '--bg-hash-well', '--bg-tile-veil', '--bg-match', '--line-edge', '--line-edge-lit'];
+  var T = ['--text-body', '--text-hi', '--bg-layer', '--bg-hash-well', '--bg-tile-veil', '--line-edge', '--line-edge-lit'];
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {
     var v = function (el) { return KitTokens.esc(getComputedStyle(el).getPropertyValue(n).trim().slice(0, 60)); };

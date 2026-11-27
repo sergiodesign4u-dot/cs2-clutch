@@ -21,7 +21,7 @@
 <style>
   .cp-stage { display: flex; flex-wrap: wrap; gap: 90px 28px; align-items: flex-start; justify-content: center; padding: 100px 18px 40px; }
   .cp-side { width: 300px; max-width: 100%; }
-  .cp-stack { width: 160px; }
+  .cp-stack { container: mode-row / inline-size; width: 160px; } /* a narrow Mode row's container: the fitted card takes the stacked form in it (D-269, Q4) */
   .cp-row { container: mode-row / inline-size; width: 340px; max-width: 100%; } /* the Mode row's container, declared here for the fitted form */
   .cp-cap { display: block; margin-top: 8px; font-size: 12px; color: var(--text-meta); text-align: center; }
   .cp-dim { font-size: 11px; color: var(--text-meta); font-variant-numeric: tabular-nums; }
@@ -58,7 +58,7 @@
   <ul class="kt-list">
     <li><b>Mode = data.</b> A modifier names the mode and sets its colour and the art's placement: Cases, Case battles, Showdowns, Upgrade. The card never invents a mode;</li>
     <li><b>Content = live or not launched.</b> A live card carries the act; a card that is not launched carries the plate that says so, and no Button.</li>
-    <li><b>Form = side or stacked.</b> Side (7 to 4): words left, art right. Stacked (<code>--stack</code>): the art over the words. The Mode row chooses by its own width, through <code>--fit</code>: stacked where the row is narrow, side elsewhere.</li>
+    <li><b>Form = side or stacked.</b> Side (7 to 4): words left, art right. Stacked: the art over the words. The Mode row chooses by its own width, through <code>--fit</code> (the explicit <code>--stack</code>, which no page or script set, was deleted at step 6, D-269): stacked where the row is narrow, side elsewhere.</li>
     <li><b>Width = the row's.</b> The card has no width of its own; its container is its own, so the art and the words scale with it (units of the card's width).</li>
   </ul>
   <h3>Side, the four modes</h3>
@@ -68,12 +68,12 @@
     <div class="cp-side"><article class="mode-card mode-card--showdowns is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Showdowns</h3><p class="mode-card__line">One round, one opponent.</p><p class="mode-card__later">Not launched yet</p></article></div>
     <div class="cp-side"><article class="mode-card mode-card--upgrade is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Upgrade</h3><p class="mode-card__line">Trade a skin for one worth more.</p><p class="mode-card__later">Not launched yet</p></article></div>
   </div></div>
-  <h3>Stacked, the four modes</h3>
+  <h3>Stacked, the four modes, each <code>--fit</code> in a 160px Mode row</h3>
   <div class="kt-scene"><div class="cp-stage">
-    <div class="cp-stack"><article class="mode-card mode-card--cases mode-card--stack"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Cases</h3><p class="mode-card__line">Open a case, see every chance.</p><a class="button button--primary button--m mode-card__act" href="#variants">Open a case</a></article></div>
-    <div class="cp-stack"><article class="mode-card mode-card--battles mode-card--stack is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Case battles</h3><p class="mode-card__line">Open against someone, highest total wins.</p><p class="mode-card__later">Not launched yet</p></article></div>
-    <div class="cp-stack"><article class="mode-card mode-card--showdowns mode-card--stack is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Showdowns</h3><p class="mode-card__line">One round, one opponent.</p><p class="mode-card__later">Not launched yet</p></article></div>
-    <div class="cp-stack"><article class="mode-card mode-card--upgrade mode-card--stack is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Upgrade</h3><p class="mode-card__line">Trade a skin for one worth more.</p><p class="mode-card__later">Not launched yet</p></article></div>
+    <div class="cp-stack"><article class="mode-card mode-card--cases mode-card--fit"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Cases</h3><p class="mode-card__line">Open a case, see every chance.</p><a class="button button--primary button--m mode-card__act" href="#variants">Open a case</a></article></div>
+    <div class="cp-stack"><article class="mode-card mode-card--battles mode-card--fit is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Case battles</h3><p class="mode-card__line">Open against someone, highest total wins.</p><p class="mode-card__later">Not launched yet</p></article></div>
+    <div class="cp-stack"><article class="mode-card mode-card--showdowns mode-card--fit is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Showdowns</h3><p class="mode-card__line">One round, one opponent.</p><p class="mode-card__later">Not launched yet</p></article></div>
+    <div class="cp-stack"><article class="mode-card mode-card--upgrade mode-card--fit is-later"><span class="mode-card__art" aria-hidden="true"></span><h3 class="mode-card__name">Upgrade</h3><p class="mode-card__line">Trade a skin for one worth more.</p><p class="mode-card__later">Not launched yet</p></article></div>
   </div></div>
   <h3>Fitted, as the Mode row asks for it</h3>
   <p><code>--fit</code> is the stacked form on a condition: it applies inside a container named <code>mode-row</code> when that container is up to 515px wide or between 624px and 991px. This sample stands in a 340px container declared on this page for the purpose; the real container belongs to the Mode row, an organism.</p>

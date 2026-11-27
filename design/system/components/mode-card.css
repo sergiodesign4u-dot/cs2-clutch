@@ -12,8 +12,8 @@
  * Carried from design/kit/kit.css part 4.2 (MODE CARD, lines 3469 to 3550) at stage 08 step 5, round 2, unchanged in look. The keyframes mode-card-*
  *   are named by this block alone and are carried. From design/v4/modes.css, theme.css and buttons.css. */
 
-/* Two forms: side (comp A, 7 to 4, words left and art right) and stacked (.mode-card--stack, the art over the words), which the mode row chooses
-   by its own width (.mode-card--fit, below). The art's placement per card (--ol, --ot, --ow, --bz, --mx, --my, --pw) is measured against comp A, in
+/* Two forms: side (comp A, 7 to 4, words left and art right) and stacked (the art over the words), which the mode row chooses by its own
+   width (.mode-card--fit, below). The art's placement per card (--ol, --ot, --ow, --bz, --mx, --my, --pw) is measured against comp A, in
    units of 1 % of the card (cqw). Data: the mode, a modifier that sets the card's colour and its art. */
 /* its own geometry, read inside .mode-card only, D-231 */
 .mode-card {
@@ -58,15 +58,8 @@
 .mode-card__later { background: var(--color-mode-later); box-shadow: var(--shadow-mode-later); -webkit-backdrop-filter: blur(var(--blur-mode-later)); backdrop-filter: blur(var(--blur-mode-later)); color: var(--text-on-plate); font-size: max(var(--size-unit), min(var(--size-xs), 4.6cqw)); font-weight: 700; letter-spacing: var(--tracking-tight); line-height: 1.3; text-shadow: var(--shadow-mode-line); text-transform: uppercase; white-space: nowrap; }
 @container (max-width: 159px) { .mode-card__later { padding: 0 var(--space-2); letter-spacing: 0; } } /* a stacked card under 160px: the plate spans it, so its sides come from the padding, not the tracking */
 
-/* stacked: the art in the top right breaking the top edge, the words under it across the card */
-.mode-card--stack { --dy: -6; aspect-ratio: auto; padding: var(--space-3); }
-.mode-card--stack::before { -webkit-mask: linear-gradient(180deg, black 28%, transparent 62%); mask: linear-gradient(180deg, black 28%, transparent 62%); }
-.mode-card--stack::after { --rx: calc((100 - (100 - var(--ol)) * var(--k) + var(--dx) + var(--ow) * var(--k) / 2) * 1cqw); --ry: calc((var(--ot) * var(--k) + var(--dy) + var(--ow) * var(--k) / 2) * 1cqw);
-  -webkit-mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), black calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); mask: radial-gradient(circle at var(--rx) var(--ry), transparent calc(22cqw * var(--k)), black calc(30cqw * var(--k)), transparent calc(38cqw * var(--k))); }
-.mode-card--stack .mode-card__name { margin-top: 46cqw; font-size: min(var(--size-title), 12.5cqw); }
-.mode-card--stack .mode-card__line { max-width: none; margin: var(--space-1) 0 var(--mode-line-foot); }
-.mode-card--stack .mode-card__act, .mode-card--stack .mode-card__later { align-self: stretch; width: auto; }
-.mode-card--stack .mode-card__later { font-size: max(var(--size-unit), min(var(--size-xs), 7.6cqw)); }
+/* stacked (the art in the top right breaking the top edge, the words under it across the card) is drawn by the row's form, --fit below; the
+   explicit .mode-card--stack, which no page or script set, was deleted at stage 08 step 6 (D-269, Q4) */
 
 @keyframes mode-card-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 calc(-1 * var(--space-1)); } }
 @keyframes mode-card-burst { from { opacity: .18; } to { opacity: .3; } }
@@ -89,8 +82,8 @@
   .mode-card--battles:hover .mode-card__art::before, .mode-card--battles:hover .mode-card__art::after { animation: none; }
 }
 
-/* modifier needed by .mode-row, D-232: the fitted card takes the stacked form (.mode-card--stack) wherever the row is narrow, by the row's own width,
-   and the side form elsewhere; the same values as --stack, from design/v4/modes.css @container modes. The container, mode-row, is the row's. */
+/* modifier needed by .mode-row, D-232: the fitted card takes the stacked form wherever the row is narrow, by the row's own width,
+   and the side form elsewhere, from design/v4/modes.css @container modes. The container, mode-row, is the row's. */
 @container mode-row (max-width: 515px) or ((min-width: 624px) and (max-width: 991px)) {
   .mode-card--fit { --dy: -6; aspect-ratio: auto; padding: var(--space-3); }
   .mode-card--fit::before { -webkit-mask: linear-gradient(180deg, black 28%, transparent 62%); mask: linear-gradient(180deg, black 28%, transparent 62%); }

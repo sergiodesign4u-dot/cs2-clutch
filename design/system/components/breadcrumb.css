@@ -37,11 +37,10 @@
 }
 .crumb a:focus-visible { outline: var(--size-edge) solid var(--line-focus); outline-offset: var(--size-edge); border-radius: var(--radius-xs); }
 
-/* cut to its parent: every step but the one above the page is hidden from sight, never from the markup; the back mark stands before it */
-.crumb--back li:not(:nth-last-child(2)) { display: none; }
-.crumb--back li + li::before { content: none; }
-.crumb--back li:nth-last-child(2) a::before { content: '\2039'; margin-right: var(--space-1-5); font-size: var(--size-text); line-height: 0; }
-/* modifier needed by .case-head, D-232: the trail that cuts to its parent with the back mark (.crumb--back) under 900px, case-page.css
+/* cut to its parent: every step but the one above the page is hidden from sight, never from the markup; the back mark stands before it. Drawn by
+   the container's form below only: the explicit .crumb--back, which repeated it at every width and no page or script set, was deleted at stage 08
+   step 6 (D-269, Q4) */
+/* modifier needed by .case-head, D-232: the trail that cuts to its parent with the back mark under 900px, case-page.css
    @media (max-width: 899px) .v4c-nav .wf-crumb */
 @media (max-width: 899px) {
   .crumb--fit li:not(:nth-last-child(2)) { display: none; }

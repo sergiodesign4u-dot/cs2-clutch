@@ -320,7 +320,7 @@
       '<span class="outcome__odds"><b>' + x.ch.toFixed(3) + '&#160;%</b> <span>chance<span class="outcome__sr"> on this case</span></span></span>' +
       '<span class="media media--skin outcome__art"><span class="outcome__plate" aria-hidden="true"></span>' + ring('outcome__ring') + '<img src="' + x.art + '" alt=""></span>' +
       '<span class="outcome__name"><span class="outcome__w">' + esc(x.w) + (wear ? '<span class="outcome__wear"><span class="outcome__sr">, wear </span>' + wear + '</span>' : '') + '</span><b class="outcome__s">' + esc(x.s) + '</b></span>' +
-      '<span class="fig outcome__v"><span class="fig__v"><span class="icon icon--coin"></span>' + x.v.toFixed(2) + '<span class="outcome__sr">&#160;coins</span></span></span>' +
+      '<span class="fig fig--win outcome__v"><span class="fig__v"><span class="icon icon--coin"></span>' + x.v.toFixed(2) + '<span class="outcome__sr">&#160;coins</span></span></span>' +
       '<span class="outcome__x' + (up ? ' is-up' : '') + '">×' + (x.v / PRICE).toFixed(2) + '<span class="outcome__sr"> of the price</span></span></div>' +
       (n > 1 ? '<button class="button button--ghost button--s outcome__sell" type="button">Sell<span class="outcome__sr"> for ' + coins(x.v) + '</span></button>' : '') + '</div>';
   }

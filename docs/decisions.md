@@ -8021,3 +8021,29 @@ The state token named `--color-focus` in the pack is `--line-focus` here: a ring
 **Rejected.**
 - Moving the two pages now with the rename map and the 17 screen blocks pulled forward from step 6 (option B): half of step 6 done twice, once on two showcase pages and again on the product.
 - Moving `shell.html` alone now, with the column rules in `base.css` (option C): the rules belong with the screens' blocks, and the two pages are measured together.
+
+## D-269. Step 6: the reconcile carried out; the screens' blocks and the column in the system; kit.html and shell.html on it
+
+**Date:** 2026-11-28. **Stage:** 08, step 6. **Decided by:** the founder, on the reconcile's three lists and five questions on the hub (`design/kit/overview.html`, "Step 6, the reconcile"): "как рекомендуешь" (as you recommend).
+
+**Decided.**
+1. **Q1.** The screens' placing rules go with D-259's 17 blocks into `design/system/screens/`, seven files (Home, the case screen, Provably fair, Deposit, My items, the catalogue, Responsible play), the hidden guards with them. Carried from `kit.css` part 4.4 rule for rule with their comments; no value changed.
+2. **Q2.** The shell's layout and the screen's column move from `base.css` to `design/system/layout.css`, imported after the organisms and before the screens' files, the order `kit.css` had. `.page` stays in `base.css`.
+3. **Q3.** The rename map's live rows are carried out as one transform (`.playwright-mcp/s08/rename.js`), measured on the 51 states in the browser on the system, and written into `design/kit/kit.html` and `shell.html`, which load `design/system/index.css` now (D-268). The 51 states' markup is written with their link at step 8 (`apply-rename.js --link`, checked on all 44 files), so no published screen wears a new name on `kit.css`. The risk tip's turn (`.is-left`) is carried from `design/v4/case-tiles.js` into `design/kit/kit.js`. `kit.js` and `motion.js` answer the account menu and the ruler under both names until step 8; `rp.js` writes a saved limit with `.note--hi` (row 25) and `stage.js` the outcome's figure with `.fig--win` (row 28).
+4. **Q4.** Kept: `.account-head__steam`, `.empty--gone`, `.is-gone`, `.item-card__k`, `.tabs__n`, `.badge--bad`, `.daily__note`, `.is-left`; `.media--banner`, `--square`, `--wide`; the glyphs calendar, like and rail. Deleted: `.dialog__open`; `.crumb--back`, `.drop-card--row`, `.mode-card--stack`; `.fig--up`, `.fig--down`; the glyphs close, crown and skull with `--icon-close` and `--icon-skull`. `--icon-crown` stays: found before deleting, the Feed tile's crown masks it. With them, D-266's two: `.verify__ok` and the Ticker's play mark with its two lengths; the dock's dead half was never carried, nothing to delete.
+5. **Q5.** `design/kit/docs/backlog.md`, five rows: the File picker, a text area with a file, the roomy field label, a legal page's table of contents (D-260), the Account head's plain form at a phone (D-266). Shown on the hub under "Backlog".
+
+**Measured.**
+- The 51 states on the system with the rename applied, against the published pages on `kit.css`, 102 loads, the computed style of every element: every difference left has its row in `design/kit/docs/tokens-audit.md`, "Moved onto the system's classes (step 6)". Three are new to see: Recent drops' head link 6.4px wider (row 20 keeps the link's own tracking), Provably fair's algorithm block 20px shorter at 360 (row 21, the 40px press made by negative margins), the market line under a drop's name underlined (row 22).
+- The second census, appended to `design/kit/docs/census.md`, "Measure after the system (step 6)": the same 21 990 controls; 27 of 36 families unchanged, nine changed each by a named row; the tile edge one alpha, a refusal one red.
+- `shell.html` on the system: no difference at 1440 or 360. `kit.html`: every difference named; the File picker block (the backlog's row 1) runs 103px past the window at 360.
+- Snapshots: 252 checked; the 12 on the pages this step changed taken again, subpixel layout only. Codex, read only on `gpt-5.6-terra`: the screens' files against `kit.css`, `layout.css` against `base.css`, every deleted name, the scripts, the em dash; none found.
+
+**Found and fixed in the system.** A missing value on a sized Figure drew at 900 (the size variant won over `.fig--missing`); the missing rule now stands after the sizes in `figure.css`. The account head's `--skin`, an unregistered custom property, resolved its `url()` in `design/system/components/` and got a 404 on `kit.html` and on the Account head's page; it is registered as a `<url>` and resolved against the page, and the screens' path becomes `concept/` with their link at step 8.
+
+**Named, not decided.** Q4's reason "no page and no script sets the explicit class" was true of the screens and not of the frozen `kit.html`, which wears all twelve deleted forms, as it wears the Media sizes kept for that reason; the deletions stand as decided and those demos draw their default form or nothing. The screens' blocks read 59 colour primitives as `kit.css` did: which take a role is step 7's question. `--nav-w` and `.page:has(> #sidebar)`, the design pipeline's in `layout.css`, stay while the screens carry the stand's panel.
+
+**Rejected.**
+- Writing the 51 states' new names now: the published screens would wear names `kit.css` does not draw until step 8.
+- Raising the column rules' weight instead of moving them (Q2): the order would stay wrong for the next component that sets a margin.
+- Translating the screens' blocks onto roles while moving them: a change of look with no decision, and the theme question belongs to step 7.

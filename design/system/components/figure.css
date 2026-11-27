@@ -2,24 +2,22 @@
  * (DESIGN.md, The Money Is Calm Rule); the missing form stands in for a value nobody has (D-124).
  * Page: design/kit/figure.html. Stands on every coloured screen: Home, the case screen, the catalogue, Deposit, My items, Provably fair,
  * Responsible play, Sign in (design/kit/inventory.md, Figure).
- * Reads: --text-hi, --text-meta, --text-body, --text-money, --text-up, --text-link, --line-focus; geometry, type and tracking from the
- *   primitives. Two colours read in this block only, --color-down (the fall; its ink has a second reader, Published against observed, and no
- *   role yet: see the questions of the round) and --shadow-fig-stat, wait for step 9 (tokens-audit.md).
+ * Reads: --text-hi, --text-meta, --text-body, --text-money, --text-link, --line-focus; geometry, type and tracking from the primitives. One
+ *   colour read in this block only, --shadow-fig-stat, waits for step 9 (tokens-audit.md). --text-up and --color-down left with the tones
+ *   up and down at step 6 (D-269, Q4).
  * Carried from design/kit/kit.css part 4.1 (lines 2282 to 2308) at stage 08 step 5, round 1, by the decisions of step 2 (D-260) and step 4 (D-262):
  *   the seven sizes by container named as variants (rename map row 28), the alignment variant .fig--end not carried (row 14, the commit block's
  *   act sets its own alignment). From design/v4/account-home.css (the header's money plate), footer-home.css (the counter), case-page.css
  *   (the figure beside an act). */
 
 /* One anatomy: the value (.fig__v) over its caption (.fig__c), the caption optional. Tone: plain (white), money (gold), soft (a quiet grey, the
-   small figure of a drop's side), up and down (a gain, a fall), missing (no value, D-124). */
+   small figure of a drop's side), missing (no value, D-124). Up and down were deleted at stage 08 step 6 (D-269, Q4): no tone in grey or in
+   colour, the observed bar marks its own rise and fall, and a loss is drawn without a figure (the founder's rule on negative emotion). */
 .fig { display: inline-flex; flex-direction: column; gap: var(--space-1); color: var(--text-meta); font-size: var(--size-chip); line-height: 1.2; }
 .fig__v { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-hi); font-size: var(--size-label); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
 .fig__c { color: var(--text-meta); font-size: var(--size-unit); }
 .fig--money .fig__v { color: var(--text-money); }
 .fig--soft .fig__v { color: var(--text-body); font-size: var(--size-unit); font-weight: 700; }
-.fig--up .fig__v { color: var(--text-up); }
-.fig--down .fig__v { color: var(--color-down); } /* a primitive read directly: no --text-down role yet, see the report of round 1 */
-.fig--missing .fig__v { color: var(--text-meta); font-weight: 700; }
 
 /* Size is the container's density, seven steps named by the type step each reads (D-262, Q4); the plain figure is 14. 22 is the Figure's own value,
    off the scale, the price beside an act (D-262, Q5). Each variant equals what its container drew before (rename map row 28). Spacing between
@@ -36,6 +34,9 @@
 .fig--l .fig__c { color: var(--text-body); font-size: var(--size-chip); }
 .fig--head .fig__v { font-size: var(--size-head-l); } /* 26: the deposit dock's sum */
 .fig--win .fig__v { font-size: var(--size-stat); line-height: 1.1; } /* 30: the won skin's worth on the outcome card */
+/* the missing form after the sizes: a size variant sets the weight of a figure at its step (900, the soft figure's 700 raised), and a
+   missing value keeps 700 at any size, as kit.css drew it (the reconcile's walk, stage 08 step 6: None on a drop card and an item card) */
+.fig--missing .fig__v { color: var(--text-meta); font-weight: 700; }
 
 /* a counter: its figure large in pink with its light and its caption in small spaced capitals; the size is the container's, set by the footer on
    --fig-stat-v, --fig-stat-c and --fig-stat-gap (v4 footer-home.css .ff-stat b and b + span, D-232) */

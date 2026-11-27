@@ -50,7 +50,7 @@
     <tr><td><b>The separator</b> (the atom's own)</td><td><code>li + li::before</code></td><td>the slash, at 60% of its ink, 6px before the next step</td></tr>
     <tr><td><b>The page</b> (the atom's own)</td><td><code>[aria-current]</code></td><td>white, not a link: a page is never its own way out</td></tr>
     <tr><td><b>Ground</b></td><td><code>.crumb--lit</code>, <code>.crumb--fit</code></td><td>the ink on a coloured band or on the case head's stage; none for the page's ground</td></tr>
-    <tr><td><b>The way back</b></td><td><code>.crumb--back</code>, <code>.crumb--fit</code> under 900px</td><td>every step but the one above the page is hidden from sight, never from the markup, and a back mark <code>&lsaquo;</code> stands before it</td></tr>
+    <tr><td><b>The way back</b></td><td><code>.crumb--fit</code> under 900px</td><td>every step but the one above the page is hidden from sight, never from the markup, and a back mark <code>&lsaquo;</code> stands before it</td></tr>
   </tbody></table></div>
   <p><b>Holds no component</b>, so it is an atom (D-265, Q5). The step-2 inventory listed the <a href="text-link.html">Text link</a>, and a step is a link, but no step wears <code>.link</code>: the atom is pink at 13px and the step is soft grey in small capitals, so the screens draw the step as a plain anchor and the Breadcrumb styles it. This page keeps what the screens draw.</p>
 </section>
@@ -68,11 +68,11 @@
     <tbody>
       <tr><td><b>Plain</b></td>
         <td><div class="cell"><nav class="crumb" aria-label="Breadcrumb" data-dim><ol><li><a href="#variants">Home</a></li><li><a href="#variants">My account</a></li><li><span aria-current="page">My items</span></li></ol></nav><span class="cp-dim"></span></div></td>
-        <td><div class="cell"><nav class="crumb crumb--back" aria-label="Breadcrumb"><ol><li><a href="#variants">Home</a></li><li><a href="#variants">My account</a></li><li><span aria-current="page">My items</span></li></ol></nav></div></td>
+        <td class="kt-note">by <code>.crumb--fit</code>, below (<code>--back</code> deleted, D-269)</td>
         <td class="kt-note">My items, over the account head</td></tr>
       <tr><td><b>Lit</b></td>
         <td><div class="cell"><div class="cp-lit"><nav class="crumb crumb--lit" aria-label="Breadcrumb" data-dim><ol><li><a href="#variants">Home</a></li><li><span aria-current="page">Responsible play</span></li></ol></nav></div><span class="cp-dim"></span></div></td>
-        <td><div class="cell"><div class="cp-lit"><nav class="crumb crumb--lit crumb--back" aria-label="Breadcrumb"><ol><li><a href="#variants">Home</a></li><li><a href="#variants">Help</a></li><li><span aria-current="page">Responsible play</span></li></ol></nav></div></div></td>
+        <td class="kt-note">the same</td>
         <td class="kt-note">the catalogue's, Provably fair's and Responsible play's heads</td></tr>
       <tr><td><b>Fit</b></td>
         <td colspan="2"><div class="cell"><div class="cp-fit"><nav class="crumb crumb--fit" aria-label="Breadcrumb" data-dim><ol><li><a href="#variants">Home</a></li><li><a href="#variants">Cases</a></li><li><span aria-current="page">Ironbound</span></li></ol></nav></div><span class="cp-dim"></span><span class="kt-note">The full trail from 900px, the way back under it: narrow the window to see it cut.</span></div></td>

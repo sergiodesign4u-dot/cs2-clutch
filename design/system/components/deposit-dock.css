@@ -13,7 +13,8 @@
  *   round 3, unchanged in look. The sum's size is the Figure's .fig--head (rename map row 28): .dock__sum .fig__v is not carried, the bonus keeps
  *   the same size by its own rule. The declaration's own rule in kit.css (.dock__declare: no least height, its words at the chip's size) stands
  *   before the Field's block and the Field's row wins it on source order there, so kit.css draws the terms row as the Field draws it (48px,
- *   14px words) with the same padding; carried as kit.css draws it, the dead half named in the founder's questions of round 3. */
+ *   14px words) with the same padding; carried as kit.css draws it, the dead half named in the founder's questions of round 3 (D-266, Q4) and never carried here:
+ *   nothing of it to delete at step 6 (D-269). */
 .dock { display: grid; gap: var(--space-4); min-width: 0; padding: var(--space-5); border-radius: var(--radius-m); background: var(--bg-plate); box-shadow: var(--line-plate-edge); }
 .dock__recv { display: grid; gap: var(--space-3); padding-bottom: var(--space-4); border-bottom: var(--size-hairline) solid var(--line-soft); }
 .dock__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); }

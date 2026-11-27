@@ -72,7 +72,7 @@
   <h2>Variants and sizes</h2>
   <p>Four axes, none of them a size class. Each carries its rule, so the next screen picks by the rule instead of finding a reason again.</p>
   <ul class="kt-list">
-    <li><b>Glyph = what it says, by name.</b> 44 glyphs and the coin, one filled style (D-227). The set is on <a href="icons.html">Icons and art</a>; a new glyph is a new <code>--icon-*</code> primitive and one rule here.</li>
+    <li><b>Glyph = what it says, by name.</b> 41 glyphs by class and the coin, one filled style (D-227); 44 until step 6 deleted close, crown and skull (D-269, Q4), the crown's mask kept for the Feed tile. The set is on <a href="icons.html">Icons and art</a>; a new glyph is a new <code>--icon-*</code> primitive and one rule here.</li>
     <li><b>Size = the words' size, never the icon's.</b> The icon is one em, so the container's <code>font-size</code> sets it. The sizes the product uses are below, read from the render.</li>
     <li><b>Colour = the role of the words around it.</b> A glyph takes an ink role through <code>color</code>, so a theme moves it with its words. The coin is the exception: it is gold in both.</li>
     <li><b>Form = plain or story.</b> Plain is the mask. The story form is the same glyph redrawn in parts, and at rest it is the plain glyph.</li>
@@ -105,16 +105,13 @@
       <tr><td><code>--text-money</code></td><td style="color:var(--text-money)"><i class="icon icon--shield" aria-hidden="true"></i></td></tr>
     </tbody></table></div></div></div>
   </div>
-  <h3>Glyphs to verify at step 6</h3>
-  <p>Seven glyphs are declared and worn by none of the eight coloured screens' markup (<code>mute</code> only by the stand's script, <code>kit.js</code>): they are on the inventory's list "To verify at step 6" (<code>design/kit/inventory.md</code>), and each is kept, wired or deleted there, by what the grey pages need.</p>
+  <h3>Glyphs no coloured state wears, as step 6 decided</h3>
+  <p>Seven glyphs were on the inventory's list "To verify at step 6" (<code>design/kit/inventory.md</code>). The reconcile's third list kept four and deleted three (D-269, Q4). Kept: <code>calendar</code>, <code>like</code> and <code>rail</code>, drawn on v4's screens and waiting for the rollout, and <code>mute</code>, which <code>kit.js</code> sets on the sound's button when it is off. Deleted: <code>close</code>, <code>crown</code> and <code>skull</code>, drawn nowhere; <code>--icon-close</code> and <code>--icon-skull</code> left <code>tokens.css</code> with them, and <code>--icon-crown</code> stays, the Feed tile's crown masks it.</p>
   <div class="kt-scene"><div class="cp-unused">
     <span><i class="icon icon--calendar" aria-hidden="true"></i><b>calendar</b></span>
-    <span><i class="icon icon--close" aria-hidden="true"></i><b>close</b></span>
-    <span><i class="icon icon--crown" aria-hidden="true"></i><b>crown</b></span>
     <span><i class="icon icon--like" aria-hidden="true"></i><b>like</b></span>
     <span><i class="icon icon--mute" aria-hidden="true"></i><b>mute</b></span>
     <span><i class="icon icon--rail" aria-hidden="true"></i><b>rail</b></span>
-    <span><i class="icon icon--skull" aria-hidden="true"></i><b>skull</b></span>
   </div></div>
 </section>
 

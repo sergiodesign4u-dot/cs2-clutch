@@ -1,0 +1,89 @@
+/* design/system/screens/home.css, stage 08 step 6: Home's own blocks (node 1.0). What opening a case here involves (.involves), Questions and answers (.faq) and About Clutch (.about).
+ * Not components: each block stands on one IA node, its markup stays on its screen, and the stand lists none of them (D-259). Loaded
+ * after the organisms and the screen's column (index.css, layout.css), so a block's rule is read after what it holds.
+ * Carried from design/kit/kit.css part 4.4, Home's one-off blocks (D-234) rule for rule with their comments; no value changed. Moved out with a
+ * component or a variant, not carried: their links' press grown to 40px is the Text link's .link--tap (rename map row 21) (design/kit/inventory.md, "The rename map"; tokens-audit.md, "Translations onto the
+ * system's classes (step 6)").
+ * Colours are read from the primitive level as kit.css read them, 15 variables, waiting for their roles (tokens-audit.md, "The screens'
+ * own blocks on the primitive level (step 6)"). */
+
+/* WHAT OPENING A CASE HERE INVOLVES, Home's SEO block: the paragraph whole under its heading, Nightfall on its striped plate beside it with
+   three quotes. Two columns, even under 1000px of its own width, one under 720px, the quotes stacked inside the plate under 560px.
+   Carried from v4 seo-home.css (R1, founder of 2 Nov 2026, "давай r1 поставим на главную"; the case's size, founder of 4 Nov 2026).
+   Contains Section head, Button, Text link, Icon. */
+.involves { container: involves / inline-size; color: var(--color-text-hi); font-size: var(--size-text); line-height: 1.2; } /* the grey body's 16px at 1.2, inherited in v4 */
+.involves__in {
+  --involves-pad: var(--space-5-5); /* seo-home.css .sx padding */
+  --involves-stage-h: 380px; /* .sx-stage min-height */
+  --involves-art: min(96%, 480px); /* .sx-art width */
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); grid-template-rows: auto 1fr; grid-template-areas: "h s" "t s"; column-gap: var(--space-6);
+  padding: var(--involves-pad); border-radius: var(--radius-m); background: var(--gradient-daily-panel); box-shadow: var(--shadow-edge); } /* the same dark ground as the Daily panel */
+.involves__head { grid-area: h; margin: 0; }
+.involves__text { grid-area: t; min-width: 0; }
+.involves__p { max-width: 60ch; text-wrap: pretty; margin: var(--space-4-25) 0 0; color: var(--color-text-lead); font-size: var(--size-lead); line-height: 1.65; }
+.involves__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3-5) var(--space-5-5); margin-top: calc(var(--space-5) + var(--space-hair)); }
+.involves__stage { grid-area: s; position: relative; isolation: isolate; min-width: 0; min-height: var(--involves-stage-h); border-radius: var(--radius-card);
+  background: var(--gradient-button-stripes), var(--gradient-involves-stage); box-shadow: var(--shadow-tile-lit-soft); overflow: hidden; }
+.involves__case { position: absolute; left: 50%; bottom: 0; width: var(--involves-art); aspect-ratio: 3 / 2; translate: calc(-50% + 6.8%) 0; pointer-events: none; } /* the body sits at 43.2% of its picture, case-tiles.css */
+.involves__case-b, .involves__case-f { position: absolute; inset: 0; background: var(--art-case-nightfall) center / 100% auto no-repeat; }
+.involves__case-b { filter: var(--filter-case-lift); }
+.involves__case-f { z-index: 2; clip-path: var(--shape-case-rim); }
+.involves__case-sk { position: absolute; z-index: 1; left: 46%; top: 26%; width: 70%; height: auto; transform: translate(-50%, -50%) rotate(-8deg); filter: var(--filter-skin-lift); }
+.involves__pin { position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: var(--space-1-75); box-sizing: border-box; min-height: 30px; padding: 0 var(--space-3); border-radius: var(--radius-button);
+  background: var(--color-plate-veil); box-shadow: var(--shadow-edge-bright); color: var(--color-text-hi); font-size: var(--size-chip); font-weight: 700; white-space: nowrap; }
+.involves__pin > .icon { font-size: 15px; color: var(--color-pink); }
+.involves__pin--ok > .icon { color: var(--color-green); }
+.involves__pin--1 { left: var(--space-4); top: var(--space-4-25); }
+.involves__pin--2 { right: var(--space-4); top: var(--space-4-25); }
+.involves__pin--3 { left: var(--space-4); bottom: var(--space-4-25); }
+@container involves (max-width: 1000px) {
+  .involves__in { --involves-stage-h: 340px; column-gap: var(--space-5); }
+  .involves__p { font-size: var(--size-text); }
+}
+@container involves (min-width: 721px) and (max-width: 1000px) {
+  .involves__in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .involves__pin--2 { left: var(--space-4); right: auto; top: 54px; }
+}
+@container involves (max-width: 720px) {
+  .involves__in { --involves-stage-h: 300px; --involves-art: min(96%, 380px); grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-template-areas: "h" "t" "s"; row-gap: calc(var(--space-5) - var(--space-hair)); }
+  .involves__p { margin-top: 0; }
+}
+@container involves (max-width: 560px) {
+  .involves__in { --involves-pad: var(--space-4-25); --involves-stage-h: 0px; --involves-art: min(100%, 380px); }
+  .involves__p { font-size: var(--size-text); }
+  .involves__stage { display: flex; flex-direction: column; padding-bottom: var(--space-3-5); }
+  .involves__case { position: relative; left: auto; bottom: auto; align-self: center; width: var(--involves-art); translate: 6.8% 0; margin: var(--space-1-5) 0; }
+  .involves__pins { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-1-5); padding: 0 var(--space-3-5); }
+  .involves__pin { position: static; white-space: normal; }
+}
+
+/* QUESTIONS AND ANSWERS, Home: a lead and Support on the left, the questions on the right, one column under 900px of its own width. The
+   questions are the kit's Disclosure, one open at a time by their shared name. Carried from v4 faq-home.css (.fq). Contains Section head,
+   Disclosure, Button, Text link. */
+.faq { container: faq / inline-size; color: var(--color-text-hi); font-size: var(--size-text); line-height: 1.2; } /* the grey body's 16px at 1.2, inherited in v4 */
+.faq__in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-6); align-items: start; }
+.faq__lead p { margin: 0; max-width: 40ch; color: var(--color-text-soft); font-size: var(--size-text); line-height: 1.55; }
+.faq__lead .button { margin-top: calc(var(--space-4) + var(--space-1)); }
+.faq__list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2-5); }
+@container faq (max-width: 900px) {
+  .faq__in { grid-template-columns: minmax(0, 1fr); gap: calc(var(--space-4) + var(--space-1)); }
+  .faq__lead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3-5) var(--space-5); }
+  .faq__lead p { max-width: 60ch; }
+  .faq__lead .button { margin-top: 0; }
+}
+@container faq (max-width: 600px) { .faq__lead p { font-size: var(--size-s); } }
+
+/* ABOUT CLUTCH, Home: a lead, then four short parts under H3s in two columns, parted by hairlines; one column under 600px of its own width.
+   Carried from v4 faq-home.css (.ab). Contains Section head, Icon. */
+.about { container: about / inline-size; color: var(--color-text-hi); font-size: var(--size-text); line-height: 1.2; } /* the grey body's 16px at 1.2, inherited in v4 */
+.about__lead { margin: 0; max-width: 65ch; text-wrap: pretty; color: var(--color-text-lead); font-size: var(--size-lead); line-height: 1.65; }
+.about__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 calc(var(--space-6) + var(--space-2)); margin-top: var(--space-5); }
+.about__i { padding: calc(var(--space-4) + var(--space-1)) 0; border-top: 1px solid var(--color-rule-faint); }
+.about__h { display: flex; align-items: center; gap: var(--space-2-5); margin: 0; font-size: var(--size-m); font-weight: 900; line-height: 1.25; }
+.about__h > .icon { font-size: calc(var(--space-4) + var(--space-1)); color: var(--color-pink); }
+.about__i p { margin: var(--space-2) 0 0; max-width: 60ch; color: var(--color-text-soft); font-size: var(--size-s); line-height: 1.6; }
+@container about (max-width: 600px) {
+  .about__lead { font-size: var(--size-s); }
+  .about__grid { grid-template-columns: minmax(0, 1fr); }
+  .about__i { padding: var(--space-4) 0; }
+}

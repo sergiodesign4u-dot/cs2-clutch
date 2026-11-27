@@ -1,0 +1,38 @@
+/* design/system/screens/deposit.css, stage 08 step 6: Deposit's own blocks (nodes 4.1 and 4.2). The ways to pay (.methods) and What still works (.works).
+ * Not components: each block stands on one IA node, its markup stays on its screen, and the stand lists none of them (D-259). Loaded
+ * after the organisms and the screen's column (index.css, layout.css), so a block's rule is read after what it holds.
+ * Carried from design/kit/kit.css part 4.4, Deposit's one-off blocks (D-237) rule for rule with their comments; no value changed. Moved out with a
+ * component or a variant, not carried: This deposit is the Payment record component (.record to .payment-record, row 4); What still works' links take .link--l (row 20) (design/kit/inventory.md, "The rename map"; tokens-audit.md, "Translations onto the
+ * system's classes (step 6)").
+ * Colours are read from the primitive level as kit.css read them, 5 variables, waiting for their roles (tokens-audit.md, "The screens'
+ * own blocks on the primitive level (step 6)"). */
+
+/* THE WAYS TO PAY: a group's methods under its Section head, as many tiles to a row as fit at 124px or more, each the method's mark over its
+   name, and its mark of service on the corner (No fee, Instant) as a Badge. One-off of 4.1, wireframes/_wf.css .wf-pay-g and .wf-pay-t,
+   whose logo slot over the name the founder's correction of 20 Nov 2026 fills (D-238): a payment badge as the payment world draws it, a
+   white plate at half its 120 by 80, and a coin in its colour for crypto (design/kit/marks/, their sources and licences in D-238; six
+   with no mark anywhere carry a plate with their kind's glyph). The tile is the Payment panel's provider option as a link, lifted with
+   its edge in the button's colour under the pointer. Contains Section head, Badge. */
+.methods {
+  --methods-tile: 124px; /* wireframes/_wf.css .wf-pay-g grid-template-columns minmax(124px, 1fr): the narrowest tile; технічне рішення carried from the grey */
+  --methods-mark: 40px; /* a method's mark, half the 80px of its source's plate, so a badge reads at its own proportion; технічне рішення, D-238 */
+}
+.methods { min-width: 0; }
+.methods__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--methods-tile), 1fr)); gap: var(--space-2); }
+.methods__t { position: relative; display: grid; justify-items: center; align-content: center; gap: var(--space-2-5); min-height: calc(var(--size-row) + var(--size-tap)); box-sizing: border-box; padding: var(--space-4) var(--space-2) var(--space-3); border-radius: var(--radius-card); background: var(--color-tile-veil); box-shadow: var(--shadow-edge); color: var(--color-text-hi); font-size: var(--size-label); font-weight: 700; line-height: 1.25; text-align: center; text-decoration: none; transition: box-shadow .2s, translate .2s var(--motion-ease-settle); }
+.methods__mark { display: grid; place-items: center; height: var(--methods-mark); max-width: 100%; }
+.methods__mark > img { display: block; width: auto; height: var(--methods-mark); max-width: 100%; border-radius: var(--radius-xs); object-fit: contain; }
+.methods__mark--skin > img { height: calc(1.5 * var(--methods-mark)); margin: calc(-.25 * var(--methods-mark)) 0; } /* a skin's picture stands in its transparent square: drawn half again as tall so the rifle reads at the plates' size */
+.methods__t:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: var(--size-edge); }
+@media (hover: hover) { .methods__t:hover { translate: 0 calc(-1 * var(--size-lift)); box-shadow: inset 0 0 0 var(--size-hairline) var(--color-button); } }
+.methods__t > .badge { position: absolute; top: calc(-1 * var(--space-2)); left: var(--space-2); } /* the grey's ribbon on the corner, D-129 */
+.methods > .sec-head { margin-bottom: var(--space-5); } /* room for the ribbons of the first row */
+@media (prefers-reduced-motion: reduce) { .methods__t { transition: none; } }
+
+/* WHAT STILL WORKS: what a stop leaves open, each a Text link with its line under it on a row of its own, as many to a row as fit at five
+   tap targets; the line under them says what does not lift the stop. One-off of 4.2, wireframes/deposit-ceiling-reached.html .wf-open-list;
+   the row is the Disclosure's and the Field's row ground (--gradient-row with its hairline). Contains Section head, Text link, Note line. */
+.works { min-width: 0; }
+.works__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(calc(5 * var(--size-tap)), 1fr)); gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
+.works__i { display: grid; align-content: start; gap: var(--space-1-5); padding: var(--space-4) var(--space-5); border-radius: var(--radius-card); background: var(--gradient-row); box-shadow: var(--shadow-edge); }
+.works__list + .note { max-width: var(--size-measure); margin-top: var(--space-4); }

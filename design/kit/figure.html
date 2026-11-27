@@ -49,7 +49,7 @@
     <tr><td><b>Value</b></td><td><code>.fig__v</code></td><td>the number: weight 900, tabular figures, one line; its tone and its size</td></tr>
     <tr><td><b>Unit</b></td><td><code>.icon--coin</code> inside the value</td><td>the coin before the number, at the number's size; a figure that is not money carries no coin</td></tr>
     <tr><td><b>Caption</b></td><td><code>.fig__c</code></td><td>what the number is, 11px; optional, and a figure in a row of figures leaves it out</td></tr>
-    <tr><td><b>Tone</b></td><td><code>.fig--money</code>, <code>--soft</code>, <code>--up</code>, <code>--down</code>, <code>--missing</code></td><td>the colour of the value: gold, quiet, green, red, grey</td></tr>
+    <tr><td><b>Tone</b></td><td><code>.fig--money</code>, <code>--soft</code>, <code>--missing</code></td><td>the colour of the value: gold, quiet, grey; up and down were deleted at step 6 (D-269)</td></tr>
     <tr><td><b>Size</b></td><td><code>.fig--xs</code>, <code>--m</code>, <code>--title</code>, <code>--l</code>, <code>--head</code>, <code>--win</code></td><td>the value's size, seven steps with the plain 14 (D-262)</td></tr>
     <tr><td><b>Counter</b></td><td><code>.fig--stat</code></td><td>pink with its light, the caption in small spaced capitals; its size is the container's</td></tr>
     <tr><td><b>Link</b></td><td><code>a.fig</code></td><td>the whole figure is the target</td></tr>
@@ -60,7 +60,7 @@
   <h2>Variants and sizes</h2>
   <p>Three axes, and a counter form beside them. Each carries its rule, so the next screen picks by the rule. Sizes below are read from the rendered figures, not from the stylesheet.</p>
   <ul class="kt-list">
-    <li><b>Tone = what the number is.</b> Money is gold at 900 and never moves (the Money Is Calm Rule). A gain is green, a fall is red, and the second figure of a pair is the soft one. A value nobody has is the missing form, never a zero (D-124).</li>
+    <li><b>Tone = what the number is.</b> Money is gold at 900 and never moves (the Money Is Calm Rule). The second figure of a pair is the soft one. There is no green gain or red fall: the grey has no tone, the observed bar marks its own rise and fall, and a loss is drawn without a figure (the founder's rule on negative emotion; <code>--up</code> and <code>--down</code> deleted at step 6, D-269). A value nobody has is the missing form, never a zero (D-124).</li>
     <li><b>Size = the density of the container, never the importance of the number.</b> Seven steps, each named by the type step it reads (D-262, Q4). 22 is the Figure's own value, the one step off the scale: it is the price beside an act, and moving it to 20 or 24 moves the price beside every act (D-262, Q5).</li>
     <li><b>Spacing and alignment = the layout.</b> The gap between a coin and its number, and whether a figure sits at the start or the end of its cell, are the container's. <code>.fig--end</code> is not carried: the commit block's act aligns its own figure (rename map row 14).</li>
   </ul>
@@ -69,8 +69,6 @@
     <span class="fig "><span class="fig__v">1 250</span><span class="fig__c">Tickets</span></span>
     <span class="fig fig--money"><span class="fig__v"><i class="icon icon--coin" aria-hidden="true"></i>1 250</span><span class="fig__c">Price</span></span>
     <span class="fig fig--soft"><span class="fig__v"><i class="icon icon--pistol" aria-hidden="true"></i>140.95</span><span class="fig__c">Value of items held</span></span>
-    <span class="fig fig--up"><span class="fig__v">+4.85</span><span class="fig__c">Out to Steam</span></span>
-    <span class="fig fig--down"><span class="fig__v">-4.85</span><span class="fig__c">Against the price</span></span>
     <span class="fig fig--missing"><span class="fig__v">None</span><span class="fig__c">On sale</span></span>
   </div></div>
   <h3>Size</h3>
@@ -127,7 +125,7 @@ node design/kit/tools/shoot-states.js http://localhost:8765/ figure --check   # 
 <section class="kt-sec" id="tech">
   <h2>In the code</h2>
   <div class="kt-tbl"><table style="min-width:640px"><thead><tr><th>Token</th><th>Kind</th><th>Dark</th><th>Light</th></tr></thead><tbody id="tok-body"></tbody></table></div>
-  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and tracking come straight from the primitives. Two colours are read directly and wait for step 9: <code>--shadow-fig-stat</code> (the counter's pink light, read in this block only) and <code>--color-down</code> (the fall: no <code>--text-down</code> role yet, though its ink now has two readers, this block and Published against observed).</p>
+  <p class="kt-note">Read live from <code>tokens.css</code>. Geometry, type and tracking come straight from the primitives. One colour is read directly and waits for step 9: <code>--shadow-fig-stat</code> (the counter's pink light, read in this block only). <code>--color-down</code> left with the fall at step 6 (D-269); its one reader now is Published against observed, a screen's block.</p>
   <p>File: <code>design/system/components/figure.css</code>, loaded by <code>design/system/index.css</code> in the atoms' group.</p>
   <pre>&lt;span class="fig fig--money"&gt;&lt;span class="fig__v"&gt;&lt;i class="icon icon--coin" aria-hidden="true"&gt;&lt;/i&gt;74.20&lt;/span&gt;&lt;span class="fig__c"&gt;Balance&lt;/span&gt;&lt;/span&gt;
 &lt;span class="fig fig--money fig--l"&gt;&lt;span class="fig__v"&gt;12.40&amp;nbsp;coins&lt;/span&gt;&lt;span class="fig__c"&gt;Price, one open&lt;/span&gt;&lt;/span&gt;
@@ -143,7 +141,7 @@ document.querySelectorAll('[data-dim]').forEach(function (b) { var r = b.getBoun
 <script src="_tokens.js"></script>
 <script>
 KitTokens.load().then(function () {
-  var T = ['--text-hi', '--text-meta', '--text-body', '--text-money', '--text-up', '--text-link', '--line-focus'];
+  var T = ['--text-hi', '--text-meta', '--text-body', '--text-money', '--text-link', '--line-focus'];
   var KIND = {};
   var d = document.createElement('div'), l = document.createElement('div'); d.setAttribute('data-theme', 'dark'); l.setAttribute('data-theme', 'light'); document.body.append(d, l);
   document.getElementById('tok-body').innerHTML = T.map(function (n) {

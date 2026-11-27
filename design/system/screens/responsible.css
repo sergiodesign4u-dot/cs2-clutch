@@ -1,0 +1,30 @@
+/* design/system/screens/responsible.css, stage 08 step 6: Responsible play's own blocks (nodes 6.1 to 6.3). Responsible play's head (.rp-head); and the page's own placing (Q1): the Limits panel's gap in the column and its sections (.rp-sec).
+ * Not components: each block stands on one IA node, its markup stays on its screen, and the stand lists none of them (D-259). Loaded
+ * after the organisms and the screen's column (index.css, layout.css), so a block's rule is read after what it holds.
+ * Carried from design/kit/kit.css part 4.4, Responsible play's one-off blocks (D-248) rule for rule with their comments; no value changed. Moved out with a
+ * component or a variant, not carried: the saved limit's answer is the Note line's .note--hi (row 25), in the Limits panel (design/kit/inventory.md, "The rename map"; tokens-audit.md, "Translations onto the
+ * system's classes (step 6)").
+ * Colours are read from the primitive level as kit.css read them, 4 variables, waiting for their roles (tokens-audit.md, "The screens'
+ * own blocks on the primitive level (step 6)"). */
+
+/* THE PAGE'S HEAD: the crumb, the H1 with the menu tile's shield, and the line that says what is set */
+.rp-head { display: grid; justify-items: start; gap: var(--space-3); min-width: 0; box-sizing: border-box; padding: var(--space-5) var(--space-6) var(--space-6); border-radius: var(--radius-m); background: var(--gradient-stripes-m), var(--gradient-mode-battles); box-shadow: var(--shadow-tile-lit-soft); color: var(--color-text-hi); } /* the account menu's Responsible play tile, .popover__tile--rp, v4 account-home.css .am3-t.is-rp */
+.rp-head__h { display: flex; align-items: center; gap: var(--space-3); margin: var(--space-1) 0 0; color: var(--color-text-hi); font-size: var(--size-xl); font-weight: 900; letter-spacing: var(--tracking-score); line-height: 1.05; text-transform: uppercase; overflow-wrap: anywhere; } /* the screen title, --size-xl 900 (D-187), in capitals as every head of the kit */
+.rp-head__h > .icon { flex: none; font-size: .8em; } /* the menu tile's shield at the title's cap height */
+.rp-head > .limits__say { max-width: var(--size-measure); color: var(--color-text-hi); font-size: var(--size-text); } /* the Limits panel's status line, said under the H1 as the grey says it, white on the blue */
+.rp-head > .limits__say .link { color: var(--color-text-hi); text-decoration: underline; } /* Sign in on the blue: the pink would not hold 4.5:1 there */
+@media (max-width: 599px) {
+  .rp-head { padding: var(--space-4) var(--space-4) var(--space-5); }
+  .rp-head__h { font-size: var(--size-head-l); }
+}
+@media (min-width: 900px) {
+  .shell__main > .rp-head { margin-inline: var(--space-2) var(--space-3); } /* a band, as the Account head and Provably fair's head stand */
+  .shell__main > .rp-head:first-child { margin-top: calc(var(--space-2) - var(--space-6)); }
+  .shell__main > .rp-head + .limits { margin-inline: auto; } /* the panel in the middle of the column, the founder at D-249: "I would centre the blocks"; the head's words stay at the band's left, D-250 */
+}
+
+/* THE PANEL'S PARTS under their Section heads: what these tools do, what a limit closes, the four limits, help that is not ours */
+.shell__main > .limits { gap: var(--space-6); }
+.rp-sec { display: grid; gap: var(--space-4); min-width: 0; }
+.rp-sec > .prose > p { margin: 0; }
+.rp-sec > .prose > p + p { margin-top: var(--space-3); }

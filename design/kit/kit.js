@@ -41,7 +41,9 @@
   function settle() { rail.classList.remove('is-open', 'is-overlay'); menu.setAttribute('aria-expanded', 'false'); setRail(wide.matches && !compact()); }
   if (rail) { settle(); wide.addEventListener('change', settle); }
 
-  function closePops(keep) { d.querySelectorAll('.popover__trigger[aria-expanded="true"]').forEach(function (t) { if (t !== keep) t.setAttribute('aria-expanded', 'false'); }); }
+  /* the account menu answers under its old name and its own (.account-menu, rename map row 2, D-269): the screens wear .popover--account until
+     their markup moves at step 8, the showcase's shell already wears .account-menu */
+  function closePops(keep) { d.querySelectorAll('.popover__trigger[aria-expanded="true"], .account-menu__trigger[aria-expanded="true"]').forEach(function (t) { if (t !== keep) t.setAttribute('aria-expanded', 'false'); }); }
   /* the Select menu (.popover--select, D-238): an option is the choice, shown on the trigger with its flag; the list closes, the keyboard goes
      back to the trigger and the page hears "pick" with the value and its place in the list */
   function opts(p) { return [].slice.call(p.querySelectorAll('.popover__opt')); }
@@ -55,7 +57,7 @@
   }
   function sound(b, on) { var w = on ? 'Sound on' : 'Sound off', s = b.querySelector('.rail__sr'), i = b.querySelector('.icon'), c = b.closest('[data-lbl]');
     b.setAttribute('aria-pressed', String(on)); if (s) s.textContent = w; if (c) c.setAttribute('data-lbl', w); if (i) { i.classList.toggle('icon--sound', on); i.classList.toggle('icon--mute', !on); } }
-  function copy(b) { var t = b.querySelector('.popover__copy-t'), v = (b.parentNode.querySelector('.popover__id-v') || {}).textContent || '';
+  function copy(b) { var t = b.querySelector('.popover__copy-t, .account-menu__copy-t'), v = (b.parentNode.querySelector('.popover__id-v, .account-menu__id-v') || {}).textContent || '';
     function said(w, ok) { t.textContent = w; b.classList.toggle('is-done', ok); b.classList.toggle('is-fail', !ok); clearTimeout(b._t); b._t = setTimeout(function () { t.textContent = 'Copy'; b.classList.remove('is-done', 'is-fail'); }, 2400); }
     try { navigator.clipboard.writeText(v.replace(/^ID\s+/, '')).then(function () { said('Copied', true); }, function () { said('Not copied, select it by hand', false); }); } catch (e) { said('Not copied, select it by hand', false); } }
 
@@ -168,6 +170,15 @@
     });
   });
 
+  /* THE RISK TIP TURNS (design/v4/case-tiles.js, never carried until stage 08 step 6, D-269 Q3): a case tile's band in words opens on the bolts'
+     right; where that would run past the screen's column, as on the last tile of a row, it opens on their left (.case-tile__tip.is-left).
+     Read each time the pointer arrives, so a resized window is read fresh */
+  d.addEventListener('pointerover', function (e) {
+    var r = e.target.closest && e.target.closest('.case-tile__risk'), tip = r && r.querySelector('.case-tile__tip'); if (!tip) return;
+    var box = (r.closest('.shell__main') || d.documentElement).getBoundingClientRect(), edge = Math.min(box.right, d.documentElement.clientWidth) - 8;
+    tip.classList.toggle('is-left', r.getBoundingClientRect().right + 10 + tip.offsetWidth > edge);
+  });
+
   d.addEventListener('click', function (e) {
     var x = e.target.closest('[data-layer]'), lid = x && (!account && x.hasAttribute('data-account-only') ? 'signin-layer' : x.getAttribute('data-layer')); /* a layer for an account asks a guest to sign in first, D-237 */
     if (x && d.getElementById(lid)) { e.preventDefault(); openLayer(lid, x); return; }
@@ -180,13 +191,13 @@
     x = e.target.closest('.rail__toggle, .header__menu'); if (x) { setRail(!isOpen()); return; }
     if (e.target.closest('.rail__scrim')) { shut(); return; }
     x = e.target.closest('.popover--select .popover__opt'); if (x) { pick(x); return; }
-    x = e.target.closest('.popover__trigger'); if (x) { closePops(x); var op = x.getAttribute('aria-expanded') !== 'true'; x.setAttribute('aria-expanded', String(op));
+    x = e.target.closest('.popover__trigger, .account-menu__trigger'); if (x) { closePops(x); var op = x.getAttribute('aria-expanded') !== 'true'; x.setAttribute('aria-expanded', String(op));
       if (op && x.parentNode.classList.contains('popover--select') && e.detail === 0) chosenOpt(x.parentNode).focus(); return; }
-    x = e.target.closest('.popover__scrim, .popover__x'); if (x) { var t = x.closest('.popover').querySelector('.popover__trigger'); t.setAttribute('aria-expanded', 'false'); t.focus(); return; }
-    x = e.target.closest('.popover__copy'); if (x) { copy(x); return; }
+    x = e.target.closest('.popover__scrim, .popover__x, .account-menu__scrim, .account-menu__x'); if (x) { var t = x.closest('.popover, .account-menu').querySelector('.popover__trigger, .account-menu__trigger'); t.setAttribute('aria-expanded', 'false'); t.focus(); return; }
+    x = e.target.closest('.popover__copy, .account-menu__copy'); if (x) { copy(x); return; }
     x = e.target.closest('.ticker__pause'); if (x) { hold(!ticker.classList.contains('is-held')); return; }
     x = e.target.closest('.rail__amb .button'); if (x) { sound(x, x.getAttribute('aria-pressed') !== 'true'); return; }
-    if (!e.target.closest('.popover__panel')) closePops();
+    if (!e.target.closest('.popover__panel, .account-menu__panel')) closePops();
     if (e.target.closest('.rail a[href]') && rail.classList.contains('is-open')) setRail(false);
   });
   d.addEventListener('keydown', function (e) {
@@ -197,7 +208,7 @@
       var i = all.indexOf(e.target); all[Math.max(0, Math.min(all.length - 1, i < 0 ? 0 : i + (e.key === 'ArrowDown' ? 1 : -1)))].focus(); return;
     }
     if (e.key !== 'Escape') return;
-    var l = d.querySelector('.dialog__layer:not([hidden])'), open = d.querySelector('.popover__trigger[aria-expanded="true"]');
+    var l = d.querySelector('.dialog__layer:not([hidden])'), open = d.querySelector('.popover__trigger[aria-expanded="true"], .account-menu__trigger[aria-expanded="true"]');
     if (open && (!l || l.contains(open))) { closePops(); open.focus(); return; } /* a list open inside a layer closes before the layer */
     if (l) { closeLayer(l); return; }
     if (rail && (rail.classList.contains('is-open') || rail.classList.contains('is-overlay'))) shut();

@@ -1,0 +1,81 @@
+/* design/system/screens/catalogue.css, stage 08 step 6: the case catalogue's own blocks (nodes 3.1 and 3.2). the catalogue's head (.shelf-head), Filters in force (.shelf-state), the filter drawer (.filter-drawer) with its stepper (.stepper) and risk marks (.risk-marks); and the catalogue's own placing (Q1): the bar and the shelves in the column, and the hidden guards on the shelves, the state line and the Empty state, without which the Empty state shows on every catalogue state.
+ * Not components: each block stands on one IA node, its markup stays on its screen, and the stand lists none of them (D-259). Loaded
+ * after the organisms and the screen's column (index.css, layout.css), so a block's rule is read after what it holds.
+ * Carried from design/kit/kit.css part 4.4, the case catalogue's one-off blocks (D-246) rule for rule with their comments; no value changed. Moved out with a
+ * component or a variant, not carried: where the Category bar sticks is the bar's own .catbar--sticky, and the drawer's frame the Dialog's .dialog--drawer, both components since step 5 (design/kit/inventory.md, "The rename map"; tokens-audit.md, "Translations onto the
+ * system's classes (step 6)").
+ * Colours are read from the primitive level as kit.css read them, 15 variables, waiting for their roles (tokens-audit.md, "The screens'
+ * own blocks on the primitive level (step 6)"). */
+
+/* THE PAGE'S HEAD: the crumb and the one H1, nothing more (D-127), its first words the title and the rest under them, the mode's object
+   breathing at the band's end */
+.shelf-head {
+  --shelf-head-art: 250px; /* the Cases card's object at the band's end, the card draws it at about 70% of itself; технічне рішення */
+  --shelf-head-art-s: 124px; /* the same under 600px, the H1 keeping 200px of a 360px window; технічне рішення */
+}
+.shelf-head { position: relative; isolation: isolate; overflow: hidden; display: grid; align-content: center; gap: var(--space-4); box-sizing: border-box; min-width: 0; min-height: calc(var(--shelf-head-art) * .72); padding: var(--space-5) calc(var(--shelf-head-art) + var(--space-4)) var(--space-5) var(--space-6); border-radius: var(--radius-m); background: var(--gradient-button-stripes), var(--gradient-mode-cases-card); box-shadow: var(--shadow-mode-card); color: var(--color-text-hi); }
+.shelf-head__h { display: grid; gap: var(--space-2); margin: 0; color: var(--color-text-hi); font-weight: 900; text-transform: uppercase; }
+.shelf-head__h-1 { font-size: var(--size-xl); letter-spacing: var(--tracking-score); line-height: 1.02; }
+.shelf-head__h-2 { font-size: var(--size-title); line-height: 1.15; text-wrap: balance; }
+.shelf-head__art { position: absolute; z-index: -1; top: 50%; right: var(--space-4); width: var(--shelf-head-art); height: var(--shelf-head-art); margin-top: calc(var(--shelf-head-art) / -2); background: var(--art-mode-cases) center / contain no-repeat; filter: var(--shadow-mode-art); animation: mode-card-float var(--motion-mode-float) ease-in-out infinite; pointer-events: none; }
+@media (max-width: 599px) {
+  .shelf-head { min-height: 0; gap: var(--space-3); padding: var(--space-4) calc(var(--shelf-head-art-s) - var(--space-2)) var(--space-4) var(--space-4); }
+  .shelf-head__h { gap: var(--space-1-5); }
+  .shelf-head__h-1 { font-size: var(--size-head-l); }
+  .shelf-head__h-2 { font-size: var(--size-chip); }
+  .shelf-head__art { right: calc(-1 * var(--space-2)); width: var(--shelf-head-art-s); height: var(--shelf-head-art-s); margin-top: calc(var(--shelf-head-art-s) / -2); }
+}
+@media (prefers-reduced-motion: reduce) { .shelf-head__art { animation: none; } }
+.shell__main > .catbar { margin-top: var(--space-4); }
+.shelf-sec, .shelf-state { scroll-margin-top: calc(var(--size-tap) + 2 * var(--space-3) + var(--space-4)); }
+.shell__main > .shelf-sec[hidden], .shell__main > .shelf-state[hidden], .shell__main > .empty[hidden] { display: none; }
+.shell__main > .catbar ~ .shelf-sec { margin-top: calc(var(--space-6) + var(--space-4)); }
+.shell__main > .catbar ~ .shelf-sec--daily { margin-top: var(--space-5); }
+.shell__main > .shelf-state:not([hidden]) ~ .shelf-sec { margin-top: var(--space-6); }
+.shell__main > .shelf-about { margin-top: calc(2 * var(--space-6)); }
+@media (min-width: 900px) {
+  .shelf-sec, .shelf-state { scroll-margin-top: calc(var(--size-header) + var(--size-tap) + 2 * var(--space-3) + var(--space-5)); }
+  .shell__main > .shelf-head { margin-inline: var(--space-2) var(--space-3); } /* a band, as the Account head and the case head stand */
+  .shell__main > .shelf-head:first-child { margin-top: calc(var(--space-2) - var(--space-6)); }
+}
+
+/* WHAT IS IN FORCE: the chips, Clear all and the count; the chips wrap and a cross is never cut (node 3.1 section 9) */
+.shell__main > .shelf-state { margin-top: var(--space-3); }
+.shelf-state { display: grid; gap: var(--space-2); min-width: 0; }
+.shelf-state__chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-width: 0; }
+.shelf-state__chips[hidden], .shelf-state__n[hidden] { display: none; }
+.shelf-state__n { margin: 0; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.4; }
+
+/* THE FILTER DRAWER: the Dialog at the right edge, the whole window on a phone; its head and its one act stay while the controls scroll */
+.filter-drawer {
+  --filter-drawer-w: 420px; /* wireframes/_wf.css .wf-drawer drew 360px; two steppers with a 44px press each side want 420; технічне рішення */
+}
+.filter-drawer__head { display: flex; flex: none; align-items: center; gap: var(--space-3); padding: var(--space-3-5) var(--space-4) var(--space-3-5) var(--space-5); border-bottom: var(--size-hairline) solid var(--color-line-soft); }
+.filter-drawer__h { flex: 1; min-width: 0; margin: 0; color: var(--color-text-hi); font-size: var(--size-title); font-weight: 900; line-height: 1.1; text-transform: uppercase; }
+.filter-drawer__head > .dialog__close { position: relative; top: auto; right: auto; }
+.filter-drawer__body { display: grid; flex: 1 1 auto; align-content: start; gap: var(--space-5); min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-5); }
+.filter-drawer__set { display: grid; gap: var(--space-2); min-width: 0; margin: 0; padding: 0; border: 0; }
+.filter-drawer__steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.filter-drawer .check { align-items: center; min-height: var(--size-tap); }
+.filter-drawer .popover--select .popover__panel { top: auto; bottom: calc(100% + var(--space-1-5)); } /* the two lists stand at the drawer's foot, so they open upward */
+.filter-drawer__foot { flex: none; padding: var(--space-3) var(--space-5) var(--space-4); border-top: var(--size-hairline) solid var(--color-line-soft); }
+.filter-drawer__foot > .button { width: 100%; }
+@media (max-width: 599px) {
+  .filter-drawer__head { padding-left: var(--space-4); }
+  .filter-drawer__body { padding: var(--space-4); }
+  .filter-drawer__foot { padding-inline: var(--space-4); }
+}
+
+/* NUMBER STEPPER, inside the drawer alone: a figure that can be typed, a step either side of it */
+.stepper { display: grid; grid-template-columns: var(--size-tap) minmax(0, 1fr) var(--size-tap); border-radius: var(--radius-button); background: var(--color-tile); box-shadow: var(--shadow-edge); }
+.stepper:focus-within { box-shadow: inset 0 0 0 var(--size-edge) var(--color-pink); }
+.stepper__b { min-height: var(--size-tap); padding: 0; border: 0; border-radius: var(--radius-button); background: none; color: var(--color-text-hi); font: 900 var(--size-text) / 1 var(--font-family); cursor: pointer; }
+.stepper__b:focus-visible { outline: var(--size-edge) solid var(--color-text-hi); outline-offset: calc(-1 * var(--size-edge)); }
+@media (hover: hover) { .stepper__b:hover { background: var(--color-tile-veil); } }
+
+/* RISK MARKS, inside the drawer alone: the tile's four bolts beside the word, never in its place (0.7 rule 5.5) */
+.risk-marks { display: inline-flex; flex: none; color: var(--color-skull-off); font-size: var(--size-check); }
+.risk-marks[data-risk="low"] { --rc: var(--color-risk-low); }
+.risk-marks[data-risk="medium"] { --rc: var(--color-risk-mid); }
+.risk-marks[data-risk="high"] { --rc: var(--color-risk-high); }
+.risk-marks > .icon.is-on { color: var(--rc); }

@@ -12,7 +12,7 @@
 <!-- the stand: the project's panel palette, then the stand's own styles -->
 <link rel="stylesheet" href="../../_nav.css">
 <link rel="stylesheet" href="_page.css">
-<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'inventory', label: 'Inventory' }, { id: 'review6', label: 'Step 6, three lists' }, { id: 'review3b', label: 'Round 3b' }, { id: 'review3', label: 'Round 3a' }, { id: 'review2', label: 'Round 2, the molecules' }, { id: 'review', label: 'Round 1, the atoms' }, { id: 'stands', label: 'Where it stands' }];</script>
+<script>window.KIT_SECTIONS = [{ id: 'foundations', label: 'Foundations' }, { id: 'inventory', label: 'Inventory' }, { id: 'review6', label: 'Step 6, the reconcile' }, { id: 'backlog', label: 'Backlog' }, { id: 'review3b', label: 'Round 3b' }, { id: 'review3', label: 'Round 3a' }, { id: 'review2', label: 'Round 2, the molecules' }, { id: 'review', label: 'Round 1, the atoms' }, { id: 'stands', label: 'Where it stands' }];</script>
 <script src="_nav.js"></script>
 </head>
 <body class="kt">
@@ -47,8 +47,26 @@
 </section>
 
 <section class="kt-sec" id="review6">
-  <h2>Step 6, the reconcile: three lists for review</h2>
-  <p>The system is written; this step checks the other way: whether everything the product draws is in it, and whether the product wears its classes. Nothing has changed yet. The pack's gate: first the three lists, then your answers, then the work.</p>
+  <h2>Step 6, the reconcile: accepted and carried out</h2>
+  <p><b>Accepted</b> on 28 November 2026: "как рекомендуешь" (as you recommend) to Q1 to Q5 below, <code>D-269</code>. What was done and measured is first; the three lists and the five questions stand under it as they were put.</p>
+  <h3>Carried out</h3>
+  <ul class="kt-list">
+    <li><b>The screens' blocks (Q1).</b> <code>design/system/screens/</code> holds seven files: Home, the case screen, Provably fair, Deposit, My items, the catalogue, Responsible play. Each carries its blocks of <code>kit.css</code> part 4.4 rule for rule with their comments, and the screen's own placing of what it holds. Their colours still read the primitive level, 59 variables, as <code>kit.css</code> did: which take a role is step 7's question.</li>
+    <li><b>The column (Q2).</b> <code>design/system/layout.css</code> holds the shell's layout and the column, imported after the organisms. The Note line, the Limits panel and the Dialog stand in the column again; <code>shell.html</code> on the system now matches <code>kit.css</code> at 1440 and 360, no difference left.</li>
+    <li><b>The rename map (Q3).</b> One transform, run on the 51 states in the browser and measured on the system, written into <code>kit.html</code> and <code>shell.html</code>, which load <code>index.css</code> now (D-268). The 51 states get it with their link at step 8; the script that writes it was checked on all 44 files. The risk tip's turn to the left is in <code>kit.js</code>, so the published screens have it already. <code>kit.js</code> and <code>motion.js</code> answer the account menu and the ruler under both names until step 8.</li>
+    <li><b>The deletions (Q4).</b> <code>.dialog__open</code>, <code>.crumb--back</code>, <code>.drop-card--row</code>, <code>.mode-card--stack</code>, <code>.fig--up</code>, <code>.fig--down</code>, <code>.verify__ok</code>, the Ticker's play mark, the glyphs close, crown and skull; <code>--icon-close</code> and <code>--icon-skull</code> with them. <code>--icon-crown</code> stays: the Feed tile's crown masks it (found before deleting).</li>
+    <li><b>The backlog (Q5).</b> <code>design/kit/docs/backlog.md</code>, five rows, shown below under "Backlog".</li>
+  </ul>
+  <h3>Measured</h3>
+  <ul class="kt-list">
+    <li><b>The 51 states on the system</b>, the rename applied, against the published pages on <code>kit.css</code>, 102 loads: every difference left has a row in <code>tokens-audit.md</code>, "Moved onto the system's classes (step 6)". Most are the rows you accepted at step 2: the daily tier's act and the item card's acts back to the family (9, 10), the error red (29), the tile edge (30), mark A and the dock's 8px (D-266). Three are new to see: Recent drops' head link 6.4px wider (row 20 keeps the link's own tracking); Provably fair's algorithm block 20px shorter at 360 (row 21, the press grown by negative margins); the market line under a drop's name underlined (row 22, the quiet link's own look).</li>
+    <li><b>Two defects the walk found, fixed in the system:</b> a missing value on a sized Figure drew at 900 where <code>kit.css</code> drew 700 (None on a drop card and an item card); and the account head's skin picture, handed in by the markup, looked for <code>design/system/concept/</code> and got a 404, on <code>kit.html</code> and on the Account head's page since step 5. It is now resolved against the page.</li>
+    <li><b>The second census</b>, appended to <code>census.md</code>: the same 21 990 controls, 8 885 visible; 27 of 36 families read exactly as at step 1, the nine others each by a named row. The tile edge, drawn at two alphas on 1 758 controls, is one; a refusal, ringed in two reds, is one.</li>
+    <li><b><code>kit.html</code> on the system</b>: every difference has its row, and one breaks the page at 360. The File picker block, which the system does not carry (the backlog's row 1), shows its bare input and runs 103px past the window. Also: the Select block draws the browser's own select (row 1); the five Proof blocks keep stage 07's field set, which the system holds one level deeper (row 6).</li>
+    <li><b>One miss in Q4's reasons.</b> "No page and no script sets the explicit class" was true of the screens, not of <code>kit.html</code>: the frozen showcase wears every one of the twelve deleted forms, as it wears the Media sizes Q4 kept for that reason. The deletions are carried out as you decided; on <code>kit.html</code> those demos now draw their default form or nothing. Each can come back with one edit if you want the showcase whole.</li>
+    <li><b>Snapshots</b>: 252 checked. The 12 on the pages this step changed were taken again: their pixels move by subpixel layout only, the largest the Figure's focused link.</li>
+    <li><b>Two instruments.</b> Codex, read only on <code>gpt-5.6-terra</code>, checked the screens' files against <code>kit.css</code> rule by rule, <code>layout.css</code> against <code>base.css</code>, every deleted name for a reader left, the three scripts and the em dash: none found.</li>
+  </ul>
   <h3>How it was measured</h3>
   <ul class="kt-list">
     <li><b>The walk.</b> Every state <code>design/_nav.js</code> registers, 8 screens and 51 addresses, at 1440 and at 360: 102 loads, no script error. On each: every class the page wears, every rule of <code>kit.css</code> and of the system that matches anything, and every inline style.</li>
@@ -107,7 +125,7 @@
   <ul class="kt-list">
     <li><b>Keep, a grey state or a script draws it (8):</b> the Account head's Steam chip with no account linked (<code>.account-head__steam</code>, a state of the grey's Account head); the Empty state's gone form (<code>.empty--gone</code>, <code>wf-gone</code>); an item gone and its ledger key (<code>.is-gone</code>, <code>.item-card__k</code>, 5.9 and 7.3); a tab's count (<code>.tabs__n</code>, a state of the grey's Tabs); a mismatched proof's badge (<code>.badge--bad</code>, 1.3 and 1.4); the Daily ladder's note when a limit refuses the open (<code>.daily__note</code>); the tip's left turn (<code>.is-left</code>, by Q3).</li>
     <li><b>Delete, no state and no grey page (1):</b> the Dialog's line on what still works (<code>.dialog__open</code>): of the 134 grey pages the words stand on three, none of them a dialog.</li>
-    <li><b>Delete, the container already draws the form (3):</b> <code>.crumb--back</code>, <code>.drop-card--row</code>, <code>.mode-card--stack</code>. Each repeats what <code>--fit</code> draws by its container's width; no page and no script sets the explicit class.</li>
+    <li><b>Delete, the container already draws the form (3):</b> <code>.crumb--back</code>, <code>.drop-card--row</code>, <code>.mode-card--stack</code>. Each repeats what <code>--fit</code> draws by its container's width; no page and no script sets the explicit class. <i>Corrected after the decision: no screen sets it; the frozen <code>kit.html</code> does, see "Measured" above.</i></li>
     <li><b>Delete, no tone in grey or colour (2):</b> <code>.fig--up</code>, <code>.fig--down</code>. The grey's Figure has no tone; the observed bar marks up and down in its own block; a loss is drawn without a figure by your rule on negative emotion.</li>
     <li><b>Keep, the frozen showcase wears them (3):</b> <code>.media--banner</code>, <code>--square</code>, <code>--wide</code>. <code>kit.html</code> shows the Media slot with them and moves onto the system at the end of this step.</li>
     <li><b>Glyphs (6):</b> calendar, like and rail were drawn on v4's screens; close, crown and skull were drawn nowhere. Recommended: keep the first three for the rollout, delete the other three with their <code>--icon-*</code> variables.</li>
@@ -120,6 +138,18 @@
     <li>The second census, appended to <code>census.md</code> as "Measure after the system (step 6)": the same walk with the rename applied, compared with step 1 in numbers.</li>
     <li><code>kit.html</code> and <code>shell.html</code> onto <code>index.css</code>, measured once, every difference named.</li>
   </ul>
+</section>
+
+<section class="kt-sec" id="backlog">
+  <h2>Backlog</h2>
+  <p>What the reconcile decided not to fill now (D-269, Q5): a form a grey page needs and no coloured screen draws, with where it shows, why it waits and who closes it. The source is <code>design/kit/docs/backlog.md</code>. A component that waits for its grey node is built, not missing, and stays in the inventory.</p>
+  <div class="kt-tbl"><table style="min-width:760px"><thead><tr><th>What</th><th>Where it shows</th><th>Why it waits</th><th>What it is made of</th><th>Who closes it</th></tr></thead><tbody>
+    <tr><td>File picker</td><td>Support and contact, 0.10</td><td>one grey page, no coloured screen</td><td>a read-only Text field with the file's name, a ghost Button S, Choose a file</td><td>stage 12, with 0.10</td></tr>
+    <tr><td>A text area with a file attached</td><td>Support and contact, 0.10</td><td>it waits for the File picker</td><td>the Text area, the File picker under it</td><td>with the File picker</td></tr>
+    <tr><td>The roomy field label</td><td>Support's questions, 0.10</td><td>one grey page; the Field draws one size</td><td>the Field's label one type step up</td><td>stage 12, with 0.10</td></tr>
+    <tr><td>A legal page's table of contents</td><td>Legal and policy pages, 0.9</td><td>no coloured screen carries a legal page</td><td>the Footer's link form in one column, the current section in white</td><td>stage 12, with 0.9</td></tr>
+    <tr><td>The Account head's plain form at a phone</td><td>the account pages of round 1, 29 grey pages</td><td>369px and 432px wide against a 328px column; no coloured screen wears it yet</td><td>its rows folded for a phone column, by its own breakpoints</td><td>stage 12, before the first account page</td></tr>
+  </tbody></table></div>
 </section>
 
 <section class="kt-sec" id="review3b">
@@ -265,8 +295,9 @@
     <li><b>Step 3, done</b> (<code>D-261</code>): <code>tokens.css</code> in two levels with a light pair for every role, <code>base.css</code>, <code>art.css</code>. Nothing in the product links them yet.</li>
     <li><b>Step 4, done</b> (<code>D-262</code>): these foundation pages and the founder's first review on screen, its answers in <code>design/kit/docs/tokens-audit.md</code>, "Review of the foundations".</li>
     <li><b>Step 5, done</b> (<code>D-268</code>): the components in rounds, atoms, then molecules, then organisms; each with its file, its states in both themes and its page, added to this panel in the group of its level. Round 0, the Button, is the reference (D-263); round 1, the other 21 atoms, is accepted (D-264); round 2, the 23 molecules, is accepted (D-265), three of them atoms since; round 3a, the Rare mark, the Field, the Account head and the 18 organisms that hold no organism, is accepted (D-266); round 3b, the five organisms that hold one, is accepted (D-267). Measured on the system before the close: <code>shell.html</code> differs only in the screen column's margins, <code>kit.html</code> matches on 37 of its 60 component blocks and the rest wait for the rename map and the screens' blocks.</li>
-    <li><b>Step 6, now</b>: the three lists are on review above; the reconcile of the system with the product, three lists, the rename map carried out, <code>backlog.md</code> and the second census; the screens' blocks move into <code>design/system/screens/</code> (D-259). At its end <code>kit.html</code> and <code>shell.html</code> load the system's <code>index.css</code> and are measured once, before step 7 walks them in the dark.</li>
-    <li><b>Kept as it was</b>: <a href="kit.html">kit.html</a>, the showcase of stage 07, frozen, on <code>kit.css</code> until the end of step 6 (D-268); the screens move onto the system at step 8.</li>
+    <li><b>Step 6, done</b> (<code>D-269</code>): the three lists, your answers, and the work: the screens' blocks in <code>design/system/screens/</code>, the column in <code>layout.css</code>, the rename map measured on the 51 states, the deletions, <code>backlog.md</code>, the second census. <a href="kit.html">kit.html</a> and <a href="shell.html">shell.html</a> load the system's <code>index.css</code>, measured once.</li>
+    <li><b>Step 7, next</b>: the dark theme as a stress test on the whole showcase, and the question of the screens' blocks on the primitive level.</li>
+    <li><b>Kept as it was</b>: the screens, on <code>kit.css</code> until step 8, when their markup and their link move together.</li>
   </ul>
 </section>
 <script src="_tokens.js"></script>

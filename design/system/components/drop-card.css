@@ -37,8 +37,9 @@
 .drop-card__ring stop:nth-of-type(3) { stop-color: color-mix(in srgb, var(--tier) 72%, var(--bg-ring-deep)); }
 .drop-card__sr { position: absolute; width: var(--size-hairline); height: var(--size-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-/* One card, three forms by its container: the card (the default, the value over the skin over the words), the row (--row, the value over the skin on the
-   left, the words on the right) and the fit form (--fit), which takes the row's look under 600px where the data table gives it the whole width. */
+/* One card, two forms by its container: the card (the default, the value over the skin over the words) and the fit form (--fit), laid as a row (the
+   value over the skin on the left, the words on the right) under 600px where the data table gives it the whole width; the explicit row form
+   (--row) was deleted at stage 08 step 6 (D-269, Q4). */
 /* its own geometry, read inside .drop-card only, D-231 */
 .drop-card {
   --drop-card-row-art: 104px; /* v4 case-body.css: row F --v4f-art at 599px, the skin's column of a card laid as a row. Drop card */
@@ -76,17 +77,8 @@
   .drop-card:hover { transform: translateY(calc(-1 * var(--size-lift))); box-shadow: inset 0 0 0 var(--size-hairline) color-mix(in srgb, var(--tier) 55%, transparent), var(--depth-card-hover), 0 0 var(--blur-card-hover) color-mix(in srgb, var(--tier) 22%, transparent); }
   .drop-card:hover .drop-card__art > img { transform: scale(1.12) rotate(-3deg); }
 }
-/* as a row: the value over the skin on the left, the name, the chance and the tickets on the right, the foot bar under the skin */
-.drop-card--row { grid-template-columns: var(--drop-card-row-art) minmax(0, 1fr); grid-template-rows: auto 1fr auto auto; grid-template-areas: 'v name' 'art name' 'art ch' 'art t'; column-gap: var(--space-3-5);
-  padding: var(--space-3) var(--space-3-5) var(--space-3-5); text-align: left; }
-.drop-card--row::after { left: calc(var(--space-3-5) + var(--drop-card-row-art) / 2); }
-.drop-card--row .drop-card__art { align-self: start; height: var(--drop-card-row-art-h); margin: var(--space-1-5) 0 0; }
-.drop-card--row .drop-card__name { align-items: flex-start; margin: var(--size-edge) 0 var(--space-2-5); }
-.drop-card--row .drop-card__s { font-size: var(--size-label); }
-.drop-card--row .kv--fact { flex-wrap: nowrap; gap: var(--space-1-5); font-size: var(--size-chip); }
-.drop-card--row .drop-card__t { font-size: var(--size-chip); }
-.drop-card--row .kv__k { font-size: var(--size-micro); letter-spacing: var(--tracking-snug); }
-@container drop-card (max-width: 160px) { .drop-card--row .drop-card__t .kv__k { flex-basis: auto; } }
+/* as a row (the value over the skin on the left, the name, the chance and the tickets on the right) the card is drawn by its container's form, --fit
+   below; the explicit .drop-card--row, which no page or script set, was deleted at stage 08 step 6 (D-269, Q4) */
 @media (prefers-reduced-motion: reduce) { .drop-card, .drop-card__art > img { transition: none; } }
 /* RARE MARKS ON THE CASE'S CARDS, D-236, the card's side: D-214's marks (the Rare mark atom, laid on by motion.js by the card's data-chance) on an
    item of What is in this case only while it is hovered or holds focus, founder of 10 Nov 2026: "давай тут при ховере показивать анимации редких
@@ -116,8 +108,7 @@
   z-index: -2; border-radius: 0; opacity: 1; background-image: var(--art-fx-plasma-tall);
   -webkit-mask: linear-gradient(black, black) top / 100% var(--drop-card-fire-rise) no-repeat, linear-gradient(90deg, black 6.9%, transparent 6.9% 93.1%, black 93.1%);
   mask: linear-gradient(black, black) top / 100% var(--drop-card-fire-rise) no-repeat, linear-gradient(90deg, black 6.9%, transparent 6.9% 93.1%, black 93.1%); }
-/* needed by .data-table, D-232: the card that takes its row form (.drop-card--row) where the table gives it the whole width, under 600px; the same
-   values as --row, from design/v4/case-body.css row F @media (max-width: 599px). Its value is a --title Figure above 600px and an 18px one here, so
+/* needed by .data-table, D-232: the card that takes its row form where the table gives it the whole width, under 600px, from design/v4/case-body.css row F @media (max-width: 599px). Its value is a --title Figure above 600px and an 18px one here, so
    the size is the card's to switch: the markup cannot change with the width. */
 @media (max-width: 599px) {
   .drop-card--fit { grid-template-columns: var(--drop-card-row-art) minmax(0, 1fr); grid-template-rows: auto 1fr auto auto; grid-template-areas: 'v name' 'art name' 'art ch' 'art t'; column-gap: var(--space-3-5);

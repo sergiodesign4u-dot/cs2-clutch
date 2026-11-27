@@ -49,11 +49,12 @@ The product is dark from its first day (design principle 4, `D-258`). `:root` ho
 ```
 design/system/      what the product loads; a package that can be lifted out whole
   tokens.css        primitive, semantic, the light pair
-  base.css          reset, the page's type and ground, the shell's layout
+  base.css          reset, the page's type and ground
   art.css           the pictures
-  index.css         from step 5: tokens, base, art, then @import by level
+  index.css         from step 5: tokens, base, art, then @import by level, then layout, then the screens
+  layout.css        the shell's layout and the screen's column, after the components (step 6, D-269)
   components/       one file per component
-  screens/          one file per screen for its own blocks (D-259)
+  screens/          one file per screen for its own blocks and their placing (D-259; written at step 6)
 design/kit/         what shows the system to a person
   _nav.js _page.css the stand's panel and its own styles; _tokens.js reads tokens.css for the pages
   overview.html     the hub
@@ -65,7 +66,7 @@ A product class in the stand, or a stand style in a component's file, is a defec
 
 ## Why `@import` goes by level
 
-`index.css` loads `tokens.css`, `base.css` and `art.css` first, then the atoms, then the molecules, then the organisms, then the screens' own blocks. Inside a level, a component that contains another loads after it. The cascade then lets a container adjust what it holds, and never the other way round. Alphabetical order would let a Button load after the Dialog that styles it.
+`index.css` loads `tokens.css`, `base.css` and `art.css` first, then the atoms, then the molecules, then the organisms, then `layout.css`, then the screens' own blocks. `layout.css` comes after every component because the column sets a block's margins at the same weight a component may set its own: loaded first, from `base.css`, it lost to the Note line's `margin: 0`, the Dialog's `margin: auto` and the Limits panel (found at step 6, `D-269`). Inside a level, a component that contains another loads after it. The cascade then lets a container adjust what it holds, and never the other way round. Alphabetical order would let a Button load after the Dialog that styles it.
 
 ## Adding a component: five things at once
 

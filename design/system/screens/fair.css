@@ -1,0 +1,71 @@
+/* design/system/screens/fair.css, stage 08 step 6: Provably fair's own blocks (node 1.2). the page's head (.fair-head) with what a proof proves (.fair-scope), If your check does not match ours (.fair-miss), The algorithm published in full (.fair-algo); and the page's own placing (Q1): the four ordered steps (.fair-steps), the check's grid (.fair-check) and the questions' list (.fair-q__list).
+ * Not components: each block stands on one IA node, its markup stays on its screen, and the stand lists none of them (D-259). Loaded
+ * after the organisms and the screen's column (index.css, layout.css), so a block's rule is read after what it holds.
+ * Carried from design/kit/kit.css part 4.4, Provably fair's one-off blocks (D-245) rule for rule with their comments; no value changed. Moved out with a
+ * component or a variant, not carried: What a round proof is made of is the Proof fields component (.fair-made to .proof-fields, row 6), placed here in the check's grid; the Verify form's phone padding is the form's own; the algorithm's links take .link--tap (row 21) (design/kit/inventory.md, "The rename map"; tokens-audit.md, "Translations onto the
+ * system's classes (step 6)").
+ * Colours are read from the primitive level as kit.css read them, 14 variables, waiting for their roles (tokens-audit.md, "The screens'
+ * own blocks on the primitive level (step 6)"). */
+
+/* THE PAGE'S HEAD: the crumb, the H1 at the screen title's size, the line that says the page is public, the two ways on; beside them what a
+   proof proves and what it does not, each in the dark well, the second with where that is answered. One column under 900px */
+.fair-head { display: grid; gap: var(--space-5); min-width: 0; box-sizing: border-box; padding: var(--space-5) var(--space-6) var(--space-6); border-radius: var(--radius-m); background: var(--gradient-button-stripes), var(--gradient-fair); box-shadow: var(--shadow-tile-lit), var(--shadow-fair); color: var(--color-text-hi); }
+.fair-head__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-6); align-items: center; }
+.fair-head__lead { display: grid; gap: var(--space-4); justify-items: start; min-width: 0; }
+.fair-head__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-xl); font-weight: 900; letter-spacing: var(--tracking-score); line-height: 1.05; text-transform: uppercase; overflow-wrap: anywhere; } /* the screen title, --size-xl 900 (D-187), in capitals as every head of the kit */
+.fair-head__sub { margin: 0; max-width: 46ch; color: var(--color-text-hi); font-size: var(--size-lead); line-height: 1.5; }
+.fair-head__acts { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-1); }
+.fair-head__scope { display: grid; gap: var(--space-3); min-width: 0; }
+.fair-scope { display: grid; gap: var(--space-2); min-width: 0; padding: var(--space-4) var(--space-5); border-radius: var(--radius-card); background: var(--color-hash-well); box-shadow: var(--shadow-edge-lit); } /* the hash well of .proof__fields at a card's corner */
+.fair-scope__k { color: var(--color-text-lead); font-size: var(--size-unit); font-weight: 900; letter-spacing: var(--tracking-label); line-height: 1.2; text-transform: uppercase; }
+.fair-scope__k--then { margin-top: var(--space-2); }
+.fair-scope p { margin: 0; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 700; line-height: 1.4; }
+.fair-scope ul { display: grid; gap: var(--space-1-5); margin: 0; padding-left: var(--space-4); color: var(--color-text-lead); font-size: var(--size-label); line-height: 1.4; }
+@media (max-width: 899px) { .fair-head__row { grid-template-columns: minmax(0, 1fr); gap: var(--space-5); } }
+@media (max-width: 599px) {
+  .fair-head { gap: var(--space-4); padding: var(--space-4) var(--space-4) var(--space-5); }
+  .fair-head__h { font-size: var(--size-head-l); }
+  .fair-head__acts > .button { flex: 1 1 auto; }
+  .fair-scope { padding: var(--space-3-5) var(--space-4); }
+}
+@media (min-width: 900px) {
+  .shell__main > .fair-head { margin-inline: var(--space-2) var(--space-3); } /* a band, as the Account head and the case head stand */
+  .shell__main > .fair-head:first-child { margin-top: calc(var(--space-2) - var(--space-6)); }
+}
+.shell__main > .fair-head ~ * { margin-top: calc(var(--space-6) + var(--space-4)); } /* the page's blocks apart as the case screen's (.spend--pays) */
+
+/* HOW A ROUND IS FIXED: the case screen's How this case works (.how and its ruler, the AK-47's round 417, the round the worked rounds of this
+   page use); its four steps an ordered list, their numbers in the pink of a section head */
+.fair-steps { display: grid; gap: var(--space-3); margin: 0 0 var(--space-4); padding-left: var(--space-5); }
+.fair-steps > li { max-width: 62ch; padding-left: var(--space-1); }
+.fair-steps > li::marker { color: var(--color-pink); font-weight: 900; }
+
+/* CHECK A ROUND: the Verify form at the left; at its right what a round proof is made of, the field set read only, on the fair blue in its
+   hash well, and under it what happens if a check does not match. On a phone the grey's order: what it is made of, the form, the mismatch */
+.fair-check { display: grid; grid-template: "check made" auto "check miss" 1fr / minmax(0, 3fr) minmax(0, 2fr); gap: var(--space-5) var(--space-6); align-items: start; }
+.fair-check > .fair-check__form { grid-area: check; min-width: 0; }
+.fair-check > .proof-fields { grid-area: made; } /* row 6: .fair-made is .proof-fields */
+.fair-check > .fair-miss { grid-area: miss; }
+.fair-miss { display: grid; gap: var(--space-2); min-width: 0; box-sizing: border-box; padding: var(--space-4) var(--space-5); border-radius: var(--radius-m); background: var(--color-card); box-shadow: var(--shadow-edge); }
+.fair-miss__h { margin: 0; color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.3; }
+.fair-miss > p { margin: 0; color: var(--color-text-soft); font-size: var(--size-label); line-height: 1.5; }
+@media (max-width: 899px) { .fair-check { grid-template: "made" auto "check" auto "miss" auto / minmax(0, 1fr); } }
+@media (max-width: 599px) { .fair-miss { padding: var(--space-4); } }
+
+/* THE ALGORITHM, PUBLISHED IN FULL: on the prose plate of How this case works, its version on a status Badge beside the head; the computation
+   and its version history beside the worked example, one column under 900px. A seed, a hash or a ticket in the hash well's dark chip */
+.fair-algo { display: grid; gap: var(--space-4); padding: var(--space-6) var(--space-5); border-radius: var(--radius-m); overflow: hidden; background: radial-gradient(60% 120% at 100% 50%, color-mix(in srgb, var(--color-mode-light) 45%, transparent), transparent 70%), var(--color-card); } /* .how's own plate */
+.fair-algo__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.fair-algo__head > .sec-head { margin: 0; }
+.fair-algo__body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-6); color: var(--color-text); font-size: var(--size-text); line-height: 1.6; }
+.fair-algo__body h3 { margin: 0 0 var(--space-1); color: var(--color-text-hi); font-size: var(--size-text); font-weight: 900; line-height: 1.5; text-transform: uppercase; } /* .how__prose h3 */
+.fair-algo__body p { max-width: 62ch; margin: 0 0 var(--space-4); }
+.fair-algo__body p:last-child { margin-bottom: 0; }
+.fair-algo__body b { color: var(--color-text-hi); }
+.fair-algo code { padding: 0 var(--space-1-5); border-radius: var(--radius-xs); background: var(--color-hash-well); box-shadow: var(--shadow-edge-lit); color: var(--color-text-hi); font-family: var(--font-mono); font-size: var(--size-label); overflow-wrap: anywhere; }
+.fair-algo__go { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-5); }
+@media (max-width: 899px) { .fair-algo__body { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 599px) { .fair-algo { padding: var(--space-5) var(--space-4); } }
+
+/* QUESTIONS: the kit's Disclosure, one open at a time by their shared name */
+.fair-q__list { display: grid; gap: var(--space-2-5); }
